@@ -1,0 +1,51 @@
+{
+  "kinesisfirehose-deliverystream-properties": {
+    "DeliveryStreamName": {
+      "Required": "No",
+      "Type": "String",
+      "Minimum": "1",
+      "Maximum": "64",
+      "Pattern": "[a-zA-Z0-9_.-]+",
+      "UpdateRequires": "Replacement"
+    },
+    "DeliveryStreamType": {
+      "Required": "No",
+      "Type": "String",
+      "AllowedValues": [
+        "DirectPut",
+        "KinesisStreamAsSource"
+      ],
+      "UpdateRequires": "Replacement"
+    },
+    "ElasticsearchDestinationConfiguration": {
+      "Required": "Conditional",
+      "Type": "ElasticsearchDestinationConfiguration",
+      "UpdateRequires": "No interruption"
+    },
+    "ExtendedS3DestinationConfiguration": {
+      "Required": "Conditional",
+      "Type": "ExtendedS3DestinationConfiguration",
+      "UpdateRequires": "No interruption"
+    },
+    "KinesisStreamSourceConfiguration": {
+      "Required": "No",
+      "Type": "KinesisStreamSourceConfiguration",
+      "UpdateRequires": "No interruption"
+    },
+    "RedshiftDestinationConfiguration": {
+      "Required": "Conditional",
+      "Type": "RedshiftDestinationConfiguration",
+      "UpdateRequires": "No interruption"
+    },
+    "S3DestinationConfiguration": {
+      "Required": "Conditional",
+      "Type": "S3DestinationConfiguration",
+      "UpdateRequires": "No interruption"
+    },
+    "SplunkDestinationConfiguration": {
+      "Required": "No",
+      "Type": "SplunkDestinationConfiguration",
+      "UpdateRequires": "No interruption"
+    }
+  }
+}

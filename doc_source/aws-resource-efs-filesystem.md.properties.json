@@ -1,0 +1,36 @@
+{
+  "efs-filesystem-properties": {
+    "Encrypted": {
+      "Required": "Conditional",
+      "AllowedValues": [
+        "True",
+        "False"
+      ],
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement"
+    },
+    "FileSystemTags": {
+      "Required": "No",
+      "Type": "List of [ElasticFileSystemTag",
+      "UpdateRequires": "No interruption"
+    },
+    "KmsKeyId": {
+      "Required": "No",
+      "Type": "String",
+      "Minimum": "1",
+      "Maximum": "2048",
+      "UpdateRequires": "Replacement"
+    },
+    "PerformanceMode": {
+      "Required": "No",
+      "Type": "String",
+      "AllowedValues": [
+        "generalPurpose",
+        "maxIO"
+      ],
+      "UpdateRequires": "Replacement"
+    },
+    "ProvisionedThroughputInMibps": {},
+    "ThroughputMode": {}
+  }
+}

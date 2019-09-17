@@ -1,0 +1,55 @@
+{
+  "aws-properties-route53-recordset-properties": {
+    "AliasTarget": {},
+    "Comment": {},
+    "Failover": {
+      "Failover`  <a name=\"cfn-route53-recordset-failover\"></a>\n *Failover resource record sets only:* To configure failover, you add the `Failover` element to two resource record sets\\. For one resource record set, you specify `PRIMARY` as the value for `Failover`; for the other resource record set, you specify `SECONDARY`\\. In addition, you include the `HealthCheckId` element and specify the health check that you want Amazon Route 53 to perform for each resource record set\\.  \nExcept where noted, the following failover behaviors assume that you have included the `HealthCheckId` element in both resource record sets:  \n+ When the primary resource record set is healthy, Route 53 responds to DNS queries with the applicable value from the primary resource record set regardless of the health of the secondary resource record set\\.\n+ When the primary resource record set is unhealthy and the secondary resource record set is healthy, Route 53 responds to DNS queries with the applicable value from the secondary resource record set\\.\n+ When the secondary resource record set is unhealthy, Route 53 responds to DNS queries with the applicable value from the primary resource record set regardless of the health of the primary resource record set\\.\n+ If you omit the `HealthCheckId` element for the secondary resource record set, and if the primary resource record set is unhealthy, Route 53 always responds to DNS queries with the applicable value from the secondary resource record set\\. This is true regardless of the health of the associated endpoint\\.\nYou can't create non\\-failover resource record sets that have the same values for the `Name` and `Type` elements as failover resource record sets\\.  \nFor failover alias resource record sets, you must also include the `EvaluateTargetHealth` element and set the value to true\\.  \nFor more information about configuring failover for Route 53, see the following topics in the *Amazon Route 53 Developer Guide": "+  [Route 53 Health Checks and DNS Failover](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) \n+  [Configuring Failover in a Private Hosted Zone](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html)",
+      "Required": "No",
+      "Type": "String",
+      "AllowedValues": [
+        "PRIMARY",
+        "SECONDARY"
+      ],
+      "UpdateRequires": "No interruption"
+    },
+    "GeoLocation": {},
+    "HealthCheckId": {
+      "HealthCheckId`  <a name=\"cfn-route53-recordset-healthcheckid\"></a>\nIf you want Amazon Route 53 to return this resource record set in response to a DNS query only when the status of a health check is healthy, include the `HealthCheckId` element and specify the ID of the applicable health check\\.  \nRoute 53 determines whether a resource record set is healthy based on one of the following:  \n+ By periodically sending a request to the endpoint that is specified in the health check\n+ By aggregating the status of a specified group of health checks \\(calculated health checks\\)\n+ By determining the current state of a CloudWatch alarm \\(CloudWatch metric health checks\\)\nRoute 53 doesn't check the health of the endpoint that is specified in the resource record set, for example, the endpoint specified by the IP address in the `Value` element\\. When you add a `HealthCheckId` element to a resource record set, Route 53 checks the health of the endpoint that you specified in the health check\\. \nFor more information, see the following topics in the *Amazon Route 53 Developer Guide": "+  [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) \n+  [Route 53 Health Checks and DNS Failover](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) \n+  [Configuring Failover in a Private Hosted Zone](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html) \n **When to Specify HealthCheckId**   \nSpecifying a value for `HealthCheckId` is useful only when Route 53 is choosing between two or more resource record sets to respond to a DNS query, and you want Route 53 to base the choice in part on the status of a health check\\. Configuring health checks makes sense only in the following configurations:  \n+  **Non\\-alias resource record sets*"
+    },
+    "HostedZoneId": {
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "32",
+      "UpdateRequires": "Replacement"
+    },
+    "HostedZoneName": {
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "32",
+      "UpdateRequires": "Replacement"
+    },
+    "MultiValueAnswer": {
+      "MultiValueAnswer`  <a name=\"cfn-route53-recordset-multivalueanswer\"></a>\n *Multivalue answer resource record sets only": "To route traffic approximately randomly to multiple resources, such as web servers, create one multivalue answer record for each resource and specify `true` for `MultiValueAnswer`\\. Note the following:  \n+ If you associate a health check with a multivalue answer resource record set, Amazon Route 53 responds to DNS queries with the corresponding IP address only when the health check is healthy\\.\n+ If you don't associate a health check with a multivalue answer record, Route 53 always considers the record to be healthy\\.\n+ Route 53 responds to DNS queries with up to eight healthy records; if you have eight or fewer healthy records, Route 53 responds to all DNS queries with all the healthy records\\.\n+ If you have more than eight healthy records, Route 53 responds to different DNS resolvers with different combinations of healthy records\\.\n+ When all records are unhealthy, Route 53 responds to DNS queries with up to eight unhealthy records\\.\n+ If a resource becomes unavailable after a resolver caches a response, client software typically tries another of the IP addresses in the response\\.\nYou can't create multivalue answer alias records\\.",
+      "Required": "No",
+      "AllowedValues": [
+        "True",
+        "False"
+      ],
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption"
+    },
+    "Name": {},
+    "Region": {},
+    "ResourceRecords": {},
+    "SetIdentifier": {},
+    "TTL": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "Type": {
+      "Type`  <a name=\"cfn-route53-recordset-type\"></a>\nThe DNS record type\\. For information about different record types and how data is encoded for them, see [Supported DNS Resource Record Types](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html) in the *Amazon Route 53 Developer Guide*\\.  \nValid values for basic resource record sets: `A` \\| `AAAA` \\| `CAA` \\| `CNAME` \\| `MX` \\| `NAPTR` \\| `NS` \\| `PTR` \\| `SOA` \\| `SPF` \\| `SRV` \\| `TXT`   \nValues for weighted, latency, geolocation, and failover resource record sets: `A` \\| `AAAA` \\| `CAA` \\| `CNAME` \\| `MX` \\| `NAPTR` \\| `PTR` \\| `SPF` \\| `SRV` \\| `TXT`\\. When creating a group of weighted, latency, geolocation, or failover resource record sets, specify the same value for all of the resource record sets in the group\\.  \nValid values for multivalue answer resource record sets: `A` \\| `AAAA` \\| `MX` \\| `NAPTR` \\| `PTR` \\| `SPF` \\| `SRV` \\| `TXT`   \nSPF records were formerly used to verify the identity of the sender of email messages\\. However, we no longer recommend that you create resource record sets for which the value of `Type` is `SPF`\\. RFC 7208, *Sender Policy Framework \\(SPF\\) for Authorizing Use of Domains in Email, Version 1*, has been updated to say, \"\\.\\.\\.\\[I\\]ts existence and mechanism defined in \\[RFC4408\\] have led to some interoperability issues\\. Accordingly, its use is no longer appropriate for SPF version 1; implementations are not to use it\\.\" In RFC 7208, see section 14\\.1, [The SPF DNS Record Type](http://tools.ietf.org/html/rfc7208#section-14.1)\\.\nValues for alias resource record sets:  \n+  **Amazon API Gateway custom regional APIs and edge\\-optimized APIs:** `A` \n+  **CloudFront distributions:** `A` \n\n  If IPv6 is enabled for the distribution, create two resource record sets to route traffic to your distribution, one with a value of `A` and one with a value of `AAAA`\\. \n+  **AWS Elastic Beanstalk environment that has a regionalized subdomain*": "A` \n+  **ELB load balancers:** `A` \\| `AAAA` \n+  **Amazon S3 buckets:** `A` \n+  **Amazon Virtual Private Cloud interface VPC endpoints** `A` \n+  **Another resource record set in this hosted zone:** Specify the type of the resource record set that you're creating the alias for\\. All values are supported except `NS` and `SOA`\\."
+    },
+    "Weight": {}
+  }
+}

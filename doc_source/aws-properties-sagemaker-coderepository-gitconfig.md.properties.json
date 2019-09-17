@@ -1,0 +1,26 @@
+{
+  "aws-properties-sagemaker-coderepository-gitconfig-properties": {
+    "Branch": {
+      "Required": "No",
+      "Type": "String",
+      "Minimum": "1",
+      "Maximum": "1024",
+      "Pattern": "[^ ~^:?*\\[]+",
+      "UpdateRequires": "Replacement"
+    },
+    "RepositoryUrl": {
+      "Required": "Yes",
+      "Type": "String",
+      "Pattern": "^https://([^/]+)/?(.*)$",
+      "UpdateRequires": "Replacement"
+    },
+    "SecretArn": {
+      "Required": "No",
+      "Type": "String",
+      "Minimum": "1",
+      "Maximum": "2048",
+      "Pattern": "arn:aws[a-z\\-]*:secretsmanager:[a-z0-9\\-]*:[0-9]{12}:secret:.*",
+      "UpdateRequires": "No interruption"
+    }
+  }
+}

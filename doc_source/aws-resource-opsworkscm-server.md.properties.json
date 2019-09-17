@@ -1,0 +1,92 @@
+{
+  "opsworkscm-server-properties": {
+    "AssociatePublicIpAddress": {
+      "Required": "No",
+      "AllowedValues": [
+        "True",
+        "False"
+      ],
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement"
+    },
+    "BackupId": {
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "79",
+      "UpdateRequires": "Replacement"
+    },
+    "BackupRetentionCount": {
+      "Required": "No",
+      "Type": "Integer",
+      "Minimum": "1",
+      "UpdateRequires": "No interruption"
+    },
+    "DisableAutomatedBackup": {
+      "Required": "No",
+      "AllowedValues": [
+        "True",
+        "False"
+      ],
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption"
+    },
+    "Engine": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "EngineAttributes": {},
+    "EngineModel": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "EngineVersion": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "InstanceProfileArn": {
+      "Required": "Yes",
+      "Type": "String",
+      "Pattern": "arn:aws:iam::[0-9]{12}:instance-profile/.*",
+      "UpdateRequires": "Replacement"
+    },
+    "InstanceType": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "KeyPair": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "PreferredBackupWindow": {},
+    "PreferredMaintenanceWindow": {},
+    "SecurityGroupIds": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "Replacement"
+    },
+    "ServerName": {
+      "Required": "No",
+      "Type": "String",
+      "Minimum": "1",
+      "Maximum": "40",
+      "Pattern": "[a-zA-Z][a-zA-Z0-9\\-]*",
+      "UpdateRequires": "Replacement"
+    },
+    "ServiceRoleArn": {
+      "Required": "Yes",
+      "Type": "String",
+      "Pattern": "arn:aws:iam::[0-9]{12}:role/.*",
+      "UpdateRequires": "Replacement"
+    },
+    "SubnetIds": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "Replacement"
+    }
+  }
+}

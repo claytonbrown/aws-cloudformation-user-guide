@@ -1,0 +1,42 @@
+{
+  "transfer-user-properties": {
+    "HomeDirectory": {
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "1024",
+      "Pattern": "^$|/.*",
+      "UpdateRequires": "No interruption"
+    },
+    "Policy": {},
+    "Role": {
+      "Required": "Yes",
+      "Type": "String",
+      "Pattern": "arn:.*role/.*",
+      "UpdateRequires": "No interruption"
+    },
+    "ServerId": {
+      "Required": "Yes",
+      "Type": "String",
+      "Pattern": "^s-([0-9a-f]{17})$",
+      "UpdateRequires": "Replacement"
+    },
+    "SshPublicKeys": {
+      "Required": "No",
+      "Type": "List of [SshPublicKey",
+      "Maximum": "5",
+      "UpdateRequires": "No interruption"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "Maximum": "50",
+      "UpdateRequires": "No interruption"
+    },
+    "UserName": {
+      "Required": "Yes",
+      "Type": "String",
+      "Pattern": "^[a-zA-Z0-9_][a-zA-Z0-9_-]{2,31}$",
+      "UpdateRequires": "Replacement"
+    }
+  }
+}

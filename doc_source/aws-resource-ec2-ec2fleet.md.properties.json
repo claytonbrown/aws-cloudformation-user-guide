@@ -1,0 +1,60 @@
+{
+  "ec2-ec2fleet-properties": {
+    "ExcessCapacityTerminationPolicy": {
+      "Required": "No",
+      "Type": "String",
+      "AllowedValues": [
+        "no-termination",
+        "termination"
+      ],
+      "UpdateRequires": "No interruption"
+    },
+    "LaunchTemplateConfigs": {
+      "Required": "Yes",
+      "Type": "List of [FleetLaunchTemplateConfigRequest",
+      "Maximum": "50",
+      "UpdateRequires": "Replacement"
+    },
+    "OnDemandOptions": {
+      "Required": "No",
+      "Type": "OnDemandOptionsRequest",
+      "UpdateRequires": "Replacement"
+    },
+    "ReplaceUnhealthyInstances": {
+      "Required": "No",
+      "AllowedValues": [
+        "True",
+        "False"
+      ],
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement"
+    },
+    "SpotOptions": {
+      "Required": "No",
+      "Type": "SpotOptionsRequest",
+      "UpdateRequires": "Replacement"
+    },
+    "TagSpecifications": {
+      "Required": "No",
+      "Type": "List of [TagSpecification",
+      "UpdateRequires": "Replacement"
+    },
+    "TargetCapacitySpecification": {
+      "Required": "Yes",
+      "Type": "TargetCapacitySpecificationRequest",
+      "UpdateRequires": "No interruption"
+    },
+    "TerminateInstancesWithExpiration": {
+      "Required": "No",
+      "AllowedValues": [
+        "True",
+        "False"
+      ],
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement"
+    },
+    "Type": {},
+    "ValidFrom": {},
+    "ValidUntil": {}
+  }
+}

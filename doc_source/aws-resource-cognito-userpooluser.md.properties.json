@@ -1,0 +1,54 @@
+{
+  "cognito-userpooluser-properties": {
+    "DesiredDeliveryMediums": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "Replacement"
+    },
+    "ForceAliasCreation": {
+      "Required": "No",
+      "AllowedValues": [
+        "True",
+        "False"
+      ],
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement"
+    },
+    "MessageAction": {
+      "Required": "No",
+      "Type": "String",
+      "AllowedValues": [
+        "RESEND",
+        "SUPPRESS"
+      ],
+      "UpdateRequires": "Replacement"
+    },
+    "UserAttributes": {
+      "UserAttributes`  <a name=\"cfn-cognito-userpooluser-userattributes\"></a>\nAn array of name\\-value pairs that contain user attributes and attribute values to be set for the user to be created\\. You can create a user without specifying any attributes other than `Username`\\. However, any attributes that you specify as required \\(in [https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or in the **Attributes** tab of the console\\) must be supplied either by you \\(in your call to `AdminCreateUser`\\) or by the user \\(when he or she signs up in response to your welcome message\\)\\.  \nFor custom attributes, you must prepend the `custom:` prefix to the attribute name\\.  \nTo send a message inviting the user to sign up, you must specify the user's email address or phone number\\. This can be done in your call to AdminCreateUser or in the **Users** tab of the Amazon Cognito console for managing your user pools\\.  \nIn your call to `AdminCreateUser`, you can set the `email_verified` attribute to `True`, and you can set the `phone_number_verified` attribute to `True`\\. \\(You can also do this by calling [https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html)\\.\\)  \n+  **email*": "The email address of the user to whom the message that contains the code and username will be sent\\. Required if the `email_verified` attribute is set to `True`, or if `\"EMAIL\"` is specified in the `DesiredDeliveryMediums` parameter\\.\n+  **phone\\_number*",
+      "Required": "No",
+      "Type": "List of [AttributeType",
+      "UpdateRequires": "Replacement"
+    },
+    "UserPoolId": {
+      "Required": "Yes",
+      "Type": "String",
+      "Minimum": "1",
+      "Maximum": "55",
+      "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
+      "UpdateRequires": "Replacement"
+    },
+    "Username": {
+      "Required": "No",
+      "Type": "String",
+      "Minimum": "1",
+      "Maximum": "128",
+      "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+      "UpdateRequires": "Replacement"
+    },
+    "ValidationData": {
+      "Required": "No",
+      "Type": "List of [AttributeType",
+      "UpdateRequires": "Replacement"
+    }
+  }
+}

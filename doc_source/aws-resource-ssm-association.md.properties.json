@@ -1,0 +1,51 @@
+{
+  "ssm-association-properties": {
+    "AssociationName": {
+      "Required": "No",
+      "Type": "String",
+      "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+      "UpdateRequires": "No interruption"
+    },
+    "DocumentVersion": {
+      "Required": "No",
+      "Type": "String",
+      "Pattern": "([$]LATEST|[$]DEFAULT|^[1-9][0-9]*$)",
+      "UpdateRequires": "No interruption"
+    },
+    "InstanceId": {
+      "Required": "Conditional",
+      "Type": "String",
+      "Pattern": "(^i-(\\w{8}|\\w{17})$)|(^mi-\\w{17}$)",
+      "UpdateRequires": "Replacement"
+    },
+    "Name": {
+      "Required": "Yes",
+      "Type": "String",
+      "Pattern": "^[a-zA-Z0-9_\\-.:/]{3,128}$",
+      "UpdateRequires": "Replacement"
+    },
+    "OutputLocation": {
+      "Required": "No",
+      "Type": "InstanceAssociationOutputLocation",
+      "UpdateRequires": "No interruption"
+    },
+    "Parameters": {
+      "Required": "No",
+      "Type": "Map of [ParameterValues",
+      "UpdateRequires": "No interruption"
+    },
+    "ScheduleExpression": {
+      "Required": "No",
+      "Type": "String",
+      "Minimum": "1",
+      "Maximum": "256",
+      "UpdateRequires": "No interruption"
+    },
+    "Targets": {
+      "Required": "Conditional",
+      "Type": "List of [Target",
+      "Maximum": "5",
+      "UpdateRequires": "Replacement"
+    }
+  }
+}

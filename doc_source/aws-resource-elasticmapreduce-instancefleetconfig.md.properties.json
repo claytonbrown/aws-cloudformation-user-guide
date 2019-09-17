@@ -1,0 +1,49 @@
+{
+  "elasticmapreduce-instancefleetconfig-properties": {
+    "ClusterId": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "InstanceFleetType": {
+      "Required": "Yes",
+      "Type": "String",
+      "AllowedValues": [
+        "CORE",
+        "MASTER",
+        "TASK"
+      ],
+      "UpdateRequires": "Replacement"
+    },
+    "InstanceTypeConfigs": {
+      "Required": "No",
+      "Type": "List of [InstanceTypeConfig",
+      "UpdateRequires": "Replacement"
+    },
+    "LaunchSpecifications": {
+      "Required": "No",
+      "Type": "InstanceFleetProvisioningSpecifications",
+      "UpdateRequires": "Replacement"
+    },
+    "Name": {
+      "Required": "No",
+      "Type": "String",
+      "Minimum": "0",
+      "Maximum": "256",
+      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "UpdateRequires": "Replacement"
+    },
+    "TargetOnDemandCapacity": {
+      "Required": "No",
+      "Type": "Integer",
+      "Minimum": "0",
+      "UpdateRequires": "No interruption"
+    },
+    "TargetSpotCapacity": {
+      "Required": "No",
+      "Type": "Integer",
+      "Minimum": "0",
+      "UpdateRequires": "No interruption"
+    }
+  }
+}

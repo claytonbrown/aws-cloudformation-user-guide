@@ -1,0 +1,36 @@
+{
+  "route53resolver-resolverendpoint-properties": {
+    "Direction": {
+      "Required": "Yes",
+      "Type": "String",
+      "AllowedValues": [
+        "INBOUND",
+        "OUTBOUND"
+      ],
+      "UpdateRequires": "Replacement"
+    },
+    "IpAddresses": {
+      "Required": "Yes",
+      "Type": "List of [IpAddressRequest",
+      "Maximum": "10",
+      "UpdateRequires": "No interruption"
+    },
+    "Name": {
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "64",
+      "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)",
+      "UpdateRequires": "No interruption"
+    },
+    "SecurityGroupIds": {
+      "Required": "Yes",
+      "Type": "List of String",
+      "UpdateRequires": "Replacement"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "No interruption"
+    }
+  }
+}

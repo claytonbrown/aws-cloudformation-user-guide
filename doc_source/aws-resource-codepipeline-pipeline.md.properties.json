@@ -1,0 +1,48 @@
+{
+  "codepipeline-pipeline-properties": {
+    "ArtifactStore": {
+      "Required": "No",
+      "Type": "ArtifactStore",
+      "UpdateRequires": "No interruption"
+    },
+    "ArtifactStores": {
+      "Required": "No",
+      "Type": "List of [ArtifactStoreMap",
+      "UpdateRequires": "No interruption"
+    },
+    "DisableInboundStageTransitions": {
+      "Required": "No",
+      "Type": "List of [StageTransition",
+      "UpdateRequires": "No interruption"
+    },
+    "Name": {
+      "Required": "No",
+      "Type": "String",
+      "Minimum": "1",
+      "Maximum": "100",
+      "Pattern": "[A-Za-z0-9.@\\-_]+",
+      "UpdateRequires": "Replacement"
+    },
+    "RestartExecutionOnUpdate": {
+      "Required": "No",
+      "AllowedValues": [
+        "True",
+        "False"
+      ],
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption"
+    },
+    "RoleArn": {
+      "Required": "Yes",
+      "Type": "String",
+      "Maximum": "1024",
+      "Pattern": "arn:aws(-[\\w]+)*:iam::[0-9]{12}:role/.*",
+      "UpdateRequires": "No interruption"
+    },
+    "Stages": {
+      "Required": "Yes",
+      "Type": "List of [StageDeclaration",
+      "UpdateRequires": "No interruption"
+    }
+  }
+}

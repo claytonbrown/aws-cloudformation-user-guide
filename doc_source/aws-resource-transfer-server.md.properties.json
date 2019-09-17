@@ -1,0 +1,44 @@
+{
+  "transfer-server-properties": {
+    "EndpointDetails": {
+      "Required": "No",
+      "Type": "EndpointDetails",
+      "UpdateRequires": "No interruption"
+    },
+    "EndpointType": {
+      "Required": "Conditional",
+      "Type": "String",
+      "AllowedValues": [
+        "PUBLIC",
+        "VPC_ENDPOINT"
+      ],
+      "UpdateRequires": "No interruption"
+    },
+    "IdentityProviderDetails": {
+      "Required": "No",
+      "Type": "IdentityProviderDetails",
+      "UpdateRequires": "No interruption"
+    },
+    "IdentityProviderType": {
+      "Required": "No",
+      "Type": "String",
+      "AllowedValues": [
+        "API_GATEWAY",
+        "SERVICE_MANAGED"
+      ],
+      "UpdateRequires": "Replacement"
+    },
+    "LoggingRole": {
+      "Required": "No",
+      "Type": "String",
+      "Pattern": "arn:.*role/.*",
+      "UpdateRequires": "No interruption"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "Maximum": "50",
+      "UpdateRequires": "No interruption"
+    }
+  }
+}

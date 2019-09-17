@@ -1,0 +1,33 @@
+{
+  "lambda-alias-properties": {
+    "Description": {
+      "Required": "No",
+      "Type": "String",
+      "Minimum": "0",
+      "Maximum": "256",
+      "UpdateRequires": "No interruption"
+    },
+    "FunctionName": {},
+    "FunctionVersion": {
+      "Required": "Yes",
+      "Type": "String",
+      "Minimum": "1",
+      "Maximum": "1024",
+      "Pattern": "(\\$LATEST|[0-9]+)",
+      "UpdateRequires": "No interruption"
+    },
+    "Name": {
+      "Required": "Yes",
+      "Type": "String",
+      "Minimum": "1",
+      "Maximum": "128",
+      "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_]+)",
+      "UpdateRequires": "Replacement"
+    },
+    "RoutingConfig": {
+      "Required": "No",
+      "Type": "AliasRoutingConfiguration",
+      "UpdateRequires": "No interruption"
+    }
+  }
+}
