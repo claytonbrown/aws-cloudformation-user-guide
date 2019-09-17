@@ -1,0 +1,35 @@
+import sys
+import json
+import yaml
+import pprint
+
+def clean_json(d):
+    new = {}
+    for k, v in d.items():
+        if isinstance(v, dict):
+            v = clean_json(v)
+        new_k = k.split('<')[0].strip()
+
+        if new_k == 'JSON':
+            v = "[%s]" % (
+                v.replace('\n', '').replace("```","").replace('\\', '')
+            )
+            # print(v)
+            # v = json.loads(v)  #
+        # if new_k == 'YAML':
+        #    v = yaml.load(v)
+
+        new[new_k] = v
+    return new
+
+"""
+json.dumps(
+        clean_json(
+            json.load(sys.stdin)
+        ),
+        indent=4
+    )
+"""
+print(
+    pprint.pprint(sys.stdin.read().split('\n'))
+)
