@@ -16,6 +16,11 @@
       ]
     },
     "Iops": {},
+    "KmsKeyId": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
     "SnapshotId": {
       "Required": "Conditional",
       "Type": "String",
@@ -26,6 +31,17 @@
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
-    "VolumeType": {}
+    "VolumeType": {
+      "Required": "No",
+      "Type": "String",
+      "AllowedValues": [
+        "gp2",
+        "io1",
+        "sc1",
+        "st1",
+        "standard"
+      ],
+      "UpdateRequires": "No interruption"
+    }
   }
 }

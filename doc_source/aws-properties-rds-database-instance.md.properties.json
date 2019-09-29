@@ -14,13 +14,19 @@
       "Type": "Boolean",
       "UpdateRequires": "No interruption"
     },
+    "AssociatedRoles": {
+      "Required": "No",
+      "Type": "List of [DBInstanceRole",
+      "UpdateRequires": "No interruption"
+    },
     "AutoMinorVersionUpgrade": {
       "Required": "No",
       "AllowedValues": [
         "True",
         "False"
       ],
-      "Type": "Boolean"
+      "Type": "Boolean",
+      "UpdateRequires": "Some interruptions"
     },
     "AvailabilityZone": {
       "Required": "No",
@@ -29,7 +35,8 @@
     },
     "BackupRetentionPeriod": {
       "Required": "No",
-      "Type": "String"
+      "Type": "Integer",
+      "UpdateRequires": "Some interruptions"
     },
     "CharacterSetName": {
       "Required": "No",
@@ -47,24 +54,17 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "DBInstanceClass": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
+    "DBInstanceClass": {},
     "DBInstanceIdentifier": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "DBName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
+    "DBName": {},
     "DBParameterGroupName": {
       "Required": "No",
-      "Type": "String"
+      "Type": "String",
+      "UpdateRequires": "Some interruptions"
     },
     "DBSecurityGroups": {
       "Required": "No",
@@ -119,15 +119,16 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "MasterUserPassword": {},
     "MasterUsername": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
+    "MasterUserPassword": {},
     "MonitoringInterval": {
       "Required": "No",
-      "Type": "Integer"
+      "Type": "Integer",
+      "UpdateRequires": "Some interruptions"
     },
     "MonitoringRoleArn": {},
     "MultiAZ": {
@@ -146,7 +147,8 @@
     },
     "PerformanceInsightsKMSKeyId": {
       "Required": "No",
-      "Type": "String"
+      "Type": "String",
+      "UpdateRequires": "Some interruptions"
     },
     "PerformanceInsightsRetentionPeriod": {
       "Required": "No",
@@ -159,10 +161,7 @@
       "UpdateRequires": "Replacement"
     },
     "PreferredBackupWindow": {},
-    "PreferredMaintenanceWindow": {
-      "Required": "No",
-      "Type": "String"
-    },
+    "PreferredMaintenanceWindow": {},
     "ProcessorFeatures": {
       "Required": "No",
       "Type": "List of [ProcessorFeature",
@@ -189,7 +188,8 @@
     },
     "StorageType": {
       "Required": "No",
-      "Type": "String"
+      "Type": "String",
+      "UpdateRequires": "Some interruptions"
     },
     "Tags": {
       "Required": "No",

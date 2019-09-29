@@ -1,5 +1,10 @@
 {
   "rds-dbcluster-properties": {
+    "AssociatedRoles": {
+      "Required": "No",
+      "Type": "List of [DBClusterRole",
+      "UpdateRequires": "No interruption"
+    },
     "AvailabilityZones": {},
     "BacktrackWindow": {
       "Required": "No",
@@ -11,6 +16,7 @@
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
+    "DatabaseName": {},
     "DBClusterIdentifier": {
       "Required": "No",
       "Type": "String",
@@ -26,7 +32,6 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "DatabaseName": {},
     "DeletionProtection": {
       "Required": "No",
       "AllowedValues": [
@@ -38,13 +43,10 @@
     },
     "EnableCloudwatchLogsExports": {},
     "EnableIAMDatabaseAuthentication": {
-      "Required": "No",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
+      ]
     },
     "Engine": {
       "Required": "Yes",
@@ -56,7 +58,10 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "EngineVersion": {
+    "EngineVersion": {},
+    "aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"": {},
+    "aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"": {},
+    "aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
@@ -66,15 +71,15 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "MasterUserPassword": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
     "MasterUsername": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
+    },
+    "MasterUserPassword": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
     },
     "Port": {
       "Required": "No",
@@ -88,12 +93,22 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
+    "RestoreType": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
     "ScalingConfiguration": {
       "Required": "No",
       "Type": "ScalingConfiguration",
       "UpdateRequires": "No interruption"
     },
     "SnapshotIdentifier": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "SourceDBClusterIdentifier": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
@@ -116,6 +131,15 @@
       "Required": "No",
       "Type": "List of [Tag",
       "UpdateRequires": "No interruption"
+    },
+    "UseLatestRestorableTime": {
+      "Required": "No",
+      "AllowedValues": [
+        "True",
+        "False"
+      ],
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement"
     },
     "VpcSecurityGroupIds": {
       "Required": "No",

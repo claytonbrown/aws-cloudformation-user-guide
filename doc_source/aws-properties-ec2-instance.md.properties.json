@@ -2,11 +2,13 @@
   "aws-properties-ec2-instance-properties": {
     "AdditionalInfo": {
       "Required": "No",
-      "Type": "String"
+      "Type": "String",
+      "UpdateRequires": "Some interruptions"
     },
     "Affinity": {
       "Required": "No",
-      "Type": "String"
+      "Type": "String",
+      "UpdateRequires": "Some interruptions"
     },
     "AvailabilityZone": {
       "Required": "No",
@@ -15,7 +17,13 @@
     },
     "BlockDeviceMappings": {
       "Required": "No",
-      "Type": "List of [BlockDeviceMapping"
+      "Type": "List of [BlockDeviceMapping",
+      "UpdateRequires": "Some interruptions"
+    },
+    "CpuOptions": {
+      "Required": "No",
+      "Type": "CpuOptions",
+      "UpdateRequires": "Replacement"
     },
     "CreditSpecification": {},
     "DisableApiTermination": {
@@ -33,7 +41,8 @@
         "True",
         "False"
       ],
-      "Type": "Boolean"
+      "Type": "Boolean",
+      "UpdateRequires": "Some interruptions"
     },
     "ElasticGpuSpecifications": {},
     "ElasticInferenceAccelerators": {
@@ -43,7 +52,8 @@
     },
     "HostId": {
       "Required": "No",
-      "Type": "String"
+      "Type": "String",
+      "UpdateRequires": "Some interruptions"
     },
     "IamInstanceProfile": {
       "Required": "No",
@@ -51,7 +61,7 @@
       "UpdateRequires": "No interruption"
     },
     "ImageId": {
-      "Required": "No",
+      "Required": "Conditional",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
@@ -118,7 +128,8 @@
     "RamdiskId": {},
     "SecurityGroupIds": {
       "Required": "Conditional",
-      "Type": "List of String"
+      "Type": "List of String",
+      "UpdateRequires": "Some interruptions"
     },
     "SecurityGroups": {
       "Required": "No",
@@ -149,11 +160,13 @@
         "dedicated",
         "default",
         "host"
-      ]
+      ],
+      "UpdateRequires": "Some interruptions"
     },
     "UserData": {
       "Required": "No",
-      "Type": "String"
+      "Type": "String",
+      "UpdateRequires": "Some interruptions"
     },
     "Volumes": {
       "Required": "No",

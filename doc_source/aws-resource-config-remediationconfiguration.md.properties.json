@@ -1,11 +1,33 @@
 {
   "config-remediationconfiguration-properties": {
+    "Automatic": {
+      "Required": "No",
+      "AllowedValues": [
+        "True",
+        "False"
+      ],
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption"
+    },
     "ConfigRuleName": {
       "Required": "Yes",
       "Type": "String",
       "Minimum": "1",
-      "Maximum": "64",
+      "Maximum": "128",
+      "Pattern": ".*\\S.*",
       "UpdateRequires": "Replacement"
+    },
+    "ExecutionControls": {
+      "Required": "No",
+      "Type": "ExecutionControls",
+      "UpdateRequires": "No interruption"
+    },
+    "MaximumAutomaticAttempts": {
+      "Required": "No",
+      "Type": "Integer",
+      "Minimum": "1",
+      "Maximum": "25",
+      "UpdateRequires": "No interruption"
     },
     "Parameters": {
       "Required": "No",
@@ -15,6 +37,11 @@
     "ResourceType": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "RetryAttemptSeconds": {
+      "Required": "No",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
     "TargetId": {

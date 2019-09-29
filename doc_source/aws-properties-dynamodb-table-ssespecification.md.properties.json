@@ -1,5 +1,10 @@
 {
   "aws-properties-dynamodb-table-ssespecification-properties": {
+    "KMSMasterKeyId": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
     "SSEEnabled": {
       "Required": "Yes",
       "AllowedValues": [
@@ -7,6 +12,15 @@
         "False"
       ],
       "Type": "Boolean",
+      "UpdateRequires": "No interruption"
+    },
+    "SSEType": {
+      "Required": "No",
+      "Type": "String",
+      "AllowedValues": [
+        "AES256",
+        "KMS"
+      ],
       "UpdateRequires": "No interruption"
     }
   }

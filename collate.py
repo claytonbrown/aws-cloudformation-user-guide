@@ -49,6 +49,7 @@ for file in glob.glob('doc_source/aws-properties-*.json'):
             data = json.loads(f.read())
             for key in data.keys():
                 docs_key = key.replace("aws-properties-", "")
+                # docs_key = key.replace("aws-properties-", "").rstrip("-properties").replace('-', '.')
                 spec["PropertyTypes"][docs_key] = data[key]
         except Exception as e:
             print(e)

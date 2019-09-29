@@ -7,7 +7,7 @@
       ]
     },
     "AuthToken": {},
-    "AutoMinorVersionUpgrade": {
+    "AutomaticFailoverEnabled": {
       "Required": "No",
       "AllowedValues": [
         "True",
@@ -16,7 +16,7 @@
       "Type": "Boolean",
       "UpdateRequires": "No interruption"
     },
-    "AutomaticFailoverEnabled": {
+    "AutoMinorVersionUpgrade": {
       "Required": "No",
       "AllowedValues": [
         "True",
@@ -47,10 +47,16 @@
       "UpdateRequires": "Replacement"
     },
     "EngineVersion": {},
+    "KmsKeyId": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
     "NodeGroupConfiguration": {},
     "NodeGroupConfiguration ": {
       "Required": "No",
-      "Type": "List"
+      "Type": "List",
+      "UpdateRequires": "Some interruptions"
     },
     "NotificationTopicArn": {
       "Required": "No",
@@ -64,7 +70,8 @@
     },
     "NumNodeGroups": {
       "Required": "No",
-      "Type": "Integer"
+      "Type": "Integer",
+      "UpdateRequires": "Some interruptions"
     },
     "Port": {
       "Required": "No",
@@ -117,12 +124,12 @@
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
-    "SnapshotWindow": {
+    "SnapshottingClusterId": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "SnapshottingClusterId": {
+    "SnapshotWindow": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
