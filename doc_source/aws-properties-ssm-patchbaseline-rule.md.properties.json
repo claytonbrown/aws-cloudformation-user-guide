@@ -1,15 +1,18 @@
 {
   "aws-properties-ssm-patchbaseline-rule-properties": {
-    "ApproveAfterDays": {
+    "EnableNonSecurity": {
       "Required": "No",
-      "Type": "Integer",
-      "Minimum": "0",
-      "Maximum": "100",
-      "UpdateRequires": "No interruption"
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
     "ComplianceLevel": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "CRITICAL",
         "HIGH",
@@ -17,16 +20,13 @@
         "LOW",
         "MEDIUM",
         "UNSPECIFIED"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "EnableNonSecurity": {
+    "ApproveAfterDays": {
+      "Minimum": "0",
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+      "Type": "Integer",
+      "Maximum": "100",
       "UpdateRequires": "No interruption"
     },
     "PatchFilterGroup": {

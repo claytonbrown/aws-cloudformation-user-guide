@@ -1,24 +1,24 @@
 {
   "aws-properties-sagemaker-model-containerdefinition-properties": {
-    "ContainerHostname": {
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "63",
-      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-      "UpdateRequires": "Replacement"
-    },
     "Environment": {
       "Required": "No",
       "Type": "Json",
       "UpdateRequires": "Replacement"
     },
     "Image": {
+      "Pattern": "[\\S]+",
       "Required": "Yes",
       "Type": "String",
       "Maximum": "255",
-      "Pattern": "[\\S]+",
       "UpdateRequires": "Replacement"
     },
-    "ModelDataUrl": {}
+    "ModelDataUrl": {},
+    "ContainerHostname": {
+      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "63",
+      "UpdateRequires": "Replacement"
+    }
   }
 }

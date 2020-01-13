@@ -1,84 +1,39 @@
 {
   "ssm-patchbaseline-properties": {
-    "ApprovalRules": {
-      "Required": "No",
-      "Type": "RuleGroup",
-      "UpdateRequires": "No interruption"
-    },
-    "ApprovedPatches": {},
-    "ApprovedPatchesComplianceLevel": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "CRITICAL",
-        "HIGH",
-        "INFORMATIONAL",
-        "LOW",
-        "MEDIUM",
-        "UNSPECIFIED"
-      ],
-      "UpdateRequires": "No interruption"
-    },
     "ApprovedPatchesEnableNonSecurity": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
+      ]
     },
     "Description": {
+      "Minimum": "1",
       "Required": "No",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "1024",
       "UpdateRequires": "No interruption"
     },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "Maximum": "1000",
+      "UpdateRequires": "No interruption"
+    },
+    "PatchGroups": {
+      "Pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+      "Required": "No",
+      "Maximum": "256",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "List of String"
+    },
+    "RejectedPatches": {},
     "GlobalFilters": {
       "Required": "No",
       "Type": "PatchFilterGroup",
-      "UpdateRequires": "No interruption"
-    },
-    "Name": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "3",
-      "Maximum": "128",
-      "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
-      "UpdateRequires": "No interruption"
-    },
-    "OperatingSystem": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "AMAZON_LINUX",
-        "AMAZON_LINUX_2",
-        "CENTOS",
-        "REDHAT_ENTERPRISE_LINUX",
-        "SUSE",
-        "UBUNTU",
-        "WINDOWS"
-      ],
-      "UpdateRequires": "Replacement"
-    },
-    "PatchGroups": {
-      "Required": "No",
-      "Type": "List of String",
-      "Minimum": "1",
-      "Maximum": "256",
-      "Pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
-      "UpdateRequires": "No interruption"
-    },
-    "RejectedPatches": {},
-    "RejectedPatchesAction": {
-      "RejectedPatchesAction`  <a name=\"cfn-ssm-patchbaseline-rejectedpatchesaction\"></a>\nThe action for Patch Manager to take on patches included in the RejectedPackages list\\.  \n+  **ALLOW\\_AS\\_DEPENDENCY*": "A package in the Rejected patches list is installed only if it is a dependency of another package\\. It is considered compliant with the patch baseline, and its status is reported as *InstalledOther*\\. This is the default action if no option is specified\\.\n+  **BLOCK*",
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "ALLOW_AS_DEPENDENCY",
-        "BLOCK"
-      ],
       "UpdateRequires": "No interruption"
     },
     "Sources": {
@@ -87,11 +42,56 @@
       "Maximum": "20",
       "UpdateRequires": "No interruption"
     },
-    "Tags": {
+    "ApprovalRules": {
       "Required": "No",
-      "Type": "List of [Tag",
-      "Maximum": "1000",
+      "Type": "RuleGroup",
       "UpdateRequires": "No interruption"
+    },
+    "RejectedPatchesAction": {
+      "AllowedValues": [
+        "ALLOW_AS_DEPENDENCY",
+        "BLOCK"
+      ],
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "RejectedPatchesAction`  <a name=\"cfn-ssm-patchbaseline-rejectedpatchesaction\"></a>\nThe action for Patch Manager to take on patches included in the RejectedPackages list\\.  \n+  **ALLOW\\_AS\\_DEPENDENCY*": "A package in the Rejected patches list is installed only if it is a dependency of another package\\. It is considered compliant with the patch baseline, and its status is reported as *InstalledOther*\\. This is the default action if no option is specified\\.\n+  **BLOCK*"
+    },
+    "ApprovedPatchesComplianceLevel": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "CRITICAL",
+        "HIGH",
+        "INFORMATIONAL",
+        "LOW",
+        "MEDIUM",
+        "UNSPECIFIED"
+      ]
+    },
+    "OperatingSystem": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "AMAZON_LINUX",
+        "AMAZON_LINUX_2",
+        "CENTOS",
+        "REDHAT_ENTERPRISE_LINUX",
+        "SUSE",
+        "UBUNTU",
+        "WINDOWS"
+      ]
+    },
+    "ApprovedPatches": {},
+    "Name": {
+      "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+      "Required": "Yes",
+      "Maximum": "128",
+      "UpdateRequires": "No interruption",
+      "Minimum": "3",
+      "Type": "String"
     }
   }
 }

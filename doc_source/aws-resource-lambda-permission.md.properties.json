@@ -1,36 +1,36 @@
 {
   "lambda-permission-properties": {
-    "Action": {
-      "Required": "Yes",
-      "Type": "String",
-      "Pattern": "(lambda:[*]|lambda:[a-zA-Z]+|[*])",
-      "UpdateRequires": "Replacement"
-    },
-    "EventSourceToken": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "0",
-      "Maximum": "256",
-      "Pattern": "[a-zA-Z0-9._\\-]+",
-      "UpdateRequires": "Replacement"
-    },
     "FunctionName": {},
-    "Principal": {
+    "Action": {
+      "Pattern": "(lambda:[*]|lambda:[a-zA-Z]+|[*])",
       "Required": "Yes",
       "Type": "String",
-      "Pattern": ".*",
       "UpdateRequires": "Replacement"
     },
     "SourceAccount": {
+      "Pattern": "\\d{12}",
       "Required": "No",
       "Type": "String",
-      "Pattern": "\\d{12}",
       "UpdateRequires": "Replacement"
     },
     "SourceArn": {
+      "Pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
       "Required": "No",
       "Type": "String",
-      "Pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
+      "UpdateRequires": "Replacement"
+    },
+    "EventSourceToken": {
+      "Pattern": "[a-zA-Z0-9._\\-]+",
+      "Required": "No",
+      "Maximum": "256",
+      "UpdateRequires": "Replacement",
+      "Minimum": "0",
+      "Type": "String"
+    },
+    "Principal": {
+      "Pattern": ".*",
+      "Required": "Yes",
+      "Type": "String",
       "UpdateRequires": "Replacement"
     }
   }

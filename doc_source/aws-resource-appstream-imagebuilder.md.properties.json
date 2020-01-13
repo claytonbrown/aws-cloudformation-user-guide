@@ -1,9 +1,8 @@
 {
   "appstream-imagebuilder-properties": {
-    "AppstreamAgentVersion": {
+    "DisplayName": {
       "Required": "No",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "100",
       "UpdateRequires": "No interruption"
     },
@@ -13,10 +12,50 @@
       "Maximum": "256",
       "UpdateRequires": "No interruption"
     },
-    "DisplayName": {
+    "VpcConfig": {
+      "Required": "No",
+      "Type": "VpcConfig",
+      "UpdateRequires": "No interruption"
+    },
+    "Tags": {},
+    "AccessEndpoints": {
+      "Required": "No",
+      "Type": "List of [AccessEndpoint",
+      "Maximum": "4",
+      "UpdateRequires": "No interruption"
+    },
+    "AppstreamAgentVersion": {
+      "Minimum": "1",
       "Required": "No",
       "Type": "String",
       "Maximum": "100",
+      "UpdateRequires": "No interruption"
+    },
+    "EnableDefaultInternetAccess": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "ImageName": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "ImageArn": {
+      "Pattern": "^arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "InstanceType": {
+      "Minimum": "1",
+      "Required": "Yes",
+      "Type": "String",
       "UpdateRequires": "No interruption"
     },
     "DomainJoinInfo": {
@@ -24,43 +63,10 @@
       "Type": "DomainJoinInfo",
       "UpdateRequires": "No interruption"
     },
-    "EnableDefaultInternetAccess": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "ImageArn": {
-      "Required": "No",
-      "Type": "String",
-      "Pattern": "^arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
-      "UpdateRequires": "No interruption"
-    },
-    "ImageName": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "UpdateRequires": "No interruption"
-    },
-    "InstanceType": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "UpdateRequires": "No interruption"
-    },
     "Name": {
+      "Pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
       "Required": "No",
       "Type": "String",
-      "Pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
-      "UpdateRequires": "No interruption"
-    },
-    "Tags": {},
-    "VpcConfig": {
-      "Required": "No",
-      "Type": "VpcConfig",
       "UpdateRequires": "No interruption"
     }
   }

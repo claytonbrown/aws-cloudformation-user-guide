@@ -1,5 +1,25 @@
 {
   "wafregional-ratebasedrule-properties": {
+    "RateLimit": {
+      "Required": "Yes",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "RateKey": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "IP"
+      ]
+    },
+    "Name": {
+      "Minimum": "1",
+      "Required": "Yes",
+      "Type": "String",
+      "Maximum": "128",
+      "UpdateRequires": "Replacement"
+    },
     "MatchPredicates": {
       "Required": "No",
       "Type": "List of [Predicate",
@@ -9,26 +29,6 @@
       "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "Replacement"
-    },
-    "Name": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "128",
-      "UpdateRequires": "Replacement"
-    },
-    "RateKey": {
-      "Required": "Yes",
-      "Type": "String",
-      "AllowedValues": [
-        "IP"
-      ],
-      "UpdateRequires": "Replacement"
-    },
-    "RateLimit": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
     }
   }
 }

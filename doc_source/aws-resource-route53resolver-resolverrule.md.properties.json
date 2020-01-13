@@ -1,35 +1,28 @@
 {
   "route53resolver-resolverrule-properties": {
-    "DomainName": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "256",
-      "UpdateRequires": "Replacement"
-    },
-    "Name": {
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "64",
-      "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)",
-      "UpdateRequires": "No interruption"
-    },
-    "ResolverEndpointId": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "64",
-      "UpdateRequires": "No interruption"
-    },
     "RuleType": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "FORWARD",
         "RECURSIVE",
         "SYSTEM"
-      ],
-      "UpdateRequires": "Replacement"
+      ]
+    },
+    "ResolverEndpointId": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "64",
+      "UpdateRequires": "No interruption"
+    },
+    "Name": {
+      "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "64",
+      "UpdateRequires": "No interruption"
     },
     "Tags": {
       "Required": "No",
@@ -40,6 +33,13 @@
       "Required": "No",
       "Type": "List of [TargetAddress",
       "UpdateRequires": "No interruption"
+    },
+    "DomainName": {
+      "Minimum": "1",
+      "Required": "Yes",
+      "Type": "String",
+      "Maximum": "256",
+      "UpdateRequires": "Replacement"
     }
   }
 }

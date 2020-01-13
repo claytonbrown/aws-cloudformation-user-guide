@@ -1,21 +1,8 @@
 {
   "neptune-dbinstance-properties": {
-    "AllowMajorVersionUpgrade": {
+    "DBParameterGroupName": {
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "AutoMinorVersionUpgrade": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+      "Type": "String",
       "UpdateRequires": "No interruption"
     },
     "AvailabilityZone": {
@@ -23,32 +10,35 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
+    "AllowMajorVersionUpgrade": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
     "DBClusterIdentifier": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "DBInstanceClass": {
-      "Required": "Yes",
-      "Type": "String",
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
       "UpdateRequires": "No interruption"
     },
-    "DBInstanceIdentifier": {
+    "AutoMinorVersionUpgrade": {
       "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "DBParameterGroupName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
     "DBSnapshotIdentifier": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "DBSubnetGroupName": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
@@ -58,10 +48,20 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
+    "DBInstanceClass": {
+      "Required": "Yes",
+      "Type": "String",
       "UpdateRequires": "No interruption"
+    },
+    "DBSubnetGroupName": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "DBInstanceIdentifier": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
     }
   }
 }

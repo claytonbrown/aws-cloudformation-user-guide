@@ -1,13 +1,18 @@
 {
   "opsworks-app-properties": {
+    "StackId": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "Environment": {
+      "Required": "No",
+      "Type": "List of [EnvironmentVariable",
+      "UpdateRequires": "No interruption"
+    },
     "AppSource": {
       "Required": "No",
       "Type": "Source",
-      "UpdateRequires": "No interruption"
-    },
-    "Attributes": {
-      "Required": "No",
-      "Type": "Map of String",
       "UpdateRequires": "No interruption"
     },
     "DataSources": {
@@ -15,9 +20,18 @@
       "Type": "List of [DataSource",
       "UpdateRequires": "No interruption"
     },
-    "Description": {
+    "EnableSsl": {
       "Required": "No",
-      "Type": "String",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "SslConfiguration": {
+      "Required": "No",
+      "Type": "SslConfiguration",
       "UpdateRequires": "No interruption"
     },
     "Domains": {
@@ -25,18 +39,9 @@
       "Type": "List of String",
       "UpdateRequires": "No interruption"
     },
-    "EnableSsl": {
+    "Attributes": {
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "Environment": {
-      "Required": "No",
-      "Type": "List of [EnvironmentVariable",
+      "Type": "Map of String",
       "UpdateRequires": "No interruption"
     },
     "Name": {
@@ -44,24 +49,10 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "Shortname": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "SslConfiguration": {
-      "Required": "No",
-      "Type": "SslConfiguration",
-      "UpdateRequires": "No interruption"
-    },
-    "StackId": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
     "Type": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "aws-flow-ruby",
         "java",
@@ -70,7 +61,16 @@
         "php",
         "rails",
         "static"
-      ],
+      ]
+    },
+    "Shortname": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "Description": {
+      "Required": "No",
+      "Type": "String",
       "UpdateRequires": "No interruption"
     }
   }

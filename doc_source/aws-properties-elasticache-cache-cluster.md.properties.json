@@ -1,72 +1,21 @@
 {
   "aws-properties-elasticache-cache-cluster-properties": {
-    "AZMode": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "cross-az",
-        "single-az"
-      ]
-    },
-    "AutoMinorVersionUpgrade": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "CacheNodeType": {},
-    "CacheParameterGroupName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
     "CacheSecurityGroupNames": {
       "Required": "No",
       "Type": "List of String",
       "UpdateRequires": "No interruption"
-    },
-    "CacheSubnetGroupName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "ClusterName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
     },
     "Engine": {
       "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "EngineVersion": {},
-    "NotificationTopicArn": {
+    "CacheParameterGroupName": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "NumCacheNodes": {
-      "Required": "Yes",
-      "Type": "Integer"
-    },
-    "Port": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "Replacement"
-    },
-    "PreferredAvailabilityZone": {
-      "Required": "No",
-      "Type": "String"
-    },
-    "PreferredAvailabilityZones": {
-      "Required": "No",
-      "Type": "List of String"
-    },
-    "PreferredMaintenanceWindow": {
+    "NotificationTopicArn": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
@@ -74,6 +23,20 @@
     "SnapshotArns": {
       "Required": "No",
       "Type": "List of String",
+      "UpdateRequires": "Replacement"
+    },
+    "SnapshotWindow": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "PreferredAvailabilityZone": {
+      "Required": "No",
+      "Type": "String"
+    },
+    "ClusterName": {
+      "Required": "No",
+      "Type": "String",
       "UpdateRequires": "Replacement"
     },
     "SnapshotName": {
@@ -86,11 +49,6 @@
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
-    "SnapshotWindow": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
     "Tags": {
       "Required": "No",
       "Type": "List of [Tag",
@@ -100,6 +58,48 @@
       "Required": "No",
       "Type": "List of String",
       "UpdateRequires": "No interruption"
-    }
+    },
+    "AutoMinorVersionUpgrade": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "NumCacheNodes": {
+      "Required": "Yes",
+      "Type": "Integer"
+    },
+    "PreferredAvailabilityZones": {
+      "Required": "No",
+      "Type": "List of String"
+    },
+    "EngineVersion": {},
+    "AZMode": {
+      "Required": "No",
+      "Type": "String",
+      "AllowedValues": [
+        "cross-az",
+        "single-az"
+      ]
+    },
+    "CacheSubnetGroupName": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "Port": {
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "Replacement"
+    },
+    "PreferredMaintenanceWindow": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "CacheNodeType": {}
   }
 }

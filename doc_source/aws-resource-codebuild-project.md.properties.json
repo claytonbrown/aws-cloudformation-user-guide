@@ -1,8 +1,51 @@
 {
   "codebuild-project-properties": {
+    "LogsConfig": {
+      "Required": "No",
+      "Type": "LogsConfig",
+      "UpdateRequires": "No interruption"
+    },
+    "TimeoutInMinutes": {
+      "Minimum": "5",
+      "Required": "No",
+      "Type": "Integer",
+      "Maximum": "480",
+      "UpdateRequires": "No interruption"
+    },
+    "Description": {
+      "Minimum": "0",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "255",
+      "UpdateRequires": "No interruption"
+    },
+    "ServiceRole": {
+      "Minimum": "1",
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "Maximum": "50",
+      "UpdateRequires": "No interruption"
+    },
     "Artifacts": {
       "Required": "Yes",
       "Type": "Artifacts",
+      "UpdateRequires": "No interruption"
+    },
+    "VpcConfig": {},
+    "SecondarySourceVersions": {
+      "Required": "No",
+      "Type": "List of [ProjectSourceVersion",
+      "Maximum": "12",
+      "UpdateRequires": "No interruption"
+    },
+    "Cache": {
+      "Required": "No",
+      "Type": "ProjectCache",
       "UpdateRequires": "No interruption"
     },
     "BadgeEnabled": {
@@ -11,58 +54,25 @@
         "False"
       ]
     },
-    "Cache": {
-      "Required": "No",
-      "Type": "ProjectCache",
-      "UpdateRequires": "No interruption"
-    },
-    "Description": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "0",
-      "Maximum": "255",
-      "UpdateRequires": "No interruption"
-    },
-    "EncryptionKey": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "UpdateRequires": "No interruption"
-    },
+    "SourceVersion": {},
     "Environment": {
       "Required": "Yes",
       "Type": "Environment",
       "UpdateRequires": "No interruption"
     },
-    "LogsConfig": {
-      "Required": "No",
-      "Type": "LogsConfig",
+    "Source": {
+      "Required": "Yes",
+      "Type": "Source",
       "UpdateRequires": "No interruption"
     },
-    "Name": {
+    "Triggers": {
       "Required": "No",
-      "Type": "String",
-      "Minimum": "2",
-      "Maximum": "255",
-      "Pattern": "[A-Za-z0-9][A-Za-z0-9\\-_]{1,254}",
-      "UpdateRequires": "Replacement"
-    },
-    "QueuedTimeoutInMinutes": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "5",
-      "Maximum": "480",
+      "Type": "ProjectTriggers",
       "UpdateRequires": "No interruption"
     },
     "SecondaryArtifacts": {
       "Required": "No",
       "Type": "List of [Artifacts",
-      "Maximum": "12",
-      "UpdateRequires": "No interruption"
-    },
-    "SecondarySourceVersions": {
-      "Required": "No",
-      "Type": "List of [ProjectSourceVersion",
       "Maximum": "12",
       "UpdateRequires": "No interruption"
     },
@@ -72,36 +82,26 @@
       "Maximum": "12",
       "UpdateRequires": "No interruption"
     },
-    "ServiceRole": {
-      "Required": "Yes",
-      "Type": "String",
+    "EncryptionKey": {
       "Minimum": "1",
-      "UpdateRequires": "No interruption"
-    },
-    "Source": {
-      "Required": "Yes",
-      "Type": "Source",
-      "UpdateRequires": "No interruption"
-    },
-    "SourceVersion": {},
-    "Tags": {
       "Required": "No",
-      "Type": "List of [Tag",
-      "Maximum": "50",
+      "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "TimeoutInMinutes": {
+    "QueuedTimeoutInMinutes": {
+      "Minimum": "5",
       "Required": "No",
       "Type": "Integer",
-      "Minimum": "5",
       "Maximum": "480",
       "UpdateRequires": "No interruption"
     },
-    "Triggers": {
+    "Name": {
+      "Pattern": "[A-Za-z0-9][A-Za-z0-9\\-_]{1,254}",
       "Required": "No",
-      "Type": "ProjectTriggers",
-      "UpdateRequires": "No interruption"
-    },
-    "VpcConfig": {}
+      "Maximum": "255",
+      "UpdateRequires": "Replacement",
+      "Minimum": "2",
+      "Type": "String"
+    }
   }
 }

@@ -1,12 +1,8 @@
 {
   "aws-properties-ec2-blockdev-template-properties": {
-    "DeleteOnTermination": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+    "VolumeSize": {
+      "Required": "Conditional",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
     "Encrypted": {
@@ -15,33 +11,37 @@
         "False"
       ]
     },
-    "Iops": {},
-    "KmsKeyId": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "SnapshotId": {
-      "Required": "Conditional",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "VolumeSize": {
-      "Required": "Conditional",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
     "VolumeType": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "gp2",
         "io1",
         "sc1",
         "st1",
         "standard"
-      ],
+      ]
+    },
+    "KmsKeyId": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "DeleteOnTermination": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "SnapshotId": {
+      "Required": "Conditional",
+      "Type": "String",
       "UpdateRequires": "No interruption"
-    }
+    },
+    "Iops": {}
   }
 }

@@ -1,0 +1,55 @@
+{
+  "codestarnotifications-notificationrule-properties": {
+    "Status": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "DISABLED",
+        "ENABLED"
+      ]
+    },
+    "EventTypeIds": {
+      "Required": "Yes",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "Resource": {
+      "Pattern": "^arn:aws[^:\\s]*:[^:\\s]*:[^:\\s]*:[0-9]{12}:[^\\s]+$",
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "Name": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "CREATED_BY",
+        "EVENT_TYPE_ID",
+        "RESOURCE",
+        "TARGET_ADDRESS"
+      ]
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "Json",
+      "UpdateRequires": "Replacement"
+    },
+    "DetailType": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "BASIC",
+        "FULL"
+      ]
+    },
+    "Targets": {
+      "Required": "Yes",
+      "Type": "List of [Target",
+      "Maximum": "10",
+      "UpdateRequires": "No interruption"
+    }
+  }
+}

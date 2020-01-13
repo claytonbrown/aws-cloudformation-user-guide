@@ -1,11 +1,130 @@
 {
   "aws-properties-ec2-instance-properties": {
+    "Monitoring": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "LicenseSpecifications": {
+      "Required": "No",
+      "Type": "List of [LicenseSpecification",
+      "UpdateRequires": "Replacement"
+    },
+    "EbsOptimized": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Some interruptions",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "Affinity": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Some interruptions"
+    },
+    "RamdiskId": {},
+    "PrivateIpAddress": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "CpuOptions": {
+      "Required": "No",
+      "Type": "CpuOptions",
+      "UpdateRequires": "Replacement"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "No interruption"
+    },
+    "PlacementGroupName": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "ImageId": {
+      "Required": "Conditional",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "KeyName": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "SecurityGroups": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "Replacement"
+    },
+    "CreditSpecification": {},
+    "SubnetId": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "SsmAssociations": {},
+    "InstanceType": {},
+    "NetworkInterfaces": {
+      "Required": "No",
+      "Type": "List of [NetworkInterface",
+      "UpdateRequires": "Replacement"
+    },
     "AdditionalInfo": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Some interruptions"
     },
-    "Affinity": {
+    "SourceDestCheck": {
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "LaunchTemplate": {
+      "Required": "No",
+      "Type": "LaunchTemplateSpecification",
+      "UpdateRequires": "Replacement"
+    },
+    "ElasticGpuSpecifications": {},
+    "InstanceInitiatedShutdownBehavior": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "stop",
+        "terminate"
+      ]
+    },
+    "SecurityGroupIds": {
+      "Required": "Conditional",
+      "Type": "List of String",
+      "UpdateRequires": "Some interruptions"
+    },
+    "HostId": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Some interruptions"
+    },
+    "Volumes": {
+      "Required": "No",
+      "Type": "List of [Volume",
+      "UpdateRequires": "No interruption"
+    },
+    "KernelId": {},
+    "IamInstanceProfile": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "UserData": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Some interruptions"
@@ -15,163 +134,44 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "BlockDeviceMappings": {
+    "Tenancy": {
       "Required": "No",
-      "Type": "List of [BlockDeviceMapping",
-      "UpdateRequires": "Some interruptions"
+      "Type": "String",
+      "UpdateRequires": "Some interruptions",
+      "AllowedValues": [
+        "dedicated",
+        "default",
+        "host"
+      ]
     },
-    "CpuOptions": {
+    "Ipv6AddressCount": {
       "Required": "No",
-      "Type": "CpuOptions",
+      "Type": "Integer",
       "UpdateRequires": "Replacement"
     },
-    "CreditSpecification": {},
-    "DisableApiTermination": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "EbsOptimized": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Some interruptions"
-    },
-    "ElasticGpuSpecifications": {},
     "ElasticInferenceAccelerators": {
       "Required": "No",
       "Type": "List of [ElasticInferenceAccelerator",
       "UpdateRequires": "Replacement"
     },
-    "HostId": {
+    "BlockDeviceMappings": {
       "Required": "No",
-      "Type": "String",
+      "Type": "List of [BlockDeviceMapping",
       "UpdateRequires": "Some interruptions"
-    },
-    "IamInstanceProfile": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "ImageId": {
-      "Required": "Conditional",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "InstanceInitiatedShutdownBehavior": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "stop",
-        "terminate"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "InstanceType": {},
-    "Ipv6AddressCount": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "Replacement"
     },
     "Ipv6Addresses": {
       "Required": "No",
       "Type": "List of [InstanceIpv6Address",
       "UpdateRequires": "Replacement"
     },
-    "KernelId": {},
-    "KeyName": {
+    "DisableApiTermination": {
       "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "LaunchTemplate": {
-      "Required": "No",
-      "Type": "LaunchTemplateSpecification",
-      "UpdateRequires": "Replacement"
-    },
-    "LicenseSpecifications": {
-      "Required": "No",
-      "Type": "List of [LicenseSpecification",
-      "UpdateRequires": "Replacement"
-    },
-    "Monitoring": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
       "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "NetworkInterfaces": {
-      "Required": "No",
-      "Type": "List of [NetworkInterface",
-      "UpdateRequires": "Replacement"
-    },
-    "PlacementGroupName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "PrivateIpAddress": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "RamdiskId": {},
-    "SecurityGroupIds": {
-      "Required": "Conditional",
-      "Type": "List of String",
-      "UpdateRequires": "Some interruptions"
-    },
-    "SecurityGroups": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "Replacement"
-    },
-    "SourceDestCheck": {
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
       ]
-    },
-    "SsmAssociations": {},
-    "SubnetId": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
-    },
-    "Tenancy": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "dedicated",
-        "default",
-        "host"
-      ],
-      "UpdateRequires": "Some interruptions"
-    },
-    "UserData": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Some interruptions"
-    },
-    "Volumes": {
-      "Required": "No",
-      "Type": "List of [Volume",
-      "UpdateRequires": "No interruption"
     }
   }
 }

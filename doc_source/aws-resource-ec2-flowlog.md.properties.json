@@ -1,5 +1,44 @@
 {
   "ec2-flowlog-properties": {
+    "TrafficType": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "ACCEPT",
+        "ALL",
+        "REJECT"
+      ]
+    },
+    "ResourceType": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "NetworkInterface",
+        "Subnet",
+        "VPC"
+      ]
+    },
+    "ResourceId": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "LogGroupName": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "LogDestinationType": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "cloud-watch-logs",
+        "s3"
+      ]
+    },
     "DeliverLogsPermissionArn": {
       "Required": "No",
       "Type": "String",
@@ -8,45 +47,6 @@
     "LogDestination": {
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "LogDestinationType": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "cloud-watch-logs",
-        "s3"
-      ],
-      "UpdateRequires": "Replacement"
-    },
-    "LogGroupName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "ResourceId": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "ResourceType": {
-      "Required": "Yes",
-      "Type": "String",
-      "AllowedValues": [
-        "NetworkInterface",
-        "Subnet",
-        "VPC"
-      ],
-      "UpdateRequires": "Replacement"
-    },
-    "TrafficType": {
-      "Required": "Yes",
-      "Type": "String",
-      "AllowedValues": [
-        "ACCEPT",
-        "ALL",
-        "REJECT"
-      ],
       "UpdateRequires": "Replacement"
     }
   }

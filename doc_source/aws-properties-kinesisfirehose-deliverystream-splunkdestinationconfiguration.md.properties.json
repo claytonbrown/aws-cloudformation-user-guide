@@ -1,39 +1,29 @@
 {
   "aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration-properties": {
-    "CloudWatchLoggingOptions": {
-      "Required": "No",
-      "Type": "CloudWatchLoggingOptions",
-      "UpdateRequires": "No interruption"
-    },
-    "HECAcknowledgmentTimeoutInSeconds": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "180",
-      "Maximum": "600",
-      "UpdateRequires": "No interruption"
-    },
-    "HECEndpoint": {
+    "S3Configuration": {
       "Required": "Yes",
-      "Type": "String",
+      "Type": "S3DestinationConfiguration",
       "UpdateRequires": "No interruption"
     },
     "HECEndpointType": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "Event",
         "Raw"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
     "HECToken": {
       "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "ProcessingConfiguration": {
+    "HECAcknowledgmentTimeoutInSeconds": {
+      "Minimum": "180",
       "Required": "No",
-      "Type": "ProcessingConfiguration",
+      "Type": "Integer",
+      "Maximum": "600",
       "UpdateRequires": "No interruption"
     },
     "RetryOptions": {
@@ -41,18 +31,28 @@
       "Type": "SplunkRetryOptions",
       "UpdateRequires": "No interruption"
     },
+    "HECEndpoint": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
     "S3BackupMode": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "AllEvents",
         "FailedEventsOnly"
-      ],
+      ]
+    },
+    "CloudWatchLoggingOptions": {
+      "Required": "No",
+      "Type": "CloudWatchLoggingOptions",
       "UpdateRequires": "No interruption"
     },
-    "S3Configuration": {
-      "Required": "Yes",
-      "Type": "S3DestinationConfiguration",
+    "ProcessingConfiguration": {
+      "Required": "No",
+      "Type": "ProcessingConfiguration",
       "UpdateRequires": "No interruption"
     }
   }

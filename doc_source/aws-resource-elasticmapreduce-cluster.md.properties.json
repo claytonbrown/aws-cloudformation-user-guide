@@ -1,92 +1,16 @@
 {
   "elasticmapreduce-cluster-properties": {
     "AdditionalInfo": {
+      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
       "Required": "No",
-      "Type": "Json",
-      "Minimum": "0",
       "Maximum": "10280",
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "UpdateRequires": "Replacement"
-    },
-    "Applications": {
-      "Required": "No",
-      "Type": "List of [Application",
-      "UpdateRequires": "Replacement"
-    },
-    "AutoScalingRole": {
-      "Required": "No",
-      "Type": "String",
+      "UpdateRequires": "Replacement",
       "Minimum": "0",
-      "Maximum": "10280",
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "UpdateRequires": "Replacement"
-    },
-    "BootstrapActions": {
-      "Required": "No",
-      "Type": "List of [BootstrapActionConfig",
-      "UpdateRequires": "Replacement"
-    },
-    "Configurations": {
-      "Required": "No",
-      "Type": "List of [Configuration",
-      "UpdateRequires": "Replacement"
-    },
-    "CustomAmiId": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "0",
-      "Maximum": "256",
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "UpdateRequires": "Replacement"
-    },
-    "EbsRootVolumeSize": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "Replacement"
-    },
-    "Instances": {
-      "Required": "Yes",
-      "Type": "JobFlowInstancesConfig"
-    },
-    "JobFlowRole": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "0",
-      "Maximum": "10280",
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "UpdateRequires": "Replacement"
-    },
-    "KerberosAttributes": {},
-    "LogUri": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
+      "Type": "Json"
     },
     "Name": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "ReleaseLabel": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "ScaleDownBehavior": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "TERMINATE_AT_INSTANCE_HOUR",
-        "TERMINATE_AT_TASK_COMPLETION"
-      ],
-      "UpdateRequires": "Replacement"
-    },
-    "SecurityConfiguration": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "0",
-      "Maximum": "10280",
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
       "UpdateRequires": "Replacement"
     },
     "ServiceRole": {
@@ -94,24 +18,100 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
+    "Instances": {
+      "Required": "Yes",
+      "Type": "JobFlowInstancesConfig"
+    },
+    "VisibleToAllUsers": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "ReleaseLabel": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "KerberosAttributes": {},
+    "BootstrapActions": {
+      "Required": "No",
+      "Type": "List of [BootstrapActionConfig",
+      "UpdateRequires": "Replacement"
+    },
     "Steps": {
       "Required": "No",
       "Type": "List of [StepConfig",
       "UpdateRequires": "Replacement"
+    },
+    "Applications": {
+      "Required": "No",
+      "Type": "List of [Application",
+      "UpdateRequires": "Replacement"
+    },
+    "JobFlowRole": {
+      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "Required": "Yes",
+      "Maximum": "10280",
+      "UpdateRequires": "Replacement",
+      "Minimum": "0",
+      "Type": "String"
+    },
+    "CustomAmiId": {
+      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "Required": "No",
+      "Maximum": "256",
+      "UpdateRequires": "Replacement",
+      "Minimum": "0",
+      "Type": "String"
+    },
+    "ScaleDownBehavior": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "TERMINATE_AT_INSTANCE_HOUR",
+        "TERMINATE_AT_TASK_COMPLETION"
+      ]
+    },
+    "SecurityConfiguration": {
+      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "Required": "No",
+      "Maximum": "10280",
+      "UpdateRequires": "Replacement",
+      "Minimum": "0",
+      "Type": "String"
     },
     "Tags": {
       "Required": "No",
       "Type": "List of [Tag",
       "UpdateRequires": "No interruption"
     },
-    "VisibleToAllUsers": {
+    "EbsRootVolumeSize": {
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
+      "Type": "Integer",
+      "UpdateRequires": "Replacement"
+    },
+    "LogUri": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "Configurations": {
+      "Required": "No",
+      "Type": "List of [Configuration",
+      "UpdateRequires": "Replacement"
+    },
+    "AutoScalingRole": {
+      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "Required": "No",
+      "Maximum": "10280",
+      "UpdateRequires": "Replacement",
+      "Minimum": "0",
+      "Type": "String"
     }
   }
 }

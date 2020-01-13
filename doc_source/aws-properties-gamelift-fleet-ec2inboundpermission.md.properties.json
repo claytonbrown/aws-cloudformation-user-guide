@@ -1,32 +1,32 @@
 {
   "aws-properties-gamelift-fleet-ec2inboundpermission-properties": {
-    "FromPort": {
+    "ToPort": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "Integer",
-      "Minimum": "1",
       "Maximum": "60000",
       "UpdateRequires": "No interruption"
     },
-    "IpRange": {
+    "FromPort": {
+      "Minimum": "1",
       "Required": "Yes",
-      "Type": "String",
-      "Pattern": "[^\\s]+",
+      "Type": "Integer",
+      "Maximum": "60000",
       "UpdateRequires": "No interruption"
     },
     "Protocol": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "TCP",
         "UDP"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "ToPort": {
+    "IpRange": {
+      "Pattern": "[^\\s]+",
       "Required": "Yes",
-      "Type": "Integer",
-      "Minimum": "1",
-      "Maximum": "60000",
+      "Type": "String",
       "UpdateRequires": "No interruption"
     }
   }

@@ -1,49 +1,41 @@
 {
   "aws-properties-codebuild-project-source-properties": {
-    "Auth": {
-      "Required": "No",
-      "Type": "SourceAuth",
-      "UpdateRequires": "No interruption"
-    },
     "BuildSpec": {},
-    "GitCloneDepth": {
+    "InsecureSsl": {
       "Required": "No",
-      "Type": "Integer",
-      "Minimum": "0",
-      "UpdateRequires": "No interruption"
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
     "GitSubmodulesConfig": {
       "Required": "No",
       "Type": "GitSubmodulesConfig",
       "UpdateRequires": "No interruption"
     },
-    "InsecureSsl": {
+    "Auth": {
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+      "Type": "SourceAuth",
       "UpdateRequires": "No interruption"
     },
     "Location": {},
-    "ReportBuildStatus": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
     "SourceIdentifier": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
+    "GitCloneDepth": {
+      "Minimum": "0",
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
     "Type": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "BITBUCKET",
         "CODECOMMIT",
@@ -52,8 +44,16 @@
         "GITHUB_ENTERPRISE",
         "NO_SOURCE",
         "S3"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
+    },
+    "ReportBuildStatus": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     }
   }
 }

@@ -1,39 +1,39 @@
 {
   "aws-properties-as-launchconfig-blockdev-template-properties": {
-    "DeleteOnTermination": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+    "VolumeSize": {
+      "Minimum": "1",
+      "Required": "Conditional",
+      "Type": "Integer",
+      "Maximum": "16384",
       "UpdateRequires": "No interruption"
     },
     "Encrypted": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
-      ],
+      ]
+    },
+    "VolumeType": {},
+    "DeleteOnTermination": {
+      "Required": "No",
       "Type": "Boolean",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
-    "Iops": {},
     "SnapshotId": {
-      "Required": "Conditional",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "255",
       "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "UpdateRequires": "No interruption"
-    },
-    "VolumeSize": {
       "Required": "Conditional",
-      "Type": "Integer",
+      "Maximum": "255",
+      "UpdateRequires": "No interruption",
       "Minimum": "1",
-      "Maximum": "16384",
-      "UpdateRequires": "No interruption"
+      "Type": "String"
     },
-    "VolumeType": {}
+    "Iops": {}
   }
 }

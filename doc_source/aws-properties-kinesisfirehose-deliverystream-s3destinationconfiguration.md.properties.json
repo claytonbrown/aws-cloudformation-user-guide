@@ -1,11 +1,21 @@
 {
   "aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration-properties": {
-    "BucketARN": {
-      "Required": "Yes",
+    "ErrorOutputPrefix": {
+      "Required": "No",
       "Type": "String",
-      "Minimum": "1",
-      "Maximum": "2048",
+      "UpdateRequires": "No interruption"
+    },
+    "BucketARN": {
       "Pattern": "arn:.*",
+      "Required": "Yes",
+      "Maximum": "2048",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "Prefix": {
+      "Required": "No",
+      "Type": "String",
       "UpdateRequires": "No interruption"
     },
     "BufferingHints": {
@@ -13,25 +23,15 @@
       "Type": "BufferingHints",
       "UpdateRequires": "No interruption"
     },
-    "CloudWatchLoggingOptions": {
-      "Required": "No",
-      "Type": "CloudWatchLoggingOptions",
-      "UpdateRequires": "No interruption"
-    },
-    "CompressionFormat": {},
     "EncryptionConfiguration": {
       "Required": "No",
       "Type": "EncryptionConfiguration",
       "UpdateRequires": "No interruption"
     },
-    "ErrorOutputPrefix": {
+    "CompressionFormat": {},
+    "CloudWatchLoggingOptions": {
       "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "Prefix": {
-      "Required": "No",
-      "Type": "String",
+      "Type": "CloudWatchLoggingOptions",
       "UpdateRequires": "No interruption"
     },
     "RoleARN": {}

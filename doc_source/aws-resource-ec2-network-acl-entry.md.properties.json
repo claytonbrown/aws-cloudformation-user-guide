@@ -1,22 +1,18 @@
 {
   "ec2-network-acl-entry-properties": {
-    "CidrBlock": {
+    "NetworkAclId": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "Egress": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
       "UpdateRequires": "Replacement"
     },
-    "Icmp": {
-      "Required": "No",
-      "Type": "Icmp",
+    "RuleNumber": {
+      "Required": "Yes",
+      "Type": "Integer",
+      "UpdateRequires": "Replacement"
+    },
+    "Protocol": {
+      "Required": "Yes",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
     "Ipv6CidrBlock": {
@@ -24,34 +20,38 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "NetworkAclId": {
+    "Egress": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "RuleAction": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "allow",
+        "deny"
+      ]
     },
     "PortRange": {
       "Required": "No",
       "Type": "PortRange",
       "UpdateRequires": "No interruption"
     },
-    "Protocol": {
-      "Required": "Yes",
-      "Type": "Integer",
+    "Icmp": {
+      "Required": "No",
+      "Type": "Icmp",
       "UpdateRequires": "No interruption"
     },
-    "RuleAction": {
+    "CidrBlock": {
       "Required": "Yes",
       "Type": "String",
-      "AllowedValues": [
-        "allow",
-        "deny"
-      ],
       "UpdateRequires": "No interruption"
-    },
-    "RuleNumber": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "Replacement"
     }
   }
 }

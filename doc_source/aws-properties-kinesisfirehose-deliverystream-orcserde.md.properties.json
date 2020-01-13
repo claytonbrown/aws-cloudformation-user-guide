@@ -1,52 +1,24 @@
 {
   "aws-properties-kinesisfirehose-deliverystream-orcserde-properties": {
-    "BlockSizeBytes": {
+    "Compression": {
       "Required": "No",
-      "Type": "Integer",
-      "Minimum": "67108864",
-      "UpdateRequires": "No interruption"
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "NONE",
+        "SNAPPY",
+        "ZLIB"
+      ]
     },
     "BloomFilterColumns": {
       "Required": "No",
       "Type": "List of String",
       "UpdateRequires": "No interruption"
     },
-    "BloomFilterFalsePositiveProbability": {
+    "BlockSizeBytes": {
+      "Minimum": "67108864",
       "Required": "No",
-      "Type": "Double",
-      "UpdateRequires": "No interruption"
-    },
-    "Compression": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "NONE",
-        "SNAPPY",
-        "ZLIB"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "DictionaryKeyThreshold": {
-      "Required": "No",
-      "Type": "Double",
-      "UpdateRequires": "No interruption"
-    },
-    "EnablePadding": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "FormatVersion": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "V0_11",
-        "V0_12"
-      ],
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
     "PaddingTolerance": {
@@ -54,16 +26,44 @@
       "Type": "Double",
       "UpdateRequires": "No interruption"
     },
-    "RowIndexStride": {
+    "StripeSizeBytes": {
+      "Minimum": "8388608",
       "Required": "No",
       "Type": "Integer",
-      "Minimum": "1000",
       "UpdateRequires": "No interruption"
     },
-    "StripeSizeBytes": {
+    "BloomFilterFalsePositiveProbability": {
+      "Required": "No",
+      "Type": "Double",
+      "UpdateRequires": "No interruption"
+    },
+    "FormatVersion": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "V0_11",
+        "V0_12"
+      ]
+    },
+    "RowIndexStride": {
+      "Minimum": "1000",
       "Required": "No",
       "Type": "Integer",
-      "Minimum": "8388608",
+      "UpdateRequires": "No interruption"
+    },
+    "EnablePadding": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "DictionaryKeyThreshold": {
+      "Required": "No",
+      "Type": "Double",
       "UpdateRequires": "No interruption"
     }
   }

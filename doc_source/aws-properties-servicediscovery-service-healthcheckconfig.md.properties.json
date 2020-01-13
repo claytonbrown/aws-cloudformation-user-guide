@@ -1,18 +1,18 @@
 {
   "aws-properties-servicediscovery-service-healthcheckconfig-properties": {
-    "FailureThreshold": {},
-    "ResourcePath": {},
     "Type": {
-      "Type`  <a name=\"cfn-servicediscovery-service-healthcheckconfig-type\"></a>\nThe type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy\\.  \nYou can't change the value of `Type` after you create a health check\\.\nYou can create the following types of health checks:  \n+  **HTTP*": "Route 53 tries to establish a TCP connection\\. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400\\.\n+  **HTTPS*",
       "*Important**  \nIf you specify HTTPS for the value of `Type`, the endpoint must support TLS v1\\.0 or later\\.\n+  **TCP*": "Route 53 tries to establish a TCP connection\\.\n\n  If you specify `TCP` for `Type`, don't specify a value for `ResourcePath`\\.\nFor more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide*\\.",
       "Required": "Yes",
-      "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "HTTP",
         "HTTPS",
         "TCP"
       ],
-      "UpdateRequires": "No interruption"
-    }
+      "Type": "String",
+      "Type`  <a name=\"cfn-servicediscovery-service-healthcheckconfig-type\"></a>\nThe type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy\\.  \nYou can't change the value of `Type` after you create a health check\\.\nYou can create the following types of health checks:  \n+  **HTTP*": "Route 53 tries to establish a TCP connection\\. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400\\.\n+  **HTTPS*"
+    },
+    "ResourcePath": {},
+    "FailureThreshold": {}
   }
 }

@@ -1,28 +1,28 @@
 {
   "aws-properties-elasticmapreduce-cluster-stepconfig-properties": {
-    "ActionOnFailure": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "CANCEL_AND_WAIT",
-        "CONTINUE",
-        "TERMINATE_CLUSTER",
-        "TERMINATE_JOB_FLOW"
-      ],
-      "UpdateRequires": "No interruption"
-    },
     "HadoopJarStep": {
       "Required": "Yes",
       "Type": "HadoopJarStepConfig",
       "UpdateRequires": "No interruption"
     },
     "Name": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "0",
-      "Maximum": "256",
       "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "UpdateRequires": "No interruption"
+      "Required": "Yes",
+      "Maximum": "256",
+      "UpdateRequires": "No interruption",
+      "Minimum": "0",
+      "Type": "String"
+    },
+    "ActionOnFailure": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "CANCEL_AND_WAIT",
+        "CONTINUE",
+        "TERMINATE_CLUSTER",
+        "TERMINATE_JOB_FLOW"
+      ]
     }
   }
 }

@@ -1,17 +1,17 @@
 {
   "kms-key-properties": {
+    "KeyPolicy": {},
     "Description": {
+      "Minimum": "0",
       "Required": "No",
       "Type": "String",
-      "Minimum": "0",
       "Maximum": "8192",
       "UpdateRequires": "No interruption"
     },
-    "EnableKeyRotation": {
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "No interruption"
     },
     "Enabled": {
       "AllowedValues": [
@@ -19,20 +19,20 @@
         "False"
       ]
     },
-    "KeyPolicy": {},
     "KeyUsage": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "ENCRYPT_DECRYPT"
-      ],
-      "UpdateRequires": "Replacement"
+      ]
     },
     "PendingWindowInDays": {},
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
+    "EnableKeyRotation": {
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     }
   }
 }

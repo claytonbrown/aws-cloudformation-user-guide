@@ -1,17 +1,27 @@
 {
   "aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-properties": {
+    "ScaleOutCooldown": {
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "DisableScaleIn": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
     "CustomizedMetricSpecification": {
       "Required": "No",
       "Type": "CustomizedMetricSpecification",
       "UpdateRequires": "No interruption"
     },
-    "DisableScaleIn": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+    "TargetValue": {
+      "Required": "Yes",
+      "Type": "Double",
       "UpdateRequires": "No interruption"
     },
     "PredefinedMetricSpecification": {
@@ -22,16 +32,6 @@
     "ScaleInCooldown": {
       "Required": "No",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "ScaleOutCooldown": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "TargetValue": {
-      "Required": "Yes",
-      "Type": "Double",
       "UpdateRequires": "No interruption"
     }
   }

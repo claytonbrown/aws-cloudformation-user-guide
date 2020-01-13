@@ -1,12 +1,44 @@
 {
   "redshift-cluster-properties": {
-    "AllowVersionUpgrade": {
+    "ClusterParameterGroupName": {
       "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "PubliclyAccessible": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
+      ]
+    },
+    "MasterUsername": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "OwnerAccount": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "VpcSecurityGroupIds": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "NumberOfNodes": {},
+    "ClusterVersion": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "SnapshotClusterIdentifier": {},
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
       "UpdateRequires": "No interruption"
     },
     "AutomatedSnapshotRetentionPeriod": {
@@ -14,17 +46,32 @@
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
-    "AvailabilityZone": {
-      "Required": "No",
+    "DBName": {
+      "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "ClusterIdentifier": {
+    "PreferredMaintenanceWindow": {
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "No interruption"
     },
-    "ClusterParameterGroupName": {
+    "ClusterType": {},
+    "IamRoles": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "AllowVersionUpgrade": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "HsmConfigurationIdentifier": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
@@ -34,34 +81,9 @@
       "Type": "List of String",
       "UpdateRequires": "No interruption"
     },
-    "ClusterSubnetGroupName": {
+    "ClusterIdentifier": {
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "ClusterType": {},
-    "ClusterVersion": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "DBName": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "ElasticIp": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "Encrypted": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
       "UpdateRequires": "Replacement"
     },
     "HsmClientCertificateIdentifier": {
@@ -69,14 +91,34 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "HsmConfigurationIdentifier": {
+    "LoggingProperties": {
       "Required": "No",
-      "Type": "String",
+      "Type": "LoggingProperties",
       "UpdateRequires": "No interruption"
     },
-    "IamRoles": {
+    "AvailabilityZone": {
       "Required": "No",
-      "Type": "List of String",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "NodeType": {},
+    "ElasticIp": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "Encrypted": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "MasterUserPassword": {
+      "Required": "Yes",
+      "Type": "String",
       "UpdateRequires": "No interruption"
     },
     "KmsKeyId": {
@@ -84,24 +126,7 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "LoggingProperties": {
-      "Required": "No",
-      "Type": "LoggingProperties",
-      "UpdateRequires": "No interruption"
-    },
-    "MasterUserPassword": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "MasterUsername": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "NodeType": {},
-    "NumberOfNodes": {},
-    "OwnerAccount": {
+    "SnapshotIdentifier": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
@@ -111,35 +136,10 @@
       "Type": "Integer",
       "UpdateRequires": "Replacement"
     },
-    "PreferredMaintenanceWindow": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "PubliclyAccessible": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "SnapshotClusterIdentifier": {},
-    "SnapshotIdentifier": {
+    "ClusterSubnetGroupName": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
-    },
-    "VpcSecurityGroupIds": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
     }
   }
 }

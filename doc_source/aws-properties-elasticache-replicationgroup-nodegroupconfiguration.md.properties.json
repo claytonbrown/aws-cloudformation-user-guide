@@ -1,11 +1,21 @@
 {
   "aws-properties-elasticache-replicationgroup-nodegroupconfiguration-properties": {
-    "NodeGroupId": {
+    "ReplicaCount": {
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "Replacement"
+    },
+    "Slots": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "NodeGroupId": {
+      "Pattern": "\\d+",
       "Minimum": "1",
-      "Maximum": "4",
-      "Pattern": "\\d+"
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "4"
     },
     "PrimaryAvailabilityZone": {
       "Required": "No",
@@ -15,16 +25,6 @@
     "ReplicaAvailabilityZones": {
       "Required": "No",
       "Type": "List of String",
-      "UpdateRequires": "Replacement"
-    },
-    "ReplicaCount": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "Replacement"
-    },
-    "Slots": {
-      "Required": "No",
-      "Type": "String",
       "UpdateRequires": "Replacement"
     }
   }

@@ -1,29 +1,13 @@
 {
   "aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition-properties": {
-    "ComparisonOperator": {
-      "Required": "Yes",
-      "Type": "String",
-      "AllowedValues": [
-        "GREATER_THAN",
-        "GREATER_THAN_OR_EQUAL",
-        "LESS_THAN",
-        "LESS_THAN_OR_EQUAL"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "Dimensions": {
-      "Required": "No",
-      "Type": "List of [MetricDimension",
-      "UpdateRequires": "No interruption"
-    },
     "EvaluationPeriods": {
       "Required": "No",
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
-    "MetricName": {
-      "Required": "Yes",
-      "Type": "String",
+    "Dimensions": {
+      "Required": "No",
+      "Type": "List of [MetricDimension",
       "UpdateRequires": "No interruption"
     },
     "Namespace": {
@@ -36,17 +20,28 @@
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
+    "ComparisonOperator": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "GREATER_THAN",
+        "GREATER_THAN_OR_EQUAL",
+        "LESS_THAN",
+        "LESS_THAN_OR_EQUAL"
+      ]
+    },
     "Statistic": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "AVERAGE",
         "MAXIMUM",
         "MINIMUM",
         "SAMPLE_COUNT",
         "SUM"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
     "Threshold": {
       "Required": "Yes",
@@ -56,6 +51,7 @@
     "Unit": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "BITS",
         "BITS_PER_SECOND",
@@ -84,7 +80,11 @@
         "TERA_BITS_PER_SECOND",
         "TERA_BYTES",
         "TERA_BYTES_PER_SECOND"
-      ],
+      ]
+    },
+    "MetricName": {
+      "Required": "Yes",
+      "Type": "String",
       "UpdateRequires": "No interruption"
     }
   }

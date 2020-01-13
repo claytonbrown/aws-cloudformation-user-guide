@@ -1,12 +1,69 @@
 {
   "opsworkscm-server-properties": {
-    "AssociatePublicIpAddress": {
+    "Engine": {
       "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "ServiceRoleArn": {
+      "Pattern": "arn:aws:iam::[0-9]{12}:role/.*",
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "SubnetIds": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "Replacement"
+    },
+    "DisableAutomatedBackup": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
+      ]
+    },
+    "PreferredMaintenanceWindow": {},
+    "ServerName": {
+      "Pattern": "[a-zA-Z][a-zA-Z0-9\\-]*",
+      "Required": "No",
+      "Maximum": "40",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "BackupRetentionCount": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "InstanceType": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "PreferredBackupWindow": {},
+    "KeyPair": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "EngineModel": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "SecurityGroupIds": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "Replacement"
+    },
+    "EngineVersion": {
+      "Required": "No",
+      "Type": "String",
       "UpdateRequires": "Replacement"
     },
     "BackupId": {
@@ -15,78 +72,21 @@
       "Maximum": "79",
       "UpdateRequires": "Replacement"
     },
-    "BackupRetentionCount": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "1",
-      "UpdateRequires": "No interruption"
-    },
-    "DisableAutomatedBackup": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "Engine": {
-      "Required": "No",
+    "InstanceProfileArn": {
+      "Pattern": "arn:aws:iam::[0-9]{12}:instance-profile/.*",
+      "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
     "EngineAttributes": {},
-    "EngineModel": {
+    "AssociatePublicIpAddress": {
       "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "EngineVersion": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "InstanceProfileArn": {
-      "Required": "Yes",
-      "Type": "String",
-      "Pattern": "arn:aws:iam::[0-9]{12}:instance-profile/.*",
-      "UpdateRequires": "Replacement"
-    },
-    "InstanceType": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "KeyPair": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "PreferredBackupWindow": {},
-    "PreferredMaintenanceWindow": {},
-    "SecurityGroupIds": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "Replacement"
-    },
-    "ServerName": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "40",
-      "Pattern": "[a-zA-Z][a-zA-Z0-9\\-]*",
-      "UpdateRequires": "Replacement"
-    },
-    "ServiceRoleArn": {
-      "Required": "Yes",
-      "Type": "String",
-      "Pattern": "arn:aws:iam::[0-9]{12}:role/.*",
-      "UpdateRequires": "Replacement"
-    },
-    "SubnetIds": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "Replacement"
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     }
   }
 }

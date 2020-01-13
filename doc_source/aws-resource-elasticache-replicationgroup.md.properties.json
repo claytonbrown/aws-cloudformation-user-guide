@@ -1,39 +1,51 @@
 {
   "elasticache-replicationgroup-properties": {
-    "AtRestEncryptionEnabled": {
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "AuthToken": {},
-    "AutomaticFailoverEnabled": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "AutoMinorVersionUpgrade": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "CacheNodeType": {},
     "CacheParameterGroupName": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "CacheSecurityGroupNames": {
+    "NodeGroupConfiguration": {},
+    "TransitEncryptionEnabled": {
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "ReplicationGroupId": {
       "Required": "No",
-      "Type": "List of String",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "NumNodeGroups": {
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "Some interruptions"
+    },
+    "NotificationTopicArn": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "CacheNodeType": {},
+    "AuthToken": {},
+    "PrimaryClusterId": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "AutoMinorVersionUpgrade": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "PreferredMaintenanceWindow": {
+      "Required": "No",
+      "Type": "String",
       "UpdateRequires": "No interruption"
     },
     "CacheSubnetGroupName": {
@@ -41,25 +53,50 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "Engine": {
+    "CacheSecurityGroupNames": {
       "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
     },
-    "EngineVersion": {},
-    "KmsKeyId": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "NodeGroupConfiguration": {},
     "NodeGroupConfiguration ": {
       "Required": "No",
       "Type": "List",
       "UpdateRequires": "Some interruptions"
     },
-    "NotificationTopicArn": {
+    "SnapshotName": {
       "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "AtRestEncryptionEnabled": {
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "ReplicasPerNodeGroup": {
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "Replacement"
+    },
+    "SecurityGroupIds": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "PreferredCacheClusterAZs": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "Replacement"
+    },
+    "EngineVersion": {},
+    "Engine": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "ReplicationGroupDescription": {
+      "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
@@ -68,70 +105,10 @@
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
-    "NumNodeGroups": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "Some interruptions"
-    },
-    "Port": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "Replacement"
-    },
-    "PreferredCacheClusterAZs": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "Replacement"
-    },
-    "PreferredMaintenanceWindow": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "PrimaryClusterId": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "ReplicasPerNodeGroup": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "Replacement"
-    },
-    "ReplicationGroupDescription": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "ReplicationGroupId": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "SecurityGroupIds": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
-    },
     "SnapshotArns": {},
-    "SnapshotName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
     "SnapshotRetentionLimit": {
       "Required": "No",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "SnapshottingClusterId": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "SnapshotWindow": {
-      "Required": "No",
-      "Type": "String",
       "UpdateRequires": "No interruption"
     },
     "Tags": {
@@ -139,7 +116,30 @@
       "Type": "List of [Tag",
       "UpdateRequires": "No interruption"
     },
-    "TransitEncryptionEnabled": {
+    "KmsKeyId": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "SnapshotWindow": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "SnapshottingClusterId": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "Port": {
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "Replacement"
+    },
+    "AutomaticFailoverEnabled": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"

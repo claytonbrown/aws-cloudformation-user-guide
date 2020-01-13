@@ -1,55 +1,23 @@
 {
   "rds-dbcluster-properties": {
-    "AssociatedRoles": {
+    "MasterUsername": {
       "Required": "No",
-      "Type": "List of [DBClusterRole",
-      "UpdateRequires": "No interruption"
+      "Type": "String",
+      "UpdateRequires": "Replacement"
     },
-    "AvailabilityZones": {},
     "BacktrackWindow": {
       "Required": "No",
       "Type": "Long",
       "UpdateRequires": "No interruption"
     },
-    "BackupRetentionPeriod": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "DatabaseName": {},
-    "DBClusterIdentifier": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "DBClusterParameterGroupName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "DBSubnetGroupName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "DeletionProtection": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "EnableCloudwatchLogsExports": {},
     "EnableIAMDatabaseAuthentication": {
       "AllowedValues": [
         "True",
         "False"
       ]
     },
-    "Engine": {
-      "Required": "Yes",
+    "SourceDBClusterIdentifier": {
+      "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
@@ -58,20 +26,85 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
+    "Engine": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "No interruption"
+    },
+    "RestoreType": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "PreferredBackupWindow": {},
+    "SourceRegion": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "BackupRetentionPeriod": {
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "PreferredMaintenanceWindow": {},
+    "DBClusterParameterGroupName": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "DatabaseName": {},
+    "ScalingConfiguration": {
+      "Required": "No",
+      "Type": "ScalingConfiguration",
+      "UpdateRequires": "No interruption"
+    },
+    "UseLatestRestorableTime": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "VpcSecurityGroupIds": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "ReplicationSourceIdentifier": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
     "EngineVersion": {},
-    "aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"": {},
-    "aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"": {},
+    "DBSubnetGroupName": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "DeletionProtection": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
     "aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "KmsKeyId": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "MasterUsername": {
+    "aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"": {},
+    "DBClusterIdentifier": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
@@ -81,70 +114,37 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "Port": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "PreferredBackupWindow": {},
-    "PreferredMaintenanceWindow": {},
-    "ReplicationSourceIdentifier": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "RestoreType": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "ScalingConfiguration": {
-      "Required": "No",
-      "Type": "ScalingConfiguration",
-      "UpdateRequires": "No interruption"
-    },
-    "SnapshotIdentifier": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "SourceDBClusterIdentifier": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "SourceRegion": {
+    "KmsKeyId": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
     "StorageEncrypted": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Replacement"
+      ]
     },
-    "Tags": {
+    "AssociatedRoles": {
       "Required": "No",
-      "Type": "List of [Tag",
+      "Type": "List of [DBClusterRole",
       "UpdateRequires": "No interruption"
     },
-    "UseLatestRestorableTime": {
+    "aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"": {},
+    "EnableCloudwatchLogsExports": {},
+    "AvailabilityZones": {},
+    "Port": {
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Replacement"
-    },
-    "VpcSecurityGroupIds": {
-      "Required": "No",
-      "Type": "List of String",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
+    },
+    "SnapshotIdentifier": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
     }
   }
 }

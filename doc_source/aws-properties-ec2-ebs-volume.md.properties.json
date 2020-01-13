@@ -1,34 +1,7 @@
 {
   "aws-properties-ec2-ebs-volume-properties": {
-    "AutoEnableIO": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
     "AvailabilityZone": {
       "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "Encrypted": {
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "Iops": {},
-    "KmsKeyId": {},
-    "Size": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "SnapshotId": {
-      "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
@@ -37,16 +10,43 @@
       "Type": "List of [Tag",
       "UpdateRequires": "No interruption"
     },
+    "Encrypted": {
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
     "VolumeType": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "gp2",
         "io1",
         "sc1",
         "st1",
         "standard"
-      ],
+      ]
+    },
+    "KmsKeyId": {},
+    "AutoEnableIO": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "SnapshotId": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "Iops": {},
+    "Size": {
+      "Required": "No",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     }
   }

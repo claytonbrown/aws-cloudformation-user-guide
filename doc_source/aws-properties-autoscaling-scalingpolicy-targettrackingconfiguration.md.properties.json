@@ -1,17 +1,8 @@
 {
   "aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration-properties": {
-    "CustomizedMetricSpecification": {
-      "Required": "Conditional",
-      "Type": "CustomizedMetricSpecification",
-      "UpdateRequires": "No interruption"
-    },
-    "DisableScaleIn": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+    "TargetValue": {
+      "Required": "Yes",
+      "Type": "Double",
       "UpdateRequires": "No interruption"
     },
     "PredefinedMetricSpecification": {
@@ -19,9 +10,18 @@
       "Type": "PredefinedMetricSpecification",
       "UpdateRequires": "No interruption"
     },
-    "TargetValue": {
-      "Required": "Yes",
-      "Type": "Double",
+    "DisableScaleIn": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "CustomizedMetricSpecification": {
+      "Required": "Conditional",
+      "Type": "CustomizedMetricSpecification",
       "UpdateRequires": "No interruption"
     }
   }

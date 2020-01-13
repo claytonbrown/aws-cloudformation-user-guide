@@ -1,37 +1,11 @@
 {
   "ec2-ec2fleet-properties": {
-    "ExcessCapacityTerminationPolicy": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "no-termination",
-        "termination"
-      ],
-      "UpdateRequires": "No interruption"
-    },
+    "Type": {},
+    "ValidUntil": {},
     "LaunchTemplateConfigs": {
       "Required": "Yes",
       "Type": "List of [FleetLaunchTemplateConfigRequest",
       "Maximum": "50",
-      "UpdateRequires": "Replacement"
-    },
-    "OnDemandOptions": {
-      "Required": "No",
-      "Type": "OnDemandOptionsRequest",
-      "UpdateRequires": "Replacement"
-    },
-    "ReplaceUnhealthyInstances": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Replacement"
-    },
-    "SpotOptions": {
-      "Required": "No",
-      "Type": "SpotOptionsRequest",
       "UpdateRequires": "Replacement"
     },
     "TagSpecifications": {
@@ -39,22 +13,48 @@
       "Type": "List of [TagSpecification",
       "UpdateRequires": "Replacement"
     },
+    "TerminateInstancesWithExpiration": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
     "TargetCapacitySpecification": {
       "Required": "Yes",
       "Type": "TargetCapacitySpecificationRequest",
       "UpdateRequires": "No interruption"
     },
-    "TerminateInstancesWithExpiration": {
+    "OnDemandOptions": {
       "Required": "No",
+      "Type": "OnDemandOptionsRequest",
+      "UpdateRequires": "Replacement"
+    },
+    "SpotOptions": {
+      "Required": "No",
+      "Type": "SpotOptionsRequest",
+      "UpdateRequires": "Replacement"
+    },
+    "ValidFrom": {},
+    "ExcessCapacityTerminationPolicy": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "no-termination",
+        "termination"
+      ]
+    },
+    "ReplaceUnhealthyInstances": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Replacement"
-    },
-    "Type": {},
-    "ValidFrom": {},
-    "ValidUntil": {}
+      ]
+    }
   }
 }

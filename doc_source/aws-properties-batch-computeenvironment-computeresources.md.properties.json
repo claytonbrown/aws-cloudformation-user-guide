@@ -1,34 +1,24 @@
 {
   "aws-properties-batch-computeenvironment-computeresources-properties": {
-    "BidPercentage": {
+    "Subnets": {},
+    "Type": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "EC2",
+        "SPOT"
+      ]
+    },
+    "PlacementGroup": {},
+    "LaunchTemplate": {},
+    "Tags": {
       "Required": "No",
-      "Type": "Integer",
+      "Type": "Json",
       "UpdateRequires": "Replacement"
     },
     "DesiredvCpus": {
       "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "Ec2KeyPair": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "ImageId": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "InstanceRole": {},
-    "InstanceTypes": {
-      "Required": "Yes",
-      "Type": "List of String",
-      "UpdateRequires": "Replacement"
-    },
-    "LaunchTemplate": {},
-    "MaxvCpus": {
-      "Required": "Yes",
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
@@ -37,27 +27,38 @@
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
-    "PlacementGroup": {},
-    "SecurityGroupIds": {
+    "InstanceTypes": {
       "Required": "Yes",
       "Type": "List of String",
       "UpdateRequires": "Replacement"
     },
-    "SpotIamFleetRole": {},
-    "Subnets": {},
-    "Tags": {
+    "ImageId": {
       "Required": "No",
-      "Type": "Json",
+      "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "Type": {
+    "SpotIamFleetRole": {},
+    "InstanceRole": {},
+    "MaxvCpus": {
       "Required": "Yes",
-      "Type": "String",
-      "AllowedValues": [
-        "EC2",
-        "SPOT"
-      ],
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "SecurityGroupIds": {
+      "Required": "No",
+      "Type": "List of String",
       "UpdateRequires": "Replacement"
-    }
+    },
+    "BidPercentage": {
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "Replacement"
+    },
+    "Ec2KeyPair": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "AllocationStrategy": {}
   }
 }

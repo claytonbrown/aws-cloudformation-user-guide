@@ -1,32 +1,56 @@
 {
   "aws-properties-cw-alarm-properties": {
-    "ActionsEnabled": {
+    "EvaluationPeriods": {
+      "Minimum": "1",
+      "Required": "Yes",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "ExtendedStatistic": {
+      "Pattern": "p(\\d{1,2}(\\.\\d{0,2})?|100)",
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "TreatMissingData": {},
+    "DatapointsToAlarm": {},
+    "Dimensions": {
+      "Required": "No",
+      "Type": "List of [Dimension",
+      "Maximum": "10",
       "UpdateRequires": "No interruption"
     },
     "AlarmActions": {},
     "AlarmDescription": {
+      "Minimum": "0",
       "Required": "No",
       "Type": "String",
-      "Minimum": "0",
       "Maximum": "1024",
       "UpdateRequires": "No interruption"
     },
-    "AlarmName": {
+    "Namespace": {
+      "Pattern": "[^:].*",
       "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
       "Maximum": "255",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "Period": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "Metrics": {
+      "Required": "No",
+      "Type": "List of [MetricDataQuery",
+      "UpdateRequires": "No interruption"
     },
     "ComparisonOperator": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "GreaterThanOrEqualToThreshold",
         "GreaterThanThreshold",
@@ -35,101 +59,12 @@
         "LessThanLowerThreshold",
         "LessThanOrEqualToThreshold",
         "LessThanThreshold"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "DatapointsToAlarm": {},
-    "Dimensions": {
-      "Required": "No",
-      "Type": "List of [Dimension",
-      "Maximum": "10",
-      "UpdateRequires": "No interruption"
-    },
-    "EvaluateLowSampleCountPercentile": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "255",
-      "UpdateRequires": "No interruption"
-    },
-    "EvaluationPeriods": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "Minimum": "1",
-      "UpdateRequires": "No interruption"
-    },
-    "ExtendedStatistic": {
-      "Required": "No",
-      "Type": "String",
-      "Pattern": "p(\\d{1,2}(\\.\\d{0,2})?|100)",
-      "UpdateRequires": "No interruption"
-    },
-    "InsufficientDataActions": {
-      "Required": "No",
-      "Type": "List of String",
-      "Maximum": "5",
-      "UpdateRequires": "No interruption"
-    },
-    "MetricName": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "255",
-      "UpdateRequires": "No interruption"
-    },
-    "Metrics": {
-      "Required": "No",
-      "Type": "List of [MetricDataQuery",
-      "UpdateRequires": "No interruption"
-    },
-    "Namespace": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "255",
-      "Pattern": "[^:].*",
-      "UpdateRequires": "No interruption"
-    },
-    "OKActions": {
-      "Required": "No",
-      "Type": "List of String",
-      "Maximum": "5",
-      "UpdateRequires": "No interruption"
-    },
-    "Period": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "1",
-      "UpdateRequires": "No interruption"
-    },
-    "Statistic": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "Average",
-        "Maximum",
-        "Minimum",
-        "SampleCount",
-        "Sum"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "Threshold": {
-      "Required": "No",
-      "Type": "Double",
-      "UpdateRequires": "No interruption"
-    },
-    "ThresholdMetricId": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "255",
-      "UpdateRequires": "No interruption"
-    },
-    "TreatMissingData": {},
     "Unit": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "Bits",
         "Bits/Second",
@@ -158,7 +93,72 @@
         "Terabits/Second",
         "Terabytes",
         "Terabytes/Second"
-      ],
+      ]
+    },
+    "AlarmName": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "255",
+      "UpdateRequires": "Replacement"
+    },
+    "Statistic": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "Average",
+        "Maximum",
+        "Minimum",
+        "SampleCount",
+        "Sum"
+      ]
+    },
+    "InsufficientDataActions": {
+      "Required": "No",
+      "Type": "List of String",
+      "Maximum": "5",
+      "UpdateRequires": "No interruption"
+    },
+    "Threshold": {
+      "Required": "No",
+      "Type": "Double",
+      "UpdateRequires": "No interruption"
+    },
+    "EvaluateLowSampleCountPercentile": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "255",
+      "UpdateRequires": "No interruption"
+    },
+    "OKActions": {
+      "Required": "No",
+      "Type": "List of String",
+      "Maximum": "5",
+      "UpdateRequires": "No interruption"
+    },
+    "ThresholdMetricId": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "255",
+      "UpdateRequires": "No interruption"
+    },
+    "ActionsEnabled": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "MetricName": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "255",
       "UpdateRequires": "No interruption"
     }
   }

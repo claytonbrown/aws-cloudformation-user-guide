@@ -1,28 +1,9 @@
 {
   "ec2-vpcendpoint-properties": {
-    "PolicyDocument": {
-      "Required": "No",
-      "Type": "Json",
-      "UpdateRequires": "No interruption"
-    },
-    "PrivateDnsEnabled": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "RouteTableIds": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
-    },
-    "SecurityGroupIds": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
+    "VpcId": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
     },
     "ServiceName": {
       "Required": "Yes",
@@ -34,19 +15,38 @@
       "Type": "List of String",
       "UpdateRequires": "No interruption"
     },
+    "SecurityGroupIds": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "PolicyDocument": {
+      "Required": "No",
+      "Type": "Json",
+      "UpdateRequires": "No interruption"
+    },
+    "RouteTableIds": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "PrivateDnsEnabled": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
     "VpcEndpointType": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "Gateway",
         "Interface"
-      ],
-      "UpdateRequires": "Replacement"
-    },
-    "VpcId": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
+      ]
     }
   }
 }

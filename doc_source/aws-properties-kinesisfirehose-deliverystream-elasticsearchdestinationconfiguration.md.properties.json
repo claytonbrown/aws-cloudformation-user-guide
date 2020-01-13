@@ -1,34 +1,15 @@
 {
   "aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-properties": {
-    "BufferingHints": {
+    "S3Configuration": {
       "Required": "Yes",
-      "Type": "ElasticsearchBufferingHints",
-      "UpdateRequires": "No interruption"
-    },
-    "CloudWatchLoggingOptions": {
-      "Required": "No",
-      "Type": "CloudWatchLoggingOptions",
-      "UpdateRequires": "No interruption"
-    },
-    "DomainARN": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "512",
-      "Pattern": "arn:.*",
+      "Type": "S3DestinationConfiguration",
       "UpdateRequires": "No interruption"
     },
     "IndexName": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "80",
-      "UpdateRequires": "No interruption"
-    },
-    "IndexRotationPeriod": {},
-    "ProcessingConfiguration": {
-      "Required": "No",
-      "Type": "ProcessingConfiguration",
       "UpdateRequires": "No interruption"
     },
     "RetryOptions": {
@@ -37,24 +18,43 @@
       "UpdateRequires": "No interruption"
     },
     "RoleARN": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "512",
       "Pattern": "arn:.*",
-      "UpdateRequires": "No interruption"
-    },
-    "S3BackupMode": {},
-    "S3Configuration": {
       "Required": "Yes",
-      "Type": "S3DestinationConfiguration",
+      "Maximum": "512",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "BufferingHints": {
+      "Required": "Yes",
+      "Type": "ElasticsearchBufferingHints",
       "UpdateRequires": "No interruption"
     },
     "TypeName": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "100",
+      "UpdateRequires": "No interruption"
+    },
+    "S3BackupMode": {},
+    "CloudWatchLoggingOptions": {
+      "Required": "No",
+      "Type": "CloudWatchLoggingOptions",
+      "UpdateRequires": "No interruption"
+    },
+    "DomainARN": {
+      "Pattern": "arn:.*",
+      "Required": "Yes",
+      "Maximum": "512",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "IndexRotationPeriod": {},
+    "ProcessingConfiguration": {
+      "Required": "No",
+      "Type": "ProcessingConfiguration",
       "UpdateRequires": "No interruption"
     }
   }

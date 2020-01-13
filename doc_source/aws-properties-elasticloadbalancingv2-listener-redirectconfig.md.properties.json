@@ -1,16 +1,29 @@
 {
   "aws-properties-elasticloadbalancingv2-listener-redirectconfig-properties": {
-    "Host": {
+    "Protocol": {
+      "Pattern": "^(HTTPS?|#\\{protocol\\})$",
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "Host": {
       "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "128",
+      "UpdateRequires": "No interruption"
+    },
+    "Query": {
+      "Minimum": "0",
+      "Required": "No",
+      "Type": "String",
       "Maximum": "128",
       "UpdateRequires": "No interruption"
     },
     "Path": {
+      "Minimum": "1",
       "Required": "No",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "128",
       "UpdateRequires": "No interruption"
     },
@@ -19,27 +32,14 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "Protocol": {
-      "Required": "No",
-      "Type": "String",
-      "Pattern": "^(HTTPS?|#\\{protocol\\})$",
-      "UpdateRequires": "No interruption"
-    },
-    "Query": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "0",
-      "Maximum": "128",
-      "UpdateRequires": "No interruption"
-    },
     "StatusCode": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "HTTP_301",
         "HTTP_302"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     }
   }
 }

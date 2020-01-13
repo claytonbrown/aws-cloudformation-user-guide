@@ -1,11 +1,32 @@
 {
   "aws-properties-codebuild-project-environment-properties": {
+    "ComputeType": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "ImagePullCredentialsType": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "CODEBUILD",
+        "SERVICE_ROLE"
+      ]
+    },
     "Certificate": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "ComputeType": {
+    "PrivilegedMode": {
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "Image": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "No interruption"
@@ -15,27 +36,6 @@
       "Type": "List of [EnvironmentVariable",
       "UpdateRequires": "No interruption"
     },
-    "Image": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "UpdateRequires": "No interruption"
-    },
-    "ImagePullCredentialsType": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "CODEBUILD",
-        "SERVICE_ROLE"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "PrivilegedMode": {
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
     "RegistryCredential": {
       "Required": "No",
       "Type": "RegistryCredential",
@@ -44,11 +44,11 @@
     "Type": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "LINUX_CONTAINER",
         "WINDOWS_CONTAINER"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     }
   }
 }

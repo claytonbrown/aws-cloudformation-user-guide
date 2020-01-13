@@ -1,14 +1,9 @@
 {
   "codedeploy-deploymentgroup-properties": {
-    "AlarmConfiguration": {
-      "Required": "No",
-      "Type": "AlarmConfiguration",
-      "UpdateRequires": "No interruption"
-    },
     "ApplicationName": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "100",
       "UpdateRequires": "Replacement"
     },
@@ -17,27 +12,21 @@
       "Type": "AutoRollbackConfiguration",
       "UpdateRequires": "No interruption"
     },
+    "LoadBalancerInfo": {},
+    "DeploymentConfigName": {},
     "AutoScalingGroups": {
       "Required": "No",
       "Type": "List of String",
       "UpdateRequires": "No interruption"
     },
-    "Deployment": {
+    "TriggerConfigurations": {
       "Required": "No",
-      "Type": "Deployment",
+      "Type": "List of [TriggerConfig",
       "UpdateRequires": "No interruption"
     },
-    "DeploymentConfigName": {},
-    "DeploymentGroupName": {
+    "AlarmConfiguration": {
       "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "100",
-      "UpdateRequires": "Replacement"
-    },
-    "DeploymentStyle": {
-      "Required": "No",
-      "Type": "DeploymentStyle",
+      "Type": "AlarmConfiguration",
       "UpdateRequires": "No interruption"
     },
     "Ec2TagFilters": {
@@ -45,23 +34,34 @@
       "Type": "List of [EC2TagFilter",
       "UpdateRequires": "No interruption"
     },
+    "DeploymentStyle": {
+      "Required": "No",
+      "Type": "DeploymentStyle",
+      "UpdateRequires": "No interruption"
+    },
     "Ec2TagSet": {
       "Required": "No",
       "Type": "EC2TagSet",
       "UpdateRequires": "No interruption"
     },
-    "LoadBalancerInfo": {},
-    "OnPremisesInstanceTagFilters": {},
     "OnPremisesTagSet": {
       "Required": "No",
       "Type": "OnPremisesTagSet",
       "UpdateRequires": "No interruption"
     },
-    "ServiceRoleArn": {},
-    "TriggerConfigurations": {
+    "Deployment": {
       "Required": "No",
-      "Type": "List of [TriggerConfig",
+      "Type": "Deployment",
       "UpdateRequires": "No interruption"
-    }
+    },
+    "ServiceRoleArn": {},
+    "DeploymentGroupName": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "100",
+      "UpdateRequires": "Replacement"
+    },
+    "OnPremisesInstanceTagFilters": {}
   }
 }

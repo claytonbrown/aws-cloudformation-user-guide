@@ -1,17 +1,17 @@
 {
   "ec2-capacityreservation-properties": {
+    "EndDateType": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "limited",
+        "unlimited"
+      ]
+    },
     "AvailabilityZone": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "EbsOptimized": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
       "UpdateRequires": "Replacement"
     },
     "EndDate": {
@@ -19,41 +19,24 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "EndDateType": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "limited",
-        "unlimited"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "EphemeralStorage": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Replacement"
-    },
-    "InstanceCount": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
     "InstanceMatchCriteria": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "open",
         "targeted"
-      ],
+      ]
+    },
+    "TagSpecifications": {
+      "Required": "No",
+      "Type": "List of [TagSpecification",
       "UpdateRequires": "Replacement"
     },
     "InstancePlatform": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "Linux/UNIX",
         "Red Hat Enterprise Linux",
@@ -63,23 +46,40 @@
         "Windows with SQL Server Enterprise",
         "Windows with SQL Server Standard",
         "Windows with SQL Server Web"
-      ],
-      "UpdateRequires": "Replacement"
+      ]
     },
-    "InstanceType": {},
-    "TagSpecifications": {
+    "EphemeralStorage": {
       "Required": "No",
-      "Type": "List of [TagSpecification",
-      "UpdateRequires": "Replacement"
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "EbsOptimized": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
     "Tenancy": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "dedicated",
         "default"
-      ],
-      "UpdateRequires": "Replacement"
+      ]
+    },
+    "InstanceType": {},
+    "InstanceCount": {
+      "Required": "Yes",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
     }
   }
 }

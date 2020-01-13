@@ -1,5 +1,13 @@
 {
   "aws-properties-cloudwatch-alarm-metric-properties": {
+    "Namespace": {
+      "Pattern": "[^:].*",
+      "Required": "No",
+      "Maximum": "255",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
     "Dimensions": {
       "Required": "No",
       "Type": "List of [Dimension",
@@ -7,18 +15,10 @@
       "UpdateRequires": "No interruption"
     },
     "MetricName": {
+      "Minimum": "1",
       "Required": "No",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "255",
-      "UpdateRequires": "No interruption"
-    },
-    "Namespace": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "255",
-      "Pattern": "[^:].*",
       "UpdateRequires": "No interruption"
     }
   }

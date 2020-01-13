@@ -1,11 +1,10 @@
 {
   "certificatemanager-certificate-properties": {
-    "DomainName": {},
-    "DomainValidationOptions": {
+    "Tags": {
       "Required": "No",
-      "Type": "List of [DomainValidationOption",
-      "Maximum": "100",
-      "UpdateRequires": "Replacement"
+      "Type": "List of [Tag",
+      "Maximum": "50",
+      "UpdateRequires": "No interruption"
     },
     "SubjectAlternativeNames": {
       "Required": "No",
@@ -13,20 +12,21 @@
       "Maximum": "100",
       "UpdateRequires": "Replacement"
     },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "Maximum": "50",
-      "UpdateRequires": "No interruption"
-    },
     "ValidationMethod": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "DNS",
         "EMAIL"
-      ],
+      ]
+    },
+    "DomainValidationOptions": {
+      "Required": "No",
+      "Type": "List of [DomainValidationOption",
+      "Maximum": "100",
       "UpdateRequires": "Replacement"
-    }
+    },
+    "DomainName": {}
   }
 }

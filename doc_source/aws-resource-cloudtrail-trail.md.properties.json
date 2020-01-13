@@ -1,24 +1,5 @@
 {
   "cloudtrail-trail-properties": {
-    "CloudWatchLogsLogGroupArn": {
-      "Required": "Conditional",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "CloudWatchLogsRoleArn": {
-      "Required": "Conditional",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "EnableLogFileValidation": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
     "EventSelectors": {
       "Required": "No",
       "Type": "List of [EventSelector",
@@ -26,38 +7,20 @@
     },
     "IncludeGlobalServiceEvents": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "IsLogging": {
-      "Required": "Yes",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "IsMultiRegionTrail": {
+    "Tags": {
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+      "Type": "List of [Tag",
       "UpdateRequires": "No interruption"
     },
     "KMSKeyId": {
       "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "S3BucketName": {
-      "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
@@ -66,20 +29,57 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "SnsTopicName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
+    "IsLogging": {
+      "Required": "Yes",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
-    "Tags": {
+    "IsMultiRegionTrail": {
       "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
     "TrailName": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
+    },
+    "EnableLogFileValidation": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "CloudWatchLogsRoleArn": {
+      "Required": "Conditional",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "CloudWatchLogsLogGroupArn": {
+      "Required": "Conditional",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "SnsTopicName": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "S3BucketName": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
     }
   }
 }

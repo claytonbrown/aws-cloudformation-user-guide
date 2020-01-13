@@ -1,40 +1,40 @@
 {
   "kinesisanalyticsv2-application-properties": {
+    "ApplicationName": {
+      "Pattern": "[a-zA-Z0-9_.-]+",
+      "Required": "No",
+      "Maximum": "128",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "ServiceExecutionRole": {
+      "Pattern": "arn:aws:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+",
+      "Required": "Yes",
+      "Maximum": "2048",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
     "ApplicationConfiguration": {
       "Required": "No",
       "Type": "ApplicationConfiguration",
       "UpdateRequires": "No interruption"
     },
-    "ApplicationDescription": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "0",
-      "Maximum": "1024",
-      "UpdateRequires": "No interruption"
-    },
-    "ApplicationName": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "128",
-      "Pattern": "[a-zA-Z0-9_.-]+",
-      "UpdateRequires": "Replacement"
-    },
     "RuntimeEnvironment": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "FLINK-1_6",
         "SQL-1_0"
-      ],
-      "UpdateRequires": "Replacement"
+      ]
     },
-    "ServiceExecutionRole": {
-      "Required": "Yes",
+    "ApplicationDescription": {
+      "Minimum": "0",
+      "Required": "No",
       "Type": "String",
-      "Minimum": "1",
-      "Maximum": "2048",
-      "Pattern": "arn:aws:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+",
+      "Maximum": "1024",
       "UpdateRequires": "No interruption"
     }
   }

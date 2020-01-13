@@ -1,15 +1,8 @@
 {
   "aws-properties-s3-bucket-lifecycleconfig-rule-transition-properties": {
-    "StorageClass": {
-      "Required": "Yes",
-      "Type": "String",
-      "AllowedValues": [
-        "DEEP_ARCHIVE",
-        "GLACIER",
-        "INTELLIGENT_TIERING",
-        "ONEZONE_IA",
-        "STANDARD_IA"
-      ],
+    "TransitionInDays": {
+      "Required": "Conditional",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
     "TransitionDate": {
@@ -17,10 +10,17 @@
       "Type": "Timestamp",
       "UpdateRequires": "No interruption"
     },
-    "TransitionInDays": {
-      "Required": "Conditional",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
+    "StorageClass": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "DEEP_ARCHIVE",
+        "GLACIER",
+        "INTELLIGENT_TIERING",
+        "ONEZONE_IA",
+        "STANDARD_IA"
+      ]
     }
   }
 }

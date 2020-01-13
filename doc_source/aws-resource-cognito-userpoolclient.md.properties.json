@@ -1,29 +1,8 @@
 {
   "cognito-userpoolclient-properties": {
-    "AllowedOAuthFlows": {
+    "WriteAttributes": {
       "Required": "No",
       "Type": "List of String",
-      "Maximum": "3",
-      "UpdateRequires": "No interruption"
-    },
-    "AllowedOAuthFlowsUserPoolClient": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Replacement"
-    },
-    "AllowedOAuthScopes": {
-      "Required": "No",
-      "Type": "List of String",
-      "Maximum": "25",
-      "UpdateRequires": "No interruption"
-    },
-    "AnalyticsConfiguration": {
-      "Required": "No",
-      "Type": "AnalyticsConfiguration",
       "UpdateRequires": "No interruption"
     },
     "CallbackURLs": {
@@ -32,35 +11,33 @@
       "Maximum": "100",
       "UpdateRequires": "No interruption"
     },
-    "ClientName": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "128",
-      "Pattern": "[\\w\\s+=,.@-]+",
-      "UpdateRequires": "No interruption"
-    },
-    "DefaultRedirectURI": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "1024",
-      "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
-      "UpdateRequires": "No interruption"
-    },
-    "ExplicitAuthFlows": {
+    "AllowedOAuthScopes": {
       "Required": "No",
       "Type": "List of String",
+      "Maximum": "25",
       "UpdateRequires": "No interruption"
     },
-    "GenerateSecret": {
+    "UserPoolId": {
+      "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
+      "Required": "Yes",
+      "Maximum": "55",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "AllowedOAuthFlowsUserPoolClient": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Replacement"
+      ]
+    },
+    "AnalyticsConfiguration": {
+      "Required": "No",
+      "Type": "AnalyticsConfiguration",
+      "UpdateRequires": "No interruption"
     },
     "LogoutURLs": {
       "Required": "No",
@@ -68,16 +45,29 @@
       "Maximum": "100",
       "UpdateRequires": "No interruption"
     },
-    "ReadAttributes": {
+    "AllowedOAuthFlows": {
+      "Required": "No",
+      "Type": "List of String",
+      "Maximum": "3",
+      "UpdateRequires": "No interruption"
+    },
+    "GenerateSecret": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "ExplicitAuthFlows": {
       "Required": "No",
       "Type": "List of String",
       "UpdateRequires": "No interruption"
     },
-    "RefreshTokenValidity": {
+    "ReadAttributes": {
       "Required": "No",
-      "Type": "Double",
-      "Minimum": "0",
-      "Maximum": "3650",
+      "Type": "List of String",
       "UpdateRequires": "No interruption"
     },
     "SupportedIdentityProviders": {
@@ -85,18 +75,28 @@
       "Type": "List of String",
       "UpdateRequires": "No interruption"
     },
-    "UserPoolId": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "55",
-      "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
-      "UpdateRequires": "Replacement"
-    },
-    "WriteAttributes": {
+    "DefaultRedirectURI": {
+      "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
       "Required": "No",
-      "Type": "List of String",
+      "Maximum": "1024",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "RefreshTokenValidity": {
+      "Minimum": "0",
+      "Required": "No",
+      "Type": "Double",
+      "Maximum": "3650",
       "UpdateRequires": "No interruption"
+    },
+    "ClientName": {
+      "Pattern": "[\\w\\s+=,.@-]+",
+      "Required": "No",
+      "Maximum": "128",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
     }
   }
 }

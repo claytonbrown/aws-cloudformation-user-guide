@@ -1,5 +1,10 @@
 {
   "aws-properties-s3-bucket-inventoryconfiguration-properties": {
+    "ScheduleFrequency": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
     "Destination": {
       "Required": "Yes",
       "Type": "Destination",
@@ -7,26 +12,12 @@
     },
     "Enabled": {
       "Required": "Yes",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "Id": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "IncludedObjectVersions": {
-      "Required": "Yes",
-      "Type": "String",
-      "AllowedValues": [
-        "All",
-        "Current"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
     "OptionalFields": {
       "Required": "No",
@@ -38,7 +29,16 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "ScheduleFrequency": {
+    "IncludedObjectVersions": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "All",
+        "Current"
+      ]
+    },
+    "Id": {
       "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "No interruption"

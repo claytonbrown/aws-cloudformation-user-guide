@@ -3,16 +3,15 @@
     "IpAddressType": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "dualstack",
         "ipv4"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "LoadBalancerAttributes": {
+    "Subnets": {
       "Required": "No",
-      "Type": "List of [LoadBalancerAttribute",
-      "Maximum": "20",
+      "Type": "List of String",
       "UpdateRequires": "No interruption"
     },
     "Name": {
@@ -20,18 +19,10 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "Scheme": {
+    "LoadBalancerAttributes": {
       "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "internal",
-        "internet-facing"
-      ],
-      "UpdateRequires": "Replacement"
-    },
-    "SecurityGroups": {
-      "Required": "No",
-      "Type": "List of String",
+      "Type": "List of [LoadBalancerAttribute",
+      "Maximum": "20",
       "UpdateRequires": "No interruption"
     },
     "SubnetMappings": {
@@ -39,24 +30,33 @@
       "Type": "List of [SubnetMapping",
       "UpdateRequires": "Replacement"
     },
-    "Subnets": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
-    },
     "Tags": {
       "Required": "No",
       "Type": "List of [Tag",
       "UpdateRequires": "No interruption"
     },
+    "SecurityGroups": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "Scheme": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "internal",
+        "internet-facing"
+      ]
+    },
     "Type": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "application",
         "network"
-      ],
-      "UpdateRequires": "Replacement"
+      ]
     }
   }
 }

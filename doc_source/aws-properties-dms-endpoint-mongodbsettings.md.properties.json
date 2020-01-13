@@ -1,16 +1,15 @@
 {
   "aws-properties-dms-endpoint-mongodbsettings-properties": {
-    "AuthMechanism": {
+    "NestingLevel": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
-        "default",
-        "mongodb_cr",
-        "scram_sha_1"
-      ],
-      "UpdateRequires": "No interruption"
+        "none",
+        "one"
+      ]
     },
-    "AuthSource": {
+    "Username": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
@@ -18,18 +17,38 @@
     "AuthType": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "no",
         "password"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "DatabaseName": {
+    "Password": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
+    "ServerName": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "AuthMechanism": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "default",
+        "mongodb_cr",
+        "scram_sha_1"
+      ]
+    },
     "DocsToInvestigate": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "DatabaseName": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
@@ -39,16 +58,7 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "NestingLevel": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "none",
-        "one"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "Password": {
+    "AuthSource": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
@@ -56,16 +66,6 @@
     "Port": {
       "Required": "No",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "ServerName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "Username": {
-      "Required": "No",
-      "Type": "String",
       "UpdateRequires": "No interruption"
     }
   }

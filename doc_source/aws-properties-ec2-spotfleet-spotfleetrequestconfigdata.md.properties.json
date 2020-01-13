@@ -1,42 +1,43 @@
 {
   "aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-properties": {
-    "AllocationStrategy": {
+    "Type": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
-        "diversified",
-        "lowestPrice"
-      ],
+        "instant",
+        "maintain",
+        "request"
+      ]
+    },
+    "ValidUntil": {},
+    "LaunchTemplateConfigs": {
+      "Required": "Conditional",
+      "Type": "List of [LaunchTemplateConfig",
       "UpdateRequires": "Replacement"
     },
-    "ExcessCapacityTerminationPolicy": {
+    "TerminateInstancesWithExpiration": {
       "Required": "No",
-      "Type": "String",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
-        "default",
-        "noTermination"
-      ],
-      "UpdateRequires": "No interruption"
+        "True",
+        "False"
+      ]
     },
-    "IamFleetRole": {},
     "InstanceInterruptionBehavior": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "hibernate",
         "stop",
         "terminate"
-      ],
-      "UpdateRequires": "Replacement"
+      ]
     },
     "LaunchSpecifications": {
       "Required": "Conditional",
       "Type": "List of [SpotFleetLaunchSpecification",
-      "UpdateRequires": "Replacement"
-    },
-    "LaunchTemplateConfigs": {
-      "Required": "Conditional",
-      "Type": "List of [LaunchTemplateConfig",
       "UpdateRequires": "Replacement"
     },
     "LoadBalancersConfig": {
@@ -44,45 +45,44 @@
       "Type": "LoadBalancersConfig",
       "UpdateRequires": "Replacement"
     },
+    "IamFleetRole": {},
+    "TargetCapacity": {
+      "Required": "Yes",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "ValidFrom": {},
+    "ExcessCapacityTerminationPolicy": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "default",
+        "noTermination"
+      ]
+    },
     "ReplaceUnhealthyInstances": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Replacement"
+      ]
     },
     "SpotPrice": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "TargetCapacity": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "TerminateInstancesWithExpiration": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Replacement"
-    },
-    "Type": {
+    "AllocationStrategy": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
-        "instant",
-        "maintain",
-        "request"
-      ],
-      "UpdateRequires": "Replacement"
-    },
-    "ValidFrom": {},
-    "ValidUntil": {}
+        "diversified",
+        "lowestPrice"
+      ]
+    }
   }
 }

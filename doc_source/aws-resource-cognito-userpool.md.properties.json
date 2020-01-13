@@ -1,68 +1,26 @@
 {
   "cognito-userpool-properties": {
-    "AdminCreateUserConfig": {
-      "Required": "No",
-      "Type": "AdminCreateUserConfig",
-      "UpdateRequires": "No interruption"
-    },
     "AliasAttributes": {},
-    "AutoVerifiedAttributes": {},
-    "DeviceConfiguration": {
+    "EmailVerificationSubject": {
+      "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
       "Required": "No",
-      "Type": "DeviceConfiguration",
-      "UpdateRequires": "No interruption"
+      "Maximum": "140",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "MfaConfiguration": {},
+    "SmsAuthenticationMessage": {
+      "Pattern": ".*\\{####\\}.*",
+      "Required": "No",
+      "Maximum": "140",
+      "UpdateRequires": "No interruption",
+      "Minimum": "6",
+      "Type": "String"
     },
     "EmailConfiguration": {
       "Required": "No",
       "Type": "EmailConfiguration",
-      "UpdateRequires": "No interruption"
-    },
-    "EmailVerificationMessage": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "6",
-      "Maximum": "20000",
-      "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{####\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
-      "UpdateRequires": "No interruption"
-    },
-    "EmailVerificationSubject": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "140",
-      "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
-      "UpdateRequires": "No interruption"
-    },
-    "LambdaConfig": {
-      "Required": "No",
-      "Type": "LambdaConfig",
-      "UpdateRequires": "No interruption"
-    },
-    "MfaConfiguration": {},
-    "OFF": {},
-    "ON": {},
-    "OPTIONAL": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "Policies": {
-      "Required": "No",
-      "Type": "Policies",
-      "UpdateRequires": "No interruption"
-    },
-    "Schema": {
-      "Required": "No",
-      "Type": "List of [SchemaAttribute",
-      "Maximum": "50",
-      "UpdateRequires": "Replacement"
-    },
-    "SmsAuthenticationMessage": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "6",
-      "Maximum": "140",
-      "Pattern": ".*\\{####\\}.*",
       "UpdateRequires": "No interruption"
     },
     "SmsConfiguration": {
@@ -70,41 +28,88 @@
       "Type": "SmsConfiguration",
       "UpdateRequires": "No interruption"
     },
-    "SmsVerificationMessage": {
+    "AutoVerifiedAttributes": {},
+    "Schema": {
       "Required": "No",
-      "Type": "String",
-      "Minimum": "6",
-      "Maximum": "140",
-      "Pattern": ".*\\{####\\}.*",
-      "UpdateRequires": "No interruption"
-    },
-    "UsernameAttributes": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "Replacement"
-    },
-    "UserPoolAddOns": {
-      "Required": "No",
-      "Type": "UserPoolAddOns",
-      "UpdateRequires": "No interruption"
-    },
-    "UserPoolName": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "128",
-      "Pattern": "[\\w\\s+=,.@-]+",
-      "UpdateRequires": "Replacement"
-    },
-    "UserPoolTags": {
-      "Required": "No",
-      "Type": "Json",
+      "Type": "List of [SchemaAttribute",
+      "Maximum": "50",
       "UpdateRequires": "No interruption"
     },
     "VerificationMessageTemplate": {
       "Required": "No",
       "Type": "VerificationMessageTemplate",
       "UpdateRequires": "No interruption"
+    },
+    "AdminCreateUserConfig": {
+      "Required": "No",
+      "Type": "AdminCreateUserConfig",
+      "UpdateRequires": "No interruption"
+    },
+    "UserPoolAddOns": {
+      "Required": "No",
+      "Type": "UserPoolAddOns",
+      "UpdateRequires": "No interruption"
+    },
+    "EnabledMfas": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "UsernameAttributes": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "LambdaConfig": {
+      "Required": "No",
+      "Type": "LambdaConfig",
+      "UpdateRequires": "No interruption"
+    },
+    "UserPoolName": {
+      "Pattern": "[\\w\\s+=,.@-]+",
+      "Required": "No",
+      "Maximum": "128",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "OFF": {},
+    "SmsVerificationMessage": {
+      "Pattern": ".*\\{####\\}.*",
+      "Required": "No",
+      "Maximum": "140",
+      "UpdateRequires": "No interruption",
+      "Minimum": "6",
+      "Type": "String"
+    },
+    "Policies": {
+      "Required": "No",
+      "Type": "Policies",
+      "UpdateRequires": "No interruption"
+    },
+    "UserPoolTags": {
+      "Required": "No",
+      "Type": "Json",
+      "UpdateRequires": "No interruption"
+    },
+    "DeviceConfiguration": {
+      "Required": "No",
+      "Type": "DeviceConfiguration",
+      "UpdateRequires": "No interruption"
+    },
+    "OPTIONAL": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "ON": {},
+    "EmailVerificationMessage": {
+      "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{####\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
+      "Required": "No",
+      "Maximum": "20000",
+      "UpdateRequires": "No interruption",
+      "Minimum": "6",
+      "Type": "String"
     }
   }
 }

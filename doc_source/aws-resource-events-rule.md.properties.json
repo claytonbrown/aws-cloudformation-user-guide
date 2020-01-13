@@ -1,42 +1,47 @@
 {
   "events-rule-properties": {
+    "ScheduleExpression": {
+      "Required": "Conditional",
+      "Type": "String",
+      "Maximum": "256",
+      "UpdateRequires": "No interruption"
+    },
     "Description": {
       "Required": "No",
       "Type": "String",
       "Maximum": "512",
       "UpdateRequires": "No interruption"
     },
-    "EventPattern": {},
-    "Name": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "64",
-      "Pattern": "[\\.\\-_A-Za-z0-9]+",
-      "UpdateRequires": "Replacement"
-    },
     "RoleArn": {
+      "Minimum": "1",
       "Required": "No",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "1600",
       "UpdateRequires": "No interruption"
     },
-    "ScheduleExpression": {
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "256",
+    "\"EventPattern\": { \"source\": [ \"aws.ec2\" ], \"detail-type\": [ \"EC2 Instance State-change Notification\" ] }": {
+      "Required": "Conditional",
+      "Type": "Json",
       "UpdateRequires": "No interruption"
     },
+    "Targets": {},
     "State": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "DISABLED",
         "ENABLED"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "Targets": {}
+    "EventPattern": {},
+    "Name": {
+      "Pattern": "[\\.\\-_A-Za-z0-9]+",
+      "Required": "No",
+      "Maximum": "64",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
+    }
   }
 }

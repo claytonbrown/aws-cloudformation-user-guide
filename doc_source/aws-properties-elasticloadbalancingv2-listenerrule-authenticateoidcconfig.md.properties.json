@@ -1,13 +1,18 @@
 {
   "aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-properties": {
+    "ClientSecret": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "TokenEndpoint": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
     "AuthenticationRequestExtraParams": {
       "Required": "No",
       "Type": "Map of String",
-      "UpdateRequires": "No interruption"
-    },
-    "AuthorizationEndpoint": {
-      "Required": "Yes",
-      "Type": "String",
       "UpdateRequires": "No interruption"
     },
     "ClientId": {
@@ -15,24 +20,14 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "ClientSecret": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "Issuer": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "OnUnauthenticatedRequest": {
+    "SessionTimeout": {
       "Required": "No",
+      "Type": "Long",
+      "UpdateRequires": "No interruption"
+    },
+    "AuthorizationEndpoint": {
+      "Required": "Yes",
       "Type": "String",
-      "AllowedValues": [
-        "allow",
-        "authenticate",
-        "deny"
-      ],
       "UpdateRequires": "No interruption"
     },
     "Scope": {
@@ -45,17 +40,22 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "SessionTimeout": {
-      "Required": "No",
-      "Type": "Long",
-      "UpdateRequires": "No interruption"
-    },
-    "TokenEndpoint": {
+    "UserInfoEndpoint": {
       "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "UserInfoEndpoint": {
+    "OnUnauthenticatedRequest": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "allow",
+        "authenticate",
+        "deny"
+      ]
+    },
+    "Issuer": {
       "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "No interruption"

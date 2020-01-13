@@ -1,61 +1,31 @@
 {
   "elasticloadbalancingv2-targetgroup-properties": {
-    "HealthCheckEnabled": {
+    "HealthyThresholdCount": {
+      "Minimum": "2",
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+      "Type": "Integer",
+      "Maximum": "10",
       "UpdateRequires": "No interruption"
     },
     "HealthCheckIntervalSeconds": {
+      "Minimum": "5",
       "Required": "No",
       "Type": "Integer",
-      "Minimum": "5",
       "Maximum": "300",
       "UpdateRequires": "No interruption"
     },
-    "HealthCheckPath": {
+    "HealthCheckEnabled": {
       "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "1024",
-      "UpdateRequires": "No interruption"
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
     "HealthCheckPort": {
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "HealthCheckProtocol": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "HTTP",
-        "HTTPS",
-        "TCP",
-        "TLS"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "HealthCheckTimeoutSeconds": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "2",
-      "Maximum": "120",
-      "UpdateRequires": "No interruption"
-    },
-    "HealthyThresholdCount": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "2",
-      "Maximum": "10",
-      "UpdateRequires": "No interruption"
-    },
-    "Matcher": {
-      "Required": "No",
-      "Type": "Matcher",
       "UpdateRequires": "No interruption"
     },
     "Name": {
@@ -63,27 +33,61 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "Port": {
+    "UnhealthyThresholdCount": {
+      "Minimum": "2",
       "Required": "No",
       "Type": "Integer",
-      "Minimum": "1",
-      "Maximum": "65535",
-      "UpdateRequires": "Replacement"
+      "Maximum": "10",
+      "UpdateRequires": "No interruption"
     },
-    "Protocol": {
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "No interruption"
+    },
+    "TargetType": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "instance",
+        "ip",
+        "lambda"
+      ]
+    },
+    "HealthCheckProtocol": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "HTTP",
         "HTTPS",
         "TCP",
         "TLS"
-      ],
+      ]
+    },
+    "Targets": {
+      "Required": "No",
+      "Type": "List of [TargetDescription",
+      "UpdateRequires": "No interruption"
+    },
+    "HealthCheckPath": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "1024",
+      "UpdateRequires": "No interruption"
+    },
+    "VpcId": {
+      "Required": "No",
+      "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "Tags": {
+    "HealthCheckTimeoutSeconds": {
+      "Minimum": "2",
       "Required": "No",
-      "Type": "List of [Tag",
+      "Type": "Integer",
+      "Maximum": "120",
       "UpdateRequires": "No interruption"
     },
     "TargetGroupAttributes": {
@@ -91,31 +95,27 @@
       "Type": "List of [TargetGroupAttribute",
       "UpdateRequires": "No interruption"
     },
-    "TargetType": {
+    "Matcher": {
       "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "instance",
-        "ip",
-        "lambda"
-      ],
-      "UpdateRequires": "Replacement"
-    },
-    "Targets": {
-      "Required": "No",
-      "Type": "List of [TargetDescription",
+      "Type": "Matcher",
       "UpdateRequires": "No interruption"
     },
-    "UnhealthyThresholdCount": {
+    "Protocol": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "HTTP",
+        "HTTPS",
+        "TCP",
+        "TLS"
+      ]
+    },
+    "Port": {
+      "Minimum": "1",
       "Required": "No",
       "Type": "Integer",
-      "Minimum": "2",
-      "Maximum": "10",
-      "UpdateRequires": "No interruption"
-    },
-    "VpcId": {
-      "Required": "No",
-      "Type": "String",
+      "Maximum": "65535",
       "UpdateRequires": "Replacement"
     }
   }

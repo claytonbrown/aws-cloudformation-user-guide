@@ -1,13 +1,19 @@
 {
   "aws-properties-cloudfront-distribution-defaultcachebehavior-properties": {
-    "AllowedMethods": {
+    "ViewerProtocolPolicy": {},
+    "TrustedSigners": {},
+    "SmoothStreaming": {
       "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
-    "CachedMethods": {
-      "Required": "No",
-      "Type": "List of String",
+    "TargetOriginId": {
+      "Required": "Yes",
+      "Type": "String",
       "UpdateRequires": "No interruption"
     },
     "Compress": {
@@ -16,7 +22,6 @@
         "False"
       ]
     },
-    "DefaultTTL": {},
     "FieldLevelEncryptionId": {
       "Required": "No",
       "Type": "String",
@@ -27,28 +32,23 @@
       "Type": "ForwardedValues",
       "UpdateRequires": "No interruption"
     },
+    "MaxTTL": {},
     "LambdaFunctionAssociations": {
       "Required": "No",
       "Type": "List of [LambdaFunctionAssociation",
       "UpdateRequires": "No interruption"
     },
-    "MaxTTL": {},
-    "MinTTL": {},
-    "SmoothStreaming": {
+    "CachedMethods": {
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+      "Type": "List of String",
       "UpdateRequires": "No interruption"
     },
-    "TargetOriginId": {
-      "Required": "Yes",
-      "Type": "String",
+    "DefaultTTL": {},
+    "AllowedMethods": {
+      "Required": "No",
+      "Type": "List of String",
       "UpdateRequires": "No interruption"
     },
-    "TrustedSigners": {},
-    "ViewerProtocolPolicy": {}
+    "MinTTL": {}
   }
 }

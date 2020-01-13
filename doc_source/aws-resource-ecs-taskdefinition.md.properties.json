@@ -1,6 +1,24 @@
 {
   "ecs-taskdefinition-properties": {
-    "ContainerDefinitions": {},
+    "TaskRoleArn": {},
+    "NetworkMode": {},
+    "Family": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "Maximum": "50",
+      "UpdateRequires": "No interruption"
+    },
+    "IpcMode": {},
+    "PlacementConstraints": {
+      "Required": "No",
+      "Type": "List of [TaskDefinitionPlacementConstraint",
+      "UpdateRequires": "Replacement"
+    },
     "Cpu": {
       "Required": "No",
       "Type": "String",
@@ -11,37 +29,24 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "Family": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "IpcMode": {},
+    "ProxyConfiguration": {},
+    "Volumes": {},
     "Memory": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "NetworkMode": {},
-    "PidMode": {},
-    "PlacementConstraints": {
+    "InferenceAccelerators": {
       "Required": "No",
-      "Type": "List of [TaskDefinitionPlacementConstraint",
+      "Type": "List of [InferenceAccelerator",
       "UpdateRequires": "Replacement"
     },
-    "ProxyConfiguration": {},
+    "PidMode": {},
     "RequiresCompatibilities": {
       "Required": "No",
       "Type": "List of String",
       "UpdateRequires": "Replacement"
     },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "Maximum": "50",
-      "UpdateRequires": "No interruption"
-    },
-    "TaskRoleArn": {},
-    "Volumes": {}
+    "ContainerDefinitions": {}
   }
 }

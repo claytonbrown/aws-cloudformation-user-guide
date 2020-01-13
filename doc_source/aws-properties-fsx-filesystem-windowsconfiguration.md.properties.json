@@ -1,45 +1,44 @@
 {
   "aws-properties-fsx-filesystem-windowsconfiguration-properties": {
-    "ActiveDirectoryId": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "12",
-      "Maximum": "12",
-      "Pattern": "^d-[0-9a-f]{10}$",
-      "UpdateRequires": "Replacement"
-    },
-    "AutomaticBackupRetentionDays": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "0",
-      "Maximum": "35",
-      "UpdateRequires": "No interruption"
-    },
+    "ThroughputCapacity": {},
     "CopyTagsToBackups": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Replacement"
+      ]
+    },
+    "WeeklyMaintenanceStartTime": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "AutomaticBackupRetentionDays": {
+      "Minimum": "0",
+      "Required": "No",
+      "Type": "Integer",
+      "Maximum": "35",
+      "UpdateRequires": "No interruption"
+    },
+    "SelfManagedActiveDirectoryConfiguration": {
+      "Required": "No",
+      "Type": "SelfManagedActiveDirectoryConfiguration",
+      "UpdateRequires": "No interruption"
     },
     "DailyAutomaticBackupStartTime": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "ThroughputCapacity": {
+    "ActiveDirectoryId": {
+      "Pattern": "^d-[0-9a-f]{10}$",
       "Required": "No",
-      "Type": "Integer",
-      "Minimum": "8",
-      "Maximum": "2048",
-      "UpdateRequires": "Replacement"
-    },
-    "WeeklyMaintenanceStartTime": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
+      "Maximum": "12",
+      "UpdateRequires": "Replacement",
+      "Minimum": "12",
+      "Type": "String"
     }
   }
 }

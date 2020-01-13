@@ -1,19 +1,10 @@
 {
   "aws-properties-sagemaker-endpointconfig-productionvariant-properties": {
-    "AcceleratorType": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "ml.eia1.large",
-        "ml.eia1.medium",
-        "ml.eia1.xlarge"
-      ],
-      "UpdateRequires": "Replacement"
-    },
-    "InitialInstanceCount": {
+    "ModelName": {
+      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
       "Required": "Yes",
-      "Type": "Integer",
-      "Minimum": "1",
+      "Type": "String",
+      "Maximum": "63",
       "UpdateRequires": "Replacement"
     },
     "InitialVariantWeight": {
@@ -21,9 +12,33 @@
       "Type": "Double",
       "UpdateRequires": "Replacement"
     },
+    "VariantName": {
+      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+      "Required": "Yes",
+      "Type": "String",
+      "Maximum": "63",
+      "UpdateRequires": "Replacement"
+    },
+    "InitialInstanceCount": {
+      "Minimum": "1",
+      "Required": "Yes",
+      "Type": "Integer",
+      "UpdateRequires": "Replacement"
+    },
+    "AcceleratorType": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "ml.eia1.large",
+        "ml.eia1.medium",
+        "ml.eia1.xlarge"
+      ]
+    },
     "InstanceType": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "ml.c4.2xlarge",
         "ml.c4.4xlarge",
@@ -57,22 +72,7 @@
         "ml.t2.large",
         "ml.t2.medium",
         "ml.t2.xlarge"
-      ],
-      "UpdateRequires": "Replacement"
-    },
-    "ModelName": {
-      "Required": "Yes",
-      "Type": "String",
-      "Maximum": "63",
-      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-      "UpdateRequires": "Replacement"
-    },
-    "VariantName": {
-      "Required": "Yes",
-      "Type": "String",
-      "Maximum": "63",
-      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-      "UpdateRequires": "Replacement"
+      ]
     }
   }
 }

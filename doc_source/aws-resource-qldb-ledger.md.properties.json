@@ -2,28 +2,28 @@
   "qldb-ledger-properties": {
     "DeletionProtection": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "Name": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "32",
-      "Pattern": "(?!^.*--)(?!^[0-9]+$)(?!^-)(?!.*-$)^[A-Za-z0-9-]+$",
-      "UpdateRequires": "Replacement"
+      ]
     },
     "PermissionsMode": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "ALLOW_ALL"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
+    },
+    "Name": {
+      "Pattern": "(?!^.*--)(?!^[0-9]+$)(?!^-)(?!.*-$)^[A-Za-z0-9-]+$",
+      "Required": "No",
+      "Maximum": "32",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
     },
     "Tags": {
       "Required": "No",

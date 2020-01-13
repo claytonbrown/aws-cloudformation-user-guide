@@ -1,40 +1,40 @@
 {
   "cognito-userpoolgroup-properties": {
+    "UserPoolId": {
+      "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
+      "Required": "Yes",
+      "Maximum": "55",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "GroupName": {
+      "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+      "Required": "No",
+      "Maximum": "128",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "RoleArn": {
+      "Pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+      "Required": "No",
+      "Maximum": "2048",
+      "UpdateRequires": "No interruption",
+      "Minimum": "20",
+      "Type": "String"
+    },
     "Description": {
       "Required": "No",
       "Type": "String",
       "Maximum": "2048",
       "UpdateRequires": "No interruption"
     },
-    "GroupName": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "128",
-      "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
-      "UpdateRequires": "Replacement"
-    },
     "Precedence": {
+      "Minimum": "0",
       "Required": "No",
       "Type": "Double",
-      "Minimum": "0",
       "UpdateRequires": "No interruption"
-    },
-    "RoleArn": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "20",
-      "Maximum": "2048",
-      "Pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
-      "UpdateRequires": "No interruption"
-    },
-    "UserPoolId": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "55",
-      "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
-      "UpdateRequires": "Replacement"
     }
   }
 }

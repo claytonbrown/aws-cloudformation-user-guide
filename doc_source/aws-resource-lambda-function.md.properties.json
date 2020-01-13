@@ -1,5 +1,15 @@
 {
   "lambda-function-properties": {
+    "Layers": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "TracingConfig": {
+      "Required": "No",
+      "Type": "TracingConfig",
+      "UpdateRequires": "No interruption"
+    },
     "Code": {
       "Required": "Yes",
       "Type": "Code",
@@ -11,10 +21,39 @@
       "UpdateRequires": "No interruption"
     },
     "Description": {
+      "Minimum": "0",
       "Required": "No",
       "Type": "String",
-      "Minimum": "0",
       "Maximum": "256",
+      "UpdateRequires": "No interruption"
+    },
+    "VpcConfig": {
+      "Required": "No",
+      "Type": "VpcConfig",
+      "UpdateRequires": "No interruption"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "No interruption"
+    },
+    "KmsKeyArn": {
+      "Pattern": "(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()",
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "ReservedConcurrentExecutions": {
+      "Minimum": "0",
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "MemorySize": {
+      "Minimum": "128",
+      "Required": "No",
+      "Type": "Integer",
+      "Maximum": "3008",
       "UpdateRequires": "No interruption"
     },
     "Environment": {
@@ -22,54 +61,29 @@
       "Type": "Environment",
       "UpdateRequires": "No interruption"
     },
-    "FunctionName": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "140",
-      "Pattern": "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
-      "UpdateRequires": "Replacement"
-    },
     "Handler": {
+      "Pattern": "[^\\s]+",
       "Required": "Yes",
       "Type": "String",
       "Maximum": "128",
-      "Pattern": "[^\\s]+",
-      "UpdateRequires": "No interruption"
-    },
-    "KmsKeyArn": {
-      "Required": "No",
-      "Type": "String",
-      "Pattern": "(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()",
-      "UpdateRequires": "No interruption"
-    },
-    "Layers": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
-    },
-    "MemorySize": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "128",
-      "Maximum": "3008",
-      "UpdateRequires": "No interruption"
-    },
-    "ReservedConcurrentExecutions": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "0",
       "UpdateRequires": "No interruption"
     },
     "Role": {
+      "Pattern": "arn:(aws[a-zA-Z-]*)?:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+",
       "Required": "Yes",
       "Type": "String",
-      "Pattern": "arn:(aws[a-zA-Z-]*)?:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+",
+      "UpdateRequires": "No interruption"
+    },
+    "Timeout": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
     "Runtime": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "dotnetcore1.0",
         "dotnetcore2.1",
@@ -82,29 +96,15 @@
         "python3.6",
         "python3.7",
         "ruby2.5"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "Tags": {
+    "FunctionName": {
+      "Pattern": "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
       "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
-    },
-    "Timeout": {
-      "Required": "No",
-      "Type": "Integer",
+      "Maximum": "140",
+      "UpdateRequires": "Replacement",
       "Minimum": "1",
-      "UpdateRequires": "No interruption"
-    },
-    "TracingConfig": {
-      "Required": "No",
-      "Type": "TracingConfig",
-      "UpdateRequires": "No interruption"
-    },
-    "VpcConfig": {
-      "Required": "No",
-      "Type": "VpcConfig",
-      "UpdateRequires": "No interruption"
+      "Type": "String"
     }
   }
 }

@@ -3,6 +3,7 @@
     "Category": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "Approval",
         "Build",
@@ -10,14 +11,39 @@
         "Invoke",
         "Source",
         "Test"
-      ],
+      ]
+    },
+    "Settings": {
+      "Required": "No",
+      "Type": "Settings",
       "UpdateRequires": "Replacement"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "No interruption"
     },
     "ConfigurationProperties": {
       "Required": "No",
       "Type": "List",
       "Maximum": "10",
       "UpdateRequires": "Replacement"
+    },
+    "Version": {
+      "Pattern": "[0-9A-Za-z_-]+",
+      "Required": "Yes",
+      "Maximum": "9",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "Provider": {
+      "Pattern": "[0-9A-Za-z_-]+",
+      "Required": "Yes",
+      "Maximum": "25",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
     },
     "InputArtifactDetails": {
       "Required": "Yes",
@@ -27,27 +53,6 @@
     "OutputArtifactDetails": {
       "Required": "Yes",
       "Type": "ArtifactDetails",
-      "UpdateRequires": "Replacement"
-    },
-    "Provider": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "25",
-      "Pattern": "[0-9A-Za-z_-]+",
-      "UpdateRequires": "Replacement"
-    },
-    "Settings": {
-      "Required": "No",
-      "Type": "Settings",
-      "UpdateRequires": "Replacement"
-    },
-    "Version": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "9",
-      "Pattern": "[0-9A-Za-z_-]+",
       "UpdateRequires": "Replacement"
     }
   }

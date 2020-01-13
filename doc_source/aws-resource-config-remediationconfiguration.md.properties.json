@@ -1,31 +1,17 @@
 {
   "config-remediationconfiguration-properties": {
-    "Automatic": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "ConfigRuleName": {
+    "TargetType": {
       "Required": "Yes",
       "Type": "String",
-      "Minimum": "1",
-      "Maximum": "128",
-      "Pattern": ".*\\S.*",
-      "UpdateRequires": "Replacement"
-    },
-    "ExecutionControls": {
-      "Required": "No",
-      "Type": "ExecutionControls",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "SSM_DOCUMENT"
+      ]
     },
     "MaximumAutomaticAttempts": {
+      "Minimum": "1",
       "Required": "No",
       "Type": "Integer",
-      "Minimum": "1",
       "Maximum": "25",
       "UpdateRequires": "No interruption"
     },
@@ -34,9 +20,29 @@
       "Type": "Json",
       "UpdateRequires": "No interruption"
     },
+    "ConfigRuleName": {
+      "Pattern": ".*\\S.*",
+      "Required": "Yes",
+      "Maximum": "128",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
+    },
     "ResourceType": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "ExecutionControls": {
+      "Required": "No",
+      "Type": "ExecutionControls",
+      "UpdateRequires": "No interruption"
+    },
+    "TargetId": {
+      "Minimum": "1",
+      "Required": "Yes",
+      "Type": "String",
+      "Maximum": "256",
       "UpdateRequires": "No interruption"
     },
     "RetryAttemptSeconds": {
@@ -44,20 +50,14 @@
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
-    "TargetId": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "256",
-      "UpdateRequires": "No interruption"
-    },
-    "TargetType": {
-      "Required": "Yes",
-      "Type": "String",
+    "Automatic": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
-        "SSM_DOCUMENT"
-      ],
-      "UpdateRequires": "No interruption"
+        "True",
+        "False"
+      ]
     },
     "TargetVersion": {
       "Required": "No",

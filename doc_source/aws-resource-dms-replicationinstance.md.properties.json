@@ -1,68 +1,73 @@
 {
   "dms-replicationinstance-properties": {
-    "AllocatedStorage": {
+    "MultiAZ": {
       "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "AllowMajorVersionUpgrade": {
-      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "AutoMinorVersionUpgrade": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
+      ]
     },
     "AvailabilityZone": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "EngineVersion": {
+    "PubliclyAccessible": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "AllowMajorVersionUpgrade": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "Replacement"
+    },
+    "ReplicationInstanceClass": {
+      "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "No interruption"
+    },
+    "VpcSecurityGroupIds": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "AutoMinorVersionUpgrade": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
     "KmsKeyId": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "MultiAZ": {
+    "AllocatedStorage": {
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
-    "PreferredMaintenanceWindow": {
+    "EngineVersion": {
       "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "PubliclyAccessible": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Replacement"
-    },
-    "ReplicationInstanceClass": {
-      "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
@@ -71,20 +76,15 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
+    "PreferredMaintenanceWindow": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
     "ReplicationSubnetGroupIdentifier": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "Replacement"
-    },
-    "VpcSecurityGroupIds": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
     }
   }
 }

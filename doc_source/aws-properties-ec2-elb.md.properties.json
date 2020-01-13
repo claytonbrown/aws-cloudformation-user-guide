@@ -1,43 +1,63 @@
 {
   "aws-properties-ec2-elb-properties": {
-    "AccessLoggingPolicy": {
-      "Required": "No",
-      "Type": "AccessLoggingPolicy",
-      "UpdateRequires": "No interruption"
-    },
     "AppCookieStickinessPolicy": {
       "Required": "No",
       "Type": "List",
       "UpdateRequires": "No interruption"
     },
-    "AvailabilityZones": {
+    "ConnectionDrainingPolicy": {},
+    "Scheme": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "AccessLoggingPolicy": {
+      "Required": "No",
+      "Type": "AccessLoggingPolicy",
+      "UpdateRequires": "No interruption"
+    },
+    "Subnets": {
       "Required": "No",
       "Type": "List of String"
-    },
-    "ConnectionDrainingPolicy": {},
-    "ConnectionSettings": {},
-    "CrossZone": {
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
     },
     "HealthCheck": {
       "Required": "No",
       "Type": "HealthCheck"
-    },
-    "Instances": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
     },
     "LBCookieStickinessPolicy": {
       "Required": "No",
       "Type": "List",
       "UpdateRequires": "No interruption"
     },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "No interruption"
+    },
+    "Instances": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
     "Listeners": {
       "Required": "Yes",
+      "Type": "List",
+      "UpdateRequires": "No interruption"
+    },
+    "CrossZone": {
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "SecurityGroups": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "ConnectionSettings": {},
+    "Policies": {
+      "Required": "No",
       "Type": "List",
       "UpdateRequires": "No interruption"
     },
@@ -46,29 +66,9 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "Policies": {
-      "Required": "No",
-      "Type": "List",
-      "UpdateRequires": "No interruption"
-    },
-    "Scheme": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "SecurityGroups": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
-    },
-    "Subnets": {
+    "AvailabilityZones": {
       "Required": "No",
       "Type": "List of String"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
     }
   }
 }

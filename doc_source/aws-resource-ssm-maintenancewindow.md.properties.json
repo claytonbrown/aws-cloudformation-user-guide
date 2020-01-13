@@ -1,33 +1,10 @@
 {
   "ssm-maintenancewindow-properties": {
-    "AllowUnassociatedTargets": {
-      "Required": "Yes",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
     "Cutoff": {
-      "Required": "Yes",
-      "Type": "Integer",
       "Minimum": "0",
-      "Maximum": "23",
-      "UpdateRequires": "No interruption"
-    },
-    "Description": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "128",
-      "UpdateRequires": "No interruption"
-    },
-    "Duration": {
       "Required": "Yes",
       "Type": "Integer",
-      "Minimum": "1",
-      "Maximum": "24",
+      "Maximum": "23",
       "UpdateRequires": "No interruption"
     },
     "EndDate": {
@@ -35,29 +12,18 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "Name": {
-      "Required": "Yes",
+    "Description": {
+      "Minimum": "1",
+      "Required": "No",
       "Type": "String",
-      "Minimum": "3",
       "Maximum": "128",
-      "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
       "UpdateRequires": "No interruption"
     },
     "Schedule": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "256",
-      "UpdateRequires": "No interruption"
-    },
-    "ScheduleTimezone": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "StartDate": {
-      "Required": "No",
-      "Type": "String",
       "UpdateRequires": "No interruption"
     },
     "Tags": {
@@ -65,6 +31,40 @@
       "Type": "List of [Tag",
       "Maximum": "1000",
       "UpdateRequires": "No interruption"
+    },
+    "ScheduleTimezone": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "AllowUnassociatedTargets": {
+      "Required": "Yes",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "Duration": {
+      "Minimum": "1",
+      "Required": "Yes",
+      "Type": "Integer",
+      "Maximum": "24",
+      "UpdateRequires": "No interruption"
+    },
+    "StartDate": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "Name": {
+      "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+      "Required": "Yes",
+      "Maximum": "128",
+      "UpdateRequires": "No interruption",
+      "Minimum": "3",
+      "Type": "String"
     }
   }
 }

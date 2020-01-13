@@ -1,22 +1,28 @@
 {
   "aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-properties": {
-    "BlockDeviceMappings": {
+    "WeightedCapacity": {
       "Required": "No",
-      "Type": "List of [BlockDeviceMapping",
+      "Type": "Double",
       "UpdateRequires": "No interruption"
     },
-    "EbsOptimized": {
+    "UserData": {
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+      "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "IamInstanceProfile": {
+    "SubnetId": {
       "Required": "No",
-      "Type": "IamInstanceProfileSpecification",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "Monitoring": {
+      "Required": "No",
+      "Type": "SpotFleetMonitoring",
+      "UpdateRequires": "No interruption"
+    },
+    "TagSpecifications": {
+      "Required": "No",
+      "Type": "List of [SpotFleetTagSpecification",
       "UpdateRequires": "No interruption"
     },
     "ImageId": {
@@ -24,9 +30,54 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
+    "KeyName": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "BlockDeviceMappings": {
+      "Required": "No",
+      "Type": "List of [BlockDeviceMapping",
+      "UpdateRequires": "No interruption"
+    },
+    "EbsOptimized": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "SecurityGroups": {
+      "Required": "No",
+      "Type": "List of [GroupIdentifier",
+      "UpdateRequires": "No interruption"
+    },
+    "RamdiskId": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "KernelId": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "Placement": {
+      "Required": "No",
+      "Type": "SpotPlacement",
+      "UpdateRequires": "No interruption"
+    },
+    "IamInstanceProfile": {
+      "Required": "No",
+      "Type": "IamInstanceProfileSpecification",
+      "UpdateRequires": "No interruption"
+    },
     "InstanceType": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "a1.2xlarge",
         "a1.4xlarge",
@@ -228,67 +279,16 @@
         "z1d.large",
         "z1d.metal",
         "z1d.xlarge"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "KernelId": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "KeyName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "Monitoring": {
-      "Required": "No",
-      "Type": "SpotFleetMonitoring",
-      "UpdateRequires": "No interruption"
-    },
-    "NetworkInterfaces": {
-      "Required": "No",
-      "Type": "List of [InstanceNetworkInterfaceSpecification",
-      "UpdateRequires": "No interruption"
-    },
-    "Placement": {
-      "Required": "No",
-      "Type": "SpotPlacement",
-      "UpdateRequires": "No interruption"
-    },
-    "RamdiskId": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "SecurityGroups": {
-      "Required": "No",
-      "Type": "List of [GroupIdentifier",
-      "UpdateRequires": "No interruption"
+      ]
     },
     "SpotPrice": {
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "SubnetId": {
+    "NetworkInterfaces": {
       "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "TagSpecifications": {
-      "Required": "No",
-      "Type": "List of [SpotFleetTagSpecification",
-      "UpdateRequires": "No interruption"
-    },
-    "UserData": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "WeightedCapacity": {
-      "Required": "No",
-      "Type": "Double",
+      "Type": "List of [InstanceNetworkInterfaceSpecification",
       "UpdateRequires": "No interruption"
     }
   }

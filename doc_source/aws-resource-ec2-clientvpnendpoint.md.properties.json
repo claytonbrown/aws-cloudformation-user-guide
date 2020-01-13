@@ -1,5 +1,34 @@
 {
   "ec2-clientvpnendpoint-properties": {
+    "ServerCertificateArn": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "Description": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "TransportProtocol": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "tcp",
+        "udp"
+      ]
+    },
+    "TagSpecifications": {
+      "Required": "No",
+      "Type": "List of [TagSpecification",
+      "UpdateRequires": "Replacement"
+    },
+    "ConnectionLogOptions": {
+      "Required": "Yes",
+      "Type": "ConnectionLogOptions",
+      "UpdateRequires": "No interruption"
+    },
     "AuthenticationOptions": {
       "Required": "Yes",
       "Type": "List of [ClientAuthenticationRequest",
@@ -10,39 +39,10 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "ConnectionLogOptions": {
-      "Required": "Yes",
-      "Type": "ConnectionLogOptions",
-      "UpdateRequires": "No interruption"
-    },
-    "Description": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
     "DnsServers": {
       "Required": "No",
       "Type": "List of String",
       "UpdateRequires": "No interruption"
-    },
-    "ServerCertificateArn": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "TagSpecifications": {
-      "Required": "No",
-      "Type": "List of [TagSpecification",
-      "UpdateRequires": "Replacement"
-    },
-    "TransportProtocol": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "tcp",
-        "udp"
-      ],
-      "UpdateRequires": "Replacement"
     }
   }
 }

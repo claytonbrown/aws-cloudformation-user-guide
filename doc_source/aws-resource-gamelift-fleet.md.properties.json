@@ -1,28 +1,41 @@
 {
   "gamelift-fleet-properties": {
-    "BuildId": {
-      "Required": "Yes",
-      "Type": "String",
-      "Pattern": "^build-\\S+",
-      "UpdateRequires": "Replacement"
-    },
-    "Description": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "1024",
-      "UpdateRequires": "No interruption"
-    },
-    "DesiredEC2Instances": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "Minimum": "0",
-      "UpdateRequires": "No interruption"
-    },
     "EC2InboundPermissions": {
       "Required": "No",
       "Type": "List of [IpPermission",
       "Maximum": "50",
+      "UpdateRequires": "No interruption"
+    },
+    "Description": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "1024",
+      "UpdateRequires": "No interruption"
+    },
+    "BuildId": {
+      "Pattern": "^build-\\S+",
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "MinSize": {
+      "Minimum": "0",
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "ServerLaunchPath": {
+      "Minimum": "1",
+      "Required": "Yes",
+      "Type": "String",
+      "Maximum": "1024",
+      "UpdateRequires": "Replacement"
+    },
+    "MaxSize": {
+      "Minimum": "0",
+      "Required": "No",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
     "EC2InstanceType": {},
@@ -31,38 +44,25 @@
       "Type": "List of String",
       "UpdateRequires": "Replacement"
     },
-    "MaxSize": {
-      "Required": "No",
-      "Type": "Integer",
+    "DesiredEC2Instances": {
       "Minimum": "0",
-      "UpdateRequires": "No interruption"
-    },
-    "MinSize": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "0",
-      "UpdateRequires": "No interruption"
-    },
-    "Name": {
       "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "1024",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
     "ServerLaunchParameters": {
+      "Minimum": "1",
       "Required": "No",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "1024",
       "UpdateRequires": "Replacement"
     },
-    "ServerLaunchPath": {
+    "Name": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "1024",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "No interruption"
     }
   }
 }

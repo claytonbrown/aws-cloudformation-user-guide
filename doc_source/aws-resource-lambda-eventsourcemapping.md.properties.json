@@ -1,33 +1,33 @@
 {
   "lambda-eventsourcemapping-properties": {
-    "BatchSize": {},
-    "Enabled": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "EventSourceArn": {},
-    "FunctionName": {},
     "MaximumBatchingWindowInSeconds": {
+      "Minimum": "0",
       "Required": "No",
       "Type": "Integer",
-      "Minimum": "0",
       "Maximum": "300",
       "UpdateRequires": "No interruption"
     },
+    "FunctionName": {},
+    "BatchSize": {},
+    "Enabled": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "EventSourceArn": {},
     "StartingPosition": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "AT_TIMESTAMP",
         "LATEST",
         "TRIM_HORIZON"
-      ],
-      "UpdateRequires": "Replacement"
+      ]
     }
   }
 }

@@ -2,33 +2,33 @@
   "aws-properties-kinesisanalyticsv2-application-parallelismconfiguration-properties": {
     "AutoScalingEnabled": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
+      ]
+    },
+    "Parallelism": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "ParallelismPerKPU": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
     "ConfigurationType": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "CUSTOM",
         "DEFAULT"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "Parallelism": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "1",
-      "UpdateRequires": "No interruption"
-    },
-    "ParallelismPerKPU": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "1",
-      "UpdateRequires": "No interruption"
+      ]
     }
   }
 }

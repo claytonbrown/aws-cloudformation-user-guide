@@ -1,5 +1,21 @@
 {
   "aws-properties-budgets-budget-budgetdata-properties": {
+    "BudgetType": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "COST",
+        "RI_COVERAGE",
+        "RI_UTILIZATION",
+        "USAGE"
+      ]
+    },
+    "PlannedBudgetLimits": {
+      "Required": "No",
+      "Type": "Json",
+      "UpdateRequires": "Replacement"
+    },
     "BudgetLimit": {
       "Required": "No",
       "Type": "Spend",
@@ -10,41 +26,30 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "BudgetType": {
-      "Required": "Yes",
-      "Type": "String",
-      "AllowedValues": [
-        "COST",
-        "RI_COVERAGE",
-        "RI_UTILIZATION",
-        "USAGE"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "CostFilters": {
-      "Required": "No",
-      "Type": "Json",
-      "UpdateRequires": "No interruption"
-    },
     "CostTypes": {
       "Required": "No",
       "Type": "CostTypes",
       "UpdateRequires": "No interruption"
+    },
+    "TimeUnit": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "ANNUALLY",
+        "DAILY",
+        "MONTHLY",
+        "QUARTERLY"
+      ]
     },
     "TimePeriod": {
       "Required": "No",
       "Type": "TimePeriod",
       "UpdateRequires": "No interruption"
     },
-    "TimeUnit": {
-      "Required": "Yes",
-      "Type": "String",
-      "AllowedValues": [
-        "ANNUALLY",
-        "DAILY",
-        "MONTHLY",
-        "QUARTERLY"
-      ],
+    "CostFilters": {
+      "Required": "No",
+      "Type": "Json",
       "UpdateRequires": "No interruption"
     }
   }

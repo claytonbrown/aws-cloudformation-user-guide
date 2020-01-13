@@ -2,11 +2,22 @@
   "aws-properties-dlm-lifecyclepolicy-schedule-properties": {
     "CopyTags": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
+      ]
+    },
+    "TagsToAdd": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "Maximum": "50",
+      "UpdateRequires": "No interruption"
+    },
+    "RetainRule": {
+      "Required": "No",
+      "Type": "RetainRule",
       "UpdateRequires": "No interruption"
     },
     "CreateRule": {
@@ -15,21 +26,10 @@
       "UpdateRequires": "No interruption"
     },
     "Name": {
+      "Minimum": "0",
       "Required": "No",
       "Type": "String",
-      "Minimum": "0",
       "Maximum": "500",
-      "UpdateRequires": "No interruption"
-    },
-    "RetainRule": {
-      "Required": "No",
-      "Type": "RetainRule",
-      "UpdateRequires": "No interruption"
-    },
-    "TagsToAdd": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "Maximum": "50",
       "UpdateRequires": "No interruption"
     }
   }

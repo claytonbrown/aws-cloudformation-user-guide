@@ -1,13 +1,5 @@
 {
   "sagemaker-workteam-properties": {
-    "Description": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "200",
-      "Pattern": ".+",
-      "UpdateRequires": "No interruption"
-    },
     "MemberDefinitions": {
       "Required": "No",
       "Type": "List of [MemberDefinition",
@@ -19,14 +11,22 @@
       "Type": "NotificationConfiguration",
       "UpdateRequires": "No interruption"
     },
-    "Tags": {},
-    "WorkteamName": {
+    "Description": {
+      "Pattern": ".+",
       "Required": "No",
-      "Type": "String",
+      "Maximum": "200",
+      "UpdateRequires": "No interruption",
       "Minimum": "1",
-      "Maximum": "63",
+      "Type": "String"
+    },
+    "WorkteamName": {
       "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-      "UpdateRequires": "Replacement"
-    }
+      "Required": "No",
+      "Maximum": "63",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "Tags": {}
   }
 }

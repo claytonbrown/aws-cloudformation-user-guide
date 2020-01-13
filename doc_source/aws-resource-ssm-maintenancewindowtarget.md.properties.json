@@ -1,49 +1,49 @@
 {
   "ssm-maintenancewindowtarget-properties": {
     "Description": {
-      "Required": "No",
-      "Type": "String",
       "Minimum": "1",
-      "Maximum": "128",
-      "UpdateRequires": "No interruption"
-    },
-    "Name": {
       "Required": "No",
       "Type": "String",
-      "Minimum": "3",
-      "Maximum": "128",
-      "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
-      "UpdateRequires": "No interruption"
-    },
-    "OwnerInformation": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
       "Maximum": "128",
       "UpdateRequires": "No interruption"
     },
     "ResourceType": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "INSTANCE"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "Targets": {
-      "Targets`  <a name=\"cfn-ssm-maintenancewindowtarget-targets\"></a>\nThe targets to register with the maintenance window\\. In other words, the instances to run commands on when the maintenance window runs\\.  \nYou can specify targets using either instance IDs or tags that have been applied to instances\\.  \n **Example 1*": "Specify instance IDs  \n `Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3 `   \n **Example 2*",
-      "Required": "Yes",
-      "Type": "List",
-      "Maximum": "5",
+    "OwnerInformation": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "128",
       "UpdateRequires": "No interruption"
     },
     "WindowId": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "20",
-      "Maximum": "20",
       "Pattern": "^mw-[0-9a-f]{17}$",
-      "UpdateRequires": "Replacement"
+      "Required": "Yes",
+      "Maximum": "20",
+      "UpdateRequires": "Replacement",
+      "Minimum": "20",
+      "Type": "String"
+    },
+    "Targets": {
+      "UpdateRequires": "No interruption",
+      "Required": "Yes",
+      "Type": "List",
+      "Maximum": "5",
+      "Targets`  <a name=\"cfn-ssm-maintenancewindowtarget-targets\"></a>\nThe targets to register with the maintenance window\\. In other words, the instances to run commands on when the maintenance window runs\\.  \nYou can specify targets using either instance IDs or tags that have been applied to instances\\.  \n **Example 1*": "Specify instance IDs  \n `Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3 `   \n **Example 2*"
+    },
+    "Name": {
+      "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+      "Required": "No",
+      "Maximum": "128",
+      "UpdateRequires": "No interruption",
+      "Minimum": "3",
+      "Type": "String"
     }
   }
 }

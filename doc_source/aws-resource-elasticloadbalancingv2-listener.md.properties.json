@@ -1,13 +1,29 @@
 {
   "elasticloadbalancingv2-listener-properties": {
-    "Certificates": {
-      "Required": "Conditional",
-      "Type": "List of [Certificate",
-      "UpdateRequires": "No interruption"
+    "Protocol": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "HTTP",
+        "HTTPS",
+        "TCP",
+        "TLS"
+      ]
     },
     "DefaultActions": {
       "Required": "Yes",
       "Type": "List of [Action",
+      "UpdateRequires": "No interruption"
+    },
+    "SslPolicy": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "Certificates": {
+      "Required": "Conditional",
+      "Type": "List of [Certificate",
       "UpdateRequires": "No interruption"
     },
     "LoadBalancerArn": {
@@ -16,26 +32,10 @@
       "UpdateRequires": "Replacement"
     },
     "Port": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "Integer",
-      "Minimum": "1",
       "Maximum": "65535",
-      "UpdateRequires": "No interruption"
-    },
-    "Protocol": {
-      "Required": "Yes",
-      "Type": "String",
-      "AllowedValues": [
-        "HTTP",
-        "HTTPS",
-        "TCP",
-        "TLS"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "SslPolicy": {
-      "Required": "No",
-      "Type": "String",
       "UpdateRequires": "No interruption"
     }
   }

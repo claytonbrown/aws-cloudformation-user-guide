@@ -1,8 +1,9 @@
 {
   "appstream-fleet-properties": {
-    "ComputeCapacity": {
-      "Required": "Yes",
-      "Type": "ComputeCapacity",
+    "DisplayName": {
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "100",
       "UpdateRequires": "No interruption"
     },
     "Description": {
@@ -11,78 +12,77 @@
       "Maximum": "256",
       "UpdateRequires": "No interruption"
     },
+    "VpcConfig": {
+      "Required": "No",
+      "Type": "VpcConfig",
+      "UpdateRequires": "No interruption"
+    },
+    "Tags": {},
     "DisconnectTimeoutInSeconds": {
       "Required": "No",
       "Type": "Integer",
       "UpdateRequires": "No interruption"
-    },
-    "DisplayName": {
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "100",
-      "UpdateRequires": "No interruption"
-    },
-    "DomainJoinInfo": {
-      "Required": "No",
-      "Type": "DomainJoinInfo",
-      "UpdateRequires": "No interruption"
-    },
-    "EnableDefaultInternetAccess": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "FleetType": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "ALWAYS_ON",
-        "ON_DEMAND"
-      ],
-      "UpdateRequires": "Replacement"
     },
     "IdleDisconnectTimeoutInSeconds": {
       "Required": "No",
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
-    "ImageArn": {
-      "Required": "No",
-      "Type": "String",
-      "Pattern": "^arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
-      "UpdateRequires": "No interruption"
-    },
-    "ImageName": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "UpdateRequires": "No interruption"
-    },
     "InstanceType": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "EnableDefaultInternetAccess": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "ImageName": {
       "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "ComputeCapacity": {
+      "Required": "Yes",
+      "Type": "ComputeCapacity",
+      "UpdateRequires": "No interruption"
+    },
+    "ImageArn": {
+      "Pattern": "^arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "Name": {
+      "Pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "FleetType": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "ALWAYS_ON",
+        "ON_DEMAND"
+      ]
+    },
+    "DomainJoinInfo": {
+      "Required": "No",
+      "Type": "DomainJoinInfo",
       "UpdateRequires": "No interruption"
     },
     "MaxUserDurationInSeconds": {
       "Required": "No",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "Name": {
-      "Required": "No",
-      "Type": "String",
-      "Pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
-      "UpdateRequires": "Replacement"
-    },
-    "Tags": {},
-    "VpcConfig": {
-      "Required": "No",
-      "Type": "VpcConfig",
       "UpdateRequires": "No interruption"
     }
   }

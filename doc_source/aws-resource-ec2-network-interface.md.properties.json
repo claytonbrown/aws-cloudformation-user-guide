@@ -1,29 +1,53 @@
 {
   "ec2-network-interface-properties": {
-    "Description": {
+    "SourceDestCheck": {
       "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
     "GroupSet": {
       "Required": "No",
       "Type": "List of String",
       "UpdateRequires": "No interruption"
     },
-    "InterfaceType": {
+    "Description": {
       "Required": "No",
       "Type": "String",
-      "AllowedValues": [
-        "efa",
-        "interface",
-        "natGateway"
-      ],
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "No interruption"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "No interruption"
     },
     "Ipv6AddressCount": {
       "Required": "No",
       "Type": "Integer",
       "UpdateRequires": "No interruption"
+    },
+    "PrivateIpAddresses": {
+      "Required": "No",
+      "Type": "List of [PrivateIpAddressSpecification"
+    },
+    "SubnetId": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "SecondaryPrivateIpAddressCount": {},
+    "InterfaceType": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "efa",
+        "interface",
+        "natGateway"
+      ]
     },
     "Ipv6Addresses": {
       "Required": "No",
@@ -34,30 +58,6 @@
       "Required": "No",
       "Type": "String",
       "UpdateRequires": "Replacement"
-    },
-    "PrivateIpAddresses": {
-      "Required": "No",
-      "Type": "List of [PrivateIpAddressSpecification"
-    },
-    "SecondaryPrivateIpAddressCount": {},
-    "SourceDestCheck": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "SubnetId": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
     }
   }
 }

@@ -1,5 +1,24 @@
 {
   "ec2-vpc-properties": {
+    "InstanceTenancy": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "dedicated",
+        "default",
+        "host"
+      ]
+    },
+    "EnableDnsSupport": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
     "CidrBlock": {
       "Required": "Yes",
       "Type": "String",
@@ -7,31 +26,12 @@
     },
     "EnableDnsHostnames": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "EnableDnsSupport": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "InstanceTenancy": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "dedicated",
-        "default",
-        "host"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
     "Tags": {
       "Required": "No",

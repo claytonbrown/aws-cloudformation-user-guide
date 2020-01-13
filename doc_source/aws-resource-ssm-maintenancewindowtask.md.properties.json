@@ -1,45 +1,8 @@
 {
   "ssm-maintenancewindowtask-properties": {
-    "Description": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "128",
-      "UpdateRequires": "No interruption"
-    },
     "LoggingInfo": {
       "Required": "No",
       "Type": "LoggingInfo",
-      "UpdateRequires": "No interruption"
-    },
-    "MaxConcurrency": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "7",
-      "Pattern": "^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$",
-      "UpdateRequires": "No interruption"
-    },
-    "MaxErrors": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "7",
-      "Pattern": "^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$",
-      "UpdateRequires": "No interruption"
-    },
-    "Name": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "3",
-      "Maximum": "128",
-      "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
-      "UpdateRequires": "No interruption"
-    },
-    "Priority": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "Minimum": "0",
       "UpdateRequires": "No interruption"
     },
     "ServiceRoleArn": {
@@ -47,17 +10,38 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "Targets": {
+    "MaxErrors": {
+      "Pattern": "^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$",
       "Required": "Yes",
-      "Type": "List of [Target",
-      "Maximum": "5",
-      "UpdateRequires": "No interruption"
+      "Maximum": "7",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
     },
     "TaskArn": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "1600",
+      "UpdateRequires": "No interruption"
+    },
+    "Name": {
+      "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+      "Required": "No",
+      "Maximum": "128",
+      "UpdateRequires": "No interruption",
+      "Minimum": "3",
+      "Type": "String"
+    },
+    "TaskParameters": {
+      "Required": "No",
+      "Type": "Json",
+      "UpdateRequires": "No interruption"
+    },
+    "Priority": {
+      "Minimum": "0",
+      "Required": "Yes",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
     "TaskInvocationParameters": {
@@ -65,29 +49,45 @@
       "Type": "TaskInvocationParameters",
       "UpdateRequires": "No interruption"
     },
-    "TaskParameters": {
+    "WindowId": {
+      "Pattern": "^mw-[0-9a-f]{17}$",
       "Required": "No",
-      "Type": "Json",
-      "UpdateRequires": "No interruption"
+      "Maximum": "20",
+      "UpdateRequires": "Replacement",
+      "Minimum": "20",
+      "Type": "String"
     },
     "TaskType": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "AUTOMATION",
         "LAMBDA",
         "RUN_COMMAND",
         "STEP_FUNCTIONS"
-      ],
+      ]
+    },
+    "MaxConcurrency": {
+      "Pattern": "^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$",
+      "Required": "Yes",
+      "Maximum": "7",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "Targets": {
+      "Required": "Yes",
+      "Type": "List of [Target",
+      "Maximum": "5",
       "UpdateRequires": "No interruption"
     },
-    "WindowId": {
+    "Description": {
+      "Minimum": "1",
       "Required": "No",
       "Type": "String",
-      "Minimum": "20",
-      "Maximum": "20",
-      "Pattern": "^mw-[0-9a-f]{17}$",
-      "UpdateRequires": "Replacement"
+      "Maximum": "128",
+      "UpdateRequires": "No interruption"
     }
   }
 }

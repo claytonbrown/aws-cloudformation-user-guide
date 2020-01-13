@@ -4,6 +4,7 @@
       "ComparisonOperator`  <a name=\"cfn-waf-sizeconstraintset-sizeconstraint-comparisonoperator\"></a>\nThe type of comparison you want AWS WAF to perform\\. AWS WAF uses this in combination with the provided `Size` and `FieldToMatch` to build an expression in the form of \"`Size` `ComparisonOperator` size in bytes of `FieldToMatch`\"\\. If that expression is true, the `SizeConstraint` is considered to match\\.  \n **EQ*": "Used to test if the `Size` is equal to the size of the `FieldToMatch`   \n **NE*",
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "EQ",
         "GE",
@@ -11,9 +12,9 @@
         "LE",
         "LT",
         "NE"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
+    "TextTransformation": {},
     "FieldToMatch": {
       "Required": "Yes",
       "Type": "FieldToMatch",
@@ -23,7 +24,6 @@
       "Required": "Yes",
       "Type": "Integer",
       "UpdateRequires": "No interruption"
-    },
-    "TextTransformation": {}
+    }
   }
 }

@@ -1,18 +1,19 @@
 {
   "aws-properties-beanstalk-environment-properties": {
     "ApplicationName": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "100",
       "UpdateRequires": "Replacement"
     },
-    "CNAMEPrefix": {
+    "PlatformArn": {},
+    "VersionLabel": {
+      "Minimum": "1",
       "Required": "No",
       "Type": "String",
-      "Minimum": "4",
-      "Maximum": "63",
-      "UpdateRequires": "Replacement"
+      "Maximum": "100",
+      "UpdateRequires": "No interruption"
     },
     "Description": {
       "Required": "No",
@@ -21,40 +22,39 @@
       "UpdateRequires": "No interruption"
     },
     "EnvironmentName": {
+      "Minimum": "4",
       "Required": "No",
       "Type": "String",
-      "Minimum": "4",
       "Maximum": "40",
       "UpdateRequires": "Replacement"
     },
+    "CNAMEPrefix": {
+      "Minimum": "4",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "63",
+      "UpdateRequires": "Replacement"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "No interruption"
+    },
+    "SolutionStackName": {},
     "OptionSettings": {
       "OptionSettings`  <a name=\"cfn-beanstalk-environment-optionsettings\"></a>\nKey\\-value pairs defining configuration options for this environment, such as the instance type\\. These options override the values that are defined in the solution stack or the [configuration template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html)\\. If you remove any options during a stack update, the removed options retain their current values\\.  \n *Required": "Yes\\. The `IamInstanceProfile` option is required\\.",
       "Required": "No",
       "Type": "List of [OptionSetting",
       "UpdateRequires": "No interruption"
     },
-    "PlatformArn": {},
-    "SolutionStackName": {},
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
-    },
-    "TemplateName": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "100",
-      "UpdateRequires": "No interruption"
-    },
     "Tier": {
       "Required": "No",
       "Type": "Tier"
     },
-    "VersionLabel": {
+    "TemplateName": {
+      "Minimum": "1",
       "Required": "No",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "100",
       "UpdateRequires": "No interruption"
     }

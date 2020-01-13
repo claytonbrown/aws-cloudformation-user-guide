@@ -1,15 +1,30 @@
 {
   "aws-properties-opsworks-instance-ebsblockdevice-properties": {
+    "Iops": {
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
     "DeleteOnTermination": {
       "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "Iops": {
+    "VolumeType": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "gp2",
+        "io1",
+        "standard"
+      ]
+    },
+    "VolumeSize": {
       "Required": "No",
       "Type": "Integer",
       "UpdateRequires": "No interruption"
@@ -17,21 +32,6 @@
     "SnapshotId": {
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption"
-    },
-    "VolumeSize": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "VolumeType": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "gp2",
-        "io1",
-        "standard"
-      ],
       "UpdateRequires": "No interruption"
     }
   }

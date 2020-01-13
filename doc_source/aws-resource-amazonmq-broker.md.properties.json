@@ -1,25 +1,20 @@
 {
   "amazonmq-broker-properties": {
-    "AutoMinorVersionUpgrade": {
+    "Logs": {
+      "Required": "No",
+      "Type": "LogList",
+      "UpdateRequires": "No interruption"
+    },
+    "PubliclyAccessible": {
       "Required": "Yes",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "True",
         "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "BrokerName": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "Configuration": {
-      "Required": "No",
-      "Type": "ConfigurationId",
-      "UpdateRequires": "No interruption"
-    },
-    "DeploymentMode": {
+    "HostInstanceType": {
       "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "Replacement"
@@ -29,7 +24,22 @@
       "Type": "EncryptionOptions",
       "UpdateRequires": "Replacement"
     },
-    "EngineType": {
+    "Tags": {},
+    "MaintenanceWindowStartTime": {
+      "Required": "No",
+      "Type": "MaintenanceWindow",
+      "UpdateRequires": "Replacement"
+    },
+    "AutoMinorVersionUpgrade": {
+      "Required": "Yes",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "BrokerName": {
       "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "Replacement"
@@ -39,33 +49,19 @@
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "HostInstanceType": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "Logs": {
-      "Required": "No",
-      "Type": "LogList",
-      "UpdateRequires": "No interruption"
-    },
-    "MaintenanceWindowStartTime": {
-      "Required": "No",
-      "Type": "MaintenanceWindow",
-      "UpdateRequires": "Replacement"
-    },
-    "PubliclyAccessible": {
-      "Required": "Yes",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "Replacement"
-    },
     "SecurityGroups": {
       "Required": "No",
       "Type": "List of String",
+      "UpdateRequires": "Replacement"
+    },
+    "Configuration": {
+      "Required": "No",
+      "Type": "ConfigurationId",
+      "UpdateRequires": "No interruption"
+    },
+    "EngineType": {
+      "Required": "Yes",
+      "Type": "String",
       "UpdateRequires": "Replacement"
     },
     "SubnetIds": {
@@ -73,7 +69,11 @@
       "Type": "List of String",
       "UpdateRequires": "Replacement"
     },
-    "Tags": {},
+    "DeploymentMode": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
     "Users": {
       "Required": "Yes",
       "Type": "List of [User",

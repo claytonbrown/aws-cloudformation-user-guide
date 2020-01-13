@@ -1,53 +1,53 @@
 {
   "directoryservice-simplead-properties": {
-    "CreateAlias": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+    "Password": {
+      "Pattern": "(?=^.{8,64}$)((?=.*\\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[^A-Za-z0-9\\s])(?=.*[a-z])|(?=.*[^A-Za-z0-9\\s])(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s]))^.*",
+      "Required": "Yes",
+      "Type": "String",
       "UpdateRequires": "Replacement"
     },
     "Description": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "0",
-      "Maximum": "128",
       "Pattern": "^([a-zA-Z0-9_])[\\\\a-zA-Z0-9_@#%*+=:?./!\\s-]*$",
-      "UpdateRequires": "Replacement"
-    },
-    "EnableSso": {
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
+      "Maximum": "128",
+      "UpdateRequires": "Replacement",
+      "Minimum": "0",
+      "Type": "String"
     },
-    "Name": {
-      "Required": "Yes",
-      "Type": "String",
-      "Pattern": "^([a-zA-Z0-9]+[\\\\.-])+([a-zA-Z0-9])+$",
-      "UpdateRequires": "Replacement"
-    },
-    "Password": {
-      "Required": "Yes",
-      "Type": "String",
-      "Pattern": "(?=^.{8,64}$)((?=.*\\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[^A-Za-z0-9\\s])(?=.*[a-z])|(?=.*[^A-Za-z0-9\\s])(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s]))^.*",
-      "UpdateRequires": "Replacement"
-    },
-    "ShortName": {
-      "Required": "No",
-      "Type": "String",
-      "Pattern": "^[^\\\\/:*?\\\"\\<\\>|.]+[^\\\\/:*?\\\"<>|]*$",
-      "UpdateRequires": "Replacement"
-    },
-    "Size": {},
     "VpcSettings": {
       "Required": "Yes",
       "Type": "VpcSettings",
+      "UpdateRequires": "Replacement"
+    },
+    "Size": {},
+    "EnableSso": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "ShortName": {
+      "Pattern": "^[^\\\\/:*?\\\"\\<\\>|.]+[^\\\\/:*?\\\"<>|]*$",
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "CreateAlias": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "Name": {
+      "Pattern": "^([a-zA-Z0-9]+[\\\\.-])+([a-zA-Z0-9])+$",
+      "Required": "Yes",
+      "Type": "String",
       "UpdateRequires": "Replacement"
     }
   }

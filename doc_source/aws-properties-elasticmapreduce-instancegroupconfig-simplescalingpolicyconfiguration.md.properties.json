@@ -1,13 +1,8 @@
 {
   "aws-properties-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration-properties": {
-    "AdjustmentType": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "CHANGE_IN_CAPACITY",
-        "EXACT_CAPACITY",
-        "PERCENT_CHANGE_IN_CAPACITY"
-      ],
+    "ScalingAdjustment": {
+      "Required": "Yes",
+      "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
     "CoolDown": {
@@ -15,10 +10,15 @@
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
-    "ScalingAdjustment": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
+    "AdjustmentType": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "CHANGE_IN_CAPACITY",
+        "EXACT_CAPACITY",
+        "PERCENT_CHANGE_IN_CAPACITY"
+      ]
     }
   }
 }

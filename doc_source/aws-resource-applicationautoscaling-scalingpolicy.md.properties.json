@@ -1,35 +1,37 @@
 {
   "applicationautoscaling-scalingpolicy-properties": {
     "PolicyName": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "256",
       "Pattern": "\\p{Print}+",
-      "UpdateRequires": "Replacement"
-    },
-    "PolicyType": {
       "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
+      "Maximum": "256",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
     },
-    "ResourceId": {},
     "ScalableDimension": {},
     "ScalingTargetId": {
       "Required": "Conditional",
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "ServiceNamespace": {},
+    "ResourceId": {},
+    "TargetTrackingScaling": {},
     "StepScalingPolicyConfiguration": {
       "Required": "No",
       "Type": "StepScalingPolicyConfiguration",
       "UpdateRequires": "No interruption"
     },
+    "PolicyType": {},
     "TargetTrackingScalingPolicyConfiguration": {
       "Required": "No",
       "Type": "TargetTrackingScalingPolicyConfiguration",
       "UpdateRequires": "No interruption"
-    }
+    },
+    "StepScaling": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "ServiceNamespace": {}
   }
 }

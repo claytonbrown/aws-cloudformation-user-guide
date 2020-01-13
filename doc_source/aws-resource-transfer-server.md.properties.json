@@ -1,5 +1,17 @@
 {
   "transfer-server-properties": {
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "Maximum": "50",
+      "UpdateRequires": "No interruption"
+    },
+    "LoggingRole": {
+      "Pattern": "arn:.*role/.*",
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
     "EndpointDetails": {
       "Required": "No",
       "Type": "EndpointDetails",
@@ -8,36 +20,24 @@
     "EndpointType": {
       "Required": "Conditional",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "PUBLIC",
         "VPC_ENDPOINT"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "IdentityProviderDetails": {
-      "Required": "No",
-      "Type": "IdentityProviderDetails",
-      "UpdateRequires": "No interruption"
+      ]
     },
     "IdentityProviderType": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "API_GATEWAY",
         "SERVICE_MANAGED"
-      ],
-      "UpdateRequires": "Replacement"
+      ]
     },
-    "LoggingRole": {
+    "IdentityProviderDetails": {
       "Required": "No",
-      "Type": "String",
-      "Pattern": "arn:.*role/.*",
-      "UpdateRequires": "No interruption"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "Maximum": "50",
+      "Type": "IdentityProviderDetails",
       "UpdateRequires": "No interruption"
     }
   }

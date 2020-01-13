@@ -1,16 +1,6 @@
 {
   "aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-properties": {
-    "AdjustmentType": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "ChangeInCapacity",
-        "ExactCapacity",
-        "PercentChangeInCapacity"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "Cooldown": {
+    "MinAdjustmentMagnitude": {
       "Required": "No",
       "Type": "Integer",
       "UpdateRequires": "No interruption"
@@ -18,14 +8,14 @@
     "MetricAggregationType": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "Average",
         "Maximum",
         "Minimum"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "MinAdjustmentMagnitude": {
+    "Cooldown": {
       "Required": "No",
       "Type": "Integer",
       "UpdateRequires": "No interruption"
@@ -34,6 +24,16 @@
       "Required": "No",
       "Type": "List of [StepAdjustment",
       "UpdateRequires": "No interruption"
+    },
+    "AdjustmentType": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "ChangeInCapacity",
+        "ExactCapacity",
+        "PercentChangeInCapacity"
+      ]
     }
   }
 }

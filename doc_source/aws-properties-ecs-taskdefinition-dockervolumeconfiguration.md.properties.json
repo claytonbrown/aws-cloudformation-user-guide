@@ -1,12 +1,17 @@
 {
   "aws-properties-ecs-taskdefinition-dockervolumeconfiguration-properties": {
-    "Autoprovision": {
+    "Scope": {
       "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+        "shared",
+        "task"
+      ]
+    },
+    "Labels": {
+      "Required": "No",
+      "Type": "Map of String",
       "UpdateRequires": "Replacement"
     },
     "Driver": {
@@ -19,19 +24,14 @@
       "Type": "Map of String",
       "UpdateRequires": "Replacement"
     },
-    "Labels": {
+    "Autoprovision": {
       "Required": "No",
-      "Type": "Map of String",
-      "UpdateRequires": "Replacement"
-    },
-    "Scope": {
-      "Required": "No",
-      "Type": "String",
+      "Type": "Boolean",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
-        "shared",
-        "task"
-      ],
-      "UpdateRequires": "Replacement"
+        "True",
+        "False"
+      ]
     }
   }
 }

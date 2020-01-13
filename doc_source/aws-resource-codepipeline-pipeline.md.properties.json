@@ -1,13 +1,23 @@
 {
   "codepipeline-pipeline-properties": {
-    "ArtifactStore": {
+    "Name": {
+      "Pattern": "[A-Za-z0-9.@\\-_]+",
       "Required": "No",
-      "Type": "ArtifactStore",
+      "Maximum": "100",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
       "UpdateRequires": "No interruption"
     },
-    "ArtifactStores": {
-      "Required": "No",
-      "Type": "List of [ArtifactStoreMap",
+    "RoleArn": {
+      "Pattern": "arn:aws(-[\\w]+)*:iam::[0-9]{12}:role/.*",
+      "Required": "Yes",
+      "Type": "String",
+      "Maximum": "1024",
       "UpdateRequires": "No interruption"
     },
     "DisableInboundStageTransitions": {
@@ -15,33 +25,28 @@
       "Type": "List of [StageTransition",
       "UpdateRequires": "No interruption"
     },
-    "Name": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "100",
-      "Pattern": "[A-Za-z0-9.@\\-_]+",
-      "UpdateRequires": "Replacement"
-    },
-    "RestartExecutionOnUpdate": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "RoleArn": {
-      "Required": "Yes",
-      "Type": "String",
-      "Maximum": "1024",
-      "Pattern": "arn:aws(-[\\w]+)*:iam::[0-9]{12}:role/.*",
+    "ArtifactStore": {
+      "Required": "Conditional",
+      "Type": "ArtifactStore",
       "UpdateRequires": "No interruption"
     },
     "Stages": {
       "Required": "Yes",
       "Type": "List of [StageDeclaration",
+      "UpdateRequires": "No interruption"
+    },
+    "RestartExecutionOnUpdate": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "ArtifactStores": {
+      "Required": "Conditional",
+      "Type": "List of [ArtifactStoreMap",
       "UpdateRequires": "No interruption"
     }
   }

@@ -1,20 +1,5 @@
 {
   "aws-properties-kinesisanalytics-application-input-properties": {
-    "InputParallelism": {
-      "Required": "No",
-      "Type": "InputParallelism",
-      "UpdateRequires": "No interruption"
-    },
-    "InputProcessingConfiguration": {
-      "Required": "No",
-      "Type": "InputProcessingConfiguration",
-      "UpdateRequires": "No interruption"
-    },
-    "InputSchema": {
-      "Required": "Yes",
-      "Type": "InputSchema",
-      "UpdateRequires": "No interruption"
-    },
     "KinesisFirehoseInput": {
       "Required": "Conditional",
       "Type": "KinesisFirehoseInput",
@@ -25,11 +10,26 @@
       "Type": "KinesisStreamsInput",
       "UpdateRequires": "No interruption"
     },
+    "InputProcessingConfiguration": {
+      "Required": "No",
+      "Type": "InputProcessingConfiguration",
+      "UpdateRequires": "No interruption"
+    },
     "NamePrefix": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
-      "Minimum": "1",
       "Maximum": "32",
+      "UpdateRequires": "No interruption"
+    },
+    "InputParallelism": {
+      "Required": "No",
+      "Type": "InputParallelism",
+      "UpdateRequires": "No interruption"
+    },
+    "InputSchema": {
+      "Required": "Yes",
+      "Type": "InputSchema",
       "UpdateRequires": "No interruption"
     }
   }

@@ -1,62 +1,62 @@
 {
   "codepipeline-webhook-properties": {
-    "Authentication": {
-      "Required": "Yes",
-      "Type": "String",
-      "AllowedValues": [
-        "GITHUB_HMAC",
-        "IP",
-        "UNAUTHENTICATED"
-      ],
-      "UpdateRequires": "No interruption"
-    },
     "AuthenticationConfiguration": {
       "Required": "Yes",
       "Type": "WebhookAuthConfiguration",
       "UpdateRequires": "No interruption"
     },
-    "Filters": {
-      "Required": "Yes",
-      "Type": "List of [WebhookFilterRule",
-      "Maximum": "5",
-      "UpdateRequires": "No interruption"
-    },
     "Name": {
+      "Pattern": "[A-Za-z0-9.@\\-_]+",
       "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
       "Maximum": "100",
-      "Pattern": "[A-Za-z0-9.@\\-_]+",
-      "UpdateRequires": "Replacement"
-    },
-    "RegisterWithThirdParty": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
-    },
-    "TargetAction": {
-      "Required": "Yes",
-      "Type": "String",
+      "UpdateRequires": "Replacement",
       "Minimum": "1",
-      "Maximum": "100",
-      "Pattern": "[A-Za-z0-9.@\\-_]+",
-      "UpdateRequires": "No interruption"
-    },
-    "TargetPipeline": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "100",
-      "Pattern": "[A-Za-z0-9.@\\-_]+",
-      "UpdateRequires": "No interruption"
+      "Type": "String"
     },
     "TargetPipelineVersion": {
       "Required": "Yes",
       "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "RegisterWithThirdParty": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "Authentication": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "GITHUB_HMAC",
+        "IP",
+        "UNAUTHENTICATED"
+      ]
+    },
+    "TargetPipeline": {
+      "Pattern": "[A-Za-z0-9.@\\-_]+",
+      "Required": "Yes",
+      "Maximum": "100",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "TargetAction": {
+      "Pattern": "[A-Za-z0-9.@\\-_]+",
+      "Required": "Yes",
+      "Maximum": "100",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "Filters": {
+      "Required": "Yes",
+      "Type": "List of [WebhookFilterRule",
+      "Maximum": "5",
       "UpdateRequires": "No interruption"
     }
   }

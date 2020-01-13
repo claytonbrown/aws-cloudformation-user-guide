@@ -1,13 +1,26 @@
 {
   "appstream-stack-properties": {
-    "ApplicationSettings": {
-      "Required": "No",
-      "Type": "ApplicationSettings",
-      "UpdateRequires": "No interruption"
-    },
+    "Tags": {},
     "AttributesToDelete": {
       "Required": "No",
       "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    },
+    "DisplayName": {
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "100",
+      "UpdateRequires": "No interruption"
+    },
+    "Description": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "StorageConnectors": {
+      "Required": "No",
+      "Type": "List of [StorageConnector",
       "UpdateRequires": "No interruption"
     },
     "DeleteStorageConnectors": {
@@ -16,16 +29,32 @@
         "False"
       ]
     },
-    "Description": {
+    "AccessEndpoints": {
       "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
+      "Type": "List of [AccessEndpoint",
+      "Maximum": "4",
       "UpdateRequires": "No interruption"
     },
-    "DisplayName": {
+    "RedirectURL": {
       "Required": "No",
       "Type": "String",
-      "Maximum": "100",
+      "Maximum": "1000",
+      "UpdateRequires": "No interruption"
+    },
+    "UserSettings": {
+      "Required": "No",
+      "Type": "List of [UserSetting",
+      "UpdateRequires": "No interruption"
+    },
+    "EmbedHostDomains": {
+      "Required": "No",
+      "Type": "List of String",
+      "Maximum": "20",
+      "UpdateRequires": "No interruption"
+    },
+    "ApplicationSettings": {
+      "Required": "No",
+      "Type": "ApplicationSettings",
       "UpdateRequires": "No interruption"
     },
     "FeedbackURL": {
@@ -35,27 +64,10 @@
       "UpdateRequires": "No interruption"
     },
     "Name": {
-      "Required": "No",
-      "Type": "String",
       "Pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
-      "UpdateRequires": "Replacement"
-    },
-    "RedirectURL": {
       "Required": "No",
       "Type": "String",
-      "Maximum": "1000",
-      "UpdateRequires": "No interruption"
-    },
-    "StorageConnectors": {
-      "Required": "No",
-      "Type": "List of [StorageConnector",
-      "UpdateRequires": "No interruption"
-    },
-    "Tags": {},
-    "UserSettings": {
-      "Required": "No",
-      "Type": "List of [UserSetting",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "Replacement"
     }
   }
 }

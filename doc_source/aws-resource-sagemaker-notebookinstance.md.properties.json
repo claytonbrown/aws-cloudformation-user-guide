@@ -1,9 +1,58 @@
 {
   "sagemaker-notebookinstance-properties": {
-    "AcceleratorTypes": {
+    "RootAccess": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "Disabled",
+        "Enabled"
+      ]
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "Maximum": "50",
+      "UpdateRequires": "No interruption"
+    },
+    "LifecycleConfigName": {},
+    "DirectInternetAccess": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "Disabled",
+        "Enabled"
+      ]
+    },
+    "NotebookInstanceName": {
+      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "63",
+      "UpdateRequires": "Replacement"
+    },
+    "SecurityGroupIds": {
       "Required": "No",
       "Type": "List of String",
+      "Maximum": "5",
+      "UpdateRequires": "Replacement"
+    },
+    "VolumeSizeInGB": {
+      "Minimum": "5",
+      "Required": "No",
+      "Type": "Integer",
+      "Maximum": "16384",
       "UpdateRequires": "No interruption"
+    },
+    "KmsKeyId": {},
+    "DefaultCodeRepository": {
+      "Pattern": "^https://([^/]+)/?(.*)$|^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+      "Required": "No",
+      "Maximum": "1024",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
     },
     "AdditionalCodeRepositories": {
       "Required": "No",
@@ -11,26 +60,22 @@
       "Maximum": "3",
       "UpdateRequires": "No interruption"
     },
-    "DefaultCodeRepository": {
+    "SubnetId": {
+      "Pattern": "[-0-9a-zA-Z]+",
       "Required": "No",
       "Type": "String",
-      "Minimum": "1",
-      "Maximum": "1024",
-      "Pattern": "^https://([^/]+)/?(.*)$|^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-      "UpdateRequires": "No interruption"
-    },
-    "DirectInternetAccess": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "Disabled",
-        "Enabled"
-      ],
+      "Maximum": "32",
       "UpdateRequires": "Replacement"
+    },
+    "AcceleratorTypes": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
     },
     "InstanceType": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "ml.c4.2xlarge",
         "ml.c4.4xlarge",
@@ -70,60 +115,15 @@
         "ml.t3.large",
         "ml.t3.medium",
         "ml.t3.xlarge"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "KmsKeyId": {},
-    "LifecycleConfigName": {},
-    "NotebookInstanceName": {
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "63",
-      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-      "UpdateRequires": "Replacement"
+      ]
     },
     "RoleArn": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "20",
-      "Maximum": "2048",
       "Pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
-      "UpdateRequires": "No interruption"
-    },
-    "RootAccess": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "Disabled",
-        "Enabled"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "SecurityGroupIds": {
-      "Required": "No",
-      "Type": "List of String",
-      "Maximum": "5",
-      "UpdateRequires": "Replacement"
-    },
-    "SubnetId": {
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "32",
-      "Pattern": "[-0-9a-zA-Z]+",
-      "UpdateRequires": "Replacement"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "Maximum": "50",
-      "UpdateRequires": "No interruption"
-    },
-    "VolumeSizeInGB": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "5",
-      "Maximum": "16384",
-      "UpdateRequires": "No interruption"
+      "Required": "Yes",
+      "Maximum": "2048",
+      "UpdateRequires": "No interruption",
+      "Minimum": "20",
+      "Type": "String"
     }
   }
 }

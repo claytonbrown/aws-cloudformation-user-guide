@@ -1,48 +1,48 @@
 {
   "elasticmapreduce-instancefleetconfig-properties": {
-    "ClusterId": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
+    "Name": {
+      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "Required": "No",
+      "Maximum": "256",
+      "UpdateRequires": "Replacement",
+      "Minimum": "0",
+      "Type": "String"
     },
     "InstanceFleetType": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "CORE",
         "MASTER",
         "TASK"
-      ],
-      "UpdateRequires": "Replacement"
-    },
-    "InstanceTypeConfigs": {
-      "Required": "No",
-      "Type": "List of [InstanceTypeConfig",
-      "UpdateRequires": "Replacement"
+      ]
     },
     "LaunchSpecifications": {
       "Required": "No",
       "Type": "InstanceFleetProvisioningSpecifications",
       "UpdateRequires": "Replacement"
     },
-    "Name": {
-      "Required": "No",
+    "ClusterId": {
+      "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "Replacement"
+    },
+    "TargetSpotCapacity": {
       "Minimum": "0",
-      "Maximum": "256",
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "No interruption"
+    },
+    "InstanceTypeConfigs": {
+      "Required": "No",
+      "Type": "List of [InstanceTypeConfig",
       "UpdateRequires": "Replacement"
     },
     "TargetOnDemandCapacity": {
+      "Minimum": "0",
       "Required": "No",
       "Type": "Integer",
-      "Minimum": "0",
-      "UpdateRequires": "No interruption"
-    },
-    "TargetSpotCapacity": {
-      "Required": "No",
-      "Type": "Integer",
-      "Minimum": "0",
       "UpdateRequires": "No interruption"
     }
   }

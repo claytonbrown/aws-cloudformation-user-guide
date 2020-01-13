@@ -1,10 +1,13 @@
 {
   "aws-properties-cognito-userpoolclient-analyticsconfiguration-properties": {
-    "ApplicationId": {
+    "UserDataShared": {
       "Required": "No",
-      "Type": "String",
-      "Pattern": "^[0-9a-fA-F]+$",
-      "UpdateRequires": "No interruption"
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
     "ExternalId": {
       "Required": "No",
@@ -12,20 +15,17 @@
       "UpdateRequires": "No interruption"
     },
     "RoleArn": {
+      "Pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+      "Required": "No",
+      "Maximum": "2048",
+      "UpdateRequires": "No interruption",
+      "Minimum": "20",
+      "Type": "String"
+    },
+    "ApplicationId": {
+      "Pattern": "^[0-9a-fA-F]+$",
       "Required": "No",
       "Type": "String",
-      "Minimum": "20",
-      "Maximum": "2048",
-      "Pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
-      "UpdateRequires": "No interruption"
-    },
-    "UserDataShared": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
       "UpdateRequires": "No interruption"
     }
   }

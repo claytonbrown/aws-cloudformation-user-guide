@@ -1,22 +1,13 @@
 {
   "aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig-properties": {
-    "Aliases": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
-    },
     "Comment": {
       "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "No interruption"
     },
-    "Enabled": {
+    "S3Origin": {
       "Required": "Yes",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
+      "Type": "S3Origin",
       "UpdateRequires": "No interruption"
     },
     "Logging": {
@@ -27,18 +18,27 @@
     "PriceClass": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "PriceClass_100",
         "PriceClass_200",
         "PriceClass_All"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "S3Origin": {
+    "TrustedSigners": {},
+    "Enabled": {
       "Required": "Yes",
-      "Type": "S3Origin",
-      "UpdateRequires": "No interruption"
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
-    "TrustedSigners": {}
+    "Aliases": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
+    }
   }
 }

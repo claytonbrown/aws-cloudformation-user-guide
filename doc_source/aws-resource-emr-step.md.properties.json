@@ -1,33 +1,33 @@
 {
   "emr-step-properties": {
-    "ActionOnFailure": {
-      "Required": "Yes",
-      "Type": "String",
-      "AllowedValues": [
-        "CANCEL_AND_WAIT",
-        "CONTINUE",
-        "TERMINATE_CLUSTER",
-        "TERMINATE_JOB_FLOW"
-      ],
-      "UpdateRequires": "Replacement"
-    },
     "HadoopJarStep": {
       "Required": "Yes",
       "Type": "HadoopJarStepConfig",
-      "UpdateRequires": "Replacement"
-    },
-    "JobFlowId": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "0",
-      "Maximum": "256",
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
       "UpdateRequires": "Replacement"
     },
     "Name": {
       "Required": "Yes",
       "Type": "String",
       "UpdateRequires": "Replacement"
+    },
+    "ActionOnFailure": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "CANCEL_AND_WAIT",
+        "CONTINUE",
+        "TERMINATE_CLUSTER",
+        "TERMINATE_JOB_FLOW"
+      ]
+    },
+    "JobFlowId": {
+      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "Required": "Yes",
+      "Maximum": "256",
+      "UpdateRequires": "Replacement",
+      "Minimum": "0",
+      "Type": "String"
     }
   }
 }

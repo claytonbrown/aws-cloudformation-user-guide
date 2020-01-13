@@ -1,60 +1,25 @@
 {
   "servicecatalog-cloudformationprovisionedproduct-properties": {
-    "AcceptLanguage": {
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "100",
-      "UpdateRequires": "No interruption"
-    },
-    "NotificationArns": {
-      "Required": "No",
-      "Type": "List of String",
-      "Maximum": "5",
-      "UpdateRequires": "Replacement"
-    },
-    "PathId": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "100",
+    "ProvisioningArtifactId": {
       "Pattern": "^[a-zA-Z0-9_\\-]*",
-      "UpdateRequires": "No interruption"
-    },
-    "ProductId": {
       "Required": "Conditional",
-      "Type": "String",
-      "Minimum": "1",
       "Maximum": "100",
-      "Pattern": "^[a-zA-Z0-9_\\-]*",
-      "UpdateRequires": "No interruption"
-    },
-    "ProductName": {
-      "Required": "Conditional",
-      "Type": "String",
+      "UpdateRequires": "No interruption",
       "Minimum": "1",
-      "Maximum": "128",
-      "Pattern": "[a-zA-Z0-9][a-zA-Z0-9._-]*",
-      "UpdateRequires": "No interruption"
+      "Type": "String"
     },
     "ProvisionedProductName": {
-      "Required": "No",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "128",
       "Pattern": "[a-zA-Z0-9][a-zA-Z0-9._-]*",
-      "UpdateRequires": "Replacement"
-    },
-    "ProvisioningArtifactId": {
-      "Required": "Conditional",
-      "Type": "String",
+      "Required": "No",
+      "Maximum": "128",
+      "UpdateRequires": "Replacement",
       "Minimum": "1",
-      "Maximum": "100",
-      "Pattern": "^[a-zA-Z0-9_\\-]*",
-      "UpdateRequires": "No interruption"
+      "Type": "String"
     },
-    "ProvisioningArtifactName": {
-      "Required": "Conditional",
-      "Type": "String",
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "Maximum": "50",
       "UpdateRequires": "No interruption"
     },
     "ProvisioningParameters": {
@@ -62,16 +27,51 @@
       "Type": "List of [ProvisioningParameter",
       "UpdateRequires": "No interruption"
     },
+    "PathId": {
+      "Pattern": "^[a-zA-Z0-9_\\-]*",
+      "Required": "No",
+      "Maximum": "100",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "ProductName": {
+      "Pattern": "[a-zA-Z0-9][a-zA-Z0-9._-]*",
+      "Required": "Conditional",
+      "Maximum": "128",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "NotificationArns": {
+      "Required": "No",
+      "Type": "List of String",
+      "Maximum": "5",
+      "UpdateRequires": "Replacement"
+    },
     "ProvisioningPreferences": {
       "Required": "No",
       "Type": "ProvisioningPreferences",
       "UpdateRequires": "No interruption"
     },
-    "Tags": {
+    "AcceptLanguage": {
       "Required": "No",
-      "Type": "List of [Tag",
-      "Maximum": "50",
+      "Type": "String",
+      "Maximum": "100",
       "UpdateRequires": "No interruption"
+    },
+    "ProvisioningArtifactName": {
+      "Required": "Conditional",
+      "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "ProductId": {
+      "Pattern": "^[a-zA-Z0-9_\\-]*",
+      "Required": "Conditional",
+      "Maximum": "100",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
     }
   }
 }

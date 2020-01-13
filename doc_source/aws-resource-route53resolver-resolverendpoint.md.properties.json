@@ -3,11 +3,23 @@
     "Direction": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "INBOUND",
         "OUTBOUND"
-      ],
-      "UpdateRequires": "Replacement"
+      ]
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "No interruption"
+    },
+    "Name": {
+      "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "64",
+      "UpdateRequires": "No interruption"
     },
     "IpAddresses": {
       "Required": "Yes",
@@ -15,22 +27,10 @@
       "Maximum": "10",
       "UpdateRequires": "No interruption"
     },
-    "Name": {
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "64",
-      "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)",
-      "UpdateRequires": "No interruption"
-    },
     "SecurityGroupIds": {
       "Required": "Yes",
       "Type": "List of String",
       "UpdateRequires": "Replacement"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
     }
   }
 }

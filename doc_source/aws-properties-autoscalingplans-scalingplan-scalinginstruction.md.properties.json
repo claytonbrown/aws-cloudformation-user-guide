@@ -1,53 +1,66 @@
 {
   "aws-properties-autoscalingplans-scalingplan-scalinginstruction-properties": {
-    "CustomizedLoadMetricSpecification": {},
-    "DisableDynamicScaling": {
+    "ScalingPolicyUpdateBehavior": {
       "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean",
-      "UpdateRequires": "No interruption"
+        "KeepExternalPolicies",
+        "ReplaceExternalPolicies"
+      ]
     },
-    "MaxCapacity": {},
-    "MinCapacity": {
-      "Required": "Yes",
+    "PredictiveScalingMode": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "ForecastAndScale",
+        "ForecastOnly"
+      ]
+    },
+    "ScheduledActionBufferTime": {
+      "Minimum": "0",
+      "Required": "No",
       "Type": "Integer",
       "UpdateRequires": "No interruption"
     },
-    "PredefinedLoadMetricSpecification": {},
+    "TargetTrackingConfigurations": {
+      "Required": "Yes",
+      "Type": "List of [TargetTrackingConfiguration",
+      "UpdateRequires": "No interruption"
+    },
     "PredictiveScalingMaxCapacityBehavior": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "SetForecastCapacityToMaxCapacity",
         "SetMaxCapacityAboveForecastCapacity",
         "SetMaxCapacityToForecastCapacity"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
     "PredictiveScalingMaxCapacityBuffer": {},
-    "PredictiveScalingMode": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "ForecastAndScale",
-        "ForecastOnly"
-      ],
-      "UpdateRequires": "No interruption"
-    },
     "ResourceId": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "1600",
       "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "UpdateRequires": "No interruption"
+      "Required": "Yes",
+      "Maximum": "1600",
+      "UpdateRequires": "No interruption",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "DisableDynamicScaling": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
     "ScalableDimension": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "autoscaling:autoScalingGroup:DesiredCapacity",
         "dynamodb:index:ReadCapacityUnits",
@@ -57,40 +70,27 @@
         "ec2:spot-fleet-request:TargetCapacity",
         "ecs:service:DesiredCount",
         "rds:cluster:ReadReplicaCount"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "ScalingPolicyUpdateBehavior": {
-      "Required": "No",
-      "Type": "String",
-      "AllowedValues": [
-        "KeepExternalPolicies",
-        "ReplaceExternalPolicies"
-      ],
-      "UpdateRequires": "No interruption"
-    },
-    "ScheduledActionBufferTime": {
-      "Required": "No",
+    "CustomizedLoadMetricSpecification": {},
+    "PredefinedLoadMetricSpecification": {},
+    "MinCapacity": {
+      "Required": "Yes",
       "Type": "Integer",
-      "Minimum": "0",
       "UpdateRequires": "No interruption"
     },
     "ServiceNamespace": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "autoscaling",
         "dynamodb",
         "ec2",
         "ecs",
         "rds"
-      ],
-      "UpdateRequires": "No interruption"
+      ]
     },
-    "TargetTrackingConfigurations": {
-      "Required": "Yes",
-      "Type": "List of [TargetTrackingConfiguration",
-      "UpdateRequires": "No interruption"
-    }
+    "MaxCapacity": {}
   }
 }

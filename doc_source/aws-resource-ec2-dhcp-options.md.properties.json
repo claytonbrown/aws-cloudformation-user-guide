@@ -1,7 +1,17 @@
 {
   "ec2-dhcp-options-properties": {
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "UpdateRequires": "No interruption"
+    },
     "DomainName": {},
     "DomainNameServers": {
+      "Required": "Conditional",
+      "Type": "List of String",
+      "UpdateRequires": "Replacement"
+    },
+    "NtpServers": {
       "Required": "Conditional",
       "Type": "List of String",
       "UpdateRequires": "Replacement"
@@ -15,16 +25,6 @@
       "Required": "No",
       "Type": "Integer",
       "UpdateRequires": "Replacement"
-    },
-    "NtpServers": {
-      "Required": "Conditional",
-      "Type": "List of String",
-      "UpdateRequires": "Replacement"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
     }
   }
 }

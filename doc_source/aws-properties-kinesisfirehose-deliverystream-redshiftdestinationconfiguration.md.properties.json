@@ -1,15 +1,22 @@
 {
   "aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-properties": {
-    "CloudWatchLoggingOptions": {
-      "Required": "No",
-      "Type": "CloudWatchLoggingOptions",
-      "UpdateRequires": "No interruption"
-    },
-    "ClusterJDBCURL": {
+    "Username": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
-      "Minimum": "1",
+      "UpdateRequires": "No interruption"
+    },
+    "S3Configuration": {
+      "Required": "Yes",
+      "Type": "S3DestinationConfiguration",
+      "UpdateRequires": "No interruption"
+    },
+    "RoleARN": {},
+    "ClusterJDBCURL": {
       "Pattern": "jdbc:(redshift|postgresql)://((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+redshift\\.amazonaws\\.com:\\d{1,5}/[a-zA-Z0-9_$]+",
+      "Minimum": "1",
+      "Required": "Yes",
+      "Type": "String",
       "UpdateRequires": "No interruption"
     },
     "CopyCommand": {
@@ -17,27 +24,20 @@
       "Type": "CopyCommand",
       "UpdateRequires": "No interruption"
     },
+    "CloudWatchLoggingOptions": {
+      "Required": "No",
+      "Type": "CloudWatchLoggingOptions",
+      "UpdateRequires": "No interruption"
+    },
     "Password": {
+      "Minimum": "6",
       "Required": "Yes",
       "Type": "String",
-      "Minimum": "6",
       "UpdateRequires": "No interruption"
     },
     "ProcessingConfiguration": {
       "Required": "No",
       "Type": "ProcessingConfiguration",
-      "UpdateRequires": "No interruption"
-    },
-    "RoleARN": {},
-    "S3Configuration": {
-      "Required": "Yes",
-      "Type": "S3DestinationConfiguration",
-      "UpdateRequires": "No interruption"
-    },
-    "Username": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
       "UpdateRequires": "No interruption"
     }
   }

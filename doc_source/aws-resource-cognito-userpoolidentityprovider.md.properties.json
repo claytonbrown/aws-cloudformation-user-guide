@@ -1,0 +1,48 @@
+{
+  "cognito-userpoolidentityprovider-properties": {
+    "ProviderName": {
+      "Pattern": "[^_][\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}][^_]+",
+      "Required": "Yes",
+      "Maximum": "32",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "UserPoolId": {
+      "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
+      "Required": "Yes",
+      "Maximum": "55",
+      "UpdateRequires": "Replacement",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "ProviderType": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "Facebook",
+        "Google",
+        "LoginWithAmazon",
+        "OIDC",
+        "SAML"
+      ]
+    },
+    "ProviderDetails": {
+      "Required": "No",
+      "Type": "Json",
+      "UpdateRequires": "No interruption"
+    },
+    "IdpIdentifiers": {
+      "Required": "No",
+      "Type": "List of String",
+      "Maximum": "50",
+      "UpdateRequires": "No interruption"
+    },
+    "AttributeMapping": {
+      "Required": "No",
+      "Type": "Json",
+      "UpdateRequires": "No interruption"
+    }
+  }
+}

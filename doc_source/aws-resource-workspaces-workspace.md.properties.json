@@ -1,51 +1,51 @@
 {
   "workspaces-workspace-properties": {
-    "BundleId": {
+    "UserName": {
+      "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
-      "Pattern": "^wsb-[0-9a-z]{8,63}$"
+      "Maximum": "63",
+      "UpdateRequires": "Replacement"
     },
     "DirectoryId": {
+      "Pattern": "^d-[0-9a-f]{8,63}$",
       "Required": "Yes",
-      "Type": "String",
-      "Pattern": "^d-[0-9a-f]{8,63}$"
-    },
-    "RootVolumeEncryptionEnabled": {
-      "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean"
+      "Type": "String"
     },
     "Tags": {
       "Required": "No",
       "Type": "List of [Tag",
       "UpdateRequires": "No interruption"
     },
-    "UserName": {
-      "Required": "Yes",
-      "Type": "String",
-      "Minimum": "1",
-      "Maximum": "63",
-      "UpdateRequires": "Replacement"
-    },
-    "UserVolumeEncryptionEnabled": {
+    "WorkspaceProperties": {
       "Required": "No",
-      "AllowedValues": [
-        "True",
-        "False"
-      ],
-      "Type": "Boolean"
+      "Type": "WorkspaceProperties",
+      "UpdateRequires": "No interruption"
     },
     "VolumeEncryptionKey": {
       "Required": "No",
       "Type": "String"
     },
-    "WorkspaceProperties": {
+    "BundleId": {
+      "Pattern": "^wsb-[0-9a-z]{8,63}$",
+      "Required": "Yes",
+      "Type": "String"
+    },
+    "UserVolumeEncryptionEnabled": {
       "Required": "No",
-      "Type": "WorkspaceProperties",
-      "UpdateRequires": "No interruption"
+      "Type": "Boolean",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "RootVolumeEncryptionEnabled": {
+      "Required": "No",
+      "Type": "Boolean",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     }
   }
 }

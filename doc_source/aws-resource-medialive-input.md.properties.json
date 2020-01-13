@@ -1,15 +1,5 @@
 {
   "medialive-input-properties": {
-    "Destinations": {
-      "Required": "No",
-      "Type": "List of [InputDestinationRequest",
-      "UpdateRequires": "No interruption"
-    },
-    "InputSecurityGroups": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
-    },
     "MediaConnectFlows": {
       "Required": "No",
       "Type": "List of [MediaConnectFlowRequest",
@@ -18,6 +8,11 @@
     "Name": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "No interruption"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "Json",
       "UpdateRequires": "No interruption"
     },
     "RoleArn": {
@@ -30,9 +25,14 @@
       "Type": "List of [InputSourceRequest",
       "UpdateRequires": "No interruption"
     },
-    "Tags": {
+    "Vpc": {
       "Required": "No",
-      "Type": "Json",
+      "Type": "InputVpcRequest",
+      "UpdateRequires": "Replacement"
+    },
+    "Destinations": {
+      "Required": "No",
+      "Type": "List of [InputDestinationRequest",
       "UpdateRequires": "No interruption"
     },
     "Type": {
@@ -40,10 +40,10 @@
       "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "Vpc": {
+    "InputSecurityGroups": {
       "Required": "No",
-      "Type": "InputVpcRequest",
-      "UpdateRequires": "Replacement"
+      "Type": "List of String",
+      "UpdateRequires": "No interruption"
     }
   }
 }
