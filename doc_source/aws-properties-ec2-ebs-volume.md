@@ -123,7 +123,7 @@ The tags to apply to the volume during creation\.
 
 `VolumeType`  <a name="cfn-ec2-ebs-volume-volumetype"></a>
 The volume type\. This can be `gp2` for General Purpose SSD, `io1` for Provisioned IOPS SSD, `st1` for Throughput Optimized HDD, `sc1` for Cold HDD, or `standard` for Magnetic volumes\.  
-Defaults: If no volume type is specified, the default is `standard` in us\-east\-1, eu\-west\-1, eu\-central\-1, us\-west\-2, us\-west\-1, sa\-east\-1, ap\-northeast\-1, ap\-northeast\-2, ap\-southeast\-1, ap\-southeast\-2, ap\-south\-1, us\-gov\-west\-1, and cn\-north\-1\. In all other Regions, EBS defaults to `gp2`\.  
+Default: `gp2`   
 *Required*: No  
 *Type*: String  
 *Allowed Values*: `gp2 | io1 | sc1 | st1 | standard`  
