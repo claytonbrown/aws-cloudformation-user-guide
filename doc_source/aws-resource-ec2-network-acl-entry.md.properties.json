@@ -1,4 +1,28 @@
 {
+  "ec2.network.acl.entry.cidrblock": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.network.acl.entry.egress": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.network.acl.entry.icmp": {
+    "Required": "No",
+    "Type": "Icmp",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.network.acl.entry.ipv6cidrblock": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "ec2.network.acl.entry.networkaclid": {
     "Required": "Yes",
     "Type": "String",
@@ -9,104 +33,24 @@
     "Type": "PortRange",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.network.acl.entry.rulenumber": {
-    "Required": "Yes",
-    "Type": "Integer",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
   "ec2.network.acl.entry.protocol": {
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.network.acl.entry.ipv6cidrblock": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.network.acl.entry.egress": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
   "ec2.network.acl.entry.ruleaction": {
-    "Allowed Values": "allow | deny",
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "allow",
       "deny"
-    ]
-  },
-  "ec2.network.acl.entry.icmp": {
-    "Required": "No",
-    "Type": "Icmp",
+    ],
+    "Allowed Values": "allow | deny",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.network.acl.entry.cidrblock": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2-network-acl-entry-properties": {
-    "NetworkAclId": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "RuleNumber": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-    },
-    "Protocol": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Ipv6CidrBlock": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Egress": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "RuleAction": {
-      "Allowed Values": "allow | deny",
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "allow",
-        "deny"
-      ]
-    },
-    "PortRange": {
-      "Required": "No",
-      "Type": "PortRange",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Icmp": {
-      "Required": "No",
-      "Type": "Icmp",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "CidrBlock": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
+  "ec2.network.acl.entry.rulenumber": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

@@ -1,200 +1,100 @@
 {
-  "ec2.spotfleet.spotfleetrequestconfigdata.launchspecifications": {
-    "Required": "Conditional",
-    "Type": "List of [SpotFleetLaunchSpecification",
+  "ec2.spotfleet.spotfleetrequestconfigdata.allocationstrategy": {
+    "Required": "No",
+    "Type": "String",
+    "AllowedValues": [
+      "capacityOptimized",
+      "diversified",
+      "lowestPrice"
+    ],
+    "Allowed Values": "capacityOptimized | diversified | lowestPrice",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.spotfleet.spotfleetrequestconfigdata.validuntil": {
+  "ec2.spotfleet.spotfleetrequestconfigdata.excesscapacityterminationpolicy": {
     "Required": "No",
-    "UpdateRequires": "Replacement"
+    "Type": "String",
+    "AllowedValues": [
+      "default",
+      "noTermination"
+    ],
+    "Allowed Values": "default | noTermination",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.spotfleet.spotfleetrequestconfigdata.iamfleetrole": {
     "Required": "Yes",
     "UpdateRequires": "Replacement"
   },
-  "ec2.spotfleet.spotfleetrequestconfigdata.spotprice": {
+  "ec2.spotfleet.spotfleetrequestconfigdata.instanceinterruptionbehavior": {
     "Required": "No",
     "Type": "String",
+    "AllowedValues": [
+      "hibernate",
+      "stop",
+      "terminate"
+    ],
+    "Allowed Values": "hibernate | stop | terminate",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.spotfleet.spotfleetrequestconfigdata.excesscapacityterminationpolicy": {
-    "Allowed Values": "default | noTermination",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "default",
-      "noTermination"
-    ]
-  },
-  "ec2.spotfleet.spotfleetrequestconfigdata.validfrom": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "ec2.spotfleet.spotfleetrequestconfigdata.terminateinstanceswithexpiration": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+  "ec2.spotfleet.spotfleetrequestconfigdata.launchspecifications": {
+    "Required": "Conditional",
+    "Type": "List of [SpotFleetLaunchSpecification",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.spotfleet.spotfleetrequestconfigdata.launchtemplateconfigs": {
     "Required": "Conditional",
     "Type": "List of [LaunchTemplateConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-properties": {
-    "Type": {
-      "Allowed Values": "instant | maintain | request",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "instant",
-        "maintain",
-        "request"
-      ]
-    },
-    "ValidUntil": {
-      "Required": "No",
-      "UpdateRequires": "Replacement"
-    },
-    "LaunchTemplateConfigs": {
-      "Required": "Conditional",
-      "Type": "List of [LaunchTemplateConfig",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "TerminateInstancesWithExpiration": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "InstanceInterruptionBehavior": {
-      "Allowed Values": "hibernate | stop | terminate",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "hibernate",
-        "stop",
-        "terminate"
-      ]
-    },
-    "LaunchSpecifications": {
-      "Required": "Conditional",
-      "Type": "List of [SpotFleetLaunchSpecification",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "LoadBalancersConfig": {
-      "Required": "No",
-      "Type": "LoadBalancersConfig",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "IamFleetRole": {
-      "Required": "Yes",
-      "UpdateRequires": "Replacement"
-    },
-    "TargetCapacity": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "ValidFrom": {
-      "Required": "No",
-      "UpdateRequires": "Replacement"
-    },
-    "ExcessCapacityTerminationPolicy": {
-      "Allowed Values": "default | noTermination",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "default",
-        "noTermination"
-      ]
-    },
-    "ReplaceUnhealthyInstances": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "SpotPrice": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "AllocationStrategy": {
-      "Allowed Values": "capacityOptimized | diversified | lowestPrice",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "capacityOptimized",
-        "diversified",
-        "lowestPrice"
-      ]
-    }
+  "ec2.spotfleet.spotfleetrequestconfigdata.loadbalancersconfig": {
+    "Required": "No",
+    "Type": "LoadBalancersConfig",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.spotfleet.spotfleetrequestconfigdata.replaceunhealthyinstances": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.spotfleet.spotfleetrequestconfigdata.instanceinterruptionbehavior": {
-    "Allowed Values": "hibernate | stop | terminate",
+  "ec2.spotfleet.spotfleetrequestconfigdata.spotprice": {
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "hibernate",
-      "stop",
-      "terminate"
-    ]
-  },
-  "ec2.spotfleet.spotfleetrequestconfigdata.type": {
-    "Allowed Values": "instant | maintain | request",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "instant",
-      "maintain",
-      "request"
-    ]
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.spotfleet.spotfleetrequestconfigdata.targetcapacity": {
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.spotfleet.spotfleetrequestconfigdata.allocationstrategy": {
-    "Allowed Values": "capacityOptimized | diversified | lowestPrice",
+  "ec2.spotfleet.spotfleetrequestconfigdata.terminateinstanceswithexpiration": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.spotfleet.spotfleetrequestconfigdata.type": {
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
-      "capacityOptimized",
-      "diversified",
-      "lowestPrice"
-    ]
-  },
-  "ec2.spotfleet.spotfleetrequestconfigdata.loadbalancersconfig": {
-    "Required": "No",
-    "Type": "LoadBalancersConfig",
+      "instant",
+      "maintain",
+      "request"
+    ],
+    "Allowed Values": "instant | maintain | request",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.spotfleet.spotfleetrequestconfigdata.validfrom": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ec2.spotfleet.spotfleetrequestconfigdata.validuntil": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
   }
 }

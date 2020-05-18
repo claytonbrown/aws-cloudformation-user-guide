@@ -1,5 +1,29 @@
 {
-  "apigatewayv2.integration.passthroughbehavior": {
+  "apigatewayv2.integration.apiid": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "apigatewayv2.integration.connectionid": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apigatewayv2.integration.connectiontype": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apigatewayv2.integration.contenthandlingstrategy": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apigatewayv2.integration.credentialsarn": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "apigatewayv2.integration.description": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -9,15 +33,30 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "apigatewayv2.integration.integrationtype": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apigatewayv2.integration.integrationuri": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apigatewayv2.integration.passthroughbehavior": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "apigatewayv2.integration.payloadformatversion": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "apigatewayv2.integration.apiid": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  "apigatewayv2.integration.requestparameters": {
+    "Required": "No",
+    "Type": "Json",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "apigatewayv2.integration.requesttemplates": {
     "Required": "No",
@@ -29,114 +68,14 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "apigatewayv2.integration.integrationuri": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "apigatewayv2-integration-properties": {
-    "PassthroughBehavior": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "IntegrationMethod": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "CredentialsArn": {
-      "Required": "No",
-      "UpdateRequires": "No interruption"
-    },
-    "RequestParameters": {
-      "Required": "No",
-      "Type": "Json",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "TemplateSelectionExpression": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "ApiId": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "TimeoutInMillis": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-    },
-    "ConnectionType": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "RequestTemplates": {
-      "Required": "No",
-      "Type": "Json",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "PayloadFormatVersion": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "IntegrationUri": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "ContentHandlingStrategy": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "IntegrationType": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Description": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
-  },
-  "apigatewayv2.integration.requestparameters": {
-    "Required": "No",
-    "Type": "Json",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "apigatewayv2.integration.connectiontype": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "apigatewayv2.integration.timeoutinmillis": {
     "Required": "No",
     "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apigatewayv2.integration.tlsconfig": {
+    "Required": "No",
+    "Type": "TlsConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "apigatewayv2.integration.credentialsarn": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "apigatewayv2.integration.integrationtype": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "apigatewayv2.integration.contenthandlingstrategy": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "apigatewayv2.integration.description": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

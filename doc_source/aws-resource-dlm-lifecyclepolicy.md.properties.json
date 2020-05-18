@@ -1,68 +1,34 @@
 {
-  "dlm-lifecyclepolicy-properties": {
-    "State": {
-      "Allowed Values": "DISABLED | ENABLED | ERROR",
-      "Required": "Conditional",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
-      "AllowedValues": [
-        "DISABLED",
-        "ENABLED",
-        "ERROR"
-      ]
-    },
-    "ExecutionRoleArn": {
-      "Pattern": "arn:aws:iam::\\d+:role/.*",
-      "Required": "Conditional",
-      "Maximum": "2048",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "0",
-      "Type": "String"
-    },
-    "Description": {
-      "Pattern": "[0-9A-Za-z _-]+",
-      "Required": "Conditional",
-      "Maximum": "500",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "0",
-      "Type": "String"
-    },
-    "PolicyDetails": {
-      "Required": "Conditional",
-      "Type": "PolicyDetails",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
-  },
-  "dlm.lifecyclepolicy.executionrolearn": {
-    "Pattern": "arn:aws:iam::\\d+:role/.*",
-    "Required": "Conditional",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "0",
-    "Type": "String"
-  },
   "dlm.lifecyclepolicy.description": {
-    "Pattern": "[0-9A-Za-z _-]+",
-    "Required": "Conditional",
-    "Maximum": "500",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "0",
-    "Type": "String"
-  },
-  "dlm.lifecyclepolicy.state": {
-    "Allowed Values": "DISABLED | ENABLED | ERROR",
     "Required": "Conditional",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
-    "AllowedValues": [
-      "DISABLED",
-      "ENABLED",
-      "ERROR"
-    ]
+    "Minimum": "0",
+    "Maximum": "500",
+    "Pattern": "[0-9A-Za-z _-]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dlm.lifecyclepolicy.executionrolearn": {
+    "Required": "Conditional",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "2048",
+    "Pattern": "arn:aws:iam::\\d+:role/.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dlm.lifecyclepolicy.policydetails": {
     "Required": "Conditional",
     "Type": "PolicyDetails",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dlm.lifecyclepolicy.state": {
+    "Required": "Conditional",
+    "Type": "String",
+    "AllowedValues": [
+      "DISABLED",
+      "ENABLED",
+      "ERROR"
+    ],
+    "Allowed Values": "DISABLED | ENABLED | ERROR",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

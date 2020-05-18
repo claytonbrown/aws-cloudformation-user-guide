@@ -1,80 +1,42 @@
 {
+  "cloudfront.distribution.viewercertificate.acmcertificatearn": {
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.distribution.viewercertificate.cloudfrontdefaultcertificate": {
+    "Required": "Conditional",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.distribution.viewercertificate.iamcertificateid": {
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "cloudfront.distribution.viewercertificate.minimumprotocolversion": {
     "Required": "Conditional",
-    "UpdateRequires": "No interruption",
     "AllowedValues": [
       "SSLv3",
       "TLSv1",
       "TLSv1.1_2016",
       "TLSv1.2_2018",
       "TLSv1_2016"
-    ]
-  },
-  "cloudfront.distribution.viewercertificate.acmcertificatearn": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "aws-properties-cloudfront-distribution-viewercertificate-properties": {
-    "CloudFrontDefaultCertificate": {
-      "Required": "Conditional",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "SslSupportMethod": {
-      "Required": "Conditional",
-      "UpdateRequires": "No interruption",
-      "AllowedValues": [
-        "sni-only",
-        "vip"
-      ]
-    },
-    "AcmCertificateArn": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "IamCertificateId": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "MinimumProtocolVersion": {
-      "Required": "Conditional",
-      "UpdateRequires": "No interruption",
-      "AllowedValues": [
-        "SSLv3",
-        "TLSv1",
-        "TLSv1.1_2016",
-        "TLSv1.2_2018",
-        "TLSv1_2016"
-      ]
-    }
-  },
-  "cloudfront.distribution.viewercertificate.iamcertificateid": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    ],
+    "UpdateRequires": "No interruption"
   },
   "cloudfront.distribution.viewercertificate.sslsupportmethod": {
     "Required": "Conditional",
-    "UpdateRequires": "No interruption",
+    "Type": "String",
     "AllowedValues": [
       "sni-only",
       "vip"
-    ]
-  },
-  "cloudfront.distribution.viewercertificate.cloudfrontdefaultcertificate": {
-    "Required": "Conditional",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    ],
+    "Allowed Values": "sni-only | vip",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

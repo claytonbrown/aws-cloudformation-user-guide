@@ -1,9 +1,22 @@
 {
-  "waf.rule.predicates.type": {
-    "Allowed Values": "ByteMatch | GeoMatch | IPMatch | RegexMatch | SizeConstraint | SqlInjectionMatch | XssMatch",
+  "waf.rule.predicates.dataid": {
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "waf.rule.predicates.negated": {
+    "Required": "Yes",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "waf.rule.predicates.type": {
+    "Required": "Yes",
+    "Type": "String",
     "AllowedValues": [
       "ByteMatch",
       "GeoMatch",
@@ -12,53 +25,8 @@
       "SizeConstraint",
       "SqlInjectionMatch",
       "XssMatch"
-    ]
-  },
-  "waf.rule.predicates.negated": {
-    "Required": "Yes",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "waf.rule.predicates.dataid": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "128",
+    ],
+    "Allowed Values": "ByteMatch | GeoMatch | IPMatch | RegexMatch | SizeConstraint | SqlInjectionMatch | XssMatch",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "aws-properties-waf-rule-predicates-properties": {
-    "DataId": {
-      "Minimum": "1",
-      "Required": "Yes",
-      "Type": "String",
-      "Maximum": "128",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Type": {
-      "Allowed Values": "ByteMatch | GeoMatch | IPMatch | RegexMatch | SizeConstraint | SqlInjectionMatch | XssMatch",
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "ByteMatch",
-        "GeoMatch",
-        "IPMatch",
-        "RegexMatch",
-        "SizeConstraint",
-        "SqlInjectionMatch",
-        "XssMatch"
-      ]
-    },
-    "Negated": {
-      "Required": "Yes",
-      "UpdateRequires": "No interruption",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    }
   }
 }

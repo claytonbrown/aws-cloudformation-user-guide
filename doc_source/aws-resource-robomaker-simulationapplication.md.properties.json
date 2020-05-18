@@ -1,7 +1,15 @@
 {
-  "robomaker.simulationapplication.robotsoftwaresuite": {
-    "Required": "Yes",
-    "Type": "RobotSoftwareSuite",
+  "robomaker.simulationapplication.currentrevisionid": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "robomaker.simulationapplication.name": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "[a-zA-Z0-9_\\-]*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "robomaker.simulationapplication.renderingengine": {
@@ -9,72 +17,24 @@
     "Type": "RenderingEngine",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "robomaker.simulationapplication.robotsoftwaresuite": {
+    "Required": "Yes",
+    "Type": "RobotSoftwareSuite",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "robomaker.simulationapplication.simulationsoftwaresuite": {
     "Required": "Yes",
     "Type": "SimulationSoftwareSuite",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "robomaker-simulationapplication-properties": {
-    "RenderingEngine": {
-      "Required": "Yes",
-      "Type": "RenderingEngine",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "Name": {
-      "Pattern": "[a-zA-Z0-9_\\-]*",
-      "Required": "No",
-      "Maximum": "255",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "1",
-      "Type": "String"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "Json",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-    },
-    "Sources": {
-      "Required": "Yes",
-      "Type": "List of [SourceConfig",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "CurrentRevisionId": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "SimulationSoftwareSuite": {
-      "Required": "Yes",
-      "Type": "SimulationSoftwareSuite",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "RobotSoftwareSuite": {
-      "Required": "Yes",
-      "Type": "RobotSoftwareSuite",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    }
+  "robomaker.simulationapplication.sources": {
+    "Required": "Yes",
+    "Type": "List of [SourceConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "robomaker.simulationapplication.tags": {
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "robomaker.simulationapplication.name": {
-    "Pattern": "[a-zA-Z0-9_\\-]*",
-    "Required": "No",
-    "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "robomaker.simulationapplication.currentrevisionid": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "robomaker.simulationapplication.sources": {
-    "Required": "Yes",
-    "Type": "List of [SourceConfig",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

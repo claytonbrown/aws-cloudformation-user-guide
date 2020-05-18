@@ -1,46 +1,23 @@
 {
-  "wafv2.webacl.managedrulegroupstatement.vendorname": {
-    "Pattern": ".*\\S.*",
-    "Required": "No",
-    "Maximum": "128",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "wafv2.webacl.managedrulegroupstatement.name": {
-    "Pattern": "^[\\w\\-]+$",
-    "Required": "No",
-    "Maximum": "128",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
   "wafv2.webacl.managedrulegroupstatement.excludedrules": {
     "Required": "No",
-    "Type": "ExcludedRules",
+    "Type": "List of [ExcludedRule",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "aws-properties-wafv2-webacl-managedrulegroupstatement-properties": {
-    "ExcludedRules": {
-      "Required": "No",
-      "Type": "ExcludedRules",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Name": {
-      "Pattern": "^[\\w\\-]+$",
-      "Required": "No",
-      "Maximum": "128",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "1",
-      "Type": "String"
-    },
-    "VendorName": {
-      "Pattern": ".*\\S.*",
-      "Required": "No",
-      "Maximum": "128",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "1",
-      "Type": "String"
-    }
+  "wafv2.webacl.managedrulegroupstatement.name": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "^[\\w\\-]+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "wafv2.webacl.managedrulegroupstatement.vendorname": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": ".*\\S.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

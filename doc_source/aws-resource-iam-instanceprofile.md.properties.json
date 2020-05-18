@@ -1,44 +1,22 @@
 {
-  "iam.instanceprofile.path": {
-    "Pattern": "(\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F)",
-    "Minimum": "1",
+  "iam.instanceprofile.instanceprofilename": {
     "Required": "No",
-    "Maximum": "512",
-    "UpdateRequires": "Replacement"
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "[\\w+=,.@-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "iam-instanceprofile-properties": {
-    "Path": {
-      "Pattern": "(\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F)",
-      "Minimum": "1",
-      "Required": "No",
-      "Maximum": "512",
-      "UpdateRequires": "Replacement"
-    },
-    "Roles": {
-      "Required": "Yes",
-      "Type": "List of String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-    },
-    "InstanceProfileName": {
-      "Pattern": "[\\w+=,.@-]+",
-      "Required": "No",
-      "Maximum": "128",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "1",
-      "Type": "String"
-    }
+  "iam.instanceprofile.path": {
+    "Required": "No",
+    "Minimum": "1",
+    "Maximum": "512",
+    "Pattern": "(\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F)",
+    "UpdateRequires": "Replacement"
   },
   "iam.instanceprofile.roles": {
     "Required": "Yes",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "iam.instanceprofile.instanceprofilename": {
-    "Pattern": "[\\w+=,.@-]+",
-    "Required": "No",
-    "Maximum": "128",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
   }
 }

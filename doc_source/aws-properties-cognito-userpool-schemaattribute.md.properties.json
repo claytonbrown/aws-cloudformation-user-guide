@@ -1,15 +1,40 @@
 {
-  "cognito.userpool.schemaattribute.name": {
-    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+  "cognito.userpool.schemaattribute.attributedatatype": {
     "Required": "No",
-    "Maximum": "20",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
+    "Type": "String",
+    "AllowedValues": [
+      "Boolean",
+      "DateTime",
+      "Number",
+      "String"
+    ],
+    "Allowed Values": "Boolean | DateTime | Number | String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cognito.userpool.schemaattribute.stringattributeconstraints": {
+  "cognito.userpool.schemaattribute.developeronlyattribute": {
     "Required": "No",
-    "Type": "StringAttributeConstraints",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.schemaattribute.mutable": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.schemaattribute.name": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "20",
+    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.schemaattribute.numberattributeconstraints": {
@@ -17,102 +42,18 @@
     "Type": "NumberAttributeConstraints",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cognito.userpool.schemaattribute.developeronlyattribute": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "aws-properties-cognito-userpool-schemaattribute-properties": {
-    "Name": {
-      "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
-      "Required": "No",
-      "Maximum": "20",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "1",
-      "Type": "String"
-    },
-    "NumberAttributeConstraints": {
-      "Required": "No",
-      "Type": "NumberAttributeConstraints",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "StringAttributeConstraints": {
-      "Required": "No",
-      "Type": "StringAttributeConstraints",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "DeveloperOnlyAttribute": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "Required": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "AttributeDataType": {
-      "Allowed Values": "Boolean | DateTime | Number | String",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "Boolean",
-        "DateTime",
-        "Number",
-        "String"
-      ]
-    },
-    "Mutable": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    }
-  },
-  "cognito.userpool.schemaattribute.attributedatatype": {
-    "Allowed Values": "Boolean | DateTime | Number | String",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "Boolean",
-      "DateTime",
-      "Number",
-      "String"
-    ]
-  },
-  "cognito.userpool.schemaattribute.mutable": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
   "cognito.userpool.schemaattribute.required": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.schemaattribute.stringattributeconstraints": {
+    "Required": "No",
+    "Type": "StringAttributeConstraints",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

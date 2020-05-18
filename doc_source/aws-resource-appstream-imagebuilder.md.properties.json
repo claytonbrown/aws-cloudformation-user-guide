@@ -1,50 +1,16 @@
 {
-  "appstream.imagebuilder.enabledefaultinternetaccess": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
   "appstream.imagebuilder.accessendpoints": {
     "Required": "No",
     "Type": "List of [AccessEndpoint",
     "Maximum": "4",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "appstream.imagebuilder.imagename": {
+  "appstream.imagebuilder.appstreamagentversion": {
+    "Required": "No",
+    "Type": "String",
     "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "appstream.imagebuilder.domainjoininfo": {
-    "Required": "No",
-    "Type": "DomainJoinInfo",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "appstream.imagebuilder.tags": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "appstream.imagebuilder.displayname": {
-    "Required": "No",
-    "Type": "String",
     "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "appstream.imagebuilder.name": {
-    "Pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "appstream.imagebuilder.vpcconfig": {
-    "Required": "No",
-    "Type": "VpcConfig",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "appstream.imagebuilder.description": {
     "Required": "No",
@@ -52,97 +18,57 @@
     "Maximum": "256",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "appstream.imagebuilder.imagearn": {
-    "Pattern": "^arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "appstream-imagebuilder-properties": {
-    "DisplayName": {
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "100",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Description": {
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "256",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "VpcConfig": {
-      "Required": "No",
-      "Type": "VpcConfig",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-    },
-    "Tags": {
-      "Required": "No",
-      "UpdateRequires": "No interruption"
-    },
-    "AccessEndpoints": {
-      "Required": "No",
-      "Type": "List of [AccessEndpoint",
-      "Maximum": "4",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "AppstreamAgentVersion": {
-      "Minimum": "1",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "100",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "EnableDefaultInternetAccess": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "ImageName": {
-      "Minimum": "1",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "ImageArn": {
-      "Pattern": "^arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "InstanceType": {
-      "Minimum": "1",
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "DomainJoinInfo": {
-      "Required": "No",
-      "Type": "DomainJoinInfo",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Name": {
-      "Pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
-  },
-  "appstream.imagebuilder.instancetype": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "appstream.imagebuilder.appstreamagentversion": {
-    "Minimum": "1",
+  "appstream.imagebuilder.displayname": {
     "Required": "No",
     "Type": "String",
     "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.imagebuilder.domainjoininfo": {
+    "Required": "No",
+    "Type": "DomainJoinInfo",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.imagebuilder.enabledefaultinternetaccess": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.imagebuilder.imagearn": {
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "^arn:aws(?:\\-cn|\\-iso\\-b|\\-iso|\\-us\\-gov)?:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.\\\\-]{0,1023}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.imagebuilder.imagename": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.imagebuilder.instancetype": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.imagebuilder.name": {
+    "Required": "Yes",
+    "Type": "String",
+    "Pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.imagebuilder.tags": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "appstream.imagebuilder.vpcconfig": {
+    "Required": "No",
+    "Type": "VpcConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

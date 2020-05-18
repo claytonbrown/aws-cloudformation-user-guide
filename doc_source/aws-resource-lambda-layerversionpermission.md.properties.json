@@ -1,52 +1,26 @@
 {
-  "lambda-layerversionpermission-properties": {
-    "Action": {
-      "Pattern": "lambda:GetLayerVersion",
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "LayerVersionArn": {
-      "Pattern": "(arn:[a-zA-Z0-9-]+:lambda:[a-zA-Z0-9-]+:\\d{12}:layer:[a-zA-Z0-9-_]+)|[a-zA-Z0-9-_]+",
-      "Required": "Yes",
-      "Maximum": "140",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "1",
-      "Type": "String"
-    },
-    "OrganizationId": {
-      "Pattern": "o-[a-z0-9]{10,32}",
-      "Required": "No",
-      "UpdateRequires": "Replacement"
-    },
-    "Principal": {
-      "Pattern": "\\d{12}|\\*|arn:(aws[a-zA-Z-]*):iam::\\d{12}:root",
-      "Required": "Yes",
-      "UpdateRequires": "Replacement"
-    }
-  },
   "lambda.layerversionpermission.action": {
-    "Pattern": "lambda:GetLayerVersion",
     "Required": "Yes",
     "Type": "String",
+    "Pattern": "lambda:GetLayerVersion",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lambda.layerversionpermission.layerversionarn": {
-    "Pattern": "(arn:[a-zA-Z0-9-]+:lambda:[a-zA-Z0-9-]+:\\d{12}:layer:[a-zA-Z0-9-_]+)|[a-zA-Z0-9-_]+",
     "Required": "Yes",
-    "Maximum": "140",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "140",
+    "Pattern": "(arn:[a-zA-Z0-9-]+:lambda:[a-zA-Z0-9-]+:\\d{12}:layer:[a-zA-Z0-9-_]+)|[a-zA-Z0-9-_]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lambda.layerversionpermission.organizationid": {
-    "Pattern": "o-[a-z0-9]{10,32}",
     "Required": "No",
+    "Pattern": "o-[a-z0-9]{10,32}",
     "UpdateRequires": "Replacement"
   },
   "lambda.layerversionpermission.principal": {
-    "Pattern": "\\d{12}|\\*|arn:(aws[a-zA-Z-]*):iam::\\d{12}:root",
     "Required": "Yes",
+    "Pattern": "\\d{12}|\\*|arn:(aws[a-zA-Z-]*):iam::\\d{12}:root",
     "UpdateRequires": "Replacement"
   }
 }

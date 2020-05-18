@@ -1,80 +1,22 @@
 {
+  "efs.filesystem.encrypted": {
+    "Required": "Conditional",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "efs.filesystem.filesystemtags": {
     "Required": "No",
     "Type": "List of [ElasticFileSystemTag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "efs-filesystem-properties": {
-    "FileSystemTags": {
-      "Required": "No",
-      "Type": "List of [ElasticFileSystemTag",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "ThroughputMode": {
-      "Required": "No",
-      "UpdateRequires": "No interruption",
-      "AllowedValues": [
-        "bursting",
-        "provisioned"
-      ]
-    },
-    "Encrypted": {
-      "Required": "Conditional",
-      "Type": "Boolean",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "PerformanceMode": {
-      "Allowed Values": "generalPurpose | maxIO",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "generalPurpose",
-        "maxIO"
-      ]
-    },
-    "KmsKeyId": {
-      "Minimum": "1",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "2048",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "ProvisionedThroughputInMibps": {
-      "Required": "Conditional",
-      "UpdateRequires": "No interruption"
-    },
-    "LifecyclePolicies": {
-      "Required": "No",
-      "Type": "List of [LifecyclePolicy",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
-  },
-  "efs.filesystem.encrypted": {
-    "Required": "Conditional",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "efs.filesystem.throughputmode": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "bursting",
-      "provisioned"
-    ]
-  },
   "efs.filesystem.kmskeyid": {
-    "Minimum": "1",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "2048",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
@@ -84,17 +26,25 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "efs.filesystem.performancemode": {
-    "Allowed Values": "generalPurpose | maxIO",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "generalPurpose",
       "maxIO"
-    ]
+    ],
+    "Allowed Values": "generalPurpose | maxIO",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "efs.filesystem.provisionedthroughputinmibps": {
     "Required": "Conditional",
+    "UpdateRequires": "No interruption"
+  },
+  "efs.filesystem.throughputmode": {
+    "Required": "No",
+    "AllowedValues": [
+      "bursting",
+      "provisioned"
+    ],
     "UpdateRequires": "No interruption"
   }
 }

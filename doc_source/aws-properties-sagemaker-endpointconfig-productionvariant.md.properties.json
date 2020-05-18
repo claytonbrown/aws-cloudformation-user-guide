@@ -1,21 +1,7 @@
 {
-  "sagemaker.endpointconfig.productionvariant.initialvariantweight": {
-    "Required": "Yes",
-    "Type": "Double",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "sagemaker.endpointconfig.productionvariant.variantname": {
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "63",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "sagemaker.endpointconfig.productionvariant.acceleratortype": {
-    "Allowed Values": "ml.eia1.large | ml.eia1.medium | ml.eia1.xlarge | ml.eia2.large | ml.eia2.medium | ml.eia2.xlarge",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "ml.eia1.large",
       "ml.eia1.medium",
@@ -23,20 +9,24 @@
       "ml.eia2.large",
       "ml.eia2.medium",
       "ml.eia2.xlarge"
-    ]
+    ],
+    "Allowed Values": "ml.eia1.large | ml.eia1.medium | ml.eia1.xlarge | ml.eia2.large | ml.eia2.medium | ml.eia2.xlarge",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "sagemaker.endpointconfig.productionvariant.modelname": {
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+  "sagemaker.endpointconfig.productionvariant.initialinstancecount": {
     "Required": "Yes",
-    "Type": "String",
-    "Maximum": "63",
+    "Type": "Integer",
+    "Minimum": "1",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.endpointconfig.productionvariant.initialvariantweight": {
+    "Required": "Yes",
+    "Type": "Double",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "sagemaker.endpointconfig.productionvariant.instancetype": {
-    "Allowed Values": "ml.c4.2xlarge | ml.c4.4xlarge | ml.c4.8xlarge | ml.c4.large | ml.c4.xlarge | ml.c5.18xlarge | ml.c5.2xlarge | ml.c5.4xlarge | ml.c5.9xlarge | ml.c5.large | ml.c5.xlarge | ml.c5d.18xlarge | ml.c5d.2xlarge | ml.c5d.4xlarge | ml.c5d.9xlarge | ml.c5d.large | ml.c5d.xlarge | ml.g4dn.12xlarge | ml.g4dn.16xlarge | ml.g4dn.2xlarge | ml.g4dn.4xlarge | ml.g4dn.8xlarge | ml.g4dn.xlarge | ml.inf1.24xlarge | ml.inf1.2xlarge | ml.inf1.6xlarge | ml.inf1.xlarge | ml.m4.10xlarge | ml.m4.16xlarge | ml.m4.2xlarge | ml.m4.4xlarge | ml.m4.xlarge | ml.m5.12xlarge | ml.m5.24xlarge | ml.m5.2xlarge | ml.m5.4xlarge | ml.m5.large | ml.m5.xlarge | ml.m5d.12xlarge | ml.m5d.24xlarge | ml.m5d.2xlarge | ml.m5d.4xlarge | ml.m5d.large | ml.m5d.xlarge | ml.p2.16xlarge | ml.p2.8xlarge | ml.p2.xlarge | ml.p3.16xlarge | ml.p3.2xlarge | ml.p3.8xlarge | ml.r5.12xlarge | ml.r5.24xlarge | ml.r5.2xlarge | ml.r5.4xlarge | ml.r5.large | ml.r5.xlarge | ml.r5d.12xlarge | ml.r5d.24xlarge | ml.r5d.2xlarge | ml.r5d.4xlarge | ml.r5d.large | ml.r5d.xlarge | ml.t2.2xlarge | ml.t2.large | ml.t2.medium | ml.t2.xlarge",
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "ml.c4.2xlarge",
       "ml.c4.4xlarge",
@@ -104,127 +94,22 @@
       "ml.t2.large",
       "ml.t2.medium",
       "ml.t2.xlarge"
-    ]
-  },
-  "sagemaker.endpointconfig.productionvariant.initialinstancecount": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "Integer",
+    ],
+    "Allowed Values": "ml.c4.2xlarge | ml.c4.4xlarge | ml.c4.8xlarge | ml.c4.large | ml.c4.xlarge | ml.c5.18xlarge | ml.c5.2xlarge | ml.c5.4xlarge | ml.c5.9xlarge | ml.c5.large | ml.c5.xlarge | ml.c5d.18xlarge | ml.c5d.2xlarge | ml.c5d.4xlarge | ml.c5d.9xlarge | ml.c5d.large | ml.c5d.xlarge | ml.g4dn.12xlarge | ml.g4dn.16xlarge | ml.g4dn.2xlarge | ml.g4dn.4xlarge | ml.g4dn.8xlarge | ml.g4dn.xlarge | ml.inf1.24xlarge | ml.inf1.2xlarge | ml.inf1.6xlarge | ml.inf1.xlarge | ml.m4.10xlarge | ml.m4.16xlarge | ml.m4.2xlarge | ml.m4.4xlarge | ml.m4.xlarge | ml.m5.12xlarge | ml.m5.24xlarge | ml.m5.2xlarge | ml.m5.4xlarge | ml.m5.large | ml.m5.xlarge | ml.m5d.12xlarge | ml.m5d.24xlarge | ml.m5d.2xlarge | ml.m5d.4xlarge | ml.m5d.large | ml.m5d.xlarge | ml.p2.16xlarge | ml.p2.8xlarge | ml.p2.xlarge | ml.p3.16xlarge | ml.p3.2xlarge | ml.p3.8xlarge | ml.r5.12xlarge | ml.r5.24xlarge | ml.r5.2xlarge | ml.r5.4xlarge | ml.r5.large | ml.r5.xlarge | ml.r5d.12xlarge | ml.r5d.24xlarge | ml.r5d.2xlarge | ml.r5d.4xlarge | ml.r5d.large | ml.r5d.xlarge | ml.t2.2xlarge | ml.t2.large | ml.t2.medium | ml.t2.xlarge",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "aws-properties-sagemaker-endpointconfig-productionvariant-properties": {
-    "ModelName": {
-      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-      "Required": "Yes",
-      "Type": "String",
-      "Maximum": "63",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "InitialVariantWeight": {
-      "Required": "Yes",
-      "Type": "Double",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "VariantName": {
-      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-      "Required": "Yes",
-      "Type": "String",
-      "Maximum": "63",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "InitialInstanceCount": {
-      "Minimum": "1",
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "AcceleratorType": {
-      "Allowed Values": "ml.eia1.large | ml.eia1.medium | ml.eia1.xlarge | ml.eia2.large | ml.eia2.medium | ml.eia2.xlarge",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "ml.eia1.large",
-        "ml.eia1.medium",
-        "ml.eia1.xlarge",
-        "ml.eia2.large",
-        "ml.eia2.medium",
-        "ml.eia2.xlarge"
-      ]
-    },
-    "InstanceType": {
-      "Allowed Values": "ml.c4.2xlarge | ml.c4.4xlarge | ml.c4.8xlarge | ml.c4.large | ml.c4.xlarge | ml.c5.18xlarge | ml.c5.2xlarge | ml.c5.4xlarge | ml.c5.9xlarge | ml.c5.large | ml.c5.xlarge | ml.c5d.18xlarge | ml.c5d.2xlarge | ml.c5d.4xlarge | ml.c5d.9xlarge | ml.c5d.large | ml.c5d.xlarge | ml.g4dn.12xlarge | ml.g4dn.16xlarge | ml.g4dn.2xlarge | ml.g4dn.4xlarge | ml.g4dn.8xlarge | ml.g4dn.xlarge | ml.inf1.24xlarge | ml.inf1.2xlarge | ml.inf1.6xlarge | ml.inf1.xlarge | ml.m4.10xlarge | ml.m4.16xlarge | ml.m4.2xlarge | ml.m4.4xlarge | ml.m4.xlarge | ml.m5.12xlarge | ml.m5.24xlarge | ml.m5.2xlarge | ml.m5.4xlarge | ml.m5.large | ml.m5.xlarge | ml.m5d.12xlarge | ml.m5d.24xlarge | ml.m5d.2xlarge | ml.m5d.4xlarge | ml.m5d.large | ml.m5d.xlarge | ml.p2.16xlarge | ml.p2.8xlarge | ml.p2.xlarge | ml.p3.16xlarge | ml.p3.2xlarge | ml.p3.8xlarge | ml.r5.12xlarge | ml.r5.24xlarge | ml.r5.2xlarge | ml.r5.4xlarge | ml.r5.large | ml.r5.xlarge | ml.r5d.12xlarge | ml.r5d.24xlarge | ml.r5d.2xlarge | ml.r5d.4xlarge | ml.r5d.large | ml.r5d.xlarge | ml.t2.2xlarge | ml.t2.large | ml.t2.medium | ml.t2.xlarge",
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "ml.c4.2xlarge",
-        "ml.c4.4xlarge",
-        "ml.c4.8xlarge",
-        "ml.c4.large",
-        "ml.c4.xlarge",
-        "ml.c5.18xlarge",
-        "ml.c5.2xlarge",
-        "ml.c5.4xlarge",
-        "ml.c5.9xlarge",
-        "ml.c5.large",
-        "ml.c5.xlarge",
-        "ml.c5d.18xlarge",
-        "ml.c5d.2xlarge",
-        "ml.c5d.4xlarge",
-        "ml.c5d.9xlarge",
-        "ml.c5d.large",
-        "ml.c5d.xlarge",
-        "ml.g4dn.12xlarge",
-        "ml.g4dn.16xlarge",
-        "ml.g4dn.2xlarge",
-        "ml.g4dn.4xlarge",
-        "ml.g4dn.8xlarge",
-        "ml.g4dn.xlarge",
-        "ml.inf1.24xlarge",
-        "ml.inf1.2xlarge",
-        "ml.inf1.6xlarge",
-        "ml.inf1.xlarge",
-        "ml.m4.10xlarge",
-        "ml.m4.16xlarge",
-        "ml.m4.2xlarge",
-        "ml.m4.4xlarge",
-        "ml.m4.xlarge",
-        "ml.m5.12xlarge",
-        "ml.m5.24xlarge",
-        "ml.m5.2xlarge",
-        "ml.m5.4xlarge",
-        "ml.m5.large",
-        "ml.m5.xlarge",
-        "ml.m5d.12xlarge",
-        "ml.m5d.24xlarge",
-        "ml.m5d.2xlarge",
-        "ml.m5d.4xlarge",
-        "ml.m5d.large",
-        "ml.m5d.xlarge",
-        "ml.p2.16xlarge",
-        "ml.p2.8xlarge",
-        "ml.p2.xlarge",
-        "ml.p3.16xlarge",
-        "ml.p3.2xlarge",
-        "ml.p3.8xlarge",
-        "ml.r5.12xlarge",
-        "ml.r5.24xlarge",
-        "ml.r5.2xlarge",
-        "ml.r5.4xlarge",
-        "ml.r5.large",
-        "ml.r5.xlarge",
-        "ml.r5d.12xlarge",
-        "ml.r5d.24xlarge",
-        "ml.r5d.2xlarge",
-        "ml.r5d.4xlarge",
-        "ml.r5d.large",
-        "ml.r5d.xlarge",
-        "ml.t2.2xlarge",
-        "ml.t2.large",
-        "ml.t2.medium",
-        "ml.t2.xlarge"
-      ]
-    }
+  "sagemaker.endpointconfig.productionvariant.modelname": {
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.endpointconfig.productionvariant.variantname": {
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

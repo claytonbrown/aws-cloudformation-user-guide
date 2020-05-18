@@ -1,75 +1,7 @@
 {
-  "ec2-clientvpnendpoint-properties": {
-    "ServerCertificateArn": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Description": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "TransportProtocol": {
-      "Allowed Values": "tcp | udp",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-      "AllowedValues": [
-        "tcp",
-        "udp"
-      ]
-    },
-    "TagSpecifications": {
-      "Required": "No",
-      "Type": "List of [TagSpecification",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "ConnectionLogOptions": {
-      "Required": "Yes",
-      "Type": "ConnectionLogOptions",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "AuthenticationOptions": {
-      "Required": "Yes",
-      "Type": "List of [ClientAuthenticationRequest",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "ClientCidrBlock": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "SplitTunnel": {
-      "Required": "No",
-      "UpdateRequires": "No interruption",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "DnsServers": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
-  },
   "ec2.clientvpnendpoint.authenticationoptions": {
     "Required": "Yes",
     "Type": "List of [ClientAuthenticationRequest",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ec2.clientvpnendpoint.splittunnel": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "ec2.clientvpnendpoint.tagspecifications": {
-    "Required": "No",
-    "Type": "List of [TagSpecification",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.clientvpnendpoint.clientcidrblock": {
@@ -92,19 +24,47 @@
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "ec2.clientvpnendpoint.securitygroupids": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "ec2.clientvpnendpoint.servercertificatearn": {
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "ec2.clientvpnendpoint.splittunnel": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "ec2.clientvpnendpoint.tagspecifications": {
+    "Required": "No",
+    "Type": "List of [TagSpecification",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "ec2.clientvpnendpoint.transportprotocol": {
-    "Allowed Values": "tcp | udp",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
     "AllowedValues": [
       "tcp",
       "udp"
-    ]
+    ],
+    "Allowed Values": "tcp | udp",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.clientvpnendpoint.vpcid": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.clientvpnendpoint.vpnport": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

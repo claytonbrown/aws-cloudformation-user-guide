@@ -1,104 +1,52 @@
 {
   "directoryservice.microsoftad.createalias": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "directoryservice.microsoftad.edition": {
+    "Required": "No",
+    "Type": "String",
+    "AllowedValues": [
+      "Enterprise",
+      "Standard"
+    ],
+    "Allowed Values": "Enterprise | Standard",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "directoryservice.microsoftad.enablesso": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "directoryservice.microsoftad.name": {
-    "Pattern": "^([a-zA-Z0-9]+[\\\\.-])+([a-zA-Z0-9])+$",
     "Required": "Yes",
     "Type": "String",
+    "Pattern": "^([a-zA-Z0-9]+[\\\\.-])+([a-zA-Z0-9])+$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "directoryservice.microsoftad.password": {
+    "Required": "Yes",
+    "Pattern": "(?=^.{8,64}$)((?=.*\\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[^A-Za-z0-9\\s])(?=.*[a-z])|(?=.*[^A-Za-z0-9\\s])(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s]))^.*",
+    "UpdateRequires": "Replacement"
+  },
+  "directoryservice.microsoftad.shortname": {
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "^[^\\\\/:*?\"<>|.]+[^\\\\/:*?\"<>|]*$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "directoryservice.microsoftad.vpcsettings": {
     "Required": "Yes",
     "Type": "VpcSettings",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "directoryservice-microsoftad-properties": {
-    "Password": {
-      "Pattern": "(?=^.{8,64}$)((?=.*\\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[^A-Za-z0-9\\s])(?=.*[a-z])|(?=.*[^A-Za-z0-9\\s])(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s]))^.*",
-      "Required": "Yes",
-      "UpdateRequires": "Replacement"
-    },
-    "Name": {
-      "Pattern": "^([a-zA-Z0-9]+[\\\\.-])+([a-zA-Z0-9])+$",
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "VpcSettings": {
-      "Required": "Yes",
-      "Type": "VpcSettings",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-    },
-    "Edition": {
-      "Allowed Values": "Enterprise | Standard",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "Enterprise",
-        "Standard"
-      ]
-    },
-    "EnableSso": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "ShortName": {
-      "Pattern": "^[^\\\\/:*?\\\"\\<\\>|.]+[^\\\\/:*?\\\"<>|]*$",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "CreateAlias": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    }
-  },
-  "directoryservice.microsoftad.password": {
-    "Pattern": "(?=^.{8,64}$)((?=.*\\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[^A-Za-z0-9\\s])(?=.*[a-z])|(?=.*[^A-Za-z0-9\\s])(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s]))^.*",
-    "Required": "Yes",
-    "UpdateRequires": "Replacement"
-  },
-  "directoryservice.microsoftad.edition": {
-    "Allowed Values": "Enterprise | Standard",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "Enterprise",
-      "Standard"
-    ]
-  },
-  "directoryservice.microsoftad.shortname": {
-    "Pattern": "^[^\\\\/:*?\\\"\\<\\>|.]+[^\\\\/:*?\\\"<>|]*$",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "directoryservice.microsoftad.enablesso": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
   }
 }

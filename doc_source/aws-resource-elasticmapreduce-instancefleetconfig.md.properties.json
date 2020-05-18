@@ -1,74 +1,23 @@
 {
-  "elasticmapreduce.instancefleetconfig.name": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "0",
-    "Type": "String"
+  "elasticmapreduce.instancefleetconfig.clusterid": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.instancefleetconfig.targetspotcapacity": {
-    "Minimum": "0",
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "elasticmapreduce-instancefleetconfig-properties": {
-    "Name": {
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "Required": "No",
-      "Maximum": "256",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "0",
-      "Type": "String"
-    },
-    "InstanceFleetType": {
-      "Allowed Values": "CORE | MASTER | TASK",
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "CORE",
-        "MASTER",
-        "TASK"
-      ]
-    },
-    "LaunchSpecifications": {
-      "Required": "No",
-      "Type": "InstanceFleetProvisioningSpecifications",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "ClusterId": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "TargetSpotCapacity": {
-      "Minimum": "0",
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-    },
-    "InstanceTypeConfigs": {
-      "Required": "No",
-      "Type": "List of [InstanceTypeConfig",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "TargetOnDemandCapacity": {
-      "Minimum": "0",
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
+  "elasticmapreduce.instancefleetconfig.instancefleettype": {
+    "Required": "Yes",
+    "Type": "String",
+    "AllowedValues": [
+      "CORE",
+      "MASTER",
+      "TASK"
+    ],
+    "Allowed Values": "CORE | MASTER | TASK",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticmapreduce.instancefleetconfig.instancetypeconfigs": {
     "Required": "No",
     "Type": "List of [InstanceTypeConfig",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticmapreduce.instancefleetconfig.clusterid": {
-    "Required": "Yes",
-    "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticmapreduce.instancefleetconfig.launchspecifications": {
@@ -76,21 +25,24 @@
     "Type": "InstanceFleetProvisioningSpecifications",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.instancefleetconfig.instancefleettype": {
-    "Allowed Values": "CORE | MASTER | TASK",
-    "Required": "Yes",
+  "elasticmapreduce.instancefleetconfig.name": {
+    "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "CORE",
-      "MASTER",
-      "TASK"
-    ]
+    "Minimum": "0",
+    "Maximum": "256",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticmapreduce.instancefleetconfig.targetondemandcapacity": {
-    "Minimum": "0",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticmapreduce.instancefleetconfig.targetspotcapacity": {
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "0",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

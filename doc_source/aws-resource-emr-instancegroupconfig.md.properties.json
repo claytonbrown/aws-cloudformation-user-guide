@@ -1,91 +1,24 @@
 {
-  "emr-instancegroupconfig-properties": {
-    "InstanceCount": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Name": {
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "Required": "No",
-      "Maximum": "256",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-      "Minimum": "0",
-      "Type": "String"
-    },
-    "InstanceRole": {
-      "Allowed Values": "CORE | MASTER | TASK",
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "CORE",
-        "MASTER",
-        "TASK"
-      ]
-    },
-    "AutoScalingPolicy": {
-      "Required": "No",
-      "UpdateRequires": "No interruption"
-    },
-    "EbsConfiguration": {
-      "Required": "No",
-      "Type": "EbsConfiguration",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "BidPrice": {
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "Required": "No",
-      "Maximum": "256",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "0",
-      "Type": "String"
-    },
-    "JobFlowId": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "InstanceType": {
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "Required": "Yes",
-      "Maximum": "256",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "1",
-      "Type": "String"
-    },
-    "Market": {
-      "Allowed Values": "ON_DEMAND | SPOT",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "ON_DEMAND",
-        "SPOT"
-      ]
-    },
-    "Configurations": {
-      "Required": "No",
-      "Type": "List of [Configuration",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    }
+  "emr.instancegroupconfig.autoscalingpolicy": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "emr.instancegroupconfig.bidprice": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "256",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "emr.instancegroupconfig.configurations": {
+    "Required": "No",
+    "Type": "List of [Configuration",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.instancegroupconfig.ebsconfiguration": {
     "Required": "No",
     "Type": "EbsConfiguration",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "emr.instancegroupconfig.bidprice": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "0",
-    "Type": "String"
-  },
-  "emr.instancegroupconfig.jobflowid": {
-    "Required": "Yes",
-    "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.instancegroupconfig.instancecount": {
@@ -93,50 +26,46 @@
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "emr.instancegroupconfig.name": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-    "Minimum": "0",
-    "Type": "String"
-  },
   "emr.instancegroupconfig.instancerole": {
-    "Allowed Values": "CORE | MASTER | TASK",
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "CORE",
       "MASTER",
       "TASK"
-    ]
-  },
-  "emr.instancegroupconfig.configurations": {
-    "Required": "No",
-    "Type": "List of [Configuration",
+    ],
+    "Allowed Values": "CORE | MASTER | TASK",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.instancegroupconfig.instancetype": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
     "Required": "Yes",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "256",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "emr.instancegroupconfig.jobflowid": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.instancegroupconfig.market": {
-    "Allowed Values": "ON_DEMAND | SPOT",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "ON_DEMAND",
       "SPOT"
-    ]
+    ],
+    "Allowed Values": "ON_DEMAND | SPOT",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "emr.instancegroupconfig.autoscalingpolicy": {
+  "emr.instancegroupconfig.name": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "256",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

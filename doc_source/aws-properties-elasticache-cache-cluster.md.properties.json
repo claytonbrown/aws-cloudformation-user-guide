@@ -1,13 +1,90 @@
 {
-  "elasticache.cache.cluster.vpcsecuritygroupids": {
+  "elasticache.cache.cluster.autominorversionupgrade": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticache.cache.cluster.azmode": {
+    "Required": "No",
+    "Type": "String",
+    "AllowedValues": [
+      "cross-az",
+      "single-az"
+    ],
+    "Allowed Values": "cross-az | single-az",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "elasticache.cache.cluster.cachenodetype": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
+  },
+  "elasticache.cache.cluster.cacheparametergroupname": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticache.cache.cluster.cachesecuritygroupnames": {
     "Required": "No",
     "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticache.cache.cluster.cachesubnetgroupname": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticache.cache.cluster.clustername": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticache.cache.cluster.engine": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticache.cache.cluster.engineversion": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "elasticache.cache.cluster.notificationtopicarn": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticache.cache.cluster.numcachenodes": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "elasticache.cache.cluster.port": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticache.cache.cluster.preferredavailabilityzone": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
   "elasticache.cache.cluster.preferredavailabilityzones": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "elasticache.cache.cluster.preferredmaintenancewindow": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticache.cache.cluster.snapshotarns": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticache.cache.cluster.snapshotname": {
     "Required": "No",
@@ -24,205 +101,14 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticache.cache.cluster.preferredavailabilityzone": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
-  },
-  "elasticache.cache.cluster.cachesecuritygroupnames": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticache.cache.cluster.preferredmaintenancewindow": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticache.cache.cluster.autominorversionupgrade": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "elasticache.cache.cluster.engineversion": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "elasticache.cache.cluster.engine": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticache.cache.cluster.azmode": {
-    "Allowed Values": "cross-az | single-az",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)",
-    "AllowedValues": [
-      "cross-az",
-      "single-az"
-    ]
-  },
-  "elasticache.cache.cluster.notificationtopicarn": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticache.cache.cluster.cachesubnetgroupname": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticache.cache.cluster.port": {
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticache.cache.cluster.cachenodetype": {
-    "Required": "Yes",
-    "UpdateRequires": "No interruption"
-  },
-  "elasticache.cache.cluster.cacheparametergroupname": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "aws-properties-elasticache-cache-cluster-properties": {
-    "CacheSecurityGroupNames": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Engine": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "CacheParameterGroupName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "NotificationTopicArn": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "SnapshotArns": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "SnapshotWindow": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "PreferredAvailabilityZone": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
-    },
-    "ClusterName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "SnapshotName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "SnapshotRetentionLimit": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "VpcSecurityGroupIds": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-    },
-    "AutoMinorVersionUpgrade": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "NumCacheNodes": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
-    },
-    "PreferredAvailabilityZones": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
-    },
-    "EngineVersion": {
-      "Required": "No",
-      "UpdateRequires": "No interruption"
-    },
-    "AZMode": {
-      "Allowed Values": "cross-az | single-az",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)",
-      "AllowedValues": [
-        "cross-az",
-        "single-az"
-      ]
-    },
-    "CacheSubnetGroupName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "Port": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "PreferredMaintenanceWindow": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "CacheNodeType": {
-      "Required": "Yes",
-      "UpdateRequires": "No interruption"
-    }
-  },
-  "elasticache.cache.cluster.numcachenodes": {
-    "Required": "Yes",
-    "Type": "Integer",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
-  },
-  "elasticache.cache.cluster.snapshotarns": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticache.cache.cluster.clustername": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "elasticache.cache.cluster.tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticache.cache.cluster.vpcsecuritygroupids": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

@@ -1,22 +1,32 @@
 {
-  "codepipeline.pipeline.stages.actions.rolearn": {
-    "Pattern": "arn:aws(-[\\w]+)*:iam::[0-9]{12}:role/.*",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codepipeline.pipeline.stages.actions.namespace": {
-    "Pattern": "[A-Za-z0-9@\\-_]+",
-    "Required": "No",
-    "Maximum": "100",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
   "codepipeline.pipeline.stages.actions.actiontypeid": {
     "Required": "Yes",
     "Type": "ActionTypeId",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codepipeline.pipeline.stages.actions.configuration": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "codepipeline.pipeline.stages.actions.inputartifacts": {
+    "Required": "No",
+    "Type": "List of [InputArtifact",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codepipeline.pipeline.stages.actions.name": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "[A-Za-z0-9.@\\-_]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codepipeline.pipeline.stages.actions.namespace": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "[A-Za-z0-9@\\-_]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codepipeline.pipeline.stages.actions.outputartifacts": {
@@ -24,93 +34,25 @@
     "Type": "List of [OutputArtifact",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "aws-properties-codepipeline-pipeline-stages-actions-properties": {
-    "InputArtifacts": {
-      "Required": "No",
-      "Type": "List of [InputArtifact",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Name": {
-      "Pattern": "[A-Za-z0-9.@\\-_]+",
-      "Required": "Yes",
-      "Maximum": "100",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "1",
-      "Type": "String"
-    },
-    "Region": {
-      "Minimum": "4",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "30",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Namespace": {
-      "Pattern": "[A-Za-z0-9@\\-_]+",
-      "Required": "No",
-      "Maximum": "100",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "1",
-      "Type": "String"
-    },
-    "ActionTypeId": {
-      "Required": "Yes",
-      "Type": "ActionTypeId",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "OutputArtifacts": {
-      "Required": "No",
-      "Type": "List of [OutputArtifact",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Configuration": {
-      "Required": "No",
-      "UpdateRequires": "No interruption"
-    },
-    "RoleArn": {
-      "Pattern": "arn:aws(-[\\w]+)*:iam::[0-9]{12}:role/.*",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "1024",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "RunOrder": {
-      "Minimum": "1",
-      "Required": "No",
-      "Type": "Integer",
-      "Maximum": "999",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
-  },
-  "codepipeline.pipeline.stages.actions.name": {
-    "Pattern": "[A-Za-z0-9.@\\-_]+",
-    "Required": "Yes",
-    "Maximum": "100",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
   "codepipeline.pipeline.stages.actions.region": {
-    "Minimum": "4",
     "Required": "No",
     "Type": "String",
+    "Minimum": "4",
     "Maximum": "30",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codepipeline.pipeline.stages.actions.inputartifacts": {
+  "codepipeline.pipeline.stages.actions.rolearn": {
     "Required": "No",
-    "Type": "List of [InputArtifact",
+    "Type": "String",
+    "Maximum": "1024",
+    "Pattern": "arn:aws(-[\\w]+)*:iam::[0-9]{12}:role/.*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codepipeline.pipeline.stages.actions.runorder": {
-    "Minimum": "1",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "1",
     "Maximum": "999",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codepipeline.pipeline.stages.actions.configuration": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
   }
 }

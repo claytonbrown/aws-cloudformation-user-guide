@@ -1,0 +1,61 @@
+{
+  "appconfig.deploymentstrategy.deploymentdurationinminutes": {
+    "Required": "Yes",
+    "Type": "Double",
+    "Minimum": "0",
+    "Maximum": "1440",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appconfig.deploymentstrategy.description": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appconfig.deploymentstrategy.finalbaketimeinminutes": {
+    "Required": "No",
+    "Type": "Double",
+    "Minimum": "0",
+    "Maximum": "1440",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appconfig.deploymentstrategy.growthfactor": {
+    "Required": "Yes",
+    "Type": "Double",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appconfig.deploymentstrategy.growthtype": {
+    "GrowthType`  <a name=\"cfn-appconfig-deploymentstrategy-growthtype\"></a>\nThe algorithm used to define how percentage grows over time\\. AWS AppConfig supports the following growth types:  \n **Linear*": "For this type, AppConfig processes the deployment by dividing the total number of targets by the value specified for `Step percentage`\\. For example, a linear deployment that uses a `Step percentage` of 10 deploys the configuration to 10 percent of the hosts\\. After those deployments are complete, the system deploys the configuration to the next 10 percent\\. This continues until 100% of the targets have successfully received the configuration\\.  \n **Exponential*",
+    "Required": "No",
+    "Type": "String",
+    "AllowedValues": [
+      "EXPONENTIAL",
+      "LINEAR"
+    ],
+    "Allowed Values": "EXPONENTIAL | LINEAR",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appconfig.deploymentstrategy.name": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "appconfig.deploymentstrategy.replicateto": {
+    "Required": "Yes",
+    "Type": "String",
+    "AllowedValues": [
+      "NONE",
+      "SSM_DOCUMENT"
+    ],
+    "Allowed Values": "NONE | SSM_DOCUMENT",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "appconfig.deploymentstrategy.tags": {
+    "Required": "No",
+    "Type": "List",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

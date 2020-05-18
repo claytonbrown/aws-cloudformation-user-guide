@@ -1,88 +1,44 @@
 {
-  "route53resolver-resolverrule-properties": {
-    "RuleType": {
-      "Allowed Values": "FORWARD | RECURSIVE | SYSTEM",
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "FORWARD",
-        "RECURSIVE",
-        "SYSTEM"
-      ]
-    },
-    "ResolverEndpointId": {
-      "Minimum": "1",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "64",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Name": {
-      "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "64",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "TargetIps": {
-      "Required": "No",
-      "Type": "List of [TargetAddress",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-    },
-    "DomainName": {
-      "Minimum": "1",
-      "Required": "Yes",
-      "Type": "String",
-      "Maximum": "256",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    }
+  "route53resolver.resolverrule.domainname": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "route53resolver.resolverrule.name": {
-    "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)",
     "Required": "No",
     "Type": "String",
     "Maximum": "64",
+    "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "route53resolver.resolverrule.resolverendpointid": {
-    "Minimum": "1",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "64",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "route53resolver.resolverrule.ruletype": {
-    "Allowed Values": "FORWARD | RECURSIVE | SYSTEM",
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "FORWARD",
       "RECURSIVE",
       "SYSTEM"
-    ]
-  },
-  "route53resolver.resolverrule.domainname": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "256",
+    ],
+    "Allowed Values": "FORWARD | RECURSIVE | SYSTEM",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "route53resolver.resolverrule.targetips": {
-    "Required": "No",
-    "Type": "List of [TargetAddress",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "route53resolver.resolverrule.tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "route53resolver.resolverrule.targetips": {
+    "Required": "No",
+    "Type": "List of [TargetAddress",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

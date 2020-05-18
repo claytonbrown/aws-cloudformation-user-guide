@@ -1,70 +1,35 @@
 {
-  "lambda.eventinvokeconfig.qualifier": {
-    "Pattern": "(|[a-zA-Z0-9$_-]+)",
-    "Minimum": "1",
-    "Required": "Yes",
-    "Maximum": "128",
-    "UpdateRequires": "Replacement"
-  },
-  "lambda-eventinvokeconfig-properties": {
-    "MaximumEventAgeInSeconds": {
-      "Minimum": "60",
-      "Required": "No",
-      "Type": "Integer",
-      "Maximum": "21600",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "MaximumRetryAttempts": {
-      "Minimum": "0",
-      "Required": "No",
-      "Type": "Integer",
-      "Maximum": "2",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "DestinationConfig": {
-      "Required": "No",
-      "UpdateRequires": "No interruption"
-    },
-    "FunctionName": {
-      "Pattern": "([a-zA-Z0-9-_]+)",
-      "Required": "Yes",
-      "Maximum": "64",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "1",
-      "Type": "String"
-    },
-    "Qualifier": {
-      "Pattern": "(|[a-zA-Z0-9$_-]+)",
-      "Minimum": "1",
-      "Required": "Yes",
-      "Maximum": "128",
-      "UpdateRequires": "Replacement"
-    }
-  },
   "lambda.eventinvokeconfig.destinationconfig": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
+  "lambda.eventinvokeconfig.functionname": {
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": "([a-zA-Z0-9-_]+)",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "lambda.eventinvokeconfig.maximumeventageinseconds": {
-    "Minimum": "60",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "60",
     "Maximum": "21600",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "lambda.eventinvokeconfig.functionname": {
-    "Pattern": "([a-zA-Z0-9-_]+)",
-    "Required": "Yes",
-    "Maximum": "64",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
   "lambda.eventinvokeconfig.maximumretryattempts": {
-    "Minimum": "0",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "0",
     "Maximum": "2",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventinvokeconfig.qualifier": {
+    "Required": "Yes",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "(|[a-zA-Z0-9$_-]+)",
+    "UpdateRequires": "Replacement"
   }
 }

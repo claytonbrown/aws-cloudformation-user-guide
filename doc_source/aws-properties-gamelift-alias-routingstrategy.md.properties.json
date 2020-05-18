@@ -1,42 +1,21 @@
 {
   "gamelift.alias.routingstrategy.fleetid": {
-    "Pattern": "^fleet-\\S+|^arn:.*:fleet\\/fleet-\\S+",
+    "Required": "Conditional",
+    "Type": "String",
+    "Pattern": "^fleet-\\S+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "gamelift.alias.routingstrategy.message": {
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "gamelift.alias.routingstrategy.type": {
     "Required": "Yes",
-    "UpdateRequires": "No interruption",
     "AllowedValues": [
       "SIMPLE",
       "TERMINAL"
-    ]
-  },
-  "aws-properties-gamelift-alias-routingstrategy-properties": {
-    "Type": {
-      "Required": "Yes",
-      "UpdateRequires": "No interruption",
-      "AllowedValues": [
-        "SIMPLE",
-        "TERMINAL"
-      ]
-    },
-    "Message": {
-      "Required": "Conditional",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "FleetId": {
-      "Pattern": "^fleet-\\S+|^arn:.*:fleet\\/fleet-\\S+",
-      "Required": "Conditional",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
-  },
-  "gamelift.alias.routingstrategy.message": {
-    "Required": "Conditional",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    ],
+    "UpdateRequires": "No interruption"
   }
 }

@@ -1,82 +1,41 @@
 {
-  "aws-properties-dlm-lifecyclepolicy-crossregioncopyrule-properties": {
-    "CopyTags": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "Encrypted": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "CmkArn": {
-      "Pattern": "arn:aws(-[a-z]{1,3}){0,2}:kms:([a-z]+-){2,3}\\d:\\d+:key/.*",
-      "Required": "No",
-      "Maximum": "2048",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "0",
-      "Type": "String"
-    },
-    "RetainRule": {
-      "Required": "No",
-      "Type": "CrossRegionCopyRetainRule",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "TargetRegion": {
-      "Pattern": "([a-z]+-){2,3}\\d",
-      "Required": "No",
-      "Maximum": "16",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "0",
-      "Type": "String"
-    }
-  },
   "dlm.lifecyclepolicy.crossregioncopyrule.cmkarn": {
-    "Pattern": "arn:aws(-[a-z]{1,3}){0,2}:kms:([a-z]+-){2,3}\\d:\\d+:key/.*",
     "Required": "No",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
     "Minimum": "0",
-    "Type": "String"
+    "Maximum": "2048",
+    "Pattern": "arn:aws(-[a-z]{1,3}){0,2}:kms:([a-z]+-){2,3}\\d:\\d+:key/.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dlm.lifecyclepolicy.crossregioncopyrule.copytags": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dlm.lifecyclepolicy.crossregioncopyrule.encrypted": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dlm.lifecyclepolicy.crossregioncopyrule.retainrule": {
     "Required": "No",
     "Type": "CrossRegionCopyRetainRule",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "dlm.lifecyclepolicy.crossregioncopyrule.copytags": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
   "dlm.lifecyclepolicy.crossregioncopyrule.targetregion": {
-    "Pattern": "([a-z]+-){2,3}\\d",
     "Required": "No",
-    "Maximum": "16",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
     "Minimum": "0",
-    "Type": "String"
-  },
-  "dlm.lifecyclepolicy.crossregioncopyrule.encrypted": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "Maximum": "16",
+    "Pattern": "([a-z]+-){2,3}\\d",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

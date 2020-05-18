@@ -1,91 +1,53 @@
 {
-  "aws-properties-kinesisfirehose-deliverystream-orcserde-properties": {
-    "Compression": {
-      "Allowed Values": "NONE | SNAPPY | ZLIB",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "NONE",
-        "SNAPPY",
-        "ZLIB"
-      ]
-    },
-    "BloomFilterColumns": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "BlockSizeBytes": {
-      "Minimum": "67108864",
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "PaddingTolerance": {
-      "Required": "No",
-      "Type": "Double",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "StripeSizeBytes": {
-      "Minimum": "8388608",
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "BloomFilterFalsePositiveProbability": {
-      "Required": "No",
-      "Type": "Double",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "FormatVersion": {
-      "Allowed Values": "V0_11 | V0_12",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "V0_11",
-        "V0_12"
-      ]
-    },
-    "RowIndexStride": {
-      "Minimum": "1000",
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "EnablePadding": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "DictionaryKeyThreshold": {
-      "Required": "No",
-      "Type": "Double",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
-  },
-  "kinesisfirehose.deliverystream.orcserde.enablepadding": {
+  "kinesisfirehose.deliverystream.orcserde.blocksizebytes": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "Type": "Integer",
+    "Minimum": "67108864",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.orcserde.bloomfiltercolumns": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "kinesisfirehose.deliverystream.orcserde.bloomfilterfalsepositiveprobability": {
+    "Required": "No",
+    "Type": "Double",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.orcserde.compression": {
+    "Required": "No",
+    "Type": "String",
+    "AllowedValues": [
+      "NONE",
+      "SNAPPY",
+      "ZLIB"
+    ],
+    "Allowed Values": "NONE | SNAPPY | ZLIB",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "kinesisfirehose.deliverystream.orcserde.dictionarykeythreshold": {
     "Required": "No",
     "Type": "Double",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.orcserde.enablepadding": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.orcserde.formatversion": {
+    "Required": "No",
+    "Type": "String",
+    "AllowedValues": [
+      "V0_11",
+      "V0_12"
+    ],
+    "Allowed Values": "V0_11 | V0_12",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.orcserde.paddingtolerance": {
@@ -94,47 +56,15 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.orcserde.rowindexstride": {
-    "Minimum": "1000",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "1000",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.orcserde.stripesizebytes": {
+    "Required": "No",
+    "Type": "Integer",
     "Minimum": "8388608",
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kinesisfirehose.deliverystream.orcserde.compression": {
-    "Allowed Values": "NONE | SNAPPY | ZLIB",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "NONE",
-      "SNAPPY",
-      "ZLIB"
-    ]
-  },
-  "kinesisfirehose.deliverystream.orcserde.formatversion": {
-    "Allowed Values": "V0_11 | V0_12",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "V0_11",
-      "V0_12"
-    ]
-  },
-  "kinesisfirehose.deliverystream.orcserde.blocksizebytes": {
-    "Minimum": "67108864",
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kinesisfirehose.deliverystream.orcserde.bloomfilterfalsepositiveprobability": {
-    "Required": "No",
-    "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

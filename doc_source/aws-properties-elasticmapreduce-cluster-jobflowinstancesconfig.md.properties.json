@@ -1,31 +1,15 @@
 {
-  "elasticmapreduce.cluster.jobflowinstancesconfig.placement": {
+  "elasticmapreduce.cluster.jobflowinstancesconfig.additionalmastersecuritygroups": {
     "Required": "No",
-    "Type": "PlacementType",
+    "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.hadoopversion": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+  "elasticmapreduce.cluster.jobflowinstancesconfig.additionalslavesecuritygroups": {
     "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "0",
-    "Type": "String"
-  },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.emrmanagedmastersecuritygroup": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "0",
-    "Type": "String"
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticmapreduce.cluster.jobflowinstancesconfig.coreinstancefleet": {
-    "Required": "No",
-    "Type": "InstanceFleetConfig",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.masterinstancefleet": {
     "Required": "No",
     "Type": "InstanceFleetConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -35,182 +19,90 @@
     "Type": "InstanceGroupConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.emrmanagedslavesecuritygroup": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+  "elasticmapreduce.cluster.jobflowinstancesconfig.ec2keyname": {
     "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "0",
-    "Type": "String"
+    "Maximum": "256",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.terminationprotected": {
+  "elasticmapreduce.cluster.jobflowinstancesconfig.ec2subnetid": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "256",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig-properties": {
-    "ServiceAccessSecurityGroup": {
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "Required": "No",
-      "Maximum": "256",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "0",
-      "Type": "String"
-    },
-    "CoreInstanceFleet": {
-      "Required": "No",
-      "Type": "InstanceFleetConfig",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "EmrManagedSlaveSecurityGroup": {
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "Required": "No",
-      "Maximum": "256",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "0",
-      "Type": "String"
-    },
-    "Placement": {
-      "Required": "No",
-      "Type": "PlacementType",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "TerminationProtected": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "Ec2SubnetIds": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "MasterInstanceFleet": {
-      "Required": "No",
-      "Type": "InstanceFleetConfig",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "MasterInstanceGroup": {
-      "Required": "No",
-      "Type": "InstanceGroupConfig",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "CoreInstanceGroup": {
-      "Required": "No",
-      "Type": "InstanceGroupConfig",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "Ec2SubnetId": {
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "Required": "No",
-      "Maximum": "256",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "0",
-      "Type": "String"
-    },
-    "KeepJobFlowAliveWhenNoSteps": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "AdditionalMasterSecurityGroups": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "EmrManagedMasterSecurityGroup": {
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "Required": "No",
-      "Maximum": "256",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "0",
-      "Type": "String"
-    },
-    "Ec2KeyName": {
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "Required": "No",
-      "Maximum": "256",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "0",
-      "Type": "String"
-    },
-    "HadoopVersion": {
-      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-      "Required": "No",
-      "Maximum": "256",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "0",
-      "Type": "String"
-    },
-    "AdditionalSlaveSecurityGroups": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    }
-  },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.additionalmastersecuritygroups": {
+  "elasticmapreduce.cluster.jobflowinstancesconfig.ec2subnetids": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.serviceaccesssecuritygroup": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+  "elasticmapreduce.cluster.jobflowinstancesconfig.emrmanagedmastersecuritygroup": {
     "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "0",
-    "Type": "String"
+    "Maximum": "256",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.ec2subnetid": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+  "elasticmapreduce.cluster.jobflowinstancesconfig.emrmanagedslavesecuritygroup": {
     "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "0",
-    "Type": "String"
+    "Maximum": "256",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticmapreduce.cluster.jobflowinstancesconfig.hadoopversion": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "256",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticmapreduce.cluster.jobflowinstancesconfig.keepjobflowalivewhennosteps": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticmapreduce.cluster.jobflowinstancesconfig.masterinstancefleet": {
+    "Required": "No",
+    "Type": "InstanceFleetConfig",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticmapreduce.cluster.jobflowinstancesconfig.masterinstancegroup": {
     "Required": "No",
     "Type": "InstanceGroupConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.ec2keyname": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+  "elasticmapreduce.cluster.jobflowinstancesconfig.placement": {
     "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "0",
-    "Type": "String"
-  },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.additionalslavesecuritygroups": {
-    "Required": "No",
-    "Type": "List of String",
+    "Type": "PlacementType",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.keepjobflowalivewhennosteps": {
+  "elasticmapreduce.cluster.jobflowinstancesconfig.serviceaccesssecuritygroup": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "256",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticmapreduce.cluster.jobflowinstancesconfig.terminationprotected": {
+    "Required": "No",
     "AllowedValues": [
       "True",
       "False"
-    ]
-  },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.ec2subnetids": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

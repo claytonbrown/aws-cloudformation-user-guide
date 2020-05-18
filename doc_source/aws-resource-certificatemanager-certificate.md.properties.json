@@ -1,9 +1,10 @@
 {
-  "certificatemanager.certificate.tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "Maximum": "50",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  "certificatemanager.certificate.domainname": {
+    "Required": "Yes",
+    "Minimum": "1",
+    "Maximum": "253",
+    "Pattern": "^(\\*\\.)?(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
+    "UpdateRequires": "Replacement"
   },
   "certificatemanager.certificate.domainvalidationoptions": {
     "Required": "No",
@@ -17,58 +18,20 @@
     "Maximum": "100",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "certificatemanager.certificate.tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "certificatemanager.certificate.validationmethod": {
-    "Allowed Values": "DNS | EMAIL",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
     "AllowedValues": [
       "DNS",
       "EMAIL"
-    ]
-  },
-  "certificatemanager.certificate.domainname": {
-    "Pattern": "^(\\*\\.)?(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
-    "Minimum": "1",
-    "Required": "Yes",
-    "Maximum": "253",
-    "UpdateRequires": "Replacement"
-  },
-  "certificatemanager-certificate-properties": {
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "Maximum": "50",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "SubjectAlternativeNames": {
-      "Required": "No",
-      "Type": "List of String",
-      "Maximum": "100",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "ValidationMethod": {
-      "Allowed Values": "DNS | EMAIL",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-      "AllowedValues": [
-        "DNS",
-        "EMAIL"
-      ]
-    },
-    "DomainValidationOptions": {
-      "Required": "No",
-      "Type": "List of [DomainValidationOption",
-      "Maximum": "100",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "DomainName": {
-      "Pattern": "^(\\*\\.)?(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
-      "Minimum": "1",
-      "Required": "Yes",
-      "Maximum": "253",
-      "UpdateRequires": "Replacement"
-    }
+    ],
+    "Allowed Values": "DNS | EMAIL",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

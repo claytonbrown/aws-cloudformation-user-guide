@@ -1,111 +1,7 @@
 {
-  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.rolearn": {
-    "Pattern": "arn:.*",
-    "Required": "Yes",
-    "Maximum": "512",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.bufferinghints": {
     "Required": "Yes",
     "Type": "ElasticsearchBufferingHints",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.s3backupmode": {
-    "Required": "Yes",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "AllDocuments",
-      "FailedDocumentsOnly"
-    ]
-  },
-  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.indexname": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "80",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-properties": {
-    "S3Configuration": {
-      "Required": "Yes",
-      "Type": "S3DestinationConfiguration",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "IndexName": {
-      "Minimum": "1",
-      "Required": "Yes",
-      "Type": "String",
-      "Maximum": "80",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "RetryOptions": {
-      "Required": "Yes",
-      "Type": "ElasticsearchRetryOptions",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "RoleARN": {
-      "Pattern": "arn:.*",
-      "Required": "Yes",
-      "Maximum": "512",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "1",
-      "Type": "String"
-    },
-    "BufferingHints": {
-      "Required": "Yes",
-      "Type": "ElasticsearchBufferingHints",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "TypeName": {
-      "Minimum": "0",
-      "Required": "Yes",
-      "Type": "String",
-      "Maximum": "100",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "S3BackupMode": {
-      "Required": "Yes",
-      "UpdateRequires": "No interruption",
-      "AllowedValues": [
-        "AllDocuments",
-        "FailedDocumentsOnly"
-      ]
-    },
-    "CloudWatchLoggingOptions": {
-      "Required": "No",
-      "Type": "CloudWatchLoggingOptions",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "DomainARN": {
-      "Pattern": "arn:.*",
-      "Required": "Yes",
-      "Maximum": "512",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "1",
-      "Type": "String"
-    },
-    "IndexRotationPeriod": {
-      "Required": "Yes",
-      "UpdateRequires": "No interruption",
-      "AllowedValues": [
-        "NoRotation",
-        "OneDay",
-        "OneHour",
-        "OneMonth",
-        "OneWeek"
-      ]
-    },
-    "ProcessingConfiguration": {
-      "Required": "No",
-      "Type": "ProcessingConfiguration",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
-  },
-  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.processingconfiguration": {
-    "Required": "No",
-    "Type": "ProcessingConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.cloudwatchloggingoptions": {
@@ -113,27 +9,36 @@
     "Type": "CloudWatchLoggingOptions",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.typename": {
-    "Minimum": "0",
+  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.domainarn": {
     "Required": "Yes",
     "Type": "String",
-    "Maximum": "100",
+    "Minimum": "1",
+    "Maximum": "512",
+    "Pattern": "arn:.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.indexname": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "80",
+    "Pattern": ".*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.indexrotationperiod": {
     "Required": "Yes",
-    "UpdateRequires": "No interruption",
     "AllowedValues": [
       "NoRotation",
       "OneDay",
       "OneHour",
       "OneMonth",
       "OneWeek"
-    ]
+    ],
+    "UpdateRequires": "No interruption"
   },
-  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.s3configuration": {
-    "Required": "Yes",
-    "Type": "S3DestinationConfiguration",
+  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.processingconfiguration": {
+    "Required": "No",
+    "Type": "ProcessingConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.retryoptions": {
@@ -141,12 +46,33 @@
     "Type": "ElasticsearchRetryOptions",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.domainarn": {
-    "Pattern": "arn:.*",
+  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.rolearn": {
     "Required": "Yes",
-    "Maximum": "512",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "512",
+    "Pattern": "arn:.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.s3backupmode": {
+    "Required": "Yes",
+    "AllowedValues": [
+      "AllDocuments",
+      "FailedDocumentsOnly"
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.s3configuration": {
+    "Required": "Yes",
+    "Type": "S3DestinationConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.typename": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "100",
+    "Pattern": ".*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

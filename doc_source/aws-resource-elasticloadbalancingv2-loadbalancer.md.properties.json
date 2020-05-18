@@ -1,4 +1,45 @@
 {
+  "elasticloadbalancingv2.loadbalancer.ipaddresstype": {
+    "Required": "No",
+    "Type": "String",
+    "AllowedValues": [
+      "dualstack",
+      "ipv4"
+    ],
+    "Allowed Values": "dualstack | ipv4",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.loadbalancer.loadbalancerattributes": {
+    "Required": "No",
+    "Type": "List of [LoadBalancerAttribute",
+    "Maximum": "20",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.loadbalancer.name": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticloadbalancingv2.loadbalancer.scheme": {
+    "Required": "No",
+    "Type": "String",
+    "AllowedValues": [
+      "internal",
+      "internet-facing"
+    ],
+    "Allowed Values": "internal | internet-facing",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticloadbalancingv2.loadbalancer.securitygroups": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.loadbalancer.subnetmappings": {
+    "Required": "No",
+    "Type": "List of [SubnetMapping",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "elasticloadbalancingv2.loadbalancer.subnets": {
     "Required": "No",
     "Type": "List of String",
@@ -9,118 +50,14 @@
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticloadbalancingv2.loadbalancer.ipaddresstype": {
-    "Allowed Values": "dualstack | ipv4",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "dualstack",
-      "ipv4"
-    ]
-  },
-  "elasticloadbalancingv2.loadbalancer.scheme": {
-    "Allowed Values": "internal | internet-facing",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "internal",
-      "internet-facing"
-    ]
-  },
   "elasticloadbalancingv2.loadbalancer.type": {
-    "Allowed Values": "application | network",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
     "AllowedValues": [
       "application",
       "network"
-    ]
-  },
-  "elasticloadbalancingv2.loadbalancer.securitygroups": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticloadbalancingv2-loadbalancer-properties": {
-    "IpAddressType": {
-      "Allowed Values": "dualstack | ipv4",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "dualstack",
-        "ipv4"
-      ]
-    },
-    "Subnets": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Name": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "LoadBalancerAttributes": {
-      "Required": "No",
-      "Type": "List of [LoadBalancerAttribute",
-      "Maximum": "20",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "SubnetMappings": {
-      "Required": "No",
-      "Type": "List of [SubnetMapping",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "SecurityGroups": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Scheme": {
-      "Allowed Values": "internal | internet-facing",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "internal",
-        "internet-facing"
-      ]
-    },
-    "Type": {
-      "Allowed Values": "application | network",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-      "AllowedValues": [
-        "application",
-        "network"
-      ]
-    }
-  },
-  "elasticloadbalancingv2.loadbalancer.subnetmappings": {
-    "Required": "No",
-    "Type": "List of [SubnetMapping",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticloadbalancingv2.loadbalancer.name": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticloadbalancingv2.loadbalancer.loadbalancerattributes": {
-    "Required": "No",
-    "Type": "List of [LoadBalancerAttribute",
-    "Maximum": "20",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    ],
+    "Allowed Values": "application | network",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

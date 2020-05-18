@@ -1,16 +1,47 @@
 {
+  "transfer.user.homedirectory": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "Pattern": "^$|/.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "transfer.user.homedirectorymappings": {
+    "Required": "No",
+    "Type": "List of [HomeDirectoryMapEntry",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "transfer.user.homedirectorytype": {
+    "Required": "No",
+    "Type": "String",
+    "AllowedValues": [
+      "LOGICAL",
+      "PATH"
+    ],
+    "Allowed Values": "LOGICAL | PATH",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "transfer.user.policy": {
     "Required": "No",
     "Maximum": "2048",
     "UpdateRequires": "No interruption"
   },
-  "transfer.user.username": {
-    "Pattern": "^[a-zA-Z0-9_][a-zA-Z0-9_-]{2,31}$",
+  "transfer.user.role": {
     "Required": "Yes",
-    "Maximum": "32",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-    "Minimum": "3",
-    "Type": "String"
+    "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "arn:.*role/.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "transfer.user.serverid": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "19",
+    "Maximum": "19",
+    "Pattern": "^s-([0-9a-f]{17})$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "transfer.user.sshpublickeys": {
     "Required": "No",
@@ -24,77 +55,12 @@
     "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "transfer.user.role": {
-    "Pattern": "arn:.*role/.*",
+  "transfer.user.username": {
     "Required": "Yes",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "20",
-    "Type": "String"
-  },
-  "transfer.user.serverid": {
-    "Pattern": "^s-([0-9a-f]{17})$",
-    "Required": "Yes",
-    "Maximum": "19",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "19",
-    "Type": "String"
-  },
-  "transfer-user-properties": {
-    "UserName": {
-      "Pattern": "^[a-zA-Z0-9_][a-zA-Z0-9_-]{2,31}$",
-      "Required": "Yes",
-      "Maximum": "32",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-      "Minimum": "3",
-      "Type": "String"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "Maximum": "50",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "SshPublicKeys": {
-      "Required": "No",
-      "Type": "List of [SshPublicKey",
-      "Maximum": "5",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Role": {
-      "Pattern": "arn:.*role/.*",
-      "Required": "Yes",
-      "Maximum": "2048",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "20",
-      "Type": "String"
-    },
-    "HomeDirectory": {
-      "Pattern": "^$|/.*",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "1024",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Policy": {
-      "Required": "No",
-      "Maximum": "2048",
-      "UpdateRequires": "No interruption"
-    },
-    "ServerId": {
-      "Pattern": "^s-([0-9a-f]{17})$",
-      "Required": "Yes",
-      "Maximum": "19",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "19",
-      "Type": "String"
-    }
-  },
-  "transfer.user.homedirectory": {
-    "Pattern": "^$|/.*",
-    "Required": "No",
     "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Minimum": "3",
+    "Maximum": "32",
+    "Pattern": "^[a-zA-Z0-9_][a-zA-Z0-9_-]{2,31}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

@@ -1,42 +1,27 @@
 {
   "kinesisfirehose.deliverystream.cloudwatchloggingoptions.enabled": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.cloudwatchloggingoptions.loggroupname": {
     "Required": "Conditional",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "512",
+    "Pattern": "[\\.\\-_/#A-Za-z0-9]*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.cloudwatchloggingoptions.logstreamname": {
     "Required": "Conditional",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "512",
+    "Pattern": "[^:*]*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions-properties": {
-    "Enabled": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "LogStreamName": {
-      "Required": "Conditional",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "LogGroupName": {
-      "Required": "Conditional",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
   }
 }

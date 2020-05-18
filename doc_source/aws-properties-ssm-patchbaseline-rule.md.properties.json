@@ -1,67 +1,19 @@
 {
-  "aws-properties-ssm-patchbaseline-rule-properties": {
-    "EnableNonSecurity": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "ComplianceLevel": {
-      "Allowed Values": "CRITICAL | HIGH | INFORMATIONAL | LOW | MEDIUM | UNSPECIFIED",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "CRITICAL",
-        "HIGH",
-        "INFORMATIONAL",
-        "LOW",
-        "MEDIUM",
-        "UNSPECIFIED"
-      ]
-    },
-    "ApproveAfterDays": {
-      "Minimum": "0",
-      "Required": "Conditional",
-      "Type": "Integer",
-      "Maximum": "100",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "PatchFilterGroup": {
-      "Required": "No",
-      "Type": "PatchFilterGroup",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-    }
-  },
-  "ssm.patchbaseline.rule.enablenonsecurity": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
   "ssm.patchbaseline.rule.approveafterdays": {
-    "Minimum": "0",
     "Required": "Conditional",
     "Type": "Integer",
+    "Minimum": "0",
     "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.patchbaseline.rule.patchfiltergroup": {
+  "ssm.patchbaseline.rule.approveuntildate": {
     "Required": "No",
-    "Type": "PatchFilterGroup",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Type": "PatchStringDate",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssm.patchbaseline.rule.compliancelevel": {
-    "Allowed Values": "CRITICAL | HIGH | INFORMATIONAL | LOW | MEDIUM | UNSPECIFIED",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "CRITICAL",
       "HIGH",
@@ -69,6 +21,22 @@
       "LOW",
       "MEDIUM",
       "UNSPECIFIED"
-    ]
+    ],
+    "Allowed Values": "CRITICAL | HIGH | INFORMATIONAL | LOW | MEDIUM | UNSPECIFIED",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.patchbaseline.rule.enablenonsecurity": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.patchbaseline.rule.patchfiltergroup": {
+    "Required": "No",
+    "Type": "PatchFilterGroup",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

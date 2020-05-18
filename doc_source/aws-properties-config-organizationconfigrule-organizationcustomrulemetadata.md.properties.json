@@ -1,23 +1,48 @@
 {
-  "config.organizationconfigrule.organizationcustomrulemetadata.tagvaluescope": {
-    "Minimum": "1",
+  "config.organizationconfigrule.organizationcustomrulemetadata.description": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
     "Maximum": "256",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "config.organizationconfigrule.organizationcustomrulemetadata.resourceidscope": {
-    "Minimum": "1",
+  "config.organizationconfigrule.organizationcustomrulemetadata.inputparameters": {
     "Required": "No",
     "Type": "String",
-    "Maximum": "768",
+    "Minimum": "1",
+    "Maximum": "2048",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "config.organizationconfigrule.organizationcustomrulemetadata.tagkeyscope": {
+  "config.organizationconfigrule.organizationcustomrulemetadata.lambdafunctionarn": {
+    "Required": "Yes",
+    "Type": "String",
     "Minimum": "1",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustomrulemetadata.maximumexecutionfrequency": {
     "Required": "No",
     "Type": "String",
-    "Maximum": "128",
+    "AllowedValues": [
+      "One_Hour",
+      "Six_Hours",
+      "Three_Hours",
+      "Twelve_Hours",
+      "TwentyFour_Hours"
+    ],
+    "Allowed Values": "One_Hour | Six_Hours | Three_Hours | Twelve_Hours | TwentyFour_Hours",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustomrulemetadata.organizationconfigruletriggertypes": {
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustomrulemetadata.resourceidscope": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "768",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "config.organizationconfigrule.organizationcustomrulemetadata.resourcetypesscope": {
@@ -26,110 +51,17 @@
     "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "config.organizationconfigrule.organizationcustomrulemetadata.lambdafunctionarn": {
+  "config.organizationconfigrule.organizationcustomrulemetadata.tagkeyscope": {
+    "Required": "No",
+    "Type": "String",
     "Minimum": "1",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "256",
+    "Maximum": "128",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "config.organizationconfigrule.organizationcustomrulemetadata.maximumexecutionfrequency": {
-    "Allowed Values": "One_Hour | Six_Hours | Three_Hours | Twelve_Hours | TwentyFour_Hours",
+  "config.organizationconfigrule.organizationcustomrulemetadata.tagvaluescope": {
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "One_Hour",
-      "Six_Hours",
-      "Three_Hours",
-      "Twelve_Hours",
-      "TwentyFour_Hours"
-    ]
-  },
-  "config.organizationconfigrule.organizationcustomrulemetadata.organizationconfigruletriggertypes": {
-    "Required": "Yes",
-    "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "aws-properties-config-organizationconfigrule-organizationcustomrulemetadata-properties": {
-    "TagKeyScope": {
-      "Minimum": "1",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "128",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Description": {
-      "Minimum": "0",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "256",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "LambdaFunctionArn": {
-      "Minimum": "1",
-      "Required": "Yes",
-      "Type": "String",
-      "Maximum": "256",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "MaximumExecutionFrequency": {
-      "Allowed Values": "One_Hour | Six_Hours | Three_Hours | Twelve_Hours | TwentyFour_Hours",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "One_Hour",
-        "Six_Hours",
-        "Three_Hours",
-        "Twelve_Hours",
-        "TwentyFour_Hours"
-      ]
-    },
-    "ResourceIdScope": {
-      "Minimum": "1",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "768",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "ResourceTypesScope": {
-      "Required": "No",
-      "Type": "List of String",
-      "Maximum": "100",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "InputParameters": {
-      "Minimum": "1",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "2048",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "TagValueScope": {
-      "Minimum": "1",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "256",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "OrganizationConfigRuleTriggerTypes": {
-      "Required": "Yes",
-      "Type": "List of String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
-  },
-  "config.organizationconfigrule.organizationcustomrulemetadata.inputparameters": {
     "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "config.organizationconfigrule.organizationcustomrulemetadata.description": {
-    "Minimum": "0",
-    "Required": "No",
-    "Type": "String",
     "Maximum": "256",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }

@@ -1,100 +1,50 @@
 {
-  "kinesisfirehose.deliverystream.s3destinationconfiguration": {
-    "Required": "Conditional",
-    "Type": "S3DestinationConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "kinesisfirehose.deliverystream.deliverystreamname": {
-    "Pattern": "[a-zA-Z0-9_.-]+",
-    "Required": "No",
-    "Maximum": "64",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "kinesisfirehose.deliverystream.deliverystreamtype": {
-    "Allowed Values": "DirectPut | KinesisStreamAsSource",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": "[a-zA-Z0-9_.-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "kinesisfirehose.deliverystream.deliverystreamtype": {
+    "Required": "No",
+    "Type": "String",
     "AllowedValues": [
       "DirectPut",
       "KinesisStreamAsSource"
-    ]
-  },
-  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration": {
-    "Required": "Conditional",
-    "Type": "ExtendedS3DestinationConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kinesisfirehose.deliverystream.splunkdestinationconfiguration": {
-    "Required": "No",
-    "Type": "SplunkDestinationConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration": {
-    "Required": "Conditional",
-    "Type": "RedshiftDestinationConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kinesisfirehose-deliverystream-properties": {
-    "ExtendedS3DestinationConfiguration": {
-      "Required": "Conditional",
-      "Type": "ExtendedS3DestinationConfiguration",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "DeliveryStreamType": {
-      "Allowed Values": "DirectPut | KinesisStreamAsSource",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "DirectPut",
-        "KinesisStreamAsSource"
-      ]
-    },
-    "KinesisStreamSourceConfiguration": {
-      "Required": "No",
-      "Type": "KinesisStreamSourceConfiguration",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "SplunkDestinationConfiguration": {
-      "Required": "No",
-      "Type": "SplunkDestinationConfiguration",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-    },
-    "ElasticsearchDestinationConfiguration": {
-      "Required": "Conditional",
-      "Type": "ElasticsearchDestinationConfiguration",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "RedshiftDestinationConfiguration": {
-      "Required": "Conditional",
-      "Type": "RedshiftDestinationConfiguration",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "DeliveryStreamName": {
-      "Pattern": "[a-zA-Z0-9_.-]+",
-      "Required": "No",
-      "Maximum": "64",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "1",
-      "Type": "String"
-    },
-    "S3DestinationConfiguration": {
-      "Required": "Conditional",
-      "Type": "S3DestinationConfiguration",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
+    ],
+    "Allowed Values": "DirectPut | KinesisStreamAsSource",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration": {
     "Required": "Conditional",
     "Type": "ElasticsearchDestinationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration": {
+    "Required": "Conditional",
+    "Type": "ExtendedS3DestinationConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "kinesisfirehose.deliverystream.kinesisstreamsourceconfiguration": {
     "Required": "No",
     "Type": "KinesisStreamSourceConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration": {
+    "Required": "Conditional",
+    "Type": "RedshiftDestinationConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.s3destinationconfiguration": {
+    "Required": "Conditional",
+    "Type": "S3DestinationConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration": {
+    "Required": "No",
+    "Type": "SplunkDestinationConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

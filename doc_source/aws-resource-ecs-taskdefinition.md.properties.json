@@ -1,23 +1,9 @@
 {
-  "ecs.taskdefinition.networkmode": {
+  "ecs.taskdefinition.containerdefinitions": {
     "Required": "No",
-    "UpdateRequires": "Replacement",
-    "AllowedValues": [
-      "awsvpc",
-      "bridge",
-      "host",
-      "none"
-    ]
+    "UpdateRequires": "Replacement"
   },
-  "ecs.taskdefinition.pidmode": {
-    "Required": "No",
-    "UpdateRequires": "Replacement",
-    "AllowedValues": [
-      "host",
-      "task"
-    ]
-  },
-  "ecs.taskdefinition.family": {
+  "ecs.taskdefinition.cpu": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -27,17 +13,46 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.containerdefinitions": {
+  "ecs.taskdefinition.family": {
     "Required": "No",
-    "UpdateRequires": "Replacement"
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecs.taskdefinition.inferenceaccelerators": {
     "Required": "No",
     "Type": "List of [InferenceAccelerator",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.proxyconfiguration": {
+  "ecs.taskdefinition.ipcmode": {
     "Required": "No",
+    "AllowedValues": [
+      "host",
+      "none",
+      "task"
+    ],
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.taskdefinition.memory": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.taskdefinition.networkmode": {
+    "Required": "No",
+    "AllowedValues": [
+      "awsvpc",
+      "bridge",
+      "host",
+      "none"
+    ],
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.taskdefinition.pidmode": {
+    "Required": "No",
+    "AllowedValues": [
+      "host",
+      "task"
+    ],
     "UpdateRequires": "Replacement"
   },
   "ecs.taskdefinition.placementconstraints": {
@@ -45,108 +60,13 @@
     "Type": "List of [TaskDefinitionPlacementConstraint",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.ipcmode": {
-    "Required": "No",
-    "UpdateRequires": "Replacement",
-    "AllowedValues": [
-      "host",
-      "none",
-      "task"
-    ]
-  },
-  "ecs.taskdefinition.volumes": {
+  "ecs.taskdefinition.proxyconfiguration": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
-  "ecs-taskdefinition-properties": {
-    "TaskRoleArn": {
-      "Required": "No",
-      "UpdateRequires": "Replacement"
-    },
-    "NetworkMode": {
-      "Required": "No",
-      "UpdateRequires": "Replacement",
-      "AllowedValues": [
-        "awsvpc",
-        "bridge",
-        "host",
-        "none"
-      ]
-    },
-    "Family": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "Maximum": "50",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "IpcMode": {
-      "Required": "No",
-      "UpdateRequires": "Replacement",
-      "AllowedValues": [
-        "host",
-        "none",
-        "task"
-      ]
-    },
-    "PlacementConstraints": {
-      "Required": "No",
-      "Type": "List of [TaskDefinitionPlacementConstraint",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "Cpu": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "ExecutionRoleArn": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "ProxyConfiguration": {
-      "Required": "No",
-      "UpdateRequires": "Replacement"
-    },
-    "Volumes": {
-      "Required": "No",
-      "UpdateRequires": "Replacement"
-    },
-    "Memory": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "InferenceAccelerators": {
-      "Required": "No",
-      "Type": "List of [InferenceAccelerator",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "PidMode": {
-      "Required": "No",
-      "UpdateRequires": "Replacement",
-      "AllowedValues": [
-        "host",
-        "task"
-      ]
-    },
-    "RequiresCompatibilities": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "ContainerDefinitions": {
-      "Required": "No",
-      "UpdateRequires": "Replacement"
-    }
-  },
-  "ecs.taskdefinition.memory": {
+  "ecs.taskdefinition.requirescompatibilities": {
     "Required": "No",
-    "Type": "String",
+    "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecs.taskdefinition.tags": {
@@ -155,17 +75,11 @@
     "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ecs.taskdefinition.requirescompatibilities": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.cpu": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "ecs.taskdefinition.taskrolearn": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.taskdefinition.volumes": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   }

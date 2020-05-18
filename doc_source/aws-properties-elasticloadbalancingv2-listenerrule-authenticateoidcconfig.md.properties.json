@@ -1,15 +1,10 @@
 {
-  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.scope": {
+  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.authenticationrequestextraparams": {
     "Required": "No",
-    "Type": "String",
+    "Type": "Map of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.authorizationendpoint": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.clientsecret": {
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -19,29 +14,34 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.sessioncookiename": {
-    "Required": "No",
+  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.clientsecret": {
+    "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.tokenendpoint": {
+  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.issuer": {
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.onunauthenticatedrequest": {
-    "Allowed Values": "allow | authenticate | deny",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "allow",
       "authenticate",
       "deny"
-    ]
+    ],
+    "Allowed Values": "allow | authenticate | deny",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.userinfoendpoint": {
-    "Required": "Yes",
+  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.scope": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.sessioncookiename": {
+    "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -50,77 +50,14 @@
     "Type": "Long",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.issuer": {
+  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.tokenendpoint": {
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.authenticationrequestextraparams": {
-    "Required": "No",
-    "Type": "Map of String",
+  "elasticloadbalancingv2.listenerrule.authenticateoidcconfig.userinfoendpoint": {
+    "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-properties": {
-    "ClientSecret": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "TokenEndpoint": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "AuthenticationRequestExtraParams": {
-      "Required": "No",
-      "Type": "Map of String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "ClientId": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "SessionTimeout": {
-      "Required": "No",
-      "Type": "Long",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "AuthorizationEndpoint": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Scope": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "SessionCookieName": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "UserInfoEndpoint": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "OnUnauthenticatedRequest": {
-      "Allowed Values": "allow | authenticate | deny",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "allow",
-        "authenticate",
-        "deny"
-      ]
-    },
-    "Issuer": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
   }
 }

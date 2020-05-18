@@ -1,74 +1,29 @@
 {
-  "ssm-document-properties": {
-    "Content": {
-      "Minimum": "1",
-      "Required": "Yes",
-      "Type": "Json",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "Maximum": "1000",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-    },
-    "Name": {
-      "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "DocumentType": {
-      "Allowed Values": "ApplicationConfiguration | ApplicationConfigurationSchema | Automation | ChangeCalendar | Command | DeploymentStrategy | Package | Policy | Session",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "ApplicationConfiguration",
-        "ApplicationConfigurationSchema",
-        "Automation",
-        "ChangeCalendar",
-        "Command",
-        "DeploymentStrategy",
-        "Package",
-        "Policy",
-        "Session"
-      ]
-    }
-  },
   "ssm.document.content": {
-    "Minimum": "1",
     "Required": "Yes",
     "Type": "Json",
+    "Minimum": "1",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ssm.document.documenttype": {
-    "Allowed Values": "ApplicationConfiguration | ApplicationConfigurationSchema | Automation | ChangeCalendar | Command | DeploymentStrategy | Package | Policy | Session",
+    "AllowedValues": [
+      "ApplicationConfigurationSchema` \\| `Automation` \\| `ChangeCalendar` \\| `Command` \\| `DeploymentStrategy` \\| `Package` \\| `Policy` \\| `Session"
+    ],
+    "Allowed Values": "ApplicationConfigurationSchema` \\| `Automation` \\| `ChangeCalendar` \\| `Command` \\| `DeploymentStrategy` \\| `Package` \\| `Policy` \\| `Session",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "ApplicationConfiguration",
-      "ApplicationConfigurationSchema",
-      "Automation",
-      "ChangeCalendar",
-      "Command",
-      "DeploymentStrategy",
-      "Package",
-      "Policy",
-      "Session"
-    ]
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ssm.document.name": {
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ssm.document.tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "1000",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "ssm.document.name": {
-    "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

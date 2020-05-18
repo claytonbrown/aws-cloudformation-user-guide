@@ -1,32 +1,16 @@
 {
-  "kms.alias.targetkeyid": {
-    "Minimum": "1",
+  "kms.alias.aliasname": {
     "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "Pattern": "^[a-zA-Z0-9:/_-]+$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "kms.alias.targetkeyid": {
+    "Required": "Yes",
+    "Minimum": "1",
     "Maximum": "2048",
     "UpdateRequires": "No interruption"
-  },
-  "kms-alias-properties": {
-    "TargetKeyId": {
-      "Minimum": "1",
-      "Required": "Yes",
-      "Maximum": "2048",
-      "UpdateRequires": "No interruption"
-    },
-    "AliasName": {
-      "Pattern": "^[a-zA-Z0-9:/_-]+$",
-      "Required": "Yes",
-      "Maximum": "256",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "1",
-      "Type": "String"
-    }
-  },
-  "kms.alias.aliasname": {
-    "Pattern": "^[a-zA-Z0-9:/_-]+$",
-    "Required": "Yes",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
   }
 }

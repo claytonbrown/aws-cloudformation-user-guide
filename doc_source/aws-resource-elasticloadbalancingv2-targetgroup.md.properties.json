@@ -1,66 +1,25 @@
 {
-  "elasticloadbalancingv2.targetgroup.name": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticloadbalancingv2.targetgroup.healthchecktimeoutseconds": {
-    "Minimum": "2",
-    "Required": "No",
-    "Type": "Integer",
-    "Maximum": "120",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticloadbalancingv2.targetgroup.tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticloadbalancingv2.targetgroup.healthcheckpath": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticloadbalancingv2.targetgroup.matcher": {
-    "Required": "No",
-    "Type": "Matcher",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticloadbalancingv2.targetgroup.targetgroupattributes": {
-    "Required": "No",
-    "Type": "List of [TargetGroupAttribute",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticloadbalancingv2.targetgroup.port": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "Integer",
-    "Maximum": "65535",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "elasticloadbalancingv2.targetgroup.healthcheckenabled": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticloadbalancingv2.targetgroup.healthcheckintervalseconds": {
-    "Minimum": "5",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "5",
     "Maximum": "300",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticloadbalancingv2.targetgroup.unhealthythresholdcount": {
-    "Minimum": "2",
+  "elasticloadbalancingv2.targetgroup.healthcheckpath": {
     "Required": "No",
-    "Type": "Integer",
-    "Maximum": "10",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1024",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticloadbalancingv2.targetgroup.healthcheckport": {
@@ -68,22 +27,9 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticloadbalancingv2.targetgroup.targettype": {
-    "Allowed Values": "instance | ip | lambda",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "instance",
-      "ip",
-      "lambda"
-    ]
-  },
   "elasticloadbalancingv2.targetgroup.healthcheckprotocol": {
-    "Allowed Values": "HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "HTTP",
       "HTTPS",
@@ -91,139 +37,85 @@
       "TCP_UDP",
       "TLS",
       "UDP"
-    ]
+    ],
+    "Allowed Values": "HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticloadbalancingv2-targetgroup-properties": {
-    "HealthyThresholdCount": {
-      "Minimum": "2",
-      "Required": "No",
-      "Type": "Integer",
-      "Maximum": "10",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "HealthCheckIntervalSeconds": {
-      "Minimum": "5",
-      "Required": "No",
-      "Type": "Integer",
-      "Maximum": "300",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "HealthCheckEnabled": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "HealthCheckPort": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Name": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "UnhealthyThresholdCount": {
-      "Minimum": "2",
-      "Required": "No",
-      "Type": "Integer",
-      "Maximum": "10",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "List of [Tag",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "TargetType": {
-      "Allowed Values": "instance | ip | lambda",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "instance",
-        "ip",
-        "lambda"
-      ]
-    },
-    "HealthCheckProtocol": {
-      "Allowed Values": "HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "HTTP",
-        "HTTPS",
-        "TCP",
-        "TCP_UDP",
-        "TLS",
-        "UDP"
-      ]
-    },
-    "Targets": {
-      "Required": "No",
-      "Type": "List of [TargetDescription",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "HealthCheckPath": {
-      "Minimum": "1",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "1024",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "VpcId": {
-      "Required": "Conditional",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-    },
-    "HealthCheckTimeoutSeconds": {
-      "Minimum": "2",
-      "Required": "No",
-      "Type": "Integer",
-      "Maximum": "120",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "TargetGroupAttributes": {
-      "Required": "No",
-      "Type": "List of [TargetGroupAttribute",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Matcher": {
-      "Required": "No",
-      "Type": "Matcher",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Protocol": {
-      "Allowed Values": "HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP",
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "AllowedValues": [
-        "HTTP",
-        "HTTPS",
-        "TCP",
-        "TCP_UDP",
-        "TLS",
-        "UDP"
-      ]
-    },
-    "Port": {
-      "Minimum": "1",
-      "Required": "No",
-      "Type": "Integer",
-      "Maximum": "65535",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    }
-  },
-  "elasticloadbalancingv2.targetgroup.healthythresholdcount": {
-    "Minimum": "2",
+  "elasticloadbalancingv2.targetgroup.healthchecktimeoutseconds": {
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "2",
+    "Maximum": "120",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.targetgroup.healthythresholdcount": {
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "2",
+    "Maximum": "10",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.targetgroup.matcher": {
+    "Required": "No",
+    "Type": "Matcher",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.targetgroup.name": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticloadbalancingv2.targetgroup.port": {
+    "Required": "Conditional",
+    "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "65535",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticloadbalancingv2.targetgroup.protocol": {
+    "Required": "Conditional",
+    "Type": "String",
+    "AllowedValues": [
+      "HTTP",
+      "HTTPS",
+      "TCP",
+      "TCP_UDP",
+      "TLS",
+      "UDP"
+    ],
+    "Allowed Values": "HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticloadbalancingv2.targetgroup.tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.targetgroup.targetgroupattributes": {
+    "Required": "No",
+    "Type": "List of [TargetGroupAttribute",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.targetgroup.targets": {
+    "Required": "No",
+    "Type": "List of [TargetDescription",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.targetgroup.targettype": {
+    "Required": "No",
+    "Type": "String",
+    "AllowedValues": [
+      "instance",
+      "ip",
+      "lambda"
+    ],
+    "Allowed Values": "instance | ip | lambda",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticloadbalancingv2.targetgroup.unhealthythresholdcount": {
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "2",
     "Maximum": "10",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -231,24 +123,5 @@
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "elasticloadbalancingv2.targetgroup.protocol": {
-    "Allowed Values": "HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "HTTP",
-      "HTTPS",
-      "TCP",
-      "TCP_UDP",
-      "TLS",
-      "UDP"
-    ]
-  },
-  "elasticloadbalancingv2.targetgroup.targets": {
-    "Required": "No",
-    "Type": "List of [TargetDescription",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

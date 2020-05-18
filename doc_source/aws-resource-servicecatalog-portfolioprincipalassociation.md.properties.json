@@ -1,64 +1,32 @@
 {
-  "servicecatalog.portfolioprincipalassociation.principalarn": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "1000",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "servicecatalog.portfolioprincipalassociation.acceptlanguage": {
     "Required": "No",
     "Type": "String",
     "Maximum": "100",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "servicecatalog.portfolioprincipalassociation.principaltype": {
-    "Allowed Values": "IAM",
+  "servicecatalog.portfolioprincipalassociation.portfolioid": {
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "^[a-zA-Z0-9_\\-]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "servicecatalog.portfolioprincipalassociation.principalarn": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1000",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "servicecatalog.portfolioprincipalassociation.principaltype": {
+    "Required": "Yes",
+    "Type": "String",
     "AllowedValues": [
       "IAM"
-    ]
-  },
-  "servicecatalog.portfolioprincipalassociation.portfolioid": {
-    "Pattern": "^[a-zA-Z0-9_\\-]*",
-    "Required": "Yes",
-    "Maximum": "100",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "servicecatalog-portfolioprincipalassociation-properties": {
-    "AcceptLanguage": {
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "100",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "PrincipalType": {
-      "Allowed Values": "IAM",
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-      "AllowedValues": [
-        "IAM"
-      ]
-    },
-    "PrincipalARN": {
-      "Minimum": "1",
-      "Required": "Yes",
-      "Type": "String",
-      "Maximum": "1000",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "PortfolioId": {
-      "Pattern": "^[a-zA-Z0-9_\\-]*",
-      "Required": "Yes",
-      "Maximum": "100",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "1",
-      "Type": "String"
-    }
+    ],
+    "Allowed Values": "IAM",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

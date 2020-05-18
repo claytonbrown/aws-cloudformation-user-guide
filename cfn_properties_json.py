@@ -5,19 +5,20 @@ import pprint
 debug = False
 output = {}
 properties = {}
+result = {}
 pipe = sys.stdin.read()
 pipe = pipe.split("# ")
 for data in pipe:
     # print(data)
     if "Properties<a" in data:
         property_type = data.split("Properties<a name=\"")[1].split('\"')[0]
-        property_type = property_type.replace("aws-resource-","")  # .replace("-properties","")
+        property_type = property_type.replace("aws-resource-", "")  # .replace("-properties","")
         for property in data.split("\n`"):
             if "Properties<a " not in property:
                 property_name = property.split("`")[0]
                 property_bag = property.split("\n*")
                 if debug:
-                	pprint.pprint(property_bag)
+                    pprint.pprint(property_bag)
                 # property_name = property_type.rstrip("properties") + property_name.lower()
                 properties[property_name] = {}
                 ok = True
@@ -39,16 +40,14 @@ for data in pipe:
                                 if property_data == "Boolean":
                                     properties[property_name]["AllowedValues"] = ["True", "False"]
 
-
-
                             if "Pattern" in property_key:
-                            	properties[property_name]["Pattern"] = property_data.strip('')
+                                properties[property_name]["Pattern"] = property_data.strip('')
 
                             if "Maximum" in property_key:
-                            	properties[property_name]["Maximum"] = property_data.strip('')
+                                properties[property_name]["Maximum"] = property_data.strip('')
 
                             if "Minimum" in property_key:
-                            	properties[property_name]["Minimum"] = property_data.strip('')
+                                properties[property_name]["Minimum"] = property_data.strip('')
 
                             if "Required" in property_key:
                                 property_key = "Required"
@@ -69,8 +68,6 @@ for data in pipe:
                             # print("im here")
                             # print(prop)
 
-
-
                         if ok:
                             properties[property_name][property_key] = property_data
 
@@ -78,20 +75,18 @@ for data in pipe:
 
         # flatten properties into their own keys
 
+        for k1, v1 in output.items():
+            if isinstance(v1, dict):
+                for k2, v2 in v1.items():
+                    norm_key = k1.replace("aws-properties-", "").replace("-properties", "").replace('-', '.') + '.' + k2.lower()
+                    property_key = norm_key
+                    result[property_key] = v2
 
-    	for k1, v1 in output.items():
-    		if isinstance(v1, dict):
-    			for k2, v2 in v1.items():
-        			property_key = k1.replace("aws-properties-","").replace("-properties","").replace('-','.') + '.' + k2.lower()
-        			output[property_key] = v2
-
-
-        #for k1, v1 in output.items():
-        #	if '-properties' in k1:
-        #		del output[k1]
-
+        # for k1, v1 in output.items():
+        #   if '-properties' in k1:
+        #       del output[k1]
 
 
 print(
-    json.dumps(output, indent=4)
+    json.dumps(result, indent=4)
 )

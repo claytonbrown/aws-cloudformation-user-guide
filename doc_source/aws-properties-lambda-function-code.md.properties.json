@@ -1,58 +1,29 @@
 {
   "lambda.function.code.s3bucket": {
-    "Pattern": "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$",
     "Required": "Conditional",
-    "Maximum": "63",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
     "Minimum": "3",
-    "Type": "String"
+    "Maximum": "63",
+    "Pattern": "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.function.code.s3key": {
+    "Required": "Conditional",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.function.code.s3objectversion": {
+    "Required": "Conditional",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.function.code.zipfile": {
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "aws-properties-lambda-function-code-properties": {
-    "S3Bucket": {
-      "Pattern": "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$",
-      "Required": "Conditional",
-      "Maximum": "63",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "Minimum": "3",
-      "Type": "String"
-    },
-    "S3Key": {
-      "Minimum": "1",
-      "Required": "Conditional",
-      "Type": "String",
-      "Maximum": "1024",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "ZipFile": {
-      "Required": "Conditional",
-      "Type": "String",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-    },
-    "S3ObjectVersion": {
-      "Minimum": "1",
-      "Required": "Conditional",
-      "Type": "String",
-      "Maximum": "1024",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
-  },
-  "lambda.function.code.s3objectversion": {
-    "Minimum": "1",
-    "Required": "Conditional",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "lambda.function.code.s3key": {
-    "Minimum": "1",
-    "Required": "Conditional",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

@@ -1,70 +1,36 @@
 {
-  "sagemaker.endpoint.tags": {
+  "sagemaker.endpoint.endpointconfigname": {
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.endpoint.endpointname": {
     "Required": "No",
-    "Maximum": "50",
-    "UpdateRequires": "No interruption"
+    "Type": "String",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "sagemaker.endpoint.excluderetainedvariantproperties": {
     "Required": "No",
     "Type": "List of [VariantProperty",
+    "Maximum": "3",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "sagemaker.endpoint.retainallvariantproperties": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ]
-  },
-  "sagemaker.endpoint.endpointconfigname": {
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "63",
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "sagemaker.endpoint.endpointname": {
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+  "sagemaker.endpoint.tags": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "63",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "sagemaker-endpoint-properties": {
-    "EndpointConfigName": {
-      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-      "Required": "Yes",
-      "Type": "String",
-      "Maximum": "63",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "ExcludeRetainedVariantProperties": {
-      "Required": "No",
-      "Type": "List of [VariantProperty",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "EndpointName": {
-      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-      "Required": "No",
-      "Type": "String",
-      "Maximum": "63",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-    },
-    "RetainAllVariantProperties": {
-      "Required": "No",
-      "Type": "Boolean",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-      "AllowedValues": [
-        "True",
-        "False"
-      ]
-    },
-    "Tags": {
-      "Required": "No",
-      "Maximum": "50",
-      "UpdateRequires": "No interruption"
-    }
+    "Maximum": "50",
+    "UpdateRequires": "No interruption"
   }
 }

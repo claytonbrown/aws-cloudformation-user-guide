@@ -1,16 +1,11 @@
 {
   "kinesis.stream.name": {
-    "Pattern": "[a-zA-Z0-9_.-]+",
     "Required": "No",
-    "Maximum": "128",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
-  },
-  "kinesis.stream.streamencryption": {
-    "Required": "No",
-    "Type": "StreamEncryption",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Maximum": "128",
+    "Pattern": "[a-zA-Z0-9_.-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "kinesis.stream.retentionperiodhours": {
     "Required": "No",
@@ -18,40 +13,15 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesis.stream.shardcount": {
-    "Minimum": "1",
     "Required": "Yes",
     "Type": "Integer",
+    "Minimum": "1",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesis-stream-properties": {
-    "Tags": {
-      "Required": "No",
-      "UpdateRequires": "No interruption"
-    },
-    "RetentionPeriodHours": {
-      "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "StreamEncryption": {
-      "Required": "No",
-      "Type": "StreamEncryption",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    },
-    "Name": {
-      "Pattern": "[a-zA-Z0-9_.-]+",
-      "Required": "No",
-      "Maximum": "128",
-      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-      "Minimum": "1",
-      "Type": "String"
-    },
-    "ShardCount": {
-      "Minimum": "1",
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-    }
+  "kinesis.stream.streamencryption": {
+    "Required": "No",
+    "Type": "StreamEncryption",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesis.stream.tags": {
     "Required": "No",
