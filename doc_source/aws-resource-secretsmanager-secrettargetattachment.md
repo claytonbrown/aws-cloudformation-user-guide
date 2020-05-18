@@ -4,9 +4,9 @@ The `AWS::SecretsManager::SecretTargetAttachment` resource completes the final l
 
 1. Define the secret without referencing the service or database\. You can't reference the service or database because it doesn't exist yet\.
 
-1. Next, define the service or database\. Include the reference to the secret to use stored credentials to define the database's master user and password\.
+1. Next, define the service or database\. Include the reference to the secret to use stored credentials to define the database master user and password\.
 
-1. Finally, define a `SecretTargetAttachment` resource type to finish configuring the secret with the required database engine type and the connection details of the service or database\. The rotation function requires the details, if you attach one later by defining a [AWS::SecretsManager::RotationSchedule ](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html) resource type\.
+1. Finally, define a `SecretTargetAttachment` resource type to finish configuring the secret with the required database engine type and the connection details of the service or database\. The rotation function requires the details, if you attach one later by defining a [AWS::SecretsManager::RotationSchedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html) resource type\.
 
 ## Syntax<a name="aws-resource-secretsmanager-secrettargetattachment-syntax"></a>
 
@@ -38,7 +38,7 @@ Properties:
 ## Properties<a name="aws-resource-secretsmanager-secrettargetattachment-properties"></a>
 
 `SecretId`  <a name="cfn-secretsmanager-secrettargetattachment-secretid"></a>
-The Amazon Resource Name \(ARN\) or the friendly name of the secret that contains the credentials that you want to use with the specified service or database\. To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/url-doc-domain/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID\.  
+The Amazon Resource Name \(ARN\) or the friendly name of the secret that contains the credentials that you want to use with the specified service or database\. To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID\.  
 *Required*: Yes  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -72,7 +72,7 @@ When you pass the logical ID of an `AWS::SecretsManager::SecretTargetAttachement
 
 This enables you to reference a secret you created in one part of the stack template from within the definition of another resource from a different part of the same template\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/url-doc-domain/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\. 
+For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\. 
 
 ## Examples<a name="aws-resource-secretsmanager-secrettargetattachment--examples"></a>
 

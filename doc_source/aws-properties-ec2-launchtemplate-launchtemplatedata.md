@@ -27,6 +27,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "[KernelId](#cfn-ec2-launchtemplate-launchtemplatedata-kernelid)" : String,
   "[KeyName](#cfn-ec2-launchtemplate-launchtemplatedata-keyname)" : String,
   "[LicenseSpecifications](#cfn-ec2-launchtemplate-launchtemplatedata-licensespecifications)" : [ [LicenseSpecification](aws-properties-ec2-launchtemplate-licensespecification.md), ... ],
+  "[MetadataOptions](#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions)" : [MetadataOptions](aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.md),
   "[Monitoring](#cfn-ec2-launchtemplate-launchtemplatedata-monitoring)" : [Monitoring](aws-properties-ec2-launchtemplate-launchtemplatedata-monitoring.md),
   "[NetworkInterfaces](#cfn-ec2-launchtemplate-launchtemplatedata-networkinterfaces)" : [ [NetworkInterface](aws-properties-ec2-launchtemplate-networkinterface.md), ... ],
   "[Placement](#cfn-ec2-launchtemplate-launchtemplatedata-placement)" : [Placement](aws-properties-ec2-launchtemplate-launchtemplatedata-placement.md),
@@ -68,6 +69,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   [KeyName](#cfn-ec2-launchtemplate-launchtemplatedata-keyname): String
   [LicenseSpecifications](#cfn-ec2-launchtemplate-launchtemplatedata-licensespecifications): 
     - [LicenseSpecification](aws-properties-ec2-launchtemplate-licensespecification.md)
+  [MetadataOptions](#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions): 
+    [MetadataOptions](aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.md)
   [Monitoring](#cfn-ec2-launchtemplate-launchtemplatedata-monitoring): 
     [Monitoring](aws-properties-ec2-launchtemplate-launchtemplatedata-monitoring.md)
   [NetworkInterfaces](#cfn-ec2-launchtemplate-launchtemplatedata-networkinterfaces): 
@@ -193,6 +196,12 @@ The license configurations\.
 *Type*: List of [LicenseSpecification](aws-properties-ec2-launchtemplate-licensespecification.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`MetadataOptions`  <a name="cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions"></a>
+The metadata options for the instance\. For more information, see [Instance Metadata and User Data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*\.  
+*Required*: No  
+*Type*: [MetadataOptions](aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.md)  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `Monitoring`  <a name="cfn-ec2-launchtemplate-launchtemplatedata-monitoring"></a>
 The monitoring for the instance\.  
 *Required*: No  
@@ -231,7 +240,7 @@ One or more security group IDs\. You can create a security group using [CreateSe
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `TagSpecifications`  <a name="cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications"></a>
-The tags to apply to the resources during launch\. You can only tag instances and volumes on launch\. The specified tags are applied to all instances or volumes that are created during launch\. To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html)\.  
+The tags to apply to the resources during launch\. You can only tag instances and volumes on launch\. The specified tags are applied to all instances or volumes that are created during launch\.  
 *Required*: No  
 *Type*: List of [TagSpecification](aws-properties-ec2-launchtemplate-tagspecification.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

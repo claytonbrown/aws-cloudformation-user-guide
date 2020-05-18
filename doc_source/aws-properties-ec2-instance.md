@@ -117,7 +117,7 @@ Properties:
 ## Properties<a name="aws-properties-ec2-instance-properties"></a>
 
 `AdditionalInfo`  <a name="cfn-ec2-instance-additionalinfo"></a>
-Reserved\.  
+This property is reserved for internal use\. If you use it, the stack fails with this error: `Bad property set: [Testing this property] (Service: AmazonEC2; Status Code: 400; Error Code: InvalidParameterCombination; Request ID: 0XXXXXX-49c7-4b40-8bcc-76885dcXXXXX)`\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)
@@ -131,6 +131,7 @@ Indicates whether the instance is associated with a dedicated host\. If you want
 `AvailabilityZone`  <a name="cfn-ec2-instance-availabilityzone"></a>
 The Availability Zone of the instance\.  
 If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region\.  
+This parameter is not supported by [DescribeImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html)\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -182,7 +183,7 @@ An elastic inference accelerator to associate with the instance\. Elastic infere
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `HibernationOptions`  <a name="cfn-ec2-instance-hibernationoptions"></a>
-Indicates whether the instance is enabled for hibernation\.  
+Indicates whether an instance is enabled for hibernation\. For more information, see [Hibernate Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide*\.  
 *Required*: No  
 *Type*: [HibernationOptions](aws-properties-ec2-instance-hibernationoptions.md)  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -200,7 +201,7 @@ The ARN of the host resource group in which to launch the instances\. If you spe
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `IamInstanceProfile`  <a name="cfn-ec2-instance-iaminstanceprofile"></a>
-The IAM instance profile\.  
+The IAM instance profile\. See [IamInstanceProfileSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfileSpecification.html) in the *Amazon EC2 API Reference* for property values\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -339,7 +340,7 @@ If you specify a network interface, you must specify any subnets as part of the 
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Tags`  <a name="cfn-ec2-instance-tags"></a>
-The tags to apply to the resources during launch\. You can only tag instances and volumes on launch\. The specified tags are applied to all instances or volumes that are created during launch\. To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html)\.  
+The tags to apply to the instance during launch\. These tags are not applied to the EBS volumes, such as the root volume\.  
 *Required*: No  
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

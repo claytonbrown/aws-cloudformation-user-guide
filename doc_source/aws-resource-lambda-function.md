@@ -95,9 +95,6 @@ The name of the Lambda function, up to 64 characters in length\. If you don't sp
 If you specify a name, you cannot perform updates that require replacement of this resource\. You can perform updates that require no or some interruption\. If you must replace the resource, specify a new name\.  
 *Required*: No  
 *Type*: String  
-*Minimum*: `1`  
-*Maximum*: `140`  
-*Pattern*: `(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Handler`  <a name="cfn-lambda-function-handler"></a>
@@ -147,7 +144,7 @@ The Amazon Resource Name \(ARN\) of the function's execution role\.
 The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)\.  
 *Required*: Yes  
 *Type*: String  
-*Allowed Values*: `dotnetcore1.0 | dotnetcore2.1 | go1.x | java11 | java8 | nodejs10.x | nodejs12.x | nodejs8.10 | provided | python2.7 | python3.6 | python3.7 | python3.8 | ruby2.5`  
+*Allowed Values*: `dotnetcore2.1 | dotnetcore3.1 | go1.x | java11 | java8 | nodejs10.x | nodejs12.x | provided | python2.7 | python3.6 | python3.7 | python3.8 | ruby2.5 | ruby2.7`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Tags`  <a name="cfn-lambda-function-tags"></a>

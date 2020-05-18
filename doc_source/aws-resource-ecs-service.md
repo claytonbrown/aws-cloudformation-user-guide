@@ -103,14 +103,14 @@ Specifies whether to enable Amazon ECS managed tags for the tasks within the ser
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `HealthCheckGracePeriodSeconds`  <a name="cfn-ecs-service-healthcheckgraceperiodseconds"></a>
-The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started\. This is only valid if your service is configured to use a load balancer\. If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds\. During that time, the ECS service scheduler ignores health check status\. This grace period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping them before they have time to come up\.  
+The period of time, in seconds, that the Amazon ECS service scheduler should ignore unhealthy Elastic Load Balancing target health checks after a task has first started\. This is only used when your service is configured to use a load balancer\. If your service has a load balancer defined and you don't specify a health check grace period value, the default value of `0` is used\.  
+If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds\. During that time, the Amazon ECS service scheduler ignores health check status\. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up\.  
 *Required*: No  
 *Type*: Integer  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `LaunchType`  <a name="cfn-ecs-service-launchtype"></a>
 The launch type on which to run your service\. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*\.  
-If a `launchType` is specified, the `capacityProviderStrategy` parameter must be omitted\.  
 *Required*: No  
 *Type*: String  
 *Allowed Values*: `EC2 | FARGATE`  
@@ -165,7 +165,7 @@ If your specified role has a path other than `/`, then you must either specify t
 The scheduling strategy to use for the service\. For more information, see [Services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)\.  
 There are two service scheduler strategies available:  
 +  `REPLICA`\-The replica scheduling strategy places and maintains the desired number of tasks across your cluster\. By default, the service scheduler spreads tasks across Availability Zones\. You can use task placement strategies and constraints to customize task placement decisions\. This scheduler strategy is required if the service is using the `CODE_DEPLOY` or `EXTERNAL` deployment controller types\.
-+  `DAEMON`\-The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster\. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies\.
++  `DAEMON`\-The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster\. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that do not meet the placement constraints\. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies\.
 **Note**  
 Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy\.
 *Required*: No  

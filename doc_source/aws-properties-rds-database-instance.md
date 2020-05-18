@@ -165,7 +165,7 @@ Properties:
 `AllocatedStorage`  <a name="cfn-rds-dbinstance-allocatedstorage"></a>
 The amount of storage \(in gigabytes\) to be initially allocated for the database instance\.  
 If any value is set in the `Iops` parameter, `AllocatedStorage` must be at least 100 GB, which corresponds to the minimum Iops value of 1,000\. If you increase the `Iops` value \(in 1,000 IOPS increments\), then you must also increase the `AllocatedStorage` value \(in 100\-GB increments\)\. 
-*Required*: No  
+*Required*: Conditional  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
@@ -215,7 +215,7 @@ The identifier of the CA certificate for this DB instance\.
 Specifying or updating this property triggers a reboot\.
 *Required*: No  
 *Type*: String  
-*Update requires*: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `CharacterSetName`  <a name="cfn-rds-dbinstance-charactersetname"></a>
 For supported engines, indicates that the DB Instance should be associated with the specified CharacterSet\.  
@@ -373,7 +373,7 @@ Not applicable\. You can enable or disable deletion protection for the DB cluste
 `Domain`  <a name="cfn-rds-dbinstance-domain"></a>
 The Active Directory directory ID to create the DB instance in\. Currently, only Microsoft SQL Server and Oracle DB instances can be created in an Active Directory Domain\.  
 For Microsoft SQL Server DB instances, Amazon RDS can use Windows Authentication to authenticate users that connect to the DB instance\. For more information, see [ Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html) in the *Amazon RDS User Guide*\.  
-For Oracle DB instance, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB instance\. For more information, see [ Using Kerberos Authentication with Amazon RDS for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html) in the *Amazon RDS User Guide*\.  
+For Oracle DB instances, Amazon RDS can use Kerberos Authentication to authenticate users that connect to the DB instance\. For more information, see [ Using Kerberos Authentication with Amazon RDS for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html) in the *Amazon RDS User Guide*\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -614,7 +614,7 @@ Not applicable\. The encryption for DB instances is managed by the DB cluster\.
 Specifies the storage type to be associated with the DB instance\.  
  Valid values: `standard | gp2 | io1`   
  If you specify `io1`, you must also include a value for the `Iops` parameter\.   
- Default: `io1` if the `Iops` parameter is specified, otherwise `gp2`   
+ Default: `io1` if the `Iops` parameter is specified, otherwise `standard`   
 For more information, see [Amazon RDS DB Instance Storage](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html) in the *Amazon RDS User Guide*\.  
 *Required*: No  
 *Type*: String  
@@ -674,117 +674,172 @@ The port number on which the database accepts connections\. For example: `3306`
 
 ## Examples<a name="aws-properties-rds-database-instance--examples"></a>
 
-### DBInstance with a set MySQL version<a name="aws-properties-rds-database-instance--examples--DBInstance_with_a_set_MySQL_version"></a>
+### Creating a DB Instance with Enhanced Monitoring Enabled<a name="aws-properties-rds-database-instance--examples--Creating_a_DB_Instance_with_Enhanced_Monitoring_Enabled"></a>
 
-This example shows how to set the MySQL version\. Note the usage of the [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html): When this attribute is set to `Snapshot`, AWS CloudFormation takes a snapshot of this DB instance before deleting it during stack deletion\.
+The following example creates an Amazon RDS MySQL DB instance with Enhanced Monitoring enabled\. The IAM role for Enhanced Monitoring specified in `MonitoringRoleArn` must exist before you run this example\. For more information about Enhanced Monitoring, see [ Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html) in the *Amazon RDS User Guide*\.
 
-This example also sets a tag, to specify a friendly name for the database\.
-
-#### JSON<a name="aws-properties-rds-database-instance--examples--DBInstance_with_a_set_MySQL_version--json"></a>
+#### JSON<a name="aws-properties-rds-database-instance--examples--Creating_a_DB_Instance_with_Enhanced_Monitoring_Enabled--json"></a>
 
 ```
 {
-    "MyDB": {
-        "Type": "AWS::RDS::DBInstance",
-        "Properties": {
-            "DBName": {
-                "Ref": "DBName"
-            },
-            "AllocatedStorage": {
-                "Ref": "DBAllocatedStorage"
-            },
-            "DBInstanceClass": {
-                "Ref": "DBInstanceClass"
-            },
-            "Engine": "MySQL",
-            "EngineVersion": "5.7.22",
-            "MasterUsername": {
-                "Ref": "DBUser"
-            },
-            "MasterUserPassword": {
-                "Ref": "DBPassword"
-            },
-            "Tags": [
-                {
-                    "Key": "Name",
-                    "Value": "My SQL Database"
-                }
-            ]
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "AWS CloudFormation Sample Template for creating an Amazon RDS DB instance: Sample template showing 
+how to create a DB instance with Enhanced Monitoring enabled. **WARNING** This template creates an RDS DB instance. You will 
+be billed for the AWS resources used if you create a stack from this template.",
+    "Parameters": {
+        "DBInstanceID": {
+            "Default": "mydbinstance",
+            "Description": "My database instance",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "63",
+            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription": "Must begin with a letter and must not end with a hyphen or contain two consecutive hyphens."
         },
-        "DeletionPolicy": "Snapshot"
-    }
-}
-```
-
-#### YAML<a name="aws-properties-rds-database-instance--examples--DBInstance_with_a_set_MySQL_version--yaml"></a>
-
-```
---- 
-MyDB: 
-  DeletionPolicy: Snapshot
-  Properties: 
-    AllocatedStorage: 
-      Ref: DBAllocatedStorage
-    DBInstanceClass: 
-      Ref: DBInstanceClass
-    DBName: 
-      Ref: DBName
-    Engine: MySQL
-    EngineVersion: "5.7.22"
-    MasterUserPassword: 
-      Ref: DBPassword
-    MasterUsername: 
-      Ref: DBUser
-    Tags: 
-      - 
-        Key: Name
-        Value: "My SQL Database"
-  Type: "AWS::RDS::DBInstance"
-```
-
-### DBInstance with Provisioned IOPS<a name="aws-properties-rds-database-instance--examples--DBInstance_with_Provisioned_IOPS"></a>
-
-This example sets a provisioned IOPS value in the [Iops](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-iops) property\. Note that the [AllocatedStorage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-allocatedstorage) property is set according to the 10:1 ratio between IOPS and GiBs of storage\.
-
-#### JSON<a name="aws-properties-rds-database-instance--examples--DBInstance_with_Provisioned_IOPS--json"></a>
-
-```
-{
-    "MyDB": {
-        "Type": "AWS::RDS::DBInstance",
-        "Properties": {
-            "AllocatedStorage": "100",
-            "DBInstanceClass": "db.t3.small",
-            "Engine": "MySQL",
-            "EngineVersion": "5.7.22",
-            "Iops": "1000",
-            "MasterUsername": {
-                "Ref": "DBUser"
-            },
-            "MasterUserPassword": {
-                "Ref": "DBPassword"
+        "DBName": {
+            "Default": "mydb",
+            "Description": "My database",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "64",
+            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription": "Must begin with a letter and contain only alphanumeric characters."
+        },
+        "DBInstanceClass": {
+            "Default": "db.m5.large",
+            "Description": "DB instance class",
+            "Type": "String",
+            "ConstraintDescription": "Must select a valid DB instance type."
+        },
+        "DBAllocatedStorage": {
+            "Default": "50",
+            "Description": "The size of the database (GiB)",
+            "Type": "Number",
+            "MinValue": "5",
+            "MaxValue": "1024",
+            "ConstraintDescription": "must be between 20 and 65536 GiB."
+        },
+        "DBUsername": {
+            "NoEcho": "true",
+            "Description": "Username for MySQL database access",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "16",
+            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters."
+        },
+        "DBPassword": {
+            "NoEcho": "true",
+            "Description": "Password MySQL database access",
+            "Type": "String",
+            "MinLength": "8",
+            "MaxLength": "41",
+            "AllowedPattern": "[a-zA-Z0-9]*",
+            "ConstraintDescription": "must contain only alphanumeric characters."
+        }
+    },
+    "Resources": {
+        "MyDB": {
+            "Type": "AWS::RDS::DBInstance",
+            "Properties": {
+                "DBInstanceIdentifier": {
+                    "Ref": "DBInstanceID"
+                },
+                "DBName": {
+                    "Ref": "DBName"
+                },
+                "DBInstanceClass": {
+                    "Ref": "DBInstanceClass"
+                },
+                "AllocatedStorage": {
+                    "Ref": "DBAllocatedStorage"
+                },
+                "Engine": "MySQL",
+                "EngineVersion": "8.0.16",
+                "MasterUsername": {
+                    "Ref": "DBUsername"
+                },
+                "MasterUserPassword": {
+                    "Ref": "DBPassword"
+                },
+                "MonitoringInterval": "60",
+                "MonitoringRoleArn": "arn:aws:iam::1233456789012:role/rds-monitoring-role"
             }
         }
     }
 }
 ```
 
-#### YAML<a name="aws-properties-rds-database-instance--examples--DBInstance_with_Provisioned_IOPS--yaml"></a>
+#### YAML<a name="aws-properties-rds-database-instance--examples--Creating_a_DB_Instance_with_Enhanced_Monitoring_Enabled--yaml"></a>
 
 ```
---- 
-MyDB: 
-  Properties: 
-    AllocatedStorage: "100"
-    DBInstanceClass: db.t3.small
-    Engine: MySQL
-    EngineVersion: "5.7.22"
-    Iops: "1000"
-    MasterUserPassword: 
-      Ref: DBPassword
-    MasterUsername: 
-      Ref: DBUser
-  Type: "AWS::RDS::DBInstance"
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  Description": "AWS CloudFormation Sample Template for creating an Amazon RDS DB instance: 
+  Sample template showing how to create a DB instance with Enhanced Monitoring enabled. 
+  **WARNING** This template creates an RDS DB instance. You will be billed for the AWS 
+  resources used if you create a stack from this template.
+Parameters:
+  DBInstanceID:
+    Default: mydbinstance
+    Description: My database instance
+    Type: String
+    MinLength: '1'
+    MaxLength: '63'
+    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
+    ConstraintDescription: >-
+      Must begin with a letter and must not end with a hyphen or contain two
+      consecutive hyphens.
+  DBName:
+    Default: mydb
+    Description: My database
+    Type: String
+    MinLength: '1'
+    MaxLength: '64'
+    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
+    ConstraintDescription: Must begin with a letter and contain only alphanumeric characters.
+  DBInstanceClass:
+    Default: db.m5.large
+    Description: DB instance class
+    Type: String
+    ConstraintDescription: Must select a valid DB instance type.
+  DBAllocatedStorage:
+    Default: '50'
+    Description: The size of the database (GiB)
+    Type: Number
+    MinValue: '5'
+    MaxValue: '1024'
+    ConstraintDescription: must be between 20 and 65536 GiB.
+  DBUsername:
+    NoEcho: 'true'
+    Description: Username for MySQL database access
+    Type: String
+    MinLength: '1'
+    MaxLength: '16'
+    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
+    ConstraintDescription: must begin with a letter and contain only alphanumeric characters.
+  DBPassword:
+    NoEcho: 'true'
+    Description: Password MySQL database access
+    Type: String
+    MinLength: '8'
+    MaxLength: '41'
+    AllowedPattern: '[a-zA-Z0-9]*'
+    ConstraintDescription: must contain only alphanumeric characters.
+Resources:
+  MyDB:
+    Type: 'AWS::RDS::DBInstance'
+    Properties:
+      DBInstanceIdentifier: !Ref DBInstanceID
+      DBName: !Ref DBName
+      DBInstanceClass: !Ref DBInstanceClass
+      AllocatedStorage: !Ref DBAllocatedStorage
+      Engine: MySQL
+      EngineVersion: 8.0.16
+      MasterUsername: !Ref DBUsername
+      MasterUserPassword: !Ref DBPassword
+      MonitoringInterval: '60'
+      MonitoringRoleArn: 'arn:aws:iam::123456789012:role/rds-monitoring-role'
 ```
 
 ### Cross\-Region Encrypted Read Replica<a name="aws-properties-rds-database-instance--examples--Cross-Region_Encrypted_Read_Replica"></a>

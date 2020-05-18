@@ -35,7 +35,7 @@ Properties:
 ## Properties<a name="aws-resource-ssm-document-properties"></a>
 
 `Content`  <a name="cfn-ssm-document-content"></a>
-A valid JSON or YAML string\.  
+The content for the new SSM document in JSON or YAML format\.  
 *Required*: Yes  
 *Type*: Json  
 *Minimum*: `1`  
@@ -43,14 +43,14 @@ A valid JSON or YAML string\.
 
 `DocumentType`  <a name="cfn-ssm-document-documenttype"></a>
 The type of document to create\.  
+*Allowed Values*: `ApplicationConfigurationSchema` \| `Automation` \| `ChangeCalendar` \| `Command` \| `DeploymentStrategy` \| `Package` \| `Policy` \| `Session`  
 *Required*: No  
 *Type*: String  
-*Allowed Values*: `ApplicationConfiguration | ApplicationConfigurationSchema | Automation | ChangeCalendar | Command | DeploymentStrategy | Package | Policy | Session`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Name`  <a name="cfn-ssm-document-name"></a>
 A name for the Systems Manager document\.  
-Do not use the following to begin the names of documents you create\. They are reserved by AWS for use as document prefixes:  
+You can't use the following strings as document name prefixes\. These are reserved by AWS for use as document name prefixes:  
 +  `aws` 
 +  `amazon` 
 +  `amzn` 
@@ -102,7 +102,7 @@ The following Systems Manager document joins instances to a directory in AWS Dir
           "type":"StringList",
           "default":[
           ],
-          "description":"(Optional) The IP addresses of the DNS servers in the directory. Required when DHCP is not configured. Learn more at http://docs.aws.amazon.com/directoryservice/latest/simple-ad/join_get_dns_addresses.html",
+          "description":"(Optional) The IP addresses of the DNS servers in the directory. Required when DHCP is not configured. For more information, see https://docs.aws.amazon.com/directoryservice/latest/admin-guide/simple_ad_dns.html",
           "allowedPattern":"((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
         }
       },

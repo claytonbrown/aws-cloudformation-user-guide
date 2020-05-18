@@ -131,7 +131,7 @@ This name must be unique per region per account, can have a maximum of 32 charac
 
 `Port`  <a name="cfn-elasticloadbalancingv2-targetgroup-port"></a>
 The port on which the targets receive traffic\. This port is used unless you specify a port override when registering the target\. If the target is a Lambda function, this parameter does not apply\.  
-*Required*: No  
+*Required*: Conditional  
 *Type*: Integer  
 *Minimum*: `1`  
 *Maximum*: `65535`  
@@ -139,13 +139,13 @@ The port on which the targets receive traffic\. This port is used unless you spe
 
 `Protocol`  <a name="cfn-elasticloadbalancingv2-targetgroup-protocol"></a>
 The protocol to use for routing traffic to the targets\. For Application Load Balancers, the supported protocols are HTTP and HTTPS\. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, or TCP\_UDP\. A TCP\_UDP listener must be associated with a TCP\_UDP target group\. If the target is a Lambda function, this parameter does not apply\.  
-*Required*: No  
+*Required*: Conditional  
 *Type*: String  
 *Allowed Values*: `HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Tags`  <a name="cfn-elasticloadbalancingv2-targetgroup-tags"></a>
-The tags\. Each resource can have a maximum of 10 tags\.  
+The tags\.  
 *Required*: No  
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

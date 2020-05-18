@@ -18,9 +18,9 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[DefaultAction](#cfn-wafv2-webacl-defaultaction)" : [DefaultAction](aws-properties-wafv2-webacl-defaultaction.md),
       "[Description](#cfn-wafv2-webacl-description)" : String,
       "[Name](#cfn-wafv2-webacl-name)" : String,
-      "[Rules](#cfn-wafv2-webacl-rules)" : [Rules](aws-properties-wafv2-webacl-rules.md),
+      "[Rules](#cfn-wafv2-webacl-rules)" : [ [Rule](aws-properties-wafv2-webacl-rule.md), ... ],
       "[Scope](#cfn-wafv2-webacl-scope)" : String,
-      "[Tags](#cfn-wafv2-webacl-tags)" : [TagList](aws-properties-wafv2-webacl-taglist.md),
+      "[Tags](#cfn-wafv2-webacl-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ],
       "[VisibilityConfig](#cfn-wafv2-webacl-visibilityconfig)" : [VisibilityConfig](aws-properties-wafv2-webacl-visibilityconfig.md)
     }
 }
@@ -36,10 +36,10 @@ Properties:
   [Description](#cfn-wafv2-webacl-description): String
   [Name](#cfn-wafv2-webacl-name): String
   [Rules](#cfn-wafv2-webacl-rules): 
-    [Rules](aws-properties-wafv2-webacl-rules.md)
+    - [Rule](aws-properties-wafv2-webacl-rule.md)
   [Scope](#cfn-wafv2-webacl-scope): String
   [Tags](#cfn-wafv2-webacl-tags): 
-    [TagList](aws-properties-wafv2-webacl-taglist.md)
+    - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
   [VisibilityConfig](#cfn-wafv2-webacl-visibilityconfig): 
     [VisibilityConfig](aws-properties-wafv2-webacl-visibilityconfig.md)
 ```
@@ -48,7 +48,7 @@ Properties:
 
 `DefaultAction`  <a name="cfn-wafv2-webacl-defaultaction"></a>
 The action to perform if none of the `Rules` contained in the `WebACL` match\.   
-*Required*: No  
+*Required*: Yes  
 *Type*: [DefaultAction](aws-properties-wafv2-webacl-defaultaction.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
@@ -63,7 +63,7 @@ A friendly description of the Web ACL\. You cannot change the description of a W
 
 `Name`  <a name="cfn-wafv2-webacl-name"></a>
 A friendly name of the Web ACL\. You cannot change the name of a Web ACL after you create it\.  
-*Required*: Yes  
+*Required*: No  
 *Type*: String  
 *Minimum*: `1`  
 *Maximum*: `128`  
@@ -73,11 +73,12 @@ A friendly name of the Web ACL\. You cannot change the name of a Web ACL after y
 `Rules`  <a name="cfn-wafv2-webacl-rules"></a>
 The Rule statements used to identify the web requests that you want to allow, block, or count\. Each rule includes one top\-level statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them\.   
 *Required*: No  
-*Type*: [Rules](aws-properties-wafv2-webacl-rules.md)  
+*Type*: List of [Rule](aws-properties-wafv2-webacl-rule.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Scope`  <a name="cfn-wafv2-webacl-scope"></a>
 Specifies whether this is for an AWS CloudFront distribution or for a regional application\. A regional application can be an Application Load Balancer \(ALB\) or an API Gateway stage\. Valid Values are `CLOUDFRONT` and `REGIONAL`\.  
+For `CLOUDFRONT`, you must create your WAFv2 resources in the US East \(N\. Virginia\) Region, `us-east-1`\.
 *Required*: Yes  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -85,12 +86,12 @@ Specifies whether this is for an AWS CloudFront distribution or for a regional a
 `Tags`  <a name="cfn-wafv2-webacl-tags"></a>
 Key:value pairs associated with an AWS resource\. The key:value pair can be anything you define\. Typically, the tag key represents a category \(such as "environment"\) and the tag value represents a specific value within that category \(such as "test," "development," or "production"\)\. You can add up to 50 tags to each AWS resource\.  
 *Required*: No  
-*Type*: [TagList](aws-properties-wafv2-webacl-taglist.md)  
+*Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `VisibilityConfig`  <a name="cfn-wafv2-webacl-visibilityconfig"></a>
 Defines and enables Amazon CloudWatch metrics and web request sample collection\.   
-*Required*: No  
+*Required*: Yes  
 *Type*: [VisibilityConfig](aws-properties-wafv2-webacl-visibilityconfig.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 

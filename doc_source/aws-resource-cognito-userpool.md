@@ -12,6 +12,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "Type" : "AWS::Cognito::UserPool",
   "Properties" : {
+      "[AccountRecoverySetting](#cfn-cognito-userpool-accountrecoverysetting)" : [AccountRecoverySetting](aws-properties-cognito-userpool-accountrecoverysetting.md),
       "[AdminCreateUserConfig](#cfn-cognito-userpool-admincreateuserconfig)" : [AdminCreateUserConfig](aws-properties-cognito-userpool-admincreateuserconfig.md),
       "[AliasAttributes](#cfn-cognito-userpool-aliasattributes)" : [ String, ... ],
       "[AutoVerifiedAttributes](#cfn-cognito-userpool-autoverifiedattributes)" : [ String, ... ],
@@ -28,6 +29,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[SmsConfiguration](#cfn-cognito-userpool-smsconfiguration)" : [SmsConfiguration](aws-properties-cognito-userpool-smsconfiguration.md),
       "[SmsVerificationMessage](#cfn-cognito-userpool-smsverificationmessage)" : String,
       "[UsernameAttributes](#cfn-cognito-userpool-usernameattributes)" : [ String, ... ],
+      "[UsernameConfiguration](#cfn-cognito-userpool-usernameconfiguration)" : [UsernameConfiguration](aws-properties-cognito-userpool-usernameconfiguration.md),
       "[UserPoolAddOns](#cfn-cognito-userpool-userpooladdons)" : [UserPoolAddOns](aws-properties-cognito-userpool-userpooladdons.md),
       "[UserPoolName](#cfn-cognito-userpool-userpoolname)" : String,
       "[UserPoolTags](#cfn-cognito-userpool-userpooltags)" : Json,
@@ -41,6 +43,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ```
 Type: AWS::Cognito::UserPool
 Properties: 
+  [AccountRecoverySetting](#cfn-cognito-userpool-accountrecoverysetting): 
+    [AccountRecoverySetting](aws-properties-cognito-userpool-accountrecoverysetting.md)
   [AdminCreateUserConfig](#cfn-cognito-userpool-admincreateuserconfig): 
     [AdminCreateUserConfig](aws-properties-cognito-userpool-admincreateuserconfig.md)
   [AliasAttributes](#cfn-cognito-userpool-aliasattributes): 
@@ -68,6 +72,8 @@ Properties:
   [SmsVerificationMessage](#cfn-cognito-userpool-smsverificationmessage): String
   [UsernameAttributes](#cfn-cognito-userpool-usernameattributes): 
     - String
+  [UsernameConfiguration](#cfn-cognito-userpool-usernameconfiguration): 
+    [UsernameConfiguration](aws-properties-cognito-userpool-usernameconfiguration.md)
   [UserPoolAddOns](#cfn-cognito-userpool-userpooladdons): 
     [UserPoolAddOns](aws-properties-cognito-userpool-userpooladdons.md)
   [UserPoolName](#cfn-cognito-userpool-userpoolname): String
@@ -77,6 +83,12 @@ Properties:
 ```
 
 ## Properties<a name="aws-resource-cognito-userpool-properties"></a>
+
+`AccountRecoverySetting`  <a name="cfn-cognito-userpool-accountrecoverysetting"></a>
+Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword`\. It allows you to define a preferred method when a user has more than one method available\. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled\. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email\.  
+*Required*: No  
+*Type*: [AccountRecoverySetting](aws-properties-cognito-userpool-accountrecoverysetting.md)  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `AdminCreateUserConfig`  <a name="cfn-cognito-userpool-admincreateuserconfig"></a>
 The configuration for creating a new user profile\.  
@@ -198,6 +210,12 @@ Determines whether email addresses or phone numbers can be specified as user nam
 This user pool property cannot be updated\.  
 *Required*: No  
 *Type*: List of String  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`UsernameConfiguration`  <a name="cfn-cognito-userpool-usernameconfiguration"></a>
+You can choose to set case sensitivity on the username input for the selected sign\-in option\. For example, when this is set to `False`, users will be able to sign in using either "username" or "Username"\. This configuration is immutable once it has been set\.  
+*Required*: No  
+*Type*: [UsernameConfiguration](aws-properties-cognito-userpool-usernameconfiguration.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `UserPoolAddOns`  <a name="cfn-cognito-userpool-userpooladdons"></a>

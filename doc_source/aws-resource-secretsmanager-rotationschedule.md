@@ -36,7 +36,7 @@ Properties:
 ## Properties<a name="aws-resource-secretsmanager-rotationschedule-properties"></a>
 
 `RotationLambdaARN`  <a name="cfn-secretsmanager-rotationschedule-rotationlambdaarn"></a>
-Specifies the ARN of the Lambda function that can rotate the secret\. If you don't specify this parameter, then the secret must already have the ARN of a Lambda function configured\. To reference a Lambda function also created in this template, use the [Ref](https://docs.aws.amazon.com/url-doc-domain/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the function's logical ID\.  
+Specifies the ARN of the Lambda function that can rotate the secret\. If you don't specify this parameter, then the secret must already have the ARN of a Lambda function configured\. To reference a Lambda function also created in this template, use the [Ref](https://docs.aws.amazon.com/git statusAWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the function's logical ID\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -48,7 +48,7 @@ Specifies a structure that defines the rotation schedule for this secret\.
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `SecretId`  <a name="cfn-secretsmanager-rotationschedule-secretid"></a>
-Specifies the ARN or the friendly name of the secret that you want to rotate\. To reference a secret also created in this template, use the [Ref](https://docs.aws.amazon.com/url-doc-domain/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID\.  
+Specifies the ARN or the friendly name of the secret that you want to rotate\. To reference a secret also created in this template, use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID\.  
 *Required*: Yes  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -61,9 +61,9 @@ When you pass the logical ID of an `AWS::SecretsManager::RotationSchedule` resou
 
 *arn:aws:secretsmanager: us\-west\-2*:*123456789012*:secret:*my\-path/my\-secret\-name*\-*1a2b3c* 
 
-This enables you to reference a secret that you create in one part of the stack template from within the definition of another resource later, in the same template\. You typically do this when you define the [AWS::SecretsManager::SecretTargetAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html) resource type\.
+This enables you to reference a secret you create in one part of the stack template from within the definition of another resource later, in the same template\. You typically do this when you define the [AWS::SecretsManager::SecretTargetAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html) resource type\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/url-doc-domain/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\. 
+For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\. 
 
 ## Examples<a name="aws-resource-secretsmanager-rotationschedule--examples"></a>
 

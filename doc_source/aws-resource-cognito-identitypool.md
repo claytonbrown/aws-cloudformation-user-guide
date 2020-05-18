@@ -96,7 +96,7 @@ The "domain" Amazon Cognito uses when referencing your users\. This name acts as
 The name of your Amazon Cognito identity pool\.  
 *Minimum length*: 1  
 *Maximum length*: 128  
-*Pattern*: `[\w ]+`  
+*Pattern*: `[\w\s+=,.@-]+`  
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

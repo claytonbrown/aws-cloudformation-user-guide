@@ -1,6 +1,6 @@
 # AWS::Transfer::Server<a name="aws-resource-transfer-server"></a>
 
-Instantiates an autoscaling virtual server based on Secure File Transfer Protocol \(SFTP\) in AWS\. When you make updates to your server or when you work with users, use the service\-generated `ServerId` property that is assigned to the newly created server\.
+The `AWS::Transfer::Server` resource instantiates an autoscaling virtual server based on Secure File Transfer Protocol \(SFTP\) in AWS\. When you make updates to your server or when you work with users, use the service\-generated `ServerId` property that is assigned to the newly created server\.
 
 ## Syntax<a name="aws-resource-transfer-server-syntax"></a>
 
@@ -12,11 +12,13 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "Type" : "AWS::Transfer::Server",
   "Properties" : {
+      "[Certificate](#cfn-transfer-server-certificate)" : String,
       "[EndpointDetails](#cfn-transfer-server-endpointdetails)" : [EndpointDetails](aws-properties-transfer-server-endpointdetails.md),
       "[EndpointType](#cfn-transfer-server-endpointtype)" : String,
       "[IdentityProviderDetails](#cfn-transfer-server-identityproviderdetails)" : [IdentityProviderDetails](aws-properties-transfer-server-identityproviderdetails.md),
       "[IdentityProviderType](#cfn-transfer-server-identityprovidertype)" : String,
       "[LoggingRole](#cfn-transfer-server-loggingrole)" : String,
+      "[Protocols](#cfn-transfer-server-protocols)" : [ [Protocol](aws-properties-transfer-server-protocol.md), ... ],
       "[Tags](#cfn-transfer-server-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ]
     }
 }
@@ -27,6 +29,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ```
 Type: AWS::Transfer::Server
 Properties: 
+  [Certificate](#cfn-transfer-server-certificate): String
   [EndpointDetails](#cfn-transfer-server-endpointdetails): 
     [EndpointDetails](aws-properties-transfer-server-endpointdetails.md)
   [EndpointType](#cfn-transfer-server-endpointtype): String
@@ -34,40 +37,50 @@ Properties:
     [IdentityProviderDetails](aws-properties-transfer-server-identityproviderdetails.md)
   [IdentityProviderType](#cfn-transfer-server-identityprovidertype): String
   [LoggingRole](#cfn-transfer-server-loggingrole): String
+  [Protocols](#cfn-transfer-server-protocols): 
+    - [Protocol](aws-properties-transfer-server-protocol.md)
   [Tags](#cfn-transfer-server-tags): 
     - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
 ```
 
 ## Properties<a name="aws-resource-transfer-server-properties"></a>
 
+`Certificate`  <a name="cfn-transfer-server-certificate"></a>
+The Amazon Resource Name \(ARN\) of the AWS Certificate Manager \(ACM\) certificate\. Required when `Protocols` is set to `FTPS`\.  
+*Required*: No  
+*Type*: String  
+*Maximum*: `1600`  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `EndpointDetails`  <a name="cfn-transfer-server-endpointdetails"></a>
-The virtual private cloud \(VPC\) endpoint settings that are configured for your SFTP server\. With a VPC endpoint, you can restrict access to your SFTP server to resources only within your VPC\. To control incoming internet traffic, you will need to invoke the `UpdateServer` API and attach an Elastic IP to your server's endpoint\.   
+The virtual private cloud \(VPC\) endpoint settings that are configured for your SFTP server\. When you host your endpoint within your VPC, you can make it accessible only to resources within your VPC, or you can attach Elastic IPs and make it accessible to clients over the internet\. You VPC's default security groups are automatically assigned to your endpoint\.  
 *Required*: No  
 *Type*: [EndpointDetails](aws-properties-transfer-server-endpointdetails.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `EndpointType`  <a name="cfn-transfer-server-endpointtype"></a>
 The type of VPC endpoint that you want your SFTP server to connect to\. You can choose to connect to the public internet or a virtual private cloud \(VPC\) endpoint\. With a VPC endpoint, you can restrict access to your SFTP server and resources only within your VPC\.  
+It is recommended that you use `VPC` as the `EndpointType`\. With this endpoint type, you have the option to directly associate up to three Elastic IPv4 addresses \(BYO IP included\) with your server's endpoint and use VPC security groups to restrict traffic by the client's public IP address\. This is not possible with `EndpointType` set to `VPC_ENDPOINT`\.
 *Required*: Conditional  
 *Type*: String  
 *Allowed Values*: `PUBLIC | VPC | VPC_ENDPOINT`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `IdentityProviderDetails`  <a name="cfn-transfer-server-identityproviderdetails"></a>
-This parameter is required when the `IdentityProviderType` is set to `API_GATEWAY`\. Accepts an array containing all of the information required to call a customer\-supplied authentication API, including the API Gateway URL\. This property is not required when the `IdentityProviderType` is set to `SERVICE_MANAGED`\.  
+Required when `IdentityProviderType` is set to `API_GATEWAY`\. Accepts an array containing all of the information required to call a customer\-supplied authentication API, including the API Gateway URL\. Not required when `IdentityProviderType` is set to `SERVICE_MANAGED`\.  
 *Required*: No  
 *Type*: [IdentityProviderDetails](aws-properties-transfer-server-identityproviderdetails.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `IdentityProviderType`  <a name="cfn-transfer-server-identityprovidertype"></a>
-Specifies the mode of authentication for the SFTP server\. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the AWS Transfer for SFTP service\. Use the `API_GATEWAY` value to integrate with an identity provider of your choosing\. The `API_GATEWAY` setting requires you to provide an API Gateway endpoint URL to call for authentication using the `IdentityProviderDetails` parameter\.  
+Specifies the mode of authentication for a file transfer protocol\-enabled server\. The default value is `SERVICE_MANAGED`, which allows you to store and access user credentials within the AWS Transfer Family service\. Use the `API_GATEWAY` value to integrate with an identity provider of your choosing\. The `API_GATEWAY` setting requires you to provide an API Gateway endpoint URL to call for authentication using the `IdentityProviderDetails` parameter\.  
 *Required*: No  
 *Type*: String  
 *Allowed Values*: `API_GATEWAY | SERVICE_MANAGED`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `LoggingRole`  <a name="cfn-transfer-server-loggingrole"></a>
-A value that allows the service to write your SFTP users' activity to your Amazon CloudWatch logs for monitoring and auditing purposes\.  
+Allows the service to write your users' activity to your Amazon CloudWatch logs for monitoring and auditing purposes\.  
 *Required*: No  
 *Type*: String  
 *Minimum*: `20`  
@@ -75,8 +88,18 @@ A value that allows the service to write your SFTP users' activity to your Amazo
 *Pattern*: `arn:.*role/.*`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`Protocols`  <a name="cfn-transfer-server-protocols"></a>
+Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint\. The available protocols are:  
++ Secure Shell \(SSH\) File Transfer Protocol \(SFTP\): File transfer over SSH
++ File Transfer Protocol Secure \(FTPS\): File transfer with TLS encryption
++ File Transfer Protocol \(FTP\): Unencrypted file transfer
+*Required*: No  
+*Type*: List of [Protocol](aws-properties-transfer-server-protocol.md)  
+*Maximum*: `3`  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `Tags`  <a name="cfn-transfer-server-tags"></a>
-Key\-value pairs that can be used to group and search for servers\.  
+Key\-value pairs that can be used to group and search for file transfer protocol\-enabled servers\.  
 *Required*: No  
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Maximum*: `50`  
@@ -86,7 +109,9 @@ Key\-value pairs that can be used to group and search for servers\.
 
 ### Ref<a name="aws-resource-transfer-server-return-values-ref"></a>
 
- When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the ServerId, such as `s-01234567890abcdef`, and the server ARN, such as `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef`\. 
+ When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the ServerId, such as `s-01234567890abcdef`, and the server ARN, such as `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef`\.
+
+For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-resource-transfer-server-return-values-fn--getatt"></a>
 
@@ -103,3 +128,89 @@ An example of a server ARN is: `arn:aws:transfer:us-east-1:123456789012:server/s
 `ServerId`  <a name="ServerId-fn::getatt"></a>
 The service\-assigned ID of the SFTP server that is created\.  
 An example `ServerId` is `s-01234567890abcdef`\.
+
+## Examples<a name="aws-resource-transfer-server--examples"></a>
+
+### SFTP Server with VPC Endpoint Type<a name="aws-resource-transfer-server--examples--SFTP_Server_with_VPC_Endpoint_Type"></a>
+
+The following example creates a new SFTP server using a VPC endpoint type\.
+
+#### JSON<a name="aws-resource-transfer-server--examples--SFTP_Server_with_VPC_Endpoint_Type--json"></a>
+
+```
+{
+   "MySFTPServer": {
+        "Type": "AWS::Transfer::Server",
+        "Properties": {
+            "EndpointDetails": {
+                "AddressAllocationIds": [
+                    {
+                        "Ref": "MySFTPServerAddressAllocationId01"
+                    },
+                    {
+                        "Ref": "MySFTPServerAddressAllocationId02"
+                    }
+                ],
+                "SubnetIds": [
+                    {
+                        "Ref": "MySFTPServerSubnet01"
+                    },
+                    {
+                        "Ref": "MySFTPServerSubnet02"
+                    }
+                ]
+            },
+            "EndpointType": "VPC",
+            "IdentityProviderDetails": {
+                "InvocationRole": {
+                    "Ref": "MySFTPServerIdentityProviderInvocationRole"
+                },
+                "Url": {
+                    "Ref": "MySFTPServerIdentityProviderUrl"
+                }
+            },
+            "IdentityProviderType": "API_GATEWAY",
+            "LoggingRole": {
+                "Ref": "MySFTPServerLoggingRole"
+            },
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "MySFTPServer"
+                }
+            ]
+        }
+    }
+}
+```
+
+#### YAML<a name="aws-resource-transfer-server--examples--SFTP_Server_with_VPC_Endpoint_Type--yaml"></a>
+
+```
+MySFTPServer:
+  Type : AWS::Transfer::Server
+  Properties :
+    EndpointDetails:
+      AddressAllocationIds:
+        - Ref: MySFTPServerAddressAllocationId01
+        - Ref: MySFTPServerAddressAllocationId02
+      SubnetIds:
+        - Ref: MySFTPServerSubnet01
+        - Ref: MySFTPServerSubnet02
+    EndpointType: VPC
+    IdentityProviderDetails: 
+      InvocationRole:
+        Ref: MySFTPServerIdentityProviderInvocationRole
+      Url:
+        Ref: MySFTPServerIdentityProviderUrl
+    IdentityProviderType: API_GATEWAY
+    LoggingRole:
+      Ref: MySFTPServerLoggingRole
+    Tags: 
+      - Key: Name
+        Value: MySFTPServer
+```
+
+## See Also<a name="aws-resource-transfer-server--seealso"></a>
+
+[CreateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_CreateServer.html) in the *AWS Transfer for SFTP User Guide*\.

@@ -20,6 +20,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "[HttpVersion](#cfn-cloudfront-distribution-distributionconfig-httpversion)" : String,
   "[IPV6Enabled](#cfn-cloudfront-distribution-distributionconfig-ipv6enabled)" : Boolean,
   "[Logging](#cfn-cloudfront-distribution-distributionconfig-logging)" : [Logging](aws-properties-cloudfront-distribution-logging.md),
+  "[OriginGroups](#cfn-cloudfront-distribution-distributionconfig-origingroups)" : [OriginGroups](aws-properties-cloudfront-distribution-origingroups.md),
   "[Origins](#cfn-cloudfront-distribution-distributionconfig-origins)" : [ [Origin](aws-properties-cloudfront-distribution-origin.md), ... ],
   "[PriceClass](#cfn-cloudfront-distribution-distributionconfig-priceclass)" : String,
   "[Restrictions](#cfn-cloudfront-distribution-distributionconfig-restrictions)" : [Restrictions](aws-properties-cloudfront-distribution-restrictions.md),
@@ -46,6 +47,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   [IPV6Enabled](#cfn-cloudfront-distribution-distributionconfig-ipv6enabled): Boolean
   [Logging](#cfn-cloudfront-distribution-distributionconfig-logging): 
     [Logging](aws-properties-cloudfront-distribution-logging.md)
+  [OriginGroups](#cfn-cloudfront-distribution-distributionconfig-origingroups): 
+    [OriginGroups](aws-properties-cloudfront-distribution-origingroups.md)
   [Origins](#cfn-cloudfront-distribution-distributionconfig-origins): 
     - [Origin](aws-properties-cloudfront-distribution-origin.md)
   [PriceClass](#cfn-cloudfront-distribution-distributionconfig-priceclass): String
@@ -139,6 +142,12 @@ For more information about logging, see [Access Logs](https://docs.aws.amazon.co
 *Type*: [Logging](aws-properties-cloudfront-distribution-logging.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`OriginGroups`  <a name="cfn-cloudfront-distribution-distributionconfig-origingroups"></a>
+ A complex type that contains information about origin groups for this distribution\.  
+*Required*: No  
+*Type*: [OriginGroups](aws-properties-cloudfront-distribution-origingroups.md)  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `Origins`  <a name="cfn-cloudfront-distribution-distributionconfig-origins"></a>
 A complex type that contains information about origins for this distribution\.   
 *Required*: No  
@@ -161,7 +170,7 @@ A complex type that identifies ways in which you want to restrict distribution o
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `ViewerCertificate`  <a name="cfn-cloudfront-distribution-distributionconfig-viewercertificate"></a>
-A complex type that specifies whether you want viewers to use HTTP or HTTPS to request your objects, whether you're using an alternate domain name with HTTPS, and if so, if you're using AWS Certificate Manager \(ACM\) or a third\-party certificate authority\.  
+A complex type that determines the distribution’s SSL/TLS configuration for communicating with viewers\.  
 *Required*: No  
 *Type*: [ViewerCertificate](aws-properties-cloudfront-distribution-viewercertificate.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

@@ -1,6 +1,6 @@
 # AWS::ApiGatewayV2::Api<a name="aws-resource-apigatewayv2-api"></a>
 
-The `AWS::ApiGatewayV2::Api` resource creates an API\. WebSocket APIs and HTTP APIs \(beta\) are supported\. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*\. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide\.*
+The `AWS::ApiGatewayV2::Api` resource creates an API\. WebSocket APIs and HTTP APIs are supported\. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*\. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide\.*
 
 ## Syntax<a name="aws-resource-apigatewayv2-api-syntax"></a>
 
@@ -66,7 +66,7 @@ An API key selection expression\. Supported only for WebSocket APIs\. See [API K
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `BasePath`  <a name="cfn-apigatewayv2-api-basepath"></a>
-Represents the base path of the imported API\. Supported only for HTTP APIs\.  
+Specifies how to interpret the base path of the API during import\. Valid values are `ignore`, `prepend`, and `split`\. The default value is `ignore`\. To learn more, see [Set the OpenAPI basePath Property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html)\. Supported only for HTTP APIs\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -108,7 +108,7 @@ Avoid validating models when creating a deployment\. Supported only for WebSocke
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `FailOnWarnings`  <a name="cfn-apigatewayv2-api-failonwarnings"></a>
-Specifies whether to rollback the API creation \(`true`\) or not \(`false`\) when a warning is encountered\. The default value is `false`\.  
+Specifies whether to rollback the API creation when a warning is encountered\. By default, API creation continues if a warning is encountered\.  
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
