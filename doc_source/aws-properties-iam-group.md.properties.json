@@ -1,12 +1,44 @@
 {
+  "iam.group.path": {
+    "Pattern": "(\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F)",
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "512",
+    "UpdateRequires": "No interruption"
+  },
   "aws-properties-iam-group-properties": {
     "GroupName": {
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
-    "ManagedPolicyArns": {},
-    "Policies": {},
-    "Path": {}
+    "ManagedPolicyArns": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
+    "Policies": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
+    "Path": {
+      "Pattern": "(\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F)",
+      "Minimum": "1",
+      "Required": "No",
+      "Maximum": "512",
+      "UpdateRequires": "No interruption"
+    }
+  },
+  "iam.group.managedpolicyarns": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "iam.group.groupname": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "iam.group.policies": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   }
 }

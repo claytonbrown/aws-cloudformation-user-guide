@@ -1,10 +1,29 @@
 {
+  "config.configurationaggregator.organizationaggregationsource": {
+    "Required": "No",
+    "Type": "OrganizationAggregationSource",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "config.configurationaggregator.configurationaggregatorname": {
+    "Pattern": "[\\w\\-]+",
+    "Required": "Yes",
+    "Maximum": "256",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "config.configurationaggregator.accountaggregationsources": {
+    "Required": "No",
+    "Type": "List of [AccountAggregationSource",
+    "Maximum": "1",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "config-configurationaggregator-properties": {
     "ConfigurationAggregatorName": {
       "Pattern": "[\\w\\-]+",
       "Required": "Yes",
       "Maximum": "256",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "Minimum": "1",
       "Type": "String"
     },
@@ -12,12 +31,12 @@
       "Required": "No",
       "Type": "List of [AccountAggregationSource",
       "Maximum": "1",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "OrganizationAggregationSource": {
       "Required": "No",
       "Type": "OrganizationAggregationSource",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     }
   }
 }

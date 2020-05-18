@@ -1,14 +1,55 @@
 {
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.processingconfiguration": {
+    "Required": "No",
+    "Type": "ProcessingConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.retryoptions": {
+    "Required": "No",
+    "Type": "SplunkRetryOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.cloudwatchloggingoptions": {
+    "Required": "No",
+    "Type": "CloudWatchLoggingOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.hecendpointtype": {
+    "Allowed Values": "Event | Raw",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "Event",
+      "Raw"
+    ]
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.hectoken": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.hecendpoint": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.s3configuration": {
+    "Required": "Yes",
+    "Type": "S3DestinationConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
   "aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration-properties": {
     "S3Configuration": {
       "Required": "Yes",
       "Type": "S3DestinationConfiguration",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     },
     "HECEndpointType": {
+      "Allowed Values": "Event | Raw",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "Event",
         "Raw"
@@ -17,29 +58,30 @@
     "HECToken": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "HECAcknowledgmentTimeoutInSeconds": {
       "Minimum": "180",
       "Required": "No",
       "Type": "Integer",
       "Maximum": "600",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "RetryOptions": {
       "Required": "No",
       "Type": "SplunkRetryOptions",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "HECEndpoint": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "S3BackupMode": {
+      "Allowed Values": "AllEvents | FailedEventsOnly",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "AllEvents",
         "FailedEventsOnly"
@@ -48,12 +90,29 @@
     "CloudWatchLoggingOptions": {
       "Required": "No",
       "Type": "CloudWatchLoggingOptions",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "ProcessingConfiguration": {
       "Required": "No",
       "Type": "ProcessingConfiguration",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     }
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.s3backupmode": {
+    "Allowed Values": "AllEvents | FailedEventsOnly",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "AllEvents",
+      "FailedEventsOnly"
+    ]
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.hecacknowledgmenttimeoutinseconds": {
+    "Minimum": "180",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "600",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

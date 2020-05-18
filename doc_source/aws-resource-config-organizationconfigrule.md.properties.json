@@ -1,27 +1,52 @@
 {
   "config-organizationconfigrule-properties": {
     "OrganizationConfigRuleName": {
-      "Minimum": "1",
+      "Pattern": ".*\\S.*",
       "Required": "Yes",
-      "Type": "String",
       "Maximum": "64",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+      "Minimum": "1",
+      "Type": "String"
     },
     "OrganizationCustomRuleMetadata": {
       "Required": "No",
       "Type": "OrganizationCustomRuleMetadata",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "OrganizationManagedRuleMetadata": {
       "Required": "No",
       "Type": "OrganizationManagedRuleMetadata",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     },
     "ExcludedAccounts": {
       "Required": "No",
       "Type": "List of String",
       "Maximum": "1000",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     }
+  },
+  "config.organizationconfigrule.organizationconfigrulename": {
+    "Pattern": ".*\\S.*",
+    "Required": "Yes",
+    "Maximum": "64",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "config.organizationconfigrule.organizationmanagedrulemetadata": {
+    "Required": "No",
+    "Type": "OrganizationManagedRuleMetadata",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "config.organizationconfigrule.organizationcustomrulemetadata": {
+    "Required": "No",
+    "Type": "OrganizationCustomRuleMetadata",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.excludedaccounts": {
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "1000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

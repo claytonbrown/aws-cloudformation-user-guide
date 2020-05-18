@@ -1,15 +1,40 @@
 {
+  "ec2.clientvpnendpoint.clientauthenticationrequest.mutualauthentication": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
   "aws-properties-ec2-clientvpnendpoint-clientauthenticationrequest-properties": {
-    "MutualAuthentication": {},
+    "MutualAuthentication": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
     "Type": {
+      "Allowed Values": "certificate-authentication | directory-service-authentication",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "certificate-authentication",
         "directory-service-authentication"
       ]
     },
-    "ActiveDirectory": {}
+    "ActiveDirectory": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    }
+  },
+  "ec2.clientvpnendpoint.clientauthenticationrequest.type": {
+    "Allowed Values": "certificate-authentication | directory-service-authentication",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "certificate-authentication",
+      "directory-service-authentication"
+    ]
+  },
+  "ec2.clientvpnendpoint.clientauthenticationrequest.activedirectory": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   }
 }

@@ -1,143 +1,368 @@
 {
-  "msk-cluster-properties": {
-    "EncryptionInfo": {
-      "Required": "No",
-      "Type": "EncryptionInfo",
-      "UpdateRequires": "Replacement"
-    },
-    "BrokerNodeGroupInfo": {
-      "Required": "Yes",
-      "Type": "BrokerNodeGroupInfo",
-      "UpdateRequires": "Replacement"
-    },
-    "ClusterName": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "KafkaVersion": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "Map",
-      "UpdateRequires": "Replacement"
-    },
-    "NumberOfBrokerNodes": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "ClientAuthentication": {
-      "Required": "No",
-      "Type": "ClientAuthentication",
-      "UpdateRequires": "Replacement"
-    },
-    "EnhancedMonitoring": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "ConfigurationInfo": {
-      "Required": "No",
-      "Type": "ConfigurationInfo",
-      "UpdateRequires": "Replacement"
-    }
+  "msk.cluster.openmonitoring": {
+    "Required": "No",
+    "Type": "OpenMonitoring",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "msk-cluster--examples--Create_an_MSK_Cluster_Where_You_Explicitly_Set_All_Properties": {
-    "EncryptionInfo": {
-      "Required": "No",
-      "Type": "EncryptionInfo",
-      "UpdateRequires": "Replacement"
-    },
-    "BrokerNodeGroupInfo": {
-      "Required": "Yes",
-      "Type": "BrokerNodeGroupInfo",
-      "UpdateRequires": "Replacement"
-    },
-    "ClusterName": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "KafkaVersion": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "Tags": {
-      "Required": "No",
-      "Type": "Map",
-      "UpdateRequires": "Replacement"
-    },
-    "NumberOfBrokerNodes": {
-      "Required": "Yes",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "ClientAuthentication": {
-      "Required": "No",
-      "Type": "ClientAuthentication",
-      "UpdateRequires": "Replacement"
-    },
-    "EnhancedMonitoring": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "ConfigurationInfo": {
-      "Required": "No",
-      "Type": "ConfigurationInfo",
-      "UpdateRequires": "Replacement"
-    }
+  "msk.cluster.numberofbrokernodes": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "msk.cluster.kafkaversion": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "msk-cluster--examples--Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties": {
     "EncryptionInfo": {
       "Required": "No",
       "Type": "EncryptionInfo",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "BrokerNodeGroupInfo": {
       "Required": "Yes",
       "Type": "BrokerNodeGroupInfo",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "ClusterName": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "KafkaVersion": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "Tags": {
       "Required": "No",
       "Type": "Map",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
     },
     "NumberOfBrokerNodes": {
       "Required": "Yes",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "ClientAuthentication": {
       "Required": "No",
       "Type": "ClientAuthentication",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "EnhancedMonitoring": {
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "OpenMonitoring": {
+      "Required": "No",
+      "Type": "OpenMonitoring",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "ConfigurationInfo": {
       "Required": "No",
       "Type": "ConfigurationInfo",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     }
-  }
+  },
+  "msk.cluster.brokernodegroupinfo.type": "BrokerNodeGroupInfo",
+  "msk.cluster.configurationinfo.type": "ConfigurationInfo",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.configurationinfo.required": "No",
+  "msk.cluster.tags": {
+    "Required": "No",
+    "Type": "Map",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.numberofbrokernodes": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.clientauthentication.required": "No",
+  "msk.cluster.enhancedmonitoring.updaterequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+  "msk.cluster.encryptioninfo.required": "No",
+  "msk.cluster.clustername.required": "Yes",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.openmonitoring.updaterequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.openmonitoring.required": "No",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Explicitly_Set_All_Properties.enhancedmonitoring": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.enhancedmonitoring": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "msk-cluster--examples--Create_an_MSK_Cluster_Where_You_Explicitly_Set_All_Properties": {
+    "EncryptionInfo": {
+      "Required": "No",
+      "Type": "EncryptionInfo",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "BrokerNodeGroupInfo": {
+      "Required": "Yes",
+      "Type": "BrokerNodeGroupInfo",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "ClusterName": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "KafkaVersion": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "Map",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    },
+    "NumberOfBrokerNodes": {
+      "Required": "Yes",
+      "Type": "Integer",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "ClientAuthentication": {
+      "Required": "No",
+      "Type": "ClientAuthentication",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "EnhancedMonitoring": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "OpenMonitoring": {
+      "Required": "No",
+      "Type": "OpenMonitoring",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "ConfigurationInfo": {
+      "Required": "No",
+      "Type": "ConfigurationInfo",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    }
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.kafkaversion": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.clientauthentication.type": "ClientAuthentication",
+  "msk.cluster.tags.type": "Map",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.encryptioninfo.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+  "msk.cluster.kafkaversion.required": "Yes",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.enhancedmonitoring.type": "String",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Explicitly_Set_All_Properties.clustername": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.configurationinfo.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.clustername.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+  "msk.cluster.enhancedmonitoring.type": "String",
+  "msk.cluster.openmonitoring.type": "OpenMonitoring",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.clustername": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.numberofbrokernodes.type": "Integer",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.brokernodegroupinfo.type": "BrokerNodeGroupInfo",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.tags": {
+    "Required": "No",
+    "Type": "Map",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  },
+  "msk.cluster.clientauthentication": {
+    "Required": "No",
+    "Type": "ClientAuthentication",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster.tags.required": "No",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.encryptioninfo.required": "No",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.brokernodegroupinfo": {
+    "Required": "Yes",
+    "Type": "BrokerNodeGroupInfo",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster.encryptioninfo.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+  "msk.cluster.enhancedmonitoring.required": "No",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.tags.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+  "msk.cluster.configurationinfo.required": "No",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.encryptioninfo.type": "EncryptionInfo",
+  "msk.cluster.brokernodegroupinfo.required": "Yes",
+  "msk.cluster.kafkaversion.type": "String",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.kafkaversion.type": "String",
+  "msk.cluster.brokernodegroupinfo.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+  "msk.cluster.openmonitoring.updaterequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+  "msk.cluster.configurationinfo.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.openmonitoring": {
+    "Required": "No",
+    "Type": "OpenMonitoring",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "msk.cluster.clustername.type": "String",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Explicitly_Set_All_Properties.kafkaversion": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk-cluster-properties": {
+    "EncryptionInfo": {
+      "Required": "No",
+      "Type": "EncryptionInfo",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "BrokerNodeGroupInfo": {
+      "Required": "Yes",
+      "Type": "BrokerNodeGroupInfo",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "ClusterName": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "KafkaVersion": {
+      "Required": "Yes",
+      "Type": "String",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "Map",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    },
+    "NumberOfBrokerNodes": {
+      "Required": "Yes",
+      "Type": "Integer",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "ClientAuthentication": {
+      "Required": "No",
+      "Type": "ClientAuthentication",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "EnhancedMonitoring": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "OpenMonitoring": {
+      "Required": "No",
+      "Type": "OpenMonitoring",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "ConfigurationInfo": {
+      "Required": "No",
+      "Type": "ConfigurationInfo",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    }
+  },
+  "msk.cluster.clientauthentication.type": "ClientAuthentication",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Explicitly_Set_All_Properties.numberofbrokernodes": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Explicitly_Set_All_Properties.encryptioninfo": {
+    "Required": "No",
+    "Type": "EncryptionInfo",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.openmonitoring.type": "OpenMonitoring",
+  "msk.cluster.kafkaversion.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.enhancedmonitoring.required": "No",
+  "msk.cluster.tags.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+  "msk.cluster.openmonitoring.required": "No",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.kafkaversion.required": "Yes",
+  "msk.cluster.encryptioninfo": {
+    "Required": "No",
+    "Type": "EncryptionInfo",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.tags.required": "No",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.clientauthentication": {
+    "Required": "No",
+    "Type": "ClientAuthentication",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Explicitly_Set_All_Properties.tags": {
+    "Required": "No",
+    "Type": "Map",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  },
+  "msk.cluster.clustername": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.tags.type": "Map",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.enhancedmonitoring.updaterequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.brokernodegroupinfo.required": "Yes",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Explicitly_Set_All_Properties.brokernodegroupinfo": {
+    "Required": "Yes",
+    "Type": "BrokerNodeGroupInfo",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster.clientauthentication.required": "No",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.clustername.required": "Yes",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.configurationinfo": {
+    "Required": "No",
+    "Type": "ConfigurationInfo",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.encryptioninfo": {
+    "Required": "No",
+    "Type": "EncryptionInfo",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.brokernodegroupinfo.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+  "msk.cluster.numberofbrokernodes.required": "Yes",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.numberofbrokernodes.required": "Yes",
+  "msk.cluster.configurationinfo": {
+    "Required": "No",
+    "Type": "ConfigurationInfo",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Explicitly_Set_All_Properties.openmonitoring": {
+    "Required": "No",
+    "Type": "OpenMonitoring",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.clientauthentication.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Explicitly_Set_All_Properties.clientauthentication": {
+    "Required": "No",
+    "Type": "ClientAuthentication",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster.encryptioninfo.type": "EncryptionInfo",
+  "msk.cluster.brokernodegroupinfo": {
+    "Required": "Yes",
+    "Type": "BrokerNodeGroupInfo",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.clustername.type": "String",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Explicitly_Set_All_Properties.configurationinfo": {
+    "Required": "No",
+    "Type": "ConfigurationInfo",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster.clustername.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+  "msk.cluster.enhancedmonitoring": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.kafkaversion.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+  "msk.cluster.numberofbrokernodes.updaterequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+  "msk.cluster.clientauthentication.updaterequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.numberofbrokernodes.updaterequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+  "msk.cluster.numberofbrokernodes.type": "Integer",
+  "msk.cluster..examples..Create_an_MSK_Cluster_Where_You_Only_Specify_Values_for_the_Required_Properties.configurationinfo.type": "ConfigurationInfo"
 }

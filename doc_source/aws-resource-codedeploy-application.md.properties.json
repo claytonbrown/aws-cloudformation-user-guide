@@ -1,21 +1,40 @@
 {
+  "codedeploy.application.applicationname": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "100",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "codedeploy-application-properties": {
     "ApplicationName": {
       "Minimum": "1",
       "Required": "No",
       "Type": "String",
       "Maximum": "100",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "ComputePlatform": {
+      "Allowed Values": "ECS | Lambda | Server",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
       "AllowedValues": [
         "ECS",
         "Lambda",
         "Server"
       ]
     }
+  },
+  "codedeploy.application.computeplatform": {
+    "Allowed Values": "ECS | Lambda | Server",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "AllowedValues": [
+      "ECS",
+      "Lambda",
+      "Server"
+    ]
   }
 }

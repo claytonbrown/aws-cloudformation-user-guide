@@ -3,33 +3,37 @@
     "Comment": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "S3Origin": {
       "Required": "Yes",
       "Type": "S3Origin",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Logging": {
       "Required": "No",
       "Type": "Logging",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "PriceClass": {
+      "Allowed Values": "PriceClass_100 | PriceClass_200 | PriceClass_All",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "PriceClass_100",
         "PriceClass_200",
         "PriceClass_All"
       ]
     },
-    "TrustedSigners": {},
+    "TrustedSigners": {
+      "Required": "Yes",
+      "UpdateRequires": "No interruption"
+    },
     "Enabled": {
       "Required": "Yes",
       "Type": "Boolean",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "True",
         "False"
@@ -38,7 +42,51 @@
     "Aliases": {
       "Required": "No",
       "Type": "List of String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     }
+  },
+  "cloudfront.streamingdistribution.streamingdistributionconfig.trustedsigners": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
+  },
+  "cloudfront.streamingdistribution.streamingdistributionconfig.aliases": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.streamingdistribution.streamingdistributionconfig.priceclass": {
+    "Allowed Values": "PriceClass_100 | PriceClass_200 | PriceClass_All",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "PriceClass_100",
+      "PriceClass_200",
+      "PriceClass_All"
+    ]
+  },
+  "cloudfront.streamingdistribution.streamingdistributionconfig.comment": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.streamingdistribution.streamingdistributionconfig.logging": {
+    "Required": "No",
+    "Type": "Logging",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.streamingdistribution.streamingdistributionconfig.enabled": {
+    "Required": "Yes",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "cloudfront.streamingdistribution.streamingdistributionconfig.s3origin": {
+    "Required": "Yes",
+    "Type": "S3Origin",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

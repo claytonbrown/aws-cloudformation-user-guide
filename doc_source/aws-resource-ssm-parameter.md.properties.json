@@ -1,47 +1,101 @@
 {
+  "ssm.parameter.value": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "ssm.parameter.tier": {
+    "Allowed Values": "Advanced | Intelligent-Tiering | Standard",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "Advanced",
+      "Intelligent-Tiering",
+      "Standard"
+    ]
+  },
+  "ssm.parameter.type": {
+    "Type": "String",
+    "Required": "Yes",
+    "Allowed Values": "String \\| StringList",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "String \\| StringList"
+    ]
+  },
+  "ssm.parameter.description": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.parameter.policies": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "ssm.parameter.allowedpattern": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.parameter.tags": {
+    "Required": "No",
+    "Type": "Json",
+    "Maximum": "1000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "ssm-parameter-properties": {
     "Description": {
       "Minimum": "0",
       "Required": "No",
       "Type": "String",
       "Maximum": "1024",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Tags": {
       "Required": "No",
       "Type": "Json",
-      "UpdateRequires": "No interruption"
+      "Maximum": "1000",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Value": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     },
     "AllowedPattern": {
       "Minimum": "0",
       "Required": "No",
       "Type": "String",
       "Maximum": "1024",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "Policies": {
+      "Required": "No",
       "UpdateRequires": "No interruption"
     },
-    "Policies": {},
     "Tier": {
+      "Allowed Values": "Advanced | Intelligent-Tiering | Standard",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "Advanced",
+        "Intelligent-Tiering",
         "Standard"
       ]
     },
     "Type": {
-      "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "Required": "Yes",
+      "Allowed Values": "String \\| StringList",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
-        "SecureString",
-        "String",
-        "StringList"
+        "String \\| StringList"
       ]
     },
     "Name": {
@@ -49,7 +103,14 @@
       "Required": "No",
       "Type": "String",
       "Maximum": "2048",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     }
+  },
+  "ssm.parameter.name": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2048",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

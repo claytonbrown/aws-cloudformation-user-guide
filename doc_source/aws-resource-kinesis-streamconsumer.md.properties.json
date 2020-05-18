@@ -1,10 +1,26 @@
 {
+  "kinesis.streamconsumer.streamarn": {
+    "Pattern": "arn:aws.*:kinesis:.*:\\d{12}:stream/.+",
+    "Required": "Yes",
+    "Maximum": "2048",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "kinesis.streamconsumer.consumername": {
+    "Pattern": "[a-zA-Z0-9_.-]+",
+    "Required": "Yes",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
   "kinesis-streamconsumer-properties": {
     "ConsumerName": {
       "Pattern": "[a-zA-Z0-9_.-]+",
       "Required": "Yes",
       "Maximum": "128",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "Minimum": "1",
       "Type": "String"
     },
@@ -12,7 +28,7 @@
       "Pattern": "arn:aws.*:kinesis:.*:\\d{12}:stream/.+",
       "Required": "Yes",
       "Maximum": "2048",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
       "Minimum": "1",
       "Type": "String"
     }

@@ -1,29 +1,60 @@
 {
+  "directoryservice.simplead.description": {
+    "Pattern": "^([a-zA-Z0-9_])[\\\\a-zA-Z0-9_@#%*+=:?./!\\s-]*$",
+    "Required": "No",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "0",
+    "Type": "String"
+  },
+  "directoryservice.simplead.size": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement",
+    "AllowedValues": [
+      "Large",
+      "Small"
+    ]
+  },
+  "directoryservice.simplead.createalias": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
   "directoryservice-simplead-properties": {
     "Password": {
       "Pattern": "(?=^.{8,64}$)((?=.*\\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[^A-Za-z0-9\\s])(?=.*[a-z])|(?=.*[^A-Za-z0-9\\s])(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s]))^.*",
       "Required": "Yes",
-      "Type": "String",
       "UpdateRequires": "Replacement"
     },
     "Description": {
       "Pattern": "^([a-zA-Z0-9_])[\\\\a-zA-Z0-9_@#%*+=:?./!\\s-]*$",
       "Required": "No",
       "Maximum": "128",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "Minimum": "0",
       "Type": "String"
     },
     "VpcSettings": {
       "Required": "Yes",
       "Type": "VpcSettings",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
     },
-    "Size": {},
+    "Size": {
+      "Required": "Yes",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "Large",
+        "Small"
+      ]
+    },
     "EnableSso": {
       "Required": "No",
       "Type": "Boolean",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "True",
         "False"
@@ -33,12 +64,12 @@
       "Pattern": "^[^\\\\/:*?\\\"\\<\\>|.]+[^\\\\/:*?\\\"<>|]*$",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "CreateAlias": {
       "Required": "No",
       "Type": "Boolean",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "AllowedValues": [
         "True",
         "False"
@@ -48,7 +79,38 @@
       "Pattern": "^([a-zA-Z0-9]+[\\\\.-])+([a-zA-Z0-9])+$",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     }
+  },
+  "directoryservice.simplead.password": {
+    "Pattern": "(?=^.{8,64}$)((?=.*\\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[^A-Za-z0-9\\s])(?=.*[a-z])|(?=.*[^A-Za-z0-9\\s])(?=.*[A-Z])(?=.*[a-z])|(?=.*\\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\\s]))^.*",
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
+  "directoryservice.simplead.shortname": {
+    "Pattern": "^[^\\\\/:*?\\\"\\<\\>|.]+[^\\\\/:*?\\\"<>|]*$",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "directoryservice.simplead.name": {
+    "Pattern": "^([a-zA-Z0-9]+[\\\\.-])+([a-zA-Z0-9])+$",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "directoryservice.simplead.vpcsettings": {
+    "Required": "Yes",
+    "Type": "VpcSettings",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  },
+  "directoryservice.simplead.enablesso": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   }
 }

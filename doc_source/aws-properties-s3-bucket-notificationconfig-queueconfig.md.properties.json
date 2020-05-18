@@ -1,15 +1,32 @@
 {
+  "s3.bucket.notificationconfig.queueconfig.event": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
+  },
   "aws-properties-s3-bucket-notificationconfig-queueconfig-properties": {
     "Filter": {
       "Required": "No",
       "Type": "NotificationFilter",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Queue": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
-    "Event": {}
+    "Event": {
+      "Required": "Yes",
+      "UpdateRequires": "No interruption"
+    }
+  },
+  "s3.bucket.notificationconfig.queueconfig.filter": {
+    "Required": "No",
+    "Type": "NotificationFilter",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "s3.bucket.notificationconfig.queueconfig.queue": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

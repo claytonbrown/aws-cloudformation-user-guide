@@ -1,36 +1,170 @@
 {
+  "opsworkscm.server.customcertificate": {
+    "Pattern": "(?s)\\s*-----BEGIN CERTIFICATE-----.+-----END CERTIFICATE-----\\s*",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2097152",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "opsworkscm.server.engineattributes": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "opsworkscm.server.preferredbackupwindow": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "opsworkscm.server.engineversion": {
+    "Pattern": "(?s).*",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "10000",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "opsworkscm.server.backupid": {
+    "Pattern": "[a-zA-Z][a-zA-Z0-9\\-\\.\\:]*",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "79",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "opsworkscm.server.customprivatekey": {
+    "Pattern": "(?ms)\\s*^-----BEGIN (?-s:.*)PRIVATE KEY-----$.*?^-----END (?-s:.*)PRIVATE KEY-----$\\s*",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "4096",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "opsworkscm.server.servername": {
+    "Pattern": "[a-zA-Z][a-zA-Z0-9\\-]*",
+    "Required": "No",
+    "Maximum": "40",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "opsworkscm.server.preferredmaintenancewindow": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "opsworkscm.server.backupretentioncount": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "opsworkscm.server.enginemodel": {
+    "Pattern": "(?s).*",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "10000",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "opsworkscm.server.disableautomatedbackup": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "opsworkscm.server.instancetype": {
+    "Pattern": "(?s).*",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "10000",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "opsworkscm.server.engine": {
+    "Pattern": "(?s).*",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "10000",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "opsworkscm.server.instanceprofilearn": {
+    "Pattern": "arn:aws:iam::[0-9]{12}:instance-profile/.*",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "10000",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "opsworkscm.server.customdomain": {
+    "Pattern": "^(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "253",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "opsworkscm.server.associatepublicipaddress": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "opsworkscm.server.subnetids": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  },
+  "opsworkscm.server.keypair": {
+    "Pattern": ".*",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "10000",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "opsworkscm-server-properties": {
     "Engine": {
+      "Pattern": "(?s).*",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "Maximum": "10000",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "ServiceRoleArn": {
       "Pattern": "arn:aws:iam::[0-9]{12}:role/.*",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "Maximum": "10000",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
-    "SubnetIds": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "Replacement"
+    "InstanceType": {
+      "Pattern": "(?s).*",
+      "Required": "Yes",
+      "Type": "String",
+      "Maximum": "10000",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "DisableAutomatedBackup": {
       "Required": "No",
       "Type": "Boolean",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "True",
         "False"
       ]
     },
-    "PreferredMaintenanceWindow": {},
+    "PreferredMaintenanceWindow": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
+    "CustomDomain": {
+      "Pattern": "^(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "253",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
     "ServerName": {
       "Pattern": "[a-zA-Z][a-zA-Z0-9\\-]*",
       "Required": "No",
       "Maximum": "40",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "Minimum": "1",
       "Type": "String"
     },
@@ -38,55 +172,95 @@
       "Minimum": "1",
       "Required": "No",
       "Type": "Integer",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "CustomPrivateKey": {
+      "Pattern": "(?ms)\\s*^-----BEGIN (?-s:.*)PRIVATE KEY-----$.*?^-----END (?-s:.*)PRIVATE KEY-----$\\s*",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "4096",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "PreferredBackupWindow": {
+      "Required": "No",
       "UpdateRequires": "No interruption"
     },
-    "InstanceType": {
-      "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
-    },
-    "PreferredBackupWindow": {},
     "KeyPair": {
+      "Pattern": ".*",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "Maximum": "10000",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "EngineModel": {
+      "Pattern": "(?s).*",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "Maximum": "10000",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "SecurityGroupIds": {
       "Required": "No",
       "Type": "List of String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "EngineVersion": {
+      "Pattern": "(?s).*",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "Maximum": "10000",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "SubnetIds": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
     },
     "BackupId": {
+      "Pattern": "[a-zA-Z][a-zA-Z0-9\\-\\.\\:]*",
       "Required": "No",
       "Type": "String",
       "Maximum": "79",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "InstanceProfileArn": {
       "Pattern": "arn:aws:iam::[0-9]{12}:instance-profile/.*",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "Maximum": "10000",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
-    "EngineAttributes": {},
+    "EngineAttributes": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
     "AssociatePublicIpAddress": {
       "Required": "No",
       "Type": "Boolean",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "AllowedValues": [
         "True",
         "False"
       ]
+    },
+    "CustomCertificate": {
+      "Pattern": "(?s)\\s*-----BEGIN CERTIFICATE-----.+-----END CERTIFICATE-----\\s*",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "2097152",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     }
+  },
+  "opsworkscm.server.securitygroupids": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "opsworkscm.server.servicerolearn": {
+    "Pattern": "arn:aws:iam::[0-9]{12}:role/.*",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "10000",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

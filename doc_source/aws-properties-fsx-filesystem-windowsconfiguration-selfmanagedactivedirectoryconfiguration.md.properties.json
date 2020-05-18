@@ -1,37 +1,94 @@
 {
+  "fsx.filesystem.windowsconfiguration.selfmanagedactivedirectoryconfiguration.dnsips": {
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "2",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "aws-properties-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration-properties": {
     "UserName": {
-      "Minimum": "1",
+      "Pattern": "^.{1,256}$",
       "Required": "No",
-      "Type": "String",
       "Maximum": "256",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+      "Minimum": "1",
+      "Type": "String"
     },
     "FileSystemAdministratorsGroup": {
-      "Minimum": "1",
+      "Pattern": "^.{1,256}$",
       "Required": "No",
-      "Type": "String",
       "Maximum": "256",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+      "Minimum": "1",
+      "Type": "String"
     },
     "DnsIps": {
       "Required": "No",
       "Type": "List of String",
       "Maximum": "2",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "OrganizationalUnitDistinguishedName": {
-      "Minimum": "1",
+      "Pattern": "^.{1,2000}$",
       "Required": "No",
-      "Type": "String",
       "Maximum": "2000",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+      "Minimum": "1",
+      "Type": "String"
     },
     "DomainName": {
+      "Pattern": "^.{1,255}$",
       "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
+      "Maximum": "255",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+      "Minimum": "1",
+      "Type": "String"
     },
-    "Password": {}
+    "Password": {
+      "Pattern": "^.{1,256}$",
+      "Minimum": "1",
+      "Required": "No",
+      "Maximum": "256",
+      "UpdateRequires": "No interruption"
+    }
+  },
+  "fsx.filesystem.windowsconfiguration.selfmanagedactivedirectoryconfiguration.username": {
+    "Pattern": "^.{1,256}$",
+    "Required": "No",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "fsx.filesystem.windowsconfiguration.selfmanagedactivedirectoryconfiguration.filesystemadministratorsgroup": {
+    "Pattern": "^.{1,256}$",
+    "Required": "No",
+    "Maximum": "256",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "fsx.filesystem.windowsconfiguration.selfmanagedactivedirectoryconfiguration.password": {
+    "Pattern": "^.{1,256}$",
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "256",
+    "UpdateRequires": "No interruption"
+  },
+  "fsx.filesystem.windowsconfiguration.selfmanagedactivedirectoryconfiguration.organizationalunitdistinguishedname": {
+    "Pattern": "^.{1,2000}$",
+    "Required": "No",
+    "Maximum": "2000",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "fsx.filesystem.windowsconfiguration.selfmanagedactivedirectoryconfiguration.domainname": {
+    "Pattern": "^.{1,255}$",
+    "Required": "No",
+    "Maximum": "255",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
   }
 }

@@ -1,39 +1,67 @@
 {
+  "workspaces.workspace.workspaceproperties": {
+    "Required": "No",
+    "Type": "WorkspaceProperties",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "workspaces.workspace.uservolumeencryptionenabled": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "Updates are not supported\\.",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "workspaces.workspace.directoryid": {
+    "Pattern": "^d-[0-9a-f]{8,63}$",
+    "Required": "Yes",
+    "Maximum": "65",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)",
+    "Minimum": "10",
+    "Type": "String"
+  },
   "workspaces-workspace-properties": {
     "UserName": {
       "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
       "Maximum": "63",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "DirectoryId": {
       "Pattern": "^d-[0-9a-f]{8,63}$",
       "Required": "Yes",
+      "Maximum": "65",
+      "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)",
+      "Minimum": "10",
       "Type": "String"
     },
     "Tags": {
       "Required": "No",
       "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "WorkspaceProperties": {
       "Required": "No",
       "Type": "WorkspaceProperties",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     },
     "VolumeEncryptionKey": {
       "Required": "No",
-      "Type": "String"
+      "Type": "String",
+      "UpdateRequires": "Updates are not supported\\."
     },
     "BundleId": {
       "Pattern": "^wsb-[0-9a-z]{8,63}$",
       "Required": "Yes",
-      "Type": "String"
+      "Type": "String",
+      "UpdateRequires": "Updates are not supported\\."
     },
     "UserVolumeEncryptionEnabled": {
       "Required": "No",
       "Type": "Boolean",
+      "UpdateRequires": "Updates are not supported\\.",
       "AllowedValues": [
         "True",
         "False"
@@ -42,10 +70,43 @@
     "RootVolumeEncryptionEnabled": {
       "Required": "No",
       "Type": "Boolean",
+      "UpdateRequires": "Updates are not supported\\.",
       "AllowedValues": [
         "True",
         "False"
       ]
     }
+  },
+  "workspaces.workspace.username": {
+    "Minimum": "1",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "63",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "workspaces.workspace.bundleid": {
+    "Pattern": "^wsb-[0-9a-z]{8,63}$",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "Updates are not supported\\."
+  },
+  "workspaces.workspace.rootvolumeencryptionenabled": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "Updates are not supported\\.",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "workspaces.workspace.tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspaces.workspace.volumeencryptionkey": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "Updates are not supported\\."
   }
 }

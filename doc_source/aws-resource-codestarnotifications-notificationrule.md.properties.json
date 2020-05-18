@@ -1,9 +1,16 @@
 {
+  "codestarnotifications.notificationrule.resource": {
+    "Pattern": "^arn:aws[^:\\s]*:[^:\\s]*:[^:\\s]*:[0-9]{12}:[^\\s]+$",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "codestarnotifications-notificationrule-properties": {
     "Status": {
+      "Allowed Values": "DISABLED | ENABLED",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "DISABLED",
         "ENABLED"
@@ -12,34 +19,32 @@
     "EventTypeIds": {
       "Required": "Yes",
       "Type": "List of String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Resource": {
       "Pattern": "^arn:aws[^:\\s]*:[^:\\s]*:[^:\\s]*:[0-9]{12}:[^\\s]+$",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "Name": {
+      "Pattern": "[A-Za-z0-9\\-_ ]+$",
       "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "No interruption",
-      "AllowedValues": [
-        "CREATED_BY",
-        "EVENT_TYPE_ID",
-        "RESOURCE",
-        "TARGET_ADDRESS"
-      ]
+      "Maximum": "64",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+      "Minimum": "1",
+      "Type": "String"
     },
     "Tags": {
       "Required": "No",
       "Type": "Json",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "DetailType": {
+      "Allowed Values": "BASIC | FULL",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "BASIC",
         "FULL"
@@ -49,7 +54,51 @@
       "Required": "Yes",
       "Type": "List of [Target",
       "Maximum": "10",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     }
+  },
+  "codestarnotifications.notificationrule.name": {
+    "Pattern": "[A-Za-z0-9\\-_ ]+$",
+    "Required": "Yes",
+    "Maximum": "64",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "codestarnotifications.notificationrule.status": {
+    "Allowed Values": "DISABLED | ENABLED",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "DISABLED",
+      "ENABLED"
+    ]
+  },
+  "codestarnotifications.notificationrule.tags": {
+    "Required": "No",
+    "Type": "Json",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "codestarnotifications.notificationrule.detailtype": {
+    "Allowed Values": "BASIC | FULL",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "BASIC",
+      "FULL"
+    ]
+  },
+  "codestarnotifications.notificationrule.targets": {
+    "Required": "Yes",
+    "Type": "List of [Target",
+    "Maximum": "10",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "codestarnotifications.notificationrule.eventtypeids": {
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

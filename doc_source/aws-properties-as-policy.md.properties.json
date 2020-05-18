@@ -1,29 +1,82 @@
 {
+  "as.policy.minadjustmentmagnitude": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "as.policy.estimatedinstancewarmup": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "as.policy.stepadjustments": {
+    "Required": "Conditional",
+    "Type": "List of [StepAdjustment",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "as.policy.metricaggregationtype": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Required": "No",
+    "Maximum": "32",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "as.policy.autoscalinggroupname": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Required": "Yes",
+    "Maximum": "255",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "as.policy.adjustmenttype": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "255",
+    "UpdateRequires": "No interruption"
+  },
+  "as.policy.targettrackingconfiguration": {
+    "Required": "Conditional",
+    "Type": "TargetTrackingConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
   "aws-properties-as-policy-properties": {
     "EstimatedInstanceWarmup": {
       "Required": "No",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "MinAdjustmentMagnitude": {
       "Required": "No",
       "Type": "Integer",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "AdjustmentType": {
+      "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+      "Minimum": "1",
+      "Required": "No",
+      "Maximum": "255",
       "UpdateRequires": "No interruption"
     },
-    "AdjustmentType": {},
     "AutoScalingGroupName": {
       "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
       "Required": "Yes",
       "Maximum": "255",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "1",
       "Type": "String"
     },
-    "Cooldown": {},
-    "PolicyType": {
+    "Cooldown": {
       "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
+    "PolicyType": {
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "Required": "No",
+      "Allowed Values": "SimpleScaling`, `StepScaling`, or `TargetTrackingScaling",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "SimpleScaling`, `StepScaling`, or `TargetTrackingScaling"
       ]
@@ -31,25 +84,43 @@
     "StepAdjustments": {
       "Required": "Conditional",
       "Type": "List of [StepAdjustment",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "MetricAggregationType": {
       "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
       "Required": "No",
       "Maximum": "32",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "1",
       "Type": "String"
     },
     "ScalingAdjustment": {
       "Required": "Conditional",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "TargetTrackingConfiguration": {
       "Required": "Conditional",
       "Type": "TargetTrackingConfiguration",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     }
+  },
+  "as.policy.cooldown": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "as.policy.policytype": {
+    "Type": "String",
+    "Required": "No",
+    "Allowed Values": "SimpleScaling`, `StepScaling`, or `TargetTrackingScaling",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "SimpleScaling`, `StepScaling`, or `TargetTrackingScaling"
+    ]
+  },
+  "as.policy.scalingadjustment": {
+    "Required": "Conditional",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

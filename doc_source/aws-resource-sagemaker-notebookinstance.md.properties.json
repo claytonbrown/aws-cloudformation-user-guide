@@ -1,9 +1,63 @@
 {
+  "sagemaker.notebookinstance.instancetype": {
+    "Allowed Values": "ml.c4.2xlarge | ml.c4.4xlarge | ml.c4.8xlarge | ml.c4.xlarge | ml.c5.18xlarge | ml.c5.2xlarge | ml.c5.4xlarge | ml.c5.9xlarge | ml.c5.xlarge | ml.c5d.18xlarge | ml.c5d.2xlarge | ml.c5d.4xlarge | ml.c5d.9xlarge | ml.c5d.xlarge | ml.m4.10xlarge | ml.m4.16xlarge | ml.m4.2xlarge | ml.m4.4xlarge | ml.m4.xlarge | ml.m5.12xlarge | ml.m5.24xlarge | ml.m5.2xlarge | ml.m5.4xlarge | ml.m5.xlarge | ml.p2.16xlarge | ml.p2.8xlarge | ml.p2.xlarge | ml.p3.16xlarge | ml.p3.2xlarge | ml.p3.8xlarge | ml.t2.2xlarge | ml.t2.large | ml.t2.medium | ml.t2.xlarge | ml.t3.2xlarge | ml.t3.large | ml.t3.medium | ml.t3.xlarge",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "ml.c4.2xlarge",
+      "ml.c4.4xlarge",
+      "ml.c4.8xlarge",
+      "ml.c4.xlarge",
+      "ml.c5.18xlarge",
+      "ml.c5.2xlarge",
+      "ml.c5.4xlarge",
+      "ml.c5.9xlarge",
+      "ml.c5.xlarge",
+      "ml.c5d.18xlarge",
+      "ml.c5d.2xlarge",
+      "ml.c5d.4xlarge",
+      "ml.c5d.9xlarge",
+      "ml.c5d.xlarge",
+      "ml.m4.10xlarge",
+      "ml.m4.16xlarge",
+      "ml.m4.2xlarge",
+      "ml.m4.4xlarge",
+      "ml.m4.xlarge",
+      "ml.m5.12xlarge",
+      "ml.m5.24xlarge",
+      "ml.m5.2xlarge",
+      "ml.m5.4xlarge",
+      "ml.m5.xlarge",
+      "ml.p2.16xlarge",
+      "ml.p2.8xlarge",
+      "ml.p2.xlarge",
+      "ml.p3.16xlarge",
+      "ml.p3.2xlarge",
+      "ml.p3.8xlarge",
+      "ml.t2.2xlarge",
+      "ml.t2.large",
+      "ml.t2.medium",
+      "ml.t2.xlarge",
+      "ml.t3.2xlarge",
+      "ml.t3.large",
+      "ml.t3.medium",
+      "ml.t3.xlarge"
+    ]
+  },
+  "sagemaker.notebookinstance.subnetid": {
+    "Pattern": "[-0-9a-zA-Z]+",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "32",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "sagemaker-notebookinstance-properties": {
     "RootAccess": {
+      "Allowed Values": "Disabled | Enabled",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "Disabled",
         "Enabled"
@@ -13,13 +67,19 @@
       "Required": "No",
       "Type": "List of [Tag",
       "Maximum": "50",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "LifecycleConfigName": {
+      "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+      "Required": "No",
+      "Maximum": "63",
       "UpdateRequires": "No interruption"
     },
-    "LifecycleConfigName": {},
     "DirectInternetAccess": {
+      "Allowed Values": "Disabled | Enabled",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "AllowedValues": [
         "Disabled",
         "Enabled"
@@ -30,27 +90,32 @@
       "Required": "No",
       "Type": "String",
       "Maximum": "63",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "SecurityGroupIds": {
       "Required": "No",
       "Type": "List of String",
       "Maximum": "5",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "VolumeSizeInGB": {
       "Minimum": "5",
       "Required": "No",
       "Type": "Integer",
       "Maximum": "16384",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     },
-    "KmsKeyId": {},
+    "KmsKeyId": {
+      "Pattern": ".*",
+      "Required": "No",
+      "Maximum": "2048",
+      "UpdateRequires": "Replacement"
+    },
     "DefaultCodeRepository": {
       "Pattern": "^https://([^/]+)/?(.*)$|^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
       "Required": "No",
       "Maximum": "1024",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "1",
       "Type": "String"
     },
@@ -58,24 +123,25 @@
       "Required": "No",
       "Type": "List of String",
       "Maximum": "3",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "SubnetId": {
       "Pattern": "[-0-9a-zA-Z]+",
       "Required": "No",
       "Type": "String",
       "Maximum": "32",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "AcceleratorTypes": {
       "Required": "No",
       "Type": "List of String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "InstanceType": {
+      "Allowed Values": "ml.c4.2xlarge | ml.c4.4xlarge | ml.c4.8xlarge | ml.c4.xlarge | ml.c5.18xlarge | ml.c5.2xlarge | ml.c5.4xlarge | ml.c5.9xlarge | ml.c5.xlarge | ml.c5d.18xlarge | ml.c5d.2xlarge | ml.c5d.4xlarge | ml.c5d.9xlarge | ml.c5d.xlarge | ml.m4.10xlarge | ml.m4.16xlarge | ml.m4.2xlarge | ml.m4.4xlarge | ml.m4.xlarge | ml.m5.12xlarge | ml.m5.24xlarge | ml.m5.2xlarge | ml.m5.4xlarge | ml.m5.xlarge | ml.p2.16xlarge | ml.p2.8xlarge | ml.p2.xlarge | ml.p3.16xlarge | ml.p3.2xlarge | ml.p3.8xlarge | ml.t2.2xlarge | ml.t2.large | ml.t2.medium | ml.t2.xlarge | ml.t3.2xlarge | ml.t3.large | ml.t3.medium | ml.t3.xlarge",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "ml.c4.2xlarge",
         "ml.c4.4xlarge",
@@ -121,9 +187,94 @@
       "Pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
       "Required": "Yes",
       "Maximum": "2048",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "20",
       "Type": "String"
     }
+  },
+  "sagemaker.notebookinstance.rootaccess": {
+    "Allowed Values": "Disabled | Enabled",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "Disabled",
+      "Enabled"
+    ]
+  },
+  "sagemaker.notebookinstance.acceleratortypes": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.notebookinstance.rolearn": {
+    "Pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
+    "Required": "Yes",
+    "Maximum": "2048",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "20",
+    "Type": "String"
+  },
+  "sagemaker.notebookinstance.notebookinstancename": {
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "63",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.notebookinstance.lifecycleconfigname": {
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+    "Required": "No",
+    "Maximum": "63",
+    "UpdateRequires": "No interruption"
+  },
+  "sagemaker.notebookinstance.kmskeyid": {
+    "Pattern": ".*",
+    "Required": "No",
+    "Maximum": "2048",
+    "UpdateRequires": "Replacement"
+  },
+  "sagemaker.notebookinstance.tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.notebookinstance.directinternetaccess": {
+    "Allowed Values": "Disabled | Enabled",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "Disabled",
+      "Enabled"
+    ]
+  },
+  "sagemaker.notebookinstance.volumesizeingb": {
+    "Minimum": "5",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "16384",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "sagemaker.notebookinstance.securitygroupids": {
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "5",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.notebookinstance.defaultcoderepository": {
+    "Pattern": "^https://([^/]+)/?(.*)$|^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+    "Required": "No",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "sagemaker.notebookinstance.additionalcoderepositories": {
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "3",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

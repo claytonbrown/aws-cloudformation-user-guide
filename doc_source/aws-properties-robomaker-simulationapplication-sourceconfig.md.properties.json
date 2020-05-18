@@ -1,10 +1,21 @@
 {
+  "robomaker.simulationapplication.sourceconfig.architecture": {
+    "Allowed Values": "ARM64 | ARMHF | X86_64",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "ARM64",
+      "ARMHF",
+      "X86_64"
+    ]
+  },
   "aws-properties-robomaker-simulationapplication-sourceconfig-properties": {
     "S3Bucket": {
-      "Pattern": "[a-z0-9][a-z0-9\\-]*[a-z0-9]",
+      "Pattern": "[a-z0-9][a-z0-9.\\-]*[a-z0-9]",
       "Required": "Yes",
       "Maximum": "63",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "3",
       "Type": "String"
     },
@@ -12,19 +23,36 @@
       "Pattern": ".*",
       "Required": "Yes",
       "Maximum": "1024",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "1",
       "Type": "String"
     },
     "Architecture": {
+      "Allowed Values": "ARM64 | ARMHF | X86_64",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "ARM64",
         "ARMHF",
         "X86_64"
       ]
     }
+  },
+  "robomaker.simulationapplication.sourceconfig.s3bucket": {
+    "Pattern": "[a-z0-9][a-z0-9.\\-]*[a-z0-9]",
+    "Required": "Yes",
+    "Maximum": "63",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "3",
+    "Type": "String"
+  },
+  "robomaker.simulationapplication.sourceconfig.s3key": {
+    "Pattern": ".*",
+    "Required": "Yes",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   }
 }

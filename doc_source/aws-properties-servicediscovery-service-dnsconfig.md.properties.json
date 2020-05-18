@@ -1,16 +1,42 @@
 {
+  "servicediscovery.service.dnsconfig.routingpolicy": {
+    "Required": "No",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "MULTIVALUE",
+      "WEIGHTED"
+    ]
+  },
+  "servicediscovery.service.dnsconfig.dnsrecords": {
+    "Required": "Yes",
+    "Type": "List of [DnsRecord",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "servicediscovery.service.dnsconfig.namespaceid": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "64",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "aws-properties-servicediscovery-service-dnsconfig-properties": {
-    "RoutingPolicy": {},
+    "RoutingPolicy": {
+      "Required": "No",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "MULTIVALUE",
+        "WEIGHTED"
+      ]
+    },
     "NamespaceId": {
       "Required": "No",
       "Type": "String",
       "Maximum": "64",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "DnsRecords": {
       "Required": "Yes",
       "Type": "List of [DnsRecord",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     }
   }
 }

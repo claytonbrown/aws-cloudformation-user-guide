@@ -1,23 +1,52 @@
 {
+  "ecr.repository.repositorypolicytext": {
+    "Minimum": "0",
+    "Required": "No",
+    "Maximum": "10240",
+    "UpdateRequires": "No interruption"
+  },
+  "ecr.repository.tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "ecr.repository.lifecyclepolicy": {
+    "Required": "No",
+    "Type": "LifecyclePolicy",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ecr.repository.repositoryname": {
+    "Pattern": "(?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*",
+    "Required": "No",
+    "Maximum": "256",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "2",
+    "Type": "String"
+  },
   "ecr-repository-properties": {
-    "RepositoryPolicyText": {},
+    "RepositoryPolicyText": {
+      "Minimum": "0",
+      "Required": "No",
+      "Maximum": "10240",
+      "UpdateRequires": "No interruption"
+    },
     "RepositoryName": {
       "Pattern": "(?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*",
       "Required": "No",
       "Maximum": "256",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "Minimum": "2",
       "Type": "String"
     },
     "LifecyclePolicy": {
       "Required": "No",
       "Type": "LifecyclePolicy",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Tags": {
       "Required": "No",
       "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     }
   }
 }

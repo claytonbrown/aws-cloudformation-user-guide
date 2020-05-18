@@ -1,25 +1,80 @@
 {
+  "cloudfront.distribution.viewercertificate.minimumprotocolversion": {
+    "Required": "Conditional",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "SSLv3",
+      "TLSv1",
+      "TLSv1.1_2016",
+      "TLSv1.2_2018",
+      "TLSv1_2016"
+    ]
+  },
+  "cloudfront.distribution.viewercertificate.acmcertificatearn": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "aws-properties-cloudfront-distribution-viewercertificate-properties": {
     "CloudFrontDefaultCertificate": {
       "Required": "Conditional",
       "Type": "Boolean",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "True",
         "False"
       ]
     },
-    "SslSupportMethod": {},
-    "AcmCertificateArn": {
+    "SslSupportMethod": {
       "Required": "Conditional",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "sni-only",
+        "vip"
+      ]
+    },
+    "AcmCertificateArn": {
+      "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "IamCertificateId": {
-      "Required": "Conditional",
+      "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
-    "MinimumProtocolVersion": {}
+    "MinimumProtocolVersion": {
+      "Required": "Conditional",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "SSLv3",
+        "TLSv1",
+        "TLSv1.1_2016",
+        "TLSv1.2_2018",
+        "TLSv1_2016"
+      ]
+    }
+  },
+  "cloudfront.distribution.viewercertificate.iamcertificateid": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.distribution.viewercertificate.sslsupportmethod": {
+    "Required": "Conditional",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "sni-only",
+      "vip"
+    ]
+  },
+  "cloudfront.distribution.viewercertificate.cloudfrontdefaultcertificate": {
+    "Required": "Conditional",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   }
 }

@@ -1,12 +1,34 @@
 {
+  "servicediscovery.instance.instanceid": {
+    "Required": "No",
+    "Maximum": "64",
+    "UpdateRequires": "Replacement"
+  },
   "servicediscovery-instance-properties": {
-    "InstanceAttributes": {},
-    "InstanceId": {},
+    "InstanceAttributes": {
+      "Required": "Yes",
+      "UpdateRequires": "No interruption"
+    },
+    "InstanceId": {
+      "Required": "No",
+      "Maximum": "64",
+      "UpdateRequires": "Replacement"
+    },
     "ServiceId": {
       "Required": "Yes",
       "Type": "String",
       "Maximum": "64",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
     }
+  },
+  "servicediscovery.instance.instanceattributes": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
+  },
+  "servicediscovery.instance.serviceid": {
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "64",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

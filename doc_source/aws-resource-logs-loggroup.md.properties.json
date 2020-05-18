@@ -1,15 +1,28 @@
 {
+  "logs.loggroup.loggroupname": {
+    "Pattern": "[\\.\\-_/#A-Za-z0-9]+",
+    "Required": "No",
+    "Maximum": "512",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "logs.loggroup.retentionindays": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
   "logs-loggroup-properties": {
     "RetentionInDays": {
       "Required": "No",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     },
     "LogGroupName": {
       "Pattern": "[\\.\\-_/#A-Za-z0-9]+",
       "Required": "No",
       "Maximum": "512",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "Minimum": "1",
       "Type": "String"
     }

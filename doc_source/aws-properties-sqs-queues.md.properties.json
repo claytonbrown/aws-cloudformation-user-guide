@@ -1,21 +1,65 @@
 {
+  "sqs.queues.delayseconds": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sqs.queues.messageretentionperiod": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sqs.queues.contentbaseddeduplication": {
+    "Required": "No",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "sqs.queues.receivemessagewaittimeseconds": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sqs.queues.queuename": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
   "aws-properties-sqs-queues-properties": {
-    "KmsDataKeyReusePeriodSeconds": {},
-    "KmsMasterKeyId": {},
+    "KmsDataKeyReusePeriodSeconds": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
+    "KmsMasterKeyId": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
     "ReceiveMessageWaitTimeSeconds": {
       "Required": "No",
       "Type": "Integer",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "Tags": {
+      "Required": "No",
       "UpdateRequires": "No interruption"
     },
-    "Tags": {},
-    "VisibilityTimeout": {},
-    "RedrivePolicy": {},
+    "VisibilityTimeout": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
+    "RedrivePolicy": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
     "MaximumMessageSize": {
       "Required": "No",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "ContentBasedDeduplication": {
+      "Required": "No",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
@@ -24,9 +68,11 @@
     "DelaySeconds": {
       "Required": "No",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "FifoQueue": {
+      "Required": "No",
+      "UpdateRequires": "Replacement",
       "AllowedValues": [
         "True",
         "False"
@@ -35,8 +81,44 @@
     "MessageRetentionPeriod": {
       "Required": "No",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
-    "QueueName": {}
+    "QueueName": {
+      "Required": "No",
+      "UpdateRequires": "Replacement"
+    }
+  },
+  "sqs.queues.kmsmasterkeyid": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "sqs.queues.visibilitytimeout": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "sqs.queues.redrivepolicy": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "sqs.queues.kmsdatakeyreuseperiodseconds": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "sqs.queues.fifoqueue": {
+    "Required": "No",
+    "UpdateRequires": "Replacement",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "sqs.queues.maximummessagesize": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sqs.queues.tags": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   }
 }

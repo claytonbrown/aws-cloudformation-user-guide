@@ -1,24 +1,52 @@
 {
+  "ec2.ec2fleet.spotoptionsrequest.instancepoolstousecount": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "ec2.ec2fleet.spotoptionsrequest.allocationstrategy": {
+    "Type": "String",
+    "Required": "No",
+    "Allowed Values": "lowestPrice` \\| `diversified` \\| `capacityOptimized",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "lowestPrice` \\| `diversified` \\| `capacityOptimized"
+    ]
+  },
   "aws-properties-ec2-ec2fleet-spotoptionsrequest-properties": {
     "InstanceInterruptionBehavior": {
+      "Allowed Values": "hibernate | stop | terminate",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "hibernate",
         "stop",
         "terminate"
       ]
     },
-    "InstancePoolsToUseCount": {},
-    "AllocationStrategy": {
+    "InstancePoolsToUseCount": {
       "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
+    "AllocationStrategy": {
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "Required": "No",
+      "Allowed Values": "lowestPrice` \\| `diversified` \\| `capacityOptimized",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
-        "diversified",
-        "lowest-price"
+        "lowestPrice` \\| `diversified` \\| `capacityOptimized"
       ]
     }
+  },
+  "ec2.ec2fleet.spotoptionsrequest.instanceinterruptionbehavior": {
+    "Allowed Values": "hibernate | stop | terminate",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "hibernate",
+      "stop",
+      "terminate"
+    ]
   }
 }

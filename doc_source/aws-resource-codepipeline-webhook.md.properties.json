@@ -1,36 +1,43 @@
 {
+  "codepipeline.webhook.filters": {
+    "Required": "Yes",
+    "Type": "List of [WebhookFilterRule",
+    "Maximum": "5",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "codepipeline-webhook-properties": {
     "AuthenticationConfiguration": {
       "Required": "Yes",
       "Type": "WebhookAuthConfiguration",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Name": {
       "Pattern": "[A-Za-z0-9.@\\-_]+",
       "Required": "No",
       "Maximum": "100",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "Minimum": "1",
       "Type": "String"
     },
     "TargetPipelineVersion": {
       "Required": "Yes",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     },
     "RegisterWithThirdParty": {
       "Required": "No",
       "Type": "Boolean",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "True",
         "False"
       ]
     },
     "Authentication": {
+      "Allowed Values": "GITHUB_HMAC | IP | UNAUTHENTICATED",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "GITHUB_HMAC",
         "IP",
@@ -41,7 +48,7 @@
       "Pattern": "[A-Za-z0-9.@\\-_]+",
       "Required": "Yes",
       "Maximum": "100",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "1",
       "Type": "String"
     },
@@ -49,7 +56,7 @@
       "Pattern": "[A-Za-z0-9.@\\-_]+",
       "Required": "Yes",
       "Maximum": "100",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "1",
       "Type": "String"
     },
@@ -57,7 +64,61 @@
       "Required": "Yes",
       "Type": "List of [WebhookFilterRule",
       "Maximum": "5",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     }
+  },
+  "codepipeline.webhook.registerwiththirdparty": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "codepipeline.webhook.authenticationconfiguration": {
+    "Required": "Yes",
+    "Type": "WebhookAuthConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codepipeline.webhook.targetaction": {
+    "Pattern": "[A-Za-z0-9.@\\-_]+",
+    "Required": "Yes",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "codepipeline.webhook.name": {
+    "Pattern": "[A-Za-z0-9.@\\-_]+",
+    "Required": "No",
+    "Maximum": "100",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "codepipeline.webhook.targetpipeline": {
+    "Pattern": "[A-Za-z0-9.@\\-_]+",
+    "Required": "Yes",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "codepipeline.webhook.targetpipelineversion": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "codepipeline.webhook.authentication": {
+    "Allowed Values": "GITHUB_HMAC | IP | UNAUTHENTICATED",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "GITHUB_HMAC",
+      "IP",
+      "UNAUTHENTICATED"
+    ]
   }
 }

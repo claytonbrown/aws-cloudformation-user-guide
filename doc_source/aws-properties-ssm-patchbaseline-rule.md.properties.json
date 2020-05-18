@@ -3,16 +3,17 @@
     "EnableNonSecurity": {
       "Required": "No",
       "Type": "Boolean",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "True",
         "False"
       ]
     },
     "ComplianceLevel": {
+      "Allowed Values": "CRITICAL | HIGH | INFORMATIONAL | LOW | MEDIUM | UNSPECIFIED",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "CRITICAL",
         "HIGH",
@@ -24,15 +25,50 @@
     },
     "ApproveAfterDays": {
       "Minimum": "0",
-      "Required": "No",
+      "Required": "Conditional",
       "Type": "Integer",
       "Maximum": "100",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "PatchFilterGroup": {
       "Required": "No",
       "Type": "PatchFilterGroup",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     }
+  },
+  "ssm.patchbaseline.rule.enablenonsecurity": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "ssm.patchbaseline.rule.approveafterdays": {
+    "Minimum": "0",
+    "Required": "Conditional",
+    "Type": "Integer",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.patchbaseline.rule.patchfiltergroup": {
+    "Required": "No",
+    "Type": "PatchFilterGroup",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "ssm.patchbaseline.rule.compliancelevel": {
+    "Allowed Values": "CRITICAL | HIGH | INFORMATIONAL | LOW | MEDIUM | UNSPECIFIED",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "CRITICAL",
+      "HIGH",
+      "INFORMATIONAL",
+      "LOW",
+      "MEDIUM",
+      "UNSPECIFIED"
+    ]
   }
 }

@@ -1,25 +1,51 @@
 {
+  "cognito.userpoolriskconfigurationattachment.clientid": {
+    "Pattern": "[\\w+]+",
+    "Required": "Yes",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "cognito.userpoolriskconfigurationattachment.userpoolid": {
+    "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
+    "Required": "Yes",
+    "Maximum": "55",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "cognito.userpoolriskconfigurationattachment.accounttakeoverriskconfiguration": {
+    "Required": "No",
+    "Type": "AccountTakeoverRiskConfigurationType",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpoolriskconfigurationattachment.riskexceptionconfiguration": {
+    "Required": "No",
+    "Type": "RiskExceptionConfigurationType",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "cognito-userpoolriskconfigurationattachment-properties": {
     "RiskExceptionConfiguration": {
       "Required": "No",
       "Type": "RiskExceptionConfigurationType",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "CompromisedCredentialsRiskConfiguration": {
       "Required": "No",
       "Type": "CompromisedCredentialsRiskConfigurationType",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "AccountTakeoverRiskConfiguration": {
       "Required": "No",
       "Type": "AccountTakeoverRiskConfigurationType",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "UserPoolId": {
       "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
       "Required": "Yes",
       "Maximum": "55",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
       "Minimum": "1",
       "Type": "String"
     },
@@ -27,9 +53,14 @@
       "Pattern": "[\\w+]+",
       "Required": "Yes",
       "Maximum": "128",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "Minimum": "1",
       "Type": "String"
     }
+  },
+  "cognito.userpoolriskconfigurationattachment.compromisedcredentialsriskconfiguration": {
+    "Required": "No",
+    "Type": "CompromisedCredentialsRiskConfigurationType",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

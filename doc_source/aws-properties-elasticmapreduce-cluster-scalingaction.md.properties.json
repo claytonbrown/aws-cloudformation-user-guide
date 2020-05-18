@@ -3,16 +3,32 @@
     "SimpleScalingPolicyConfiguration": {
       "Required": "Yes",
       "Type": "SimpleScalingPolicyConfiguration",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Market": {
+      "Allowed Values": "ON_DEMAND | SPOT",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "ON_DEMAND",
         "SPOT"
       ]
     }
+  },
+  "elasticmapreduce.cluster.scalingaction.market": {
+    "Allowed Values": "ON_DEMAND | SPOT",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "ON_DEMAND",
+      "SPOT"
+    ]
+  },
+  "elasticmapreduce.cluster.scalingaction.simplescalingpolicyconfiguration": {
+    "Required": "Yes",
+    "Type": "SimpleScalingPolicyConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

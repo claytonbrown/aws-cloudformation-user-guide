@@ -1,21 +1,50 @@
 {
   "aws-properties-cloudtrail-trail-eventselector-properties": {
     "IncludeManagementEvents": {
+      "Required": "No",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
       ]
     },
-    "DataResources": {},
+    "DataResources": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
     "ReadWriteType": {
+      "Allowed Values": "All | ReadOnly | WriteOnly",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "All",
         "ReadOnly",
         "WriteOnly"
       ]
     }
+  },
+  "cloudtrail.trail.eventselector.includemanagementevents": {
+    "Required": "No",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "cloudtrail.trail.eventselector.dataresources": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "cloudtrail.trail.eventselector.readwritetype": {
+    "Allowed Values": "All | ReadOnly | WriteOnly",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "All",
+      "ReadOnly",
+      "WriteOnly"
+    ]
   }
 }

@@ -1,16 +1,46 @@
 {
+  "cognito.userpoolresourceserver.scopes": {
+    "Required": "No",
+    "Type": "List of [ResourceServerScopeType",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpoolresourceserver.userpoolid": {
+    "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
+    "Required": "Yes",
+    "Maximum": "55",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "cognito.userpoolresourceserver.identifier": {
+    "Pattern": "[\\x21\\x23-\\x5B\\x5D-\\x7E]+",
+    "Required": "Yes",
+    "Maximum": "256",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "cognito.userpoolresourceserver.name": {
+    "Pattern": "[\\w\\s+=,.@-]+",
+    "Required": "Yes",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
   "cognito-userpoolresourceserver-properties": {
     "Scopes": {
       "Required": "No",
       "Type": "List of [ResourceServerScopeType",
       "Maximum": "100",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Identifier": {
       "Pattern": "[\\x21\\x23-\\x5B\\x5D-\\x7E]+",
       "Required": "Yes",
       "Maximum": "256",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "Minimum": "1",
       "Type": "String"
     },
@@ -18,7 +48,7 @@
       "Pattern": "[\\w\\s+=,.@-]+",
       "Required": "Yes",
       "Maximum": "256",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "1",
       "Type": "String"
     },
@@ -26,7 +56,7 @@
       "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
       "Required": "Yes",
       "Maximum": "55",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
       "Minimum": "1",
       "Type": "String"
     }

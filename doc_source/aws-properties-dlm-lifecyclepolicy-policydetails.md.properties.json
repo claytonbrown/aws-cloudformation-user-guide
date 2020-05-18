@@ -1,22 +1,68 @@
 {
+  "dlm.lifecyclepolicy.policydetails.parameters": {
+    "Required": "No",
+    "Type": "Parameters",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dlm.lifecyclepolicy.policydetails.policytype": {
+    "Allowed Values": "EBS_SNAPSHOT_MANAGEMENT",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "EBS_SNAPSHOT_MANAGEMENT"
+    ]
+  },
+  "dlm.lifecyclepolicy.policydetails.targettags": {
+    "Required": "Yes",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "dlm.lifecyclepolicy.policydetails.resourcetypes": {
+    "Required": "Yes",
+    "Type": "List of String",
+    "Maximum": "1",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dlm.lifecyclepolicy.policydetails.schedules": {
+    "Required": "Yes",
+    "Type": "List of [Schedule",
+    "Maximum": "1",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "aws-properties-dlm-lifecyclepolicy-policydetails-properties": {
     "ResourceTypes": {
       "Required": "Yes",
       "Type": "List of String",
       "Maximum": "1",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "PolicyType": {
+      "Allowed Values": "EBS_SNAPSHOT_MANAGEMENT",
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+      "AllowedValues": [
+        "EBS_SNAPSHOT_MANAGEMENT"
+      ]
     },
     "TargetTags": {
-      "Required": "No",
+      "Required": "Yes",
       "Type": "List of [Tag",
       "Maximum": "50",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    },
+    "Parameters": {
+      "Required": "No",
+      "Type": "Parameters",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Schedules": {
-      "Required": "No",
+      "Required": "Yes",
       "Type": "List of [Schedule",
       "Maximum": "1",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     }
   }
 }

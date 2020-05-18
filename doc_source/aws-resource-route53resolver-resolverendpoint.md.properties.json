@@ -1,9 +1,43 @@
 {
+  "route53resolver.resolverendpoint.tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "route53resolver.resolverendpoint.name": {
+    "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "64",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "route53resolver.resolverendpoint.securitygroupids": {
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "route53resolver.resolverendpoint.ipaddresses": {
+    "Required": "Yes",
+    "Type": "List of [IpAddressRequest",
+    "Maximum": "10",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "route53resolver.resolverendpoint.direction": {
+    "Allowed Values": "INBOUND | OUTBOUND",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "INBOUND",
+      "OUTBOUND"
+    ]
+  },
   "route53resolver-resolverendpoint-properties": {
     "Direction": {
+      "Allowed Values": "INBOUND | OUTBOUND",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "AllowedValues": [
         "INBOUND",
         "OUTBOUND"
@@ -12,25 +46,25 @@
     "Tags": {
       "Required": "No",
       "Type": "List of [Tag",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     },
     "Name": {
       "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)",
       "Required": "No",
       "Type": "String",
       "Maximum": "64",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "IpAddresses": {
       "Required": "Yes",
       "Type": "List of [IpAddressRequest",
       "Maximum": "10",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "SecurityGroupIds": {
       "Required": "Yes",
       "Type": "List of String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     }
   }
 }

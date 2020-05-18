@@ -1,16 +1,25 @@
 {
+  "wafregional.rule.predicate.negated": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
   "aws-properties-wafregional-rule-predicate-properties": {
     "DataId": {
       "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
       "Maximum": "128",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Type": {
+      "Allowed Values": "ByteMatch | GeoMatch | IPMatch | RegexMatch | SizeConstraint | SqlInjectionMatch | XssMatch",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "ByteMatch",
         "GeoMatch",
@@ -22,10 +31,34 @@
       ]
     },
     "Negated": {
+      "Required": "Yes",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
       ]
     }
+  },
+  "wafregional.rule.predicate.type": {
+    "Allowed Values": "ByteMatch | GeoMatch | IPMatch | RegexMatch | SizeConstraint | SqlInjectionMatch | XssMatch",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "ByteMatch",
+      "GeoMatch",
+      "IPMatch",
+      "RegexMatch",
+      "SizeConstraint",
+      "SqlInjectionMatch",
+      "XssMatch"
+    ]
+  },
+  "wafregional.rule.predicate.dataid": {
+    "Minimum": "1",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

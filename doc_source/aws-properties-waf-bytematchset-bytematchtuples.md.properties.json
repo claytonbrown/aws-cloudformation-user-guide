@@ -1,17 +1,78 @@
 {
+  "waf.bytematchset.bytematchtuples.fieldtomatch": {
+    "Required": "Yes",
+    "Type": "FieldToMatch",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "waf.bytematchset.bytematchtuples.texttransformation": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "CMD_LINE",
+      "COMPRESS_WHITE_SPACE",
+      "HTML_ENTITY_DECODE",
+      "LOWERCASE",
+      "NONE",
+      "URL_DECODE"
+    ]
+  },
   "aws-properties-waf-bytematchset-bytematchtuples-properties": {
-    "TargetString": {},
+    "TargetString": {
+      "Required": "Conditional",
+      "UpdateRequires": "No interruption"
+    },
     "TargetStringBase64": {
       "Required": "Conditional",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
-    "PositionalConstraint": {},
-    "TextTransformation": {},
+    "PositionalConstraint": {
+      "Required": "Yes",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "CONTAINS",
+        "CONTAINS_WORD",
+        "ENDS_WITH",
+        "EXACTLY",
+        "STARTS_WITH"
+      ]
+    },
+    "TextTransformation": {
+      "Required": "Yes",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "CMD_LINE",
+        "COMPRESS_WHITE_SPACE",
+        "HTML_ENTITY_DECODE",
+        "LOWERCASE",
+        "NONE",
+        "URL_DECODE"
+      ]
+    },
     "FieldToMatch": {
       "Required": "Yes",
       "Type": "FieldToMatch",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     }
+  },
+  "waf.bytematchset.bytematchtuples.positionalconstraint": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "CONTAINS",
+      "CONTAINS_WORD",
+      "ENDS_WITH",
+      "EXACTLY",
+      "STARTS_WITH"
+    ]
+  },
+  "waf.bytematchset.bytematchtuples.targetstring": {
+    "Required": "Conditional",
+    "UpdateRequires": "No interruption"
+  },
+  "waf.bytematchset.bytematchtuples.targetstringbase64": {
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

@@ -1,19 +1,42 @@
 {
+  "ssm.maintenancewindowtask.notificationconfig.notificationarn": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "aws-properties-ssm-maintenancewindowtask-notificationconfig-properties": {
     "NotificationArn": {
       "Required": "Yes",
       "Type": "String",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "NotificationEvents": {
+      "Required": "No",
       "UpdateRequires": "No interruption"
     },
-    "NotificationEvents": {},
     "NotificationType": {
+      "Allowed Values": "Command | Invocation",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "Command",
         "Invocation"
       ]
     }
+  },
+  "ssm.maintenancewindowtask.notificationconfig.notificationtype": {
+    "Allowed Values": "Command | Invocation",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "Command",
+      "Invocation"
+    ]
+  },
+  "ssm.maintenancewindowtask.notificationconfig.notificationevents": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   }
 }

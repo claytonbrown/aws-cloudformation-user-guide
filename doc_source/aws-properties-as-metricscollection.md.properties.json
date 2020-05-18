@@ -1,20 +1,40 @@
 {
   "aws-properties-as-metricscollection-properties": {
     "Metrics": {
-      "Required": "No",
       "Type": "List of String",
-      "UpdateRequires": "No interruption",
+      "Required": "No",
+      "Allowed Values": "+ `GroupMinSize`\n+ `GroupMaxSize`\n+ `GroupDesiredCapacity`\n+ `GroupInServiceInstances`\n+ `GroupPendingInstances`\n+ `GroupStandbyInstances`\n+ `GroupTerminatingInstances`\n+ `GroupTotalInstances",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "+ `GroupMinSize`\n+ `GroupMaxSize`\n+ `GroupDesiredCapacity`\n+ `GroupInServiceInstances`\n+ `GroupPendingInstances`\n+ `GroupStandbyInstances`\n+ `GroupTerminatingInstances`\n+ `GroupTotalInstances"
       ]
     },
     "Granularity": {
-      "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "Required": "Yes",
+      "Allowed Values": "1Minute",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "1Minute"
       ]
     }
+  },
+  "as.metricscollection.metrics": {
+    "Type": "List of String",
+    "Required": "No",
+    "Allowed Values": "+ `GroupMinSize`\n+ `GroupMaxSize`\n+ `GroupDesiredCapacity`\n+ `GroupInServiceInstances`\n+ `GroupPendingInstances`\n+ `GroupStandbyInstances`\n+ `GroupTerminatingInstances`\n+ `GroupTotalInstances",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "+ `GroupMinSize`\n+ `GroupMaxSize`\n+ `GroupDesiredCapacity`\n+ `GroupInServiceInstances`\n+ `GroupPendingInstances`\n+ `GroupStandbyInstances`\n+ `GroupTerminatingInstances`\n+ `GroupTotalInstances"
+    ]
+  },
+  "as.metricscollection.granularity": {
+    "Type": "String",
+    "Required": "Yes",
+    "Allowed Values": "1Minute",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "1Minute"
+    ]
   }
 }

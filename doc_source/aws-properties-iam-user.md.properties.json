@@ -1,23 +1,82 @@
 {
+  "iam.user.policies": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
   "aws-properties-iam-user-properties": {
     "UserName": {
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
     },
-    "ManagedPolicyArns": {},
+    "ManagedPolicyArns": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
     "Groups": {
       "Required": "No",
       "Type": "List of String",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "Tags": {
+      "Required": "No",
+      "Maximum": "50",
       "UpdateRequires": "No interruption"
     },
-    "LoginProfile": {},
-    "Policies": {},
-    "Path": {},
+    "LoginProfile": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
+    "Policies": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
+    "Path": {
+      "Pattern": "(\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F)",
+      "Minimum": "1",
+      "Required": "No",
+      "Maximum": "512",
+      "UpdateRequires": "No interruption"
+    },
     "PermissionsBoundary": {
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     }
+  },
+  "iam.user.managedpolicyarns": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "iam.user.permissionsboundary": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iam.user.tags": {
+    "Required": "No",
+    "Maximum": "50",
+    "UpdateRequires": "No interruption"
+  },
+  "iam.user.loginprofile": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "iam.user.groups": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iam.user.path": {
+    "Pattern": "(\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F)",
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "512",
+    "UpdateRequires": "No interruption"
+  },
+  "iam.user.username": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

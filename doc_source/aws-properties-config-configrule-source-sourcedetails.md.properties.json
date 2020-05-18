@@ -1,17 +1,53 @@
 {
+  "config.configrule.source.sourcedetails.maximumexecutionfrequency": {
+    "Allowed Values": "One_Hour | Six_Hours | Three_Hours | Twelve_Hours | TwentyFour_Hours",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "One_Hour",
+      "Six_Hours",
+      "Three_Hours",
+      "Twelve_Hours",
+      "TwentyFour_Hours"
+    ]
+  },
+  "config.configrule.source.sourcedetails.eventsource": {
+    "Allowed Values": "aws.config",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "aws.config"
+    ]
+  },
+  "config.configrule.source.sourcedetails.messagetype": {
+    "Allowed Values": "ConfigurationItemChangeNotification | ConfigurationSnapshotDeliveryCompleted | OversizedConfigurationItemChangeNotification | ScheduledNotification",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "ConfigurationItemChangeNotification",
+      "ConfigurationSnapshotDeliveryCompleted",
+      "OversizedConfigurationItemChangeNotification",
+      "ScheduledNotification"
+    ]
+  },
   "aws-properties-config-configrule-source-sourcedetails-properties": {
     "EventSource": {
+      "Allowed Values": "aws.config",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "aws.config"
       ]
     },
     "MessageType": {
+      "Allowed Values": "ConfigurationItemChangeNotification | ConfigurationSnapshotDeliveryCompleted | OversizedConfigurationItemChangeNotification | ScheduledNotification",
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "ConfigurationItemChangeNotification",
         "ConfigurationSnapshotDeliveryCompleted",
@@ -20,9 +56,10 @@
       ]
     },
     "MaximumExecutionFrequency": {
+      "Allowed Values": "One_Hour | Six_Hours | Three_Hours | Twelve_Hours | TwentyFour_Hours",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "One_Hour",
         "Six_Hours",

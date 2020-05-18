@@ -1,11 +1,80 @@
 {
+  "cloudfront.distribution.cachebehavior.compress": {
+    "Required": "No",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "cloudfront.distribution.cachebehavior.forwardedvalues": {
+    "Required": "Yes",
+    "Type": "ForwardedValues",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.distribution.cachebehavior.pathpattern": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
+  },
+  "cloudfront.distribution.cachebehavior.maxttl": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "cloudfront.distribution.cachebehavior.viewerprotocolpolicy": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "allow-all",
+      "https-only",
+      "redirect-to-https"
+    ]
+  },
+  "cloudfront.distribution.cachebehavior.cachedmethods": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.distribution.cachebehavior.minttl": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "cloudfront.distribution.cachebehavior.targetoriginid": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.distribution.cachebehavior.fieldlevelencryptionid": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.distribution.cachebehavior.allowedmethods": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.distribution.cachebehavior.defaultttl": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
   "aws-properties-cloudfront-distribution-cachebehavior-properties": {
-    "ViewerProtocolPolicy": {},
-    "TrustedSigners": {},
+    "ViewerProtocolPolicy": {
+      "Required": "Yes",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "allow-all",
+        "https-only",
+        "redirect-to-https"
+      ]
+    },
+    "TrustedSigners": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
     "SmoothStreaming": {
       "Required": "No",
       "Type": "Boolean",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "True",
         "False"
@@ -14,9 +83,11 @@
     "TargetOriginId": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Compress": {
+      "Required": "No",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
@@ -25,31 +96,61 @@
     "FieldLevelEncryptionId": {
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "ForwardedValues": {
       "Required": "Yes",
       "Type": "ForwardedValues",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "MaxTTL": {
+      "Required": "No",
       "UpdateRequires": "No interruption"
     },
-    "MaxTTL": {},
-    "PathPattern": {},
+    "PathPattern": {
+      "Required": "Yes",
+      "UpdateRequires": "No interruption"
+    },
     "LambdaFunctionAssociations": {
       "Required": "No",
       "Type": "List of [LambdaFunctionAssociation",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "CachedMethods": {
       "Required": "No",
       "Type": "List of String",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "DefaultTTL": {
+      "Required": "No",
       "UpdateRequires": "No interruption"
     },
-    "DefaultTTL": {},
     "AllowedMethods": {
       "Required": "No",
       "Type": "List of String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
-    "MinTTL": {}
+    "MinTTL": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    }
+  },
+  "cloudfront.distribution.cachebehavior.smoothstreaming": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "cloudfront.distribution.cachebehavior.trustedsigners": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "cloudfront.distribution.cachebehavior.lambdafunctionassociations": {
+    "Required": "No",
+    "Type": "List of [LambdaFunctionAssociation",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

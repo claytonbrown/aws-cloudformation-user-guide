@@ -3,13 +3,30 @@
     "Url": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "Maximum": "255",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "InvocationRole": {
       "Pattern": "arn:.*role/.*",
       "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "No interruption"
+      "Maximum": "2048",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+      "Minimum": "20",
+      "Type": "String"
     }
+  },
+  "transfer.server.identityproviderdetails.url": {
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "255",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "transfer.server.identityproviderdetails.invocationrole": {
+    "Pattern": "arn:.*role/.*",
+    "Required": "Yes",
+    "Maximum": "2048",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "20",
+    "Type": "String"
   }
 }

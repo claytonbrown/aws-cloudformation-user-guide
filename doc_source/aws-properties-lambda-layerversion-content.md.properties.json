@@ -1,10 +1,25 @@
 {
+  "lambda.layerversion.content.s3key": {
+    "Minimum": "1",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "1024",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "lambda.layerversion.content.s3bucket": {
+    "Pattern": "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$",
+    "Required": "Yes",
+    "Maximum": "63",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "3",
+    "Type": "String"
+  },
   "aws-properties-lambda-layerversion-content-properties": {
     "S3Bucket": {
       "Pattern": "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$",
       "Required": "Yes",
       "Maximum": "63",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "Minimum": "3",
       "Type": "String"
     },
@@ -13,14 +28,21 @@
       "Required": "Yes",
       "Type": "String",
       "Maximum": "1024",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "S3ObjectVersion": {
       "Minimum": "1",
       "Required": "No",
       "Type": "String",
       "Maximum": "1024",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
     }
+  },
+  "lambda.layerversion.content.s3objectversion": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

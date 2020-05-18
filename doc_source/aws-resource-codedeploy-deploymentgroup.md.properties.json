@@ -1,67 +1,158 @@
 {
+  "codedeploy.deploymentgroup.deploymentgroupname": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "100",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "codedeploy.deploymentgroup.applicationname": {
+    "Minimum": "1",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "100",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "codedeploy.deploymentgroup.servicerolearn": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
+  },
   "codedeploy-deploymentgroup-properties": {
     "ApplicationName": {
       "Minimum": "1",
       "Required": "Yes",
       "Type": "String",
       "Maximum": "100",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "AutoRollbackConfiguration": {
       "Required": "No",
       "Type": "AutoRollbackConfiguration",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "LoadBalancerInfo": {
+      "Required": "No",
       "UpdateRequires": "No interruption"
     },
-    "LoadBalancerInfo": {},
-    "DeploymentConfigName": {},
+    "DeploymentConfigName": {
+      "Minimum": "1",
+      "Required": "No",
+      "Maximum": "100",
+      "UpdateRequires": "No interruption"
+    },
     "AutoScalingGroups": {
       "Required": "No",
       "Type": "List of String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "TriggerConfigurations": {
       "Required": "No",
       "Type": "List of [TriggerConfig",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     },
     "AlarmConfiguration": {
       "Required": "No",
       "Type": "AlarmConfiguration",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Ec2TagFilters": {
       "Required": "No",
       "Type": "List of [EC2TagFilter",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "DeploymentStyle": {
       "Required": "No",
       "Type": "DeploymentStyle",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Ec2TagSet": {
       "Required": "No",
       "Type": "EC2TagSet",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "OnPremisesTagSet": {
       "Required": "No",
       "Type": "OnPremisesTagSet",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Deployment": {
       "Required": "No",
       "Type": "Deployment",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "ServiceRoleArn": {
+      "Required": "Yes",
       "UpdateRequires": "No interruption"
     },
-    "ServiceRoleArn": {},
     "DeploymentGroupName": {
       "Minimum": "1",
       "Required": "No",
       "Type": "String",
       "Maximum": "100",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
-    "OnPremisesInstanceTagFilters": {}
+    "OnPremisesInstanceTagFilters": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    }
+  },
+  "codedeploy.deploymentgroup.onpremisestagset": {
+    "Required": "No",
+    "Type": "OnPremisesTagSet",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codedeploy.deploymentgroup.autorollbackconfiguration": {
+    "Required": "No",
+    "Type": "AutoRollbackConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codedeploy.deploymentgroup.ec2tagfilters": {
+    "Required": "No",
+    "Type": "List of [EC2TagFilter",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codedeploy.deploymentgroup.deploymentstyle": {
+    "Required": "No",
+    "Type": "DeploymentStyle",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codedeploy.deploymentgroup.onpremisesinstancetagfilters": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "codedeploy.deploymentgroup.alarmconfiguration": {
+    "Required": "No",
+    "Type": "AlarmConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codedeploy.deploymentgroup.deployment": {
+    "Required": "No",
+    "Type": "Deployment",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codedeploy.deploymentgroup.loadbalancerinfo": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "codedeploy.deploymentgroup.ec2tagset": {
+    "Required": "No",
+    "Type": "EC2TagSet",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codedeploy.deploymentgroup.autoscalinggroups": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codedeploy.deploymentgroup.deploymentconfigname": {
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "100",
+    "UpdateRequires": "No interruption"
+  },
+  "codedeploy.deploymentgroup.triggerconfigurations": {
+    "Required": "No",
+    "Type": "List of [TriggerConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

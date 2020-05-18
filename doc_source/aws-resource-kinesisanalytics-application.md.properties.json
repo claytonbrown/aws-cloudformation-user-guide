@@ -1,31 +1,58 @@
 {
+  "kinesisanalytics.application.inputs": {
+    "Required": "Yes",
+    "Type": "List of [Input",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "kinesisanalytics.application.applicationname": {
+    "Pattern": "[a-zA-Z0-9_.-]+",
+    "Required": "No",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
   "kinesisanalytics-application-properties": {
     "ApplicationName": {
       "Pattern": "[a-zA-Z0-9_.-]+",
       "Required": "No",
       "Maximum": "128",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "Minimum": "1",
       "Type": "String"
     },
     "Inputs": {
       "Required": "Yes",
       "Type": "List of [Input",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     },
     "ApplicationDescription": {
       "Minimum": "0",
       "Required": "No",
       "Type": "String",
       "Maximum": "1024",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "ApplicationCode": {
       "Minimum": "0",
       "Required": "No",
       "Type": "String",
       "Maximum": "102400",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     }
+  },
+  "kinesisanalytics.application.applicationdescription": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisanalytics.application.applicationcode": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "102400",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

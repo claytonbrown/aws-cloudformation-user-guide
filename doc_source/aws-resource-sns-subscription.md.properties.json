@@ -1,8 +1,25 @@
 {
+  "sns.subscription.protocol": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
   "sns-subscription-properties": {
-    "Endpoint": {},
-    "Protocol": {},
+    "RedrivePolicy": {
+      "Required": "No",
+      "Type": "Json",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "Endpoint": {
+      "Required": "No",
+      "UpdateRequires": "Replacement"
+    },
+    "Protocol": {
+      "Required": "Yes",
+      "UpdateRequires": "Replacement"
+    },
     "RawMessageDelivery": {
+      "Required": "No",
+      "UpdateRequires": "No interruption",
       "AllowedValues": [
         "True",
         "False"
@@ -11,14 +28,55 @@
     "Region": {
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
-    "FilterPolicy": {},
-    "DeliveryPolicy": {},
+    "FilterPolicy": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
+    "DeliveryPolicy": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
     "TopicArn": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
     }
+  },
+  "sns.subscription.topicarn": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  },
+  "sns.subscription.filterpolicy": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "sns.subscription.redrivepolicy": {
+    "Required": "No",
+    "Type": "Json",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sns.subscription.deliverypolicy": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "sns.subscription.endpoint": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "sns.subscription.region": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sns.subscription.rawmessagedelivery": {
+    "Required": "No",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   }
 }

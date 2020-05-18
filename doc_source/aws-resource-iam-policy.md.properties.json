@@ -1,10 +1,47 @@
 {
+  "iam.policy.users": {
+    "Pattern": "[\\w+=,.@-]+",
+    "Required": "No",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
+    "Minimum": "1",
+    "Type": "List of String"
+  },
+  "iam.policy.roles": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iam.policy.policydocument": {
+    "Pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+    "Required": "Yes",
+    "Maximum": "131072",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "Json"
+  },
+  "iam.policy.policyname": {
+    "Pattern": "[\\w+=,.@-]+",
+    "Required": "Yes",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "iam.policy.groups": {
+    "Pattern": "[\\w+=,.@-]+",
+    "Required": "No",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "List of String"
+  },
   "iam-policy-properties": {
     "PolicyName": {
       "Pattern": "[\\w+=,.@-]+",
       "Required": "Yes",
       "Maximum": "128",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "1",
       "Type": "String"
     },
@@ -12,20 +49,20 @@
       "Pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
       "Required": "Yes",
       "Maximum": "131072",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "1",
       "Type": "Json"
     },
     "Roles": {
       "Required": "No",
       "Type": "List of String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Groups": {
       "Pattern": "[\\w+=,.@-]+",
       "Required": "No",
       "Maximum": "128",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "1",
       "Type": "List of String"
     },
@@ -33,7 +70,7 @@
       "Pattern": "[\\w+=,.@-]+",
       "Required": "No",
       "Maximum": "128",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
       "Minimum": "1",
       "Type": "List of String"
     }

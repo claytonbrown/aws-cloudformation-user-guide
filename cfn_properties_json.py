@@ -1,7 +1,8 @@
 import sys
 import json
+import pprint
 
-
+debug = False
 output = {}
 properties = {}
 pipe = sys.stdin.read()
@@ -15,7 +16,8 @@ for data in pipe:
             if "Properties<a " not in property:
                 property_name = property.split("`")[0]
                 property_bag = property.split("\n*")
-                # pprint.pprint(property_bag)
+                if debug:
+                	pprint.pprint(property_bag)
                 # property_name = property_type.rstrip("properties") + property_name.lower()
                 properties[property_name] = {}
                 ok = True
@@ -38,15 +40,29 @@ for data in pipe:
                                     properties[property_name]["AllowedValues"] = ["True", "False"]
 
 
-                            if property_key == "Update requires":
+
+                            if "Pattern" in property_key:
+                            	properties[property_name]["Pattern"] = property_data.strip('')
+
+                            if "Maximum" in property_key:
+                            	properties[property_name]["Maximum"] = property_data.strip('')
+
+                            if "Minimum" in property_key:
+                            	properties[property_name]["Minimum"] = property_data.strip('')
+
+                            if "Required" in property_key:
+                                property_key = "Required"
+                                # "Update requires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+                                properties[property_name]["Required"] = property_data.strip('')
+
+                            if "Update requires" in property_key:
                                 property_key = "UpdateRequires"
                                 # "Update requires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-                                property_data = property_data.split(']')[0].strip('[')
+                                properties[property_name]["UpdateRequires"] = property_data.split(']')[0].strip('[')
 
-                            if property_key == "Allowed Values":
-                                property_key = "AllowedValues"
+                            if "Allowed Values" in property_key:
                                 # "Update requires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-                                property_data = property_data.split(' | ')
+                                properties[property_name]["AllowedValues"] = property_data.split(' | ')
                         except:
                             ok = False
                             pass
@@ -59,6 +75,23 @@ for data in pipe:
                             properties[property_name][property_key] = property_data
 
         output[property_type] = properties
+
+        # flatten properties into their own keys
+
+
+    	for k1, v1 in output.items():
+    		if isinstance(v1, dict):
+    			for k2, v2 in v1.items():
+        			property_key = k1.replace("aws-properties-","").replace("-properties","").replace('-','.') + '.' + k2.lower()
+        			output[property_key] = v2
+
+
+        #for k1, v1 in output.items():
+        #	if '-properties' in k1:
+        #		del output[k1]
+
+
+
 print(
     json.dumps(output, indent=4)
 )

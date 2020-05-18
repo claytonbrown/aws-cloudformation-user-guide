@@ -1,16 +1,54 @@
 {
+  "ec2.host.autoplacement": {
+    "Required": "No",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "off",
+      "on"
+    ]
+  },
   "ec2-host-properties": {
     "AvailabilityZone": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
-    "HostRecovery": {},
+    "HostRecovery": {
+      "Required": "No",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "off",
+        "on"
+      ]
+    },
     "InstanceType": {
       "Required": "Yes",
-      "Type": "String",
       "UpdateRequires": "Replacement"
     },
-    "AutoPlacement": {}
+    "AutoPlacement": {
+      "Required": "No",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "off",
+        "on"
+      ]
+    }
+  },
+  "ec2.host.instancetype": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
+  "ec2.host.availabilityzone": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.host.hostrecovery": {
+    "Required": "No",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "off",
+      "on"
+    ]
   }
 }

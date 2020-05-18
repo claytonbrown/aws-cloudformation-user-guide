@@ -1,26 +1,77 @@
 {
+  "cognito.identitypool.cognitoevents": {
+    "Required": "No",
+    "Type": "Json",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.identitypool.samlproviderarns": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.identitypool.identitypoolname": {
+    "Maximum length": "128",
+    "Minimum length": "1",
+    "Pattern": "[\\w ]+",
+    "Required": "No",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "cognito.identitypool.cognitostreams": {
+    "Required": "No",
+    "Type": "CognitoStreams",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.identitypool.pushsync": {
+    "Required": "No",
+    "Type": "PushSync",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.identitypool.supportedloginproviders": {
+    "Required": "No",
+    "Type": "Json",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "cognito.identitypool.cognitoidentityproviders": {
+    "Required": "No",
+    "Type": "List of [CognitoIdentityProvider",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.identitypool.allowclassicflow": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
   "cognito-identitypool-properties": {
     "DeveloperProviderName": {
-      "Type": "String",
-      "Required": "No",
       "Maximum length": "100",
-      "UpdateRequires": "No interruption",
-      "Minimum length": "1"
+      "Minimum length": "1",
+      "Required": "No",
+      "Maximum": "100",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+      "Minimum": "1",
+      "Type": "String"
     },
     "SamlProviderARNs": {
       "Required": "No",
       "Type": "List of String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "SupportedLoginProviders": {
       "Required": "No",
       "Type": "Json",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     },
     "AllowUnauthenticatedIdentities": {
       "Required": "Yes",
       "Type": "Boolean",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "True",
         "False"
@@ -29,35 +80,69 @@
     "CognitoIdentityProviders": {
       "Required": "No",
       "Type": "List of [CognitoIdentityProvider",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "AllowClassicFlow": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "PushSync": {
+      "Required": "No",
+      "Type": "PushSync",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "CognitoStreams": {
+      "Required": "No",
+      "Type": "CognitoStreams",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "OpenIdConnectProviderARNs": {
+      "Required": "No",
+      "Type": "List of String",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "IdentityPoolName": {
       "Maximum length": "128",
       "Minimum length": "1",
       "Pattern": "[\\w ]+",
       "Required": "No",
-      "UpdateRequires": "No interruption",
+      "Maximum": "128",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+      "Minimum": "1",
       "Type": "String"
-    },
-    "PushSync": {
-      "Required": "No",
-      "Type": "PushSync",
-      "UpdateRequires": "No interruption"
-    },
-    "CognitoStreams": {
-      "Required": "No",
-      "Type": "CognitoStreams",
-      "UpdateRequires": "No interruption"
-    },
-    "OpenIdConnectProviderARNs": {
-      "Required": "No",
-      "Type": "List of String",
-      "UpdateRequires": "No interruption"
     },
     "CognitoEvents": {
       "Required": "No",
       "Type": "Json",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     }
+  },
+  "cognito.identitypool.openidconnectproviderarns": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.identitypool.developerprovidername": {
+    "Maximum length": "100",
+    "Minimum length": "1",
+    "Required": "No",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "cognito.identitypool.allowunauthenticatedidentities": {
+    "Required": "Yes",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   }
 }

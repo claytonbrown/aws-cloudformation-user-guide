@@ -1,10 +1,22 @@
 {
+  "sqs.policy.queues": {
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "aws-properties-sqs-policy-properties": {
     "Queues": {
       "Required": "Yes",
       "Type": "List of String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
-    "PolicyDocument": {}
+    "PolicyDocument": {
+      "Required": "Yes",
+      "UpdateRequires": "No interruption"
+    }
+  },
+  "sqs.policy.policydocument": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
   }
 }

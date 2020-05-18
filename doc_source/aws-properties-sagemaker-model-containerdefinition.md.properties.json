@@ -1,24 +1,54 @@
 {
+  "sagemaker.model.containerdefinition.image": {
+    "Pattern": "[\\S]+",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "255",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.model.containerdefinition.containerhostname": {
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "63",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.model.containerdefinition.environment": {
+    "Required": "No",
+    "Type": "Json",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "aws-properties-sagemaker-model-containerdefinition-properties": {
     "Environment": {
       "Required": "No",
       "Type": "Json",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "Image": {
       "Pattern": "[\\S]+",
       "Required": "Yes",
       "Type": "String",
       "Maximum": "255",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "ModelDataUrl": {
+      "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
+      "Required": "No",
+      "Maximum": "1024",
       "UpdateRequires": "Replacement"
     },
-    "ModelDataUrl": {},
     "ContainerHostname": {
       "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
       "Required": "No",
       "Type": "String",
       "Maximum": "63",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     }
+  },
+  "sagemaker.model.containerdefinition.modeldataurl": {
+    "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
+    "Required": "No",
+    "Maximum": "1024",
+    "UpdateRequires": "Replacement"
   }
 }

@@ -1,51 +1,214 @@
 {
+  "ecs.service.launchtype": {
+    "Required": "No",
+    "UpdateRequires": "Replacement",
+    "AllowedValues": [
+      "EC2",
+      "FARGATE"
+    ]
+  },
+  "ecs.service.platformversion": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.service.propagatetags": {
+    "Allowed Values": "SERVICE | TASK_DEFINITION",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "SERVICE",
+      "TASK_DEFINITION"
+    ]
+  },
+  "ecs.service.loadbalancers": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.service.schedulingstrategy": {
+    "Required": "No",
+    "UpdateRequires": "Replacement",
+    "AllowedValues": [
+      "DAEMON",
+      "REPLICA"
+    ]
+  },
   "ecs-service-properties": {
-    "NetworkConfiguration": {},
+    "NetworkConfiguration": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    },
     "HealthCheckGracePeriodSeconds": {
       "Required": "No",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "ServiceRegistries": {
       "Required": "No",
       "Type": "List of [ServiceRegistry",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
-    "LaunchType": {},
-    "SchedulingStrategy": {},
-    "LoadBalancers": {},
-    "PlacementConstraints": {
+    "LaunchType": {
       "Required": "No",
-      "Type": "List of [PlacementConstraint",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "EC2",
+        "FARGATE"
+      ]
     },
-    "DesiredCount": {
+    "EnableECSManagedTags": {
       "Required": "No",
-      "Type": "Integer",
-      "UpdateRequires": "No interruption"
-    },
-    "Cluster": {
-      "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
     },
     "ServiceName": {
       "Required": "No",
       "Type": "String",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "SchedulingStrategy": {
+      "Required": "No",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "DAEMON",
+        "REPLICA"
+      ]
+    },
+    "LoadBalancers": {
+      "Required": "No",
       "UpdateRequires": "Replacement"
     },
-    "Role": {},
-    "PlatformVersion": {},
+    "PlacementConstraints": {
+      "Required": "No",
+      "Type": "List of [PlacementConstraint",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "DeploymentController": {
+      "Required": "No",
+      "Type": "DeploymentController",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "DesiredCount": {
+      "Required": "Conditional",
+      "Type": "Integer",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "Cluster": {
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "PropagateTags": {
+      "Allowed Values": "SERVICE | TASK_DEFINITION",
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+      "AllowedValues": [
+        "SERVICE",
+        "TASK_DEFINITION"
+      ]
+    },
+    "Role": {
+      "Required": "No",
+      "UpdateRequires": "Replacement"
+    },
+    "Tags": {
+      "Required": "No",
+      "Type": "List of [Tag",
+      "Maximum": "50",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "PlatformVersion": {
+      "Required": "No",
+      "UpdateRequires": "Replacement"
+    },
     "DeploymentConfiguration": {
       "Required": "No",
       "Type": "DeploymentConfiguration",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
-    "PlacementStrategies": {},
+    "PlacementStrategies": {
+      "Required": "No",
+      "UpdateRequires": "Replacement"
+    },
     "TaskDefinition": {
-      "Required": "Yes",
+      "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
     }
+  },
+  "ecs.service.deploymentcontroller": {
+    "Required": "No",
+    "Type": "DeploymentController",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.service.deploymentconfiguration": {
+    "Required": "No",
+    "Type": "DeploymentConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ecs.service.networkconfiguration": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "ecs.service.tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ecs.service.placementconstraints": {
+    "Required": "No",
+    "Type": "List of [PlacementConstraint",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.service.healthcheckgraceperiodseconds": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ecs.service.taskdefinition": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "ecs.service.desiredcount": {
+    "Required": "Conditional",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ecs.service.enableecsmanagedtags": {
+    "Required": "No",
+    "UpdateRequires": "Replacement",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "ecs.service.placementstrategies": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.service.servicename": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.service.serviceregistries": {
+    "Required": "No",
+    "Type": "List of [ServiceRegistry",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.service.role": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.service.cluster": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

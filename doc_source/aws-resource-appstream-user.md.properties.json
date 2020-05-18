@@ -1,10 +1,32 @@
 {
+  "appstream.user.messageaction": {
+    "Allowed Values": "RESEND | SUPPRESS",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "RESEND",
+      "SUPPRESS"
+    ]
+  },
+  "appstream.user.lastname": {
+    "Pattern": "^[A-Za-z0-9_\\-\\s]+$",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2048",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "appstream.user.authenticationtype": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "appstream-user-properties": {
     "UserName": {
       "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
       "Required": "Yes",
       "Maximum": "128",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
       "Minimum": "1",
       "Type": "String"
     },
@@ -13,12 +35,13 @@
       "Required": "No",
       "Type": "String",
       "Maximum": "2048",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "MessageAction": {
+      "Allowed Values": "RESEND | SUPPRESS",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "AllowedValues": [
         "RESEND",
         "SUPPRESS"
@@ -29,12 +52,27 @@
       "Required": "No",
       "Type": "String",
       "Maximum": "2048",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "AuthenticationType": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     }
+  },
+  "appstream.user.firstname": {
+    "Pattern": "^[A-Za-z0-9_\\-\\s]+$",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2048",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "appstream.user.username": {
+    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+    "Required": "Yes",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "Minimum": "1",
+    "Type": "String"
   }
 }

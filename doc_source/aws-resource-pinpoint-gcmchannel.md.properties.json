@@ -1,19 +1,40 @@
 {
+  "pinpoint.gcmchannel.applicationid": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "pinpoint.gcmchannel.apikey": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
+  },
   "pinpoint-gcmchannel-properties": {
     "Enabled": {
       "Required": "No",
       "Type": "Boolean",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
       "AllowedValues": [
         "True",
         "False"
       ]
     },
-    "ApiKey": {},
+    "ApiKey": {
+      "Required": "Yes",
+      "UpdateRequires": "No interruption"
+    },
     "ApplicationId": {
       "Required": "Yes",
       "Type": "String",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     }
+  },
+  "pinpoint.gcmchannel.enabled": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   }
 }

@@ -1,18 +1,38 @@
 {
+  "ec2.spotfleet.fleetlaunchtemplatespecification.launchtemplatename": {
+    "Pattern": "[a-zA-Z0-9\\(\\)\\.\\-/_]+",
+    "Required": "Conditional",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "3",
+    "Type": "String"
+  },
+  "ec2.spotfleet.fleetlaunchtemplatespecification.version": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
+  },
+  "ec2.spotfleet.fleetlaunchtemplatespecification.launchtemplateid": {
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification-properties": {
     "LaunchTemplateName": {
       "Pattern": "[a-zA-Z0-9\\(\\)\\.\\-/_]+",
       "Required": "Conditional",
       "Maximum": "128",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "Minimum": "3",
       "Type": "String"
     },
-    "Version": {},
+    "Version": {
+      "Required": "Yes",
+      "UpdateRequires": "No interruption"
+    },
     "LaunchTemplateId": {
       "Required": "Conditional",
       "Type": "String",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     }
   }
 }

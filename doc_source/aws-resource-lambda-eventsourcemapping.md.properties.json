@@ -1,33 +1,150 @@
 {
+  "lambda.eventsourcemapping.maximumretryattempts": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "10000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.destinationconfig": {
+    "Required": "No",
+    "Type": "DestinationConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.eventsourcearn": {
+    "Pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
+  "lambda.eventsourcemapping.bisectbatchonfunctionerror": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
   "lambda-eventsourcemapping-properties": {
     "MaximumBatchingWindowInSeconds": {
       "Minimum": "0",
       "Required": "No",
       "Type": "Integer",
       "Maximum": "300",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "FunctionName": {
+      "Pattern": "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+      "Minimum": "1",
+      "Required": "Yes",
+      "Maximum": "140",
       "UpdateRequires": "No interruption"
     },
-    "FunctionName": {},
-    "BatchSize": {},
+    "MaximumRecordAgeInSeconds": {
+      "Minimum": "60",
+      "Required": "No",
+      "Type": "Integer",
+      "Maximum": "604800",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "BatchSize": {
+      "Minimum": "1",
+      "Required": "No",
+      "Maximum": "10000",
+      "UpdateRequires": "No interruption"
+    },
+    "DestinationConfig": {
+      "Required": "No",
+      "Type": "DestinationConfig",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
     "Enabled": {
       "Required": "No",
       "Type": "Boolean",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "True",
         "False"
       ]
     },
-    "EventSourceArn": {},
+    "EventSourceArn": {
+      "Pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
+      "Required": "Yes",
+      "UpdateRequires": "Replacement"
+    },
     "StartingPosition": {
       "Required": "No",
-      "Type": "String",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "Replacement"
+    },
+    "ParallelizationFactor": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "Integer",
+      "Maximum": "10",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "MaximumRetryAttempts": {
+      "Minimum": "0",
+      "Required": "No",
+      "Type": "Integer",
+      "Maximum": "10000",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "BisectBatchOnFunctionError": {
+      "Required": "No",
+      "Type": "Boolean",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
-        "AT_TIMESTAMP",
-        "LATEST",
-        "TRIM_HORIZON"
+        "True",
+        "False"
       ]
     }
+  },
+  "lambda.eventsourcemapping.batchsize": {
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "10000",
+    "UpdateRequires": "No interruption"
+  },
+  "lambda.eventsourcemapping.maximumbatchingwindowinseconds": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "300",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.parallelizationfactor": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "10",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.enabled": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "lambda.eventsourcemapping.startingposition": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "lambda.eventsourcemapping.maximumrecordageinseconds": {
+    "Minimum": "60",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "604800",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.functionname": {
+    "Pattern": "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+    "Minimum": "1",
+    "Required": "Yes",
+    "Maximum": "140",
+    "UpdateRequires": "No interruption"
   }
 }

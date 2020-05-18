@@ -1,9 +1,10 @@
 {
   "aws-properties-iam-accesskey-properties": {
     "Status": {
+      "Allowed Values": "Active | Inactive",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "Active",
         "Inactive"
@@ -13,10 +14,35 @@
       "Pattern": "[\\w+=,.@-]+",
       "Required": "Yes",
       "Maximum": "128",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
       "Minimum": "1",
       "Type": "String"
     },
-    "Serial": {}
+    "Serial": {
+      "Required": "No",
+      "UpdateRequires": "Replacement"
+    }
+  },
+  "iam.accesskey.username": {
+    "Pattern": "[\\w+=,.@-]+",
+    "Required": "Yes",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "iam.accesskey.serial": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "iam.accesskey.status": {
+    "Allowed Values": "Active | Inactive",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "Active",
+      "Inactive"
+    ]
   }
 }

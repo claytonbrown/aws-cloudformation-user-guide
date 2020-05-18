@@ -1,16 +1,48 @@
 {
+  "route53.hostedzone.hostedzonetags": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "route53.hostedzone.hostedzoneconfig": {
+    "Required": "No",
+    "Type": "HostedZoneConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "route53.hostedzone.queryloggingconfig": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "route53.hostedzone.vpcs": {
+    "Required": "No",
+    "UpdateRequires": "Some interruptions"
+  },
   "route53-hostedzone-properties": {
     "VPCs": {
       "Required": "No",
-      "Type": "List of [VPC"
+      "UpdateRequires": "Some interruptions"
     },
     "HostedZoneConfig": {
       "Required": "No",
       "Type": "HostedZoneConfig",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "HostedZoneTags": {
+      "Required": "No",
       "UpdateRequires": "No interruption"
     },
-    "HostedZoneTags": {},
-    "Name": {},
-    "QueryLoggingConfig": {}
+    "Name": {
+      "Required": "Yes",
+      "Maximum": "1024",
+      "UpdateRequires": "Replacement"
+    },
+    "QueryLoggingConfig": {
+      "Required": "No",
+      "UpdateRequires": "No interruption"
+    }
+  },
+  "route53.hostedzone.name": {
+    "Required": "Yes",
+    "Maximum": "1024",
+    "UpdateRequires": "Replacement"
   }
 }

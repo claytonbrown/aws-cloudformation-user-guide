@@ -1,22 +1,71 @@
 {
+  "ec2.ec2fleet.validfrom": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ec2.ec2fleet.targetcapacityspecification": {
+    "Required": "Yes",
+    "Type": "TargetCapacitySpecificationRequest",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.ec2fleet.spotoptions": {
+    "Required": "No",
+    "Type": "SpotOptionsRequest",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.ec2fleet.validuntil": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ec2.ec2fleet.launchtemplateconfigs": {
+    "Required": "Yes",
+    "Type": "List of [FleetLaunchTemplateConfigRequest",
+    "Maximum": "50",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.ec2fleet.ondemandoptions": {
+    "Required": "No",
+    "Type": "OnDemandOptionsRequest",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.ec2fleet.terminateinstanceswithexpiration": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
   "ec2-ec2fleet-properties": {
-    "Type": {},
-    "ValidUntil": {},
+    "Type": {
+      "Required": "No",
+      "UpdateRequires": "Replacement",
+      "AllowedValues": [
+        "instant",
+        "maintain",
+        "request"
+      ]
+    },
+    "ValidUntil": {
+      "Required": "No",
+      "UpdateRequires": "Replacement"
+    },
     "LaunchTemplateConfigs": {
       "Required": "Yes",
       "Type": "List of [FleetLaunchTemplateConfigRequest",
       "Maximum": "50",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "TagSpecifications": {
       "Required": "No",
       "Type": "List of [TagSpecification",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "TerminateInstancesWithExpiration": {
       "Required": "No",
       "Type": "Boolean",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "AllowedValues": [
         "True",
         "False"
@@ -25,23 +74,27 @@
     "TargetCapacitySpecification": {
       "Required": "Yes",
       "Type": "TargetCapacitySpecificationRequest",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "OnDemandOptions": {
       "Required": "No",
       "Type": "OnDemandOptionsRequest",
-      "UpdateRequires": "Replacement"
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
     },
     "SpotOptions": {
       "Required": "No",
       "Type": "SpotOptionsRequest",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    },
+    "ValidFrom": {
+      "Required": "No",
       "UpdateRequires": "Replacement"
     },
-    "ValidFrom": {},
     "ExcessCapacityTerminationPolicy": {
+      "Allowed Values": "no-termination | termination",
       "Required": "No",
       "Type": "String",
-      "UpdateRequires": "No interruption",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "no-termination",
         "termination"
@@ -50,11 +103,44 @@
     "ReplaceUnhealthyInstances": {
       "Required": "No",
       "Type": "Boolean",
-      "UpdateRequires": "Replacement",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
       "AllowedValues": [
         "True",
         "False"
       ]
     }
+  },
+  "ec2.ec2fleet.excesscapacityterminationpolicy": {
+    "Allowed Values": "no-termination | termination",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "no-termination",
+      "termination"
+    ]
+  },
+  "ec2.ec2fleet.tagspecifications": {
+    "Required": "No",
+    "Type": "List of [TagSpecification",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.ec2fleet.replaceunhealthyinstances": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "ec2.ec2fleet.type": {
+    "Required": "No",
+    "UpdateRequires": "Replacement",
+    "AllowedValues": [
+      "instant",
+      "maintain",
+      "request"
+    ]
   }
 }

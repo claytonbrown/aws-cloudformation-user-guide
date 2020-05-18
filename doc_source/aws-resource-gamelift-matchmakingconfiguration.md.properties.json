@@ -1,0 +1,192 @@
+{
+  "gamelift.matchmakingconfiguration.acceptancetimeoutseconds": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "600",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "gamelift.matchmakingconfiguration.backfillmode": {
+    "Allowed Values": "AUTOMATIC | MANUAL",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "AUTOMATIC",
+      "MANUAL"
+    ]
+  },
+  "gamelift-matchmakingconfiguration-properties": {
+    "AcceptanceTimeoutSeconds": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "Integer",
+      "Maximum": "600",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "Description": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "1024",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "AdditionalPlayerCount": {
+      "Minimum": "0",
+      "Required": "No",
+      "Type": "Integer",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "RuleSetName": {
+      "Pattern": "[a-zA-Z0-9-\\.]*|^arn:.*:matchmakingruleset\\/[a-zA-Z0-9-\\.]*",
+      "Required": "Yes",
+      "Maximum": "256",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
+      "Minimum": "1",
+      "Type": "String"
+    },
+    "GameProperties": {
+      "Required": "No",
+      "Type": "List of [GameProperty",
+      "Maximum": "16",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "CustomEventData": {
+      "Minimum": "0",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "256",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "GameSessionQueueArns": {
+      "Required": "Yes",
+      "Type": "List of String",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "NotificationTarget": {
+      "Pattern": "[a-zA-Z0-9:_/-]*",
+      "Required": "No",
+      "Maximum": "300",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+      "Minimum": "0",
+      "Type": "String"
+    },
+    "BackfillMode": {
+      "Allowed Values": "AUTOMATIC | MANUAL",
+      "Required": "No",
+      "Type": "String",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+      "AllowedValues": [
+        "AUTOMATIC",
+        "MANUAL"
+      ]
+    },
+    "AcceptanceRequired": {
+      "Required": "Yes",
+      "Type": "Boolean",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+      "AllowedValues": [
+        "True",
+        "False"
+      ]
+    },
+    "GameSessionData": {
+      "Minimum": "1",
+      "Required": "No",
+      "Type": "String",
+      "Maximum": "4096",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "RequestTimeoutSeconds": {
+      "Minimum": "1",
+      "Required": "Yes",
+      "Type": "Integer",
+      "Maximum": "43200",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    },
+    "Name": {
+      "Pattern": "[a-zA-Z0-9-\\.]*",
+      "Required": "Yes",
+      "Type": "String",
+      "Maximum": "128",
+      "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    }
+  },
+  "gamelift.matchmakingconfiguration.notificationtarget": {
+    "Pattern": "[a-zA-Z0-9:_/-]*",
+    "Required": "No",
+    "Maximum": "300",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "0",
+    "Type": "String"
+  },
+  "gamelift.matchmakingconfiguration.gameproperties": {
+    "Required": "No",
+    "Type": "List of [GameProperty",
+    "Maximum": "16",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "gamelift.matchmakingconfiguration.gamesessiondata": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "4096",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "gamelift.matchmakingconfiguration.description": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "gamelift.matchmakingconfiguration.customeventdata": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "gamelift.matchmakingconfiguration.rulesetname": {
+    "Pattern": "[a-zA-Z0-9-\\.]*|^arn:.*:matchmakingruleset\\/[a-zA-Z0-9-\\.]*",
+    "Required": "Yes",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "gamelift.matchmakingconfiguration.name": {
+    "Pattern": "[a-zA-Z0-9-\\.]*",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "gamelift.matchmakingconfiguration.gamesessionqueuearns": {
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "gamelift.matchmakingconfiguration.requesttimeoutseconds": {
+    "Minimum": "1",
+    "Required": "Yes",
+    "Type": "Integer",
+    "Maximum": "43200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "gamelift.matchmakingconfiguration.acceptancerequired": {
+    "Required": "Yes",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "gamelift.matchmakingconfiguration.additionalplayercount": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

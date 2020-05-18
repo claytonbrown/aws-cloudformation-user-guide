@@ -1,10 +1,41 @@
 {
+  "wafregional.sizeconstraintset.sizeconstraint.fieldtomatch": {
+    "Required": "Yes",
+    "Type": "FieldToMatch",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "wafregional.sizeconstraintset.sizeconstraint.texttransformation": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "CMD_LINE",
+      "COMPRESS_WHITE_SPACE",
+      "HTML_ENTITY_DECODE",
+      "LOWERCASE",
+      "NONE",
+      "URL_DECODE"
+    ]
+  },
+  "wafregional.sizeconstraintset.sizeconstraint.comparisonoperator": {
+    "Required": "Yes",
+    "Allowed Values": "EQ | GE | GT | LE | LT | NE",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "EQ",
+      "GE",
+      "GT",
+      "LE",
+      "LT",
+      "NE"
+    ],
+    "ComparisonOperator`  <a name=\"cfn-wafregional-sizeconstraintset-sizeconstraint-comparisonoperator\"></a>\nThe type of comparison you want AWS WAF to perform\\. AWS WAF uses this in combination with the provided `Size` and `FieldToMatch` to build an expression in the form of \"`Size` `ComparisonOperator` size in bytes of `FieldToMatch`\"\\. If that expression is true, the `SizeConstraint` is considered to match\\.  \n **EQ*": "Used to test if the `Size` is equal to the size of the `FieldToMatch`   \n **NE*",
+    "Type": "String"
+  },
   "aws-properties-wafregional-sizeconstraintset-sizeconstraint-properties": {
     "ComparisonOperator": {
-      "ComparisonOperator`  <a name=\"cfn-wafregional-sizeconstraintset-sizeconstraint-comparisonoperator\"></a>\nThe type of comparison you want AWS WAF to perform\\. AWS WAF uses this in combination with the provided `Size` and `FieldToMatch` to build an expression in the form of \"`Size` `ComparisonOperator` size in bytes of `FieldToMatch`\"\\. If that expression is true, the `SizeConstraint` is considered to match\\.  \n **EQ*": "Used to test if the `Size` is equal to the size of the `FieldToMatch`   \n **NE*",
       "Required": "Yes",
-      "Type": "String",
-      "UpdateRequires": "No interruption",
+      "Allowed Values": "EQ | GE | GT | LE | LT | NE",
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
       "AllowedValues": [
         "EQ",
         "GE",
@@ -12,18 +43,36 @@
         "LE",
         "LT",
         "NE"
+      ],
+      "ComparisonOperator`  <a name=\"cfn-wafregional-sizeconstraintset-sizeconstraint-comparisonoperator\"></a>\nThe type of comparison you want AWS WAF to perform\\. AWS WAF uses this in combination with the provided `Size` and `FieldToMatch` to build an expression in the form of \"`Size` `ComparisonOperator` size in bytes of `FieldToMatch`\"\\. If that expression is true, the `SizeConstraint` is considered to match\\.  \n **EQ*": "Used to test if the `Size` is equal to the size of the `FieldToMatch`   \n **NE*",
+      "Type": "String"
+    },
+    "TextTransformation": {
+      "Required": "Yes",
+      "UpdateRequires": "No interruption",
+      "AllowedValues": [
+        "CMD_LINE",
+        "COMPRESS_WHITE_SPACE",
+        "HTML_ENTITY_DECODE",
+        "LOWERCASE",
+        "NONE",
+        "URL_DECODE"
       ]
     },
-    "TextTransformation": {},
     "FieldToMatch": {
       "Required": "Yes",
       "Type": "FieldToMatch",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     },
     "Size": {
       "Required": "Yes",
       "Type": "Integer",
-      "UpdateRequires": "No interruption"
+      "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
     }
+  },
+  "wafregional.sizeconstraintset.sizeconstraint.size": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }
