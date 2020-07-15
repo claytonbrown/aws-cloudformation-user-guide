@@ -2,7 +2,7 @@
 
 Creates a new IAM user for your AWS account\.
 
- For information about limitations on the number of IAM users you can create, see [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *IAM User Guide*\.
+The number and size of IAM resources in an AWS account are limited\. For more information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*\.
 
 ## Syntax<a name="aws-properties-iam-user-syntax"></a>
 
@@ -110,7 +110,7 @@ Naming an IAM resource can cause an unrecoverable error if you reuse the same te
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
-## Return Values<a name="aws-properties-iam-user-return-values"></a>
+## Return values<a name="aws-properties-iam-user-return-values"></a>
 
 ### Ref<a name="aws-properties-iam-user-return-values-ref"></a>
 
@@ -166,6 +166,6 @@ Resources:
           Ref: MyPassword
 ```
 
-## See Also<a name="aws-properties-iam-user--seealso"></a>
+## See also<a name="aws-properties-iam-user--seealso"></a>
 + To view `AWS::IAM::User` template example snippets, see [Declaring an IAM User Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-user)\. 
 +  [CreateUser](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html) in the *AWS Identity and Access Management API Reference* 

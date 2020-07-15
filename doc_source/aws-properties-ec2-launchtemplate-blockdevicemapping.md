@@ -2,7 +2,7 @@
 
 Information about a block device mapping for an Amazon EC2 launch template\.
 
- `BlockDeviceMapping` is a property of the [ Amazon EC2 LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html) property type\.
+ `BlockDeviceMapping` is a property of [ AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html)\.
 
 ## Syntax<a name="aws-properties-ec2-launchtemplate-blockdevicemapping-syntax"></a>
 
@@ -55,5 +55,5 @@ The virtual device name \(ephemeralN\)\. Instance store volumes are numbered sta
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## See Also<a name="aws-properties-ec2-launchtemplate-blockdevicemapping--seealso"></a>
+## See also<a name="aws-properties-ec2-launchtemplate-blockdevicemapping--seealso"></a>
 +  [ LaunchTemplateBlockDeviceMappingRequest](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateBlockDeviceMappingRequest.html) in the *Amazon Elastic Compute Cloud API Reference* 

@@ -120,7 +120,7 @@ The name of the API\. Required unless you specify an OpenAPI definition for `Bod
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `ProtocolType`  <a name="cfn-apigatewayv2-api-protocoltype"></a>
-The API protocol\. Required unless you specify an OpenAPI definition for `Body` or `S3BodyLocation`\.  
+The API protocol\. Valid values are `WEBSOCKET` or `HTTP`\. Required unless you specify an OpenAPI definition for `Body` or `S3BodyLocation`\.  
 *Required*: Conditional  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -155,7 +155,7 @@ A version identifier for the API\.
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-apigatewayv2-api-return-values"></a>
+## Return values<a name="aws-resource-apigatewayv2-api-return-values"></a>
 
 ### Ref<a name="aws-resource-apigatewayv2-api-return-values-ref"></a>
 
@@ -230,5 +230,5 @@ HttpApi:
     Target: arn:aws:apigateway:{region}:lambda:path/2015-03-31/functions/arn:aws:lambda:{region}:{account-id}:function:{function-name}/invocations
 ```
 
-## See Also<a name="aws-resource-apigatewayv2-api--seealso"></a>
+## See also<a name="aws-resource-apigatewayv2-api--seealso"></a>
 + [CreateApi](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/apis.html#CreateApi) in the *Amazon API Gateway Version 2 API Reference*

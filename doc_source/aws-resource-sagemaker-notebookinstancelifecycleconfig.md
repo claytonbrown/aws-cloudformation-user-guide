@@ -1,6 +1,6 @@
 # AWS::SageMaker::NotebookInstanceLifecycleConfig<a name="aws-resource-sagemaker-notebookinstancelifecycleconfig"></a>
 
-The `AWS::SageMaker::NotebookInstanceLifecycleConfig` resource creates shell scripts that run when you create and/or start a notebook instance\. For information about notebook instance lifestyle configurations, see [Customize a Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html) in the *Amazon SageMaker Developer Guide*\.
+The `AWS::SageMaker::NotebookInstanceLifecycleConfig` resource creates shell scripts that run when you create and/or start a notebook instance\. For information about notebook instance lifecycle configurations, see [Customize a Notebook Instance](https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html) in the *Amazon SageMaker Developer Guide*\.
 
 ## Syntax<a name="aws-resource-sagemaker-notebookinstancelifecycleconfig-syntax"></a>
 
@@ -55,7 +55,7 @@ A shell script that runs every time you start a notebook instance, including whe
 *Maximum*: `1`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-sagemaker-notebookinstancelifecycleconfig-return-values"></a>
+## Return values<a name="aws-resource-sagemaker-notebookinstancelifecycleconfig-return-values"></a>
 
 ### Ref<a name="aws-resource-sagemaker-notebookinstancelifecycleconfig-return-values-ref"></a>
 

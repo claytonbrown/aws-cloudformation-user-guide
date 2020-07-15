@@ -1,4 +1,4 @@
-# CloudFormation Resource Provider Schemas<a name="resource-type-schemas"></a>
+# CloudFormation resource provider schemas<a name="resource-type-schemas"></a>
 
 In addition to the [resource specification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html), CloudFormation makes available the resource provider schemas for the Amazon resources by region\. Each resource provider schema is a JSON\-formatted text file that defines the properties and attributes of a specific resource\. 
 
@@ -6,12 +6,12 @@ For each region, CloudFormation offers a zip file containing the individual sche
 
 Resource availability may vary by region\. To check the availability of a resource in a given region, refer to the resource provider schemas for that region\.
 
-To learn more about resource provider schemas, including schema format and definitions, see [Resource Provider Schema](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html) in the *CloudFormation Command Line Interface User Guide*\.
+To learn more about resource provider schemas, including schema format and definitions, see [Resource provider schema](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html) in the *CloudFormation Command Line Interface User Guide*\.
 
 
-**Resource Specification**  
+**Resource specification**  
 
-|  Region Name  |  Region Resource Provider Schema Files  | 
+|  Region name  |  Region resource provider schema files  | 
 | --- | --- | 
 |  US East \(Ohio\)  |  [us\-east\-2](https://schema.cloudformation.us-east-2.amazonaws.com/CloudformationSchema.zip)  | 
 |  US East \(N\. Virginia\)  |  [us\-east\-1](https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip)  | 
@@ -33,6 +33,7 @@ To learn more about resource provider schemas, including schema format and defin
 |  Europe \(London\)  |  [eu\-west\-2](https://schema.cloudformation.eu-west-2.amazonaws.com/CloudformationSchema.zip)  | 
 |  Europe \(Paris\)  |  [eu\-west\-3](https://schema.cloudformation.eu-west-3.amazonaws.com/CloudformationSchema.zip)  | 
 |  Europe \(Stockholm\)  |  [eu\-north\-1](https://schema.cloudformation.eu-north-1.amazonaws.com/CloudformationSchema.zip)  | 
+|  Europe \(Milan\)  |  [eu\-south\-1](https://schema.cloudformation.eu-south-1.amazonaws.com/CloudformationSchema.zip)  | 
 |  Middle East \(Bahrain\)  |  [me\-south\-1](https://schema.cloudformation.me-south-1.amazonaws.com/CloudformationSchema.zip)  | 
 |  South America \(São Paulo\)  |  [sa\-east\-1](https://schema.cloudformation.sa-east-1.amazonaws.com/CloudformationSchema.zip)  | 
 |  AWS GovCloud \(US\-East\)  |  [us\-gov\-east\-1](https://schema.cloudformation.us-gov-east-1.amazonaws.com/CloudformationSchema.zip)  | 

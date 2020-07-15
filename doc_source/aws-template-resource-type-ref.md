@@ -1,4 +1,4 @@
-# AWS Resource and Property Types Reference<a name="aws-template-resource-type-ref"></a>
+# AWS resource and property types reference<a name="aws-template-resource-type-ref"></a>
 
 This section contains reference information for all AWS resource and property types that are supported by AWS CloudFormation\.
 
@@ -72,6 +72,7 @@ service-provider::service-name::data-type-name
 + [FMS](AWS_FMS.md)
 + [FSx](AWS_FSx.md)
 + [GameLift](AWS_GameLift.md)
++ [GlobalAccelerator](AWS_GlobalAccelerator.md)
 + [AWS Glue](AWS_Glue.md)
 + [GroundStation](AWS_GroundStation.md)
 + [GuardDuty](AWS_GuardDuty.md)
@@ -91,6 +92,7 @@ service-provider::service-name::data-type-name
 + [KMS](AWS_KMS.md)
 + [LakeFormation](AWS_LakeFormation.md)
 + [Lambda](AWS_Lambda.md)
++ [Macie](AWS_Macie.md)
 + [ManagedBlockchain](AWS_ManagedBlockchain.md)
 + [MediaConvert](AWS_MediaConvert.md)
 + [MediaLive](AWS_MediaLive.md)
@@ -127,4 +129,4 @@ service-provider::service-name::data-type-name
 + [WAFv2](AWS_WAFv2.md)
 + [WAF Regional](AWS_WAFRegional.md)
 + [WorkSpaces](AWS_WorkSpaces.md)
-+ [Shared Property Types](cfn-reference-shared.md)
++ [Shared property types](cfn-reference-shared.md)

@@ -27,7 +27,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 `Parameters`  <a name="cfn-kinesisfirehose-deliverystream-processor-parameters"></a>
 The processor parameters\.  
-*Required*: Yes  
+*Required*: No  
 *Type*: List of [ProcessorParameter](aws-properties-kinesisfirehose-deliverystream-processorparameter.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
@@ -35,5 +35,5 @@ The processor parameters\.
 The type of processor\. Valid values: `Lambda`\.   
 *Required*: Yes  
 *Type*: String  
-*Allowed Values*: `Lambda`  
+*Allowed values*: `Lambda`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

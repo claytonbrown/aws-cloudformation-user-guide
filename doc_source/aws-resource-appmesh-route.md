@@ -50,7 +50,7 @@ The name of the service mesh to create the route in\.
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `MeshOwner`  <a name="cfn-appmesh-route-meshowner"></a>
-The AWS IAM account ID of the service mesh owner\. If the account ID is not your own, then the account that you specify must share the mesh with your account before you can create the resource in the service mesh\. For more information about mesh sharing, see [Working with Shared Meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html)\.  
+The AWS IAM account ID of the service mesh owner\. If the account ID is not your own, then the account that you specify must share the mesh with your account before you can create the resource in the service mesh\. For more information about mesh sharing, see [Working with shared meshes](https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html)\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -79,7 +79,7 @@ The name of the virtual router in which to create the route\. If the virtual rou
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
-## Return Values<a name="aws-resource-appmesh-route-return-values"></a>
+## Return values<a name="aws-resource-appmesh-route-return-values"></a>
 
 ### Ref<a name="aws-resource-appmesh-route-return-values-ref"></a>
 
@@ -280,6 +280,6 @@ Outputs:
       - Uid
 ```
 
-## See Also<a name="aws-resource-appmesh-route--seealso"></a>
+## See also<a name="aws-resource-appmesh-route--seealso"></a>
 +  [Routes](https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html) in the * AWS App Mesh User Guide *\.
 +  [CreateRoute](https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_CreateRoute.html) in the * AWS App Mesh API Reference *\.

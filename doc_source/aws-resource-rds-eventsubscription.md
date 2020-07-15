@@ -74,7 +74,7 @@ Valid values: db\-instance \| db\-parameter\-group \| db\-security\-group \| db\
 *Type*: String  
 *Update requires*: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)
 
-## Return Values<a name="aws-resource-rds-eventsubscription-return-values"></a>
+## Return values<a name="aws-resource-rds-eventsubscription-return-values"></a>
 
 ### Ref<a name="aws-resource-rds-eventsubscription-return-values-ref"></a>
 

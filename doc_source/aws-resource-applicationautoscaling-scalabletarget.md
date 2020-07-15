@@ -4,6 +4,8 @@ The `AWS::ApplicationAutoScaling::ScalableTarget` resource specifies a resource 
 
 For more information, see [RegisterScalableTarget](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html) in the *Application Auto Scaling API Reference*\.
 
+For introductory exercises for scaling specific resources, see [Getting Started](https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html) in the *Application Auto Scaling User Guide*\.
+
 ## Syntax<a name="aws-resource-applicationautoscaling-scalabletarget-syntax"></a>
 
 To declare this entity in your AWS CloudFormation template, use the following syntax:
@@ -100,7 +102,7 @@ For more information, see [Suspending and Resuming Scaling](https://docs.aws.ama
 *Type*: [SuspendedState](aws-properties-applicationautoscaling-scalabletarget-suspendedstate.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-applicationautoscaling-scalabletarget-return-values"></a>
+## Return values<a name="aws-resource-applicationautoscaling-scalabletarget-return-values"></a>
 
 ### Ref<a name="aws-resource-applicationautoscaling-scalabletarget-return-values-ref"></a>
 
@@ -160,6 +162,8 @@ ScalableTarget:
 The following example registers the provisioned concurrency for a function alias \([AWS::Lambda::Alias](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html)\) called BLUE, with a minimum capacity of 1 and a maximum capacity of 100\. It also creates a scheduled action with a recurring schedule using a cron expression\.
 
 This example uses the [Fn::Join](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-join.html) and [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) intrinsic functions in the `RoleARN` property to specify the ARN of the service\-linked role\. It uses the [Fn::Sub](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html) intrinsic function to construct the `ResourceId` property\. 
+
+Note: You can't allocate provisioned concurrency on an alias that points to the unpublished version \($LATEST\)\. 
 
 #### JSON<a name="aws-resource-applicationautoscaling-scalabletarget--examples--Lambda_with_a_Scheduled_Action--json"></a>
 
@@ -408,6 +412,6 @@ Resources:
       ResourceId: !Sub table/${DDBTable}/index/GSI
 ```
 
-## See Also<a name="aws-resource-applicationautoscaling-scalabletarget--seealso"></a>
+## See also<a name="aws-resource-applicationautoscaling-scalabletarget--seealso"></a>
 + [Application Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html) 
 + [Examples](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/register-scalable-target.html#examples) of Application Auto Scaling scalable targets in the * AWS CLI Command Reference*

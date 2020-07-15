@@ -115,7 +115,7 @@ The collection of tags\. Each tag element is associated with a given resource\.
 *Type*: Json  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-apigatewayv2-stage-return-values"></a>
+## Return values<a name="aws-resource-apigatewayv2-stage-return-values"></a>
 
 ### Ref<a name="aws-resource-apigatewayv2-stage-return-values-ref"></a>
 
@@ -147,7 +147,7 @@ The following example creates a `stage` resource called `MyStage` and associates
             "DefaultRouteSettings": {
                 "DetailedMetricsEnabled": true,
                 "LoggingLevel": "INFO",
-                "DataTraceEnabled": true,
+                "DataTraceEnabled": false,
                 "ThrottlingBurstLimit": 10,
                 "ThrottlingRateLimit": 10
             },
@@ -173,7 +173,7 @@ MyStage:
     DefaultRouteSettings:
       DetailedMetricsEnabled: true
       LoggingLevel: INFO
-      DataTraceEnabled: true
+      DataTraceEnabled: false
       ThrottlingBurstLimit: 10
       ThrottlingRateLimit: 10
     AccessLogSettings:
@@ -186,5 +186,5 @@ MyStage:
         "status":"$context.status","connectionId":"$context.connectionId"}
 ```
 
-## See Also<a name="aws-resource-apigatewayv2-stage--seealso"></a>
+## See also<a name="aws-resource-apigatewayv2-stage--seealso"></a>
 + [CreateStage](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/apis-apiid-stages.html#CreateStage) in the *Amazon API Gateway Version 2 API Reference*

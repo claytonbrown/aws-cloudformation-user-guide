@@ -42,9 +42,10 @@ A friendly name or description of the `ByteMatchSet`\. You can't change `Name` a
 *Type*: String  
 *Minimum*: `1`  
 *Maximum*: `128`  
+*Pattern*: `.*\S.*`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
-## Return Values<a name="aws-resource-waf-bytematchset-return-values"></a>
+## Return values<a name="aws-resource-waf-bytematchset-return-values"></a>
 
 ### Ref<a name="aws-resource-waf-bytematchset-return-values-ref"></a>
 

@@ -77,11 +77,11 @@ A name for the usage plan\.
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-apigateway-usageplan-return-values"></a>
+## Return values<a name="aws-resource-apigateway-usageplan-return-values"></a>
 
 ### Ref<a name="aws-resource-apigateway-usageplan-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the usage plan ID, such as `MyUsagePlan`\.
+When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the usage plan ID, such as `abc123`\.
 
 For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
@@ -142,5 +142,5 @@ usagePlan:
     UsagePlanName: Plan_ABC
 ```
 
-## See Also<a name="aws-resource-apigateway-usageplan--seealso"></a>
+## See also<a name="aws-resource-apigateway-usageplan--seealso"></a>
 + [usageplan:create](https://docs.aws.amazon.com/apigateway/api-reference/link-relation/usageplan-create/) in the *Amazon API Gateway REST API Reference*

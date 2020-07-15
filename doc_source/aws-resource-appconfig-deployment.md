@@ -75,7 +75,7 @@ The configuration version to deploy\.
 *Required*: Yes  
 *Type*: String  
 *Minimum*: `1`  
-*Maximum*: `128`  
+*Maximum*: `1024`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `DeploymentStrategyId`  <a name="cfn-appconfig-deployment-deploymentstrategyid"></a>
@@ -106,7 +106,7 @@ Metadata to assign to the deployment\. Tags help organize and categorize your Ap
 *Type*: [List](aws-properties-appconfig-deployment-tags.md) of [Tags](aws-properties-appconfig-deployment-tags.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-appconfig-deployment-return-values"></a>
+## Return values<a name="aws-resource-appconfig-deployment-return-values"></a>
 
 ### Ref<a name="aws-resource-appconfig-deployment-return-values-ref"></a>
 
@@ -171,3 +171,7 @@ Resources:
         - Key: Env
           Value: test
 ```
+
+## See also<a name="aws-resource-appconfig-deployment--seealso"></a>
++  [AWS AppConfig](https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html) 
++  [Deploying a configuration](https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-deploying.html)

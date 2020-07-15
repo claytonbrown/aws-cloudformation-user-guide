@@ -4,6 +4,8 @@ The `AWS::ApplicationAutoScaling::ScalingPolicy` resource defines a scaling poli
 
 For more information, see [PutScalingPolicy](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScalingPolicy.html) in the *Application Auto Scaling API Reference*\. For more information about scaling policies, see the [Application Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html)\.
 
+For introductory exercises for scaling specific resources, see [Getting Started](https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html) in the *Application Auto Scaling User Guide*\.
+
 ## Syntax<a name="aws-resource-applicationautoscaling-scalingpolicy-syntax"></a>
 
 To declare this entity in your AWS CloudFormation template, use the following syntax:
@@ -103,7 +105,7 @@ A target tracking scaling policy\.
 *Type*: [TargetTrackingScalingPolicyConfiguration](aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-applicationautoscaling-scalingpolicy-return-values"></a>
+## Return values<a name="aws-resource-applicationautoscaling-scalingpolicy-return-values"></a>
 
 ### Ref<a name="aws-resource-applicationautoscaling-scalingpolicy-return-values-ref"></a>
 
@@ -514,6 +516,6 @@ Resources:
           ScalingAdjustment: 3
 ```
 
-## See Also<a name="aws-resource-applicationautoscaling-scalingpolicy--seealso"></a>
+## See also<a name="aws-resource-applicationautoscaling-scalingpolicy--seealso"></a>
 + [Application Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html) 
 + [Examples](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/put-scaling-policy.html#examples) of Application Auto Scaling scaling policies in the * AWS CLI Command Reference*

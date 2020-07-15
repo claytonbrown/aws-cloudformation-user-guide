@@ -1,6 +1,6 @@
 # AWS::IAM::Role<a name="aws-resource-iam-role"></a>
 
-Creates a new role for your AWS account\. For more information about roles, go to [IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html)\. For information about limitations on role names and the number of roles you can create, go to [Limitations on IAM Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *IAM User Guide*\.
+Creates a new role for your AWS account\. For more information about roles, go to [IAM Roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html)\. The number and size of IAM resources in an AWS account are limited\. For more information, see [IAM and STS Quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*\.
 
 ## Syntax<a name="aws-resource-iam-role-syntax"></a>
 
@@ -121,7 +121,7 @@ A list of tags that are attached to the specified role\. For more information ab
 *Maximum*: `50`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-iam-role-return-values"></a>
+## Return values<a name="aws-resource-iam-role-return-values"></a>
 
 ### Ref<a name="aws-resource-iam-role-return-values-ref"></a>
 
@@ -348,7 +348,7 @@ Resources:
           Ref: "RootRole"
 ```
 
-## See Also<a name="aws-resource-iam-role--seealso"></a>
+## See also<a name="aws-resource-iam-role--seealso"></a>
 +  [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) in the *AWS Identity and Access Management API Reference* 
 +  [AWS Identity and Access Management Template Snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html) 
 +  [AWS::IAM::InstanceProfile](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html) 

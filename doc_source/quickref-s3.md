@@ -1,11 +1,11 @@
-# Amazon S3 Template Snippets<a name="quickref-s3"></a>
+# Amazon S3 template snippets<a name="quickref-s3"></a>
 
 **Topics**
-+ [Creating an Amazon S3 Bucket with Defaults](#scenario-s3-bucket)
-+ [Creating an Amazon S3 Bucket for Website Hosting and with a DeletionPolicy](#scenario-s3-bucket-website)
-+ [Creating a Static Website Using a Custom Domain](#scenario-s3-bucket-website-customdomain)
++ [Creating an Amazon S3 bucket with defaults](#scenario-s3-bucket)
++ [Creating an Amazon S3 bucket for website hosting and with a DeletionPolicy](#scenario-s3-bucket-website)
++ [Creating a static website using a custom domain](#scenario-s3-bucket-website-customdomain)
 
-## Creating an Amazon S3 Bucket with Defaults<a name="scenario-s3-bucket"></a>
+## Creating an Amazon S3 bucket with defaults<a name="scenario-s3-bucket"></a>
 
 This example uses a [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html) to create a bucket with default settings\.
 
@@ -24,7 +24,7 @@ This example uses a [AWS::S3::Bucket](https://docs.aws.amazon.com/AWSCloudFormat
 2.     Type: AWS::S3::Bucket
 ```
 
-## Creating an Amazon S3 Bucket for Website Hosting and with a DeletionPolicy<a name="scenario-s3-bucket-website"></a>
+## Creating an Amazon S3 bucket for website hosting and with a DeletionPolicy<a name="scenario-s3-bucket-website"></a>
 
 This example creates a bucket as a website\. The AccessControl property is set to the canned ACL PublicRead \(public read permissions are required for buckets set up for website hosting\)\. Because this bucket resource has a [DeletionPolicy attribute](aws-attribute-deletionpolicy.md) set to `Retain`, AWS CloudFormation will not delete this bucket when it deletes the stack\. The Output section uses `Fn::GetAtt` to retrieve the WebsiteURL attribute and DomainName attribute of the S3Bucket resource\.
 
@@ -155,11 +155,11 @@ This example creates a bucket as a website\. The AccessControl property is set t
 41.     Description: Name of S3 bucket to hold website content
 ```
 
-## Creating a Static Website Using a Custom Domain<a name="scenario-s3-bucket-website-customdomain"></a>
+## Creating a static website using a custom domain<a name="scenario-s3-bucket-website-customdomain"></a>
 
 You can use Route 53 with a registered domain\. The following sample assumes that you have already created a hosted zone in Route 53 for your domain\. The example creates two buckets for website hosting\. The root bucket hosts the content, and the other bucket redirects `www.domainname.com` requests to the root bucket\. The record sets map your domain name to Amazon S3 endpoints\. Note that you will also need to add a bucket policy, as shown in the examples above\.
 
-For more information about using a custom domain, see [Setting Up a Static Website Using a Custom Domain](https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html) in the *Amazon Simple Storage Service Developer Guide*\.
+For more information about using a custom domain, see [Setting up a static website using a custom domain](https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html) in the *Amazon Simple Storage Service Developer Guide*\.
 
 ### JSON<a name="quickref-s3-example-3.json"></a>
 
@@ -168,14 +168,14 @@ For more information about using a custom domain, see [Setting Up a Static Websi
     "AWSTemplateFormatVersion": "2010-09-09",
     "Mappings" : {
         "RegionMap" : {
-            "us-east-1" : { "S3hostedzoneID" : "Z3AQBSTGFYJSTF", "websiteendpoint" : "s3.website-us-east-1.amazonaws.com" },
-            "us-west-1" : { "S3hostedzoneID" : "Z2F56UZL2M1ACD", "websiteendpoint" : "s3.website-us-west-1.amazonaws.com" },
-            "us-west-2" : { "S3hostedzoneID" : "Z3BJ6K6RIION7M", "websiteendpoint" : "s3.website-us-west-2.amazonaws.com" },            
-            "eu-west-1" : { "S3hostedzoneID" : "Z1BKCTXD74EZPE", "websiteendpoint" : "s3.website-eu-west-1.amazonaws.com" },
-            "ap-southeast-1" : { "S3hostedzoneID" : "Z3O0J2DXBE1FTB", "websiteendpoint" : "s3.website-ap-southeast-1.amazonaws.com" },
-            "ap-southeast-2" : { "S3hostedzoneID" : "Z1WCIGYICN2BYD", "websiteendpoint" : "s3.website-ap-southeast-2.amazonaws.com" },
-            "ap-northeast-1" : { "S3hostedzoneID" : "Z2M4EHUR26P7ZW", "websiteendpoint" : "s3.website-ap-northeast-1.amazonaws.com" },
-            "sa-east-1" : { "S3hostedzoneID" : "Z31GFT0UA1I2HV", "websiteendpoint" : "s3.website-sa-east-1.amazonaws.com" }
+            "us-east-1" : { "S3hostedzoneID" : "Z3AQBSTGFYJSTF", "websiteendpoint" : "s3-website-us-east-1.amazonaws.com" },
+            "us-west-1" : { "S3hostedzoneID" : "Z2F56UZL2M1ACD", "websiteendpoint" : "s3-website-us-west-1.amazonaws.com" },
+            "us-west-2" : { "S3hostedzoneID" : "Z3BJ6K6RIION7M", "websiteendpoint" : "s3-website-us-west-2.amazonaws.com" },            
+            "eu-west-1" : { "S3hostedzoneID" : "Z1BKCTXD74EZPE", "websiteendpoint" : "s3-website-eu-west-1.amazonaws.com" },
+            "ap-southeast-1" : { "S3hostedzoneID" : "Z3O0J2DXBE1FTB", "websiteendpoint" : "s3-website-ap-southeast-1.amazonaws.com" },
+            "ap-southeast-2" : { "S3hostedzoneID" : "Z1WCIGYICN2BYD", "websiteendpoint" : "s3-website-ap-southeast-2.amazonaws.com" },
+            "ap-northeast-1" : { "S3hostedzoneID" : "Z2M4EHUR26P7ZW", "websiteendpoint" : "s3-website-ap-northeast-1.amazonaws.com" },
+            "sa-east-1" : { "S3hostedzoneID" : "Z31GFT0UA1I2HV", "websiteendpoint" : "s3-website-sa-east-1.amazonaws.com" }
         }
     },
     "Parameters": {
@@ -260,28 +260,28 @@ Mappings:
   RegionMap:
     us-east-1:
       S3hostedzoneID: Z3AQBSTGFYJSTF
-      websiteendpoint: s3.website-us-east-1.amazonaws.com
+      websiteendpoint: s3-website-us-east-1.amazonaws.com
     us-west-1:
       S3hostedzoneID: Z2F56UZL2M1ACD
-      websiteendpoint: s3.website-us-west-1.amazonaws.com
+      websiteendpoint: s3-website-us-west-1.amazonaws.com
     us-west-2:
       S3hostedzoneID: Z3BJ6K6RIION7M
-      websiteendpoint: s3.website-us-west-2.amazonaws.com
+      websiteendpoint: s3-website-us-west-2.amazonaws.com
     eu-west-1:
       S3hostedzoneID: Z1BKCTXD74EZPE
-      websiteendpoint: s3.website-eu-west-1.amazonaws.com
+      websiteendpoint: s3-website-eu-west-1.amazonaws.com
     ap-southeast-1:
       S3hostedzoneID: Z3O0J2DXBE1FTB
-      websiteendpoint: s3.website-ap-southeast-1.amazonaws.com
+      websiteendpoint: s3-website-ap-southeast-1.amazonaws.com
     ap-southeast-2:
       S3hostedzoneID: Z1WCIGYICN2BYD
-      websiteendpoint: s3.website-ap-southeast-2.amazonaws.com
+      websiteendpoint: s3-website-ap-southeast-2.amazonaws.com
     ap-northeast-1:
       S3hostedzoneID: Z2M4EHUR26P7ZW
-      websiteendpoint: s3.website-ap-northeast-1.amazonaws.com
+      websiteendpoint: s3-website-ap-northeast-1.amazonaws.com
     sa-east-1:
       S3hostedzoneID: Z31GFT0UA1I2HV
-      websiteendpoint: s3.website-sa-east-1.amazonaws.com
+      websiteendpoint: s3-website-sa-east-1.amazonaws.com
 Resources:
   RootBucket:
     Type: AWS::S3::Bucket

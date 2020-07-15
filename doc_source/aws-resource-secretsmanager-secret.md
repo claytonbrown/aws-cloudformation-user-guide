@@ -11,9 +11,9 @@ You can't generate a secret with a `SecretBinary` secret value using AWS CloudFo
 Do not create a dynamic reference using a backslash `(\)` as the final value\. AWS CloudFormation cannot resolve those references, which causes a resource failure\. 
 
 After you create the basic secret, you can do any of the following:
-+ Configure your secret with details of the Secrets Manager supported [database or service](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html#full-rotation-support) with credentials stored in this secret\. 
-+ Attaches a resource\-based permissions policy to the secret\. To do this, define a [AWS::SecretsManager::ResourcePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html) resource type\.
-+ You can optionally configure a secret to rotate after a specified number of days\. See [AWS::SecretsManager::RotationSchedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html)\.
++ Configure the secret with details of the Secrets Manager supported [database or service](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html#full-rotation-support) with credentials stored in the secret\. 
++ Attach a resource\-based permissions policy to the secret by defining a [AWS::SecretsManager::ResourcePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html) resource type\.
++ Configure the secret to rotate after a specified number of days by defining a [AWS::SecretsManager::RotationSchedule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html) resource type\.
 
 ## Syntax<a name="aws-resource-secretsmanager-secret-syntax"></a>
 
@@ -105,7 +105,7 @@ The list of user\-defined tags associated with the secret\. Use tags to manage y
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-secretsmanager-secret-return-values"></a>
+## Return values<a name="aws-resource-secretsmanager-secret-return-values"></a>
 
 ### Ref<a name="aws-resource-secretsmanager-secret-return-values-ref"></a>
 
@@ -115,7 +115,7 @@ When you pass the logical ID of an `AWS::SecretsManager::Secret` resource to the
 
 If you know the ARN of a secret, you can reference a secret you created in one part of the stack template from within the definition of another resource in the same template\. You typically use the `Ref` function with the [AWS::SecretsManager::SecretTargetAttachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html) resource type to get references to both the secret and its associated database\.
 
-For more information about using the `Ref` function, see [Ref](url-doc-domain/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\. 
+For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\. 
 
 ## Examples<a name="aws-resource-secretsmanager-secret--examples"></a>
 
@@ -212,7 +212,7 @@ The following example creates a secret and provides the secret value as a litera
           Value: AppB
 ```
 
-## See Also<a name="aws-resource-secretsmanager-secret--seealso"></a>
+## See also<a name="aws-resource-secretsmanager-secret--seealso"></a>
 +  [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html) API in the AWS Secrets Manager API Reference
 +  [Secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_secret) in the AWS Secrets Manager User Guide
 +  [AWS::SecretsManager::ResourcePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html)

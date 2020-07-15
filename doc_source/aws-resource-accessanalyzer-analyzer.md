@@ -55,11 +55,12 @@ The tags to apply to the analyzer\.
 
 `Type`  <a name="cfn-accessanalyzer-analyzer-type"></a>
 The type represents the zone of trust for the analyzer\.  
+*Allowed Values*: ACCOUNT \| ORGANIZATION   
 *Required*: Yes  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
-## Return Values<a name="aws-resource-accessanalyzer-analyzer-return-values"></a>
+## Return values<a name="aws-resource-accessanalyzer-analyzer-return-values"></a>
 
 ### Ref<a name="aws-resource-accessanalyzer-analyzer-return-values-ref"></a>
 

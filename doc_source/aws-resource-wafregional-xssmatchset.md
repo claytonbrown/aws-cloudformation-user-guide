@@ -40,6 +40,7 @@ The name, if any, of the `XssMatchSet`\.
 *Type*: String  
 *Minimum*: `1`  
 *Maximum*: `128`  
+*Pattern*: `.*\S.*`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `XssMatchTuples`  <a name="cfn-wafregional-xssmatchset-xssmatchtuples"></a>
@@ -48,7 +49,7 @@ Specifies the parts of web requests that you want to inspect for cross\-site scr
 *Type*: List of [XssMatchTuple](aws-properties-wafregional-xssmatchset-xssmatchtuple.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-wafregional-xssmatchset-return-values"></a>
+## Return values<a name="aws-resource-wafregional-xssmatchset-return-values"></a>
 
 ### Ref<a name="aws-resource-wafregional-xssmatchset-return-values-ref"></a>
 

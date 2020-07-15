@@ -92,7 +92,7 @@ Key\-value pairs defining configuration options for this environment, such as th
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `PlatformArn`  <a name="cfn-beanstalk-environment-platformarn"></a>
-The Amazon Resource Name \(ARN\) of the custom platform to use with the environment\. For more information, see [ Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the *AWS Elastic Beanstalk Developer Guide*\.  
+The Amazon Resource Name \(ARN\) of the custom platform to use with the environment\. For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the *AWS Elastic Beanstalk Developer Guide*\.  
 If you specify `PlatformArn`, don't specify `SolutionStackName`\.
 *Required*: No  
 *Type*: String  
@@ -135,7 +135,7 @@ Default: If not specified, Elastic Beanstalk attempts to deploy the sample appli
 *Maximum*: `100`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-properties-beanstalk-environment-return-values"></a>
+## Return values<a name="aws-properties-beanstalk-environment-return-values"></a>
 
 ### Ref<a name="aws-properties-beanstalk-environment-return-values-ref"></a>
 
@@ -735,7 +735,7 @@ Resources:
       Path: /
 ```
 
-## See Also<a name="aws-properties-beanstalk-environment--seealso"></a>
+## See also<a name="aws-properties-beanstalk-environment--seealso"></a>
 +  [Creating an AWS Elastic Beanstalk Environment](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.environments.html) in the *AWS Elastic Beanstalk Developer Guide* 
 +  [Managing Environments](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.html) in the *AWS Elastic Beanstalk Developer Guide* 
 + For a complete Elastic Beanstalk sample template, see [Elastic Beanstalk Template Snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-elasticbeanstalk.html)\.

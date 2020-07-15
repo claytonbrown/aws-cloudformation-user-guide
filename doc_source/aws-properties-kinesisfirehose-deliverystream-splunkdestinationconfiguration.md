@@ -69,7 +69,7 @@ The HTTP Event Collector \(HEC\) endpoint to which Kinesis Data Firehose sends y
 This type can be either `Raw` or `Event`\.  
 *Required*: Yes  
 *Type*: String  
-*Allowed Values*: `Event | Raw`  
+*Allowed values*: `Event | Raw`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `HECToken`  <a name="cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-hectoken"></a>
@@ -94,10 +94,11 @@ The retry behavior in case Kinesis Data Firehose is unable to deliver data to Sp
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `S3BackupMode`  <a name="cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3backupmode"></a>
-Defines how documents should be delivered to Amazon S3\. When set to `FailedDocumentsOnly`, Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination\. When set to `AllDocuments`, Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3\. Default value is `FailedDocumentsOnly`\.   
+Defines how documents should be delivered to Amazon S3\. When set to `FailedEventsOnly`, Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination\. When set to `AllEvents`, Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3\. The default value is `FailedEventsOnly`\.  
+You can update this backup mode from `FailedEventsOnly` to `AllEvents`\. You can't update it from `AllEvents` to `FailedEventsOnly`\.  
 *Required*: No  
 *Type*: String  
-*Allowed Values*: `AllEvents | FailedEventsOnly`  
+*Allowed values*: `AllEvents | FailedEventsOnly`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `S3Configuration`  <a name="cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration-s3configuration"></a>
@@ -106,5 +107,5 @@ The configuration for the backup Amazon S3 location\.
 *Type*: [S3DestinationConfiguration](aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## See Also<a name="aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration--seealso"></a>
+## See also<a name="aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration--seealso"></a>
 +  [SplunkDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_SplunkDestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference *\. 

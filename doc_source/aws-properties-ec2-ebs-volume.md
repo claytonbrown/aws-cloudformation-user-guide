@@ -35,6 +35,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[Iops](#cfn-ec2-ebs-volume-iops)" : Integer,
       "[KmsKeyId](#cfn-ec2-ebs-volume-kmskeyid)" : String,
       "[MultiAttachEnabled](#cfn-ec2-ebs-volume-multiattachenabled)" : Boolean,
+      "[OutpostArn](#cfn-ec2-ebs-volume-outpostarn)" : String,
       "[Size](#cfn-ec2-ebs-volume-size)" : Integer,
       "[SnapshotId](#cfn-ec2-ebs-volume-snapshotid)" : String,
       "[Tags](#cfn-ec2-ebs-volume-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ],
@@ -54,6 +55,7 @@ Properties:
   [Iops](#cfn-ec2-ebs-volume-iops): Integer
   [KmsKeyId](#cfn-ec2-ebs-volume-kmskeyid): String
   [MultiAttachEnabled](#cfn-ec2-ebs-volume-multiattachenabled): Boolean
+  [OutpostArn](#cfn-ec2-ebs-volume-outpostarn): String
   [Size](#cfn-ec2-ebs-volume-size): Integer
   [SnapshotId](#cfn-ec2-ebs-volume-snapshotid): String
   [Tags](#cfn-ec2-ebs-volume-tags): 
@@ -108,6 +110,12 @@ AWS CloudFormation does not currently support updating a single\-attach volume t
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`OutpostArn`  <a name="cfn-ec2-ebs-volume-outpostarn"></a>
+The Amazon Resource Name \(ARN\) of the Outpost\.  
+*Required*: No  
+*Type*: String  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `Size`  <a name="cfn-ec2-ebs-volume-size"></a>
 The size of the volume, in GiBs\. You must specify either a snapshot ID or a volume size\.  
 Constraints: 1\-16,384 for `gp2`, 4\-16,384 for `io1`, 500\-16,384 for `st1`, 500\-16,384 for `sc1`, and 1\-1,024 for `standard`\. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size\.  
@@ -133,10 +141,10 @@ The volume type\. This can be `gp2` for General Purpose SSD, `io1` for Provision
 Default: `gp2`   
 *Required*: No  
 *Type*: String  
-*Allowed Values*: `gp2 | io1 | sc1 | st1 | standard`  
+*Allowed values*: `gp2 | io1 | sc1 | st1 | standard`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-properties-ec2-ebs-volume-return-values"></a>
+## Return values<a name="aws-properties-ec2-ebs-volume-return-values"></a>
 
 ### Ref<a name="aws-properties-ec2-ebs-volume-return-values-ref"></a>
 
@@ -209,5 +217,5 @@ NewVolume:
     AvailabilityZone: !GetAtt Ec2Instance.AvailabilityZone
 ```
 
-## See Also<a name="aws-properties-ec2-ebs-volume--seealso"></a>
+## See also<a name="aws-properties-ec2-ebs-volume--seealso"></a>
 +  [ CreateVolume](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon Elastic Compute Cloud API Reference*

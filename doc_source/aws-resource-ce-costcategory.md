@@ -51,7 +51,7 @@ The rule schema version in this particular Cost Category\.
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-ce-costcategory-return-values"></a>
+## Return values<a name="aws-resource-ce-costcategory-return-values"></a>
 
 ### Ref<a name="aws-resource-ce-costcategory-return-values-ref"></a>
 
@@ -69,9 +69,6 @@ For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::G
 
 `Arn`  <a name="Arn-fn::getatt"></a>
 The unique identifier for your Cost Category\.
-
-`EffectiveEnd`  <a name="EffectiveEnd-fn::getatt"></a>
-The Cost Category's effective end date\.
 
 `EffectiveStart`  <a name="EffectiveStart-fn::getatt"></a>
 The Cost Category's effective start date\.
@@ -147,5 +144,5 @@ The following example creates a Cost Category "Department" with two rules\.
     ]'
 ```
 
-## See Also<a name="aws-resource-ce-costcategory--seealso"></a>
+## See also<a name="aws-resource-ce-costcategory--seealso"></a>
 +  [CostCategory](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html) in the *AWS Billing and Cost Management API Reference*\. 

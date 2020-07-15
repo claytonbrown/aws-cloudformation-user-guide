@@ -95,7 +95,7 @@ The schedule of the image pipeline\. A schedule configures how often and when a 
 The status of the image pipeline\.  
 *Required*: No  
 *Type*: String  
-*Allowed Values*: `DISABLED | ENABLED`  
+*Allowed values*: `DISABLED | ENABLED`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Tags`  <a name="cfn-imagebuilder-imagepipeline-tags"></a>
@@ -104,7 +104,7 @@ The tags of this image pipeline\.
 *Type*: Map of String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-imagebuilder-imagepipeline-return-values"></a>
+## Return values<a name="aws-resource-imagebuilder-imagepipeline-return-values"></a>
 
 ### Ref<a name="aws-resource-imagebuilder-imagepipeline-return-values-ref"></a>
 
@@ -122,3 +122,71 @@ For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::G
 
 `Arn`  <a name="Arn-fn::getatt"></a>
 Returns the Amazon Resource Name \(ARN\) of the image pipeline\. For example, `arn:aws:imagebuilder:us-west-2:123456789012:image-pipeline/mywindows2016pipeline`\.
+
+## Examples<a name="aws-resource-imagebuilder-imagepipeline--examples"></a>
+
+### Create an image pipeline<a name="aws-resource-imagebuilder-imagepipeline--examples--Create_an_image_pipeline"></a>
+
+The following example shows the schema for all of the parameters of the ImagePipeline resource document in both YAML and JSON format \.
+
+#### YAML<a name="aws-resource-imagebuilder-imagepipeline--examples--Create_an_image_pipeline--yaml"></a>
+
+```
+Resources:
+  ImagePipelineAllParameters:
+    Type: 'AWS::ImageBuilder::ImagePipeline'
+    Properties:
+      Name: 'image-pipeline-name'
+      Description: 'description'
+      ImageRecipeArn: !Ref ImageRecipeArn
+      InfrastructureConfigurationArn: !Ref InfrastructureConfigurationArn
+      DistributionConfigurationArn: !Ref DistributionConfigurationArn
+      ImageTestsConfiguration:
+        ImageTestsEnabled: false
+        TimeoutMinutes: 90
+      Schedule:
+        ScheduleExpression: 'cron(0 0 * * 0)'
+        PipelineExecutionStartCondition: 'EXPRESSION_MATCH_ONLY'
+      Status: 'DISABLED'
+      Tags:
+        CustomerImagePipelineTagKey1: 'CustomerImagePipelineTagValue1'
+        CustomerImagePipelineTagKey2: 'CustomerImagePipelineTagValue2'
+```
+
+#### JSON<a name="aws-resource-imagebuilder-imagepipeline--examples--Create_an_image_pipeline--json"></a>
+
+```
+{
+    "Resources": {
+        "ImagePipelineAllParameters": {
+            "Type": "AWS::ImageBuilder::ImagePipeline",
+            "Properties": {
+                "Name": "image-pipeline-name",
+                "Description": "description",
+                "ImageRecipeArn": {
+                    "Ref": "ImageRecipeArn"
+                },
+                "InfrastructureConfigurationArn": {
+                    "Ref": "InfrastructureConfigurationArn"
+                },
+                "DistributionConfigurationArn": {
+                    "Ref": "DistributionConfigurationArn"
+                },
+                "ImageTestsConfiguration": {
+                    "ImageTestsEnabled": false,
+                    "TimeoutMinutes": 90
+                },
+                "Schedule": {
+                    "ScheduleExpression": "cron(0 0 * * 0)",
+                    "PipelineExecutionStartCondition": "EXPRESSION_MATCH_ONLY"
+                },
+                "Status": "DISABLED",
+                "Tags": {
+                    "CustomerImagePipelineTagKey1": "CustomerImagePipelineTagValue1",
+                    "CustomerImagePipelineTagKey2": "CustomerImagePipelineTagValue2"
+                }
+            }
+        }
+    }
+}
+```

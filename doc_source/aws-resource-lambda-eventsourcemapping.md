@@ -77,7 +77,7 @@ The maximum number of items to retrieve in a single batch\.
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Enabled`  <a name="cfn-lambda-eventsourcemapping-enabled"></a>
-Disables the event source mapping to pause polling and invocation\.  
+If true, the event source mapping is active\. Set to false to pause polling and invocation\.  
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -148,7 +148,7 @@ The position in a stream from which to start reading\. Required for Amazon Kines
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
-## Return Values<a name="aws-resource-lambda-eventsourcemapping-return-values"></a>
+## Return values<a name="aws-resource-lambda-eventsourcemapping-return-values"></a>
 
 ### Ref<a name="aws-resource-lambda-eventsourcemapping-return-values-ref"></a>
 

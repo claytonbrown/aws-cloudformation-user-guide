@@ -1,6 +1,6 @@
 # AWS::SSM::MaintenanceWindowTask MaintenanceWindowRunCommandParameters<a name="aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters"></a>
 
-The `MaintenanceWindowRunCommandParameters` property type specifies the parameters for a `RUN_COMMAND` task type for a maintenance window task in AWS Systems Manager\.
+The `MaintenanceWindowRunCommandParameters` property type specifies the parameters for a `RUN_COMMAND` task type for a maintenance window task in AWS Systems Manager\. This means that these parameters are the same as those for the `SendCommand` API call\. For more information, see [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) in the *AWS Systems Manager API Reference*\.
 
  `MaintenanceWindowRunCommandParameters` is a property of the [TaskInvocationParameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html) property type\.
 
@@ -59,7 +59,7 @@ The SHA\-256 or SHA\-1 hash created by the system when the document was created\
 The SHA\-256 or SHA\-1 hash type\. SHA\-1 hashes are deprecated\.  
 *Required*: No  
 *Type*: String  
-*Allowed Values*: `Sha1 | Sha256`  
+*Allowed values*: `Sha1 | Sha256`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `NotificationConfig`  <a name="cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-notificationconfig"></a>

@@ -50,19 +50,21 @@ Properties:
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Tags`  <a name="cfn-codebuild-reportgroup-tags"></a>
-Not currently supported by AWS CloudFormation\.  
+ A list of tag key and value pairs associated with this report group\.   
+These tags are available for use by AWS services that support AWS CodeBuild report group tags\.  
 *Required*: No  
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
+*Maximum*: `50`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Type`  <a name="cfn-codebuild-reportgroup-type"></a>
  The type of the `ReportGroup`\. The one valid value is `TEST`\.   
 *Required*: Yes  
 *Type*: String  
-*Allowed Values*: `TEST`  
+*Allowed values*: `TEST`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-codebuild-reportgroup-return-values"></a>
+## Return values<a name="aws-resource-codebuild-reportgroup-return-values"></a>
 
 ### Ref<a name="aws-resource-codebuild-reportgroup-return-values-ref"></a>
 

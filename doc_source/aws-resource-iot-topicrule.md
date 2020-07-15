@@ -42,7 +42,7 @@ The rule payload\.
 *Type*: [TopicRulePayload](aws-properties-iot-topicrule-topicrulepayload.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-iot-topicrule-return-values"></a>
+## Return values<a name="aws-resource-iot-topicrule-return-values"></a>
 
 ### Ref<a name="aws-resource-iot-topicrule-return-values-ref"></a>
 
@@ -50,7 +50,7 @@ The rule payload\.
 
  `{ "Ref": "MyTopicRule" }` 
 
-For a stack named My\-Stack \(the – character is omitted\), a value similar to the following is returned:
+For a stack named My\-Stack \(the \- character is omitted\), a value similar to the following is returned:
 
  `MyStackMyTopicRule12ABC3D456EFG` 
 

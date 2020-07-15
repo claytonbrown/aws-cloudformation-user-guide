@@ -19,6 +19,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "Type" : "AWS::SSM::Parameter",
   "Properties" : {
       "[AllowedPattern](#cfn-ssm-parameter-allowedpattern)" : String,
+      "[DataType](#cfn-ssm-parameter-datatype)" : String,
       "[Description](#cfn-ssm-parameter-description)" : String,
       "[Name](#cfn-ssm-parameter-name)" : String,
       "[Policies](#cfn-ssm-parameter-policies)" : String,
@@ -36,6 +37,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 Type: AWS::SSM::Parameter
 Properties: 
   [AllowedPattern](#cfn-ssm-parameter-allowedpattern): String
+  [DataType](#cfn-ssm-parameter-datatype): String
   [Description](#cfn-ssm-parameter-description): String
   [Name](#cfn-ssm-parameter-name): String
   [Policies](#cfn-ssm-parameter-policies): String
@@ -53,6 +55,14 @@ A regular expression used to validate the parameter value\. For example, for Str
 *Type*: String  
 *Minimum*: `0`  
 *Maximum*: `1024`  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`DataType`  <a name="cfn-ssm-parameter-datatype"></a>
+The data type of the parameter, such as `text` or `aws:ec2:image`\. The default is `text`\.  
+*Required*: No  
+*Type*: String  
+*Minimum*: `0`  
+*Maximum*: `128`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Description`  <a name="cfn-ssm-parameter-description"></a>
@@ -89,7 +99,7 @@ Optional metadata that you assign to a resource in the form of an arbitrary set 
 The parameter tier\.  
 *Required*: No  
 *Type*: String  
-*Allowed Values*: `Advanced | Intelligent-Tiering | Standard`  
+*Allowed values*: `Advanced | Intelligent-Tiering | Standard`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Type`  <a name="cfn-ssm-parameter-type"></a>
@@ -106,7 +116,7 @@ The parameter value\.
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-ssm-parameter-return-values"></a>
+## Return values<a name="aws-resource-ssm-parameter-return-values"></a>
 
 ### Ref<a name="aws-resource-ssm-parameter-return-values-ref"></a>
 
@@ -258,7 +268,7 @@ Resources:
         Environment: DEV
 ```
 
-## See Also<a name="aws-resource-ssm-parameter--seealso"></a>
+## See also<a name="aws-resource-ssm-parameter--seealso"></a>
 +  [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) 
 +  [About Advanced Parameters](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html)
 +  [Working with Parameter Policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) 

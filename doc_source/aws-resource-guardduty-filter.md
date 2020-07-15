@@ -70,11 +70,12 @@ The name of the filter\. Minimum length of 3\. Maximum length of 64\. Valid char
 
 `Rank`  <a name="cfn-guardduty-filter-rank"></a>
 Specifies the position of the filter in the list of current filters\. Also specifies the order in which this filter is applied to the findings\.  
+By default filters may not be created in the same order as they are ranked\. To ensure filters are created in the correct order you can use the optional `DependsOn` attribute with the following syntax: `"DependsOn":[ "ObjectName" ]`\. You can find more information on using this attribute [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html)\.
 *Required*: Yes  
 *Type*: Integer  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-guardduty-filter-return-values"></a>
+## Return values<a name="aws-resource-guardduty-filter-return-values"></a>
 
 ### Ref<a name="aws-resource-guardduty-filter-return-values-ref"></a>
 
@@ -101,7 +102,9 @@ The following example shows how to declare a GuardDuty `Filter` resource:
             "Criterion": {
                 "updatedAt": {
                 "Gte": 0
-                }
+                },
+                "severity": {
+                "Gte": 0
         }
     },
     "Rank": 1,
@@ -121,6 +124,8 @@ Properties:
     FindingCriteria : 
         Criterion:
             "updatedAt":
+                Gte: 0	
+            "severity":
                 Gte: 0	
     Rank : 1
     Name : "SampleFilter"

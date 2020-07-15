@@ -15,7 +15,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "Type" : "AWS::ServiceDiscovery::HttpNamespace",
   "Properties" : {
       "[Description](#cfn-servicediscovery-httpnamespace-description)" : String,
-      "[Name](#cfn-servicediscovery-httpnamespace-name)" : String
+      "[Name](#cfn-servicediscovery-httpnamespace-name)" : String,
+      "[Tags](#cfn-servicediscovery-httpnamespace-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ]
     }
 }
 ```
@@ -27,6 +28,8 @@ Type: AWS::ServiceDiscovery::HttpNamespace
 Properties: 
   [Description](#cfn-servicediscovery-httpnamespace-description): String
   [Name](#cfn-servicediscovery-httpnamespace-name): String
+  [Tags](#cfn-servicediscovery-httpnamespace-tags): 
+    - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
 ```
 
 ## Properties<a name="aws-resource-servicediscovery-httpnamespace-properties"></a>
@@ -45,7 +48,14 @@ The name that you want to assign to this namespace\.
 *Maximum*: `1024`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
-## Return Values<a name="aws-resource-servicediscovery-httpnamespace-return-values"></a>
+`Tags`  <a name="cfn-servicediscovery-httpnamespace-tags"></a>
+The tags for the namespace\. Each tag consists of a key and an optional value, both of which you define\. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters\.  
+*Required*: No  
+*Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
+*Maximum*: `200`  
+*Update requires*: Updates are not supported\.
+
+## Return values<a name="aws-resource-servicediscovery-httpnamespace-return-values"></a>
 
 ### Ref<a name="aws-resource-servicediscovery-httpnamespace-return-values-ref"></a>
 
@@ -94,5 +104,5 @@ Properties:
   Name: example-namespace
 ```
 
-## See Also<a name="aws-resource-servicediscovery-httpnamespace--seealso"></a>
+## See also<a name="aws-resource-servicediscovery-httpnamespace--seealso"></a>
 +  [CreateHttpNamespace](https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateHttpNamespace.html) in the *AWS Cloud Map API Reference* 

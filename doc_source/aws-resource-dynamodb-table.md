@@ -78,6 +78,7 @@ Valid values include:
 If not specified, the default is `PROVISIONED`\.  
 *Required*: No  
 *Type*: String  
+*Allowed values*: `PAY_PER_REQUEST | PROVISIONED`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `GlobalSecondaryIndexes`  <a name="cfn-dynamodb-table-gsi"></a>
@@ -121,7 +122,7 @@ Specifies the settings to enable server\-side encryption\.
 Update requires: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)\.   
 *Required*: No  
 *Type*: [SSESpecification](aws-properties-dynamodb-table-ssespecification.md)  
-*Update requires*: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `StreamSpecification`  <a name="cfn-dynamodb-table-streamspecification"></a>
 The settings for the DynamoDB table stream, which capture changes to items stored in the table\.  
@@ -153,7 +154,7 @@ For detailed information about the limits in DynamoDB, see [Limits in Amazon Dyn
 *Type*: [TimeToLiveSpecification](aws-properties-dynamodb-timetolivespecification.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-## Return Values<a name="aws-resource-dynamodb-table-return-values"></a>
+## Return values<a name="aws-resource-dynamodb-table-return-values"></a>
 
 ### Ref<a name="aws-resource-dynamodb-table-return-values-ref"></a>
 

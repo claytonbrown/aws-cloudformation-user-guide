@@ -23,6 +23,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[Engine](#cfn-elasticache-replicationgroup-engine)" : String,
       "[EngineVersion](#cfn-elasticache-replicationgroup-engineversion)" : String,
       "[KmsKeyId](#cfn-elasticache-replicationgroup-kmskeyid)" : String,
+      "[MultiAZEnabled](#cfn-elasticache-replicationgroup-multiazenabled)" : Boolean,
       "[NodeGroupConfiguration](#cfn-elasticache-replicationgroup-nodegroupconfiguration)" : [ [NodeGroupConfiguration](aws-properties-elasticache-replicationgroup-nodegroupconfiguration.md), ... ],
       "[NotificationTopicArn](#cfn-elasticache-replicationgroup-notificationtopicarn)" : String,
       "[NumCacheClusters](#cfn-elasticache-replicationgroup-numcacheclusters)" : Integer,
@@ -63,6 +64,7 @@ Properties:
   [Engine](#cfn-elasticache-replicationgroup-engine): String
   [EngineVersion](#cfn-elasticache-replicationgroup-engineversion): String
   [KmsKeyId](#cfn-elasticache-replicationgroup-kmskeyid): String
+  [MultiAZEnabled](#cfn-elasticache-replicationgroup-multiazenabled): Boolean
   [NodeGroupConfiguration](#cfn-elasticache-replicationgroup-nodegroupconfiguration): 
     - [NodeGroupConfiguration](aws-properties-elasticache-replicationgroup-nodegroupconfiguration.md)
   [NotificationTopicArn](#cfn-elasticache-replicationgroup-notificationtopicarn): String
@@ -102,12 +104,12 @@ Default: `false`
 
 `AuthToken`  <a name="cfn-elasticache-replicationgroup-authtoken"></a>
  **Reserved parameter\.** The password used to access a password protected server\.  
- `AuthToken` can be specified only on replication groups where `TransitEncryptionEnabled` is `true`\.  
+ `AuthToken` can be specified only on replication groups where `TransitEncryptionEnabled` is `true`\. For more information, see [Authenticating Users with the Redis AUTH Command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html)\.  
 For HIPAA compliance, you must specify `TransitEncryptionEnabled` as `true`, an `AuthToken`, and a `CacheSubnetGroup`\.
 Password constraints:  
 + Must be only printable ASCII characters\.
 + Must be at least 16 characters and no more than 128 characters in length\.
-+ The only permitted printable special characters are \!, &, \#, $, ^, <, >, and \-\. Other printable special characters cannot be used in the AUTH token\.
++ Cannot contain any of the following characters: '/', '"', or '@'\. 
 For more information, see [AUTH password](http://redis.io/commands/AUTH) at http://redis\.io/commands/AUTH\.  
 *Required*: No  
 *Type*: String  
@@ -115,13 +117,8 @@ For more information, see [AUTH password](http://redis.io/commands/AUTH) at http
 
 `AutomaticFailoverEnabled`  <a name="cfn-elasticache-replicationgroup-automaticfailoverenabled"></a>
 Specifies whether a read\-only replica is automatically promoted to read/write primary if the existing primary fails\.  
-If `true`, Multi\-AZ is enabled for this replication group\. If `false`, Multi\-AZ is disabled for this replication group\.  
  `AutomaticFailoverEnabled` must be enabled for Redis \(cluster mode enabled\) replication groups\.  
 Default: false  
-Amazon ElastiCache for Redis does not support Multi\-AZ with automatic failover on:  
-+ Redis versions earlier than 2\.8\.6\.
-+ Redis \(cluster mode disabled\): T1 node types\.
-+ Redis \(cluster mode enabled\): T1 node types\.
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -213,6 +210,12 @@ The ID of the KMS key used to encrypt the disk on the cluster\.
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+
+`MultiAZEnabled`  <a name="cfn-elasticache-replicationgroup-multiazenabled"></a>
+A flag indicating if you have Multi\-AZ enabled to enhance fault tolerance\. For more information, see [Minimizing Downtime: Multi\-AZ](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html)\.  
+*Required*: No  
+*Type*: Boolean  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `NodeGroupConfiguration`  <a name="cfn-elasticache-replicationgroup-nodegroupconfiguration"></a>
 `NodeGroupConfiguration ` is a property of the `AWS::ElastiCache::ReplicationGroup` resource that configures an Amazon ElastiCache \(ElastiCache\) Redis cluster node group\.   
@@ -365,7 +368,7 @@ For HIPAA compliance, you must specify `TransitEncryptionEnabled` as `true`, an 
 *Type*: Boolean  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
-## Return Values<a name="aws-resource-elasticache-replicationgroup-return-values"></a>
+## Return values<a name="aws-resource-elasticache-replicationgroup-return-values"></a>
 
 ### Ref<a name="aws-resource-elasticache-replicationgroup-return-values-ref"></a>
 
@@ -405,6 +408,12 @@ A string with a list of ports for the read\-only replicas\. The order of the por
 
 `ReadEndPoint.Ports.List`  <a name="ReadEndPoint.Ports.List-fn::getatt"></a>
 A string with a list of ports for the read\-only replicas\. The order of the ports maps to the order of the addresses from the ReadEndPoint\.Addresses attribute\. 
+
+`ReaderEndPoint.Address`  <a name="ReaderEndPoint.Address-fn::getatt"></a>
+Not currently supported by AWS CloudFormation\.
+
+`ReaderEndPoint.Port`  <a name="ReaderEndPoint.Port-fn::getatt"></a>
+Not currently supported by AWS CloudFormation\.
 
 ## Examples<a name="aws-resource-elasticache-replicationgroup--examples"></a>
 
@@ -513,6 +522,6 @@ BasicReplicationGroup:
     SnapshotWindow: '10:00-12:00'
 ```
 
-## See Also<a name="aws-resource-elasticache-replicationgroup--seealso"></a>
+## See also<a name="aws-resource-elasticache-replicationgroup--seealso"></a>
 
 [CreateReplicationGroup](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) in the * Amazon ElastiCache API Reference Guide* 

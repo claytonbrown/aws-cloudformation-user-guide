@@ -1,6 +1,6 @@
 # AWS::Cassandra::Keyspace<a name="aws-resource-cassandra-keyspace"></a>
 
-The `AWS::Cassandra::Keyspace` resource allows you to create a new keyspace in Amazon Keyspaces \(for Apache Cassandra\. For more information, see [Create a Keyspace and a Table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide*\.
+The `AWS::Cassandra::Keyspace` resource allows you to create a new keyspace in Amazon Keyspaces \(for Apache Cassandra\)\. For more information, see [Create a Keyspace and a Table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide*\.
 
 ## Syntax<a name="aws-resource-cassandra-keyspace-syntax"></a>
 
@@ -35,7 +35,7 @@ The name of the keyspace to be created\. If you don't specify a name, AWS CloudF
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
-## Return Values<a name="aws-resource-cassandra-keyspace-return-values"></a>
+## Return values<a name="aws-resource-cassandra-keyspace-return-values"></a>
 
 ### Ref<a name="aws-resource-cassandra-keyspace-return-values-ref"></a>
 
