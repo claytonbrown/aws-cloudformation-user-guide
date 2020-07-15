@@ -1,62 +1,57 @@
 {
-  "codepipeline.webhook.authentication": {
-    "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "GITHUB_HMAC",
-      "IP",
-      "UNAUTHENTICATED"
-    ],
-    "Allowed Values": "GITHUB_HMAC | IP | UNAUTHENTICATED",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codepipeline.webhook.authenticationconfiguration": {
-    "Required": "Yes",
-    "Type": "WebhookAuthConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "codepipeline.webhook.filters": {
     "Required": "Yes",
     "Type": "List of [WebhookFilterRule",
     "Maximum": "5",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codepipeline.webhook.name": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "100",
-    "Pattern": "[A-Za-z0-9.@\\-_]+",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "codepipeline.webhook.registerwiththirdparty": {
     "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ],
-    "Type": "Boolean",
+    ]
+  },
+  "codepipeline.webhook.authenticationconfiguration": {
+    "Required": "Yes",
+    "Type": "WebhookAuthConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codepipeline.webhook.targetaction": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "100",
     "Pattern": "[A-Za-z0-9.@\\-_]+",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Required": "Yes",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "codepipeline.webhook.name": {
+    "Pattern": "[A-Za-z0-9.@\\-_]+",
+    "Required": "No",
+    "Maximum": "100",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "codepipeline.webhook.targetpipeline": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "100",
     "Pattern": "[A-Za-z0-9.@\\-_]+",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Required": "Yes",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "codepipeline.webhook.targetpipelineversion": {
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "codepipeline.webhook.authentication": {
+    "Allowed values": "GITHUB_HMAC | IP | UNAUTHENTICATED",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

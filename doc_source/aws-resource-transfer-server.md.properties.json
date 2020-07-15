@@ -1,48 +1,17 @@
 {
-  "transfer.server.certificate": {
+  "transfer.server.tags": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "1600",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "transfer.server.endpointdetails": {
-    "Required": "No",
-    "Type": "EndpointDetails",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "transfer.server.endpointtype": {
-    "Required": "Conditional",
-    "Type": "String",
-    "AllowedValues": [
-      "PUBLIC",
-      "VPC",
-      "VPC_ENDPOINT"
-    ],
-    "Allowed Values": "PUBLIC | VPC | VPC_ENDPOINT",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "transfer.server.identityproviderdetails": {
-    "Required": "No",
-    "Type": "IdentityProviderDetails",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "transfer.server.identityprovidertype": {
-    "Required": "No",
-    "Type": "String",
-    "AllowedValues": [
-      "API_GATEWAY",
-      "SERVICE_MANAGED"
-    ],
-    "Allowed Values": "API_GATEWAY | SERVICE_MANAGED",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "transfer.server.loggingrole": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "20",
-    "Maximum": "2048",
     "Pattern": "arn:.*role/.*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Required": "No",
+    "Maximum": "2048",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "20",
+    "Type": "String"
   },
   "transfer.server.protocols": {
     "Required": "No",
@@ -50,10 +19,31 @@
     "Maximum": "3",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "transfer.server.tags": {
+  "transfer.server.endpointdetails": {
     "Required": "No",
-    "Type": "List of [Tag",
-    "Maximum": "50",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Type": "EndpointDetails",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "transfer.server.certificate": {
+    "Required": "No",
+    "Maximum": "1600",
+    "UpdateRequires": "No interruption"
+  },
+  "transfer.server.identityproviderdetails": {
+    "Required": "No",
+    "Type": "IdentityProviderDetails",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "transfer.server.identityprovidertype": {
+    "Allowed values": "API_GATEWAY | SERVICE_MANAGED",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "transfer.server.endpointtype": {
+    "Allowed values": "PUBLIC | VPC | VPC_ENDPOINT",
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

@@ -1,42 +1,42 @@
 {
-  "lambda.alias.description": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "0",
-    "Maximum": "256",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "lambda.alias.functionname": {
+  "lambda.alias.name": {
+    "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_]+)",
     "Required": "Yes",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "Minimum": "1",
-    "Maximum": "140",
-    "Pattern": "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
-    "UpdateRequires": "Replacement"
+    "Type": "String"
   },
   "lambda.alias.functionversion": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "1024",
     "Pattern": "(\\$LATEST|[0-9]+)",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "lambda.alias.name": {
     "Required": "Yes",
-    "Type": "String",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "Minimum": "1",
-    "Maximum": "128",
-    "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_]+)",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "String"
   },
-  "lambda.alias.provisionedconcurrencyconfig": {
-    "Required": "No",
-    "Type": "ProvisionedConcurrencyConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  "lambda.alias.functionname": {
+    "Pattern": "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+    "Minimum": "1",
+    "Required": "Yes",
+    "Maximum": "140",
+    "UpdateRequires": "Replacement"
   },
   "lambda.alias.routingconfig": {
     "Required": "No",
     "Type": "AliasRoutingConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "lambda.alias.description": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.alias.provisionedconcurrencyconfig": {
+    "Required": "No",
+    "Type": "ProvisionedConcurrencyConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

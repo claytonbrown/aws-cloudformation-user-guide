@@ -1,12 +1,26 @@
 {
+  "route53resolver.resolverendpoint.tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "route53resolver.resolverendpoint.name": {
+    "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "64",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "route53resolver.resolverendpoint.direction": {
+    "Allowed values": "INBOUND | OUTBOUND",
     "Required": "Yes",
     "Type": "String",
-    "AllowedValues": [
-      "INBOUND",
-      "OUTBOUND"
-    ],
-    "Allowed Values": "INBOUND | OUTBOUND",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "route53resolver.resolverendpoint.securitygroupids": {
+    "Required": "Yes",
+    "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "route53resolver.resolverendpoint.ipaddresses": {
@@ -14,22 +28,5 @@
     "Type": "List of [IpAddressRequest",
     "Maximum": "10",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "route53resolver.resolverendpoint.name": {
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "64",
-    "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9-_' ']+)",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "route53resolver.resolverendpoint.securitygroupids": {
-    "Required": "Yes",
-    "Type": "List of String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "route53resolver.resolverendpoint.tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

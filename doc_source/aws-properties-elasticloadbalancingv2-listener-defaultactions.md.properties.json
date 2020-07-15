@@ -1,12 +1,7 @@
 {
-  "elasticloadbalancingv2.listener.defaultactions.authenticatecognitoconfig": {
+  "elasticloadbalancingv2.listener.defaultactions.targetgrouparn": {
     "Required": "No",
-    "Type": "AuthenticateCognitoConfig",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticloadbalancingv2.listener.defaultactions.authenticateoidcconfig": {
-    "Required": "No",
-    "Type": "AuthenticateOidcConfig",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticloadbalancingv2.listener.defaultactions.fixedresponseconfig": {
@@ -19,34 +14,32 @@
     "Type": "ForwardConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "elasticloadbalancingv2.listener.defaultactions.authenticatecognitoconfig": {
+    "Required": "No",
+    "Type": "AuthenticateCognitoConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.listener.defaultactions.authenticateoidcconfig": {
+    "Required": "No",
+    "Type": "AuthenticateOidcConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.listener.defaultactions.type": {
+    "Allowed values": "authenticate-cognito | authenticate-oidc | fixed-response | forward | redirect",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "elasticloadbalancingv2.listener.defaultactions.order": {
+    "Minimum": "1",
     "Required": "No",
     "Type": "Integer",
-    "Minimum": "1",
     "Maximum": "50000",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticloadbalancingv2.listener.defaultactions.redirectconfig": {
     "Required": "No",
     "Type": "RedirectConfig",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticloadbalancingv2.listener.defaultactions.targetgrouparn": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticloadbalancingv2.listener.defaultactions.type": {
-    "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "authenticate-cognito",
-      "authenticate-oidc",
-      "fixed-response",
-      "forward",
-      "redirect"
-    ],
-    "Allowed Values": "authenticate-cognito | authenticate-oidc | fixed-response | forward | redirect",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

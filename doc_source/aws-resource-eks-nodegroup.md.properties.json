@@ -1,16 +1,11 @@
 {
-  "eks.nodegroup.amitype": {
+  "eks.nodegroup.remoteaccess": {
     "Required": "No",
-    "Type": "String",
-    "AllowedValues": [
-      "AL2_x86_64",
-      "AL2_x86_64_GPU"
-    ],
-    "Allowed Values": "AL2_x86_64 | AL2_x86_64_GPU",
+    "Type": "RemoteAccess",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "eks.nodegroup.clustername": {
-    "Required": "Yes",
+  "eks.nodegroup.nodegroupname": {
+    "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
@@ -19,61 +14,62 @@
     "Type": "Double",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "eks.nodegroup.subnets": {
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "eks.nodegroup.forceupdateenabled": {
     "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "eks.nodegroup.instancetypes": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    ]
   },
   "eks.nodegroup.labels": {
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "eks.nodegroup.nodegroupname": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "eks.nodegroup.noderole": {
-    "Required": "Yes",
-    "UpdateRequires": "Replacement"
-  },
-  "eks.nodegroup.releaseversion": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "eks.nodegroup.remoteaccess": {
-    "Required": "No",
-    "Type": "RemoteAccess",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "eks.nodegroup.scalingconfig": {
     "Required": "No",
     "Type": "ScalingConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "eks.nodegroup.subnets": {
+  "eks.nodegroup.releaseversion": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "eks.nodegroup.noderole": {
     "Required": "Yes",
-    "Type": "List of String",
+    "UpdateRequires": "Replacement"
+  },
+  "eks.nodegroup.amitype": {
+    "Allowed values": "AL2_x86_64 | AL2_x86_64_GPU",
+    "Required": "No",
+    "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "eks.nodegroup.version": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "eks.nodegroup.tags": {
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "eks.nodegroup.version": {
-    "Required": "No",
+  "eks.nodegroup.clustername": {
+    "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "eks.nodegroup.instancetypes": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

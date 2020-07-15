@@ -1,16 +1,21 @@
 {
-  "beanstalk.environment.applicationname": {
-    "Required": "Yes",
-    "Type": "String",
+  "beanstalk.environment.versionlabel": {
     "Minimum": "1",
-    "Maximum": "100",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "beanstalk.environment.cnameprefix": {
     "Required": "No",
     "Type": "String",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "beanstalk.environment.tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "beanstalk.environment.environmentname": {
     "Minimum": "4",
-    "Maximum": "63",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "40",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "beanstalk.environment.description": {
@@ -19,48 +24,43 @@
     "Maximum": "200",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "beanstalk.environment.environmentname": {
+  "beanstalk.environment.templatename": {
+    "Minimum": "1",
     "Required": "No",
     "Type": "String",
-    "Minimum": "4",
-    "Maximum": "40",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "beanstalk.environment.optionsettings": {
-    "Required": "No",
-    "Type": "List of [OptionSetting",
+    "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "beanstalk.environment.applicationname": {
+    "Minimum": "1",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "100",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "beanstalk.environment.platformarn": {
     "Required": "No",
     "UpdateRequires": "No interruption"
-  },
-  "beanstalk.environment.solutionstackname": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "beanstalk.environment.tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "beanstalk.environment.templatename": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "100",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "beanstalk.environment.tier": {
     "Required": "No",
     "Type": "Tier",
     "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
-  "beanstalk.environment.versionlabel": {
+  "beanstalk.environment.optionsettings": {
+    "Required": "No",
+    "Type": "List of [OptionSetting",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "beanstalk.environment.solutionstackname": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "beanstalk.environment.cnameprefix": {
+    "Minimum": "4",
     "Required": "No",
     "Type": "String",
-    "Minimum": "1",
-    "Maximum": "100",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Maximum": "63",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

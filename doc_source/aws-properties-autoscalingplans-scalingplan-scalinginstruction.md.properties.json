@@ -1,111 +1,81 @@
 {
+  "autoscalingplans.scalingplan.scalinginstruction.mincapacity": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "autoscalingplans.scalingplan.scalinginstruction.customizedloadmetricspecification": {
     "Required": "Conditional",
     "UpdateRequires": "No interruption"
   },
+  "autoscalingplans.scalingplan.scalinginstruction.scalingpolicyupdatebehavior": {
+    "Allowed values": "KeepExternalPolicies | ReplaceExternalPolicies",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "autoscalingplans.scalingplan.scalinginstruction.scalabledimension": {
+    "Allowed values": "autoscaling:autoScalingGroup:DesiredCapacity | dynamodb:index:ReadCapacityUnits | dynamodb:index:WriteCapacityUnits | dynamodb:table:ReadCapacityUnits | dynamodb:table:WriteCapacityUnits | ec2:spot-fleet-request:TargetCapacity | ecs:service:DesiredCount | rds:cluster:ReadReplicaCount",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "autoscalingplans.scalingplan.scalinginstruction.predictivescalingmaxcapacitybehavior": {
+    "Allowed values": "SetForecastCapacityToMaxCapacity | SetMaxCapacityAboveForecastCapacity | SetMaxCapacityToForecastCapacity",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "autoscalingplans.scalingplan.scalinginstruction.disabledynamicscaling": {
     "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    ]
+  },
+  "autoscalingplans.scalingplan.scalinginstruction.predictivescalingmaxcapacitybuffer": {
+    "Required": "Conditional",
+    "UpdateRequires": "No interruption"
   },
   "autoscalingplans.scalingplan.scalinginstruction.maxcapacity": {
     "Required": "Yes",
     "UpdateRequires": "No interruption"
   },
-  "autoscalingplans.scalingplan.scalinginstruction.mincapacity": {
+  "autoscalingplans.scalingplan.scalinginstruction.targettrackingconfigurations": {
     "Required": "Yes",
-    "Type": "Integer",
+    "Type": "List of [TargetTrackingConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "autoscalingplans.scalingplan.scalinginstruction.predictivescalingmode": {
+    "Allowed values": "ForecastAndScale | ForecastOnly",
+    "Required": "No",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscalingplans.scalingplan.scalinginstruction.predefinedloadmetricspecification": {
     "Required": "Conditional",
     "UpdateRequires": "No interruption"
   },
-  "autoscalingplans.scalingplan.scalinginstruction.predictivescalingmaxcapacitybehavior": {
-    "Required": "No",
-    "Type": "String",
-    "AllowedValues": [
-      "SetForecastCapacityToMaxCapacity",
-      "SetMaxCapacityAboveForecastCapacity",
-      "SetMaxCapacityToForecastCapacity"
-    ],
-    "Allowed Values": "SetForecastCapacityToMaxCapacity | SetMaxCapacityAboveForecastCapacity | SetMaxCapacityToForecastCapacity",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "autoscalingplans.scalingplan.scalinginstruction.predictivescalingmaxcapacitybuffer": {
-    "Required": "Conditional",
-    "UpdateRequires": "No interruption"
-  },
-  "autoscalingplans.scalingplan.scalinginstruction.predictivescalingmode": {
-    "Required": "No",
-    "Type": "String",
-    "AllowedValues": [
-      "ForecastAndScale",
-      "ForecastOnly"
-    ],
-    "Allowed Values": "ForecastAndScale | ForecastOnly",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "autoscalingplans.scalingplan.scalinginstruction.resourceid": {
+  "autoscalingplans.scalingplan.scalinginstruction.servicenamespace": {
+    "Allowed values": "autoscaling | dynamodb | ec2 | ecs | rds",
     "Required": "Yes",
     "Type": "String",
-    "Minimum": "1",
-    "Maximum": "1600",
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "autoscalingplans.scalingplan.scalinginstruction.scalabledimension": {
-    "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "autoscaling:autoScalingGroup:DesiredCapacity",
-      "dynamodb:index:ReadCapacityUnits",
-      "dynamodb:index:WriteCapacityUnits",
-      "dynamodb:table:ReadCapacityUnits",
-      "dynamodb:table:WriteCapacityUnits",
-      "ec2:spot-fleet-request:TargetCapacity",
-      "ecs:service:DesiredCount",
-      "rds:cluster:ReadReplicaCount"
-    ],
-    "Allowed Values": "autoscaling:autoScalingGroup:DesiredCapacity | dynamodb:index:ReadCapacityUnits | dynamodb:index:WriteCapacityUnits | dynamodb:table:ReadCapacityUnits | dynamodb:table:WriteCapacityUnits | ec2:spot-fleet-request:TargetCapacity | ecs:service:DesiredCount | rds:cluster:ReadReplicaCount",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "autoscalingplans.scalingplan.scalinginstruction.scalingpolicyupdatebehavior": {
-    "Required": "No",
-    "Type": "String",
-    "AllowedValues": [
-      "KeepExternalPolicies",
-      "ReplaceExternalPolicies"
-    ],
-    "Allowed Values": "KeepExternalPolicies | ReplaceExternalPolicies",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscalingplans.scalingplan.scalinginstruction.scheduledactionbuffertime": {
+    "Minimum": "0",
     "Required": "No",
     "Type": "Integer",
-    "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "autoscalingplans.scalingplan.scalinginstruction.servicenamespace": {
+  "autoscalingplans.scalingplan.scalinginstruction.resourceid": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
     "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "autoscaling",
-      "dynamodb",
-      "ec2",
-      "ecs",
-      "rds"
-    ],
-    "Allowed Values": "autoscaling | dynamodb | ec2 | ecs | rds",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "autoscalingplans.scalingplan.scalinginstruction.targettrackingconfigurations": {
-    "Required": "Yes",
-    "Type": "List of [TargetTrackingConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Maximum": "1600",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   }
 }

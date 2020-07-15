@@ -1,16 +1,19 @@
 {
-  "cloudwatch.alarm.metricdataquery.expression": {
-    "Required": "No",
-    "Minimum": "1",
-    "Maximum": "1024",
-    "UpdateRequires": "No interruption"
-  },
   "cloudwatch.alarm.metricdataquery.id": {
+    "Minimum": "1",
     "Required": "Yes",
     "Type": "String",
-    "Minimum": "1",
     "Maximum": "255",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudwatch.alarm.metricdataquery.returndata": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   },
   "cloudwatch.alarm.metricdataquery.label": {
     "Required": "No",
@@ -22,13 +25,16 @@
     "Type": "MetricStat",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cloudwatch.alarm.metricdataquery.returndata": {
+  "cloudwatch.alarm.metricdataquery.period": {
+    "Minimum": "1",
     "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
+    "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudwatch.alarm.metricdataquery.expression": {
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "1024",
+    "UpdateRequires": "No interruption"
   }
 }

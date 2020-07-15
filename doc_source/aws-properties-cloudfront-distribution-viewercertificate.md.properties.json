@@ -1,18 +1,4 @@
 {
-  "cloudfront.distribution.viewercertificate.acmcertificatearn": {
-    "Required": "Conditional",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cloudfront.distribution.viewercertificate.cloudfrontdefaultcertificate": {
-    "Required": "Conditional",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "cloudfront.distribution.viewercertificate.iamcertificateid": {
     "Required": "Conditional",
     "Type": "String",
@@ -20,23 +6,26 @@
   },
   "cloudfront.distribution.viewercertificate.minimumprotocolversion": {
     "Required": "Conditional",
-    "AllowedValues": [
-      "SSLv3",
-      "TLSv1",
-      "TLSv1.1_2016",
-      "TLSv1.2_2018",
-      "TLSv1_2016"
-    ],
     "UpdateRequires": "No interruption"
   },
   "cloudfront.distribution.viewercertificate.sslsupportmethod": {
+    "Allowed values": "sni-only | vip",
     "Required": "Conditional",
     "Type": "String",
-    "AllowedValues": [
-      "sni-only",
-      "vip"
-    ],
-    "Allowed Values": "sni-only | vip",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "cloudfront.distribution.viewercertificate.acmcertificatearn": {
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.distribution.viewercertificate.cloudfrontdefaultcertificate": {
+    "Required": "Conditional",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   }
 }

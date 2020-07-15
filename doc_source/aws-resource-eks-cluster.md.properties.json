@@ -1,25 +1,25 @@
 {
+  "eks.cluster.rolearn": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
   "eks.cluster.encryptionconfig": {
     "Required": "No",
     "Type": "List",
     "Maximum": "1",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "eks.cluster.name": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "100",
-    "Pattern": "^[0-9A-Za-z][A-Za-z0-9\\-_]*",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "eks.cluster.resourcesvpcconfig": {
     "Required": "Yes",
     "UpdateRequires": "Replacement"
   },
-  "eks.cluster.rolearn": {
-    "Required": "Yes",
-    "UpdateRequires": "Replacement"
+  "eks.cluster.name": {
+    "Pattern": "^[0-9A-Za-z][A-Za-z0-9\\-_]*",
+    "Required": "No",
+    "Maximum": "100",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "eks.cluster.version": {
     "Required": "No",

@@ -1,41 +1,15 @@
 {
-  "ec2.ebs.volume.autoenableio": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.ebs.volume.availabilityzone": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "Updates are not supported\\."
-  },
   "ec2.ebs.volume.encrypted": {
     "Required": "No",
+    "UpdateRequires": "Updates are not supported\\.",
     "AllowedValues": [
       "True",
       "False"
-    ],
-    "UpdateRequires": "Updates are not supported\\."
+    ]
   },
-  "ec2.ebs.volume.iops": {
+  "ec2.ebs.volume.tags": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "ec2.ebs.volume.kmskeyid": {
-    "Required": "No",
-    "UpdateRequires": "Updates are not supported\\."
-  },
-  "ec2.ebs.volume.multiattachenabled": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
+    "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.ebs.volume.size": {
@@ -43,27 +17,51 @@
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "ec2.ebs.volume.outpostarn": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.ebs.volume.volumetype": {
+    "Allowed values": "gp2 | io1 | sc1 | st1 | standard",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "ec2.ebs.volume.availabilityzone": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "Updates are not supported\\."
+  },
+  "ec2.ebs.volume.iops": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
   "ec2.ebs.volume.snapshotid": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "Updates are not supported\\."
   },
-  "ec2.ebs.volume.tags": {
+  "ec2.ebs.volume.autoenableio": {
     "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.ebs.volume.volumetype": {
-    "Required": "No",
-    "Type": "String",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
-      "gp2",
-      "io1",
-      "sc1",
-      "st1",
-      "standard"
-    ],
-    "Allowed Values": "gp2 | io1 | sc1 | st1 | standard",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+      "True",
+      "False"
+    ]
+  },
+  "ec2.ebs.volume.kmskeyid": {
+    "Required": "No",
+    "UpdateRequires": "Updates are not supported\\."
+  },
+  "ec2.ebs.volume.multiattachenabled": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   }
 }

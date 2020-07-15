@@ -1,48 +1,63 @@
 {
-  "fsx.filesystem.lustreconfiguration.deploymenttype": {
+  "fsx.filesystem.lustreconfiguration.importpath": {
+    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{3,4357}$",
     "Required": "No",
-    "Type": "String",
-    "AllowedValues": [
-      "PERSISTENT_1",
-      "SCRATCH_1",
-      "SCRATCH_2"
-    ],
-    "Allowed Values": "PERSISTENT_1 | SCRATCH_1 | SCRATCH_2",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Maximum": "900",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "3",
+    "Type": "String"
   },
   "fsx.filesystem.lustreconfiguration.exportpath": {
+    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{3,4357}$",
     "Required": "No",
-    "Type": "String",
-    "Minimum": "3",
     "Maximum": "900",
-    "Pattern": "^.{3,900}$",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "fsx.filesystem.lustreconfiguration.importedfilechunksize": {
-    "Required": "No",
-    "Type": "Integer",
-    "Minimum": "1",
-    "Maximum": "512000",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "fsx.filesystem.lustreconfiguration.importpath": {
-    "Required": "No",
-    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "Minimum": "3",
-    "Maximum": "900",
-    "Pattern": "^.{3,900}$",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "fsx.filesystem.lustreconfiguration.perunitstoragethroughput": {
-    "Required": "Conditional",
-    "Type": "Integer",
-    "Minimum": "50",
-    "Maximum": "200",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "String"
   },
   "fsx.filesystem.lustreconfiguration.weeklymaintenancestarttime": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.filesystem.lustreconfiguration.perunitstoragethroughput": {
+    "Minimum": "50",
+    "Required": "Conditional",
+    "Type": "Integer",
+    "Maximum": "200",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "fsx.filesystem.lustreconfiguration.copytagstobackups": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "fsx.filesystem.lustreconfiguration.dailyautomaticbackupstarttime": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.filesystem.lustreconfiguration.deploymenttype": {
+    "Allowed values": "PERSISTENT_1 | SCRATCH_1 | SCRATCH_2",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "fsx.filesystem.lustreconfiguration.automaticbackupretentiondays": {
+    "Minimum": "0",
+    "Required": "No",
+    "Maximum": "35",
+    "UpdateRequires": "No interruption"
+  },
+  "fsx.filesystem.lustreconfiguration.importedfilechunksize": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "512000",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

@@ -1,17 +1,17 @@
 {
-  "codebuild.project.source.auth": {
+  "codebuild.project.source.reportbuildstatus": {
     "Required": "No",
-    "Type": "SourceAuth",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codebuild.project.source.buildspec": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   },
   "codebuild.project.source.gitclonedepth": {
+    "Minimum": "0",
     "Required": "No",
     "Type": "Integer",
-    "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codebuild.project.source.gitsubmodulesconfig": {
@@ -19,26 +19,18 @@
     "Type": "GitSubmodulesConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codebuild.project.source.insecuressl": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "codebuild.project.source.location": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "codebuild.project.source.reportbuildstatus": {
+  "codebuild.project.source.buildspec": {
     "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
+    "UpdateRequires": "No interruption"
+  },
+  "codebuild.project.source.type": {
+    "Allowed values": "BITBUCKET | CODECOMMIT | CODEPIPELINE | GITHUB | GITHUB_ENTERPRISE | NO_SOURCE | S3",
+    "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codebuild.project.source.sourceidentifier": {
@@ -46,19 +38,23 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codebuild.project.source.type": {
-    "Required": "Yes",
-    "Type": "String",
+  "codebuild.project.source.insecuressl": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
-      "BITBUCKET",
-      "CODECOMMIT",
-      "CODEPIPELINE",
-      "GITHUB",
-      "GITHUB_ENTERPRISE",
-      "NO_SOURCE",
-      "S3"
-    ],
-    "Allowed Values": "BITBUCKET | CODECOMMIT | CODEPIPELINE | GITHUB | GITHUB_ENTERPRISE | NO_SOURCE | S3",
+      "True",
+      "False"
+    ]
+  },
+  "codebuild.project.source.auth": {
+    "Required": "No",
+    "Type": "SourceAuth",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codebuild.project.source.buildstatusconfig": {
+    "Required": "No",
+    "Type": "BuildStatusConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

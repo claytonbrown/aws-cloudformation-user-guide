@@ -1,46 +1,7 @@
 {
-  "cognito.userpool.accountrecoverysetting": {
+  "cognito.userpool.usernameconfiguration": {
     "Required": "No",
-    "Type": "AccountRecoverySetting",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cognito.userpool.admincreateuserconfig": {
-    "Required": "No",
-    "Type": "AdminCreateUserConfig",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cognito.userpool.aliasattributes": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "cognito.userpool.autoverifiedattributes": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "cognito.userpool.deviceconfiguration": {
-    "Required": "No",
-    "Type": "DeviceConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cognito.userpool.emailconfiguration": {
-    "Required": "No",
-    "Type": "EmailConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cognito.userpool.emailverificationmessage": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "6",
-    "Maximum": "20000",
-    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{####\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cognito.userpool.emailverificationsubject": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "140",
-    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+    "Type": "UsernameConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.enabledmfas": {
@@ -48,25 +9,60 @@
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cognito.userpool.lambdaconfig": {
+  "cognito.userpool.accountrecoverysetting": {
     "Required": "No",
-    "Type": "LambdaConfig",
+    "Type": "AccountRecoverySetting",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "cognito.userpool.verificationmessagetemplate": {
+    "Required": "No",
+    "Type": "VerificationMessageTemplate",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
   "cognito.userpool.mfaconfiguration": {
+    "Allowed values": "OFF | ON | OPTIONAL",
     "Required": "No",
     "Type": "String",
-    "AllowedValues": [
-      "OFF",
-      "ON",
-      "OPTIONAL"
-    ],
-    "Allowed Values": "OFF | ON | OPTIONAL",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.aliasattributes": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "cognito.userpool.userpoolname": {
+    "Pattern": "[\\w\\s+=,.@-]+",
+    "Required": "No",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "cognito.userpool.policies": {
     "Required": "No",
     "Type": "Policies",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.smsconfiguration": {
+    "Required": "No",
+    "Type": "SmsConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.usernameattributes": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.emailverificationmessage": {
+    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{####\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
+    "Required": "No",
+    "Maximum": "20000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "6",
+    "Type": "String"
+  },
+  "cognito.userpool.emailconfiguration": {
+    "Required": "No",
+    "Type": "EmailConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.schema": {
@@ -75,58 +71,57 @@
     "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cognito.userpool.smsauthenticationmessage": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "6",
-    "Maximum": "140",
-    "Pattern": ".*\\{####\\}.*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cognito.userpool.smsconfiguration": {
-    "Required": "No",
-    "Type": "SmsConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cognito.userpool.smsverificationmessage": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "6",
-    "Maximum": "140",
-    "Pattern": ".*\\{####\\}.*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cognito.userpool.usernameattributes": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cognito.userpool.usernameconfiguration": {
-    "Required": "No",
-    "Type": "UsernameConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "cognito.userpool.userpooladdons": {
     "Required": "No",
     "Type": "UserPoolAddOns",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cognito.userpool.userpoolname": {
+  "cognito.userpool.autoverifiedattributes": {
     "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "128",
-    "Pattern": "[\\w\\s+=,.@-]+",
+    "UpdateRequires": "No interruption"
+  },
+  "cognito.userpool.admincreateuserconfig": {
+    "Required": "No",
+    "Type": "AdminCreateUserConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.deviceconfiguration": {
+    "Required": "No",
+    "Type": "DeviceConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.emailverificationsubject": {
+    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+    "Required": "No",
+    "Maximum": "140",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "cognito.userpool.lambdaconfig": {
+    "Required": "No",
+    "Type": "LambdaConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.smsverificationmessage": {
+    "Pattern": ".*\\{####\\}.*",
+    "Required": "No",
+    "Maximum": "140",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "6",
+    "Type": "String"
+  },
+  "cognito.userpool.smsauthenticationmessage": {
+    "Pattern": ".*\\{####\\}.*",
+    "Required": "No",
+    "Maximum": "140",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "6",
+    "Type": "String"
   },
   "cognito.userpool.userpooltags": {
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cognito.userpool.verificationmessagetemplate": {
-    "Required": "No",
-    "Type": "VerificationMessageTemplate",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

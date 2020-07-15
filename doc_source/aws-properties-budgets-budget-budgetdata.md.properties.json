@@ -1,7 +1,28 @@
 {
-  "budgets.budget.budgetdata.budgetlimit": {
+  "budgets.budget.budgetdata.plannedbudgetlimits": {
     "Required": "No",
-    "Type": "Spend",
+    "Type": "Json",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "budgets.budget.budgetdata.costtypes": {
+    "Required": "No",
+    "Type": "CostTypes",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "budgets.budget.budgetdata.timeunit": {
+    "Allowed values": "ANNUALLY | DAILY | MONTHLY | QUARTERLY",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "budgets.budget.budgetdata.timeperiod": {
+    "Required": "No",
+    "Type": "TimePeriod",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "budgets.budget.budgetdata.costfilters": {
+    "Required": "No",
+    "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "budgets.budget.budgetdata.budgetname": {
@@ -10,49 +31,14 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "budgets.budget.budgetdata.budgettype": {
+    "Allowed values": "COST | RI_COVERAGE | RI_UTILIZATION | SAVINGS_PLANS_COVERAGE | SAVINGS_PLANS_UTILIZATION | USAGE",
     "Required": "Yes",
     "Type": "String",
-    "AllowedValues": [
-      "COST",
-      "RI_COVERAGE",
-      "RI_UTILIZATION",
-      "SAVINGS_PLANS_COVERAGE",
-      "SAVINGS_PLANS_UTILIZATION",
-      "USAGE"
-    ],
-    "Allowed Values": "COST | RI_COVERAGE | RI_UTILIZATION | SAVINGS_PLANS_COVERAGE | SAVINGS_PLANS_UTILIZATION | USAGE",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "budgets.budget.budgetdata.costfilters": {
+  "budgets.budget.budgetdata.budgetlimit": {
     "Required": "No",
-    "Type": "Json",
+    "Type": "Spend",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "budgets.budget.budgetdata.costtypes": {
-    "Required": "No",
-    "Type": "CostTypes",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "budgets.budget.budgetdata.plannedbudgetlimits": {
-    "Required": "No",
-    "Type": "Json",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "budgets.budget.budgetdata.timeperiod": {
-    "Required": "No",
-    "Type": "TimePeriod",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "budgets.budget.budgetdata.timeunit": {
-    "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "ANNUALLY",
-      "DAILY",
-      "MONTHLY",
-      "QUARTERLY"
-    ],
-    "Allowed Values": "ANNUALLY | DAILY | MONTHLY | QUARTERLY",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

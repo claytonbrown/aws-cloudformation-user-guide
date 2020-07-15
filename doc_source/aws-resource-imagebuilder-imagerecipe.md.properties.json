@@ -1,31 +1,14 @@
 {
-  "imagebuilder.imagerecipe.blockdevicemappings": {
-    "Required": "No",
-    "Type": "List of [InstanceBlockDeviceMapping",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "imagebuilder.imagerecipe.components": {
+  "imagebuilder.imagerecipe.version": {
+    "Pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
     "Required": "Yes",
-    "Type": "List of [ComponentConfiguration",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   },
   "imagebuilder.imagerecipe.description": {
+    "Minimum": "1",
     "Required": "No",
     "Type": "String",
-    "Minimum": "1",
-    "Maximum": "1024",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "imagebuilder.imagerecipe.name": {
-    "Required": "Yes",
-    "Type": "String",
-    "Pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "imagebuilder.imagerecipe.parentimage": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
     "Maximum": "1024",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
@@ -34,10 +17,27 @@
     "Type": "Map of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "imagebuilder.imagerecipe.version": {
+  "imagebuilder.imagerecipe.name": {
+    "Pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
     "Required": "Yes",
     "Type": "String",
-    "Pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "imagebuilder.imagerecipe.components": {
+    "Required": "Yes",
+    "Type": "List of [ComponentConfiguration",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "imagebuilder.imagerecipe.parentimage": {
+    "Minimum": "1",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "1024",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "imagebuilder.imagerecipe.blockdevicemappings": {
+    "Required": "No",
+    "Type": "List of [InstanceBlockDeviceMapping",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

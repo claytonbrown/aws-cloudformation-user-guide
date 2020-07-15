@@ -1,24 +1,21 @@
 {
-  "codepipeline.pipeline.artifactstore.encryptionkey": {
-    "Required": "No",
-    "Type": "EncryptionKey",
+  "codepipeline.pipeline.artifactstore.type": {
+    "Allowed values": "S3",
+    "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codepipeline.pipeline.artifactstore.location": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "3",
-    "Maximum": "63",
     "Pattern": "[a-zA-Z0-9\\-\\.]+",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codepipeline.pipeline.artifactstore.type": {
     "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "S3"
-    ],
-    "Allowed Values": "S3",
+    "Maximum": "63",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "3",
+    "Type": "String"
+  },
+  "codepipeline.pipeline.artifactstore.encryptionkey": {
+    "Required": "No",
+    "Type": "EncryptionKey",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

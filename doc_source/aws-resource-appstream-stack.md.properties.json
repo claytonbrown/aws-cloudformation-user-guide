@@ -1,9 +1,8 @@
 {
-  "appstream.stack.accessendpoints": {
+  "appstream.stack.usersettings": {
     "Required": "No",
-    "Type": "List of [AccessEndpoint",
-    "Maximum": "4",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Type": "List of [UserSetting",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "appstream.stack.applicationsettings": {
     "Required": "No",
@@ -15,19 +14,11 @@
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "appstream.stack.deletestorageconnectors": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "UpdateRequires": "No interruption"
-  },
-  "appstream.stack.description": {
+  "appstream.stack.name": {
+    "Pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
     "Required": "No",
     "Type": "String",
-    "Minimum": "1",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "appstream.stack.displayname": {
     "Required": "No",
@@ -35,10 +26,45 @@
     "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "appstream.stack.redirecturl": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.stack.accessendpoints": {
+    "Required": "No",
+    "Type": "List of [AccessEndpoint",
+    "Maximum": "4",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.stack.deletestorageconnectors": {
+    "Required": "No",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
   "appstream.stack.embedhostdomains": {
     "Required": "No",
     "Type": "List of String",
     "Maximum": "20",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.stack.description": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.stack.tags": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "appstream.stack.storageconnectors": {
+    "Required": "No",
+    "Type": "List of [StorageConnector",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appstream.stack.feedbackurl": {
@@ -46,31 +72,5 @@
     "Type": "String",
     "Maximum": "1000",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "appstream.stack.name": {
-    "Required": "No",
-    "Type": "String",
-    "Pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "appstream.stack.redirecturl": {
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "1000",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "appstream.stack.storageconnectors": {
-    "Required": "No",
-    "Type": "List of [StorageConnector",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "appstream.stack.tags": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "appstream.stack.usersettings": {
-    "Required": "No",
-    "Type": "List of [UserSetting",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

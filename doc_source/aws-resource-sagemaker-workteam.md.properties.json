@@ -1,10 +1,28 @@
 {
   "sagemaker.workteam.description": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "200",
     "Pattern": ".+",
+    "Required": "No",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "sagemaker.workteam.notificationconfiguration": {
+    "Required": "No",
+    "Type": "NotificationConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.workteam.workteamname": {
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+    "Required": "No",
+    "Maximum": "63",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "sagemaker.workteam.tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "sagemaker.workteam.memberdefinitions": {
@@ -12,23 +30,5 @@
     "Type": "List of [MemberDefinition",
     "Maximum": "10",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "sagemaker.workteam.notificationconfiguration": {
-    "Required": "No",
-    "Type": "NotificationConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "sagemaker.workteam.tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "sagemaker.workteam.workteamname": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "63",
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

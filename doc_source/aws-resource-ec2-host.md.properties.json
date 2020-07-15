@@ -1,10 +1,6 @@
 {
   "ec2.host.autoplacement": {
     "Required": "No",
-    "AllowedValues": [
-      "off",
-      "on"
-    ],
     "UpdateRequires": "No interruption"
   },
   "ec2.host.availabilityzone": {
@@ -12,16 +8,13 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.host.hostrecovery": {
-    "Required": "No",
-    "AllowedValues": [
-      "off",
-      "on"
-    ],
-    "UpdateRequires": "No interruption"
-  },
   "ec2.host.instancetype": {
     "Required": "Yes",
-    "UpdateRequires": "Replacement"
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  },
+  "ec2.host.hostrecovery": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   }
 }

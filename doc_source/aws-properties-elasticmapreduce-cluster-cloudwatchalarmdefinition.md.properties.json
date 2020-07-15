@@ -1,32 +1,16 @@
 {
-  "elasticmapreduce.cluster.cloudwatchalarmdefinition.comparisonoperator": {
+  "elasticmapreduce.cluster.cloudwatchalarmdefinition.threshold": {
     "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "GREATER_THAN",
-      "GREATER_THAN_OR_EQUAL",
-      "LESS_THAN",
-      "LESS_THAN_OR_EQUAL"
-    ],
-    "Allowed Values": "GREATER_THAN | GREATER_THAN_OR_EQUAL | LESS_THAN | LESS_THAN_OR_EQUAL",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticmapreduce.cluster.cloudwatchalarmdefinition.dimensions": {
-    "Required": "No",
-    "Type": "List of [MetricDimension",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticmapreduce.cluster.cloudwatchalarmdefinition.evaluationperiods": {
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticmapreduce.cluster.cloudwatchalarmdefinition.metricname": {
-    "Required": "Yes",
-    "Type": "String",
+    "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticmapreduce.cluster.cloudwatchalarmdefinition.namespace": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticmapreduce.cluster.cloudwatchalarmdefinition.statistic": {
+    "Allowed values": "AVERAGE | MAXIMUM | MINIMUM | SAMPLE_COUNT | SUM",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -36,57 +20,31 @@
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticmapreduce.cluster.cloudwatchalarmdefinition.statistic": {
-    "Required": "No",
+  "elasticmapreduce.cluster.cloudwatchalarmdefinition.metricname": {
+    "Required": "Yes",
     "Type": "String",
-    "AllowedValues": [
-      "AVERAGE",
-      "MAXIMUM",
-      "MINIMUM",
-      "SAMPLE_COUNT",
-      "SUM"
-    ],
-    "Allowed Values": "AVERAGE | MAXIMUM | MINIMUM | SAMPLE_COUNT | SUM",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticmapreduce.cluster.cloudwatchalarmdefinition.threshold": {
-    "Required": "Yes",
-    "Type": "Double",
+  "elasticmapreduce.cluster.cloudwatchalarmdefinition.dimensions": {
+    "Required": "No",
+    "Type": "List of [MetricDimension",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticmapreduce.cluster.cloudwatchalarmdefinition.unit": {
+    "Allowed values": "BITS | BITS_PER_SECOND | BYTES | BYTES_PER_SECOND | COUNT | COUNT_PER_SECOND | GIGA_BITS | GIGA_BITS_PER_SECOND | GIGA_BYTES | GIGA_BYTES_PER_SECOND | KILO_BITS | KILO_BITS_PER_SECOND | KILO_BYTES | KILO_BYTES_PER_SECOND | MEGA_BITS | MEGA_BITS_PER_SECOND | MEGA_BYTES | MEGA_BYTES_PER_SECOND | MICRO_SECONDS | MILLI_SECONDS | NONE | PERCENT | SECONDS | TERA_BITS | TERA_BITS_PER_SECOND | TERA_BYTES | TERA_BYTES_PER_SECOND",
     "Required": "No",
     "Type": "String",
-    "AllowedValues": [
-      "BITS",
-      "BITS_PER_SECOND",
-      "BYTES",
-      "BYTES_PER_SECOND",
-      "COUNT",
-      "COUNT_PER_SECOND",
-      "GIGA_BITS",
-      "GIGA_BITS_PER_SECOND",
-      "GIGA_BYTES",
-      "GIGA_BYTES_PER_SECOND",
-      "KILO_BITS",
-      "KILO_BITS_PER_SECOND",
-      "KILO_BYTES",
-      "KILO_BYTES_PER_SECOND",
-      "MEGA_BITS",
-      "MEGA_BITS_PER_SECOND",
-      "MEGA_BYTES",
-      "MEGA_BYTES_PER_SECOND",
-      "MICRO_SECONDS",
-      "MILLI_SECONDS",
-      "NONE",
-      "PERCENT",
-      "SECONDS",
-      "TERA_BITS",
-      "TERA_BITS_PER_SECOND",
-      "TERA_BYTES",
-      "TERA_BYTES_PER_SECOND"
-    ],
-    "Allowed Values": "BITS | BITS_PER_SECOND | BYTES | BYTES_PER_SECOND | COUNT | COUNT_PER_SECOND | GIGA_BITS | GIGA_BITS_PER_SECOND | GIGA_BYTES | GIGA_BYTES_PER_SECOND | KILO_BITS | KILO_BITS_PER_SECOND | KILO_BYTES | KILO_BYTES_PER_SECOND | MEGA_BITS | MEGA_BITS_PER_SECOND | MEGA_BYTES | MEGA_BYTES_PER_SECOND | MICRO_SECONDS | MILLI_SECONDS | NONE | PERCENT | SECONDS | TERA_BITS | TERA_BITS_PER_SECOND | TERA_BYTES | TERA_BYTES_PER_SECOND",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticmapreduce.cluster.cloudwatchalarmdefinition.evaluationperiods": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticmapreduce.cluster.cloudwatchalarmdefinition.comparisonoperator": {
+    "Allowed values": "GREATER_THAN | GREATER_THAN_OR_EQUAL | LESS_THAN | LESS_THAN_OR_EQUAL",
+    "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

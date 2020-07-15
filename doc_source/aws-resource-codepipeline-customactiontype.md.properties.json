@@ -1,27 +1,7 @@
 {
-  "codepipeline.customactiontype.category": {
-    "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "Approval",
-      "Build",
-      "Deploy",
-      "Invoke",
-      "Source",
-      "Test"
-    ],
-    "Allowed Values": "Approval | Build | Deploy | Invoke | Source | Test",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "codepipeline.customactiontype.configurationproperties": {
+  "codepipeline.customactiontype.settings": {
     "Required": "No",
-    "Type": "List",
-    "Maximum": "10",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "codepipeline.customactiontype.inputartifactdetails": {
-    "Required": "Yes",
-    "Type": "ArtifactDetails",
+    "Type": "Settings",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "codepipeline.customactiontype.outputartifactdetails": {
@@ -29,30 +9,42 @@
     "Type": "ArtifactDetails",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "codepipeline.customactiontype.provider": {
+  "codepipeline.customactiontype.inputartifactdetails": {
     "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "25",
-    "Pattern": "[0-9A-Za-z_-]+",
+    "Type": "ArtifactDetails",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "codepipeline.customactiontype.settings": {
+  "codepipeline.customactiontype.category": {
+    "Allowed values": "Approval | Build | Deploy | Invoke | Source | Test",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "codepipeline.customactiontype.version": {
+    "Pattern": "[0-9A-Za-z_-]+",
+    "Required": "Yes",
+    "Maximum": "9",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "codepipeline.customactiontype.provider": {
+    "Pattern": "[0-9A-Za-z_-]+",
+    "Required": "Yes",
+    "Maximum": "25",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "codepipeline.customactiontype.configurationproperties": {
     "Required": "No",
-    "Type": "Settings",
+    "Type": "List",
+    "Maximum": "10",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "codepipeline.customactiontype.tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codepipeline.customactiontype.version": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "9",
-    "Pattern": "[0-9A-Za-z_-]+",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

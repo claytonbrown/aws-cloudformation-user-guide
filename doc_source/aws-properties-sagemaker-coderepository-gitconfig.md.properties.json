@@ -1,24 +1,24 @@
 {
-  "sagemaker.coderepository.gitconfig.branch": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "1024",
-    "Pattern": "[^ ~^:?*\\[]+",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "sagemaker.coderepository.gitconfig.repositoryurl": {
+    "Pattern": "^https://([^/]+)/?(.*)$",
     "Required": "Yes",
     "Type": "String",
-    "Pattern": "^https://([^/]+)/?(.*)$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "sagemaker.coderepository.gitconfig.secretarn": {
+  "sagemaker.coderepository.gitconfig.branch": {
+    "Pattern": "[^ ~^:?*\\[]+",
     "Required": "No",
-    "Type": "String",
+    "Maximum": "1024",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "Minimum": "1",
-    "Maximum": "2048",
+    "Type": "String"
+  },
+  "sagemaker.coderepository.gitconfig.secretarn": {
     "Pattern": "arn:aws[a-z\\-]*:secretsmanager:[a-z0-9\\-]*:[0-9]{12}:secret:.*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Required": "No",
+    "Maximum": "2048",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   }
 }

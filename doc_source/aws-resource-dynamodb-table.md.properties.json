@@ -1,17 +1,7 @@
 {
-  "dynamodb.table.attributedefinitions": {
+  "dynamodb.table.provisionedthroughput": {
     "Required": "Conditional",
-    "Type": "List of [AttributeDefinition",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
-  },
-  "dynamodb.table.billingmode": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dynamodb.table.globalsecondaryindexes": {
-    "Required": "No",
-    "Type": "List of [GlobalSecondaryIndex",
+    "Type": "ProvisionedThroughput",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dynamodb.table.keyschema": {
@@ -19,47 +9,58 @@
     "Type": "List",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "dynamodb.table.localsecondaryindexes": {
+  "dynamodb.table.tablename": {
+    "Pattern": "[a-zA-Z0-9_.-]+",
     "Required": "No",
-    "Type": "List of [LocalSecondaryIndex",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Maximum": "255",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "3",
+    "Type": "String"
+  },
+  "dynamodb.table.billingmode": {
+    "Allowed values": "PAY_PER_REQUEST | PROVISIONED",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dynamodb.table.pointintimerecoveryspecification": {
     "Required": "No",
     "Type": "PointInTimeRecoverySpecification",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "dynamodb.table.provisionedthroughput": {
-    "Required": "Conditional",
-    "Type": "ProvisionedThroughput",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dynamodb.table.ssespecification": {
+  "dynamodb.table.tags": {
     "Required": "No",
-    "Type": "SSESpecification",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dynamodb.table.streamspecification": {
     "Required": "No",
     "Type": "StreamSpecification",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "dynamodb.table.tablename": {
+  "dynamodb.table.localsecondaryindexes": {
     "Required": "No",
-    "Type": "String",
-    "Minimum": "3",
-    "Maximum": "255",
-    "Pattern": "[a-zA-Z0-9_.-]+",
+    "Type": "List of [LocalSecondaryIndex",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "dynamodb.table.tags": {
+  "dynamodb.table.attributedefinitions": {
+    "Required": "Conditional",
+    "Type": "List of [AttributeDefinition",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "dynamodb.table.globalsecondaryindexes": {
     "Required": "No",
-    "Type": "List of [Tag",
+    "Type": "List of [GlobalSecondaryIndex",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dynamodb.table.timetolivespecification": {
     "Required": "No",
     "Type": "TimeToLiveSpecification",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "dynamodb.table.ssespecification": {
+    "Required": "No",
+    "Type": "SSESpecification",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

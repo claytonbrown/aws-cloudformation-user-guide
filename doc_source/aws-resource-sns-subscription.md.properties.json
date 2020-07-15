@@ -1,4 +1,22 @@
 {
+  "sns.subscription.protocol": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
+  "sns.subscription.topicarn": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  },
+  "sns.subscription.filterpolicy": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "sns.subscription.redrivepolicy": {
+    "Required": "No",
+    "Type": "Json",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "sns.subscription.deliverypolicy": {
     "Required": "No",
     "UpdateRequires": "No interruption"
@@ -7,35 +25,17 @@
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
-  "sns.subscription.filterpolicy": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "sns.subscription.protocol": {
-    "Required": "Yes",
-    "UpdateRequires": "Replacement"
-  },
-  "sns.subscription.rawmessagedelivery": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "UpdateRequires": "No interruption"
-  },
-  "sns.subscription.redrivepolicy": {
-    "Required": "No",
-    "Type": "Json",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "sns.subscription.region": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "sns.subscription.topicarn": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  "sns.subscription.rawmessagedelivery": {
+    "Required": "No",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   }
 }

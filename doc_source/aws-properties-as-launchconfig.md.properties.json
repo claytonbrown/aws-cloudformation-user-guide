@@ -1,49 +1,19 @@
 {
-  "as.launchconfig.associatepublicipaddress": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "UpdateRequires": "Replacement"
-  },
-  "as.launchconfig.blockdevicemappings": {
-    "Required": "No",
-    "Type": "List of [BlockDeviceMapping",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "as.launchconfig.classiclinkvpcid": {
-    "Required": "No",
-    "Minimum": "1",
-    "Maximum": "255",
+  "as.launchconfig.userdata": {
     "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Required": "No",
+    "Maximum": "21847",
     "UpdateRequires": "Replacement"
   },
-  "as.launchconfig.classiclinkvpcsecuritygroups": {
-    "Required": "Conditional",
-    "Type": "List of String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "as.launchconfig.ebsoptimized": {
+  "as.launchconfig.securitygroups": {
     "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
     "UpdateRequires": "Replacement"
   },
-  "as.launchconfig.iaminstanceprofile": {
-    "Required": "No",
-    "Minimum": "1",
-    "Maximum": "1600",
+  "as.launchconfig.instancetype": {
     "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "UpdateRequires": "Replacement"
-  },
-  "as.launchconfig.imageid": {
+    "Minimum": "1",
     "Required": "Yes",
-    "Minimum": "1",
     "Maximum": "255",
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
     "UpdateRequires": "Replacement"
   },
   "as.launchconfig.instanceid": {
@@ -51,71 +21,101 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "as.launchconfig.instancemonitoring": {
+  "as.launchconfig.ebsoptimized": {
     "Required": "No",
+    "UpdateRequires": "Replacement",
     "AllowedValues": [
       "True",
       "False"
-    ],
+    ]
+  },
+  "as.launchconfig.associatepublicipaddress": {
+    "Required": "No",
+    "UpdateRequires": "Replacement",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "as.launchconfig.instancemonitoring": {
+    "Required": "No",
+    "UpdateRequires": "Replacement",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "as.launchconfig.launchconfigurationname": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Required": "No",
+    "Maximum": "255",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "as.launchconfig.imageid": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Minimum": "1",
+    "Required": "Yes",
+    "Maximum": "255",
     "UpdateRequires": "Replacement"
   },
-  "as.launchconfig.instancetype": {
-    "Required": "Yes",
-    "Minimum": "1",
-    "Maximum": "255",
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "UpdateRequires": "Replacement"
+  "as.launchconfig.classiclinkvpcsecuritygroups": {
+    "Required": "Conditional",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "as.launchconfig.kernelid": {
-    "Required": "No",
-    "Minimum": "1",
-    "Maximum": "255",
     "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "255",
+    "UpdateRequires": "Replacement"
+  },
+  "as.launchconfig.blockdevicemappings": {
+    "Required": "No",
+    "Type": "List of [BlockDeviceMapping",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "as.launchconfig.ramdiskid": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "255",
+    "UpdateRequires": "Replacement"
+  },
+  "as.launchconfig.placementtenancy": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "64",
+    "UpdateRequires": "Replacement"
+  },
+  "as.launchconfig.classiclinkvpcid": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "255",
     "UpdateRequires": "Replacement"
   },
   "as.launchconfig.keyname": {
-    "Required": "No",
-    "Minimum": "1",
-    "Maximum": "255",
     "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "255",
     "UpdateRequires": "Replacement"
   },
-  "as.launchconfig.launchconfigurationname": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "255",
+  "as.launchconfig.iaminstanceprofile": {
     "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "as.launchconfig.placementtenancy": {
-    "Required": "No",
     "Minimum": "1",
-    "Maximum": "64",
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "UpdateRequires": "Replacement"
-  },
-  "as.launchconfig.ramdiskid": {
     "Required": "No",
-    "Minimum": "1",
-    "Maximum": "255",
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "UpdateRequires": "Replacement"
-  },
-  "as.launchconfig.securitygroups": {
-    "Required": "No",
+    "Maximum": "1600",
     "UpdateRequires": "Replacement"
   },
   "as.launchconfig.spotprice": {
-    "Required": "No",
     "Minimum": "1",
-    "Maximum": "255",
-    "UpdateRequires": "Replacement"
-  },
-  "as.launchconfig.userdata": {
     "Required": "No",
-    "Maximum": "21847",
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Maximum": "255",
     "UpdateRequires": "Replacement"
   }
 }

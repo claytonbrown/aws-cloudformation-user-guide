@@ -1,17 +1,21 @@
 {
   "dlm.lifecyclepolicy.createrule.interval": {
-    "Required": "Yes",
-    "Type": "Integer",
     "Minimum": "1",
+    "Required": "No",
+    "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "dlm.lifecyclepolicy.createrule.cronexpression": {
+    "Pattern": "cron\\([^\\n]{11,100}\\)",
+    "Minimum": "17",
+    "Required": "No",
+    "Maximum": "106",
+    "UpdateRequires": "No interruption"
+  },
   "dlm.lifecyclepolicy.createrule.intervalunit": {
-    "Required": "Yes",
+    "Allowed values": "HOURS",
+    "Required": "No",
     "Type": "String",
-    "AllowedValues": [
-      "HOURS"
-    ],
-    "Allowed Values": "HOURS",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dlm.lifecyclepolicy.createrule.times": {

@@ -1,7 +1,7 @@
 {
-  "iot.topicrule.action.cloudwatchalarm": {
+  "iot.topicrule.action.firehose": {
     "Required": "No",
-    "Type": "CloudwatchAlarmAction",
+    "Type": "FirehoseAction",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iot.topicrule.action.cloudwatchmetric": {
@@ -9,9 +9,9 @@
     "Type": "CloudwatchMetricAction",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "iot.topicrule.action.dynamodb": {
+  "iot.topicrule.action.sns": {
     "Required": "No",
-    "Type": "DynamoDBAction",
+    "Type": "SnsAction",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iot.topicrule.action.dynamodbv2": {
@@ -19,39 +19,9 @@
     "Type": "DynamoDBv2Action",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "iot.topicrule.action.elasticsearch": {
+  "iot.topicrule.action.sqs": {
     "Required": "No",
-    "Type": "ElasticsearchAction",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "iot.topicrule.action.firehose": {
-    "Required": "No",
-    "Type": "FirehoseAction",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "iot.topicrule.action.http": {
-    "Required": "No",
-    "Type": "HttpAction",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "iot.topicrule.action.iotanalytics": {
-    "Required": "No",
-    "Type": "IotAnalyticsAction",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "iot.topicrule.action.iotevents": {
-    "Required": "No",
-    "Type": "IotEventsAction",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "iot.topicrule.action.iotsitewise": {
-    "Required": "No",
-    "Type": "IotSiteWiseAction",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "iot.topicrule.action.kinesis": {
-    "Required": "No",
-    "Type": "KinesisAction",
+    "Type": "SqsAction",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iot.topicrule.action.lambda": {
@@ -59,9 +29,49 @@
     "Type": "LambdaAction",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "iot.topicrule.action.http": {
+    "Required": "No",
+    "Type": "HttpAction",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "iot.topicrule.action.republish": {
     "Required": "No",
     "Type": "RepublishAction",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iot.topicrule.action.stepfunctions": {
+    "Required": "No",
+    "Type": "StepFunctionsAction",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iot.topicrule.action.iotsitewise": {
+    "Required": "No",
+    "Type": "IotSiteWiseAction",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iot.topicrule.action.iotevents": {
+    "Required": "No",
+    "Type": "IotEventsAction",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iot.topicrule.action.iotanalytics": {
+    "Required": "No",
+    "Type": "IotAnalyticsAction",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iot.topicrule.action.dynamodb": {
+    "Required": "No",
+    "Type": "DynamoDBAction",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iot.topicrule.action.kinesis": {
+    "Required": "No",
+    "Type": "KinesisAction",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iot.topicrule.action.elasticsearch": {
+    "Required": "No",
+    "Type": "ElasticsearchAction",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iot.topicrule.action.s3": {
@@ -69,19 +79,9 @@
     "Type": "S3Action",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "iot.topicrule.action.sns": {
+  "iot.topicrule.action.cloudwatchalarm": {
     "Required": "No",
-    "Type": "SnsAction",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "iot.topicrule.action.sqs": {
-    "Required": "No",
-    "Type": "SqsAction",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "iot.topicrule.action.stepfunctions": {
-    "Required": "No",
-    "Type": "StepFunctionsAction",
+    "Type": "CloudwatchAlarmAction",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

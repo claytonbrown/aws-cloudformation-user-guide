@@ -1,32 +1,27 @@
 {
   "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.bucketarn": {
-    "Required": "Yes",
-    "Minimum": "1",
-    "Maximum": "2048",
     "Pattern": "arn:.*",
+    "Minimum": "1",
+    "Required": "Yes",
+    "Maximum": "2048",
     "UpdateRequires": "No interruption"
   },
-  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.bufferinghints": {
-    "Required": "Yes",
-    "Type": "BufferingHints",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.cloudwatchloggingoptions": {
+  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.prefix": {
+    "Pattern": ".*",
+    "Minimum": "0",
     "Required": "No",
-    "Type": "CloudWatchLoggingOptions",
+    "Maximum": "1024",
+    "UpdateRequires": "No interruption"
+  },
+  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.encryptionconfiguration": {
+    "Required": "No",
+    "Type": "EncryptionConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.compressionformat": {
-    "Required": "Yes",
+    "Allowed values": "GZIP | HADOOP_SNAPPY | Snappy | UNCOMPRESSED | ZIP",
+    "Required": "No",
     "Type": "String",
-    "AllowedValues": [
-      "GZIP",
-      "HADOOP_SNAPPY",
-      "Snappy",
-      "UNCOMPRESSED",
-      "ZIP"
-    ],
-    "Allowed Values": "GZIP | HADOOP_SNAPPY | Snappy | UNCOMPRESSED | ZIP",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.dataformatconversionconfiguration": {
@@ -34,51 +29,45 @@
     "Type": "DataFormatConversionConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.encryptionconfiguration": {
+  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.rolearn": {
+    "Pattern": "arn:.*",
+    "Minimum": "1",
+    "Required": "Yes",
+    "Maximum": "512",
+    "UpdateRequires": "No interruption"
+  },
+  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.cloudwatchloggingoptions": {
     "Required": "No",
-    "Type": "EncryptionConfiguration",
+    "Type": "CloudWatchLoggingOptions",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.erroroutputprefix": {
+  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.s3backupmode": {
+    "Allowed values": "Disabled | Enabled",
     "Required": "No",
     "Type": "String",
-    "Minimum": "0",
-    "Maximum": "1024",
-    "Pattern": ".*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.prefix": {
-    "Required": "No",
-    "Minimum": "0",
-    "Maximum": "1024",
-    "Pattern": ".*",
-    "UpdateRequires": "No interruption"
   },
   "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.processingconfiguration": {
     "Required": "No",
     "Type": "ProcessingConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.rolearn": {
-    "Required": "Yes",
-    "Minimum": "1",
-    "Maximum": "512",
-    "Pattern": "arn:.*",
-    "UpdateRequires": "No interruption"
-  },
   "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.s3backupconfiguration": {
     "Required": "No",
     "Type": "S3DestinationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.s3backupmode": {
+  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.bufferinghints": {
     "Required": "No",
-    "Type": "String",
-    "AllowedValues": [
-      "Disabled",
-      "Enabled"
-    ],
-    "Allowed Values": "Disabled | Enabled",
+    "Type": "BufferingHints",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.extendeds3destinationconfiguration.erroroutputprefix": {
+    "Pattern": ".*",
+    "Required": "No",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "0",
+    "Type": "String"
   }
 }

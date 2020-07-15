@@ -4,29 +4,29 @@
     "Type": "Timestamp",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "applicationautoscaling.scalabletarget.scheduledaction.starttime": {
+    "Required": "No",
+    "Type": "Timestamp",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "applicationautoscaling.scalabletarget.scheduledaction.schedule": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Minimum": "1",
+    "Required": "Yes",
+    "Maximum": "1600",
+    "UpdateRequires": "No interruption"
+  },
   "applicationautoscaling.scalabletarget.scheduledaction.scalabletargetaction": {
     "Required": "No",
     "Type": "ScalableTargetAction",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "applicationautoscaling.scalabletarget.scheduledaction.schedule": {
-    "Required": "Yes",
-    "Minimum": "1",
-    "Maximum": "1600",
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "UpdateRequires": "No interruption"
-  },
   "applicationautoscaling.scalabletarget.scheduledaction.scheduledactionname": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "256",
     "Pattern": "(?!((^[ ]+.*)|(.*([\\u0000-\\u001f]|[\\u007f-\\u009f]|[:/|])+.*)|(.*[ ]+$))).+",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "applicationautoscaling.scalabletarget.scheduledaction.starttime": {
-    "Required": "No",
-    "Type": "Timestamp",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Required": "Yes",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   }
 }

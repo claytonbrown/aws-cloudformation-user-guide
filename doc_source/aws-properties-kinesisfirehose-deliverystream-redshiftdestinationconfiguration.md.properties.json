@@ -1,15 +1,13 @@
 {
-  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.cloudwatchloggingoptions": {
+  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.s3backupconfiguration": {
     "Required": "No",
-    "Type": "CloudWatchLoggingOptions",
+    "Type": "S3DestinationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.clusterjdbcurl": {
-    "Required": "Yes",
+  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.s3backupmode": {
+    "Allowed values": "Disabled | Enabled",
+    "Required": "No",
     "Type": "String",
-    "Minimum": "1",
-    "Maximum": "512",
-    "Pattern": "jdbc:(redshift|postgresql)://((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+redshift\\.([a-zA-Z0-9\\.]+):\\d{1,5}/[a-zA-Z0-9_$]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.copycommand": {
@@ -17,24 +15,34 @@
     "Type": "CopyCommand",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.password": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "6",
-    "Maximum": "512",
-    "Pattern": ".*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.processingconfiguration": {
     "Required": "No",
     "Type": "ProcessingConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.rolearn": {
+  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.clusterjdbcurl": {
+    "Pattern": "jdbc:(redshift|postgresql)://((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+redshift\\.([a-zA-Z0-9\\.]+):\\d{1,5}/[a-zA-Z0-9_$]+",
     "Required": "Yes",
-    "Minimum": "1",
     "Maximum": "512",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.retryoptions": {
+    "Required": "No",
+    "Type": "RedshiftRetryOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.cloudwatchloggingoptions": {
+    "Required": "No",
+    "Type": "CloudWatchLoggingOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.rolearn": {
     "Pattern": "arn:.*",
+    "Minimum": "1",
+    "Required": "Yes",
+    "Maximum": "512",
     "UpdateRequires": "No interruption"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.s3configuration": {
@@ -43,11 +51,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.username": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "512",
     "Pattern": ".*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Required": "Yes",
+    "Maximum": "512",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.password": {
+    "Pattern": ".*",
+    "Required": "Yes",
+    "Maximum": "512",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "6",
+    "Type": "String"
   }
 }

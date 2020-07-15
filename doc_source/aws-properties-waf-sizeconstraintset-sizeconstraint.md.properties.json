@@ -1,17 +1,11 @@
 {
-  "waf.sizeconstraintset.sizeconstraint.comparisonoperator": {
-    "ComparisonOperator`  <a name=\"cfn-waf-sizeconstraintset-sizeconstraint-comparisonoperator\"></a>\nThe type of comparison you want AWS WAF to perform\\. AWS WAF uses this in combination with the provided `Size` and `FieldToMatch` to build an expression in the form of \"`Size` `ComparisonOperator` size in bytes of `FieldToMatch`\"\\. If that expression is true, the `SizeConstraint` is considered to match\\.  \n **EQ*": "Used to test if the `Size` is equal to the size of the `FieldToMatch`   \n **NE*",
+  "waf.sizeconstraintset.sizeconstraint.texttransformation": {
     "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "EQ",
-      "GE",
-      "GT",
-      "LE",
-      "LT",
-      "NE"
-    ],
-    "Allowed Values": "EQ | GE | GT | LE | LT | NE",
+    "UpdateRequires": "No interruption"
+  },
+  "waf.sizeconstraintset.sizeconstraint.size": {
+    "Required": "Yes",
+    "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "waf.sizeconstraintset.sizeconstraint.fieldtomatch": {
@@ -19,21 +13,11 @@
     "Type": "FieldToMatch",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "waf.sizeconstraintset.sizeconstraint.size": {
+  "waf.sizeconstraintset.sizeconstraint.comparisonoperator": {
+    "ComparisonOperator`  <a name=\"cfn-waf-sizeconstraintset-sizeconstraint-comparisonoperator\"></a>\nThe type of comparison you want AWS WAF to perform\\. AWS WAF uses this in combination with the provided `Size` and `FieldToMatch` to build an expression in the form of \"`Size` `ComparisonOperator` size in bytes of `FieldToMatch`\"\\. If that expression is true, the `SizeConstraint` is considered to match\\.  \n **EQ*": "Used to test if the `Size` is equal to the size of the `FieldToMatch`   \n **NE*",
+    "Allowed values": "EQ | GE | GT | LE | LT | NE",
     "Required": "Yes",
-    "Type": "Integer",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "waf.sizeconstraintset.sizeconstraint.texttransformation": {
-    "Required": "Yes",
-    "AllowedValues": [
-      "CMD_LINE",
-      "COMPRESS_WHITE_SPACE",
-      "HTML_ENTITY_DECODE",
-      "LOWERCASE",
-      "NONE",
-      "URL_DECODE"
-    ],
-    "UpdateRequires": "No interruption"
   }
 }

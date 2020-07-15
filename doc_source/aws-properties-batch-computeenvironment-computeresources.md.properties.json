@@ -1,50 +1,22 @@
 {
-  "batch.computeenvironment.computeresources.allocationstrategy": {
-    "Required": "No",
-    "AllowedValues": [
-      "BEST_FIT",
-      "BEST_FIT_PROGRESSIVE",
-      "SPOT_CAPACITY_OPTIMIZED"
-    ],
-    "UpdateRequires": "Replacement"
-  },
-  "batch.computeenvironment.computeresources.bidpercentage": {
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "batch.computeenvironment.computeresources.desiredvcpus": {
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "batch.computeenvironment.computeresources.ec2keypair": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "batch.computeenvironment.computeresources.imageid": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "batch.computeenvironment.computeresources.instancerole": {
-    "Required": "Yes",
-    "UpdateRequires": "Replacement"
-  },
   "batch.computeenvironment.computeresources.instancetypes": {
     "Required": "Yes",
     "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "batch.computeenvironment.computeresources.allocationstrategy": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
   "batch.computeenvironment.computeresources.launchtemplate": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
-  "batch.computeenvironment.computeresources.maxvcpus": {
+  "batch.computeenvironment.computeresources.type": {
+    "Allowed values": "EC2 | SPOT",
     "Required": "Yes",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   },
   "batch.computeenvironment.computeresources.minvcpus": {
     "Required": "Yes",
@@ -55,32 +27,51 @@
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
-  "batch.computeenvironment.computeresources.securitygroupids": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "batch.computeenvironment.computeresources.spotiamfleetrole": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
-  "batch.computeenvironment.computeresources.subnets": {
+  "batch.computeenvironment.computeresources.imageid": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "batch.computeenvironment.computeresources.desiredvcpus": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "batch.computeenvironment.computeresources.maxvcpus": {
     "Required": "Yes",
-    "UpdateRequires": "Replacement"
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "batch.computeenvironment.computeresources.tags": {
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "batch.computeenvironment.computeresources.type": {
-    "Required": "Yes",
+  "batch.computeenvironment.computeresources.ec2keypair": {
+    "Required": "No",
     "Type": "String",
-    "AllowedValues": [
-      "EC2",
-      "SPOT"
-    ],
-    "Allowed Values": "EC2 | SPOT",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "batch.computeenvironment.computeresources.subnets": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
+  "batch.computeenvironment.computeresources.bidpercentage": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "batch.computeenvironment.computeresources.securitygroupids": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "batch.computeenvironment.computeresources.instancerole": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
   }
 }

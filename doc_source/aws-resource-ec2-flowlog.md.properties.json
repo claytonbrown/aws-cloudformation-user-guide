@@ -1,5 +1,22 @@
 {
-  "ec2.flowlog.deliverlogspermissionarn": {
+  "ec2.flowlog.resourceid": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.flowlog.resourcetype": {
+    "Allowed values": "NetworkInterface | Subnet | VPC",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.flowlog.loggroupname": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.flowlog.logdestinationtype": {
+    "Allowed values": "cloud-watch-logs | s3",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -9,46 +26,15 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.flowlog.logdestinationtype": {
+  "ec2.flowlog.deliverlogspermissionarn": {
     "Required": "No",
     "Type": "String",
-    "AllowedValues": [
-      "cloud-watch-logs",
-      "s3"
-    ],
-    "Allowed Values": "cloud-watch-logs | s3",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ec2.flowlog.loggroupname": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ec2.flowlog.resourceid": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ec2.flowlog.resourcetype": {
-    "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "NetworkInterface",
-      "Subnet",
-      "VPC"
-    ],
-    "Allowed Values": "NetworkInterface | Subnet | VPC",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.flowlog.traffictype": {
+    "Allowed values": "ACCEPT | ALL | REJECT",
     "Required": "Yes",
     "Type": "String",
-    "AllowedValues": [
-      "ACCEPT",
-      "ALL",
-      "REJECT"
-    ],
-    "Allowed Values": "ACCEPT | ALL | REJECT",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

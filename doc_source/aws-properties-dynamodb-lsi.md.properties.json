@@ -1,16 +1,20 @@
 {
-  "dynamodb.lsi.indexname": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dynamodb.lsi.keyschema": {
-    "Required": "Yes",
-    "UpdateRequires": "No interruption"
-  },
   "dynamodb.lsi.projection": {
     "Required": "Yes",
     "Type": "Projection",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "dynamodb.lsi.indexname": {
+    "Pattern": "[a-zA-Z0-9_.-]+",
+    "Required": "Yes",
+    "Maximum": "255",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "3",
+    "Type": "String"
+  },
+  "dynamodb.lsi.keyschema": {
+    "Required": "Yes",
+    "Maximum": "2",
+    "UpdateRequires": "No interruption"
   }
 }

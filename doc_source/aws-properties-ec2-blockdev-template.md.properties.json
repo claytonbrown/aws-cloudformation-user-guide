@@ -1,24 +1,8 @@
 {
-  "ec2.blockdev.template.deleteontermination": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.blockdev.template.encrypted": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "UpdateRequires": "No interruption"
-  },
-  "ec2.blockdev.template.iops": {
+  "ec2.blockdev.template.volumesize": {
     "Required": "Conditional",
-    "UpdateRequires": "No interruption"
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.blockdev.template.kmskeyid": {
     "Required": "No",
@@ -30,20 +14,29 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.blockdev.template.volumesize": {
-    "Required": "Conditional",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  "ec2.blockdev.template.encrypted": {
+    "Required": "No",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "ec2.blockdev.template.deleteontermination": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   },
   "ec2.blockdev.template.volumetype": {
     "Required": "No",
-    "AllowedValues": [
-      "gp2",
-      "io1",
-      "sc1",
-      "st1",
-      "standard"
-    ],
+    "UpdateRequires": "No interruption"
+  },
+  "ec2.blockdev.template.iops": {
+    "Required": "Conditional",
     "UpdateRequires": "No interruption"
   }
 }

@@ -1,47 +1,47 @@
 {
-  "as.launchconfig.blockdev.template.deleteontermination": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "as.launchconfig.blockdev.template.encrypted": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  "as.launchconfig.blockdev.template.snapshotid": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Required": "Conditional",
+    "Maximum": "255",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "as.launchconfig.blockdev.template.iops": {
-    "Required": "Conditional",
     "Minimum": "100",
+    "Required": "Conditional",
     "Maximum": "20000",
     "UpdateRequires": "No interruption"
   },
-  "as.launchconfig.blockdev.template.snapshotid": {
-    "Required": "Conditional",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "255",
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "as.launchconfig.blockdev.template.volumesize": {
-    "Required": "Conditional",
-    "Type": "Integer",
-    "Minimum": "1",
-    "Maximum": "16384",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "as.launchconfig.blockdev.template.volumetype": {
-    "Required": "No",
     "Minimum": "1",
+    "Required": "No",
     "Maximum": "255",
     "UpdateRequires": "No interruption"
+  },
+  "as.launchconfig.blockdev.template.encrypted": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "as.launchconfig.blockdev.template.deleteontermination": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "as.launchconfig.blockdev.template.volumesize": {
+    "Minimum": "1",
+    "Required": "Conditional",
+    "Type": "Integer",
+    "Maximum": "16384",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

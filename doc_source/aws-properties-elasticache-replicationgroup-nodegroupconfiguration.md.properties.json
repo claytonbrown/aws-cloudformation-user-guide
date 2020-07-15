@@ -1,20 +1,12 @@
 {
-  "elasticache.replicationgroup.nodegroupconfiguration.nodegroupid": {
+  "elasticache.replicationgroup.nodegroupconfiguration.replicaavailabilityzones": {
     "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "4",
-    "Pattern": "\\d+",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticache.replicationgroup.nodegroupconfiguration.primaryavailabilityzone": {
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticache.replicationgroup.nodegroupconfiguration.replicaavailabilityzones": {
-    "Required": "No",
-    "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticache.replicationgroup.nodegroupconfiguration.replicacount": {
@@ -26,5 +18,13 @@
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticache.replicationgroup.nodegroupconfiguration.nodegroupid": {
+    "Pattern": "\\d+",
+    "Required": "No",
+    "Maximum": "4",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   }
 }

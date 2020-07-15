@@ -1,52 +1,52 @@
 {
-  "kms.key.description": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "0",
-    "Maximum": "8192",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kms.key.enabled": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
+  "kms.key.keypolicy": {
+    "Pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+    "Minimum": "1",
+    "Required": "Yes",
+    "Maximum": "131072",
     "UpdateRequires": "No interruption"
   },
   "kms.key.enablekeyrotation": {
     "Required": "No",
+    "UpdateRequires": "No interruption",
     "AllowedValues": [
       "True",
       "False"
-    ],
-    "UpdateRequires": "No interruption"
-  },
-  "kms.key.keypolicy": {
-    "Required": "Yes",
-    "Minimum": "1",
-    "Maximum": "131072",
-    "Pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
-    "UpdateRequires": "No interruption"
+    ]
   },
   "kms.key.keyusage": {
+    "Type": "String",
+    "Required": "No",
+    "Allowed Values": "ENCRYPT\\_DECRYPT",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "ENCRYPT\\_DECRYPT"
-    ],
-    "Allowed Values": "ENCRYPT\\_DECRYPT",
+    ]
+  },
+  "kms.key.enabled": {
+    "Required": "No",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "kms.key.description": {
+    "Minimum": "0",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "kms.key.pendingwindowindays": {
-    "Minimum": "7",
-    "Maximum": "30",
-    "Required": "No",
-    "UpdateRequires": "No interruption"
+    "Maximum": "8192",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kms.key.tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "kms.key.pendingwindowindays": {
+    "Required": "No",
+    "Minimum": "7",
+    "Maximum": "30",
+    "UpdateRequires": "No interruption"
   }
 }

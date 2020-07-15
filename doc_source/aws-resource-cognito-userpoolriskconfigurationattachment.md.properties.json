@@ -1,16 +1,24 @@
 {
+  "cognito.userpoolriskconfigurationattachment.clientid": {
+    "Pattern": "[\\w+]+",
+    "Required": "Yes",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
   "cognito.userpoolriskconfigurationattachment.accounttakeoverriskconfiguration": {
     "Required": "No",
     "Type": "AccountTakeoverRiskConfigurationType",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cognito.userpoolriskconfigurationattachment.clientid": {
+  "cognito.userpoolriskconfigurationattachment.userpoolid": {
+    "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
     "Required": "Yes",
-    "Type": "String",
+    "Maximum": "55",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
     "Minimum": "1",
-    "Maximum": "128",
-    "Pattern": "[\\w+]+",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "String"
   },
   "cognito.userpoolriskconfigurationattachment.compromisedcredentialsriskconfiguration": {
     "Required": "No",
@@ -21,13 +29,5 @@
     "Required": "No",
     "Type": "RiskExceptionConfigurationType",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cognito.userpoolriskconfigurationattachment.userpoolid": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "55",
-    "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

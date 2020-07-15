@@ -1,10 +1,11 @@
 {
-  "elasticbeanstalk.configurationtemplate.applicationname": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "100",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  "elasticbeanstalk.configurationtemplate.platformarn": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "elasticbeanstalk.configurationtemplate.optionsettings": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   },
   "elasticbeanstalk.configurationtemplate.description": {
     "Required": "No",
@@ -12,26 +13,25 @@
     "Maximum": "200",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "elasticbeanstalk.configurationtemplate.sourceconfiguration": {
+    "Required": "Conditional",
+    "Type": "SourceConfiguration",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  },
   "elasticbeanstalk.configurationtemplate.environmentid": {
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticbeanstalk.configurationtemplate.optionsettings": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "elasticbeanstalk.configurationtemplate.platformarn": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
+  "elasticbeanstalk.configurationtemplate.applicationname": {
+    "Minimum": "1",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "100",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticbeanstalk.configurationtemplate.solutionstackname": {
     "Required": "Conditional",
     "UpdateRequires": "Replacement"
-  },
-  "elasticbeanstalk.configurationtemplate.sourceconfiguration": {
-    "Required": "Conditional",
-    "Type": "SourceConfiguration",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

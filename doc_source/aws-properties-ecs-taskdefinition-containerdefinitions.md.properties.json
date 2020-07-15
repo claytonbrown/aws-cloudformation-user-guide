@@ -1,10 +1,19 @@
 {
-  "ecs.taskdefinition.containerdefinitions.command": {
+  "ecs.taskdefinition.containerdefinitions.dnssearchdomains": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.containerdefinitions.cpu": {
+  "ecs.taskdefinition.containerdefinitions.starttimeout": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.taskdefinition.containerdefinitions.repositorycredentials": {
+    "Required": "No",
+    "Type": "RepositoryCredentials",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.taskdefinition.containerdefinitions.secrets": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
@@ -12,23 +21,70 @@
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
-  "ecs.taskdefinition.containerdefinitions.disablenetworking": {
+  "ecs.taskdefinition.containerdefinitions.portmappings": {
     "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.taskdefinition.containerdefinitions.mountpoints": {
+    "Required": "No",
+    "Type": "List of [MountPoint",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.taskdefinition.containerdefinitions.memory": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.taskdefinition.containerdefinitions.interactive": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "True",
       "False"
-    ],
-    "Type": "Boolean",
+    ]
+  },
+  "ecs.taskdefinition.containerdefinitions.cpu": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.taskdefinition.containerdefinitions.environment": {
+    "Required": "No",
+    "Type": "List of [KeyValuePair",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.containerdefinitions.dnssearchdomains": {
+  "ecs.taskdefinition.containerdefinitions.dockersecurityoptions": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.taskdefinition.containerdefinitions.hostname": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.taskdefinition.containerdefinitions.volumesfrom": {
+    "Required": "No",
+    "Type": "List of [VolumeFrom",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.taskdefinition.containerdefinitions.resourcerequirements": {
+    "Required": "No",
+    "Type": "List of [ResourceRequirement",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.taskdefinition.containerdefinitions.links": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.containerdefinitions.dnsservers": {
+  "ecs.taskdefinition.containerdefinitions.systemcontrols": {
     "Required": "No",
-    "Type": "List of String",
+    "Type": "List of [SystemControl",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.taskdefinition.containerdefinitions.healthcheck": {
+    "Required": "No",
+    "Type": "HealthCheck",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecs.taskdefinition.containerdefinitions.dockerlabels": {
@@ -36,62 +92,7 @@
     "Type": "Map of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.containerdefinitions.dockersecurityoptions": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "ecs.taskdefinition.containerdefinitions.entrypoint": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.environment": {
-    "Required": "No",
-    "Type": "List of [KeyValuePair",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.essential": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "UpdateRequires": "Replacement"
-  },
-  "ecs.taskdefinition.containerdefinitions.extrahosts": {
-    "Required": "No",
-    "Type": "List of [HostEntry",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.firelensconfiguration": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "ecs.taskdefinition.containerdefinitions.healthcheck": {
-    "Required": "No",
-    "Type": "HealthCheck",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.hostname": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.image": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.interactive": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.links": {
+  "ecs.taskdefinition.containerdefinitions.command": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -105,19 +106,50 @@
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
-  "ecs.taskdefinition.containerdefinitions.memory": {
+  "ecs.taskdefinition.containerdefinitions.pseudoterminal": {
     "Required": "No",
-    "Type": "Integer",
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "ecs.taskdefinition.containerdefinitions.workingdirectory": {
+    "Required": "No",
+    "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.taskdefinition.containerdefinitions.extrahosts": {
+    "Required": "No",
+    "Type": "List of [HostEntry",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecs.taskdefinition.containerdefinitions.firelensconfiguration": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
   },
   "ecs.taskdefinition.containerdefinitions.memoryreservation": {
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.containerdefinitions.mountpoints": {
+  "ecs.taskdefinition.containerdefinitions.readonlyrootfilesystem": {
     "Required": "No",
-    "Type": "List of [MountPoint",
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "ecs.taskdefinition.containerdefinitions.stoptimeout": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.taskdefinition.containerdefinitions.entrypoint": {
+    "Required": "No",
+    "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecs.taskdefinition.containerdefinitions.name": {
@@ -125,67 +157,22 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.containerdefinitions.portmappings": {
+  "ecs.taskdefinition.containerdefinitions.image": {
     "Required": "No",
-    "UpdateRequires": "Replacement"
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.containerdefinitions.privileged": {
+  "ecs.taskdefinition.containerdefinitions.essential": {
     "Required": "No",
+    "UpdateRequires": "Replacement",
     "AllowedValues": [
       "True",
       "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    ]
   },
-  "ecs.taskdefinition.containerdefinitions.pseudoterminal": {
+  "ecs.taskdefinition.containerdefinitions.dnsservers": {
     "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.readonlyrootfilesystem": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.repositorycredentials": {
-    "Required": "No",
-    "Type": "RepositoryCredentials",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.resourcerequirements": {
-    "Required": "No",
-    "Type": "List of [ResourceRequirement",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.secrets": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "ecs.taskdefinition.containerdefinitions.starttimeout": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "ecs.taskdefinition.containerdefinitions.stoptimeout": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "ecs.taskdefinition.containerdefinitions.systemcontrols": {
-    "Required": "No",
-    "Type": "List of [SystemControl",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.ulimits": {
-    "Required": "No",
-    "Type": "List of [Ulimit",
+    "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecs.taskdefinition.containerdefinitions.user": {
@@ -193,14 +180,27 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.containerdefinitions.volumesfrom": {
+  "ecs.taskdefinition.containerdefinitions.disablenetworking": {
     "Required": "No",
-    "Type": "List of [VolumeFrom",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   },
-  "ecs.taskdefinition.containerdefinitions.workingdirectory": {
+  "ecs.taskdefinition.containerdefinitions.privileged": {
     "Required": "No",
-    "Type": "String",
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "ecs.taskdefinition.containerdefinitions.ulimits": {
+    "Required": "No",
+    "Type": "List of [Ulimit",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

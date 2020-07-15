@@ -1,9 +1,19 @@
 {
-  "servicecatalog.cloudformationprovisionedproduct.acceptlanguage": {
+  "servicecatalog.cloudformationprovisionedproduct.provisionedproductname": {
+    "Pattern": "[a-zA-Z0-9][a-zA-Z0-9._-]*",
     "Required": "No",
-    "Type": "String",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "servicecatalog.cloudformationprovisionedproduct.productid": {
+    "Pattern": "^[a-zA-Z0-9_\\-]*",
+    "Required": "Conditional",
     "Maximum": "100",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "servicecatalog.cloudformationprovisionedproduct.notificationarns": {
     "Required": "No",
@@ -11,49 +21,16 @@
     "Maximum": "5",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "servicecatalog.cloudformationprovisionedproduct.pathid": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "100",
-    "Pattern": "^[a-zA-Z0-9_\\-]*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "servicecatalog.cloudformationprovisionedproduct.productid": {
-    "Required": "Conditional",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "100",
-    "Pattern": "^[a-zA-Z0-9_\\-]*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "servicecatalog.cloudformationprovisionedproduct.productname": {
-    "Required": "Conditional",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "128",
-    "Pattern": "[a-zA-Z0-9][a-zA-Z0-9._-]*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "servicecatalog.cloudformationprovisionedproduct.provisionedproductname": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "128",
-    "Pattern": "[a-zA-Z0-9][a-zA-Z0-9._-]*",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "servicecatalog.cloudformationprovisionedproduct.provisioningartifactid": {
-    "Required": "Conditional",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "100",
-    "Pattern": "^[a-zA-Z0-9_\\-]*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "servicecatalog.cloudformationprovisionedproduct.provisioningartifactname": {
     "Required": "Conditional",
     "Type": "String",
+    "Maximum": "8192",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "servicecatalog.cloudformationprovisionedproduct.acceptlanguage": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "servicecatalog.cloudformationprovisionedproduct.provisioningparameters": {
@@ -61,15 +38,39 @@
     "Type": "List of [ProvisioningParameter",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "servicecatalog.cloudformationprovisionedproduct.provisioningpreferences": {
-    "Required": "No",
-    "Type": "ProvisioningPreferences",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "servicecatalog.cloudformationprovisionedproduct.tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "servicecatalog.cloudformationprovisionedproduct.provisioningpreferences": {
+    "Required": "No",
+    "Type": "ProvisioningPreferences",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "servicecatalog.cloudformationprovisionedproduct.provisioningartifactid": {
+    "Pattern": "^[a-zA-Z0-9_\\-]*",
+    "Required": "Conditional",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "servicecatalog.cloudformationprovisionedproduct.productname": {
+    "Pattern": "[a-zA-Z0-9][a-zA-Z0-9._-]*",
+    "Required": "Conditional",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "servicecatalog.cloudformationprovisionedproduct.pathid": {
+    "Pattern": "^[a-zA-Z0-9_\\-]*",
+    "Required": "No",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   }
 }

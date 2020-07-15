@@ -1,37 +1,27 @@
 {
+  "events.rule.state": {
+    "Allowed values": "DISABLED | ENABLED",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "events.rule.targets": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "events.rule.eventpattern": {},
+  "events.rule.name": {
+    "Pattern": "[\\.\\-_A-Za-z0-9]+",
+    "Required": "No",
+    "Maximum": "64",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
   "events.rule.description": {
     "Required": "No",
     "Type": "String",
     "Maximum": "512",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "events.rule.eventbusname": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "256",
-    "Pattern": "[/\\.\\-_A-Za-z0-9]+",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "events.rule.eventpattern": {},
-  "events.rule.\"eventpattern\": { \"source\": [ \"aws.ec2\" ], \"detail-type\": [ \"ec2 instance state-change notification\" ] }": {
-    "Required": "Conditional",
-    "Type": "Json",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "events.rule.name": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "64",
-    "Pattern": "[\\.\\-_A-Za-z0-9]+",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "events.rule.rolearn": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "1600",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.scheduleexpression": {
@@ -40,18 +30,24 @@
     "Maximum": "256",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "events.rule.state": {
-    "Required": "No",
-    "Type": "String",
-    "AllowedValues": [
-      "DISABLED",
-      "ENABLED"
-    ],
-    "Allowed Values": "DISABLED | ENABLED",
+  "events.rule.\"eventpattern\": { \"source\": [ \"aws.ec2\" ], \"detail-type\": [ \"ec2 instance state-change notification\" ] }": {
+    "Required": "Conditional",
+    "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "events.rule.targets": {
+  "events.rule.eventbusname": {
+    "Pattern": "[/\\.\\-_A-Za-z0-9]+",
     "Required": "No",
-    "UpdateRequires": "No interruption"
+    "Maximum": "256",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "events.rule.rolearn": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1600",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

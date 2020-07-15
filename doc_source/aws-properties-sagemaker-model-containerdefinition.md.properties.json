@@ -1,9 +1,16 @@
 {
+  "sagemaker.model.containerdefinition.image": {
+    "Pattern": "[\\S]+",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "255",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "sagemaker.model.containerdefinition.containerhostname": {
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
     "Required": "No",
     "Type": "String",
     "Maximum": "63",
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "sagemaker.model.containerdefinition.environment": {
@@ -11,27 +18,16 @@
     "Type": "Json",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "sagemaker.model.containerdefinition.image": {
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "255",
-    "Pattern": "[\\S]+",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "sagemaker.model.containerdefinition.mode": {
+    "Allowed values": "MultiModel | SingleModel",
     "Required": "No",
     "Type": "String",
-    "AllowedValues": [
-      "MultiModel",
-      "SingleModel"
-    ],
-    "Allowed Values": "MultiModel | SingleModel",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "sagemaker.model.containerdefinition.modeldataurl": {
+    "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
     "Required": "No",
     "Maximum": "1024",
-    "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
     "UpdateRequires": "Replacement"
   }
 }

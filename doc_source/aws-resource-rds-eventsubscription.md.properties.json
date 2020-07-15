@@ -1,29 +1,29 @@
 {
   "rds.eventsubscription.enabled": {
     "Required": "No",
+    "UpdateRequires": "No interruption",
     "AllowedValues": [
       "True",
       "False"
-    ],
-    "UpdateRequires": "No interruption"
-  },
-  "rds.eventsubscription.eventcategories": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
+    ]
   },
   "rds.eventsubscription.snstopicarn": {
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "rds.eventsubscription.sourcetype": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)\n\n#"
+  },
   "rds.eventsubscription.sourceids": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "rds.eventsubscription.sourcetype": {
+  "rds.eventsubscription.eventcategories": {
     "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)\n\n#"
+    "UpdateRequires": "No interruption"
   }
 }

@@ -1,22 +1,23 @@
 {
-  "fsx.filesystem.backupid": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "fsx.filesystem.filesystemtype": {
-    "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "LUSTRE",
-      "WINDOWS"
-    ],
-    "Allowed Values": "LUSTRE | WINDOWS",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  "fsx.filesystem.windowsconfiguration": {
+    "Required": "Conditional",
+    "Type": "WindowsConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "fsx.filesystem.kmskeyid": {
     "Required": "No",
     "UpdateRequires": "Replacement"
+  },
+  "fsx.filesystem.tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.filesystem.backupid": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "fsx.filesystem.lustreconfiguration": {
     "Required": "No",
@@ -30,18 +31,11 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "fsx.filesystem.storagecapacity": {
+    "Minimum": "0",
     "Required": "No",
     "Type": "Integer",
-    "Minimum": "0",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "fsx.filesystem.storagetype": {
-    "Required": "No",
-    "AllowedValues": [
-      "HDD",
-      "SSD"
-    ],
-    "UpdateRequires": "Replacement"
+    "Maximum": "2147483647",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "fsx.filesystem.subnetids": {
     "Required": "Yes",
@@ -49,15 +43,14 @@
     "Maximum": "50",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "fsx.filesystem.tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "Maximum": "50",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  "fsx.filesystem.filesystemtype": {
+    "Allowed values": "LUSTRE | WINDOWS",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "fsx.filesystem.windowsconfiguration": {
-    "Required": "Conditional",
-    "Type": "WindowsConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  "fsx.filesystem.storagetype": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
   }
 }

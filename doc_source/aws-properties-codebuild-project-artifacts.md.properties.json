@@ -1,20 +1,12 @@
 {
-  "codebuild.project.artifacts.artifactidentifier": {
-    "Required": "No",
+  "codebuild.project.artifacts.location": {
+    "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codebuild.project.artifacts.encryptiondisabled": {
+  "codebuild.project.artifacts.namespacetype": {
+    "Allowed values": "BUILD_ID | NONE",
     "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codebuild.project.artifacts.location": {
-    "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -23,33 +15,24 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codebuild.project.artifacts.namespacetype": {
+  "codebuild.project.artifacts.artifactidentifier": {
     "Required": "No",
     "Type": "String",
-    "AllowedValues": [
-      "BUILD_ID",
-      "NONE"
-    ],
-    "Allowed Values": "BUILD_ID | NONE",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codebuild.project.artifacts.overrideartifactname": {
     "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    ]
   },
   "codebuild.project.artifacts.packaging": {
+    "Allowed values": "NONE | ZIP",
     "Required": "No",
     "Type": "String",
-    "AllowedValues": [
-      "NONE",
-      "ZIP"
-    ],
-    "Allowed Values": "NONE | ZIP",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codebuild.project.artifacts.path": {
@@ -59,11 +42,15 @@
   },
   "codebuild.project.artifacts.type": {
     "Required": "Yes",
-    "AllowedValues": [
-      "CODEPIPELINE",
-      "NO_ARTIFACTS",
-      "S3"
-    ],
     "UpdateRequires": "No interruption"
+  },
+  "codebuild.project.artifacts.encryptiondisabled": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   }
 }

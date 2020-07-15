@@ -1,7 +1,8 @@
 {
-  "s3.bucket.replicationconfiguration.rules.destination": {
+  "s3.bucket.replicationconfiguration.rules.status": {
+    "Allowed values": "Disabled | Enabled",
     "Required": "Yes",
-    "Type": "ReplicationDestination",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "s3.bucket.replicationconfiguration.rules.id": {
@@ -9,8 +10,23 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "s3.bucket.replicationconfiguration.rules.prefix": {
+  "s3.bucket.replicationconfiguration.rules.destination": {
     "Required": "Yes",
+    "Type": "ReplicationDestination",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "s3.bucket.replicationconfiguration.rules.filter": {
+    "Required": "No",
+    "Type": "ReplicationRuleFilter",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "s3.bucket.replicationconfiguration.rules.deletemarkerreplication": {
+    "Required": "No",
+    "Type": "DeleteMarkerReplication",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "s3.bucket.replicationconfiguration.rules.prefix": {
+    "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -19,14 +35,9 @@
     "Type": "SourceSelectionCriteria",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "s3.bucket.replicationconfiguration.rules.status": {
-    "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "Disabled",
-      "Enabled"
-    ],
-    "Allowed Values": "Disabled | Enabled",
+  "s3.bucket.replicationconfiguration.rules.priority": {
+    "Required": "No",
+    "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

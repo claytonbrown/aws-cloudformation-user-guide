@@ -1,78 +1,31 @@
 {
-  "ssm.patchbaseline.approvalrules": {
+  "ssm.patchbaseline.sources": {
     "Required": "No",
-    "Type": "RuleGroup",
+    "Type": "List of [PatchSource",
+    "Maximum": "20",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.patchbaseline.approvedpatches": {
-    "Required": "No",
-    "Maximum": "50",
-    "UpdateRequires": "No interruption"
-  },
-  "ssm.patchbaseline.approvedpatchescompliancelevel": {
+  "ssm.patchbaseline.operatingsystem": {
+    "Allowed values": "AMAZON_LINUX | AMAZON_LINUX_2 | CENTOS | DEBIAN | ORACLE_LINUX | REDHAT_ENTERPRISE_LINUX | SUSE | UBUNTU | WINDOWS",
     "Required": "No",
     "Type": "String",
-    "AllowedValues": [
-      "CRITICAL",
-      "HIGH",
-      "INFORMATIONAL",
-      "LOW",
-      "MEDIUM",
-      "UNSPECIFIED"
-    ],
-    "Allowed Values": "CRITICAL | HIGH | INFORMATIONAL | LOW | MEDIUM | UNSPECIFIED",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssm.patchbaseline.approvedpatchesenablenonsecurity": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssm.patchbaseline.description": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ssm.patchbaseline.globalfilters": {
     "Required": "No",
     "Type": "PatchFilterGroup",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.patchbaseline.name": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "3",
-    "Maximum": "128",
-    "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+  "ssm.patchbaseline.approvalrules": {
+    "Required": "No",
+    "Type": "RuleGroup",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.patchbaseline.operatingsystem": {
+  "ssm.patchbaseline.description": {
+    "Minimum": "1",
     "Required": "No",
     "Type": "String",
-    "AllowedValues": [
-      "AMAZON_LINUX",
-      "AMAZON_LINUX_2",
-      "CENTOS",
-      "REDHAT_ENTERPRISE_LINUX",
-      "SUSE",
-      "UBUNTU",
-      "WINDOWS"
-    ],
-    "Allowed Values": "AMAZON_LINUX | AMAZON_LINUX_2 | CENTOS | REDHAT_ENTERPRISE_LINUX | SUSE | UBUNTU | WINDOWS",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ssm.patchbaseline.patchgroups": {
-    "Required": "No",
-    "Type": "List of String",
-    "Minimum": "1",
-    "Maximum": "256",
-    "Pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+    "Maximum": "1024",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssm.patchbaseline.rejectedpatches": {
@@ -80,27 +33,53 @@
     "Maximum": "50",
     "UpdateRequires": "No interruption"
   },
-  "ssm.patchbaseline.rejectedpatchesaction": {
-    "RejectedPatchesAction`  <a name=\"cfn-ssm-patchbaseline-rejectedpatchesaction\"></a>\nThe action for Patch Manager to take on patches included in the RejectedPackages list\\.  \n+  **ALLOW\\_AS\\_DEPENDENCY*": "A package in the Rejected patches list is installed only if it is a dependency of another package\\. It is considered compliant with the patch baseline, and its status is reported as *InstalledOther*\\. This is the default action if no option is specified\\.\n+  **BLOCK*",
-    "Required": "No",
-    "Type": "String",
-    "AllowedValues": [
-      "ALLOW_AS_DEPENDENCY",
-      "BLOCK"
-    ],
-    "Allowed Values": "ALLOW_AS_DEPENDENCY | BLOCK",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssm.patchbaseline.sources": {
-    "Required": "No",
-    "Type": "List of [PatchSource",
-    "Maximum": "20",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "ssm.patchbaseline.tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "1000",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "ssm.patchbaseline.patchgroups": {
+    "Pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+    "Required": "No",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "List of String"
+  },
+  "ssm.patchbaseline.approvedpatches": {
+    "Required": "No",
+    "Maximum": "50",
+    "UpdateRequires": "No interruption"
+  },
+  "ssm.patchbaseline.approvedpatchesenablenonsecurity": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "ssm.patchbaseline.approvedpatchescompliancelevel": {
+    "Allowed values": "CRITICAL | HIGH | INFORMATIONAL | LOW | MEDIUM | UNSPECIFIED",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.patchbaseline.name": {
+    "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+    "Required": "Yes",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "3",
+    "Type": "String"
+  },
+  "ssm.patchbaseline.rejectedpatchesaction": {
+    "Allowed values": "ALLOW_AS_DEPENDENCY | BLOCK",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "RejectedPatchesAction`  <a name=\"cfn-ssm-patchbaseline-rejectedpatchesaction\"></a>\nThe action for Patch Manager to take on patches included in the RejectedPackages list\\.  \n+  **ALLOW\\_AS\\_DEPENDENCY*": "A package in the Rejected patches list is installed only if it is a dependency of another package\\. It is considered compliant with the patch baseline, and its status is reported as *InstalledOther*\\. This is the default action if no option is specified\\.\n+  **BLOCK*"
   }
 }

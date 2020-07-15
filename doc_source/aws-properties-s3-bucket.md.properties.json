@@ -1,9 +1,28 @@
 {
-  "s3.bucket.accelerateconfiguration": {
+  "s3.bucket.objectlockenabled": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "s3.bucket.lifecycleconfiguration": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "s3.bucket.accesscontrol": {
+  "s3.bucket.versioningconfiguration": {
+    "Required": "No",
+    "Type": "VersioningConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "s3.bucket.notificationconfiguration": {
+    "Required": "No",
+    "Type": "NotificationConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "s3.bucket.objectlockconfiguration": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
@@ -12,7 +31,7 @@
     "Type": "List of [AnalyticsConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "s3.bucket.bucketencryption": {
+  "s3.bucket.accelerateconfiguration": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
@@ -25,64 +44,46 @@
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "s3.bucket.inventoryconfigurations": {
+  "s3.bucket.tags": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "s3.bucket.lifecycleconfiguration": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "s3.bucket.loggingconfiguration": {
-    "Required": "No",
-    "Type": "LoggingConfiguration",
+    "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "s3.bucket.metricsconfigurations": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "s3.bucket.notificationconfiguration": {
-    "Required": "No",
-    "Type": "NotificationConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "s3.bucket.objectlockconfiguration": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "s3.bucket.objectlockenabled": {
-    "Required": "No",
-    "AllowedValues": [
-      "True",
-      "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "s3.bucket.publicaccessblockconfiguration": {
     "Required": "No",
     "Type": "PublicAccessBlockConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "s3.bucket.replicationconfiguration": {
+  "s3.bucket.metricsconfigurations": {
     "Required": "No",
-    "Type": "ReplicationConfiguration",
+    "Type": "List of [MetricsConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "s3.bucket.tags": {
+  "s3.bucket.loggingconfiguration": {
     "Required": "No",
-    "Type": "List of [Tag",
+    "Type": "LoggingConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "s3.bucket.versioningconfiguration": {
+  "s3.bucket.accesscontrol": {
     "Required": "No",
-    "Type": "VersioningConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
+  },
+  "s3.bucket.bucketencryption": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "s3.bucket.inventoryconfigurations": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   },
   "s3.bucket.websiteconfiguration": {
     "Required": "No",
     "Type": "WebsiteConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "s3.bucket.replicationconfiguration": {
+    "Required": "No",
+    "Type": "ReplicationConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

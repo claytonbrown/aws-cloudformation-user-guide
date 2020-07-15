@@ -1,24 +1,5 @@
 {
-  "applicationautoscaling.scalingpolicy.policyname": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "256",
-    "Pattern": "\\p{Print}+",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "applicationautoscaling.scalingpolicy.policytype": {},
-  "applicationautoscaling.scalingpolicy.targettrackingscaling": {},
-  "applicationautoscaling.scalingpolicy.stepscaling": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "applicationautoscaling.scalingpolicy.resourceid": {
-    "Required": "Conditional",
-    "UpdateRequires": "Replacement"
-  },
-  "applicationautoscaling.scalingpolicy.scalabledimension": {
+  "applicationautoscaling.scalingpolicy.servicenamespace": {
     "Required": "Conditional",
     "UpdateRequires": "Replacement"
   },
@@ -27,18 +8,37 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "applicationautoscaling.scalingpolicy.servicenamespace": {
-    "Required": "Conditional",
-    "UpdateRequires": "Replacement"
-  },
   "applicationautoscaling.scalingpolicy.stepscalingpolicyconfiguration": {
     "Required": "No",
     "Type": "StepScalingPolicyConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "applicationautoscaling.scalingpolicy.resourceid": {
+    "Required": "Conditional",
+    "UpdateRequires": "Replacement"
+  },
+  "applicationautoscaling.scalingpolicy.policytype": {},
   "applicationautoscaling.scalingpolicy.targettrackingscalingpolicyconfiguration": {
     "Required": "No",
     "Type": "TargetTrackingScalingPolicyConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "applicationautoscaling.scalingpolicy.targettrackingscaling": {},
+  "applicationautoscaling.scalingpolicy.stepscaling": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "applicationautoscaling.scalingpolicy.policyname": {
+    "Pattern": "\\p{Print}+",
+    "Required": "Yes",
+    "Maximum": "256",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "applicationautoscaling.scalingpolicy.scalabledimension": {
+    "Required": "Conditional",
+    "UpdateRequires": "Replacement"
   }
 }

@@ -1,25 +1,15 @@
 {
   "ecs.taskdefinition.containerdefinitions.logconfiguration.logdriver": {
     "Required": "Yes",
-    "AllowedValues": [
-      "awsfirelens",
-      "awslogs",
-      "fluentd",
-      "gelf",
-      "journald",
-      "json-file",
-      "splunk",
-      "syslog"
-    ],
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.taskdefinition.containerdefinitions.logconfiguration.secretoptions": {
+    "Required": "No",
     "UpdateRequires": "Replacement"
   },
   "ecs.taskdefinition.containerdefinitions.logconfiguration.options": {
     "Required": "No",
     "Type": "Map of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecs.taskdefinition.containerdefinitions.logconfiguration.secretoptions": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
   }
 }

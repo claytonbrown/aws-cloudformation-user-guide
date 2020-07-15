@@ -1,30 +1,30 @@
 {
-  "as.launchconfig.blockdev.mapping.devicename": {
-    "Required": "Yes",
-    "Minimum": "1",
-    "Maximum": "255",
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "UpdateRequires": "No interruption"
-  },
   "as.launchconfig.blockdev.mapping.ebs": {
     "Required": "No",
     "Type": "BlockDevice",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "as.launchconfig.blockdev.mapping.devicename": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Minimum": "1",
+    "Required": "Yes",
+    "Maximum": "255",
+    "UpdateRequires": "No interruption"
+  },
   "as.launchconfig.blockdev.mapping.nodevice": {
     "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ],
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    ]
   },
   "as.launchconfig.blockdev.mapping.virtualname": {
-    "Required": "No",
-    "Minimum": "1",
-    "Maximum": "255",
     "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "255",
     "UpdateRequires": "No interruption"
   }
 }

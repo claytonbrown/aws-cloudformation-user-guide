@@ -1,8 +1,15 @@
 {
-  "cognito.userpoolidentityprovider.attributemapping": {
+  "cognito.userpoolidentityprovider.userpoolid": {
+    "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
+    "Required": "Yes",
+    "Maximum": "55",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "cognito.userpoolidentityprovider.providerdetails": {
     "Required": "No",
-    "Type": "Json",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "cognito.userpoolidentityprovider.idpidentifiers": {
     "Required": "No",
@@ -10,38 +17,23 @@
     "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cognito.userpoolidentityprovider.providerdetails": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
   "cognito.userpoolidentityprovider.providername": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "32",
     "Pattern": "[^_][\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}][^_]+",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Required": "Yes",
+    "Maximum": "32",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "cognito.userpoolidentityprovider.providertype": {
+    "Allowed values": "Facebook | Google | LoginWithAmazon | OIDC | SAML | SignInWithApple",
     "Required": "Yes",
     "Type": "String",
-    "AllowedValues": [
-      "Facebook",
-      "Google",
-      "LoginWithAmazon",
-      "OIDC",
-      "SAML",
-      "SignInWithApple"
-    ],
-    "Allowed Values": "Facebook | Google | LoginWithAmazon | OIDC | SAML | SignInWithApple",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "cognito.userpoolidentityprovider.userpoolid": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "55",
-    "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  "cognito.userpoolidentityprovider.attributemapping": {
+    "Required": "No",
+    "Type": "Json",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

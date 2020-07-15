@@ -1,18 +1,4 @@
 {
-  "ec2.eip.domain": {
-    "Required": "Conditional",
-    "Type": "String",
-    "AllowedValues": [
-      "standard",
-      "vpc"
-    ],
-    "Allowed Values": "standard | vpc",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ec2.eip.instanceid": {
-    "Required": "No",
-    "UpdateRequires": "Some interruptions"
-  },
   "ec2.eip.publicipv4pool": {
     "Required": "No",
     "UpdateRequires": "Some interruptions"
@@ -20,5 +6,15 @@
   "ec2.eip.tags": {
     "Required": "No",
     "UpdateRequires": "No interruption"
+  },
+  "ec2.eip.instanceid": {
+    "Required": "No",
+    "UpdateRequires": "Some interruptions"
+  },
+  "ec2.eip.domain": {
+    "Allowed values": "standard | vpc",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

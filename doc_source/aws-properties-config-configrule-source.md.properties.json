@@ -1,24 +1,20 @@
 {
-  "config.configrule.source.owner": {
-    "Required": "Yes",
-    "Type": "String",
-    "AllowedValues": [
-      "AWS",
-      "CUSTOM_LAMBDA"
-    ],
-    "Allowed Values": "AWS | CUSTOM_LAMBDA",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "config.configrule.source.sourcedetails": {
     "Required": "No",
     "Type": "List of [SourceDetail",
     "Maximum": "25",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "config.configrule.source.sourceidentifier": {
+  "config.configrule.source.owner": {
+    "Allowed values": "AWS | CUSTOM_LAMBDA",
     "Required": "Yes",
     "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.configrule.source.sourceidentifier": {
     "Minimum": "1",
+    "Required": "Yes",
+    "Type": "String",
     "Maximum": "256",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }

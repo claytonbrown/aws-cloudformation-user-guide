@@ -1,50 +1,46 @@
 {
+  "kinesisfirehose.deliverystream.s3destinationconfiguration": {
+    "Required": "Conditional",
+    "Type": "S3DestinationConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "kinesisfirehose.deliverystream.deliverystreamname": {
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "64",
     "Pattern": "[a-zA-Z0-9_.-]+",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Required": "No",
+    "Maximum": "64",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "kinesisfirehose.deliverystream.deliverystreamtype": {
+    "Allowed values": "DirectPut | KinesisStreamAsSource",
     "Required": "No",
     "Type": "String",
-    "AllowedValues": [
-      "DirectPut",
-      "KinesisStreamAsSource"
-    ],
-    "Allowed Values": "DirectPut | KinesisStreamAsSource",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration": {
-    "Required": "Conditional",
-    "Type": "ElasticsearchDestinationConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.extendeds3destinationconfiguration": {
     "Required": "Conditional",
     "Type": "ExtendedS3DestinationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.kinesisstreamsourceconfiguration": {
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration": {
     "Required": "No",
-    "Type": "KinesisStreamSourceConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Type": "SplunkDestinationConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration": {
     "Required": "Conditional",
     "Type": "RedshiftDestinationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.s3destinationconfiguration": {
+  "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration": {
     "Required": "Conditional",
-    "Type": "S3DestinationConfiguration",
+    "Type": "ElasticsearchDestinationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.splunkdestinationconfiguration": {
+  "kinesisfirehose.deliverystream.kinesisstreamsourceconfiguration": {
     "Required": "No",
-    "Type": "SplunkDestinationConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Type": "KinesisStreamSourceConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

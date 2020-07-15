@@ -1,7 +1,14 @@
 {
-  "kinesisanalytics.application.input.inputparallelism": {
-    "Required": "No",
-    "Type": "InputParallelism",
+  "kinesisanalytics.application.input.inputschema": {
+    "Required": "Yes",
+    "Type": "InputSchema",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisanalytics.application.input.nameprefix": {
+    "Minimum": "1",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "32",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisanalytics.application.input.inputprocessingconfiguration": {
@@ -9,26 +16,19 @@
     "Type": "InputProcessingConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisanalytics.application.input.inputschema": {
-    "Required": "Yes",
-    "Type": "InputSchema",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kinesisanalytics.application.input.kinesisfirehoseinput": {
-    "Required": "Conditional",
-    "Type": "KinesisFirehoseInput",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "kinesisanalytics.application.input.kinesisstreamsinput": {
     "Required": "Conditional",
     "Type": "KinesisStreamsInput",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisanalytics.application.input.nameprefix": {
-    "Required": "Yes",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "32",
+  "kinesisanalytics.application.input.inputparallelism": {
+    "Required": "No",
+    "Type": "InputParallelism",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisanalytics.application.input.kinesisfirehoseinput": {
+    "Required": "Conditional",
+    "Type": "KinesisFirehoseInput",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }
