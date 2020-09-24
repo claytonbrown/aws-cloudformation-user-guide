@@ -16,10 +16,10 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "Type" : "AWS::Route53::RecordSet",
   "Properties" : {
-      "[AliasTarget](#cfn-route53-recordset-aliastarget)" : [AliasTarget](aws-properties-route53-aliastarget-1.md),
+      "[AliasTarget](#cfn-route53-recordset-aliastarget)" : AliasTarget,
       "[Comment](#cfn-route53-recordset-comment)" : String,
       "[Failover](#cfn-route53-recordset-failover)" : String,
-      "[GeoLocation](#cfn-route53-recordset-geolocation)" : [GeoLocation](aws-properties-route53-recordset-geolocation.md),
+      "[GeoLocation](#cfn-route53-recordset-geolocation)" : GeoLocation,
       "[HealthCheckId](#cfn-route53-recordset-healthcheckid)" : String,
       "[HostedZoneId](#cfn-route53-recordset-hostedzoneid)" : String,
       "[HostedZoneName](#cfn-route53-recordset-hostedzonename)" : String,
@@ -41,11 +41,11 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 Type: AWS::Route53::RecordSet
 Properties: 
   [AliasTarget](#cfn-route53-recordset-aliastarget): 
-    [AliasTarget](aws-properties-route53-aliastarget-1.md)
+    AliasTarget
   [Comment](#cfn-route53-recordset-comment): String
   [Failover](#cfn-route53-recordset-failover): String
   [GeoLocation](#cfn-route53-recordset-geolocation): 
-    [GeoLocation](aws-properties-route53-recordset-geolocation.md)
+    GeoLocation
   [HealthCheckId](#cfn-route53-recordset-healthcheckid): String
   [HostedZoneId](#cfn-route53-recordset-hostedzoneid): String
   [HostedZoneName](#cfn-route53-recordset-hostedzonename): String
@@ -105,7 +105,7 @@ The value `*` in the `CountryCode` element matches all geographic locations that
 Geolocation works by mapping IP addresses to locations\. However, some IP addresses aren't mapped to geographic locations, so even if you create geolocation resource record sets that cover all seven continents, Route 53 will receive some DNS queries from locations that it can't identify\. We recommend that you create a resource record set for which the value of `CountryCode` is `*`\. Two groups of queries are routed to the resource that you specify in this record: queries that come from locations for which you haven't created geolocation resource record sets and queries from IP addresses that aren't mapped to a location\. If you don't create a `*` resource record set, Route 53 returns a "no answer" response for queries from those locations\.
 You can't create non\-geolocation resource record sets that have the same values for the `Name` and `Type` elements as geolocation resource record sets\.  
 *Required*: No  
-*Type*: [GeoLocation](aws-properties-route53-recordset-geolocation.md)  
+*Type*: [GeoLocation](aws-properties-route53-recordset-geolocation-1.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `HealthCheckId`  <a name="cfn-route53-recordset-healthcheckid"></a>

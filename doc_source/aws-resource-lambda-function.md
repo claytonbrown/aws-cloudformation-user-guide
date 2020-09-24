@@ -12,11 +12,11 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "Type" : "AWS::Lambda::Function",
   "Properties" : {
-      "[Code](#cfn-lambda-function-code)" : [Code](aws-properties-lambda-function-code.md),
-      "[DeadLetterConfig](#cfn-lambda-function-deadletterconfig)" : [DeadLetterConfig](aws-properties-lambda-function-deadletterconfig.md),
+      "[Code](#cfn-lambda-function-code)" : Code,
+      "[DeadLetterConfig](#cfn-lambda-function-deadletterconfig)" : DeadLetterConfig,
       "[Description](#cfn-lambda-function-description)" : String,
-      "[Environment](#cfn-lambda-function-environment)" : [Environment](aws-properties-lambda-function-environment.md),
-      "[FileSystemConfigs](#cfn-lambda-function-filesystemconfigs)" : [ [FileSystemConfig](aws-properties-lambda-function-filesystemconfig.md), ... ],
+      "[Environment](#cfn-lambda-function-environment)" : Environment,
+      "[FileSystemConfigs](#cfn-lambda-function-filesystemconfigs)" : [ FileSystemConfig, ... ],
       "[FunctionName](#cfn-lambda-function-functionname)" : String,
       "[Handler](#cfn-lambda-function-handler)" : String,
       "[KmsKeyArn](#cfn-lambda-function-kmskeyarn)" : String,
@@ -27,8 +27,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[Runtime](#cfn-lambda-function-runtime)" : String,
       "[Tags](#cfn-lambda-function-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ],
       "[Timeout](#cfn-lambda-function-timeout)" : Integer,
-      "[TracingConfig](#cfn-lambda-function-tracingconfig)" : [TracingConfig](aws-properties-lambda-function-tracingconfig.md),
-      "[VpcConfig](#cfn-lambda-function-vpcconfig)" : [VpcConfig](aws-properties-lambda-function-vpcconfig.md)
+      "[TracingConfig](#cfn-lambda-function-tracingconfig)" : TracingConfig,
+      "[VpcConfig](#cfn-lambda-function-vpcconfig)" : VpcConfig
     }
 }
 ```
@@ -39,14 +39,14 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 Type: AWS::Lambda::Function
 Properties: 
   [Code](#cfn-lambda-function-code): 
-    [Code](aws-properties-lambda-function-code.md)
+    Code
   [DeadLetterConfig](#cfn-lambda-function-deadletterconfig): 
-    [DeadLetterConfig](aws-properties-lambda-function-deadletterconfig.md)
+    DeadLetterConfig
   [Description](#cfn-lambda-function-description): String
   [Environment](#cfn-lambda-function-environment): 
-    [Environment](aws-properties-lambda-function-environment.md)
+    Environment
   [FileSystemConfigs](#cfn-lambda-function-filesystemconfigs): 
-    - [FileSystemConfig](aws-properties-lambda-function-filesystemconfig.md)
+    - FileSystemConfig
   [FunctionName](#cfn-lambda-function-functionname): String
   [Handler](#cfn-lambda-function-handler): String
   [KmsKeyArn](#cfn-lambda-function-kmskeyarn): String
@@ -60,9 +60,9 @@ Properties:
     - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
   [Timeout](#cfn-lambda-function-timeout): Integer
   [TracingConfig](#cfn-lambda-function-tracingconfig): 
-    [TracingConfig](aws-properties-lambda-function-tracingconfig.md)
+    TracingConfig
   [VpcConfig](#cfn-lambda-function-vpcconfig): 
-    [VpcConfig](aws-properties-lambda-function-vpcconfig.md)
+    VpcConfig
 ```
 
 ## Properties<a name="aws-resource-lambda-function-properties"></a>
@@ -211,27 +211,10 @@ Create a Node\.js function\.
 #### JSON<a name="aws-resource-lambda-function--examples--Function--json"></a>
 
 ```
-"AMIIDLookup": {
-    "Type": "AWS::Lambda::Function",
-    "Properties": {
-        "Handler": "index.handler",
-        "Role": {
-            "Fn::GetAtt": [
-                "LambdaExecutionRole",
-                "Arn"
-            ]
-        },
-        "Code": {
-            "S3Bucket": "lambda-functions",
-            "S3Key": "amilookup.zip"
-        },
-        "Runtime": "nodejs12.x",
-        "Timeout": 25,
-        "TracingConfig": {
-            "Mode": "Active"
-        }
-    }
-}
+"AMIIDLookup": { "Type": "AWS::Lambda::Function", "Properties": { "Handler":
+        "index.handler", "Role": { "Fn::GetAtt": [ "LambdaExecutionRole", "Arn" ] }, "Code": { "S3Bucket":
+        "lambda-functions", "S3Key": "amilookup.zip" }, "Runtime": "nodejs12.x", "Timeout": 25, "TracingConfig": {
+        "Mode": "Active" } } }
 ```
 
 ### Inline Function<a name="aws-resource-lambda-function--examples--Inline_Function"></a>
@@ -241,42 +224,17 @@ Inline Node\.js function that uses the cfn\-response library\.
 #### YAML<a name="aws-resource-lambda-function--examples--Inline_Function--yaml"></a>
 
 ```
-AWSTemplateFormatVersion: '2010-09-09'
-Description: Lambda function with cfn-response.
-Resources:
-  primer:
-    Type: AWS::Lambda::Function
-    Properties:
-      Runtime: nodejs12.x
-      Role: arn:aws:iam::123456789012:role/lambda-role
-      Handler: index.handler
-      Code:
-        ZipFile: |
-          var aws = require('aws-sdk')
-          var response = require('cfn-response')
-          exports.handler = function(event, context) {
-              console.log("REQUEST RECEIVED:\n" + JSON.stringify(event))
-              // For Delete requests, immediately send a SUCCESS response.
-              if (event.RequestType == "Delete") {
-                  response.send(event, context, "SUCCESS")
-                  return
-              }
-              var responseStatus = "FAILED"
-              var responseData = {}
-              var functionName = event.ResourceProperties.FunctionName
-              var lambda = new aws.Lambda()
-              lambda.invoke({ FunctionName: functionName }, function(err, invokeResult) {
-                  if (err) {
-                      responseData = {Error: "Invoke call failed"}
-                      console.log(responseData.Error + ":\n", err)
-                  }
-                  else responseStatus = "SUCCESS"
-                  response.send(event, context, responseStatus, responseData)
-              })
-          }
-      Description: Invoke a function during stack creation.
-      TracingConfig:
-        Mode: Active
+AWSTemplateFormatVersion: '2010-09-09' Description: Lambda function with cfn-response.
+        Resources: primer: Type: AWS::Lambda::Function Properties: Runtime: nodejs12.x Role:
+        arn:aws:iam::123456789012:role/lambda-role Handler: index.handler Code: ZipFile: | var aws = require('aws-sdk')
+        var response = require('cfn-response') exports.handler = function(event, context) { console.log("REQUEST
+        RECEIVED:\n" + JSON.stringify(event)) // For Delete requests, immediately send a SUCCESS response. if
+        (event.RequestType == "Delete") { response.send(event, context, "SUCCESS") return } var responseStatus =
+        "FAILED" var responseData = {} var functionName = event.ResourceProperties.FunctionName var lambda = new
+        aws.Lambda() lambda.invoke({ FunctionName: functionName }, function(err, invokeResult) { if (err) { responseData
+        = {Error: "Invoke call failed"} console.log(responseData.Error + ":\n", err) } else responseStatus = "SUCCESS"
+        response.send(event, context, responseStatus, responseData) }) } Description: Invoke a function during stack
+        creation. TracingConfig: Mode: Active
 ```
 
 ### VPC Function<a name="aws-resource-lambda-function--examples--VPC_Function"></a>
@@ -286,25 +244,9 @@ Function connected to a VPC\.
 #### YAML<a name="aws-resource-lambda-function--examples--VPC_Function--yaml"></a>
 
 ```
-AWSTemplateFormatVersion: '2010-09-09'
-Description: VPC function.
-Resources:
-  Function: 
-    Type: AWS::Lambda::Function
-    Properties: 
-      Handler: index.handler
-      Role: arn:aws:iam::123456789012:role/lambda-role
-      Code: 
-        S3Bucket: my-bucket
-        S3Key: function.zip
-      Runtime: nodejs12.x
-      Timeout: 5
-      TracingConfig:
-        Mode: Active
-      VpcConfig: 
-        SecurityGroupIds: 
-          - sg-085912345678492fb
-        SubnetIds: 
-          - subnet-071f712345678e7c8
-          - subnet-07fd123456788a036
+AWSTemplateFormatVersion: '2010-09-09' Description: VPC function. Resources: Function:
+        Type: AWS::Lambda::Function Properties: Handler: index.handler Role: arn:aws:iam::123456789012:role/lambda-role
+        Code: S3Bucket: my-bucket S3Key: function.zip Runtime: nodejs12.x Timeout: 5 TracingConfig: Mode: Active
+        VpcConfig: SecurityGroupIds: - sg-085912345678492fb SubnetIds: - subnet-071f712345678e7c8 -
+        subnet-07fd123456788a036
 ```

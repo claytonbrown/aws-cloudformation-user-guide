@@ -10,8 +10,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 ```
 {
-  "[OnFailure](#cfn-lambda-eventinvokeconfig-destinationconfig-onfailure)" : [OnFailure](aws-properties-lambda-eventinvokeconfig-destinationconfig-onfailure.md),
-  "[OnSuccess](#cfn-lambda-eventinvokeconfig-destinationconfig-onsuccess)" : [OnSuccess](aws-properties-lambda-eventinvokeconfig-destinationconfig-onsuccess.md)
+  "[OnFailure](#cfn-lambda-eventinvokeconfig-destinationconfig-onfailure)" : OnFailure,
+  "[OnSuccess](#cfn-lambda-eventinvokeconfig-destinationconfig-onsuccess)" : OnSuccess
 }
 ```
 
@@ -19,9 +19,9 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 ```
   [OnFailure](#cfn-lambda-eventinvokeconfig-destinationconfig-onfailure): 
-    [OnFailure](aws-properties-lambda-eventinvokeconfig-destinationconfig-onfailure.md)
+    OnFailure
   [OnSuccess](#cfn-lambda-eventinvokeconfig-destinationconfig-onsuccess): 
-    [OnSuccess](aws-properties-lambda-eventinvokeconfig-destinationconfig-onsuccess.md)
+    OnSuccess
 ```
 
 ## Properties<a name="aws-properties-lambda-eventinvokeconfig-destinationconfig-properties"></a>
@@ -47,7 +47,6 @@ Configure a function to send a record of failed asynchronous invocations to an S
 #### YAML<a name="aws-properties-lambda-eventinvokeconfig-destinationconfig--examples--On-Failure_Destination_Configuration--yaml"></a>
 
 ```
-      DestinationConfig:
-          OnFailure:
-            Destination: arn:aws:sqs:us-east-2:123456789012:dlq
+ DestinationConfig: OnFailure: Destination:
+        arn:aws:sqs:us-east-2:123456789012:dlq
 ```

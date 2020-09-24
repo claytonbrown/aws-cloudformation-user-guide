@@ -73,7 +73,7 @@ The following requirements apply when using parameters:
 + Each parameter must be assigned a value at runtime for AWS CloudFormation to successfully provision the stack\. You can optionally specify a default value for AWS CloudFormation to use unless another value is provided\.
 + Parameters must be declared and referenced from within the same template\. You can reference parameters from the `Resources` and `Outputs` sections of the template\.
 
-## JSON<a name="parameters-section-structure-syntax"></a>
+### JSON<a name="parameters-section-structure-syntax"></a>
 
 ```
 "Parameters" : {
@@ -84,7 +84,7 @@ The following requirements apply when using parameters:
 }
 ```
 
-## YAML<a name="parameters-section-structure-syntax.yaml"></a>
+### YAML<a name="parameters-section-structure-syntax.yaml"></a>
 
 ```
 Parameters:
@@ -343,7 +343,7 @@ Parameters:
 
 When you use AWS\-specific parameter types, a user who uses your template to create or update a stack must specify existing AWS values that are in the user's account and in the region for the current stack\. AWS\-specific parameter types help ensure that input values for these types exist and are correct before AWS CloudFormation creates or updates any resources\. For example, if you use the `AWS::EC2::KeyPair::KeyName` parameter type, AWS CloudFormation validates the input value against users' existing key pair names before it creates any resources, such as Amazon EC2 instances\.
 
-If a user uses the AWS Management Console, AWS CloudFormation [prepopulates AWS\-specific parameter types with valid values](cfn-using-console-create-stack-parameters.md)\. That way the user doesn't have to remember and correctly enter a specific name or ID\. She just selects one or more values from a drop\-down list\. Also, depending on the parameter type, users can search for values by ID, name, or Name tag value\. For more information, see [Specifying stack name and parameters](cfn-using-console-create-stack-parameters.md)\.
+If a user uses the AWS Management Console, AWS CloudFormation [prepopulates AWS\-specific parameter types with valid values](cfn-using-console-create-stack-parameters.md)\. That way the user doesn't have to remember and correctly enter a specific name or ID\. They would just select one or more values from a drop\-down list\. Also, depending on the parameter type, users can search for values by ID, name, or Name tag value\. For more information, see [Specifying stack name and parameters](cfn-using-console-create-stack-parameters.md)\.
 
 The following example declares two parameters with the types `AWS::EC2::KeyPair::KeyName` and `AWS::EC2::Subnet::Id`\. These types limit valid values to existing key pair names and subnet IDs\. Because the `mySubnetIDs` parameter is specified as a list, a user can specify one or more subnet IDs\.
 

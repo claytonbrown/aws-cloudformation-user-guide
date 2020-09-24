@@ -22,13 +22,13 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[AlarmName](#cfn-cloudwatch-alarms-alarmname)" : String,
       "[ComparisonOperator](#cfn-cloudwatch-alarms-comparisonoperator)" : String,
       "[DatapointsToAlarm](#cfn-cloudwatch-alarm-datapointstoalarm)" : Integer,
-      "[Dimensions](#cfn-cloudwatch-alarms-dimension)" : [ [Dimension](aws-properties-cw-dimension.md), ... ],
+      "[Dimensions](#cfn-cloudwatch-alarms-dimension)" : [ Dimension, ... ],
       "[EvaluateLowSampleCountPercentile](#cfn-cloudwatch-alarms-evaluatelowsamplecountpercentile)" : String,
       "[EvaluationPeriods](#cfn-cloudwatch-alarms-evaluationperiods)" : Integer,
       "[ExtendedStatistic](#cfn-cloudwatch-alarms-extendedstatistic)" : String,
       "[InsufficientDataActions](#cfn-cloudwatch-alarms-insufficientdataactions)" : [ String, ... ],
       "[MetricName](#cfn-cloudwatch-alarms-metricname)" : String,
-      "[Metrics](#cfn-cloudwatch-alarm-metrics)" : [ [MetricDataQuery](aws-properties-cloudwatch-alarm-metricdataquery.md), ... ],
+      "[Metrics](#cfn-cloudwatch-alarm-metrics)" : [ MetricDataQuery, ... ],
       "[Namespace](#cfn-cloudwatch-alarms-namespace)" : String,
       "[OKActions](#cfn-cloudwatch-alarms-okactions)" : [ String, ... ],
       "[Period](#cfn-cloudwatch-alarms-period)" : Integer,
@@ -54,7 +54,7 @@ Properties:
   [ComparisonOperator](#cfn-cloudwatch-alarms-comparisonoperator): String
   [DatapointsToAlarm](#cfn-cloudwatch-alarm-datapointstoalarm): Integer
   [Dimensions](#cfn-cloudwatch-alarms-dimension): 
-    - [Dimension](aws-properties-cw-dimension.md)
+    - Dimension
   [EvaluateLowSampleCountPercentile](#cfn-cloudwatch-alarms-evaluatelowsamplecountpercentile): String
   [EvaluationPeriods](#cfn-cloudwatch-alarms-evaluationperiods): Integer
   [ExtendedStatistic](#cfn-cloudwatch-alarms-extendedstatistic): String
@@ -62,7 +62,7 @@ Properties:
     - String
   [MetricName](#cfn-cloudwatch-alarms-metricname): String
   [Metrics](#cfn-cloudwatch-alarm-metrics): 
-    - [MetricDataQuery](aws-properties-cloudwatch-alarm-metricdataquery.md)
+    - MetricDataQuery
   [Namespace](#cfn-cloudwatch-alarms-namespace): String
   [OKActions](#cfn-cloudwatch-alarms-okactions): 
     - String
@@ -198,7 +198,7 @@ The period, in seconds, over which the statistic is applied\. This is required f
 For an alarm based on a math expression, you can't specify `Period`, and instead you use the `Metrics` parameter\.  
 *Required*: No  
 *Type*: Integer  
-*Minimum*: `1`  
+*Minimum*: `10`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Statistic`  <a name="cfn-cloudwatch-alarms-statistic"></a>

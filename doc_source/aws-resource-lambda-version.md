@@ -15,7 +15,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[CodeSha256](#cfn-lambda-version-codesha256)" : String,
       "[Description](#cfn-lambda-version-description)" : String,
       "[FunctionName](#cfn-lambda-version-functionname)" : String,
-      "[ProvisionedConcurrencyConfig](#cfn-lambda-version-provisionedconcurrencyconfig)" : [ProvisionedConcurrencyConfiguration](aws-properties-lambda-version-provisionedconcurrencyconfiguration.md)
+      "[ProvisionedConcurrencyConfig](#cfn-lambda-version-provisionedconcurrencyconfig)" : ProvisionedConcurrencyConfiguration
     }
 }
 ```
@@ -29,7 +29,7 @@ Properties:
   [Description](#cfn-lambda-version-description): String
   [FunctionName](#cfn-lambda-version-functionname): String
   [ProvisionedConcurrencyConfig](#cfn-lambda-version-provisionedconcurrencyconfig): 
-    [ProvisionedConcurrencyConfiguration](aws-properties-lambda-version-provisionedconcurrencyconfiguration.md)
+    ProvisionedConcurrencyConfiguration
 ```
 
 ## Properties<a name="aws-resource-lambda-version-properties"></a>
@@ -97,30 +97,10 @@ Publish a version with provisioned concurrency\.
 #### YAML<a name="aws-resource-lambda-version--examples--Function_Version--yaml"></a>
 
 ```
-Resources:
-  function:
-    Type: AWS::Lambda::Function
-    Properties:
-      Handler: index.handler
-      Role: arn:aws:iam::123456789012:role/lambda-role
-      Code:
-        ZipFile: |
-          exports.handler = async (event) => {
-              console.log(JSON.stringify(event, null, 2));
-              const response = {
-                  statusCode: 200,
-                  body: JSON.stringify('Hello from Lambda!'),
-              };
-              return response;
-          };
-      Runtime: nodejs12.x
-      TracingConfig:
-        Mode: Active
-  version:
-    Type: AWS::Lambda::Version
-    Properties: 
-      FunctionName: !Ref function
-      Description: v1
-      ProvisionedConcurrencyConfig:
+Resources: function: Type: AWS::Lambda::Function Properties: Handler: index.handler Role:
+        arn:aws:iam::123456789012:role/lambda-role Code: ZipFile: | exports.handler = async (event) => {
+        console.log(JSON.stringify(event, null, 2)); const response = { statusCode: 200, body: JSON.stringify('Hello
+        from Lambda!'), }; return response; }; Runtime: nodejs12.x TracingConfig: Mode: Active version: Type:
+        AWS::Lambda::Version Properties: FunctionName: !Ref function Description: v1 ProvisionedConcurrencyConfig:
         ProvisionedConcurrentExecutions: 20
 ```

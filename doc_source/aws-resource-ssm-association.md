@@ -12,6 +12,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "Type" : "AWS::SSM::Association",
   "Properties" : {
+      "[ApplyOnlyAtCronInterval](#cfn-ssm-association-applyonlyatcroninterval)" : Boolean,
       "[AssociationName](#cfn-ssm-association-associationname)" : String,
       "[AutomationTargetParameterName](#cfn-ssm-association-automationtargetparametername)" : String,
       "[ComplianceSeverity](#cfn-ssm-association-complianceseverity)" : String,
@@ -20,11 +21,11 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[MaxConcurrency](#cfn-ssm-association-maxconcurrency)" : String,
       "[MaxErrors](#cfn-ssm-association-maxerrors)" : String,
       "[Name](#cfn-ssm-association-name)" : String,
-      "[OutputLocation](#cfn-ssm-association-outputlocation)" : [InstanceAssociationOutputLocation](aws-properties-ssm-association-instanceassociationoutputlocation.md),
+      "[OutputLocation](#cfn-ssm-association-outputlocation)" : InstanceAssociationOutputLocation,
       "[Parameters](#cfn-ssm-association-parameters)" : {Key : Value, ...},
       "[ScheduleExpression](#cfn-ssm-association-scheduleexpression)" : String,
       "[SyncCompliance](#cfn-ssm-association-synccompliance)" : String,
-      "[Targets](#cfn-ssm-association-targets)" : [ [Target](aws-properties-ssm-association-target.md), ... ],
+      "[Targets](#cfn-ssm-association-targets)" : [ Target, ... ],
       "[WaitForSuccessTimeoutSeconds](#cfn-ssm-association-waitforsuccesstimeoutseconds)" : Integer
     }
 }
@@ -35,6 +36,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ```
 Type: AWS::SSM::Association
 Properties: 
+  [ApplyOnlyAtCronInterval](#cfn-ssm-association-applyonlyatcroninterval): Boolean
   [AssociationName](#cfn-ssm-association-associationname): String
   [AutomationTargetParameterName](#cfn-ssm-association-automationtargetparametername): String
   [ComplianceSeverity](#cfn-ssm-association-complianceseverity): String
@@ -44,17 +46,23 @@ Properties:
   [MaxErrors](#cfn-ssm-association-maxerrors): String
   [Name](#cfn-ssm-association-name): String
   [OutputLocation](#cfn-ssm-association-outputlocation): 
-    [InstanceAssociationOutputLocation](aws-properties-ssm-association-instanceassociationoutputlocation.md)
+    InstanceAssociationOutputLocation
   [Parameters](#cfn-ssm-association-parameters): 
     Key : Value
   [ScheduleExpression](#cfn-ssm-association-scheduleexpression): String
   [SyncCompliance](#cfn-ssm-association-synccompliance): String
   [Targets](#cfn-ssm-association-targets): 
-    - [Target](aws-properties-ssm-association-target.md)
+    - Target
   [WaitForSuccessTimeoutSeconds](#cfn-ssm-association-waitforsuccesstimeoutseconds): Integer
 ```
 
 ## Properties<a name="aws-resource-ssm-association-properties"></a>
+
+`ApplyOnlyAtCronInterval`  <a name="cfn-ssm-association-applyonlyatcroninterval"></a>
+By default, when you create a new associations, the system runs it immediately after it is created and then according to the schedule you specified\. Specify this option if you don't want an association to run immediately after you create it\.  
+*Required*: No  
+*Type*: Boolean  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `AssociationName`  <a name="cfn-ssm-association-associationname"></a>
 The name of the association\.  
@@ -141,9 +149,12 @@ A cron expression that specifies a schedule when the association runs\.
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `SyncCompliance`  <a name="cfn-ssm-association-synccompliance"></a>
-Not currently supported by AWS CloudFormation\.  
+The mode for generating association compliance\. You can specify `AUTO` or `MANUAL`\. In `AUTO` mode, the system uses the status of the association execution to determine the compliance status\. If the association execution runs successfully, then the association is `COMPLIANT`\. If the association execution doesn't run successfully, the association is `NON-COMPLIANT`\.  
+In `MANUAL` mode, you must specify the `AssociationId` as a parameter for the PutComplianceItems API action\. In this case, compliance data is not managed by State Manager\. It is managed by your direct call to the PutComplianceItems API action\.  
+By default, all associations use `AUTO` mode\.  
 *Required*: No  
 *Type*: String  
+*Allowed values*: `AUTO | MANUAL`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Targets`  <a name="cfn-ssm-association-targets"></a>

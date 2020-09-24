@@ -12,7 +12,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 ```
 {
-  "[DataResources](#cfn-cloudtrail-trail-eventselector-dataresources)" : [ [DataResource](aws-properties-cloudtrail-trail-dataresource.md), ... ],
+  "[DataResources](#cfn-cloudtrail-trail-eventselector-dataresources)" : [ DataResource, ... ],
   "[IncludeManagementEvents](#cfn-cloudtrail-trail-eventselector-includemanagementevents)" : Boolean,
   "[ReadWriteType](#cfn-cloudtrail-trail-eventselector-readwritetype)" : String
 }
@@ -22,7 +22,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 ```
   [DataResources](#cfn-cloudtrail-trail-eventselector-dataresources): 
-    - [DataResource](aws-properties-cloudtrail-trail-dataresource.md)
+    - DataResource
   [IncludeManagementEvents](#cfn-cloudtrail-trail-eventselector-includemanagementevents): Boolean
   [ReadWriteType](#cfn-cloudtrail-trail-eventselector-readwritetype): String
 ```
@@ -32,7 +32,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 `DataResources`  <a name="cfn-cloudtrail-trail-eventselector-dataresources"></a>
 CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions\. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail\. This limit does not apply if you configure resource logging for all data events\.   
 For more information, see [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events) and [Limits in AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in the *AWS CloudTrail User Guide*\.  
-*Required*: No  
+*Required*: Conditional  
 *Type*: List of [DataResource](aws-properties-cloudtrail-trail-dataresource.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 

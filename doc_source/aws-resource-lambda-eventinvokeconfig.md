@@ -14,7 +14,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "Type" : "AWS::Lambda::EventInvokeConfig",
   "Properties" : {
-      "[DestinationConfig](#cfn-lambda-eventinvokeconfig-destinationconfig)" : [DestinationConfig](aws-properties-lambda-eventinvokeconfig-destinationconfig.md),
+      "[DestinationConfig](#cfn-lambda-eventinvokeconfig-destinationconfig)" : DestinationConfig,
       "[FunctionName](#cfn-lambda-eventinvokeconfig-functionname)" : String,
       "[MaximumEventAgeInSeconds](#cfn-lambda-eventinvokeconfig-maximumeventageinseconds)" : Integer,
       "[MaximumRetryAttempts](#cfn-lambda-eventinvokeconfig-maximumretryattempts)" : Integer,
@@ -29,7 +29,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 Type: AWS::Lambda::EventInvokeConfig
 Properties: 
   [DestinationConfig](#cfn-lambda-eventinvokeconfig-destinationconfig): 
-    [DestinationConfig](aws-properties-lambda-eventinvokeconfig-destinationconfig.md)
+    DestinationConfig
   [FunctionName](#cfn-lambda-eventinvokeconfig-functionname): String
   [MaximumEventAgeInSeconds](#cfn-lambda-eventinvokeconfig-maximumeventageinseconds): Integer
   [MaximumRetryAttempts](#cfn-lambda-eventinvokeconfig-maximumretryattempts): Integer
@@ -102,39 +102,13 @@ Error handling and destination configuration for a version of a function\. Node\
 #### YAML<a name="aws-resource-lambda-eventinvokeconfig--examples--Asynchronous_Invocation_Configuration--yaml"></a>
 
 ```
-Resources:
-  function:
-    Type: AWS::Lambda::Function
-    Properties:
-      Handler: index.handler
-      Role: arn:aws:iam::123456789012:role/lambda-role
-      Code:
-        ZipFile: |
-          exports.handler = async (event) => {
-              console.log(JSON.stringify(event, null, 2));
-              const response = {
-                  statusCode: 200,
-                  body: JSON.stringify('Hello from Lambda!'),
-              };
-              return response;
-          };
-      Runtime: nodejs12.x
-      TracingConfig:
-        Mode: Active
-  version:
-    Type: AWS::Lambda::Version
-    Properties: 
-      FunctionName: !Ref function
-  asyncconfig:
-    Type: AWS::Lambda::EventInvokeConfig
-    Properties:
-      DestinationConfig:
-          OnFailure:
-            Destination: arn:aws:sqs:us-east-2:123456789012:dlq
-          OnSuccess:
-            Destination: arn:aws:sqs:us-east-2:123456789012:dlq
-      FunctionName: !Ref function
-      MaximumEventAgeInSeconds: 300
-      MaximumRetryAttempts: 1
-      Qualifier: !GetAtt version.Version
+Resources: function: Type: AWS::Lambda::Function Properties: Handler: index.handler Role:
+          arn:aws:iam::123456789012:role/lambda-role Code: ZipFile: | exports.handler = async
+        (event) => { console.log(JSON.stringify(event, null, 2)); const response = { statusCode: 200, body:
+        JSON.stringify('Hello from Lambda!'), }; return response; }; Runtime: nodejs12.x TracingConfig: Mode: Active
+        version: Type: AWS::Lambda::Version Properties: FunctionName: !Ref function asyncconfig: Type:
+        AWS::Lambda::EventInvokeConfig Properties: DestinationConfig: OnFailure: Destination:
+        arn:aws:sqs:us-east-2:123456789012:dlq OnSuccess: Destination: arn:aws:sqs:us-east-2:123456789012:dlq
+        FunctionName: !Ref function MaximumEventAgeInSeconds: 300 MaximumRetryAttempts: 1 Qualifier: !GetAtt
+        version.Version
 ```

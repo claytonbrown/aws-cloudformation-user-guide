@@ -12,7 +12,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "Type" : "AWS::CodeBuild::ReportGroup",
   "Properties" : {
-      "[ExportConfig](#cfn-codebuild-reportgroup-exportconfig)" : [ReportExportConfig](aws-properties-codebuild-reportgroup-reportexportconfig.md),
+      "[ExportConfig](#cfn-codebuild-reportgroup-exportconfig)" : ReportExportConfig,
       "[Name](#cfn-codebuild-reportgroup-name)" : String,
       "[Tags](#cfn-codebuild-reportgroup-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ],
       "[Type](#cfn-codebuild-reportgroup-type)" : String
@@ -26,7 +26,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 Type: AWS::CodeBuild::ReportGroup
 Properties: 
   [ExportConfig](#cfn-codebuild-reportgroup-exportconfig): 
-    [ReportExportConfig](aws-properties-codebuild-reportgroup-reportexportconfig.md)
+    ReportExportConfig
   [Name](#cfn-codebuild-reportgroup-name): String
   [Tags](#cfn-codebuild-reportgroup-tags): 
     - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
@@ -61,8 +61,8 @@ These tags are available for use by AWS services that support AWS CodeBuild repo
  The type of the `ReportGroup`\. The one valid value is `TEST`\.   
 *Required*: Yes  
 *Type*: String  
-*Allowed values*: `TEST`  
-*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+*Allowed values*: `CODE_COVERAGE | TEST`  
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 ## Return values<a name="aws-resource-codebuild-reportgroup-return-values"></a>
 

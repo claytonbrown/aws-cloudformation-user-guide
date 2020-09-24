@@ -6,6 +6,11 @@ For information about RDS Proxy for Amazon RDS, see [ Managing Connections with 
 
 For information about RDS Proxy for Amazon Aurora, see [ Managing Connections with Amazon RDS Proxy](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.html) in the *Amazon Aurora User Guide*\.
 
+**Note**  
+Limitations apply to RDS Proxy, including DB engine version limitations and AWS Region limitations\.  
+For information about limitations that apply to RDS Proxy for Amazon RDS, see [ Limitations for RDS Proxy](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html#rds-proxy.limitations) in the *Amazon RDS User Guide*\.  
+For information about that apply to RDS Proxy for Amazon Aurora, see [ Limitations for RDS Proxy](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy.html#rds-proxy.limitations) in the *Amazon Aurora User Guide*\.
+
 ## Syntax<a name="aws-resource-rds-dbproxy-syntax"></a>
 
 To declare this entity in your AWS CloudFormation template, use the following syntax:
@@ -16,14 +21,14 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "Type" : "AWS::RDS::DBProxy",
   "Properties" : {
-      "[Auth](#cfn-rds-dbproxy-auth)" : [ [AuthFormat](aws-properties-rds-dbproxy-authformat.md), ... ],
+      "[Auth](#cfn-rds-dbproxy-auth)" : [ AuthFormat, ... ],
       "[DBProxyName](#cfn-rds-dbproxy-dbproxyname)" : String,
       "[DebugLogging](#cfn-rds-dbproxy-debuglogging)" : Boolean,
       "[EngineFamily](#cfn-rds-dbproxy-enginefamily)" : String,
       "[IdleClientTimeout](#cfn-rds-dbproxy-idleclienttimeout)" : Integer,
       "[RequireTLS](#cfn-rds-dbproxy-requiretls)" : Boolean,
       "[RoleArn](#cfn-rds-dbproxy-rolearn)" : String,
-      "[Tags](#cfn-rds-dbproxy-tags)" : [ [TagFormat](aws-properties-rds-dbproxy-tagformat.md), ... ],
+      "[Tags](#cfn-rds-dbproxy-tags)" : [ TagFormat, ... ],
       "[VpcSecurityGroupIds](#cfn-rds-dbproxy-vpcsecuritygroupids)" : [ String, ... ],
       "[VpcSubnetIds](#cfn-rds-dbproxy-vpcsubnetids)" : [ String, ... ]
     }
@@ -36,7 +41,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 Type: AWS::RDS::DBProxy
 Properties: 
   [Auth](#cfn-rds-dbproxy-auth): 
-    - [AuthFormat](aws-properties-rds-dbproxy-authformat.md)
+    - AuthFormat
   [DBProxyName](#cfn-rds-dbproxy-dbproxyname): String
   [DebugLogging](#cfn-rds-dbproxy-debuglogging): Boolean
   [EngineFamily](#cfn-rds-dbproxy-enginefamily): String
@@ -44,7 +49,7 @@ Properties:
   [RequireTLS](#cfn-rds-dbproxy-requiretls): Boolean
   [RoleArn](#cfn-rds-dbproxy-rolearn): String
   [Tags](#cfn-rds-dbproxy-tags): 
-    - [TagFormat](aws-properties-rds-dbproxy-tagformat.md)
+    - TagFormat
   [VpcSecurityGroupIds](#cfn-rds-dbproxy-vpcsecuritygroupids): 
     - String
   [VpcSubnetIds](#cfn-rds-dbproxy-vpcsubnetids): 

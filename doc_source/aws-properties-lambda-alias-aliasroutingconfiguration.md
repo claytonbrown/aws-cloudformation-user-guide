@@ -10,7 +10,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 ```
 {
-  "[AdditionalVersionWeights](#cfn-lambda-alias-aliasroutingconfiguration-additionalversionweights)" : [ [VersionWeight](aws-properties-lambda-alias-versionweight.md), ... ]
+  "[AdditionalVersionWeights](#cfn-lambda-alias-aliasroutingconfiguration-additionalversionweights)" : [ VersionWeight, ... ]
 }
 ```
 
@@ -18,7 +18,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 ```
   [AdditionalVersionWeights](#cfn-lambda-alias-aliasroutingconfiguration-additionalversionweights): 
-    - [VersionWeight](aws-properties-lambda-alias-versionweight.md)
+    - VersionWeight
 ```
 
 ## Properties<a name="aws-properties-lambda-alias-aliasroutingconfiguration-properties"></a>
@@ -38,14 +38,7 @@ An alias that routes half of incoming requests to a second version\.
 #### YAML<a name="aws-properties-lambda-alias-aliasroutingconfiguration--examples--Routing_Configuration--yaml"></a>
 
 ```
-  alias:
-    Type: AWS::Lambda::Alias
-    Properties:
-      FunctionName: !Ref function
-      FunctionVersion: !GetAtt newVersion.Version
-      Name: BLUE
-      RoutingConfig:
-        AdditionalVersionWeights:
-          - FunctionVersion: !GetAtt version.Version
-            FunctionWeight: 0.5
+ alias: Type: AWS::Lambda::Alias Properties: FunctionName: !Ref function FunctionVersion:
+        !GetAtt newVersion.Version Name: BLUE RoutingConfig: AdditionalVersionWeights: - FunctionVersion: !GetAtt
+        version.Version FunctionWeight: 0.5
 ```

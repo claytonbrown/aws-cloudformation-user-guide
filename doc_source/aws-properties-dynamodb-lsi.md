@@ -11,8 +11,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ```
 {
   "[IndexName](#cfn-dynamodb-lsi-indexname)" : String,
-  "[KeySchema](#cfn-dynamodb-lsi-keyschema)" : [ [KeySchema](aws-properties-dynamodb-keyschema.md), ... ],
-  "[Projection](#cfn-dynamodb-lsi-projection)" : [Projection](aws-properties-dynamodb-projectionobject.md)
+  "[KeySchema](#cfn-dynamodb-lsi-keyschema)" : [ KeySchema, ... ],
+  "[Projection](#cfn-dynamodb-lsi-projection)" : Projection
 }
 ```
 
@@ -21,9 +21,9 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ```
   [IndexName](#cfn-dynamodb-lsi-indexname): String
   [KeySchema](#cfn-dynamodb-lsi-keyschema): 
-    - [KeySchema](aws-properties-dynamodb-keyschema.md)
+    - KeySchema
   [Projection](#cfn-dynamodb-lsi-projection): 
-    [Projection](aws-properties-dynamodb-projectionobject.md)
+    Projection
 ```
 
 ## Properties<a name="aws-properties-dynamodb-lsi-properties"></a>

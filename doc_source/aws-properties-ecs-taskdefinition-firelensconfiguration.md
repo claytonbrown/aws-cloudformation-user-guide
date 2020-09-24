@@ -32,12 +32,12 @@ The options to use when configuring the log router\. This field is optional and 
 + `config-file-type`, which can be `s3` or `file`
 + `config-file-value`, which is either an S3 ARN or a file path
 *Required*: No  
-*Type*: Map of String  
+*Type*: [Map](aws-properties-ecs-taskdefinition-options.md) of [String](aws-properties-ecs-taskdefinition-options.md)  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Type`  <a name="cfn-ecs-taskdefinition-firelensconfiguration-type"></a>
 The log router to use\. The valid values are `fluentd` or `fluentbit`\.  
-*Required*: Yes  
+*Required*: No  
 *Type*: String  
 *Allowed values*: `fluentbit | fluentd`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)

@@ -10,7 +10,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 ```
 {
-  "[Idle](#cfn-appmesh-virtualnode-tcptimeout-idle)" : [Duration](aws-properties-appmesh-virtualnode-duration.md)
+  "[Idle](#cfn-appmesh-virtualnode-tcptimeout-idle)" : Duration
 }
 ```
 
@@ -18,13 +18,13 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 ```
   [Idle](#cfn-appmesh-virtualnode-tcptimeout-idle): 
-    [Duration](aws-properties-appmesh-virtualnode-duration.md)
+    Duration
 ```
 
 ## Properties<a name="aws-properties-appmesh-virtualnode-tcptimeout-properties"></a>
 
 `Idle`  <a name="cfn-appmesh-virtualnode-tcptimeout-idle"></a>
-Not currently supported by AWS CloudFormation\.  
+An object that represents an idle timeout\. An idle timeout bounds the amount of time that a connection may be idle\. The default value is none\.  
 *Required*: No  
 *Type*: [Duration](aws-properties-appmesh-virtualnode-duration.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

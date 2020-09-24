@@ -28,9 +28,9 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "Properties" : {
       "[ApplicationId](#cfn-appconfig-environment-applicationid)" : String,
       "[Description](#cfn-appconfig-environment-description)" : String,
-      "[Monitors](#cfn-appconfig-environment-monitors)" : [ [Monitors](aws-properties-appconfig-environment-monitors.md), ... ],
+      "[Monitors](#cfn-appconfig-environment-monitors)" : [ Monitors, ... ],
       "[Name](#cfn-appconfig-environment-name)" : String,
-      "[Tags](#cfn-appconfig-environment-tags)" : [ [Tags](aws-properties-appconfig-environment-tags.md), ... ]
+      "[Tags](#cfn-appconfig-environment-tags)" : [ Tags, ... ]
     }
 }
 ```
@@ -43,10 +43,10 @@ Properties:
   [ApplicationId](#cfn-appconfig-environment-applicationid): String
   [Description](#cfn-appconfig-environment-description): String
   [Monitors](#cfn-appconfig-environment-monitors): 
-    - [Monitors](aws-properties-appconfig-environment-monitors.md)
+    - Monitors
   [Name](#cfn-appconfig-environment-name): String
   [Tags](#cfn-appconfig-environment-tags): 
-    - [Tags](aws-properties-appconfig-environment-tags.md)
+    - Tags
 ```
 
 ## Properties<a name="aws-resource-appconfig-environment-properties"></a>
@@ -82,7 +82,7 @@ A name for the environment\.
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Tags`  <a name="cfn-appconfig-environment-tags"></a>
-Metadata to assign to the environment\. Tags help organize and categorize your AppConfig resources\. Each tag consists of a key and an optional value, both of which you define\.  
+Metadata to assign to the environment\. Tags help organize and categorize your AWS AppConfig resources\. Each tag consists of a key and an optional value, both of which you define\.  
 *Required*: No  
 *Type*: [List](aws-properties-appconfig-environment-tags.md) of [Tags](aws-properties-appconfig-environment-tags.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

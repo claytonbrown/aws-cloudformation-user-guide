@@ -21,13 +21,13 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[HealthCheckProtocol](#cfn-elasticloadbalancingv2-targetgroup-healthcheckprotocol)" : String,
       "[HealthCheckTimeoutSeconds](#cfn-elasticloadbalancingv2-targetgroup-healthchecktimeoutseconds)" : Integer,
       "[HealthyThresholdCount](#cfn-elasticloadbalancingv2-targetgroup-healthythresholdcount)" : Integer,
-      "[Matcher](#cfn-elasticloadbalancingv2-targetgroup-matcher)" : [Matcher](aws-properties-elasticloadbalancingv2-targetgroup-matcher.md),
+      "[Matcher](#cfn-elasticloadbalancingv2-targetgroup-matcher)" : Matcher,
       "[Name](#cfn-elasticloadbalancingv2-targetgroup-name)" : String,
       "[Port](#cfn-elasticloadbalancingv2-targetgroup-port)" : Integer,
       "[Protocol](#cfn-elasticloadbalancingv2-targetgroup-protocol)" : String,
       "[Tags](#cfn-elasticloadbalancingv2-targetgroup-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ],
-      "[TargetGroupAttributes](#cfn-elasticloadbalancingv2-targetgroup-targetgroupattributes)" : [ [TargetGroupAttribute](aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.md), ... ],
-      "[Targets](#cfn-elasticloadbalancingv2-targetgroup-targets)" : [ [TargetDescription](aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.md), ... ],
+      "[TargetGroupAttributes](#cfn-elasticloadbalancingv2-targetgroup-targetgroupattributes)" : [ TargetGroupAttribute, ... ],
+      "[Targets](#cfn-elasticloadbalancingv2-targetgroup-targets)" : [ TargetDescription, ... ],
       "[TargetType](#cfn-elasticloadbalancingv2-targetgroup-targettype)" : String,
       "[UnhealthyThresholdCount](#cfn-elasticloadbalancingv2-targetgroup-unhealthythresholdcount)" : Integer,
       "[VpcId](#cfn-elasticloadbalancingv2-targetgroup-vpcid)" : String
@@ -48,16 +48,16 @@ Properties:
   [HealthCheckTimeoutSeconds](#cfn-elasticloadbalancingv2-targetgroup-healthchecktimeoutseconds): Integer
   [HealthyThresholdCount](#cfn-elasticloadbalancingv2-targetgroup-healthythresholdcount): Integer
   [Matcher](#cfn-elasticloadbalancingv2-targetgroup-matcher): 
-    [Matcher](aws-properties-elasticloadbalancingv2-targetgroup-matcher.md)
+    Matcher
   [Name](#cfn-elasticloadbalancingv2-targetgroup-name): String
   [Port](#cfn-elasticloadbalancingv2-targetgroup-port): Integer
   [Protocol](#cfn-elasticloadbalancingv2-targetgroup-protocol): String
   [Tags](#cfn-elasticloadbalancingv2-targetgroup-tags): 
     - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
   [TargetGroupAttributes](#cfn-elasticloadbalancingv2-targetgroup-targetgroupattributes): 
-    - [TargetGroupAttribute](aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.md)
+    - TargetGroupAttribute
   [Targets](#cfn-elasticloadbalancingv2-targetgroup-targets): 
-    - [TargetDescription](aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.md)
+    - TargetDescription
   [TargetType](#cfn-elasticloadbalancingv2-targetgroup-targettype): String
   [UnhealthyThresholdCount](#cfn-elasticloadbalancingv2-targetgroup-unhealthythresholdcount): Integer
   [VpcId](#cfn-elasticloadbalancingv2-targetgroup-vpcid): String
@@ -164,7 +164,7 @@ The targets\.
 
 `TargetType`  <a name="cfn-elasticloadbalancingv2-targetgroup-targettype"></a>
 The type of target that you must specify when registering targets with this target group\. You can't specify targets for a target group using more than one target type\.  
-+  `instance` \- Targets are specified by instance ID\. This is the default value\. If the target group protocol is UDP or TCP\_UDP, the target type must be `instance`\.
++  `instance` \- Targets are specified by instance ID\. This is the default value\.
 +  `ip` \- Targets are specified by IP address\. You can specify IP addresses from the subnets of the virtual private cloud \(VPC\) for the target group, the RFC 1918 range \(10\.0\.0\.0/8, 172\.16\.0\.0/12, and 192\.168\.0\.0/16\), and the RFC 6598 range \(100\.64\.0\.0/10\)\. You can't specify publicly routable IP addresses\.
 +  `lambda` \- The target groups contains a single Lambda function\.
 *Required*: No  

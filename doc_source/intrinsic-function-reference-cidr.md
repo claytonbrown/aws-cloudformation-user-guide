@@ -47,7 +47,7 @@ An array of CIDR address blocks\.
 
 ### Basic usage<a name="intrinsic-function-reference-cidr-example1"></a>
 
-This example create 6 CIDRs with a subnet mask "/27" inside from a CIDR with a mask of "/24"\.
+This example creates 6 CIDRs with a subnet mask "/27" inside from a CIDR with a mask of "/24"\.
 
 #### JSON<a name="intrinsic-function-reference-cidr-example1.json"></a>
 
@@ -123,5 +123,5 @@ Resources:
 ## Supported functions<a name="intrinsic-function-reference-cidr-functions"></a>
 
 You can use the following functions in a `Fn::Cidr` function:
-+ `[`Fn::Select`](intrinsic-function-reference-select.md)` 
-+ `[`Ref`](intrinsic-function-reference-ref.md)` 
++ `` 
++ `` 

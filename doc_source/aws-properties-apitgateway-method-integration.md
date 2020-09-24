@@ -17,7 +17,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "[ContentHandling](#cfn-apigateway-method-integration-contenthandling)" : String,
   "[Credentials](#cfn-apigateway-method-integration-credentials)" : String,
   "[IntegrationHttpMethod](#cfn-apigateway-method-integration-integrationhttpmethod)" : String,
-  "[IntegrationResponses](#cfn-apigateway-method-integration-integrationresponses)" : [ [IntegrationResponse](aws-properties-apitgateway-method-integration-integrationresponse.md), ... ],
+  "[IntegrationResponses](#cfn-apigateway-method-integration-integrationresponses)" : [ IntegrationResponse, ... ],
   "[PassthroughBehavior](#cfn-apigateway-method-integration-passthroughbehavior)" : String,
   "[RequestParameters](#cfn-apigateway-method-integration-requestparameters)" : {Key : Value, ...},
   "[RequestTemplates](#cfn-apigateway-method-integration-requesttemplates)" : {Key : Value, ...},
@@ -39,7 +39,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   [Credentials](#cfn-apigateway-method-integration-credentials): String
   [IntegrationHttpMethod](#cfn-apigateway-method-integration-integrationhttpmethod): String
   [IntegrationResponses](#cfn-apigateway-method-integration-integrationresponses): 
-    - [IntegrationResponse](aws-properties-apitgateway-method-integration-integrationresponse.md)
+    - IntegrationResponse
   [PassthroughBehavior](#cfn-apigateway-method-integration-passthroughbehavior): String
   [RequestParameters](#cfn-apigateway-method-integration-requestparameters): 
     Key : Value

@@ -12,41 +12,42 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "[Command](#cfn-ecs-taskdefinition-containerdefinition-command)" : [ String, ... ],
   "[Cpu](#cfn-ecs-taskdefinition-containerdefinition-cpu)" : Integer,
-  "[DependsOn](#cfn-ecs-taskdefinition-containerdefinition-dependson)" : [ [ContainerDependency](aws-properties-ecs-taskdefinition-containerdependency.md), ... ],
+  "[DependsOn](#cfn-ecs-taskdefinition-containerdefinition-dependson)" : [ ContainerDependency, ... ],
   "[DisableNetworking](#cfn-ecs-taskdefinition-containerdefinition-disablenetworking)" : Boolean,
   "[DnsSearchDomains](#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains)" : [ String, ... ],
   "[DnsServers](#cfn-ecs-taskdefinition-containerdefinition-dnsservers)" : [ String, ... ],
   "[DockerLabels](#cfn-ecs-taskdefinition-containerdefinition-dockerlabels)" : {Key : Value, ...},
   "[DockerSecurityOptions](#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions)" : [ String, ... ],
   "[EntryPoint](#cfn-ecs-taskdefinition-containerdefinition-entrypoint)" : [ String, ... ],
-  "[Environment](#cfn-ecs-taskdefinition-containerdefinition-environment)" : [ [KeyValuePair](aws-properties-ecs-taskdefinition-containerdefinitions-environment.md), ... ],
+  "[Environment](#cfn-ecs-taskdefinition-containerdefinition-environment)" : [ KeyValuePair, ... ],
+  "[EnvironmentFiles](#cfn-ecs-taskdefinition-containerdefinition-environmentfiles)" : [ EnvironmentFile, ... ],
   "[Essential](#cfn-ecs-taskdefinition-containerdefinition-essential)" : Boolean,
-  "[ExtraHosts](#cfn-ecs-taskdefinition-containerdefinition-extrahosts)" : [ [HostEntry](aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.md), ... ],
-  "[FirelensConfiguration](#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration)" : [FirelensConfiguration](aws-properties-ecs-taskdefinition-firelensconfiguration.md),
-  "[HealthCheck](#cfn-ecs-taskdefinition-containerdefinition-healthcheck)" : [HealthCheck](aws-properties-ecs-taskdefinition-healthcheck.md),
+  "[ExtraHosts](#cfn-ecs-taskdefinition-containerdefinition-extrahosts)" : [ HostEntry, ... ],
+  "[FirelensConfiguration](#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration)" : FirelensConfiguration,
+  "[HealthCheck](#cfn-ecs-taskdefinition-containerdefinition-healthcheck)" : HealthCheck,
   "[Hostname](#cfn-ecs-taskdefinition-containerdefinition-hostname)" : String,
   "[Image](#cfn-ecs-taskdefinition-containerdefinition-image)" : String,
   "[Interactive](#cfn-ecs-taskdefinition-containerdefinition-interactive)" : Boolean,
   "[Links](#cfn-ecs-taskdefinition-containerdefinition-links)" : [ String, ... ],
-  "[LinuxParameters](#cfn-ecs-taskdefinition-containerdefinition-linuxparameters)" : [LinuxParameters](aws-properties-ecs-taskdefinition-linuxparameters.md),
-  "[LogConfiguration](#cfn-ecs-taskdefinition-containerdefinition-logconfiguration)" : [LogConfiguration](aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.md),
+  "[LinuxParameters](#cfn-ecs-taskdefinition-containerdefinition-linuxparameters)" : LinuxParameters,
+  "[LogConfiguration](#cfn-ecs-taskdefinition-containerdefinition-logconfiguration)" : LogConfiguration,
   "[Memory](#cfn-ecs-taskdefinition-containerdefinition-memory)" : Integer,
   "[MemoryReservation](#cfn-ecs-taskdefinition-containerdefinition-memoryreservation)" : Integer,
-  "[MountPoints](#cfn-ecs-taskdefinition-containerdefinition-mountpoints)" : [ [MountPoint](aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.md), ... ],
+  "[MountPoints](#cfn-ecs-taskdefinition-containerdefinition-mountpoints)" : [ MountPoint, ... ],
   "[Name](#cfn-ecs-taskdefinition-containerdefinition-name)" : String,
-  "[PortMappings](#cfn-ecs-taskdefinition-containerdefinition-portmappings)" : [ [PortMapping](aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.md), ... ],
+  "[PortMappings](#cfn-ecs-taskdefinition-containerdefinition-portmappings)" : [ PortMapping, ... ],
   "[Privileged](#cfn-ecs-taskdefinition-containerdefinition-privileged)" : Boolean,
   "[PseudoTerminal](#cfn-ecs-taskdefinition-containerdefinition-pseudoterminal)" : Boolean,
   "[ReadonlyRootFilesystem](#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem)" : Boolean,
-  "[RepositoryCredentials](#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials)" : [RepositoryCredentials](aws-properties-ecs-taskdefinition-repositorycredentials.md),
-  "[ResourceRequirements](#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements)" : [ [ResourceRequirement](aws-properties-ecs-taskdefinition-resourcerequirement.md), ... ],
-  "[Secrets](#cfn-ecs-taskdefinition-containerdefinition-secrets)" : [ [Secret](aws-properties-ecs-taskdefinition-secret.md), ... ],
+  "[RepositoryCredentials](#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials)" : RepositoryCredentials,
+  "[ResourceRequirements](#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements)" : [ ResourceRequirement, ... ],
+  "[Secrets](#cfn-ecs-taskdefinition-containerdefinition-secrets)" : [ Secret, ... ],
   "[StartTimeout](#cfn-ecs-taskdefinition-containerdefinition-starttimeout)" : Integer,
   "[StopTimeout](#cfn-ecs-taskdefinition-containerdefinition-stoptimeout)" : Integer,
-  "[SystemControls](#cfn-ecs-taskdefinition-containerdefinition-systemcontrols)" : [ [SystemControl](aws-properties-ecs-taskdefinition-systemcontrol.md), ... ],
-  "[Ulimits](#cfn-ecs-taskdefinition-containerdefinition-ulimits)" : [ [Ulimit](aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.md), ... ],
+  "[SystemControls](#cfn-ecs-taskdefinition-containerdefinition-systemcontrols)" : [ SystemControl, ... ],
+  "[Ulimits](#cfn-ecs-taskdefinition-containerdefinition-ulimits)" : [ Ulimit, ... ],
   "[User](#cfn-ecs-taskdefinition-containerdefinition-user)" : String,
-  "[VolumesFrom](#cfn-ecs-taskdefinition-containerdefinition-volumesfrom)" : [ [VolumeFrom](aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.md), ... ],
+  "[VolumesFrom](#cfn-ecs-taskdefinition-containerdefinition-volumesfrom)" : [ VolumeFrom, ... ],
   "[WorkingDirectory](#cfn-ecs-taskdefinition-containerdefinition-workingdirectory)" : String
 }
 ```
@@ -58,7 +59,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
     - String
   [Cpu](#cfn-ecs-taskdefinition-containerdefinition-cpu): Integer
   [DependsOn](#cfn-ecs-taskdefinition-containerdefinition-dependson): 
-    - [ContainerDependency](aws-properties-ecs-taskdefinition-containerdependency.md)
+    - ContainerDependency
   [DisableNetworking](#cfn-ecs-taskdefinition-containerdefinition-disablenetworking): Boolean
   [DnsSearchDomains](#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains): 
     - String
@@ -71,48 +72,50 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   [EntryPoint](#cfn-ecs-taskdefinition-containerdefinition-entrypoint): 
     - String
   [Environment](#cfn-ecs-taskdefinition-containerdefinition-environment): 
-    - [KeyValuePair](aws-properties-ecs-taskdefinition-containerdefinitions-environment.md)
+    - KeyValuePair
+  [EnvironmentFiles](#cfn-ecs-taskdefinition-containerdefinition-environmentfiles): 
+    - EnvironmentFile
   [Essential](#cfn-ecs-taskdefinition-containerdefinition-essential): Boolean
   [ExtraHosts](#cfn-ecs-taskdefinition-containerdefinition-extrahosts): 
-    - [HostEntry](aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.md)
+    - HostEntry
   [FirelensConfiguration](#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration): 
-    [FirelensConfiguration](aws-properties-ecs-taskdefinition-firelensconfiguration.md)
+    FirelensConfiguration
   [HealthCheck](#cfn-ecs-taskdefinition-containerdefinition-healthcheck): 
-    [HealthCheck](aws-properties-ecs-taskdefinition-healthcheck.md)
+    HealthCheck
   [Hostname](#cfn-ecs-taskdefinition-containerdefinition-hostname): String
   [Image](#cfn-ecs-taskdefinition-containerdefinition-image): String
   [Interactive](#cfn-ecs-taskdefinition-containerdefinition-interactive): Boolean
   [Links](#cfn-ecs-taskdefinition-containerdefinition-links): 
     - String
   [LinuxParameters](#cfn-ecs-taskdefinition-containerdefinition-linuxparameters): 
-    [LinuxParameters](aws-properties-ecs-taskdefinition-linuxparameters.md)
+    LinuxParameters
   [LogConfiguration](#cfn-ecs-taskdefinition-containerdefinition-logconfiguration): 
-    [LogConfiguration](aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.md)
+    LogConfiguration
   [Memory](#cfn-ecs-taskdefinition-containerdefinition-memory): Integer
   [MemoryReservation](#cfn-ecs-taskdefinition-containerdefinition-memoryreservation): Integer
   [MountPoints](#cfn-ecs-taskdefinition-containerdefinition-mountpoints): 
-    - [MountPoint](aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.md)
+    - MountPoint
   [Name](#cfn-ecs-taskdefinition-containerdefinition-name): String
   [PortMappings](#cfn-ecs-taskdefinition-containerdefinition-portmappings): 
-    - [PortMapping](aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.md)
+    - PortMapping
   [Privileged](#cfn-ecs-taskdefinition-containerdefinition-privileged): Boolean
   [PseudoTerminal](#cfn-ecs-taskdefinition-containerdefinition-pseudoterminal): Boolean
   [ReadonlyRootFilesystem](#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem): Boolean
   [RepositoryCredentials](#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials): 
-    [RepositoryCredentials](aws-properties-ecs-taskdefinition-repositorycredentials.md)
+    RepositoryCredentials
   [ResourceRequirements](#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements): 
-    - [ResourceRequirement](aws-properties-ecs-taskdefinition-resourcerequirement.md)
+    - ResourceRequirement
   [Secrets](#cfn-ecs-taskdefinition-containerdefinition-secrets): 
-    - [Secret](aws-properties-ecs-taskdefinition-secret.md)
+    - Secret
   [StartTimeout](#cfn-ecs-taskdefinition-containerdefinition-starttimeout): Integer
   [StopTimeout](#cfn-ecs-taskdefinition-containerdefinition-stoptimeout): Integer
   [SystemControls](#cfn-ecs-taskdefinition-containerdefinition-systemcontrols): 
-    - [SystemControl](aws-properties-ecs-taskdefinition-systemcontrol.md)
+    - SystemControl
   [Ulimits](#cfn-ecs-taskdefinition-containerdefinition-ulimits): 
-    - [Ulimit](aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.md)
+    - Ulimit
   [User](#cfn-ecs-taskdefinition-containerdefinition-user): String
   [VolumesFrom](#cfn-ecs-taskdefinition-containerdefinition-volumesfrom): 
-    - [VolumeFrom](aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.md)
+    - VolumeFrom
   [WorkingDirectory](#cfn-ecs-taskdefinition-containerdefinition-workingdirectory): String
 ```
 
@@ -147,21 +150,21 @@ For tasks using the Fargate launch type, the task or service requires platform v
 
 `DisableNetworking`  <a name="cfn-ecs-taskdefinition-containerdefinition-disablenetworking"></a>
 When this parameter is true, networking is disabled within the container\. This parameter maps to `NetworkDisabled` in the [Create a container](https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.35/)\.  
-This parameter is not supported for Windows containers\.
+This parameter is not supported for Windows containers or tasks that use the awsvpc network mode\.
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `DnsSearchDomains`  <a name="cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains"></a>
 A list of DNS search domains that are presented to the container\. This parameter maps to `DnsSearch` in the [Create a container](https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.35/) and the `--dns-search` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration)\.  
-This parameter is not supported for Windows containers\.
+This parameter is not supported for Windows containers or tasks that use the awsvpc network mode\.
 *Required*: No  
 *Type*: List of String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `DnsServers`  <a name="cfn-ecs-taskdefinition-containerdefinition-dnsservers"></a>
 A list of DNS servers that are presented to the container\. This parameter maps to `Dns` in the [Create a container](https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.35/) and the `--dns` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration)\.  
-This parameter is not supported for Windows containers\.
+This parameter is not supported for Windows containers or tasks that use the awsvpc network mode\.
 *Required*: No  
 *Type*: List of String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -195,6 +198,15 @@ The environment variables to pass to a container\. This parameter maps to `Env` 
 We do not recommend using plaintext environment variables for sensitive information, such as credential data\.
 *Required*: No  
 *Type*: List of [KeyValuePair](aws-properties-ecs-taskdefinition-containerdefinitions-environment.md)  
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+
+`EnvironmentFiles`  <a name="cfn-ecs-taskdefinition-containerdefinition-environmentfiles"></a>
+A list of files containing the environment variables to pass to a container\. This parameter maps to the `--env-file` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration)\.  
+You can specify up to ten environment files\. The file must have a `.env` file extension\. Each line in an environment file should contain an environment variable in `VARIABLE=VALUE` format\. Lines beginning with `#` are treated as comments and are ignored\. For more information on the environment variable file syntax, see [Declare default environment variables in file](https://docs.docker.com/compose/env-file/)\.  
+If there are environment variables specified using the `environment` parameter in a container definition, they take precedence over the variables contained within an environment file\. If multiple environment files are specified that contain the same variable, they are processed from the top down\. It is recommended to use unique variable names\. For more information, see [Specifying Environment Variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide*\.  
+This field is not valid for containers in tasks using the Fargate launch type\.  
+*Required*: No  
+*Type*: List of [EnvironmentFile](aws-properties-ecs-taskdefinition-environmentfile.md)  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Essential`  <a name="cfn-ecs-taskdefinition-containerdefinition-essential"></a>
@@ -249,7 +261,7 @@ When this parameter is `true`, this allows you to deploy containerized applicati
 
 `Links`  <a name="cfn-ecs-taskdefinition-containerdefinition-links"></a>
 The `links` parameter allows containers to communicate with each other without the need for port mappings\. This parameter is only supported if the network mode of a task definition is `bridge`\. The `name:internalName` construct is analogous to `name:alias` in Docker links\. Up to 255 letters \(uppercase and lowercase\), numbers, and hyphens are allowed\. For more information about linking Docker containers, go to [Legacy container links](https://docs.docker.com/network/links/) in the Docker documentation\. This parameter maps to `Links` in the [Create a container](https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.35/) and the `--link` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration)\.  
-This parameter is not supported for Windows containers\.
+This parameter is not supported for Windows containers or tasks that use the awsvpc network mode\.
 Containers that are collocated on a single container instance may be able to communicate with each other without requiring links or host port mappings\. Network isolation is achieved on the container instance using security groups and VPC settings\.
 *Required*: No  
 *Type*: List of String  
@@ -329,7 +341,7 @@ When this parameter is `true`, a TTY is allocated\. This parameter maps to `Tty`
 
 `ReadonlyRootFilesystem`  <a name="cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem"></a>
 When this parameter is true, the container is given read\-only access to its root file system\. This parameter maps to `ReadonlyRootfs` in the [Create a container](https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.35/) and the `--read-only` option to [docker run](https://docs.docker.com/engine/reference/run/#security-configuration)\.  
-This parameter is not supported for Windows containers\.
+This parameter is not supported for Windows containers or tasks that use the awsvpc network mode\.
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -354,8 +366,9 @@ The secrets to pass to the container\. For more information, see [Specifying Sen
 
 `StartTimeout`  <a name="cfn-ecs-taskdefinition-containerdefinition-starttimeout"></a>
 Time duration \(in seconds\) to wait before giving up on resolving dependencies for a container\. For example, you specify two containers in a task definition with containerA having a dependency on containerB reaching a `COMPLETE`, `SUCCESS`, or `HEALTHY` status\. If a `startTimeout` value is specified for containerB and it does not reach the desired status within that time then containerA will give up and not start\. This results in the task transitioning to a `STOPPED` state\.  
-For tasks using the Fargate launch type, this parameter requires that the task or service uses platform version 1\.3\.0 or later\. If this parameter is not specified, the default value of 3 minutes is used\.  
-For tasks using the EC2 launch type, if the `startTimeout` parameter is not specified, the value set for the Amazon ECS container agent configuration variable `ECS_CONTAINER_START_TIMEOUT` is used by default\. If neither the `startTimeout` parameter or the `ECS_CONTAINER_START_TIMEOUT` agent configuration variable are set, then the default values of 3 minutes for Linux containers and 8 minutes on Windows containers are used\. Your container instances require at least version 1\.26\.0 of the container agent to enable a container start timeout value\. However, we recommend using the latest container agent version\. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*\. If you are using an Amazon ECS\-optimized Linux AMI, your instance needs at least version 1\.26\.0\-1 of the `ecs-init` package\. If your container instances are launched from version `20190301` or later, then they contain the required versions of the container agent and `ecs-init`\. For more information, see [Amazon ECS\-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*\.  
+When the `ECS_CONTAINER_START_TIMEOUT` container agent configuration variable is used, it is enforced indendently from this start timeout value\.
+For tasks using the Fargate launch type, this parameter requires that the task or service uses platform version 1\.3\.0 or later\.  
+For tasks using the EC2 launch type, your container instances require at least version `1.26.0` of the container agent to enable a container start timeout value\. However, we recommend using the latest container agent version\. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*\. If you are using an Amazon ECS\-optimized Linux AMI, your instance needs at least version `1.26.0-1` of the `ecs-init` package\. If your container instances are launched from version `20190301` or later, then they contain the required versions of the container agent and `ecs-init`\. For more information, see [Amazon ECS\-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*\.  
 *Required*: No  
 *Type*: Integer  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -391,7 +404,7 @@ You can use the following formats\. If specifying a UID or GID, you must specify
 +  `uid:gid` 
 +  `user:gid` 
 +  `uid:group` 
-This parameter is not supported for Windows containers\.
+This parameter is not supported for Windows containers or tasks that use the awsvpc network mode\.
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)

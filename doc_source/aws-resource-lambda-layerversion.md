@@ -13,7 +13,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "Type" : "AWS::Lambda::LayerVersion",
   "Properties" : {
       "[CompatibleRuntimes](#cfn-lambda-layerversion-compatibleruntimes)" : [ String, ... ],
-      "[Content](#cfn-lambda-layerversion-content)" : [Content](aws-properties-lambda-layerversion-content.md),
+      "[Content](#cfn-lambda-layerversion-content)" : Content,
       "[Description](#cfn-lambda-layerversion-description)" : String,
       "[LayerName](#cfn-lambda-layerversion-layername)" : String,
       "[LicenseInfo](#cfn-lambda-layerversion-licenseinfo)" : String
@@ -29,7 +29,7 @@ Properties:
   [CompatibleRuntimes](#cfn-lambda-layerversion-compatibleruntimes): 
     - String
   [Content](#cfn-lambda-layerversion-content): 
-    [Content](aws-properties-lambda-layerversion-content.md)
+    Content
   [Description](#cfn-lambda-layerversion-description): String
   [LayerName](#cfn-lambda-layerversion-layername): String
   [LicenseInfo](#cfn-lambda-layerversion-licenseinfo): String
@@ -94,37 +94,15 @@ Create a layer named `my-layer`\.
 #### JSON<a name="aws-resource-lambda-layerversion--examples--Layer_Version--json"></a>
 
 ```
-"MyLayer": {
-    "Type": "AWS::Lambda::LayerVersion",
-    "Properties": {
-        "CompatibleRuntimes": [
-            "python3.6",
-            "python3.7"
-        ],
-        "Content": {
-            "S3Bucket": "my-bucket-us-west-2-123456789012",
-            "S3Key": "layer.zip"
-        },
-        "Description": "My layer",
-        "LayerName": "my-layer",
-        "LicenseInfo": "MIT"
-    }
-}
+"MyLayer": { "Type": "AWS::Lambda::LayerVersion", "Properties": { "CompatibleRuntimes": [
+        "python3.6", "python3.7" ], "Content": { "S3Bucket": "my-bucket-us-west-2-123456789012", "S3Key": "layer.zip" },
+        "Description": "My layer", "LayerName": "my-layer", "LicenseInfo": "MIT" } }
 ```
 
 #### YAML<a name="aws-resource-lambda-layerversion--examples--Layer_Version--yaml"></a>
 
 ```
-MyLayer:
-  Type: AWS::Lambda::LayerVersion
-  Properties:
-    CompatibleRuntimes:
-      - python3.6
-      - python3.7
-    Content:
-      S3Bucket: my-bucket-us-west-2-123456789012
-      S3Key: layer.zip
-    Description: My layer
-    LayerName: my-layer
-    LicenseInfo: MIT
+MyLayer: Type: AWS::Lambda::LayerVersion Properties: CompatibleRuntimes: - python3.6 -
+        python3.7 Content: S3Bucket: my-bucket-us-west-2-123456789012 S3Key: layer.zip Description: My layer LayerName:
+        my-layer LicenseInfo: MIT
 ```
