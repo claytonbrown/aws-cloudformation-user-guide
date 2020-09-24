@@ -9,11 +9,7 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "rds.dbcluster.DBClusterParameterGroupName": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
+  "rds.dbcluster.DBClusterParameterGroupName": {},
   "rds.dbcluster.SourceRegion": {
     "Required": "No",
     "Type": "String",
@@ -105,6 +101,11 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "rds.dbcluster.aws rds describe-db-cluster-parameter-groups --query \"DBClusterParameterGroups[].DBClusterParameterGroupName\" --output text": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "rds.dbcluster.EnableIAMDatabaseAuthentication": {
     "Required": "No",
     "UpdateRequires": "No interruption",
@@ -161,7 +162,6 @@
     "UpdateRequires": "No interruption"
   },
   "rds.dbcluster.EngineMode": {
-    "EngineMode`  <a name=\"cfn-rds-dbcluster-enginemode\"></a>\nThe DB engine mode of the DB cluster, either `provisioned`, `serverless`, `parallelquery`, `global`, or `multimaster`\\.  \n `global` engine mode only applies for global database clusters created with Aurora MySQL version 5\\.6\\.10a\\. For higher Aurora MySQL versions, the clusters in a global database use `provisioned` engine mode\\. \nLimitations and requirements apply to some DB engine modes\\. For more information, see the following sections in the *Amazon Aurora User Guide": "+  [ Limitations of Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations) \n+  [ Limitations of Parallel Query](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations) \n+  [ Requirements for Aurora Global Databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations) \n+  [ Limitations of Multi\\-Master Clusters](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations)",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"

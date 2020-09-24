@@ -5,12 +5,18 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "applicationautoscaling.scalabletarget.ResourceId": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
     "Required": "Yes",
-    "UpdateRequires": "Replacement"
+    "Maximum": "1600",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "applicationautoscaling.scalabletarget.ScalableDimension": {
+    "Allowed values": "appstream:fleet:DesiredCapacity | cassandra:table:ReadCapacityUnits | cassandra:table:WriteCapacityUnits | comprehend:document-classifier-endpoint:DesiredInferenceUnits | custom-resource:ResourceType:Property | dynamodb:index:ReadCapacityUnits | dynamodb:index:WriteCapacityUnits | dynamodb:table:ReadCapacityUnits | dynamodb:table:WriteCapacityUnits | ec2:spot-fleet-request:TargetCapacity | ecs:service:DesiredCount | elasticmapreduce:instancegroup:InstanceCount | lambda:function:ProvisionedConcurrency | rds:cluster:ReadReplicaCount | sagemaker:variant:DesiredInstanceCount",
     "Required": "Yes",
-    "UpdateRequires": "Replacement"
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "applicationautoscaling.scalabletarget.ScheduledActions": {
     "Required": "No",
@@ -26,8 +32,10 @@
     "UpdateRequires": "No interruption"
   },
   "applicationautoscaling.scalabletarget.ServiceNamespace": {
+    "Allowed values": "appstream | cassandra | comprehend | custom-resource | dynamodb | ec2 | ecs | elasticmapreduce | lambda | rds | sagemaker",
     "Required": "Yes",
-    "UpdateRequires": "Replacement"
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "applicationautoscaling.scalabletarget.SuspendedState": {
     "Required": "No",

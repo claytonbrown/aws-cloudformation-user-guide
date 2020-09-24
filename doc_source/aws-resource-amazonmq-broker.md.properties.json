@@ -1,4 +1,13 @@
 {
+  "amazonmq.broker.DeploymentMode": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "amazonmq.broker.Tags": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
   "amazonmq.broker.EngineType": {
     "Required": "Yes",
     "Type": "String",
@@ -8,6 +17,11 @@
     "Required": "Yes",
     "Type": "List of [User",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "amazonmq.broker.Logs": {
+    "Required": "No",
+    "Type": "LogList",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amazonmq.broker.SubnetIds": {
     "Required": "No",
@@ -47,19 +61,20 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "amazonmq.broker.Tags": {
+  "amazonmq.broker.LdapServerMetadata": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
+    "Type": "LdapServerMetadata",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amazonmq.broker.Configuration": {
     "Required": "No",
     "Type": "ConfigurationId",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "amazonmq.broker.Logs": {
+  "amazonmq.broker.AuthenticationStrategy": {
     "Required": "No",
-    "Type": "LogList",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "amazonmq.broker.EncryptionOptions": {
     "Required": "No",
@@ -80,9 +95,9 @@
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "amazonmq.broker.DeploymentMode": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  "amazonmq.broker.LdapMetadata": {
+    "Required": "No",
+    "Type": "LdapMetadata",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

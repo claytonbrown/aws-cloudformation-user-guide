@@ -4,10 +4,10 @@
     "Type": "RemoteAccess",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "eks.nodegroup.NodegroupName": {
+  "eks.nodegroup.LaunchTemplate": {
     "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "LaunchTemplateSpecification",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "eks.nodegroup.DiskSize": {
     "Required": "No",
@@ -48,7 +48,7 @@
     ]
   },
   "eks.nodegroup.AmiType": {
-    "Allowed values": "AL2_x86_64 | AL2_x86_64_GPU",
+    "Allowed values": "AL2_ARM_64 | AL2_x86_64 | AL2_x86_64_GPU",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -70,6 +70,11 @@
   "eks.nodegroup.InstanceTypes": {
     "Required": "No",
     "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "eks.nodegroup.NodegroupName": {
+    "Required": "No",
+    "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

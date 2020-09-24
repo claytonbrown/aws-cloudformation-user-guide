@@ -9,6 +9,11 @@
     "Type": "List of [LifecyclePolicy",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "efs.filesystem.BackupPolicy": {
+    "Required": "No",
+    "Type": "BackupPolicy",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "efs.filesystem.Encrypted": {
     "Required": "Conditional",
     "Type": "Boolean",
@@ -22,12 +27,9 @@
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "efs.filesystem.KmsKeyId": {
-    "Minimum": "1",
+  "efs.filesystem.FileSystemPolicy": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "2048",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "No interruption"
   },
   "efs.filesystem.PerformanceMode": {
     "Allowed values": "generalPurpose | maxIO",
@@ -39,8 +41,11 @@
     "Required": "Conditional",
     "UpdateRequires": "No interruption"
   },
-  "efs.filesystem.FileSystemPolicy": {
+  "efs.filesystem.KmsKeyId": {
+    "Pattern": "^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|alias/[a-zA-Z0-9/_-]+|(arn:aws[-a-z]*:kms:[a-z0-9-]+:\\d{12}:((key/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|(alias/[a-zA-Z0-9/_-]+))))$",
     "Required": "No",
-    "UpdateRequires": "No interruption"
+    "Type": "String",
+    "Maximum": "2048",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

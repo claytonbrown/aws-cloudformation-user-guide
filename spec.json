@@ -371,6 +371,26 @@
             "Type": "Payload",
             "UpdateRequires": "No interruption"
         },
+        "elasticsearch.domain.domainendpointoptions.TLSSecurityPolicy": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "elasticsearch.domain.domainendpointoptions.EnforceHTTPS": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
         "applicationautoscaling.scalingpolicy.metricdimension.Name": {
             "Required": "Yes",
             "Type": "String",
@@ -777,16 +797,22 @@
             "Type": "AccountTakeoverActionType",
             "UpdateRequires": "No interruption"
         },
-        "wafv2.rulegroup.ratebasedstatementone.AggregateKeyType": {
-            "Required": "Yes",
-            "Type": "String",
-            "UpdateRequires": "No interruption",
-            "SampleValue": "example-string"
+        "wafv2.rulegroup.ratebasedstatementone.ForwardedIPConfig": {
+            "Required": "No",
+            "Type": "ForwardedIPConfiguration",
+            "UpdateRequires": "No interruption"
         },
         "wafv2.rulegroup.ratebasedstatementone.ScopeDownStatement": {
             "Required": "No",
             "Type": "StatementTwo",
             "UpdateRequires": "No interruption"
+        },
+        "wafv2.rulegroup.ratebasedstatementone.AggregateKeyType": {
+            "Allowed values": "FORWARDED_IP | IP",
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "wafv2.rulegroup.ratebasedstatementone.Limit": {
             "Required": "Yes",
@@ -880,6 +906,18 @@
                 "Egress"
             ],
             "UpdateRequires": "No interruption"
+        },
+        "amazonmq.broker.interbrokercred.Username": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.interbrokercred.Password": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "s3.websiteconfiguration.routingrules.routingrulecondition.KeyPrefixEquals": {
             "Required": "Conditional",
@@ -1039,6 +1077,58 @@
             "Type": "MappingParameters",
             "UpdateRequires": "No interruption"
         },
+        "kinesisfirehose.deliverystream.httpendpointdestinationconfiguration.ProcessingConfiguration": {
+            "Required": "No",
+            "Type": "ProcessingConfiguration",
+            "UpdateRequires": "No interruption"
+        },
+        "kinesisfirehose.deliverystream.httpendpointdestinationconfiguration.RetryOptions": {
+            "Required": "No",
+            "Type": "RetryOptions",
+            "UpdateRequires": "No interruption"
+        },
+        "kinesisfirehose.deliverystream.httpendpointdestinationconfiguration.EndpointConfiguration": {
+            "Required": "Yes",
+            "Type": "HttpEndpointConfiguration",
+            "UpdateRequires": "No interruption"
+        },
+        "kinesisfirehose.deliverystream.httpendpointdestinationconfiguration.S3Configuration": {
+            "Required": "Yes",
+            "Type": "S3DestinationConfiguration",
+            "UpdateRequires": "No interruption"
+        },
+        "kinesisfirehose.deliverystream.httpendpointdestinationconfiguration.S3BackupMode": {
+            "Allowed values": "AllData | FailedDataOnly",
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "kinesisfirehose.deliverystream.httpendpointdestinationconfiguration.BufferingHints": {
+            "Required": "No",
+            "Type": "BufferingHints",
+            "UpdateRequires": "No interruption"
+        },
+        "kinesisfirehose.deliverystream.httpendpointdestinationconfiguration.CloudWatchLoggingOptions": {
+            "Required": "No",
+            "Type": "CloudWatchLoggingOptions",
+            "UpdateRequires": "No interruption"
+        },
+        "kinesisfirehose.deliverystream.httpendpointdestinationconfiguration.RoleARN": {
+            "Pattern": "arn:.*",
+            "Required": "No",
+            "Maximum": "512",
+            "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...512",
+            "CompliantValues": "1...512"
+        },
+        "kinesisfirehose.deliverystream.httpendpointdestinationconfiguration.RequestConfiguration": {
+            "Required": "No",
+            "Type": "HttpEndpointRequestConfiguration",
+            "UpdateRequires": "No interruption"
+        },
         "appmesh.virtualnode.grpctimeout.Idle": {
             "Required": "No",
             "Type": "Duration",
@@ -1178,7 +1268,7 @@
             ]
         },
         "lambda.eventsourcemapping.onfailure.Destination": {
-            "Required": "Yes",
+            "Required": "No",
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
@@ -1541,6 +1631,10 @@
             "Type": "String",
             "AllowedValues": "1...2048",
             "CompliantValues": "1...2048"
+        },
+        "stepfunctions.statemachine.cloudwatchlogsloggroup.LogGroupArn": {
+            "Required": "No",
+            "UpdateRequires": "No interruption"
         },
         "iotanalytics.datastore.customermanageds3.KeyPrefix": {
             "Required": "No",
@@ -2337,6 +2431,36 @@
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
         },
+        "sagemaker.monitoringschedule.endpointinput.LocalPath": {
+            "Pattern": ".*",
+            "Required": "Yes",
+            "Type": "String",
+            "Maximum": "256",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.endpointinput.S3InputMode": {
+            "Allowed values": "File | Pipe",
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.endpointinput.EndpointName": {
+            "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+            "Required": "Yes",
+            "Type": "String",
+            "Maximum": "63",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.endpointinput.S3DataDistributionType": {
+            "Allowed values": "FullyReplicated | ShardedByS3Key",
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
         "appstream.fleet.vpcconfig.SubnetIds": {
             "Required": "No",
             "Type": "List of String",
@@ -2371,6 +2495,58 @@
             "Required": "No",
             "Type": "String",
             "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.endpointconfig.datacaptureconfig.CaptureContentTypeHeader": {
+            "Required": "No",
+            "Type": "CaptureContentTypeHeader",
+            "UpdateRequires": "Replacement"
+        },
+        "sagemaker.endpointconfig.datacaptureconfig.InitialSamplingPercentage": {
+            "Minimum": "0",
+            "Required": "Yes",
+            "Type": "Integer",
+            "Maximum": "100",
+            "UpdateRequires": "Replacement",
+            "AllowedValues": "0...100",
+            "CompliantValues": "0...100"
+        },
+        "sagemaker.endpointconfig.datacaptureconfig.EnableCapture": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "Replacement",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
+        "sagemaker.endpointconfig.datacaptureconfig.KmsKeyId": {
+            "Pattern": ".*",
+            "Required": "No",
+            "Type": "String",
+            "Maximum": "2048",
+            "UpdateRequires": "Replacement",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.endpointconfig.datacaptureconfig.CaptureOptions": {
+            "Required": "Yes",
+            "Type": [
+                "CaptureOption"
+            ],
+            "Maximum": "2",
+            "UpdateRequires": "Replacement"
+        },
+        "sagemaker.endpointconfig.datacaptureconfig.DestinationS3Uri": {
+            "Pattern": "^(https|s3)://([^/])/?(.*)$",
+            "Required": "Yes",
+            "Type": "String",
+            "Maximum": "512",
+            "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
         },
         "dynamodb.projectionobject.ProjectionType": {
@@ -3049,6 +3225,30 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "sagemaker.monitoringschedule.clusterconfig.InstanceType": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.clusterconfig.InstanceCount": {
+            "Required": "Yes",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
+        },
+        "sagemaker.monitoringschedule.clusterconfig.VolumeKmsKeyId": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.clusterconfig.VolumeSizeInGB": {
+            "Required": "Yes",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
+        },
         "cloudfront.distribution.viewercertificate.IamCertificateId": {
             "Required": "Conditional",
             "Type": "String",
@@ -3060,7 +3260,7 @@
             "UpdateRequires": "No interruption"
         },
         "cloudfront.distribution.viewercertificate.SslSupportMethod": {
-            "Allowed values": "sni-only | vip",
+            "Allowed values": "sni-only | static-ip | vip",
             "Required": "Conditional",
             "Type": "String",
             "UpdateRequires": "No interruption",
@@ -3676,6 +3876,24 @@
             "Type": "AudioSelectorSettings",
             "UpdateRequires": "No interruption"
         },
+        "eks.nodegroup.launchtemplatespecification.Name": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "eks.nodegroup.launchtemplatespecification.Id": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "eks.nodegroup.launchtemplatespecification.Version": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
         "cognito.userpoolresourceserver.resourceserverscopetype.ScopeDescription": {
             "Minimum": "1",
             "Required": "Yes",
@@ -3871,6 +4089,15 @@
             "AllowedValues": "0...65535",
             "CompliantValues": "0...65535"
         },
+        "cloudfront.originrequestpolicy.headersconfig.HeaderBehavior": {
+            "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.originrequestpolicy.headersconfig.Headers": {
+            "Required": "No",
+            "Type": "List of String",
+            "UpdateRequires": "No interruption"
+        },
         "wafv2.rulegroup.orstatementtwo.Statements": {
             "Required": "Yes",
             "Type": [
@@ -3927,11 +4154,7 @@
         },
         "ssm.maintenancewindowtask.maintenancewindowruncommandparameters.Parameters": {
             "Required": "No",
-            "Type": "Json",
-            "UpdateRequires": "No interruption",
-            "SampleValue": {
-                "todo": "json"
-            }
+            "UpdateRequires": "No interruption"
         },
         "ssm.maintenancewindowtask.maintenancewindowruncommandparameters.ServiceRoleArn": {
             "Required": "No",
@@ -4079,6 +4302,11 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "appmesh.gatewayroute.httpgatewayrouteaction.Target": {
+            "Required": "Yes",
+            "Type": "GatewayRouteTarget",
+            "UpdateRequires": "No interruption"
+        },
         "pinpoint.applicationsettings.campaignhook.WebUrl": {
             "Required": "No",
             "Type": "String",
@@ -4214,6 +4442,29 @@
             "Required": "Yes",
             "Type": "SpotProvisioningSpecification",
             "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.windowsevent.LogGroupName": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.windowsevent.EventName": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.windowsevent.EventLevels": {
+            "Required": "Yes",
+            "Type": "List of String",
+            "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.windowsevent.PatternSet": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "wafv2.webacl.texttransformation.Priority": {
             "Minimum": "0",
@@ -4806,6 +5057,18 @@
             "Type": "BuildStatusConfig",
             "UpdateRequires": "No interruption"
         },
+        "codeguruprofiler.profilinggroup.channel.channelUri": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "codeguruprofiler.profilinggroup.channel.channelId": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
         "pinpointemail.configurationseteventdestination.cloudwatchdestination.DimensionConfigurations": {
             "Required": "No",
             "Type": [
@@ -4849,13 +5112,13 @@
             "SampleValue": "example-string"
         },
         "ecs.taskdefinition.systemcontrol.Value": {
-            "Required": "Yes",
+            "Required": "No",
             "Type": "String",
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
         },
         "ecs.taskdefinition.systemcontrol.Namespace": {
-            "Required": "Yes",
+            "Required": "No",
             "Type": "String",
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
@@ -4899,6 +5162,38 @@
                 "AllowedValues": "1...512",
                 "CompliantValues": "1...512"
             }
+        },
+        "codebuild.project.projectbuildbatchconfig.Restrictions": {
+            "Required": "No",
+            "Type": "BatchRestrictions",
+            "UpdateRequires": "No interruption"
+        },
+        "codebuild.project.projectbuildbatchconfig.CombineArtifacts": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
+        "codebuild.project.projectbuildbatchconfig.TimeoutInMins": {
+            "Required": "No",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
+        },
+        "codebuild.project.projectbuildbatchconfig.ServiceRole": {
+            "Minimum": "1",
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "opsworkscm.server.engineattribute.Name": {
             "Pattern": "(?s).*",
@@ -5061,6 +5356,12 @@
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
+        },
+        "groundstation.dataflowendpointgroup.dataflowendpoint.Mtu": {
+            "Required": "No",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
         },
         "groundstation.dataflowendpointgroup.dataflowendpoint.Address": {
             "Required": "No",
@@ -5414,6 +5715,18 @@
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
         },
+        "sagemaker.monitoringschedule.vpcconfig.Subnets": {
+            "Required": "Yes",
+            "Type": "List of String",
+            "Maximum": "16",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.vpcconfig.SecurityGroupIds": {
+            "Required": "Yes",
+            "Type": "List of String",
+            "Maximum": "5",
+            "UpdateRequires": "No interruption"
+        },
         "msk.cluster.clientauthentication.Tls": {
             "Required": "No",
             "Type": "Tls",
@@ -5658,7 +5971,7 @@
         },
         "codebuild.project.environment.PrivilegedMode": {},
         "codebuild.project.environment.Type": {
-            "Allowed values": "ARM_CONTAINER | LINUX_CONTAINER | LINUX_GPU_CONTAINER | WINDOWS_CONTAINER",
+            "Allowed values": "ARM_CONTAINER | LINUX_CONTAINER | LINUX_GPU_CONTAINER | WINDOWS_CONTAINER | WINDOWS_SERVER_2019_CONTAINER",
             "Required": "Yes",
             "Type": "String",
             "UpdateRequires": "No interruption",
@@ -5776,6 +6089,10 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "efs.filesystem.backuppolicy.Status": {
+            "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
         "autoscaling.autoscalinggroup.instancesdistribution.SpotMaxPrice": {
             "Minimum": "0",
             "Required": "No",
@@ -5829,10 +6146,16 @@
             "UpdateRequires": "No interruption"
         },
         "wafv2.webacl.ratebasedstatementone.AggregateKeyType": {
+            "Allowed values": "FORWARDED_IP | IP",
             "Required": "Yes",
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
+        },
+        "wafv2.webacl.ratebasedstatementone.ForwardedIPConfig": {
+            "Required": "No",
+            "Type": "ForwardedIPConfiguration",
+            "UpdateRequires": "No interruption"
         },
         "codebuild.project.logsconfig.CloudWatchLogs": {
             "Required": "No",
@@ -5943,6 +6266,11 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "appmesh.gatewayroute.gatewayroutetarget.VirtualService": {
+            "Required": "Yes",
+            "Type": "GatewayRouteVirtualService",
+            "UpdateRequires": "No interruption"
+        },
         "ecs.taskdefinition.containerdefinitions.portmappings.ContainerPort": {
             "Required": "No",
             "Type": "Integer",
@@ -5972,7 +6300,7 @@
             "Maximum": "2",
             "UpdateRequires": "No interruption",
             "Minimum": "2",
-            "ContinentCode`  <a name=\"cfn-route53-recordset-geolocation-continentcode\"></a>\nFor geolocation resource record sets, a two\\-letter abbreviation that identifies a continent\\. Route 53 supports the following continent codes:  \n+ **AF*": "Africa\n+ **AN*",
+            "ContinentCode`  <a name=\"cfn-route53-recordsetgroup-geolocation-continentcode\"></a>\nFor geolocation resource record sets, a two\\-letter abbreviation that identifies a continent\\. Route 53 supports the following continent codes:  \n+ **AF*": "Africa\n+ **AN*",
             "Type": "String",
             "AllowedValues": "2...2",
             "CompliantValues": "2...2"
@@ -6224,6 +6552,39 @@
             "Maximum": "1000",
             "UpdateRequires": "No interruption"
         },
+        "sagemaker.monitoringschedule.networkconfig.VpcConfig": {
+            "Required": "No",
+            "Type": "VpcConfig",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.networkconfig.EnableInterContainerTrafficEncryption": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
+        "sagemaker.monitoringschedule.networkconfig.EnableNetworkIsolation": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
         "elasticsearch.domain.encryptionatrestoptions.KmsKeyId": {
             "Required": "No",
             "Type": "String",
@@ -6281,6 +6642,11 @@
             "AllowedValues": "20...2048",
             "CompliantValues": "20...2048"
         },
+        "wafv2.webacl.ipsetreferencestatement.IPSetForwardedIPConfig": {
+            "Required": "No",
+            "Type": "IPSetForwardedIPConfiguration",
+            "UpdateRequires": "No interruption"
+        },
         "elasticloadbalancingv2.listenerrule.sourceipconfig.Values": {
             "Required": "No",
             "Type": "List of String",
@@ -6329,6 +6695,48 @@
                 "EC2TagSetListObject"
             ],
             "UpdateRequires": "No interruption"
+        },
+        "secretsmanager.rotationschedule.hostedrotationlambda.MasterSecretKmsKeyArn": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "secretsmanager.rotationschedule.hostedrotationlambda.VpcSubnetIds": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "secretsmanager.rotationschedule.hostedrotationlambda.VpcSecurityGroupIds": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "secretsmanager.rotationschedule.hostedrotationlambda.RotationLambdaName": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "secretsmanager.rotationschedule.hostedrotationlambda.KmsKeyArn": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "secretsmanager.rotationschedule.hostedrotationlambda.MasterSecretArn": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "secretsmanager.rotationschedule.hostedrotationlambda.RotationType": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "wafv2.rulegroup.statementtwo.XssMatchStatement": {
             "Required": "No",
@@ -6503,6 +6911,12 @@
             "AllowedValues": "180...600",
             "CompliantValues": "180...600"
         },
+        "appmesh.virtualgateway.virtualgatewaylistenertlsacmcertificate.CertificateArn": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
         "greengrass.functiondefinition.functiondefinitionversion.Functions": {
             "Required": "Yes",
             "Type": [
@@ -6548,20 +6962,6 @@
             "Type": "String",
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
-        },
-        "sns.topic.FifoTopic": {
-            "Required": "No",
-            "Type": "Boolean",
-            "UpdateRequires": "Replacement",
-            "AllowedValues": [
-                "True",
-                "False"
-            ],
-            "SampleValue": "False",
-            "CompliantValues": [
-                "True",
-                "False"
-            ]
         },
         "sns.topic.Tags": {
             "Required": "No",
@@ -6676,6 +7076,48 @@
             "Type": "String",
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
+        },
+        "appmesh.virtualgateway.virtualgatewayhealthcheckpolicy.Port": {
+            "Required": "No",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
+        },
+        "appmesh.virtualgateway.virtualgatewayhealthcheckpolicy.Protocol": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "appmesh.virtualgateway.virtualgatewayhealthcheckpolicy.UnhealthyThreshold": {
+            "Required": "Yes",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
+        },
+        "appmesh.virtualgateway.virtualgatewayhealthcheckpolicy.IntervalMillis": {
+            "Required": "Yes",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
+        },
+        "appmesh.virtualgateway.virtualgatewayhealthcheckpolicy.HealthyThreshold": {
+            "Required": "Yes",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
+        },
+        "appmesh.virtualgateway.virtualgatewayhealthcheckpolicy.Path": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "appmesh.virtualgateway.virtualgatewayhealthcheckpolicy.TimeoutMillis": {
+            "Required": "Yes",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
         },
         "pinpointemail.identity.mailfromattributes.BehaviorOnMxFailure": {
             "Required": "No",
@@ -7194,11 +7636,8 @@
             "SampleValue": "example-string"
         },
         "cloudfront.distribution.cookies.Forward": {
-            "Allowed values": "all | none | whitelist",
             "Required": "Yes",
-            "Type": "String",
-            "UpdateRequires": "No interruption",
-            "SampleValue": "example-string"
+            "UpdateRequires": "No interruption"
         },
         "cloudfront.distribution.cookies.WhitelistedNames": {
             "Required": "Conditional",
@@ -7216,6 +7655,10 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "cloudfront.distribution.cachebehavior.CachePolicyId": {
+            "Required": "No",
+            "UpdateRequires": "No interruption"
+        },
         "cloudfront.distribution.cachebehavior.Compress": {
             "Required": "No",
             "UpdateRequires": "No interruption",
@@ -7230,8 +7673,7 @@
             ]
         },
         "cloudfront.distribution.cachebehavior.ForwardedValues": {
-            "Required": "Yes",
-            "Type": "ForwardedValues",
+            "Required": "No",
             "UpdateRequires": "No interruption"
         },
         "cloudfront.distribution.cachebehavior.PathPattern": {
@@ -7246,8 +7688,11 @@
             "Required": "Yes",
             "UpdateRequires": "No interruption"
         },
-        "cloudfront.distribution.cachebehavior.DefaultTTL": {
+        "cloudfront.distribution.cachebehavior.LambdaFunctionAssociations": {
             "Required": "No",
+            "Type": [
+                "LambdaFunctionAssociation"
+            ],
             "UpdateRequires": "No interruption"
         },
         "cloudfront.distribution.cachebehavior.CachedMethods": {
@@ -7276,6 +7721,10 @@
             "Type": "List of String",
             "UpdateRequires": "No interruption"
         },
+        "cloudfront.distribution.cachebehavior.DefaultTTL": {
+            "Required": "No",
+            "UpdateRequires": "No interruption"
+        },
         "cloudfront.distribution.cachebehavior.SmoothStreaming": {
             "Required": "No",
             "Type": "Boolean",
@@ -7294,11 +7743,8 @@
             "Required": "No",
             "UpdateRequires": "No interruption"
         },
-        "cloudfront.distribution.cachebehavior.LambdaFunctionAssociations": {
+        "cloudfront.distribution.cachebehavior.OriginRequestPolicyId": {
             "Required": "No",
-            "Type": [
-                "LambdaFunctionAssociation"
-            ],
             "UpdateRequires": "No interruption"
         },
         "dlm.lifecyclepolicy.schedule.Name": {
@@ -7468,6 +7914,15 @@
             "Type": "ShutdownEventConfiguration",
             "UpdateRequires": "No interruption"
         },
+        "cloudfront.cachepolicy.querystringsconfig.QueryStringBehavior": {
+            "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.cachepolicy.querystringsconfig.QueryStrings": {
+            "Required": "No",
+            "Type": "List of String",
+            "UpdateRequires": "No interruption"
+        },
         "ecs.taskdefinition.containerdefinitions.mountpoints.ContainerPath": {
             "Required": "No",
             "Type": "String",
@@ -7576,6 +8031,18 @@
             "Type": "List of String",
             "UpdateRequires": "No interruption"
         },
+        "appmesh.virtualgateway.virtualgatewayportmapping.Protocol": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "appmesh.virtualgateway.virtualgatewayportmapping.Port": {
+            "Required": "Yes",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
+        },
         "kinesisanalyticsv2.application.sqlapplicationconfiguration.Inputs": {
             "Required": "No",
             "Type": [
@@ -7678,7 +8145,7 @@
             "SampleValue": "example-string"
         },
         "ec2.ec2fleet.fleetlaunchtemplateoverridesrequest.InstanceType": {
-            "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+            "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
             "Required": "No",
             "Type": "String",
             "UpdateRequires": "Replacement",
@@ -8170,6 +8637,50 @@
                 "UpdateRequires": "No interruption"
             }
         },
+        "kinesisfirehose.deliverystream.httpendpointrequestconfiguration.ContentEncoding": {
+            "Allowed values": "GZIP | NONE",
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "kinesisfirehose.deliverystream.httpendpointrequestconfiguration.CommonAttributes": {
+            "Required": "No",
+            "Type": [
+                "HttpEndpointCommonAttribute"
+            ],
+            "Maximum": "50",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.cachepolicy.cachepolicyconfig.MaxTTL": {
+            "Required": "No",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.cachepolicy.cachepolicyconfig.Name": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "cloudfront.cachepolicy.cachepolicyconfig.Comment": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "cloudfront.cachepolicy.cachepolicyconfig.ParametersInCacheKeyAndForwardedToOrigin": {
+            "Required": "No",
+            "Type": "ParametersInCacheKeyAndForwardedToOrigin",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.cachepolicy.cachepolicyconfig.MinTTL": {
+            "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.cachepolicy.cachepolicyconfig.DefaultTTL": {
+            "Required": "No",
+            "UpdateRequires": "No interruption"
+        },
         "pinpoint.campaign.campaignsmsmessage.Body": {
             "Required": "No",
             "Type": "String",
@@ -8228,6 +8739,33 @@
             "Type": "Integer",
             "UpdateRequires": "No interruption",
             "SampleValue": "1"
+        },
+        "cloudfront.originrequestpolicy.originrequestpolicyconfig.CookiesConfig": {
+            "Required": "Yes",
+            "Type": "CookiesConfig",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.originrequestpolicy.originrequestpolicyconfig.HeadersConfig": {
+            "Required": "Yes",
+            "Type": "HeadersConfig",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.originrequestpolicy.originrequestpolicyconfig.QueryStringsConfig": {
+            "Required": "Yes",
+            "Type": "QueryStringsConfig",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.originrequestpolicy.originrequestpolicyconfig.Name": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "cloudfront.originrequestpolicy.originrequestpolicyconfig.Comment": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "iotanalytics.dataset.variable.DoubleValue": {
             "Required": "No",
@@ -8390,6 +8928,15 @@
                 "True",
                 "False"
             ]
+        },
+        "cloudfront.cachepolicy.cookiesconfig.CookieBehavior": {
+            "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.cachepolicy.cookiesconfig.Cookies": {
+            "Required": "No",
+            "Type": "List of String",
+            "UpdateRequires": "No interruption"
         },
         "wafv2.rulegroup.texttransformation.Priority": {
             "Minimum": "0",
@@ -8762,6 +9309,14 @@
             "AllowedValues": "1...2048",
             "CompliantValues": "1...2048"
         },
+        "sagemaker.monitoringschedule.scheduleconfig.ScheduleExpression": {
+            "Minimum": "1",
+            "Required": "Yes",
+            "Maximum": "256",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": "1...256",
+            "CompliantValues": "1...256"
+        },
         "appstream.imagebuilder.vpcconfig.SecurityGroupIds": {
             "Required": "No",
             "Type": "List of String",
@@ -8780,6 +9335,21 @@
             ],
             "Maximum": "200",
             "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.customcomponent.ResourceList": {
+            "Required": "Yes",
+            "Type": "List of String",
+            "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.customcomponent.ComponentName": {
+            "Pattern": "^[\\d\\w\\-_\\.+]*$",
+            "Required": "Yes",
+            "Maximum": "128",
+            "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...128",
+            "CompliantValues": "1...128"
         },
         "lakeformation.datalakesettings.datalakeprincipal.DataLakePrincipalIdentifier": {
             "Required": "No",
@@ -9015,6 +9585,20 @@
             "AllowedValues": "1...1600",
             "CompliantValues": "1...1600"
         },
+        "as.group..examples..Auto_Scaling_Group_with_Load_Balancer_and_Multiple_Properties.NewInstancesProtectedFromScaleIn": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
         "as.group..examples..Auto_Scaling_Group_with_Load_Balancer_and_Multiple_Properties.LaunchConfigurationName": {
             "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
             "Required": "Conditional",
@@ -9090,6 +9674,20 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "as.group.NewInstancesProtectedFromScaleIn": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
         "as.group.Tags": {
             "Required": "No",
             "Type": [
@@ -9129,7 +9727,7 @@
             "Required": "Conditional",
             "UpdateRequires": "Replacement"
         },
-        "w6408ab1c19c15c15c27c19b7.default": {
+        "w6640ab1c19c15c15c27c19b7.default": {
             "Required": "No",
             "Type": "String",
             "SampleValue": "example-string"
@@ -9261,6 +9859,12 @@
             "Type": "S3",
             "UpdateRequires": "No interruption"
         },
+        "codecommit.repository.code.BranchName": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "Replacement",
+            "SampleValue": "example-string"
+        },
         "ec2.ec2fleet.spotoptionsrequest.MaxTotalPrice": {
             "Required": "No",
             "Type": "String",
@@ -9381,7 +9985,7 @@
             "SampleValue": "example-string"
         },
         "dms.endpoint.s3settings.ExternalTableDefinition": {
-            "Required": "No",
+            "Required": "Conditional",
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
@@ -9440,6 +10044,18 @@
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
+        },
+        "applicationinsights.application.componentconfiguration.SubComponentTypeConfigurations": {
+            "Required": "No",
+            "Type": [
+                "SubComponentTypeConfiguration"
+            ],
+            "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.componentconfiguration.ConfigurationDetails": {
+            "Required": "No",
+            "Type": "ConfigurationDetails",
+            "UpdateRequires": "No interruption"
         },
         "batch.jobdefinition.noderangeproperty.Container": {
             "Required": "No",
@@ -9882,6 +10498,15 @@
             "Required": "No",
             "UpdateRequires": "No interruption"
         },
+        "kinesisfirehose.deliverystream.retryoptions.DurationInSeconds": {
+            "Minimum": "0",
+            "Required": "No",
+            "Type": "Integer",
+            "Maximum": "7200",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": "0...7200",
+            "CompliantValues": "0...7200"
+        },
         "kinesisanalyticsv2.application.inputschema.RecordEncoding": {
             "Pattern": "UTF-8",
             "Required": "No",
@@ -9909,12 +10534,12 @@
         },
         "ecs.taskdefinition.firelensconfiguration.Options": {
             "Required": "No",
-            "Type": "Map of String",
+            "Type": "Map",
             "UpdateRequires": "Replacement"
         },
         "ecs.taskdefinition.firelensconfiguration.Type": {
             "Allowed values": "fluentbit | fluentd",
-            "Required": "Yes",
+            "Required": "No",
             "Type": "String",
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
@@ -10069,12 +10694,8 @@
             "CompliantValues": "1...1600"
         },
         "as.launchconfig.SpotPrice": {
-            "Minimum": "1",
             "Required": "No",
-            "Maximum": "255",
-            "UpdateRequires": "Replacement",
-            "AllowedValues": "1...255",
-            "CompliantValues": "1...255"
+            "UpdateRequires": "Replacement"
         },
         "ec2.instance.creditspecification.CPUCredits": {
             "Required": "No",
@@ -10345,12 +10966,17 @@
             "AllowedValues": "20...2048",
             "CompliantValues": "20...2048"
         },
+        "wafv2.rulegroup.ipsetreferencestatement.IPSetForwardedIPConfig": {
+            "Required": "No",
+            "Type": "IPSetForwardedIPConfiguration",
+            "UpdateRequires": "No interruption"
+        },
         "route53.recordset.geolocation.1.ContinentCode": {
             "Required": "No",
             "Maximum": "2",
             "UpdateRequires": "No interruption",
             "Minimum": "2",
-            "ContinentCode`  <a name=\"cfn-route53-recordsetgroup-geolocation-continentcode\"></a>\nFor geolocation resource record sets, a two\\-letter abbreviation that identifies a continent\\. Route 53 supports the following continent codes:  \n+ **AF*": "Africa\n+ **AN*",
+            "ContinentCode`  <a name=\"cfn-route53-recordset-geolocation-continentcode\"></a>\nFor geolocation resource record sets, a two\\-letter abbreviation that identifies a continent\\. Route 53 supports the following continent codes:  \n+ **AF*": "Africa\n+ **AN*",
             "Type": "String",
             "AllowedValues": "2...2",
             "CompliantValues": "2...2"
@@ -10574,6 +11200,26 @@
             "SampleValue": {
                 "todo": "json"
             }
+        },
+        "kinesisfirehose.deliverystream.httpendpointcommonattribute.AttributeName": {
+            "Pattern": "^(?!\\s*$).+",
+            "Required": "Yes",
+            "Maximum": "256",
+            "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...256",
+            "CompliantValues": "1...256"
+        },
+        "kinesisfirehose.deliverystream.httpendpointcommonattribute.AttributeValue": {
+            "Pattern": ".*",
+            "Required": "Yes",
+            "Maximum": "1024",
+            "UpdateRequires": "No interruption",
+            "Minimum": "0",
+            "Type": "String",
+            "AllowedValues": "0...1024",
+            "CompliantValues": "0...1024"
         },
         "greengrass.loggerdefinitionversion.logger.Type": {
             "Required": "Yes",
@@ -11241,6 +11887,15 @@
             "AllowedValues": "1...128",
             "CompliantValues": "1...128"
         },
+        "cloudfront.cachepolicy.headersconfig.Headers": {
+            "Required": "No",
+            "Type": "List of String",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.cachepolicy.headersconfig.HeaderBehavior": {
+            "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
         "datapipeline.pipeline.pipelinetags.Value": {
             "Required": "Yes",
             "Type": "String",
@@ -11340,9 +11995,19 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "wafv2.webacl.geomatchstatement.ForwardedIPConfig": {
+            "Required": "No",
+            "Type": "ForwardedIPConfiguration",
+            "UpdateRequires": "No interruption"
+        },
         "wafv2.webacl.geomatchstatement.CountryCodes": {
             "Required": "No",
             "Type": "List of String",
+            "UpdateRequires": "No interruption"
+        },
+        "iot.provisioningtemplate.tags.Tags": {
+            "Required": "No",
+            "Type": "List",
             "UpdateRequires": "No interruption"
         },
         "pinpointemail.configurationset.deliveryoptions.SendingPoolName": {
@@ -12077,6 +12742,23 @@
             "AllowedValues": "1...100",
             "CompliantValues": "1...100"
         },
+        "wafv2.rulegroup.forwardedipconfiguration.HeaderName": {
+            "Pattern": "^[a-zA-Z0-9-]+$",
+            "Required": "Yes",
+            "Maximum": "255",
+            "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...255",
+            "CompliantValues": "1...255"
+        },
+        "wafv2.rulegroup.forwardedipconfiguration.FallbackBehavior": {
+            "Allowed values": "MATCH | NO_MATCH",
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
         "greengrass.resourcedefinitionversion.s3machinelearningmodelresourcedata.S3Uri": {
             "Required": "Yes",
             "Type": "String",
@@ -12358,6 +13040,16 @@
             "AllowedValues": "1...128",
             "CompliantValues": "1...128"
         },
+        "appmesh.virtualgateway.virtualgatewaylistenertlscertificate.ACM": {
+            "Required": "No",
+            "Type": "VirtualGatewayListenerTlsAcmCertificate",
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.virtualgateway.virtualgatewaylistenertlscertificate.File": {
+            "Required": "No",
+            "Type": "VirtualGatewayListenerTlsFileCertificate",
+            "UpdateRequires": "No interruption"
+        },
         "gamelift.build.storagelocation.Bucket": {
             "Minimum": "1",
             "Required": "Yes",
@@ -12494,7 +13186,7 @@
             "CompliantValues": "1...168"
         },
         "lambda.eventsourcemapping.destinationconfig.OnFailure": {
-            "Required": "Yes",
+            "Required": "No",
             "Type": "OnFailure",
             "UpdateRequires": "No interruption"
         },
@@ -13058,7 +13750,7 @@
             "SampleValue": "example-string"
         },
         "ecs.taskdefinition.device.HostPath": {
-            "Required": "Yes",
+            "Required": "No",
             "Type": "String",
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
@@ -13082,6 +13774,87 @@
             "SampleValue": "example-string"
         },
         "appsync.graphqlapi.logconfig.ExcludeVerboseContent": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
+        "amazonmq.broker.ldapservermetadata.RoleSearchMatching": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.ldapservermetadata.RoleName": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.ldapservermetadata.UserSearchSubtree": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
+        "amazonmq.broker.ldapservermetadata.ServiceAccountUsername": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.ldapservermetadata.ServiceAccountPassword": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.ldapservermetadata.UserSearchMatching": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.ldapservermetadata.UserBase": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.ldapservermetadata.UserRoleName": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.ldapservermetadata.RoleBase": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.ldapservermetadata.Hosts": {
+            "Required": "Yes",
+            "Type": "List of String",
+            "UpdateRequires": "No interruption"
+        },
+        "amazonmq.broker.ldapservermetadata.RoleSearchSubtree": {
             "Required": "No",
             "Type": "Boolean",
             "UpdateRequires": "No interruption",
@@ -13284,6 +14057,16 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "appmesh.virtualgateway.virtualgatewaytlsvalidationcontexttrust.ACM": {
+            "Required": "No",
+            "Type": "VirtualGatewayTlsValidationContextAcmTrust",
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.virtualgateway.virtualgatewaytlsvalidationcontexttrust.File": {
+            "Required": "No",
+            "Type": "VirtualGatewayTlsValidationContextFileTrust",
+            "UpdateRequires": "No interruption"
+        },
         "greengrass.functiondefinition.resourceaccesspolicy.ResourceId": {
             "Required": "Yes",
             "Type": "String",
@@ -13357,21 +14140,37 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
-        "greengrass.functiondefinition.defaultconfig.Execution": {
-            "Required": "Yes",
-            "Type": "Execution",
-            "UpdateRequires": "No interruption"
-        },
-        "wafv2.webacl.ratebasedstatementtwo.AggregateKeyType": {
+        "cloudfront.realtimelogconfig.kinesisstreamconfig.StreamArn": {
             "Required": "Yes",
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "cloudfront.realtimelogconfig.kinesisstreamconfig.RoleArn": {
+            "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
+        "greengrass.functiondefinition.defaultconfig.Execution": {
+            "Required": "Yes",
+            "Type": "Execution",
+            "UpdateRequires": "No interruption"
+        },
+        "wafv2.webacl.ratebasedstatementtwo.ForwardedIPConfig": {
+            "Required": "No",
+            "Type": "ForwardedIPConfiguration",
+            "UpdateRequires": "No interruption"
+        },
         "wafv2.webacl.ratebasedstatementtwo.ScopeDownStatement": {
             "Required": "No",
             "Type": "StatementThree",
             "UpdateRequires": "No interruption"
+        },
+        "wafv2.webacl.ratebasedstatementtwo.AggregateKeyType": {
+            "Allowed values": "FORWARDED_IP | IP",
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "wafv2.webacl.ratebasedstatementtwo.Limit": {
             "Required": "Yes",
@@ -13435,6 +14234,34 @@
             "UpdateRequires": "No interruption",
             "AllowedValues": "1...100",
             "CompliantValues": "1...100"
+        },
+        "cloudfront.cachepolicy.parametersincachekeyandforwardedtoorigin.HeadersConfig": {
+            "Required": "Yes",
+            "Type": "HeadersConfig",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.cachepolicy.parametersincachekeyandforwardedtoorigin.CookiesConfig": {
+            "Required": "Yes",
+            "Type": "CookiesConfig",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.cachepolicy.parametersincachekeyandforwardedtoorigin.EnableAcceptEncodingGzip": {
+            "Required": "Yes",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
+        "cloudfront.cachepolicy.parametersincachekeyandforwardedtoorigin.QueryStringsConfig": {
+            "Required": "Yes",
+            "Type": "QueryStringsConfig",
+            "UpdateRequires": "No interruption"
         },
         "events.rule.ecsparameters.Group": {
             "Required": "No",
@@ -13500,8 +14327,7 @@
             "SampleValue": "example-string"
         },
         "cloudfront.distribution.defaultcachebehavior.ForwardedValues": {
-            "Required": "Yes",
-            "Type": "ForwardedValues",
+            "Required": "No",
             "UpdateRequires": "No interruption"
         },
         "cloudfront.distribution.defaultcachebehavior.MinTTL": {
@@ -13526,8 +14352,25 @@
             "Type": "List of String",
             "UpdateRequires": "No interruption"
         },
+        "cloudfront.distribution.defaultcachebehavior.CachePolicyId": {
+            "Required": "No",
+            "UpdateRequires": "No interruption"
+        },
         "cloudfront.distribution.defaultcachebehavior.ViewerProtocolPolicy": {
             "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.distribution.defaultcachebehavior.OriginRequestPolicyId": {
+            "Required": "No",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.distribution.defaultcachebehavior.TrustedSigners": {
+            "Required": "No",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.distribution.defaultcachebehavior.AllowedMethods": {
+            "Required": "No",
+            "Type": "List of String",
             "UpdateRequires": "No interruption"
         },
         "cloudfront.distribution.defaultcachebehavior.SmoothStreaming": {
@@ -13543,15 +14386,6 @@
                 "True",
                 "False"
             ]
-        },
-        "cloudfront.distribution.defaultcachebehavior.TrustedSigners": {
-            "Required": "No",
-            "UpdateRequires": "No interruption"
-        },
-        "cloudfront.distribution.defaultcachebehavior.AllowedMethods": {
-            "Required": "No",
-            "Type": "List of String",
-            "UpdateRequires": "No interruption"
         },
         "cloudfront.distribution.defaultcachebehavior.LambdaFunctionAssociations": {
             "Required": "No",
@@ -13630,6 +14464,36 @@
         "elasticache.parameter.group.Properties": {},
         "elasticache.parameter.group.CacheParameterGroupFamily": {
             "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.log.PatternSet": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.log.LogPath": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.log.Encoding": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.log.LogType": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.log.LogGroupName": {
+            "Required": "No",
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
@@ -13826,6 +14690,11 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "1"
         },
+        "appmesh.virtualgateway.virtualgatewaytlsvalidationcontextacmtrust.CertificateAuthorityArns": {
+            "Required": "Yes",
+            "Type": "List of String",
+            "UpdateRequires": "No interruption"
+        },
         "glue.mltransform.transformparameters.findmatchesparameters.AccuracyCostTradeoff": {
             "Required": "No",
             "Type": "Double",
@@ -13902,9 +14771,27 @@
             "Maximum": "1024",
             "UpdateRequires": "Replacement"
         },
+        "sagemaker.model.containerdefinition.ModelPackageName": {
+            "Pattern": "(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:[a-z\\-]*\\/)?([a-zA-Z0-9]([a-zA-Z0-9-]){0,62})(?<!-)$",
+            "Required": "No",
+            "Maximum": "170",
+            "UpdateRequires": "Replacement",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...170",
+            "CompliantValues": "1...170"
+        },
+        "sagemaker.model.containerdefinition.ContainerHostname": {
+            "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+            "Required": "No",
+            "Type": "String",
+            "Maximum": "63",
+            "UpdateRequires": "Replacement",
+            "SampleValue": "example-string"
+        },
         "sagemaker.model.containerdefinition.Image": {
             "Pattern": "[\\S]+",
-            "Required": "Yes",
+            "Required": "No",
             "Type": "String",
             "Maximum": "255",
             "UpdateRequires": "Replacement",
@@ -13922,14 +14809,6 @@
             "Allowed values": "MultiModel | SingleModel",
             "Required": "No",
             "Type": "String",
-            "UpdateRequires": "Replacement",
-            "SampleValue": "example-string"
-        },
-        "sagemaker.model.containerdefinition.ContainerHostname": {
-            "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-            "Required": "No",
-            "Type": "String",
-            "Maximum": "63",
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
         },
@@ -14302,7 +15181,7 @@
             ]
         },
         "ec2.launchtemplate.blockdevicemapping.ebs.VolumeType": {
-            "Allowed values": "gp2 | io1 | sc1 | st1 | standard",
+            "Allowed values": "gp2 | io1 | io2 | sc1 | st1 | standard",
             "Required": "No",
             "Type": "String",
             "UpdateRequires": "No interruption",
@@ -14329,6 +15208,64 @@
         "cloudfront.distribution.s3originconfig.OriginAccessIdentity": {
             "Required": "No",
             "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.monitoringexecutionsummary.LastModifiedTime": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringexecutionsummary.MonitoringScheduleName": {
+            "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+            "Required": "Yes",
+            "Maximum": "63",
+            "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...63",
+            "CompliantValues": "1...63"
+        },
+        "sagemaker.monitoringschedule.monitoringexecutionsummary.CreationTime": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringexecutionsummary.ProcessingJobArn": {
+            "Pattern": "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:processing-job/.*",
+            "Required": "No",
+            "Type": "String",
+            "Maximum": "256",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringexecutionsummary.EndpointName": {
+            "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+            "Required": "No",
+            "Type": "String",
+            "Maximum": "63",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringexecutionsummary.FailureReason": {
+            "Required": "No",
+            "Type": "String",
+            "Maximum": "1024",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringexecutionsummary.ScheduledTime": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringexecutionsummary.MonitoringExecutionStatus": {
+            "Allowed values": "Completed | CompletedWithViolations | Failed | InProgress | Pending | Stopped | Stopping",
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "autoscalingplans.scalingplan.predefinedscalingmetricspecification.ResourceLabel": {
             "Minimum": "1",
@@ -14518,6 +15455,18 @@
                 "Type": "List",
                 "UpdateRequires": "No interruption"
             }
+        },
+        "applicationinsights.application.alarm.Severity": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.alarm.AlarmName": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "transfer.user.homedirectorymapentry.Entry": {
             "Pattern": "^/.*",
@@ -15014,6 +15963,24 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "elasticsearch.domain.masteruseroptions.MasterUserName": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "elasticsearch.domain.masteruseroptions.MasterUserARN": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "elasticsearch.domain.masteruseroptions.MasterUserPassword": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
         "cognito.identitypoolroleattachment.rulesconfigurationtype.Rules": {
             "Required": "Yes",
             "Type": [
@@ -15090,6 +16057,12 @@
             "Required": "No",
             "Type": "String",
             "UpdateRequires": "Replacement",
+            "SampleValue": "example-string"
+        },
+        "appmesh.gatewayroute.gatewayroutevirtualservice.VirtualServiceName": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
         "apitgateway.method.integration.integrationresponse.StatusCode": {
@@ -15508,6 +16481,11 @@
             "Type": "List of String",
             "UpdateRequires": "No interruption"
         },
+        "sagemaker.monitoringschedule.monitoringresources.ClusterConfig": {
+            "Required": "Yes",
+            "Type": "ClusterConfig",
+            "UpdateRequires": "No interruption"
+        },
         "wafregional.xssmatchset.xssmatchtuple.FieldToMatch": {
             "Required": "Yes",
             "Type": "FieldToMatch",
@@ -15583,6 +16561,24 @@
             "AllowedValues": "1...128",
             "CompliantValues": "1...128"
         },
+        "sagemaker.monitoringschedule.s3output.S3Uri": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.s3output.LocalPath": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.s3output.S3UploadMode": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
         "msk.cluster.encryptionatrest.DataVolumeKMSKeyId": {
             "Required": "Yes",
             "Type": "String",
@@ -15606,6 +16602,62 @@
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringinput.EndpointInput": {
+            "Required": "Yes",
+            "Type": "EndpointInput",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.monitoringjobdefinition.NetworkConfig": {
+            "Required": "No",
+            "Type": "NetworkConfig",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.monitoringjobdefinition.MonitoringAppSpecification": {
+            "Required": "Yes",
+            "Type": "MonitoringAppSpecification",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.monitoringjobdefinition.MonitoringOutputConfig": {
+            "Required": "Yes",
+            "Type": "MonitoringOutputConfig",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.monitoringjobdefinition.MonitoringInputs": {
+            "Required": "Yes",
+            "Type": "MonitoringInputs",
+            "Maximum": "1",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.monitoringjobdefinition.RoleArn": {
+            "Pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
+            "Required": "Yes",
+            "Maximum": "2048",
+            "UpdateRequires": "No interruption",
+            "Minimum": "20",
+            "Type": "String",
+            "AllowedValues": "20...2048",
+            "CompliantValues": "20...2048"
+        },
+        "sagemaker.monitoringschedule.monitoringjobdefinition.StoppingCondition": {
+            "Required": "No",
+            "Type": "StoppingCondition",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.monitoringjobdefinition.Environment": {
+            "Required": "No",
+            "Type": "Environment",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.monitoringjobdefinition.MonitoringResources": {
+            "Required": "Yes",
+            "Type": "MonitoringResources",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.monitoringjobdefinition.BaselineConfig": {
+            "Required": "No",
+            "Type": "BaselineConfig",
+            "UpdateRequires": "No interruption"
         },
         "codepipeline.pipeline.stages.blockers.Name": {
             "Minimum": "1",
@@ -15676,7 +16728,7 @@
         },
         "ecs.taskdefinition.containerdefinitions.logconfiguration.Options": {
             "Required": "No",
-            "Type": "Map of String",
+            "Type": "Map",
             "UpdateRequires": "Replacement"
         },
         "ec2.instance.licensespecification.LicenseConfigurationArn": {
@@ -15989,6 +17041,15 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "cloudfront.originrequestpolicy.cookiesconfig.CookieBehavior": {
+            "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.originrequestpolicy.cookiesconfig.Cookies": {
+            "Required": "No",
+            "Type": "List of String",
+            "UpdateRequires": "No interruption"
+        },
         "autoscaling.scalingpolicy.customizedmetricspecification.Namespace": {
             "Required": "Yes",
             "Type": "String",
@@ -16127,6 +17188,23 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "123.45"
         },
+        "appmesh.virtualgateway.virtualgatewayspec.BackendDefaults": {
+            "Required": "No",
+            "Type": "VirtualGatewayBackendDefaults",
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.virtualgateway.virtualgatewayspec.Listeners": {
+            "Required": "Yes",
+            "Type": [
+                "VirtualGatewayListener"
+            ],
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.virtualgateway.virtualgatewayspec.Logging": {
+            "Required": "No",
+            "Type": "VirtualGatewayLogging",
+            "UpdateRequires": "No interruption"
+        },
         "s3.bucket.ObjectLockEnabled": {
             "Required": "No",
             "Type": "Boolean",
@@ -16194,9 +17272,6 @@
         },
         "s3.bucket.MetricsConfigurations": {
             "Required": "No",
-            "Type": [
-                "MetricsConfiguration"
-            ],
             "UpdateRequires": "No interruption"
         },
         "s3.bucket.LoggingConfiguration": {
@@ -16366,6 +17441,11 @@
         "wafv2.rulegroup.geomatchstatement.CountryCodes": {
             "Required": "No",
             "Type": "List of String",
+            "UpdateRequires": "No interruption"
+        },
+        "wafv2.rulegroup.geomatchstatement.ForwardedIPConfig": {
+            "Required": "No",
+            "Type": "ForwardedIPConfiguration",
             "UpdateRequires": "No interruption"
         },
         "greengrass.functiondefinition.functionconfiguration.Pinned": {
@@ -16547,6 +17627,31 @@
             "Required": "No",
             "Type": "List",
             "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.logpattern.Rank": {
+            "Required": "Yes",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
+        },
+        "applicationinsights.application.logpattern.PatternName": {
+            "Pattern": "[a-zA-Z0-9\\.\\-_]*",
+            "Required": "Yes",
+            "Maximum": "50",
+            "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...50",
+            "CompliantValues": "1...50"
+        },
+        "applicationinsights.application.logpattern.Pattern": {
+            "Minimum": "1",
+            "Required": "Yes",
+            "Type": "String",
+            "Maximum": "50",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": "1...50",
+            "CompliantValues": "1...50"
         },
         "appconfig.environment.monitors.AlarmRoleArn": {
             "Pattern": "^((arn):(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):(iam)::\\d{12}:role[/].*)$",
@@ -16953,6 +18058,20 @@
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
         },
+        "stepfunctions.statemachine.tracingconfiguration.Enabled": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
         "codebuild.project.environmentvariable.Name": {
             "Minimum": "1",
             "Required": "Yes",
@@ -17215,10 +18334,10 @@
             "Minimum": "0",
             "Required": "No",
             "Type": "Integer",
-            "Maximum": "35",
+            "Maximum": "90",
             "UpdateRequires": "No interruption",
-            "AllowedValues": "0...35",
-            "CompliantValues": "0...35"
+            "AllowedValues": "0...90",
+            "CompliantValues": "0...90"
         },
         "fsx.filesystem.windowsconfiguration.PreferredSubnetId": {
             "Required": "Conditional",
@@ -17580,7 +18699,7 @@
         "appstream.stack.storageconnector.Domains": {
             "Required": "No",
             "Type": "List of String",
-            "Maximum": "10",
+            "Maximum": "50",
             "UpdateRequires": "No interruption"
         },
         "appstream.stack.storageconnector.ConnectorType": {
@@ -17610,6 +18729,21 @@
                 "True",
                 "False"
             ]
+        },
+        "appmesh.virtualgateway.virtualgatewaylistener.PortMapping": {
+            "Required": "Yes",
+            "Type": "VirtualGatewayPortMapping",
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.virtualgateway.virtualgatewaylistener.TLS": {
+            "Required": "No",
+            "Type": "VirtualGatewayListenerTls",
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.virtualgateway.virtualgatewaylistener.HealthCheck": {
+            "Required": "No",
+            "Type": "VirtualGatewayHealthCheckPolicy",
+            "UpdateRequires": "No interruption"
         },
         "pinpointemail.configurationseteventdestination.eventdestination.KinesisFirehoseDestination": {
             "Required": "No",
@@ -17702,6 +18836,28 @@
             "Required": "No",
             "Type": "Message",
             "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.statisticsresource.S3Uri": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringoutputconfig.MonitoringOutputs": {
+            "Required": "Yes",
+            "Type": [
+                "MonitoringOutput"
+            ],
+            "Maximum": "1",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.monitoringoutputconfig.KmsKeyId": {
+            "Pattern": ".*",
+            "Required": "No",
+            "Type": "String",
+            "Maximum": "2048",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "groundstation.dataflowendpointgroup.socketaddress.Name": {
             "Required": "No",
@@ -17997,6 +19153,30 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "wafv2.rulegroup.ipsetforwardedipconfiguration.Position": {
+            "Allowed values": "ANY | FIRST | LAST",
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "wafv2.rulegroup.ipsetforwardedipconfiguration.FallbackBehavior": {
+            "Allowed values": "MATCH | NO_MATCH",
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "wafv2.rulegroup.ipsetforwardedipconfiguration.HeaderName": {
+            "Pattern": "^[a-zA-Z0-9-]+$",
+            "Required": "Yes",
+            "Maximum": "255",
+            "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...255",
+            "CompliantValues": "1...255"
+        },
         "applicationautoscaling.scalabletarget.scalabletargetaction.MaxCapacity": {
             "Required": "No",
             "Type": "Integer",
@@ -18033,12 +19213,12 @@
             "UpdateRequires": "No interruption"
         },
         "servicediscovery.service.healthcheckconfig.Type": {
-            "*Important**  \nIf you specify HTTPS for the value of `Type`, the endpoint must support TLS v1\\.0 or later\\.\n+  **TCP*": "Route 53 tries to establish a TCP connection\\.\n\n  If you specify `TCP` for `Type`, don't specify a value for `ResourcePath`\\.\nFor more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide*\\.",
+            "Type`  <a name=\"cfn-servicediscovery-service-healthcheckconfig-type\"></a>\nThe type of health check that you want to create, which indicates how Route\u00a053 determines whether an endpoint is healthy\\.  \nYou can't change the value of `Type` after you create a health check\\.\nYou can create the following types of health checks:  \n+  **HTTP*": "Route\u00a053 tries to establish a TCP connection\\. If successful, Route\u00a053 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400\\.\n+  **HTTPS*",
+            "*Important**  \nIf you specify HTTPS for the value of `Type`, the endpoint must support TLS v1\\.0 or later\\.\n+  **TCP*": "Route\u00a053 tries to establish a TCP connection\\.\n\n  If you specify `TCP` for `Type`, don't specify a value for `ResourcePath`\\.\nFor more information, see [How Route\u00a053 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route\u00a053 Developer Guide*\\.",
             "Required": "Yes",
             "Allowed values": "HTTP | HTTPS | TCP",
             "UpdateRequires": "No interruption",
             "Type": "String",
-            "Type`  <a name=\"cfn-servicediscovery-service-healthcheckconfig-type\"></a>\nThe type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy\\.  \nYou can't change the value of `Type` after you create a health check\\.\nYou can create the following types of health checks:  \n+  **HTTP*": "Route 53 tries to establish a TCP connection\\. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400\\.\n+  **HTTPS*",
             "SampleValue": "example-string"
         },
         "servicediscovery.service.healthcheckconfig.FailureThreshold": {
@@ -18212,8 +19392,13 @@
             "Type": "Duration",
             "UpdateRequires": "No interruption"
         },
+        "appmesh.virtualgateway.virtualgatewaytlsvalidationcontext.Trust": {
+            "Required": "Yes",
+            "Type": "VirtualGatewayTlsValidationContextTrust",
+            "UpdateRequires": "No interruption"
+        },
         "ec2.spotfleet.spotfleetrequestconfigdata.launchspecifications.InstanceType": {
-            "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+            "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
             "Required": "Yes",
             "Type": "String",
             "UpdateRequires": "No interruption",
@@ -18335,6 +19520,23 @@
         "guardduty.filter.findingcriteria.ItemType": {
             "Required": "No",
             "Type": "Condition",
+            "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.logpatternset.PatternSetName": {
+            "Pattern": "[a-zA-Z0-9\\.\\-_]*",
+            "Required": "Yes",
+            "Maximum": "30",
+            "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...30",
+            "CompliantValues": "1...30"
+        },
+        "applicationinsights.application.logpatternset.LogPatterns": {
+            "Required": "Yes",
+            "Type": [
+                "LogPattern"
+            ],
             "UpdateRequires": "No interruption"
         },
         "elasticache.subnetgroup.Description": {
@@ -18526,6 +19728,30 @@
             "Required": "No",
             "UpdateRequires": "No interruption"
         },
+        "appmesh.virtualgateway.virtualgatewayclientpolicytls.Validation": {
+            "Required": "Yes",
+            "Type": "VirtualGatewayTlsValidationContext",
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.virtualgateway.virtualgatewayclientpolicytls.Enforce": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
+        "appmesh.virtualgateway.virtualgatewayclientpolicytls.Ports": {
+            "Required": "No",
+            "Type": "List of Integer",
+            "UpdateRequires": "No interruption"
+        },
         "servicecatalog.cloudformationproduct.provisioningartifactproperties.Name": {
             "Required": "No",
             "Type": "String",
@@ -18641,9 +19867,7 @@
         },
         "ssm.maintenancewindowtask.maintenancewindowlambdaparameters.Payload": {
             "Required": "No",
-            "Type": "String",
-            "UpdateRequires": "No interruption",
-            "SampleValue": "example-string"
+            "UpdateRequires": "No interruption"
         },
         "ssm.maintenancewindowtask.maintenancewindowlambdaparameters.ClientContext": {
             "Minimum": "1",
@@ -18919,7 +20143,7 @@
             "SampleValue": "example-string"
         },
         "ec2.ebs.volume.VolumeType": {
-            "Allowed values": "gp2 | io1 | sc1 | st1 | standard",
+            "Allowed values": "gp2 | io1 | io2 | sc1 | st1 | standard",
             "Required": "No",
             "Type": "String",
             "UpdateRequires": "No interruption",
@@ -19003,11 +20227,10 @@
             "Type": "VolumeSpecification",
             "UpdateRequires": "No interruption"
         },
-        "wafv2.rulegroup.ratebasedstatementtwo.AggregateKeyType": {
-            "Required": "Yes",
-            "Type": "String",
-            "UpdateRequires": "No interruption",
-            "SampleValue": "example-string"
+        "wafv2.rulegroup.ratebasedstatementtwo.ForwardedIPConfig": {
+            "Required": "No",
+            "Type": "ForwardedIPConfiguration",
+            "UpdateRequires": "No interruption"
         },
         "wafv2.rulegroup.ratebasedstatementtwo.ScopeDownStatement": {
             "Required": "No",
@@ -19019,6 +20242,13 @@
             "Type": "Integer",
             "UpdateRequires": "No interruption",
             "SampleValue": "1"
+        },
+        "wafv2.rulegroup.ratebasedstatementtwo.AggregateKeyType": {
+            "Allowed values": "FORWARDED_IP | IP",
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "appmesh.virtualnode.listener.TLS": {
             "Required": "No",
@@ -19326,6 +20556,11 @@
                 "todo": "json"
             }
         },
+        "appmesh.virtualgateway.virtualgatewayclientpolicy.TLS": {
+            "Required": "No",
+            "Type": "VirtualGatewayClientPolicyTls",
+            "UpdateRequires": "No interruption"
+        },
         "greengrass.devicedefinition.device.Id": {
             "Required": "Yes",
             "Type": "String",
@@ -19379,8 +20614,8 @@
             "SampleValue": "example-string"
         },
         "route53.healthcheck.healthchecktag.Value": {
+            "Value`  <a name=\"cfn-route53-healthcheck-healthchecktag-value\"></a>\nThe value of `Value` depends on the operation that you want to perform:  \n+  **Add a tag to a health check or hosted zone*": "Value` is the value that you want to give the new tag\\.\n+  **Edit a tag*",
             "Required": "Yes",
-            "Value`  <a name=\"cfn-route53-healthchecktags-value\"></a>\nThe value of `Value` depends on the operation that you want to perform:  \n+  **Add a tag to a health check or hosted zone*": "Value` is the value that you want to give the new tag\\.\n+  **Edit a tag*",
             "Type": "String",
             "Maximum": "256",
             "UpdateRequires": "No interruption",
@@ -19388,15 +20623,64 @@
         },
         "route53.healthcheck.healthchecktag.Key": {
             "Required": "Yes",
-            "Key`  <a name=\"cfn-route53-healthchecktags-key\"></a>\nThe value of `Key` depends on the operation that you want to perform:  \n+  **Add a tag to a health check or hosted zone*": "Key` is the name that you want to give the new tag\\.\n+  **Edit a tag*",
             "Type": "String",
             "Maximum": "128",
+            "Key`  <a name=\"cfn-route53-healthcheck-healthchecktag-key\"></a>\nThe value of `Key` depends on the operation that you want to perform:  \n+  **Add a tag to a health check or hosted zone*": "Key` is the name that you want to give the new tag\\.\n+  **Edit a tag*",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
         "glue.mltransform.inputrecordtables.GlueTables": {
             "Required": "No",
             "Type": "List",
+            "UpdateRequires": "No interruption"
+        },
+        "ecs.taskdefinition.environmentfile.Type": {
+            "Allowed values": "s3",
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "Replacement",
+            "SampleValue": "example-string"
+        },
+        "ecs.taskdefinition.environmentfile.Value": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "Replacement",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringappspecification.RecordPreprocessorSourceUri": {
+            "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
+            "Required": "No",
+            "Type": "String",
+            "Maximum": "1024",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringappspecification.ImageUri": {
+            "Pattern": ".*",
+            "Required": "Yes",
+            "Type": "String",
+            "Maximum": "255",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringappspecification.ContainerArguments": {
+            "Required": "No",
+            "Type": "List of String",
+            "Maximum": "50",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.monitoringappspecification.PostAnalyticsProcessorSourceUri": {
+            "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
+            "Required": "No",
+            "Type": "String",
+            "Maximum": "1024",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringappspecification.ContainerEntrypoint": {
+            "Required": "No",
+            "Type": "List of String",
+            "Maximum": "100",
             "UpdateRequires": "No interruption"
         },
         "kinesisanalytics.applicationreferencedatasource.csvmappingparameters.RecordColumnDelimiter": {
@@ -19879,6 +21163,36 @@
             "AllowedValues": "1...256",
             "CompliantValues": "1...256"
         },
+        "kinesisfirehose.deliverystream.httpendpointconfiguration.AccessKey": {
+            "Pattern": ".*",
+            "Required": "No",
+            "Maximum": "4096",
+            "UpdateRequires": "No interruption",
+            "Minimum": "0",
+            "Type": "String",
+            "AllowedValues": "0...4096",
+            "CompliantValues": "0...4096"
+        },
+        "kinesisfirehose.deliverystream.httpendpointconfiguration.Url": {
+            "Pattern": "https://.*",
+            "Required": "Yes",
+            "Maximum": "1000",
+            "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...1000",
+            "CompliantValues": "1...1000"
+        },
+        "kinesisfirehose.deliverystream.httpendpointconfiguration.Name": {
+            "Pattern": "^(?!\\s*$).+",
+            "Required": "No",
+            "Maximum": "256",
+            "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...256",
+            "CompliantValues": "1...256"
+        },
         "iotevents.detectormodel.iotsitewise.PropertyValue": {
             "Required": "No",
             "Type": "AssetPropertyValue",
@@ -19984,7 +21298,7 @@
             "SampleValue": "example-string"
         },
         "ec2.spotfleet.launchtemplateoverrides.InstanceType": {
-            "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+            "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
             "Required": "No",
             "Type": "String",
             "UpdateRequires": "No interruption",
@@ -19995,6 +21309,11 @@
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
+        },
+        "sagemaker.monitoringschedule.monitoringoutput.S3Output": {
+            "Required": "Yes",
+            "Type": "S3Output",
+            "UpdateRequires": "No interruption"
         },
         "gamelift.fleet.resourcecreationlimitpolicy.NewGameSessionsPerCreator": {
             "Minimum": "0",
@@ -20198,7 +21517,9 @@
         },
         "dms.endpoint.neptunesettings.ServiceAccessRoleArn": {
             "Required": "No",
-            "UpdateRequires": "No interruption"
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "dms.endpoint.neptunesettings.S3BucketFolder": {
             "Required": "No",
@@ -20315,6 +21636,13 @@
                 "EbsBlockDeviceConfig"
             ],
             "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.stoppingcondition.MaxRuntimeInSeconds": {
+            "Minimum": "1",
+            "Required": "Yes",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
         },
         "pinpoint.campaign.schedule.quiettime.End": {
             "Required": "Yes",
@@ -20741,6 +22069,87 @@
             "AllowedValues": "0...10280",
             "CompliantValues": "0...10280"
         },
+        "amazonmq.broker.servermetadata.UserSearchMatching": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.servermetadata.RoleBase": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.servermetadata.RoleName": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.servermetadata.RoleSearchMatching": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.servermetadata.ServiceAccountUsername": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.servermetadata.Hosts": {
+            "Required": "Yes",
+            "Type": "List of String",
+            "UpdateRequires": "No interruption"
+        },
+        "amazonmq.broker.servermetadata.UserSearchSubtree": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
+        "amazonmq.broker.servermetadata.ServiceAccountPassword": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.servermetadata.UserRoleName": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "amazonmq.broker.servermetadata.RoleSearchSubtree": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
+        "amazonmq.broker.servermetadata.UserBase": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
         "route53.recordset.1.ResourceRecords": {
             "Required": "No",
             "UpdateRequires": "No interruption"
@@ -20994,6 +22403,12 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "appmesh.gatewayroute.grpcgatewayroutematch.ServiceName": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
         "config.organizationconfigrule.organizationmanagedrulemetadata.TagKeyScope": {
             "Minimum": "1",
             "Required": "No",
@@ -21094,6 +22509,16 @@
         },
         "dynamodb.provisionedthroughput.ReadCapacityUnits": {
             "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.baselineconfig.ConstraintsResource": {
+            "Required": "No",
+            "Type": "ConstraintsResource",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.baselineconfig.StatisticsResource": {
+            "Required": "No",
+            "Type": "StatisticsResource",
             "UpdateRequires": "No interruption"
         },
         "config.configurationaggregator.accountaggregationsource.AllAwsRegions": {
@@ -21304,14 +22729,14 @@
             "Type": "FieldToMatch",
             "UpdateRequires": "No interruption"
         },
-        "w6408ab1c25c10d254c13c17.Key": {
+        "w6640ab1c25c10d256c13c17.Value": {
+            "Required": "Yes",
+            "Type": "String\n\n#"
+        },
+        "w6640ab1c25c10d256c13c17.Key": {
             "Required": "Yes",
             "Type": "String",
             "SampleValue": "example-string"
-        },
-        "w6408ab1c25c10d254c13c17.Value": {
-            "Required": "Yes",
-            "Type": "String\n\n#"
         },
         "lambda.alias.versionweight.FunctionWeight": {
             "Required": "Yes",
@@ -21330,6 +22755,11 @@
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
+        },
+        "appmesh.virtualgateway.virtualgatewaybackenddefaults.ClientPolicy": {
+            "Required": "No",
+            "Type": "VirtualGatewayClientPolicy",
+            "UpdateRequires": "No interruption"
         },
         "kinesisanalytics.applicationreferencedatasource.referenceschema.RecordColumns": {
             "Required": "Yes",
@@ -21374,7 +22804,7 @@
             "UpdateRequires": "No interruption"
         },
         "cw.alarm.Period": {
-            "Minimum": "1",
+            "Minimum": "10",
             "Required": "No",
             "Type": "Integer",
             "UpdateRequires": "No interruption",
@@ -21917,6 +23347,17 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "cloudfront.realtimelogconfig.endpoint.StreamType": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "cloudfront.realtimelogconfig.endpoint.KinesisStreamConfig": {
+            "Required": "Yes",
+            "Type": "KinesisStreamConfig",
+            "UpdateRequires": "No interruption"
+        },
         "ssm.maintenancewindowtask.logginginfo.Region": {
             "Minimum": "3",
             "Required": "Yes",
@@ -21997,6 +23438,11 @@
             ],
             "UpdateRequires": "No interruption"
         },
+        "sagemaker.monitoringschedule.monitoringinputs.MonitoringInputs": {
+            "Required": "No",
+            "Type": "List",
+            "UpdateRequires": "No interruption"
+        },
         "cloudwatch.alarm.metricstat.Metric": {
             "Required": "Yes",
             "Type": "Metric",
@@ -22024,6 +23470,13 @@
             "Required": "Yes",
             "Type": "Prometheus",
             "UpdateRequires": "No interruption"
+        },
+        "sagemaker.endpointconfig.captureoption.CaptureMode": {
+            "Allowed values": "Input | Output",
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "Replacement",
+            "SampleValue": "example-string"
         },
         "athena.workgroup.resultconfiguration.OutputLocation": {
             "Required": "No",
@@ -22266,11 +23719,8 @@
             "CompliantValues": "1...1024"
         },
         "imagebuilder.imagepipeline.schedule.PipelineExecutionStartCondition": {
-            "Allowed values": "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE | EXPRESSION_MATCH_ONLY",
             "Required": "No",
-            "Type": "String",
-            "UpdateRequires": "No interruption",
-            "SampleValue": "example-string"
+            "UpdateRequires": "No interruption"
         },
         "elasticmapreduce.cluster.instancefleetconfig.LaunchSpecifications": {
             "Required": "No",
@@ -22425,15 +23875,17 @@
             "UpdateRequires": "No interruption"
         },
         "efs.accesspoint.accesspointtag.Key": {
-            "Minimum": "1",
+            "Pattern": "^(?![aA]{1}[wW]{1}[sS]{1}:)([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]+)$",
             "Required": "No",
-            "Type": "String",
             "Maximum": "128",
             "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
             "AllowedValues": "1...128",
             "CompliantValues": "1...128"
         },
         "efs.accesspoint.accesspointtag.Value": {
+            "Pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
             "Required": "No",
             "Type": "String",
             "Maximum": "256",
@@ -22470,7 +23922,8 @@
         },
         "ec2.launchtemplate.tagspecification.ResourceType": {
             "Allowed values": "client-vpn-endpoint | customer-gateway | dedicated-host | dhcp-options | elastic-gpu | elastic-ip | export-image-task | export-instance-task | fleet | fpga-image | host-reservation | image | import-image-task | import-snapshot-task | instance | internet-gateway | key-pair | launch-template | local-gateway-route-table-vpc-association | natgateway | network-acl | network-interface | placement-group | reserved-instances | route-table | security-group | snapshot | spot-fleet-request | spot-instances-request | subnet | traffic-mirror-filter | traffic-mirror-session | traffic-mirror-target | transit-gateway | transit-gateway-attachment | transit-gateway-multicast-domain | transit-gateway-route-table | volume | vpc | vpc-flow-log | vpc-peering-connection | vpn-connection | vpn-gateway",
-            "Required": "No",
+            "Required": "Conditional",
+            "Conditional": "Required if tags are set\\.",
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
@@ -23000,6 +24453,16 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "sagemaker.monitoringschedule.monitoringscheduleconfig.ScheduleConfig": {
+            "Required": "No",
+            "Type": "ScheduleConfig",
+            "UpdateRequires": "No interruption"
+        },
+        "sagemaker.monitoringschedule.monitoringscheduleconfig.MonitoringJobDefinition": {
+            "Required": "Yes",
+            "Type": "MonitoringJobDefinition",
+            "UpdateRequires": "No interruption"
+        },
         "dynamodb.table.ssespecification.SSEEnabled": {
             "Required": "Yes",
             "Type": "Boolean",
@@ -23158,6 +24621,15 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "cloudfront.originrequestpolicy.querystringsconfig.QueryStringBehavior": {
+            "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
+        "cloudfront.originrequestpolicy.querystringsconfig.QueryStrings": {
+            "Required": "No",
+            "Type": "List of String",
+            "UpdateRequires": "No interruption"
+        },
         "ec2.launchtemplate.launchtemplatedata.instancemarketoptions.MarketType": {
             "Allowed values": "spot",
             "Required": "Conditional",
@@ -23281,7 +24753,7 @@
             ]
         },
         "cloudtrail.trail.eventselector.DataResources": {
-            "Required": "No",
+            "Required": "Conditional",
             "UpdateRequires": "No interruption"
         },
         "cloudtrail.trail.eventselector.ReadWriteType": {
@@ -23437,6 +24909,26 @@
                 "UpdateRequires": "No interruption"
             }
         },
+        "applicationinsights.application.subcomponenttypeconfiguration.SubComponentConfigurationDetails": {
+            "Required": "Yes",
+            "Type": "SubComponentConfigurationDetails",
+            "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.subcomponenttypeconfiguration.SubComponentType": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "appmesh.virtualgateway.virtualgatewaylistenertls.Certificate": {
+            "Required": "Yes",
+            "Type": "VirtualGatewayListenerTlsCertificate",
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.virtualgateway.virtualgatewaylistenertls.Mode": {
+            "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
         "codebuild.project.vpcconfig.VpcId": {
             "Minimum": "1",
             "Required": "No",
@@ -23579,7 +25071,7 @@
             "Type": "ReferenceSchema",
             "UpdateRequires": "No interruption"
         },
-        "w6408ab1c19c15c15c27c27b7.ParameterLogicalID": {
+        "w6640ab1c19c15c15c27c27b7.ParameterLogicalID": {
             "Required": "No"
         },
         "glue.mltransform.inputrecordtables.gluetables.DatabaseName": {
@@ -23859,13 +25351,13 @@
             "UpdateRequires": "No interruption"
         },
         "ecs.taskdefinition.containerdefinitions.hostentry.IpAddress": {
-            "Required": "Yes",
+            "Required": "No",
             "Type": "String",
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
         },
         "ecs.taskdefinition.containerdefinitions.hostentry.Hostname": {
-            "Required": "Yes",
+            "Required": "No",
             "Type": "String",
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
@@ -24335,6 +25827,23 @@
                 "todo": "json"
             }
         },
+        "wafv2.webacl.forwardedipconfiguration.FallbackBehavior": {
+            "Allowed values": "MATCH | NO_MATCH",
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "wafv2.webacl.forwardedipconfiguration.HeaderName": {
+            "Pattern": "^[a-zA-Z0-9-]+$",
+            "Required": "Yes",
+            "Maximum": "255",
+            "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...255",
+            "CompliantValues": "1...255"
+        },
         "beanstalk.environment.VersionLabel": {
             "Minimum": "1",
             "Required": "No",
@@ -24481,6 +25990,18 @@
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
+        },
+        "amazonmq.broker.ldapmetadata.ServerMetadata": {
+            "Required": "Yes",
+            "Type": "ServerMetadata",
+            "UpdateRequires": "No interruption"
+        },
+        "amazonmq.broker.ldapmetadata.InterBrokerCreds": {
+            "Required": "No",
+            "Type": [
+                "InterBrokerCred"
+            ],
+            "UpdateRequires": "No interruption"
         },
         "waf.xssmatchset.xssmatchtuple.fieldtomatch.Type": {
             "Required": "Yes",
@@ -24768,6 +26289,27 @@
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
+        },
+        "applicationinsights.application.subcomponentconfigurationdetails.WindowsEvents": {
+            "Required": "No",
+            "Type": [
+                "WindowsEvent"
+            ],
+            "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.subcomponentconfigurationdetails.Logs": {
+            "Required": "No",
+            "Type": [
+                "Log"
+            ],
+            "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.subcomponentconfigurationdetails.AlarmMetrics": {
+            "Required": "No",
+            "Type": [
+                "AlarmMetric"
+            ],
+            "UpdateRequires": "No interruption"
         },
         "mediastore.container.corsrule.ExposeHeaders": {
             "Required": "No",
@@ -25363,12 +26905,18 @@
         },
         "imagebuilder.distributionconfiguration.distribution.Region": {
             "Minimum": "1",
-            "Required": "No",
+            "Required": "Yes",
             "Type": "String",
             "Maximum": "1024",
             "UpdateRequires": "No interruption",
             "AllowedValues": "1...1024",
             "CompliantValues": "1...1024"
+        },
+        "appmesh.virtualgateway.virtualgatewayfileaccesslog.Path": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "iot.topicrule.putassetpropertyvalueentry.PropertyAlias": {
             "Required": "No",
@@ -25717,7 +27265,7 @@
         },
         "rds.database.instance.DBInstanceClass": {
             "Required": "Yes",
-            "UpdateRequires": "No interruption"
+            "UpdateRequires": "Replacement"
         },
         "rds.database.instance.MasterUserPassword": {
             "Required": "No",
@@ -25771,19 +27319,9 @@
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
         },
-        "rds.database.instance.DeleteAutomatedBackups": {
+        "rds.database.instance.EnableCloudwatchLogsExports": {
             "Required": "No",
-            "Type": "Boolean",
-            "UpdateRequires": "No interruption",
-            "AllowedValues": [
-                "True",
-                "False"
-            ],
-            "SampleValue": "False",
-            "CompliantValues": [
-                "True",
-                "False"
-            ]
+            "UpdateRequires": "No interruption"
         },
         "rds.database.instance.MonitoringInterval": {
             "Required": "No",
@@ -25793,7 +27331,9 @@
         },
         "rds.database.instance.Engine": {
             "Required": "No",
-            "UpdateRequires": "Replacement"
+            "Type": "String",
+            "UpdateRequires": "Replacement",
+            "SampleValue": "example-string"
         },
         "rds.database.instance.CharacterSetName": {
             "Required": "No",
@@ -25826,7 +27366,8 @@
                 "False"
             ]
         },
-        "rds.database.instance.DBParameterGroupName": {
+        "rds.database.instance.DBParameterGroupName": {},
+        "rds.database.instance.aws rds describe-db-parameter-groups --query \"DBParameterGroups[].DBParameterGroupName\" --output text": {
             "Required": "No",
             "Type": "String",
             "UpdateRequires": "Some interruptions",
@@ -25924,10 +27465,6 @@
             "Required": "No",
             "UpdateRequires": "Replacement"
         },
-        "rds.database.instance.EnableCloudwatchLogsExports": {
-            "Required": "No",
-            "UpdateRequires": "No interruption"
-        },
         "rds.database.instance.DBSecurityGroups": {
             "Required": "No",
             "Type": "List of String",
@@ -25942,6 +27479,20 @@
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
+        },
+        "rds.database.instance.DeleteAutomatedBackups": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
         },
         "rds.database.instance.DBSnapshotIdentifier": {
             "Required": "No",
@@ -26021,6 +27572,18 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "1"
         },
+        "sagemaker.endpointconfig.datacaptureconfig.capturecontenttypeheader.CsvContentTypes": {
+            "Required": "No",
+            "Type": "List of String",
+            "Maximum": "10",
+            "UpdateRequires": "Replacement"
+        },
+        "sagemaker.endpointconfig.datacaptureconfig.capturecontenttypeheader.JsonContentTypes": {
+            "Required": "No",
+            "Type": "List of String",
+            "Maximum": "10",
+            "UpdateRequires": "Replacement"
+        },
         "iotanalytics.dataset.datasetcontentdeliveryruledestination.IotEventsDestinationConfiguration": {
             "Required": "No",
             "Type": "IotEventsDestinationConfiguration",
@@ -26095,6 +27658,12 @@
         },
         "ec2.spotfleet.fleetlaunchtemplatespecification.LaunchTemplateId": {
             "Required": "Conditional",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "appmesh.virtualgateway.virtualgatewaytlsvalidationcontextfiletrust.CertificateChain": {
+            "Required": "Yes",
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
@@ -26271,6 +27840,11 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "appmesh.virtualgateway.virtualgatewayaccesslog.File": {
+            "Required": "No",
+            "Type": "VirtualGatewayFileAccessLog",
+            "UpdateRequires": "No interruption"
+        },
         "appmesh.virtualrouter.portmapping.Port": {
             "Required": "Yes",
             "Type": "Integer",
@@ -26294,10 +27868,14 @@
             "CompliantValues": "20...2048"
         },
         "cognito.userpoolclient.analyticsconfiguration.ExternalId": {
+            "Pattern": "[\\w+=,.@:\\/-]*",
             "Required": "No",
-            "Type": "String",
+            "Maximum": "1224",
             "UpdateRequires": "No interruption",
-            "SampleValue": "example-string"
+            "Minimum": "2",
+            "Type": "String",
+            "AllowedValues": "2...1224",
+            "CompliantValues": "2...1224"
         },
         "cognito.userpoolclient.analyticsconfiguration.ApplicationId": {
             "Pattern": "^[0-9a-fA-F]+$",
@@ -26459,6 +28037,11 @@
             "Type": "List of String",
             "UpdateRequires": "No interruption"
         },
+        "ec2.carriergateway.tags.Tags": {
+            "Required": "No",
+            "Type": "List",
+            "UpdateRequires": "No interruption"
+        },
         "elasticmapreduce.cluster.scalingrule.Description": {
             "Required": "No",
             "Type": "String",
@@ -26554,6 +28137,30 @@
             "Required": "No",
             "Type": "List of String",
             "UpdateRequires": "No interruption"
+        },
+        "wafv2.webacl.ipsetforwardedipconfiguration.HeaderName": {
+            "Pattern": "^[a-zA-Z0-9-]+$",
+            "Required": "Yes",
+            "Maximum": "255",
+            "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
+            "AllowedValues": "1...255",
+            "CompliantValues": "1...255"
+        },
+        "wafv2.webacl.ipsetforwardedipconfiguration.Position": {
+            "Allowed values": "ANY | FIRST | LAST",
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "wafv2.webacl.ipsetforwardedipconfiguration.FallbackBehavior": {
+            "Allowed values": "MATCH | NO_MATCH",
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "cw.dimension.Name": {
             "Minimum": "1",
@@ -26690,6 +28297,34 @@
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
         },
+        "applicationinsights.application.configurationdetails.AlarmMetrics": {
+            "Required": "No",
+            "Type": [
+                "AlarmMetric"
+            ],
+            "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.configurationdetails.Alarms": {
+            "Required": "No",
+            "Type": [
+                "Alarm"
+            ],
+            "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.configurationdetails.WindowsEvents": {
+            "Required": "No",
+            "Type": [
+                "WindowsEvent"
+            ],
+            "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.configurationdetails.Logs": {
+            "Required": "No",
+            "Type": [
+                "Log"
+            ],
+            "UpdateRequires": "No interruption"
+        },
         "groundstation.config.antennadownlinkdemoddecodeconfig.DecodeConfig": {
             "Required": "Yes",
             "Type": "DecodeConfig",
@@ -26718,15 +28353,17 @@
             "SampleValue": "example-string"
         },
         "efs.filesystem.elasticfilesystemtag.Key": {
-            "Minimum": "1",
+            "Pattern": "^(?![aA]{1}[wW]{1}[sS]{1}:)([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]+)$",
             "Required": "Yes",
-            "Type": "String",
             "Maximum": "128",
             "UpdateRequires": "No interruption",
+            "Minimum": "1",
+            "Type": "String",
             "AllowedValues": "1...128",
             "CompliantValues": "1...128"
         },
         "efs.filesystem.elasticfilesystemtag.Value": {
+            "Pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
             "Required": "Yes",
             "Type": "String",
             "Maximum": "256",
@@ -26818,7 +28455,6 @@
         },
         "cloudfront.distribution.forwardedvalues.QueryStringCacheKeys": {
             "Required": "No",
-            "Type": "List of String",
             "UpdateRequires": "No interruption"
         },
         "cloudfront.distribution.forwardedvalues.QueryString": {
@@ -26900,6 +28536,31 @@
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
+        },
+        "ecs.taskdefinition.efsvolumeconfiguration.FilesystemId": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "Replacement",
+            "SampleValue": "example-string"
+        },
+        "ecs.taskdefinition.efsvolumeconfiguration.RootDirectory": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "Replacement",
+            "SampleValue": "example-string"
+        },
+        "ecs.taskdefinition.efsvolumeconfiguration.TransitEncryption": {
+            "Required": "No",
+            "UpdateRequires": "Replacement"
+        },
+        "ecs.taskdefinition.efsvolumeconfiguration.TransitEncryptionPort": {
+            "Required": "No",
+            "UpdateRequires": "Replacement"
+        },
+        "ecs.taskdefinition.efsvolumeconfiguration.AuthorizationConfig": {
+            "Required": "No",
+            "Type": "AuthorizationConfig",
+            "UpdateRequires": "Replacement"
         },
         "greengrass.devicedefinitionversion.device.CertificateArn": {
             "Required": "Yes",
@@ -27344,13 +29005,13 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
-        "w6408ab1c19c15c15c27c23b7.Parameters": {
-            "Required": "No",
-            "Type": "List of String values"
-        },
-        "w6408ab1c19c15c15c27c23b7.Label": {
+        "w6640ab1c19c15c15c27c23b7.Label": {
             "Required": "No",
             "Type": "AWS CloudFormation interface label"
+        },
+        "w6640ab1c19c15c15c27c23b7.Parameters": {
+            "Required": "No",
+            "Type": "List of String values"
         },
         "medialive.channel.scte20sourcesettings.Source608ChannelNumber": {
             "Required": "No",
@@ -28122,13 +29783,13 @@
             "SampleValue": "example-string"
         },
         "fsx.filesystem.lustreconfiguration.PerUnitStorageThroughput": {
-            "Minimum": "50",
+            "Minimum": "12",
             "Required": "Conditional",
             "Type": "Integer",
             "Maximum": "200",
             "UpdateRequires": "Replacement",
-            "AllowedValues": "50...200",
-            "CompliantValues": "50...200"
+            "AllowedValues": "12...200",
+            "CompliantValues": "12...200"
         },
         "fsx.filesystem.lustreconfiguration.CopyTagsToBackups": {
             "Required": "No",
@@ -28157,13 +29818,27 @@
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
         },
+        "fsx.filesystem.lustreconfiguration.AutoImportPolicy": {
+            "Allowed values": "NEW | NEW_CHANGED | NONE",
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
         "fsx.filesystem.lustreconfiguration.AutomaticBackupRetentionDays": {
             "Minimum": "0",
             "Required": "No",
-            "Maximum": "35",
+            "Maximum": "90",
             "UpdateRequires": "No interruption",
-            "AllowedValues": "0...35",
-            "CompliantValues": "0...35"
+            "AllowedValues": "0...90",
+            "CompliantValues": "0...90"
+        },
+        "fsx.filesystem.lustreconfiguration.DriveCacheType": {
+            "Allowed values": "NONE | READ",
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "Replacement",
+            "SampleValue": "example-string"
         },
         "fsx.filesystem.lustreconfiguration.ImportedFileChunkSize": {
             "Minimum": "1",
@@ -28173,6 +29848,18 @@
             "UpdateRequires": "Replacement",
             "AllowedValues": "1...512000",
             "CompliantValues": "1...512000"
+        },
+        "appmesh.virtualgateway.virtualgatewaylistenertlsfilecertificate.PrivateKey": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "appmesh.virtualgateway.virtualgatewaylistenertlsfilecertificate.CertificateChain": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
         },
         "elasticloadbalancingv2.listener.authenticatecognitoconfig.OnUnauthenticatedRequest": {
             "Allowed values": "allow | authenticate | deny",
@@ -28315,6 +30002,16 @@
         },
         "ec2.instance.elasticgpuspecification.Type": {
             "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
+        "codebuild.project.batchrestrictions.MaximumBuildsAllowed": {
+            "Required": "No",
+            "Type": "Integer",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "1"
+        },
+        "codebuild.project.batchrestrictions.ComputeTypesAllowed": {
+            "Required": "No",
             "UpdateRequires": "No interruption"
         },
         "iot.topicrule.ioteventsaction.RoleArn": {
@@ -28579,6 +30276,11 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "appmesh.gatewayroute.grpcgatewayrouteaction.Target": {
+            "Required": "Yes",
+            "Type": "GatewayRouteTarget",
+            "UpdateRequires": "No interruption"
+        },
         "ecs.taskdefinition.tmpfs.MountOptions": {
             "Required": "No",
             "Type": "List of String",
@@ -28595,6 +30297,24 @@
             "Type": "Integer",
             "UpdateRequires": "Replacement",
             "SampleValue": "1"
+        },
+        "ecs.taskdefinition.authorizationconfig.AccessPointId": {
+            "Required": "No",
+            "UpdateRequires": "Replacement"
+        },
+        "ecs.taskdefinition.authorizationconfig.IAM": {
+            "Required": "No",
+            "UpdateRequires": "Replacement"
+        },
+        "appmesh.gatewayroute.grpcgatewayroute.Action": {
+            "Required": "Yes",
+            "Type": "GrpcGatewayRouteAction",
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.gatewayroute.grpcgatewayroute.Match": {
+            "Required": "Yes",
+            "Type": "GrpcGatewayRouteMatch",
+            "UpdateRequires": "No interruption"
         },
         "ecs.taskdefinition.kernelcapabilities.Add": {
             "Required": "No",
@@ -28621,6 +30341,12 @@
         },
         "appstream.stack.accessendpoint.VpceId": {
             "Minimum": "1",
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.alarmmetric.AlarmMetricName": {
             "Required": "Yes",
             "Type": "String",
             "UpdateRequires": "No interruption",
@@ -28942,9 +30668,7 @@
         },
         "ec2.blockdev.template.KmsKeyId": {
             "Required": "No",
-            "Type": "String",
-            "UpdateRequires": "Replacement",
-            "SampleValue": "example-string"
+            "UpdateRequires": "Replacement"
         },
         "ec2.blockdev.template.SnapshotId": {
             "Required": "Conditional",
@@ -29254,6 +30978,12 @@
             "Type": "List",
             "UpdateRequires": "No interruption"
         },
+        "sagemaker.monitoringschedule.constraintsresource.S3Uri": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
         "budgets.budget.notificationwithsubscribers.Notification": {
             "Required": "Yes",
             "Type": "Notification",
@@ -29508,6 +31238,12 @@
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
         },
+        "appmesh.gatewayroute.httpgatewayroutematch.Prefix": {
+            "Required": "Yes",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
         "apigatewayv2.authorizer.jwtconfiguration.Audience": {
             "Required": "No",
             "Type": "List of String",
@@ -29720,6 +31456,16 @@
         },
         "cassandra.table.column.ColumnType": {
             "Required": "Yes",
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.gatewayroute.httpgatewayroute.Match": {
+            "Required": "Yes",
+            "Type": "HttpGatewayRouteMatch",
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.gatewayroute.httpgatewayroute.Action": {
+            "Required": "Yes",
+            "Type": "HttpGatewayRouteAction",
             "UpdateRequires": "No interruption"
         },
         "ecs.service.deploymentconfiguration.MaximumPercent": {
@@ -30006,13 +31752,13 @@
         },
         "ecs.taskdefinition.containerdependency.Condition": {
             "Allowed values": "COMPLETE | HEALTHY | START | SUCCESS",
-            "Required": "Yes",
+            "Required": "No",
             "Type": "String",
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
         },
         "ecs.taskdefinition.containerdependency.ContainerName": {
-            "Required": "Yes",
+            "Required": "No",
             "Type": "String",
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
@@ -30269,6 +32015,11 @@
             "UpdateRequires": "Replacement",
             "SampleValue": "example-string"
         },
+        "ecs.taskdefinition.volumes.EFSVolumeConfiguration": {
+            "Required": "No",
+            "Type": "EFSVolumeConfiguration",
+            "UpdateRequires": "Replacement"
+        },
         "ecs.taskdefinition.volumes.DockerVolumeConfiguration": {
             "Required": "No",
             "Type": "DockerVolumeConfiguration",
@@ -30287,6 +32038,39 @@
             "Required": "Yes",
             "Type": "FieldToMatch",
             "UpdateRequires": "No interruption"
+        },
+        "elasticsearch.domain.advancedsecurityoptionsinput.MasterUserOptions": {
+            "Required": "No",
+            "Type": "MasterUserOptions",
+            "UpdateRequires": "No interruption"
+        },
+        "elasticsearch.domain.advancedsecurityoptionsinput.Enabled": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "Replacement",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
+        },
+        "elasticsearch.domain.advancedsecurityoptionsinput.InternalUserDatabaseEnabled": {
+            "Required": "No",
+            "Type": "Boolean",
+            "UpdateRequires": "No interruption",
+            "AllowedValues": [
+                "True",
+                "False"
+            ],
+            "SampleValue": "False",
+            "CompliantValues": [
+                "True",
+                "False"
+            ]
         },
         "medialive.channel.networkinputsettings.ServerValidation": {
             "Required": "No",
@@ -30406,6 +32190,10 @@
             ]
         },
         "ecs.taskdefinition.containerdefinitions.LogConfiguration": {
+            "Required": "No",
+            "UpdateRequires": "Replacement"
+        },
+        "ecs.taskdefinition.containerdefinitions.EnvironmentFiles": {
             "Required": "No",
             "UpdateRequires": "Replacement"
         },
@@ -30865,7 +32653,7 @@
             "UpdateRequires": "No interruption"
         },
         "ecs.taskdefinition.healthcheck.Command": {
-            "Required": "Yes",
+            "Required": "No",
             "Type": "List of String",
             "UpdateRequires": "Replacement"
         },
@@ -31015,6 +32803,11 @@
             "Type": "String",
             "UpdateRequires": "No interruption",
             "SampleValue": "example-string"
+        },
+        "appmesh.virtualgateway.virtualgatewaylogging.AccessLog": {
+            "Required": "No",
+            "Type": "VirtualGatewayAccessLog",
+            "UpdateRequires": "No interruption"
         },
         "waf.webacl.rules.Action": {
             "Required": "No",
@@ -31170,9 +32963,6 @@
         },
         "codepipeline.pipeline.stages.actions.InputArtifacts": {
             "Required": "No",
-            "Type": [
-                "InputArtifact"
-            ],
             "UpdateRequires": "No interruption"
         },
         "codepipeline.pipeline.stages.actions.RunOrder": {
@@ -31453,6 +33243,40 @@
             "Required": "No",
             "UpdateRequires": "Replacement"
         },
+        "applicationinsights.application.componentmonitoringsetting.CustomComponentConfiguration": {
+            "Required": "No",
+            "Type": "ComponentConfiguration",
+            "UpdateRequires": "No interruption"
+        },
+        "applicationinsights.application.componentmonitoringsetting.ComponentARN": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.componentmonitoringsetting.Tier": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.componentmonitoringsetting.ComponentConfigurationMode": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.componentmonitoringsetting.ComponentName": {
+            "Required": "No",
+            "Type": "String",
+            "UpdateRequires": "No interruption",
+            "SampleValue": "example-string"
+        },
+        "applicationinsights.application.componentmonitoringsetting.DefaultOverwriteComponentConfiguration": {
+            "Required": "No",
+            "Type": "ComponentConfiguration",
+            "UpdateRequires": "No interruption"
+        },
         "batch.jobdefinition.nodeproperties.MainNode": {
             "Required": "Yes",
             "Type": "Integer",
@@ -31470,6 +33294,21 @@
             "Type": [
                 "NodeRangeProperty"
             ],
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.gatewayroute.gatewayroutespec.HttpRoute": {
+            "Required": "No",
+            "Type": "HttpGatewayRoute",
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.gatewayroute.gatewayroutespec.Http2Route": {
+            "Required": "No",
+            "Type": "HttpGatewayRoute",
+            "UpdateRequires": "No interruption"
+        },
+        "appmesh.gatewayroute.gatewayroutespec.GrpcRoute": {
+            "Required": "No",
+            "Type": "GrpcGatewayRoute",
             "UpdateRequires": "No interruption"
         },
         "wafregional.sizeconstraintset.sizeconstraint.FieldToMatch": {
@@ -32288,6 +34127,7 @@
         "aws-pinpointemail-dedicatedippool": "AWS::PinpointEmail::DedicatedIpPool",
         "aws-pinpointemail-identity": "AWS::PinpointEmail::Identity",
         "aws-synthetics-canary": "AWS::Synthetics::Canary",
+        "aws-applicationinsights-application": "AWS::ApplicationInsights::Application",
         "aws-chatbot-slackchannelconfiguration": "AWS::Chatbot::SlackChannelConfiguration",
         "aws-redshift-cluster": "AWS::Redshift::Cluster",
         "aws-redshift-clusterparametergroup": "AWS::Redshift::ClusterParameterGroup",
@@ -32379,8 +34219,11 @@
         "aws-opsworks-stack": "AWS::OpsWorks::Stack",
         "aws-opsworks-userprofile": "AWS::OpsWorks::UserProfile",
         "aws-opsworks-volume": "AWS::OpsWorks::Volume",
+        "aws-cloudfront-cachepolicy": "AWS::CloudFront::CachePolicy",
         "aws-cloudfront-cloudfrontoriginaccessidentity": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
         "aws-cloudfront-distribution": "AWS::CloudFront::Distribution",
+        "aws-cloudfront-originrequestpolicy": "AWS::CloudFront::OriginRequestPolicy",
+        "aws-cloudfront-realtimelogconfig": "AWS::CloudFront::RealtimeLogConfig",
         "aws-cloudfront-streamingdistribution": "AWS::CloudFront::StreamingDistribution",
         "aws-cassandra-keyspace": "AWS::Cassandra::Keyspace",
         "aws-cassandra-table": "AWS::Cassandra::Table",
@@ -32388,6 +34231,7 @@
         "aws-sagemaker-endpoint": "AWS::SageMaker::Endpoint",
         "aws-sagemaker-endpointconfig": "AWS::SageMaker::EndpointConfig",
         "aws-sagemaker-model": "AWS::SageMaker::Model",
+        "aws-sagemaker-monitoringschedule": "AWS::SageMaker::MonitoringSchedule",
         "aws-sagemaker-notebookinstance": "AWS::SageMaker::NotebookInstance",
         "aws-sagemaker-notebookinstancelifecycleconfig": "AWS::SageMaker::NotebookInstanceLifecycleConfig",
         "aws-sagemaker-workteam": "AWS::SageMaker::Workteam",
@@ -32604,6 +34448,8 @@
         "aws-wafregional-webaclassociation": "AWS::WAFRegional::WebACLAssociation",
         "aws-wafregional-xssmatchset": "AWS::WAFRegional::XssMatchSet",
         "aws-route53resolver-resolverendpoint": "AWS::Route53Resolver::ResolverEndpoint",
+        "aws-route53resolver-resolverqueryloggingconfig": "AWS::Route53Resolver::ResolverQueryLoggingConfig",
+        "aws-route53resolver-resolverqueryloggingconfigassociation": "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation",
         "aws-route53resolver-resolverrule": "AWS::Route53Resolver::ResolverRule",
         "aws-route53resolver-resolverruleassociation": "AWS::Route53Resolver::ResolverRuleAssociation",
         "aws-detective-graph": "AWS::Detective::Graph",
@@ -32664,8 +34510,10 @@
         "aws-appconfig-deploymentstrategy": "AWS::AppConfig::DeploymentStrategy",
         "aws-appconfig-environment": "AWS::AppConfig::Environment",
         "aws-appconfig-hostedconfigurationversion": "AWS::AppConfig::HostedConfigurationVersion",
+        "aws-appmesh-gatewayroute": "AWS::AppMesh::GatewayRoute",
         "aws-appmesh-mesh": "AWS::AppMesh::Mesh",
         "aws-appmesh-route": "AWS::AppMesh::Route",
+        "aws-appmesh-virtualgateway": "AWS::AppMesh::VirtualGateway",
         "aws-appmesh-virtualnode": "AWS::AppMesh::VirtualNode",
         "aws-appmesh-virtualrouter": "AWS::AppMesh::VirtualRouter",
         "aws-appmesh-virtualservice": "AWS::AppMesh::VirtualService",
@@ -32687,6 +34535,7 @@
         "aws-stepfunctions-activity": "AWS::StepFunctions::Activity",
         "aws-stepfunctions-statemachine": "AWS::StepFunctions::StateMachine",
         "aws-ec2-capacityreservation": "AWS::EC2::CapacityReservation",
+        "aws-ec2-carriergateway": "AWS::EC2::CarrierGateway",
         "aws-ec2-clientvpnauthorizationrule": "AWS::EC2::ClientVpnAuthorizationRule",
         "aws-ec2-clientvpnendpoint": "AWS::EC2::ClientVpnEndpoint",
         "aws-ec2-clientvpnroute": "AWS::EC2::ClientVpnRoute",

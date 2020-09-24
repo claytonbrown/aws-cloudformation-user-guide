@@ -1,7 +1,9 @@
 {
   "applicationautoscaling.scalingpolicy.ServiceNamespace": {
-    "Required": "Conditional",
-    "UpdateRequires": "Replacement"
+    "Allowed values": "appstream | cassandra | comprehend | custom-resource | dynamodb | ec2 | ecs | elasticmapreduce | lambda | rds | sagemaker",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "applicationautoscaling.scalingpolicy.ScalingTargetId": {
     "Required": "Conditional",
@@ -14,8 +16,12 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "applicationautoscaling.scalingpolicy.ResourceId": {
-    "Required": "Conditional",
-    "UpdateRequires": "Replacement"
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Required": "No",
+    "Maximum": "1600",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "applicationautoscaling.scalingpolicy.PolicyType": {},
   "applicationautoscaling.scalingpolicy.TargetTrackingScalingPolicyConfiguration": {
@@ -38,7 +44,9 @@
     "Type": "String"
   },
   "applicationautoscaling.scalingpolicy.ScalableDimension": {
-    "Required": "Conditional",
-    "UpdateRequires": "Replacement"
+    "Allowed values": "appstream:fleet:DesiredCapacity | cassandra:table:ReadCapacityUnits | cassandra:table:WriteCapacityUnits | comprehend:document-classifier-endpoint:DesiredInferenceUnits | custom-resource:ResourceType:Property | dynamodb:index:ReadCapacityUnits | dynamodb:index:WriteCapacityUnits | dynamodb:table:ReadCapacityUnits | dynamodb:table:WriteCapacityUnits | ec2:spot-fleet-request:TargetCapacity | ecs:service:DesiredCount | elasticmapreduce:instancegroup:InstanceCount | lambda:function:ProvisionedConcurrency | rds:cluster:ReadReplicaCount | sagemaker:variant:DesiredInstanceCount",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

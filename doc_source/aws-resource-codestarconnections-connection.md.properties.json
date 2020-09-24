@@ -1,9 +1,17 @@
 {
   "codestarconnections.connection.ProviderType": {
     "Allowed values": "Bitbucket | GitHubEnterpriseServer",
-    "Required": "Yes",
+    "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "codestarconnections.connection.HostArn": {
+    "Pattern": "arn:aws(-[\\w]+)*:codestar-connections:.+:[0-9]{12}:host\\/.+",
+    "Required": "No",
+    "Maximum": "256",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "0",
+    "Type": "String"
   },
   "codestarconnections.connection.ConnectionName": {
     "Minimum": "1",
