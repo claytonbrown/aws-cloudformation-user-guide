@@ -1,29 +1,27 @@
 {
-  "qldb.stream.streamname": {
-    "Pattern": "(?!^.*--)(?!^[0-9]+$)(?!^-)(?!.*-$)^[A-Za-z0-9-]+$",
-    "Minimum": "1",
+  "qldb.stream.InclusiveStartTime": {
     "Required": "Yes",
-    "Maximum": "32",
-    "UpdateRequires": "Replacement"
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "qldb.stream.exclusiveendtime": {
+  "qldb.stream.ExclusiveEndTime": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "qldb.stream.rolearn": {
+  "qldb.stream.RoleArn": {
     "Minimum": "20",
     "Required": "Yes",
     "Type": "String",
     "Maximum": "1600",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "qldb.stream.tags": {
+  "qldb.stream.Tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
-  "qldb.stream.ledgername": {
+  "qldb.stream.LedgerName": {
     "Pattern": "(?!^.*--)(?!^[0-9]+$)(?!^-)(?!.*-$)^[A-Za-z0-9-]+$",
     "Required": "Yes",
     "Maximum": "32",
@@ -31,12 +29,14 @@
     "Minimum": "1",
     "Type": "String"
   },
-  "qldb.stream.inclusivestarttime": {
+  "qldb.stream.StreamName": {
+    "Pattern": "(?!^.*--)(?!^[0-9]+$)(?!^-)(?!.*-$)^[A-Za-z0-9-]+$",
+    "Minimum": "1",
     "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Maximum": "32",
+    "UpdateRequires": "Replacement"
   },
-  "qldb.stream.kinesisconfiguration": {
+  "qldb.stream.KinesisConfiguration": {
     "Required": "Yes",
     "Type": "KinesisConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"

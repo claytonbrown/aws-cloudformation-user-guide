@@ -53,13 +53,13 @@ with open(input_file, "r") as file:
 cfn_schema = json.load(open('CloudFormationResourceSpecification.json','r'))
 schema_key = {}
 for resource_name, resource_properties in cfn_schema["ResourceTypes"].items():
-    key = resource_name.lower().replace('::','.')
+    key = resource_name #.replace('::','.')
     schema_key[key] = resource_name
     log.info("%s --> %s" % (key, resource_name))
 
     if "Properties" in resource_properties:
         for resource_property_name, resource_property_detail in resource_properties["Properties"].items():
-            property_key = "%s.%s" % (key, resource_property_name.lower())
+            property_key = "%s.%s" % (key, resource_property_name) 
             property_ref = "%s.%s" % (resource_name, resource_property_name)
             schema_key[property_key] = property_ref
             log.info("%s --> %s" % (property_key, property_ref))
@@ -77,7 +77,7 @@ for file in files:
 
         # "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
         if "UpdateRequires" in v:
-            if "no interruption" in v["UpdateRequires"].lower():
+            if "no interruption" in v["UpdateRequires"]:
                 v["UpdateRequires"] = "No interruption"
             else:
                 v["UpdateRequires"] = "Replacement"

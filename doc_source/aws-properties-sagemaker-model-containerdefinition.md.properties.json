@@ -1,33 +1,33 @@
 {
-  "sagemaker.model.containerdefinition.image": {
+  "sagemaker.model.containerdefinition.ModelDataUrl": {
+    "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
+    "Required": "No",
+    "Maximum": "1024",
+    "UpdateRequires": "Replacement"
+  },
+  "sagemaker.model.containerdefinition.Image": {
     "Pattern": "[\\S]+",
     "Required": "Yes",
     "Type": "String",
     "Maximum": "255",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "sagemaker.model.containerdefinition.containerhostname": {
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "63",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "sagemaker.model.containerdefinition.environment": {
+  "sagemaker.model.containerdefinition.Environment": {
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "sagemaker.model.containerdefinition.mode": {
+  "sagemaker.model.containerdefinition.Mode": {
     "Allowed values": "MultiModel | SingleModel",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "sagemaker.model.containerdefinition.modeldataurl": {
-    "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
+  "sagemaker.model.containerdefinition.ContainerHostname": {
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
     "Required": "No",
-    "Maximum": "1024",
-    "UpdateRequires": "Replacement"
+    "Type": "String",
+    "Maximum": "63",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

@@ -19,7 +19,7 @@ for data in pipe:
                 property_bag = property.split("\n*")
                 if debug:
                     pprint.pprint(property_bag)
-                # property_name = property_type.rstrip("properties") + property_name.lower()
+                # property_name = property_type.rstrip("properties") + property_name
                 properties[property_name] = {}
                 ok = True
                 for prop in property_bag:
@@ -78,7 +78,7 @@ for data in pipe:
         for k1, v1 in output.items():
             if isinstance(v1, dict):
                 for k2, v2 in v1.items():
-                    norm_key = k1.replace("aws-properties-", "").replace("-properties", "").replace('-', '.') + '.' + k2.lower()
+                    norm_key = k1.replace("aws-properties-", "").replace("-properties", "").replace('-', '.') + '.' + k2 
                     property_key = norm_key
                     result[property_key] = v2
 

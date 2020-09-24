@@ -1,21 +1,15 @@
 {
-  "elasticmapreduce.cluster.releaselabel": {
+  "elasticmapreduce.cluster.ReleaseLabel": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.applications": {
+  "elasticmapreduce.cluster.Applications": {
     "Required": "No",
     "Type": "List of [Application",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.scaledownbehavior": {
-    "Allowed values": "TERMINATE_AT_INSTANCE_HOUR | TERMINATE_AT_TASK_COMPLETION",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticmapreduce.cluster.autoscalingrole": {
+  "elasticmapreduce.cluster.AutoScalingRole": {
     "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
     "Required": "No",
     "Maximum": "10280",
@@ -23,17 +17,17 @@
     "Minimum": "0",
     "Type": "String"
   },
-  "elasticmapreduce.cluster.servicerole": {
+  "elasticmapreduce.cluster.ServiceRole": {
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.steps": {
+  "elasticmapreduce.cluster.Steps": {
     "Required": "No",
     "Type": "List of [StepConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.securityconfiguration": {
+  "elasticmapreduce.cluster.SecurityConfiguration": {
     "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
     "Required": "No",
     "Maximum": "10280",
@@ -41,16 +35,24 @@
     "Minimum": "0",
     "Type": "String"
   },
-  "elasticmapreduce.cluster.ebsrootvolumesize": {
+  "elasticmapreduce.cluster.JobFlowRole": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Required": "Yes",
+    "Maximum": "10280",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "0",
+    "Type": "String"
+  },
+  "elasticmapreduce.cluster.EbsRootVolumeSize": {
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.kerberosattributes": {
+  "elasticmapreduce.cluster.KerberosAttributes": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
-  "elasticmapreduce.cluster.visibletoallusers": {
+  "elasticmapreduce.cluster.VisibleToAllUsers": {
     "Required": "No",
     "Type": "Boolean",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
@@ -59,17 +61,43 @@
       "False"
     ]
   },
-  "elasticmapreduce.cluster.configurations": {
-    "Required": "No",
-    "Type": "List of [Configuration",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticmapreduce.cluster.loguri": {
+  "elasticmapreduce.cluster.LogUri": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.customamiid": {
+  "elasticmapreduce.cluster.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticmapreduce.cluster.Name": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticmapreduce.cluster.ScaleDownBehavior": {
+    "Allowed values": "TERMINATE_AT_INSTANCE_HOUR | TERMINATE_AT_TASK_COMPLETION",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticmapreduce.cluster.BootstrapActions": {
+    "Required": "No",
+    "Type": "List of [BootstrapActionConfig",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticmapreduce.cluster.Instances": {
+    "Required": "Yes",
+    "Type": "JobFlowInstancesConfig",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "elasticmapreduce.cluster.Configurations": {
+    "Required": "No",
+    "Type": "List of [Configuration",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticmapreduce.cluster.CustomAmiId": {
     "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
     "Required": "No",
     "Maximum": "256",
@@ -77,35 +105,7 @@
     "Minimum": "0",
     "Type": "String"
   },
-  "elasticmapreduce.cluster.name": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticmapreduce.cluster.bootstrapactions": {
-    "Required": "No",
-    "Type": "List of [BootstrapActionConfig",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "elasticmapreduce.cluster.tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "elasticmapreduce.cluster.instances": {
-    "Required": "Yes",
-    "Type": "JobFlowInstancesConfig",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
-  },
-  "elasticmapreduce.cluster.jobflowrole": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "Required": "Yes",
-    "Maximum": "10280",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "0",
-    "Type": "String"
-  },
-  "elasticmapreduce.cluster.additionalinfo": {
+  "elasticmapreduce.cluster.AdditionalInfo": {
     "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
     "Required": "No",
     "Maximum": "10280",

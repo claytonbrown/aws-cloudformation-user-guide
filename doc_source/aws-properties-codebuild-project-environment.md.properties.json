@@ -1,11 +1,5 @@
 {
-  "codebuild.project.environment.type": {
-    "Allowed values": "ARM_CONTAINER | LINUX_CONTAINER | LINUX_GPU_CONTAINER | WINDOWS_CONTAINER",
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codebuild.project.environment.registrycredential": {
+  "codebuild.project.environment.RegistryCredential": {
     "Required": "No",
     "Type": "RegistryCredential",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -19,30 +13,36 @@
       "False"
     ]
   },
-  "codebuild.project.environment.privilegedmode": {},
-  "codebuild.project.environment.computetype": {
+  "codebuild.project.environment.ComputeType": {
     "Required": "Yes",
     "UpdateRequires": "No interruption"
   },
   "codebuild.project.environment.- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&": {},
-  "codebuild.project.environment.image": {
+  "codebuild.project.environment.Image": {
     "Minimum": "1",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codebuild.project.environment.certificate": {
+  "codebuild.project.environment.Certificate": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codebuild.project.environment.environmentvariables": {
+  "codebuild.project.environment.PrivilegedMode": {},
+  "codebuild.project.environment.Type": {
+    "Allowed values": "ARM_CONTAINER | LINUX_CONTAINER | LINUX_GPU_CONTAINER | WINDOWS_CONTAINER",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codebuild.project.environment.EnvironmentVariables": {
     "Required": "No",
     "Type": "List of [EnvironmentVariable",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codebuild.project.environment.- timeout 15 sh -c \"until docker info; do echo .; sleep 1; done\"": {},
-  "codebuild.project.environment.imagepullcredentialstype": {
+  "codebuild.project.environment.ImagePullCredentialsType": {
     "Allowed values": "CODEBUILD | SERVICE_ROLE",
     "Required": "No",
     "Type": "String",

@@ -1,16 +1,16 @@
 {
-  "cognito.userpooluser.validationdata": {
+  "cognito.userpooluser.ValidationData": {
     "Required": "No",
     "Type": "List of [AttributeType",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   },
-  "cognito.userpooluser.userattributes": {
+  "cognito.userpooluser.UserAttributes": {
     "UserAttributes`  <a name=\"cfn-cognito-userpooluser-userattributes\"></a>\nThe user attributes and attribute values to be set for the user to be created\\. These are name\\-value pairs You can create a user without specifying any attributes other than `Username`\\. However, any attributes that you specify as required \\(in [https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or in the **Attributes** tab of the console\\) must be supplied either by you \\(in your call to `AdminCreateUser`\\) or by the user \\(when they sign up in response to your welcome message\\)\\.  \nFor custom attributes, you must prepend the `custom:` prefix to the attribute name\\.  \nTo send a message inviting the user to sign up, you must specify the user's email address or phone number\\. This can be done in your call to AdminCreateUser or in the **Users** tab of the Amazon Cognito console for managing your user pools\\.  \nIn your call to `AdminCreateUser`, you can set the `email_verified` attribute to `True`, and you can set the `phone_number_verified` attribute to `True`\\. \\(You can also do this by calling [https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html)\\.\\)  \n+  **email*": "The email address of the user to whom the message that contains the code and user name will be sent\\. Required if the `email_verified` attribute is set to `True`, or if `\"EMAIL\"` is specified in the `DesiredDeliveryMediums` parameter\\.\n+  **phone\\_number*",
     "Required": "No",
     "Type": "List of [AttributeType",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "cognito.userpooluser.userpoolid": {
+  "cognito.userpooluser.UserPoolId": {
     "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
     "Required": "Yes",
     "Maximum": "55",
@@ -18,7 +18,7 @@
     "Minimum": "1",
     "Type": "String"
   },
-  "cognito.userpooluser.forcealiascreation": {
+  "cognito.userpooluser.ForceAliasCreation": {
     "Required": "No",
     "Type": "Boolean",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
@@ -27,7 +27,7 @@
       "False"
     ]
   },
-  "cognito.userpooluser.username": {
+  "cognito.userpooluser.Username": {
     "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
     "Required": "No",
     "Maximum": "128",
@@ -35,18 +35,18 @@
     "Minimum": "1",
     "Type": "String"
   },
-  "cognito.userpooluser.messageaction": {
+  "cognito.userpooluser.MessageAction": {
     "Allowed values": "RESEND | SUPPRESS",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "cognito.userpooluser.desireddeliverymediums": {
+  "cognito.userpooluser.DesiredDeliveryMediums": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "cognito.userpooluser.clientmetadata": {
+  "cognito.userpooluser.ClientMetadata": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   }

@@ -89,9 +89,9 @@ def massage_schema(schema):
     if isinstance(schema, dict):
         if 'UpdateRequires' in schema and '[' in schema["UpdateRequires"] and ']' in schema["UpdateRequires"]:
             schema["UpdateRequires"] = schema["UpdateRequires"].split(']')[0].split("[")[1]
-            #    if 'no interruption' in schema['UpdateRequires'].lower():
+            #    if 'no interruption' in schema['UpdateRequires']:
             ##        schema['UpdateRequires'] = "No interruption"
-            #    elif 'replacement' in schema['UpdateRequires'].lower():
+            #    elif 'replacement' in schema['UpdateRequires']:
             #        schema['UpdateRequires'] = "Replacement"
 
         # Set range as an example for AllowValues
