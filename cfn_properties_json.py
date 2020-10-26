@@ -71,7 +71,7 @@ for data in pipe:
                         if ok:
                             properties[property_name][property_key] = property_data
 
-        output[property_type] = properties
+        output[property_type.lower()] = properties
 
         # flatten properties into their own keys
 

@@ -1,0 +1,34 @@
+{
+  "appflow.connectorprofile.ConnectorProfileConfig": {
+    "Required": "No",
+    "Type": "ConnectorProfileConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appflow.connectorprofile.ConnectorProfileName": {
+    "Pattern": "[\\w/!@#+=.-]+",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "256",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "appflow.connectorprofile.KMSArn": {
+    "Pattern": "arn:aws:kms:.*:[0-9]+:.*",
+    "Required": "No",
+    "Maximum": "2048",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "Minimum": "20",
+    "Type": "String"
+  },
+  "appflow.connectorprofile.ConnectorType": {
+    "Allowed values": "Amplitude | Datadog | Dynatrace | EventBridge | Googleanalytics | Infornexus | Marketo | Redshift | S3 | Salesforce | Servicenow | Singular | Slack | Snowflake | Trendmicro | Veeva | Zendesk",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "appflow.connectorprofile.ConnectionMode": {
+    "Allowed values": "Private | Public",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

@@ -1,4 +1,12 @@
 {
+  "eks.cluster.Name": {
+    "Pattern": "^[0-9A-Za-z][A-Za-z0-9\\-_]*",
+    "Required": "No",
+    "Maximum": "100",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
   "eks.cluster.RoleArn": {
     "Required": "Yes",
     "UpdateRequires": "Replacement"
@@ -13,13 +21,10 @@
     "Required": "Yes",
     "UpdateRequires": "Replacement"
   },
-  "eks.cluster.Name": {
-    "Pattern": "^[0-9A-Za-z][A-Za-z0-9\\-_]*",
+  "eks.cluster.KubernetesNetworkConfig": {
     "Required": "No",
-    "Maximum": "100",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
+    "Type": "KubernetesNetworkConfig",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "eks.cluster.Version": {
     "Required": "No",

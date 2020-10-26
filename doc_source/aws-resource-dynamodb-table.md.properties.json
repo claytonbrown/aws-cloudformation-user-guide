@@ -9,6 +9,11 @@
     "Type": "List",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "dynamodb.table.ContributorInsightsSpecification": {
+    "Required": "No",
+    "Type": "ContributorInsightsSpecification",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "dynamodb.table.TableName": {
     "Pattern": "[a-zA-Z0-9_.-]+",
     "Required": "No",
@@ -46,12 +51,12 @@
   "dynamodb.table.SSESpecification": {
     "Required": "No",
     "Type": "SSESpecification",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
   "dynamodb.table.AttributeDefinitions": {
     "Required": "Conditional",
     "Type": "List of [AttributeDefinition",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dynamodb.table.GlobalSecondaryIndexes": {
     "Required": "No",

@@ -3,6 +3,7 @@ import logging
 from colorlog import ColoredFormatter
 import glob
 import sys
+import os
 
 log = logging.getLogger()
 verbosity = logging.INFO
@@ -118,10 +119,10 @@ for file in files:
         if "aws-properties-" in k:
             k = k.replace("aws-properties-","").replace("-properties","-cfnproperties").replace('-','.')
             v = list(v.keys())
-            properties[k] = v
+            properties[k.lower()] = v
         else:
 
-            properties[k] = v
+            properties[k.lower()] = v
 
 log.info("%s properties files processed" % (len(files)))
 

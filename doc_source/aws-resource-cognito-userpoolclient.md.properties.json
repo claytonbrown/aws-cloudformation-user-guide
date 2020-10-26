@@ -8,10 +8,9 @@
       "False"
     ]
   },
-  "cognito.userpoolclient.LogoutURLs": {
+  "cognito.userpoolclient.TokenValidityUnits": {
     "Required": "No",
-    "Type": "List of String",
-    "Maximum": "100",
+    "Type": "TokenValidityUnits",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpoolclient.ClientName": {
@@ -34,10 +33,11 @@
     "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cognito.userpoolclient.WriteAttributes": {
+  "cognito.userpoolclient.AllowedOAuthScopes": {
     "Required": "No",
     "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpoolclient.RefreshTokenValidity": {
     "Minimum": "0",
@@ -54,15 +54,22 @@
     "Minimum": "1",
     "Type": "String"
   },
-  "cognito.userpoolclient.AllowedOAuthScopes": {
+  "cognito.userpoolclient.LogoutURLs": {
     "Required": "No",
     "Type": "List of String",
-    "Maximum": "50",
+    "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpoolclient.SupportedIdentityProviders": {
     "Required": "No",
     "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpoolclient.AccessTokenValidity": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "86400",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpoolclient.ExplicitAuthFlows": {
@@ -79,9 +86,21 @@
       "False"
     ]
   },
+  "cognito.userpoolclient.WriteAttributes": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
   "cognito.userpoolclient.ReadAttributes": {
     "Required": "No",
     "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpoolclient.IdTokenValidity": {
+    "Minimum": "1",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "86400",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpoolclient.AnalyticsConfiguration": {
