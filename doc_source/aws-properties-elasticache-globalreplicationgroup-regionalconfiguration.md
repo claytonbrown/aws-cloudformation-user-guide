@@ -40,7 +40,7 @@ The AWS region where the cluster is stored
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `ReshardingConfigurations`  <a name="cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations"></a>
-Not currently supported by AWS CloudFormation\.  
+A list of preferred Availability Zones for each node in each shard in the replication group\.  
 *Required*: No  
 *Type*: List of [ReshardingConfiguration](aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

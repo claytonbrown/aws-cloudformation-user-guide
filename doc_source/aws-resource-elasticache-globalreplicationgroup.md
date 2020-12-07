@@ -47,7 +47,8 @@ Properties:
 ## Properties<a name="aws-resource-elasticache-globalreplicationgroup-properties"></a>
 
 `AutomaticFailoverEnabled`  <a name="cfn-elasticache-globalreplicationgroup-automaticfailoverenabled"></a>
-Not currently supported by AWS CloudFormation\.  
+Specifies whether a read\-only replica is automatically promoted to read/write primary if the existing primary fails\.  
+ `AutomaticFailoverEnabled` must be enabled for Redis \(cluster mode enabled\) replication groups\.  
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -59,13 +60,13 @@ The cache node type of the Global Datastore
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `EngineVersion`  <a name="cfn-elasticache-globalreplicationgroup-engineversion"></a>
-The Elasticache Redis engine version\. For preview, it is Redis version 5\.0\.5 only\.  
+The Elasticache Redis engine version\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `GlobalNodeGroupCount`  <a name="cfn-elasticache-globalreplicationgroup-globalnodegroupcount"></a>
-Not currently supported by AWS CloudFormation\.  
+The number of node groups that comprise the Global Datastore\.  
 *Required*: No  
 *Type*: Integer  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -77,7 +78,7 @@ The optional description of the Global Datastore
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `GlobalReplicationGroupIdSuffix`  <a name="cfn-elasticache-globalreplicationgroup-globalreplicationgroupidsuffix"></a>
-Not currently supported by AWS CloudFormation\.  
+The suffix name of a Global Datastore\. The suffix guarantees uniqueness of the Global Datastore name across multiple regions\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -89,7 +90,7 @@ The replication groups that comprise the Global Datastore\.
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `RegionalConfigurations`  <a name="cfn-elasticache-globalreplicationgroup-regionalconfigurations"></a>
-Not currently supported by AWS CloudFormation\.  
+The AWS Regions that comprise the Global Datastore\.  
 *Required*: No  
 *Type*: List of [RegionalConfiguration](aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -109,4 +110,4 @@ The status of the Global Datastore
 #### <a name="aws-resource-elasticache-globalreplicationgroup-return-values-fn--getatt-fn--getatt"></a>
 
 `GlobalReplicationGroupId`  <a name="GlobalReplicationGroupId-fn::getatt"></a>
-Not currently supported by AWS CloudFormation\.
+The ID used to associate a secondary cluster to the Global Replication Group\.
