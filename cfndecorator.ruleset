@@ -26,7 +26,7 @@
 #AWS::AppConfig::DeploymentStrategy GrowthType  == EXPONENTIAL |OR| AWS::AppConfig::DeploymentStrategy GrowthType  == LINEAR << Enforce allowed values [EXPONENTIAL | LINEAR]
 #AWS::AppConfig::DeploymentStrategy ReplicateTo  == NONE |OR| AWS::AppConfig::DeploymentStrategy ReplicateTo  == SSM_DOCUMENT << Enforce allowed values [NONE | SSM_DOCUMENT]
 #AWS::AppFlow::ConnectorProfile ConnectionMode  == Private |OR| AWS::AppFlow::ConnectorProfile ConnectionMode  == Public << Enforce allowed values [Private | Public]
-#AWS::AppFlow::ConnectorProfile ConnectorType  == Amplitude |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Datadog |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Dynatrace |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == EventBridge |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Googleanalytics |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Infornexus |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Marketo |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Redshift |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == S3 |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Salesforce |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Servicenow |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Singular |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Slack |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Snowflake |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Trendmicro |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Veeva |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Zendesk << Enforce allowed values [Amplitude | Datadog | Dynatrace | EventBridge | Googleanalytics | Infornexus | Marketo | Redshift | S3 | Salesforce | Servicenow | Singular | Slack | Snowflake | Trendmicro | Veeva | Zendesk]
+#AWS::AppFlow::ConnectorProfile ConnectorType  == Amplitude |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Datadog |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Dynatrace |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == EventBridge |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Googleanalytics |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Infornexus |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Marketo |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Redshift |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == S3 |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Salesforce |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Servicenow |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Singular |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Slack |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Snowflake |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Trendmicro |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Upsolver |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Veeva |OR| AWS::AppFlow::ConnectorProfile ConnectorType  == Zendesk << Enforce allowed values [Amplitude | Datadog | Dynatrace | EventBridge | Googleanalytics | Infornexus | Marketo | Redshift | S3 | Salesforce | Servicenow | Singular | Slack | Snowflake | Trendmicro | Upsolver | Veeva | Zendesk]
 #AWS::AppSync::ApiCache AtRestEncryptionEnabled  == True |OR| AWS::AppSync::ApiCache AtRestEncryptionEnabled  == False << Enforce allowed values [True | False]
 #AWS::AppSync::ApiCache TransitEncryptionEnabled  == True |OR| AWS::AppSync::ApiCache TransitEncryptionEnabled  == False << Enforce allowed values [True | False]
 #AWS::AppSync::GraphQLApi XrayEnabled  == True |OR| AWS::AppSync::GraphQLApi XrayEnabled  == False << Enforce allowed values [True | False]
@@ -44,7 +44,6 @@
 #AWS::AutoScaling::LaunchConfiguration EbsOptimized  == True |OR| AWS::AutoScaling::LaunchConfiguration EbsOptimized  == False << Enforce allowed values [True | False]
 #AWS::AutoScaling::LaunchConfiguration InstanceMonitoring  == True |OR| AWS::AutoScaling::LaunchConfiguration InstanceMonitoring  == False << Enforce allowed values [True | False]
 #AWS::Batch::ComputeEnvironment State  == DISABLED |OR| AWS::Batch::ComputeEnvironment State  == ENABLED << Enforce allowed values [DISABLED | ENABLED]
-#AWS::Batch::JobDefinition Type  == container |OR| AWS::Batch::JobDefinition Type  == multinode << Enforce allowed values [container | multinode]
 #AWS::Batch::JobQueue State  == DISABLED |OR| AWS::Batch::JobQueue State  == ENABLED << Enforce allowed values [DISABLED | ENABLED]
 #AWS::CertificateManager::Certificate CertificateTransparencyLoggingPreference  == DISABLED |OR| AWS::CertificateManager::Certificate CertificateTransparencyLoggingPreference  == ENABLED << Enforce allowed values [DISABLED | ENABLED]
 #AWS::CertificateManager::Certificate ValidationMethod  == DNS |OR| AWS::CertificateManager::Certificate ValidationMethod  == EMAIL << Enforce allowed values [DNS | EMAIL]
@@ -149,7 +148,7 @@
 #AWS::EC2::VPC InstanceTenancy  == dedicated |OR| AWS::EC2::VPC InstanceTenancy  == default |OR| AWS::EC2::VPC InstanceTenancy  == host << Enforce allowed values [dedicated | default | host]
 #AWS::EC2::VPCCidrBlock AmazonProvidedIpv6CidrBlock  == True |OR| AWS::EC2::VPCCidrBlock AmazonProvidedIpv6CidrBlock  == False << Enforce allowed values [True | False]
 #AWS::EC2::VPCEndpoint PrivateDnsEnabled  == True |OR| AWS::EC2::VPCEndpoint PrivateDnsEnabled  == False << Enforce allowed values [True | False]
-#AWS::EC2::VPCEndpoint VpcEndpointType  == Gateway |OR| AWS::EC2::VPCEndpoint VpcEndpointType  == Interface << Enforce allowed values [Gateway | Interface]
+#AWS::EC2::VPCEndpoint VpcEndpointType  == Gateway |OR| AWS::EC2::VPCEndpoint VpcEndpointType  == GatewayLoadBalancer |OR| AWS::EC2::VPCEndpoint VpcEndpointType  == Interface << Enforce allowed values [Gateway | GatewayLoadBalancer | Interface]
 #AWS::EC2::VPCEndpointService AcceptanceRequired  == True |OR| AWS::EC2::VPCEndpointService AcceptanceRequired  == False << Enforce allowed values [True | False]
 #AWS::EC2::VPNConnection StaticRoutesOnly  == True |OR| AWS::EC2::VPNConnection StaticRoutesOnly  == False << Enforce allowed values [True | False]
 #AWS::EC2::VPNConnection Type  == ipsec.1 << Enforce allowed values [ipsec.1]
@@ -178,13 +177,13 @@
 #AWS::ElastiCache::ReplicationGroup MultiAZEnabled  == True |OR| AWS::ElastiCache::ReplicationGroup MultiAZEnabled  == False << Enforce allowed values [True | False]
 #AWS::ElastiCache::ReplicationGroup TransitEncryptionEnabled  == True |OR| AWS::ElastiCache::ReplicationGroup TransitEncryptionEnabled  == False << Enforce allowed values [True | False]
 #AWS::ElasticLoadBalancing::LoadBalancer CrossZone  == True |OR| AWS::ElasticLoadBalancing::LoadBalancer CrossZone  == False << Enforce allowed values [True | False]
-#AWS::ElasticLoadBalancingV2::Listener Protocol  == HTTP |OR| AWS::ElasticLoadBalancingV2::Listener Protocol  == HTTPS |OR| AWS::ElasticLoadBalancingV2::Listener Protocol  == TCP |OR| AWS::ElasticLoadBalancingV2::Listener Protocol  == TCP_UDP |OR| AWS::ElasticLoadBalancingV2::Listener Protocol  == TLS |OR| AWS::ElasticLoadBalancingV2::Listener Protocol  == UDP << Enforce allowed values [HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP]
+#AWS::ElasticLoadBalancingV2::Listener Protocol  == GENEVE |OR| AWS::ElasticLoadBalancingV2::Listener Protocol  == HTTP |OR| AWS::ElasticLoadBalancingV2::Listener Protocol  == HTTPS |OR| AWS::ElasticLoadBalancingV2::Listener Protocol  == TCP |OR| AWS::ElasticLoadBalancingV2::Listener Protocol  == TCP_UDP |OR| AWS::ElasticLoadBalancingV2::Listener Protocol  == TLS |OR| AWS::ElasticLoadBalancingV2::Listener Protocol  == UDP << Enforce allowed values [GENEVE | HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP]
 #AWS::ElasticLoadBalancingV2::LoadBalancer IpAddressType  == dualstack |OR| AWS::ElasticLoadBalancingV2::LoadBalancer IpAddressType  == ipv4 << Enforce allowed values [dualstack | ipv4]
 #AWS::ElasticLoadBalancingV2::LoadBalancer Scheme  == internal |OR| AWS::ElasticLoadBalancingV2::LoadBalancer Scheme  == internet-facing << Enforce allowed values [internal | internet-facing]
-#AWS::ElasticLoadBalancingV2::LoadBalancer Type  == application |OR| AWS::ElasticLoadBalancingV2::LoadBalancer Type  == network << Enforce allowed values [application | network]
+#AWS::ElasticLoadBalancingV2::LoadBalancer Type  == application |OR| AWS::ElasticLoadBalancingV2::LoadBalancer Type  == gateway |OR| AWS::ElasticLoadBalancingV2::LoadBalancer Type  == network << Enforce allowed values [application | gateway | network]
 #AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled  == True |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled  == False << Enforce allowed values [True | False]
-#AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == HTTP |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == HTTPS |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == TCP |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == TCP_UDP |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == TLS |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == UDP << Enforce allowed values [HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP]
-#AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == HTTP |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == HTTPS |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == TCP |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == TCP_UDP |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == TLS |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == UDP << Enforce allowed values [HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP]
+#AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == GENEVE |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == HTTP |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == HTTPS |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == TCP |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == TCP_UDP |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == TLS |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == UDP << Enforce allowed values [GENEVE | HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP]
+#AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == GENEVE |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == HTTP |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == HTTPS |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == TCP |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == TCP_UDP |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == TLS |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == UDP << Enforce allowed values [GENEVE | HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP]
 #AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == instance |OR| AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == ip |OR| AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == lambda << Enforce allowed values [instance | ip | lambda]
 #AWS::Events::Rule State  == DISABLED |OR| AWS::Events::Rule State  == ENABLED << Enforce allowed values [DISABLED | ENABLED]
 #AWS::FMS::Policy DeleteAllPolicyResources  == True |OR| AWS::FMS::Policy DeleteAllPolicyResources  == False << Enforce allowed values [True | False]
@@ -226,13 +225,13 @@
 #AWS::IoTEvents::DetectorModel EvaluationMethod  == BATCH |OR| AWS::IoTEvents::DetectorModel EvaluationMethod  == SERIAL << Enforce allowed values [BATCH | SERIAL]
 #AWS::KMS::Key EnableKeyRotation  == True |OR| AWS::KMS::Key EnableKeyRotation  == False << Enforce allowed values [True | False]
 #AWS::KMS::Key Enabled  == True |OR| AWS::KMS::Key Enabled  == False << Enforce allowed values [True | False]
-#AWS::KMS::Key KeyUsage  == ENCRYPT\_DECRYPT << Enforce allowed values [ENCRYPT\_DECRYPT]
-#AWS::KinesisAnalyticsV2::Application RuntimeEnvironment  == FLINK-1_6 |OR| AWS::KinesisAnalyticsV2::Application RuntimeEnvironment  == FLINK-1_8 |OR| AWS::KinesisAnalyticsV2::Application RuntimeEnvironment  == SQL-1_0 << Enforce allowed values [FLINK-1_6 | FLINK-1_8 | SQL-1_0]
+#AWS::KMS::Key KeyUsage  == ENCRYPT_DECRYPT |OR| AWS::KMS::Key KeyUsage  == SIGN_VERIFY << Enforce allowed values [ENCRYPT_DECRYPT | SIGN_VERIFY]
+#AWS::KinesisAnalyticsV2::Application RuntimeEnvironment  == FLINK-1_11 |OR| AWS::KinesisAnalyticsV2::Application RuntimeEnvironment  == FLINK-1_6 |OR| AWS::KinesisAnalyticsV2::Application RuntimeEnvironment  == FLINK-1_8 |OR| AWS::KinesisAnalyticsV2::Application RuntimeEnvironment  == SQL-1_0 << Enforce allowed values [FLINK-1_11 | FLINK-1_6 | FLINK-1_8 | SQL-1_0]
 #AWS::KinesisFirehose::DeliveryStream DeliveryStreamType  == DirectPut |OR| AWS::KinesisFirehose::DeliveryStream DeliveryStreamType  == KinesisStreamAsSource << Enforce allowed values [DirectPut | KinesisStreamAsSource]
 #AWS::LakeFormation::Resource UseServiceLinkedRole  == True |OR| AWS::LakeFormation::Resource UseServiceLinkedRole  == False << Enforce allowed values [True | False]
 #AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError  == True |OR| AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError  == False << Enforce allowed values [True | False]
 #AWS::Lambda::EventSourceMapping Enabled  == True |OR| AWS::Lambda::EventSourceMapping Enabled  == False << Enforce allowed values [True | False]
-#AWS::Lambda::Function Runtime  == dotnetcore2.1 |OR| AWS::Lambda::Function Runtime  == dotnetcore3.1 |OR| AWS::Lambda::Function Runtime  == go1.x |OR| AWS::Lambda::Function Runtime  == java11 |OR| AWS::Lambda::Function Runtime  == java8 |OR| AWS::Lambda::Function Runtime  == java8.al2 |OR| AWS::Lambda::Function Runtime  == nodejs10.x |OR| AWS::Lambda::Function Runtime  == nodejs12.x |OR| AWS::Lambda::Function Runtime  == provided |OR| AWS::Lambda::Function Runtime  == provided.al2 |OR| AWS::Lambda::Function Runtime  == python2.7 |OR| AWS::Lambda::Function Runtime  == python3.6 |OR| AWS::Lambda::Function Runtime  == python3.7 |OR| AWS::Lambda::Function Runtime  == python3.8 |OR| AWS::Lambda::Function Runtime  == ruby2.5 |OR| AWS::Lambda::Function Runtime  == ruby2.7 << Enforce allowed values [dotnetcore2.1 | dotnetcore3.1 | go1.x | java11 | java8 | java8.al2 | nodejs10.x | nodejs12.x | provided | provided.al2 | python2.7 | python3.6 | python3.7 | python3.8 | ruby2.5 | ruby2.7]
+#AWS::Lambda::Function Runtime  == dotnetcore1.0 |OR| AWS::Lambda::Function Runtime  == dotnetcore2.0 |OR| AWS::Lambda::Function Runtime  == dotnetcore2.1 |OR| AWS::Lambda::Function Runtime  == dotnetcore3.1 |OR| AWS::Lambda::Function Runtime  == go1.x |OR| AWS::Lambda::Function Runtime  == java11 |OR| AWS::Lambda::Function Runtime  == java8 |OR| AWS::Lambda::Function Runtime  == java8.al2 |OR| AWS::Lambda::Function Runtime  == nodejs |OR| AWS::Lambda::Function Runtime  == nodejs10.x |OR| AWS::Lambda::Function Runtime  == nodejs12.x |OR| AWS::Lambda::Function Runtime  == nodejs4.3 |OR| AWS::Lambda::Function Runtime  == nodejs4.3-edge |OR| AWS::Lambda::Function Runtime  == nodejs6.10 |OR| AWS::Lambda::Function Runtime  == nodejs8.10 |OR| AWS::Lambda::Function Runtime  == provided |OR| AWS::Lambda::Function Runtime  == provided.al2 |OR| AWS::Lambda::Function Runtime  == python2.7 |OR| AWS::Lambda::Function Runtime  == python3.6 |OR| AWS::Lambda::Function Runtime  == python3.7 |OR| AWS::Lambda::Function Runtime  == python3.8 |OR| AWS::Lambda::Function Runtime  == ruby2.5 |OR| AWS::Lambda::Function Runtime  == ruby2.7 << Enforce allowed values [dotnetcore1.0 | dotnetcore2.0 | dotnetcore2.1 | dotnetcore3.1 | go1.x | java11 | java8 | java8.al2 | nodejs | nodejs10.x | nodejs12.x | nodejs4.3 | nodejs4.3-edge | nodejs6.10 | nodejs8.10 | provided | provided.al2 | python2.7 | python3.6 | python3.7 | python3.8 | ruby2.5 | ruby2.7]
 #AWS::Neptune::DBCluster DeletionProtection  == True |OR| AWS::Neptune::DBCluster DeletionProtection  == False << Enforce allowed values [True | False]
 #AWS::Neptune::DBCluster IamAuthEnabled  == True |OR| AWS::Neptune::DBCluster IamAuthEnabled  == False << Enforce allowed values [True | False]
 #AWS::Neptune::DBCluster StorageEncrypted  == True |OR| AWS::Neptune::DBCluster StorageEncrypted  == False << Enforce allowed values [True | False]
@@ -1041,7 +1040,6 @@ AWS::AmazonMQ::Broker EncryptionOptions.amazonmq.broker.encryptionoptions.UseAws
 AWS::AmazonMQ::Broker EngineType  == /.*/ <<  EngineType is a required property for AWS::AmazonMQ::Broker
 AWS::AmazonMQ::Broker EngineVersion  == /.*/ <<  EngineVersion is a required property for AWS::AmazonMQ::Broker
 AWS::AmazonMQ::Broker HostInstanceType  == /.*/ <<  HostInstanceType is a required property for AWS::AmazonMQ::Broker
-AWS::AmazonMQ::Broker LdapMetadata.amazonmq.broker.ldapmetadata.ServerMetadata  == /.*/ <<  amazonmq.broker.ldapmetadata.ServerMetadata is a required property for AWS::AmazonMQ::Broker LdapMetadata
 AWS::AmazonMQ::Broker LdapServerMetadata.RoleBase  == /\S/ <<  AWS::AmazonMQ::Broker is an expected but optional String property for LdapServerMetadata
 AWS::AmazonMQ::Broker LdapServerMetadata.RoleName  == /\S/ <<  AWS::AmazonMQ::Broker is an expected but optional String property for LdapServerMetadata
 AWS::AmazonMQ::Broker LdapServerMetadata.RoleSearchMatching  == /\S/ <<  AWS::AmazonMQ::Broker is an expected but optional String property for LdapServerMetadata
@@ -1358,9 +1356,10 @@ AWS::AppFlow::ConnectorProfile ConnectorType  == /Singular/ <<  Singular is an e
 AWS::AppFlow::ConnectorProfile ConnectorType  == /Slack/ <<  Slack is an expected value for AWS::AppFlow::ConnectorProfile ConnectorType
 AWS::AppFlow::ConnectorProfile ConnectorType  == /Snowflake/ <<  Snowflake is an expected value for AWS::AppFlow::ConnectorProfile ConnectorType
 AWS::AppFlow::ConnectorProfile ConnectorType  == /Trendmicro/ <<  Trendmicro is an expected value for AWS::AppFlow::ConnectorProfile ConnectorType
+AWS::AppFlow::ConnectorProfile ConnectorType  == /Upsolver/ <<  Upsolver is an expected value for AWS::AppFlow::ConnectorProfile ConnectorType
 AWS::AppFlow::ConnectorProfile ConnectorType  == /Veeva/ <<  Veeva is an expected value for AWS::AppFlow::ConnectorProfile ConnectorType
 AWS::AppFlow::ConnectorProfile ConnectorType  == /Zendesk/ <<  Zendesk is an expected value for AWS::AppFlow::ConnectorProfile ConnectorType
-AWS::AppFlow::ConnectorProfile ConnectorType IN [Amplitude,Datadog,Dynatrace,EventBridge,Googleanalytics,Infornexus,Marketo,Redshift,S3,Salesforce,Servicenow,Singular,Slack,Snowflake,Trendmicro,Veeva,Zendesk] << Enforcing Allowed Values only
+AWS::AppFlow::ConnectorProfile ConnectorType IN [Amplitude,Datadog,Dynatrace,EventBridge,Googleanalytics,Infornexus,Marketo,Redshift,S3,Salesforce,Servicenow,Singular,Slack,Snowflake,Trendmicro,Upsolver,Veeva,Zendesk] << Enforcing Allowed Values only
 AWS::AppFlow::ConnectorProfile KMSArn  == /arn.*{20,2048}/ <<  KMSArn is a required property for AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::ConnectorProfile KMSArn  == /arn:aws:kms:.*:[0-9]+:.*/ <<  KMSArn is a required pattern for AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow Description  == /[\w!@#\-.?,\s]*/ <<  Description is a required pattern for AWS::AppFlow::Flow
@@ -1593,8 +1592,6 @@ AWS::AutoScaling::AutoScalingGroup MetricsCollection.Granularity  == /\S/ <<  AW
 AWS::AutoScaling::AutoScalingGroup MinSize  == /.*/ <<  MinSize is a required property for AWS::AutoScaling::AutoScalingGroup
 AWS::AutoScaling::AutoScalingGroup NewInstancesProtectedFromScaleIn  == /False/ <<  False is an expected value for AWS::AutoScaling::AutoScalingGroup NewInstancesProtectedFromScaleIn
 AWS::AutoScaling::AutoScalingGroup NewInstancesProtectedFromScaleIn  == /True/ <<  True is an expected value for AWS::AutoScaling::AutoScalingGroup NewInstancesProtectedFromScaleIn
-AWS::AutoScaling::AutoScalingGroup NewInstancesProtectedFromScaleIn  == False <<  False is expected  safe default value
-AWS::AutoScaling::AutoScalingGroup NewInstancesProtectedFromScaleIn  == True <<  True is expected safe default value
 AWS::AutoScaling::AutoScalingGroup NewInstancesProtectedFromScaleIn IN [True,False] << Enforcing Allowed Values only
 AWS::AutoScaling::AutoScalingGroup NotificationConfigurations.TopicARN  == /\S/ <<  AWS::AutoScaling::AutoScalingGroup is an expected but optional String property for NotificationConfigurations
 AWS::AutoScaling::LaunchConfiguration AssociatePublicIpAddress  == /False/ <<  False is an expected value for AWS::AutoScaling::LaunchConfiguration AssociatePublicIpAddress
@@ -1656,9 +1653,6 @@ AWS::Batch::JobDefinition NodeProperties.batch.jobdefinition.nodeproperties.Main
 AWS::Batch::JobDefinition NodeProperties.batch.jobdefinition.nodeproperties.NodeRangeProperties  == /.*/ <<  batch.jobdefinition.nodeproperties.NodeRangeProperties is a required property for AWS::Batch::JobDefinition NodeProperties
 AWS::Batch::JobDefinition NodeProperties.batch.jobdefinition.nodeproperties.NumNodes  == /.*/ <<  batch.jobdefinition.nodeproperties.NumNodes is a required property for AWS::Batch::JobDefinition NodeProperties
 AWS::Batch::JobDefinition Type  == /.*/ <<  Type is a required property for AWS::Batch::JobDefinition
-AWS::Batch::JobDefinition Type  == /container/ <<  container is an expected value for AWS::Batch::JobDefinition Type
-AWS::Batch::JobDefinition Type  == /multinode/ <<  multinode is an expected value for AWS::Batch::JobDefinition Type
-AWS::Batch::JobDefinition Type IN [container,multinode] << Enforcing Allowed Values only
 AWS::Batch::JobQueue ComputeEnvironmentOrder  == /.*/ <<  ComputeEnvironmentOrder is a required property for AWS::Batch::JobQueue
 AWS::Batch::JobQueue ComputeEnvironmentOrder.ComputeEnvironment  == /\S/ <<  AWS::Batch::JobQueue is an expected but optional String property for ComputeEnvironmentOrder
 AWS::Batch::JobQueue ComputeEnvironmentOrder.batch.jobqueue.computeenvironmentorder.ComputeEnvironment  == /.*/ <<  batch.jobqueue.computeenvironmentorder.ComputeEnvironment is a required property for AWS::Batch::JobQueue ComputeEnvironmentOrder
@@ -2018,6 +2012,7 @@ AWS::CodeStar::GitHubRepository IsPrivate IN [True,False] << Enforcing Allowed V
 AWS::CodeStar::GitHubRepository RepositoryName  == /.*/ <<  RepositoryName is a required property for AWS::CodeStar::GitHubRepository
 AWS::CodeStar::GitHubRepository RepositoryOwner  == /.*/ <<  RepositoryOwner is a required property for AWS::CodeStar::GitHubRepository
 AWS::CodeStarConnections::Connection ConnectionName  == /.*/ <<  ConnectionName is a required property for AWS::CodeStarConnections::Connection
+AWS::CodeStarConnections::Connection ConnectionName  == /[\s\S]*/ <<  ConnectionName is a required pattern for AWS::CodeStarConnections::Connection
 AWS::CodeStarConnections::Connection ConnectionName  == /\S{1,32}/ <<  ConnectionName is a required property for AWS::CodeStarConnections::Connection
 AWS::CodeStarConnections::Connection HostArn  == /arn.*{0,256}/ <<  HostArn is a required property for AWS::CodeStarConnections::Connection
 AWS::CodeStarConnections::Connection HostArn  == /arn:aws(-[\w]+)*:codestar-connections:.+:[0-9]{12}:host\/.+/ <<  HostArn is a required pattern for AWS::CodeStarConnections::Connection
@@ -2775,8 +2770,10 @@ AWS::EC2::VPCEndpoint PrivateDnsEnabled  == True <<  True is expected safe defau
 AWS::EC2::VPCEndpoint PrivateDnsEnabled IN [True,False] << Enforcing Allowed Values only
 AWS::EC2::VPCEndpoint ServiceName  == /.*/ <<  ServiceName is a required property for AWS::EC2::VPCEndpoint
 AWS::EC2::VPCEndpoint VpcEndpointType  == /Gateway/ <<  Gateway is an expected value for AWS::EC2::VPCEndpoint VpcEndpointType
+AWS::EC2::VPCEndpoint VpcEndpointType  == /GatewayLoadBalancer/ <<  GatewayLoadBalancer is an expected value for AWS::EC2::VPCEndpoint VpcEndpointType
 AWS::EC2::VPCEndpoint VpcEndpointType  == /Interface/ <<  Interface is an expected value for AWS::EC2::VPCEndpoint VpcEndpointType
-AWS::EC2::VPCEndpoint VpcEndpointType IN [Gateway,Interface] << Enforcing Allowed Values only
+AWS::EC2::VPCEndpoint VpcEndpointType IN [Gateway,GatewayLoadBalancer,Interface] << Enforcing Allowed Values only
+AWS::EC2::VPCEndpoint VpcId  == /.*/ <<  VpcId is a required property for AWS::EC2::VPCEndpoint
 AWS::EC2::VPCEndpointService AcceptanceRequired  == /False/ <<  False is an expected value for AWS::EC2::VPCEndpointService AcceptanceRequired
 AWS::EC2::VPCEndpointService AcceptanceRequired  == /True/ <<  True is an expected value for AWS::EC2::VPCEndpointService AcceptanceRequired
 AWS::EC2::VPCEndpointService AcceptanceRequired  == False <<  False is expected  safe default value
@@ -3077,17 +3074,16 @@ AWS::ElasticLoadBalancingV2::Listener Certificates.CertificateArn  == /\S/ <<  A
 AWS::ElasticLoadBalancingV2::Listener DefaultActions  == /.*/ <<  DefaultActions is a required property for AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::Listener LoadBalancerArn  == /.*/ <<  LoadBalancerArn is a required property for AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::Listener Port  <= 65535 <<  Integer is expected for AWS::ElasticLoadBalancingV2::Listener of Port 
-AWS::ElasticLoadBalancingV2::Listener Port  == /.*/ <<  Port is a required property for AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::Listener Port  == /[0-9].+/ <<  Integer is expected for AWS::ElasticLoadBalancingV2::Listener of Port 
 AWS::ElasticLoadBalancingV2::Listener Port  >= 1 <<  Integer is expected for AWS::ElasticLoadBalancingV2::Listener of Port 
-AWS::ElasticLoadBalancingV2::Listener Protocol  == /.*/ <<  Protocol is a required property for AWS::ElasticLoadBalancingV2::Listener
+AWS::ElasticLoadBalancingV2::Listener Protocol  == /GENEVE/ <<  GENEVE is an expected value for AWS::ElasticLoadBalancingV2::Listener Protocol
 AWS::ElasticLoadBalancingV2::Listener Protocol  == /HTTP/ <<  HTTP is an expected value for AWS::ElasticLoadBalancingV2::Listener Protocol
 AWS::ElasticLoadBalancingV2::Listener Protocol  == /HTTPS/ <<  HTTPS is an expected value for AWS::ElasticLoadBalancingV2::Listener Protocol
 AWS::ElasticLoadBalancingV2::Listener Protocol  == /TCP/ <<  TCP is an expected value for AWS::ElasticLoadBalancingV2::Listener Protocol
 AWS::ElasticLoadBalancingV2::Listener Protocol  == /TCP_UDP/ <<  TCP_UDP is an expected value for AWS::ElasticLoadBalancingV2::Listener Protocol
 AWS::ElasticLoadBalancingV2::Listener Protocol  == /TLS/ <<  TLS is an expected value for AWS::ElasticLoadBalancingV2::Listener Protocol
 AWS::ElasticLoadBalancingV2::Listener Protocol  == /UDP/ <<  UDP is an expected value for AWS::ElasticLoadBalancingV2::Listener Protocol
-AWS::ElasticLoadBalancingV2::Listener Protocol IN [HTTP,HTTPS,TCP,TCP_UDP,TLS,UDP] << Enforcing Allowed Values only
+AWS::ElasticLoadBalancingV2::Listener Protocol IN [GENEVE,HTTP,HTTPS,TCP,TCP_UDP,TLS,UDP] << Enforcing Allowed Values only
 AWS::ElasticLoadBalancingV2::ListenerCertificate Certificates  == /.*/ <<  Certificates is a required property for AWS::ElasticLoadBalancingV2::ListenerCertificate
 AWS::ElasticLoadBalancingV2::ListenerCertificate Certificates.CertificateArn  == /\S/ <<  AWS::ElasticLoadBalancingV2::ListenerCertificate is an expected but optional String property for Certificates
 AWS::ElasticLoadBalancingV2::ListenerCertificate ListenerArn  == /.*/ <<  ListenerArn is a required property for AWS::ElasticLoadBalancingV2::ListenerCertificate
@@ -3113,8 +3109,9 @@ AWS::ElasticLoadBalancingV2::LoadBalancer SubnetMappings.AllocationId  == /\S/ <
 AWS::ElasticLoadBalancingV2::LoadBalancer SubnetMappings.PrivateIPv4Address  == /\S/ <<  AWS::ElasticLoadBalancingV2::LoadBalancer is an expected but optional String property for SubnetMappings
 AWS::ElasticLoadBalancingV2::LoadBalancer SubnetMappings.SubnetId  == /\S/ <<  AWS::ElasticLoadBalancingV2::LoadBalancer is an expected but optional String property for SubnetMappings
 AWS::ElasticLoadBalancingV2::LoadBalancer Type  == /application/ <<  application is an expected value for AWS::ElasticLoadBalancingV2::LoadBalancer Type
+AWS::ElasticLoadBalancingV2::LoadBalancer Type  == /gateway/ <<  gateway is an expected value for AWS::ElasticLoadBalancingV2::LoadBalancer Type
 AWS::ElasticLoadBalancingV2::LoadBalancer Type  == /network/ <<  network is an expected value for AWS::ElasticLoadBalancingV2::LoadBalancer Type
-AWS::ElasticLoadBalancingV2::LoadBalancer Type IN [application,network] << Enforcing Allowed Values only
+AWS::ElasticLoadBalancingV2::LoadBalancer Type IN [application,gateway,network] << Enforcing Allowed Values only
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled  == /False/ <<  False is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled  == /True/ <<  True is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled  == False <<  False is expected  safe default value
@@ -3124,13 +3121,14 @@ AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckIntervalSeconds  <= 300 <<  
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckIntervalSeconds  == /[0-9].+/ <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of HealthCheckIntervalSeconds 
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckIntervalSeconds  >= 5 <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of HealthCheckIntervalSeconds 
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckPath  == /\S{1,1024}/ <<  AWS::ElasticLoadBalancingV2::TargetGroup is an expected length of String property for HealthCheckPath
+AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == /GENEVE/ <<  GENEVE is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == /HTTP/ <<  HTTP is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == /HTTPS/ <<  HTTPS is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == /TCP/ <<  TCP is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == /TCP_UDP/ <<  TCP_UDP is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == /TLS/ <<  TLS is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == /UDP/ <<  UDP is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol
-AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol IN [HTTP,HTTPS,TCP,TCP_UDP,TLS,UDP] << Enforcing Allowed Values only
+AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol IN [GENEVE,HTTP,HTTPS,TCP,TCP_UDP,TLS,UDP] << Enforcing Allowed Values only
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckTimeoutSeconds  <= 120 <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of HealthCheckTimeoutSeconds 
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckTimeoutSeconds  == /[0-9].+/ <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of HealthCheckTimeoutSeconds 
 AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckTimeoutSeconds  >= 2 <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of HealthCheckTimeoutSeconds 
@@ -3138,17 +3136,17 @@ AWS::ElasticLoadBalancingV2::TargetGroup HealthyThresholdCount  <= 10 <<  Intege
 AWS::ElasticLoadBalancingV2::TargetGroup HealthyThresholdCount  == /[0-9].+/ <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of HealthyThresholdCount 
 AWS::ElasticLoadBalancingV2::TargetGroup HealthyThresholdCount  >= 2 <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of HealthyThresholdCount 
 AWS::ElasticLoadBalancingV2::TargetGroup Matcher.HttpCode  == /\S/ <<  AWS::ElasticLoadBalancingV2::TargetGroup is an expected but optional String property for Matcher
-AWS::ElasticLoadBalancingV2::TargetGroup Matcher.elasticloadbalancingv2.targetgroup.matcher.HttpCode  == /.*/ <<  elasticloadbalancingv2.targetgroup.matcher.HttpCode is a required property for AWS::ElasticLoadBalancingV2::TargetGroup Matcher
 AWS::ElasticLoadBalancingV2::TargetGroup Port  <= 65535 <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of Port 
 AWS::ElasticLoadBalancingV2::TargetGroup Port  == /[0-9].+/ <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of Port 
 AWS::ElasticLoadBalancingV2::TargetGroup Port  >= 1 <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of Port 
+AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == /GENEVE/ <<  GENEVE is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup Protocol
 AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == /HTTP/ <<  HTTP is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup Protocol
 AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == /HTTPS/ <<  HTTPS is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup Protocol
 AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == /TCP/ <<  TCP is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup Protocol
 AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == /TCP_UDP/ <<  TCP_UDP is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup Protocol
 AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == /TLS/ <<  TLS is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup Protocol
 AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == /UDP/ <<  UDP is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup Protocol
-AWS::ElasticLoadBalancingV2::TargetGroup Protocol IN [HTTP,HTTPS,TCP,TCP_UDP,TLS,UDP] << Enforcing Allowed Values only
+AWS::ElasticLoadBalancingV2::TargetGroup Protocol IN [GENEVE,HTTP,HTTPS,TCP,TCP_UDP,TLS,UDP] << Enforcing Allowed Values only
 AWS::ElasticLoadBalancingV2::TargetGroup TargetGroupAttributes.Key  == /\S/ <<  AWS::ElasticLoadBalancingV2::TargetGroup is an expected but optional String property for TargetGroupAttributes
 AWS::ElasticLoadBalancingV2::TargetGroup TargetGroupAttributes.Value  == /\S/ <<  AWS::ElasticLoadBalancingV2::TargetGroup is an expected but optional String property for TargetGroupAttributes
 AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == /instance/ <<  instance is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup TargetType
@@ -3173,10 +3171,8 @@ AWS::EventSchemas::Schema Content  == /.*/ <<  Content is a required property fo
 AWS::EventSchemas::Schema RegistryName  == /.*/ <<  RegistryName is a required property for AWS::EventSchemas::Schema
 AWS::EventSchemas::Schema Type  == /.*/ <<  Type is a required property for AWS::EventSchemas::Schema
 AWS::Events::EventBus Name  == /.*/ <<  Name is a required property for AWS::Events::EventBus
-AWS::Events::EventBusPolicy Action  == /.*/ <<  Action is a required property for AWS::Events::EventBusPolicy
 AWS::Events::EventBusPolicy Action  == /events:[a-zA-Z]+/ <<  Action is a required pattern for AWS::Events::EventBusPolicy
 AWS::Events::EventBusPolicy Principal  == /(\d{12}|\*)/ <<  Principal is a required pattern for AWS::Events::EventBusPolicy
-AWS::Events::EventBusPolicy Principal  == /.*/ <<  Principal is a required property for AWS::Events::EventBusPolicy
 AWS::Events::EventBusPolicy StatementId  == /.*/ <<  StatementId is a required property for AWS::Events::EventBusPolicy
 AWS::Events::EventBusPolicy StatementId  == /[a-zA-Z0-9-_]+/ <<  StatementId is a required pattern for AWS::Events::EventBusPolicy
 AWS::Events::Rule Description  == /arn.*{0,512}/ <<  Description is a required property for AWS::Events::Rule
@@ -3377,7 +3373,6 @@ AWS::GameLift::MatchmakingConfiguration BackfillMode IN [AUTOMATIC,MANUAL] << En
 AWS::GameLift::MatchmakingConfiguration CustomEventData  == /\S{0,256}/ <<  AWS::GameLift::MatchmakingConfiguration is an expected length of String property for CustomEventData
 AWS::GameLift::MatchmakingConfiguration Description  == /\S{1,1024}/ <<  Description is a required property for AWS::GameLift::MatchmakingConfiguration
 AWS::GameLift::MatchmakingConfiguration GameSessionData  == /\S{1,4096}/ <<  AWS::GameLift::MatchmakingConfiguration is an expected length of String property for GameSessionData
-AWS::GameLift::MatchmakingConfiguration GameSessionQueueArns  == /.*/ <<  GameSessionQueueArns is a required property for AWS::GameLift::MatchmakingConfiguration
 AWS::GameLift::MatchmakingConfiguration Name  == /.*/ <<  Name is a required property for AWS::GameLift::MatchmakingConfiguration
 AWS::GameLift::MatchmakingConfiguration Name  == /[a-zA-Z0-9-\.]*/ <<  Name is a required pattern for AWS::GameLift::MatchmakingConfiguration
 AWS::GameLift::MatchmakingConfiguration Name  == /arn.*{0,128}/ <<  Name is a required property for AWS::GameLift::MatchmakingConfiguration
@@ -3681,6 +3676,8 @@ AWS::IAM::UserToGroupAddition Users  == /.*/ <<  Users is a required property fo
 AWS::ImageBuilder::Component ChangeDescription  == /\S{1,1024}/ <<  ChangeDescription is a required property for AWS::ImageBuilder::Component
 AWS::ImageBuilder::Component Description  == /\S{1,1024}/ <<  Description is a required property for AWS::ImageBuilder::Component
 AWS::ImageBuilder::Component KmsKeyId  == /\S{1,1024}/ <<  AWS::ImageBuilder::Component is an expected length of String property for KmsKeyId
+AWS::ImageBuilder::Component Name  == /.*/ <<  Name is a required property for AWS::ImageBuilder::Component
+AWS::ImageBuilder::Component Name  == /^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$/ <<  Name is a required pattern for AWS::ImageBuilder::Component
 AWS::ImageBuilder::Component Platform  == /.*/ <<  Platform is a required property for AWS::ImageBuilder::Component
 AWS::ImageBuilder::Component Platform  == /Linux/ <<  Linux is an expected value for AWS::ImageBuilder::Component Platform
 AWS::ImageBuilder::Component Platform  == /Windows/ <<  Windows is an expected value for AWS::ImageBuilder::Component Platform
@@ -3690,6 +3687,8 @@ AWS::ImageBuilder::Component Version  == /^[0-9]+\.[0-9]+\.[0-9]+$/ <<  Version 
 AWS::ImageBuilder::DistributionConfiguration Description  == /\S{1,1024}/ <<  Description is a required property for AWS::ImageBuilder::DistributionConfiguration
 AWS::ImageBuilder::DistributionConfiguration Distributions  == /.*/ <<  Distributions is a required property for AWS::ImageBuilder::DistributionConfiguration
 AWS::ImageBuilder::DistributionConfiguration Distributions.Region  == /\S/ <<  AWS::ImageBuilder::DistributionConfiguration is an expected but optional String property for Distributions
+AWS::ImageBuilder::DistributionConfiguration Name  == /.*/ <<  Name is a required property for AWS::ImageBuilder::DistributionConfiguration
+AWS::ImageBuilder::DistributionConfiguration Name  == /^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$/ <<  Name is a required pattern for AWS::ImageBuilder::DistributionConfiguration
 AWS::ImageBuilder::Image DistributionConfigurationArn  == /^arn:aws[^:]*:imagebuilder:[^:]+:(?:\d{12}|aws):(?:image-recipe|infrastructure-configuration|distribution-configuration|component|image|image-pipeline)/[a-z0-9-_]+(?:/(?:(?:x|\d+)\.(?:x|\d+)\.(?:x|\d+))(?:/\d+)?)?$/ <<  DistributionConfigurationArn is a required pattern for AWS::ImageBuilder::Image
 AWS::ImageBuilder::Image EnhancedImageMetadataEnabled  == /False/ <<  False is an expected value for AWS::ImageBuilder::Image EnhancedImageMetadataEnabled
 AWS::ImageBuilder::Image EnhancedImageMetadataEnabled  == /True/ <<  True is an expected value for AWS::ImageBuilder::Image EnhancedImageMetadataEnabled
@@ -3708,6 +3707,8 @@ AWS::ImageBuilder::ImagePipeline EnhancedImageMetadataEnabled  == True <<  True 
 AWS::ImageBuilder::ImagePipeline EnhancedImageMetadataEnabled IN [True,False] << Enforcing Allowed Values only
 AWS::ImageBuilder::ImagePipeline ImageRecipeArn  == /.*/ <<  ImageRecipeArn is a required property for AWS::ImageBuilder::ImagePipeline
 AWS::ImageBuilder::ImagePipeline InfrastructureConfigurationArn  == /.*/ <<  InfrastructureConfigurationArn is a required property for AWS::ImageBuilder::ImagePipeline
+AWS::ImageBuilder::ImagePipeline Name  == /.*/ <<  Name is a required property for AWS::ImageBuilder::ImagePipeline
+AWS::ImageBuilder::ImagePipeline Name  == /^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$/ <<  Name is a required pattern for AWS::ImageBuilder::ImagePipeline
 AWS::ImageBuilder::ImagePipeline Schedule.PipelineExecutionStartCondition  == /\S/ <<  AWS::ImageBuilder::ImagePipeline is an expected but optional String property for Schedule
 AWS::ImageBuilder::ImagePipeline Schedule.ScheduleExpression  == /\S/ <<  AWS::ImageBuilder::ImagePipeline is an expected but optional String property for Schedule
 AWS::ImageBuilder::ImagePipeline Status  == /DISABLED/ <<  DISABLED is an expected value for AWS::ImageBuilder::ImagePipeline Status
@@ -3715,6 +3716,8 @@ AWS::ImageBuilder::ImagePipeline Status  == /ENABLED/ <<  ENABLED is an expected
 AWS::ImageBuilder::ImagePipeline Status IN [DISABLED,ENABLED] << Enforcing Allowed Values only
 AWS::ImageBuilder::ImageRecipe Components  == /.*/ <<  Components is a required property for AWS::ImageBuilder::ImageRecipe
 AWS::ImageBuilder::ImageRecipe Description  == /\S{1,1024}/ <<  Description is a required property for AWS::ImageBuilder::ImageRecipe
+AWS::ImageBuilder::ImageRecipe Name  == /.*/ <<  Name is a required property for AWS::ImageBuilder::ImageRecipe
+AWS::ImageBuilder::ImageRecipe Name  == /^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$/ <<  Name is a required pattern for AWS::ImageBuilder::ImageRecipe
 AWS::ImageBuilder::ImageRecipe ParentImage  == /.*/ <<  ParentImage is a required property for AWS::ImageBuilder::ImageRecipe
 AWS::ImageBuilder::ImageRecipe ParentImage  == /\S{1,1024}/ <<  AWS::ImageBuilder::ImageRecipe is an expected length of String property for ParentImage
 AWS::ImageBuilder::ImageRecipe Version  == /.*/ <<  Version is a required property for AWS::ImageBuilder::ImageRecipe
@@ -3724,6 +3727,8 @@ AWS::ImageBuilder::InfrastructureConfiguration Description  == /\S{1,1024}/ <<  
 AWS::ImageBuilder::InfrastructureConfiguration InstanceProfileName  == /.*/ <<  InstanceProfileName is a required property for AWS::ImageBuilder::InfrastructureConfiguration
 AWS::ImageBuilder::InfrastructureConfiguration InstanceProfileName  == /\S{1,1024}/ <<  InstanceProfileName is a required property for AWS::ImageBuilder::InfrastructureConfiguration
 AWS::ImageBuilder::InfrastructureConfiguration KeyPair  == /\S{1,1024}/ <<  AWS::ImageBuilder::InfrastructureConfiguration is an expected length of String property for KeyPair
+AWS::ImageBuilder::InfrastructureConfiguration Name  == /.*/ <<  Name is a required property for AWS::ImageBuilder::InfrastructureConfiguration
+AWS::ImageBuilder::InfrastructureConfiguration Name  == /^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$/ <<  Name is a required pattern for AWS::ImageBuilder::InfrastructureConfiguration
 AWS::ImageBuilder::InfrastructureConfiguration SnsTopicArn  == /arn.*{1,1024}/ <<  SnsTopicArn is a required property for AWS::ImageBuilder::InfrastructureConfiguration
 AWS::ImageBuilder::InfrastructureConfiguration SubnetId  == /\S{1,1024}/ <<  AWS::ImageBuilder::InfrastructureConfiguration is an expected length of String property for SubnetId
 AWS::ImageBuilder::InfrastructureConfiguration TerminateInstanceOnFailure  == /False/ <<  False is an expected value for AWS::ImageBuilder::InfrastructureConfiguration TerminateInstanceOnFailure
@@ -3814,8 +3819,9 @@ AWS::KMS::Key Enabled  == /False/ <<  False is an expected value for AWS::KMS::K
 AWS::KMS::Key Enabled  == /True/ <<  True is an expected value for AWS::KMS::Key Enabled
 AWS::KMS::Key Enabled IN [True,False] << Enforcing Allowed Values only
 AWS::KMS::Key KeyPolicy  == /.*/ <<  KeyPolicy is a required property for AWS::KMS::Key
-AWS::KMS::Key KeyUsage  == /ENCRYPT\_DECRYPT/ <<  ENCRYPT\_DECRYPT is an expected value for AWS::KMS::Key KeyUsage
-AWS::KMS::Key KeyUsage IN [ENCRYPT\_DECRYPT] << Enforcing Allowed Values only
+AWS::KMS::Key KeyUsage  == /ENCRYPT_DECRYPT/ <<  ENCRYPT_DECRYPT is an expected value for AWS::KMS::Key KeyUsage
+AWS::KMS::Key KeyUsage  == /SIGN_VERIFY/ <<  SIGN_VERIFY is an expected value for AWS::KMS::Key KeyUsage
+AWS::KMS::Key KeyUsage IN [ENCRYPT_DECRYPT,SIGN_VERIFY] << Enforcing Allowed Values only
 AWS::Kinesis::Stream Name  == /[a-zA-Z0-9_.-]+/ <<  Name is a required pattern for AWS::Kinesis::Stream
 AWS::Kinesis::Stream Name  == /\S{1,128}/ <<  Name is a required property for AWS::Kinesis::Stream
 AWS::Kinesis::Stream RetentionPeriodHours  == /[0-9].+/ <<  Integer is expected for AWS::Kinesis::Stream of RetentionPeriodHours 
@@ -3854,10 +3860,11 @@ AWS::KinesisAnalyticsV2::Application ApplicationDescription  == /\S{0,1024}/ << 
 AWS::KinesisAnalyticsV2::Application ApplicationName  == /[a-zA-Z0-9_.-]+/ <<  ApplicationName is a required pattern for AWS::KinesisAnalyticsV2::Application
 AWS::KinesisAnalyticsV2::Application ApplicationName  == /\S{1,128}/ <<  ApplicationName is a required property for AWS::KinesisAnalyticsV2::Application
 AWS::KinesisAnalyticsV2::Application RuntimeEnvironment  == /.*/ <<  RuntimeEnvironment is a required property for AWS::KinesisAnalyticsV2::Application
+AWS::KinesisAnalyticsV2::Application RuntimeEnvironment  == /FLINK-1_11/ <<  FLINK-1_11 is an expected value for AWS::KinesisAnalyticsV2::Application RuntimeEnvironment
 AWS::KinesisAnalyticsV2::Application RuntimeEnvironment  == /FLINK-1_6/ <<  FLINK-1_6 is an expected value for AWS::KinesisAnalyticsV2::Application RuntimeEnvironment
 AWS::KinesisAnalyticsV2::Application RuntimeEnvironment  == /FLINK-1_8/ <<  FLINK-1_8 is an expected value for AWS::KinesisAnalyticsV2::Application RuntimeEnvironment
 AWS::KinesisAnalyticsV2::Application RuntimeEnvironment  == /SQL-1_0/ <<  SQL-1_0 is an expected value for AWS::KinesisAnalyticsV2::Application RuntimeEnvironment
-AWS::KinesisAnalyticsV2::Application RuntimeEnvironment IN [FLINK-1_6,FLINK-1_8,SQL-1_0] << Enforcing Allowed Values only
+AWS::KinesisAnalyticsV2::Application RuntimeEnvironment IN [FLINK-1_11,FLINK-1_6,FLINK-1_8,SQL-1_0] << Enforcing Allowed Values only
 AWS::KinesisAnalyticsV2::Application ServiceExecutionRole  == /.*/ <<  ServiceExecutionRole is a required property for AWS::KinesisAnalyticsV2::Application
 AWS::KinesisAnalyticsV2::Application ServiceExecutionRole  == /arn:.*/ <<  ServiceExecutionRole is a required pattern for AWS::KinesisAnalyticsV2::Application
 AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption ApplicationName  == /.*/ <<  ApplicationName is a required property for AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption
@@ -3985,10 +3992,10 @@ AWS::Lambda::EventSourceMapping MaximumBatchingWindowInSeconds  == /[0-9].+/ << 
 AWS::Lambda::EventSourceMapping MaximumBatchingWindowInSeconds  >= 0 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumBatchingWindowInSeconds 
 AWS::Lambda::EventSourceMapping MaximumRecordAgeInSeconds  <= 604800 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRecordAgeInSeconds 
 AWS::Lambda::EventSourceMapping MaximumRecordAgeInSeconds  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRecordAgeInSeconds 
-AWS::Lambda::EventSourceMapping MaximumRecordAgeInSeconds  >= 60 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRecordAgeInSeconds 
+AWS::Lambda::EventSourceMapping MaximumRecordAgeInSeconds  >= -1 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRecordAgeInSeconds 
 AWS::Lambda::EventSourceMapping MaximumRetryAttempts  <= 10000 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRetryAttempts 
 AWS::Lambda::EventSourceMapping MaximumRetryAttempts  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRetryAttempts 
-AWS::Lambda::EventSourceMapping MaximumRetryAttempts  >= 0 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRetryAttempts 
+AWS::Lambda::EventSourceMapping MaximumRetryAttempts  >= -1 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRetryAttempts 
 AWS::Lambda::EventSourceMapping ParallelizationFactor  <= 10 <<  Integer is expected for AWS::Lambda::EventSourceMapping of ParallelizationFactor 
 AWS::Lambda::EventSourceMapping ParallelizationFactor  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::EventSourceMapping of ParallelizationFactor 
 AWS::Lambda::EventSourceMapping ParallelizationFactor  >= 1 <<  Integer is expected for AWS::Lambda::EventSourceMapping of ParallelizationFactor 
@@ -4012,14 +4019,21 @@ AWS::Lambda::Function ReservedConcurrentExecutions  >= 0 <<  Integer is expected
 AWS::Lambda::Function Role  == /.*/ <<  Role is a required property for AWS::Lambda::Function
 AWS::Lambda::Function Role  == /arn:(aws[a-zA-Z-]*)?:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+/ <<  Role is a required pattern for AWS::Lambda::Function
 AWS::Lambda::Function Runtime  == /.*/ <<  Runtime is a required property for AWS::Lambda::Function
+AWS::Lambda::Function Runtime  == /dotnetcore1.0/ <<  dotnetcore1.0 is an expected value for AWS::Lambda::Function Runtime
+AWS::Lambda::Function Runtime  == /dotnetcore2.0/ <<  dotnetcore2.0 is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /dotnetcore2.1/ <<  dotnetcore2.1 is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /dotnetcore3.1/ <<  dotnetcore3.1 is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /go1.x/ <<  go1.x is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /java11/ <<  java11 is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /java8.al2/ <<  java8.al2 is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /java8/ <<  java8 is an expected value for AWS::Lambda::Function Runtime
+AWS::Lambda::Function Runtime  == /nodejs/ <<  nodejs is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /nodejs10.x/ <<  nodejs10.x is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /nodejs12.x/ <<  nodejs12.x is an expected value for AWS::Lambda::Function Runtime
+AWS::Lambda::Function Runtime  == /nodejs4.3-edge/ <<  nodejs4.3-edge is an expected value for AWS::Lambda::Function Runtime
+AWS::Lambda::Function Runtime  == /nodejs4.3/ <<  nodejs4.3 is an expected value for AWS::Lambda::Function Runtime
+AWS::Lambda::Function Runtime  == /nodejs6.10/ <<  nodejs6.10 is an expected value for AWS::Lambda::Function Runtime
+AWS::Lambda::Function Runtime  == /nodejs8.10/ <<  nodejs8.10 is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /provided.al2/ <<  provided.al2 is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /provided/ <<  provided is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /python2.7/ <<  python2.7 is an expected value for AWS::Lambda::Function Runtime
@@ -4028,7 +4042,7 @@ AWS::Lambda::Function Runtime  == /python3.7/ <<  python3.7 is an expected value
 AWS::Lambda::Function Runtime  == /python3.8/ <<  python3.8 is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /ruby2.5/ <<  ruby2.5 is an expected value for AWS::Lambda::Function Runtime
 AWS::Lambda::Function Runtime  == /ruby2.7/ <<  ruby2.7 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime IN [dotnetcore2.1,dotnetcore3.1,go1.x,java11,java8,java8.al2,nodejs10.x,nodejs12.x,provided,provided.al2,python2.7,python3.6,python3.7,python3.8,ruby2.5,ruby2.7] << Enforcing Allowed Values only
+AWS::Lambda::Function Runtime IN [dotnetcore1.0,dotnetcore2.0,dotnetcore2.1,dotnetcore3.1,go1.x,java11,java8,java8.al2,nodejs,nodejs10.x,nodejs12.x,nodejs4.3,nodejs4.3-edge,nodejs6.10,nodejs8.10,provided,provided.al2,python2.7,python3.6,python3.7,python3.8,ruby2.5,ruby2.7] << Enforcing Allowed Values only
 AWS::Lambda::Function Timeout  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::Function of Timeout 
 AWS::Lambda::Function Timeout  >= 1 <<  Integer is expected for AWS::Lambda::Function of Timeout 
 AWS::Lambda::Function TracingConfig.Mode  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for TracingConfig
@@ -4488,6 +4502,8 @@ AWS::RDS::DBSubnetGroup DBSubnetGroupDescription  == /.*/ <<  DBSubnetGroupDescr
 AWS::RDS::DBSubnetGroup SubnetIds  == /.*/ <<  SubnetIds is a required property for AWS::RDS::DBSubnetGroup
 AWS::RDS::EventSubscription Enabled  == /False/ <<  False is an expected value for AWS::RDS::EventSubscription Enabled
 AWS::RDS::EventSubscription Enabled  == /True/ <<  True is an expected value for AWS::RDS::EventSubscription Enabled
+AWS::RDS::EventSubscription Enabled  == False <<  False is expected  safe default value
+AWS::RDS::EventSubscription Enabled  == True <<  True is expected safe default value
 AWS::RDS::EventSubscription Enabled IN [True,False] << Enforcing Allowed Values only
 AWS::RDS::EventSubscription SnsTopicArn  == /.*/ <<  SnsTopicArn is a required property for AWS::RDS::EventSubscription
 AWS::RDS::OptionGroup EngineName  == /.*/ <<  EngineName is a required property for AWS::RDS::OptionGroup
@@ -5182,8 +5198,6 @@ AWS::Transfer::Server IdentityProviderType  == /API_GATEWAY/ <<  API_GATEWAY is 
 AWS::Transfer::Server IdentityProviderType  == /SERVICE_MANAGED/ <<  SERVICE_MANAGED is an expected value for AWS::Transfer::Server IdentityProviderType
 AWS::Transfer::Server IdentityProviderType IN [API_GATEWAY,SERVICE_MANAGED] << Enforcing Allowed Values only
 AWS::Transfer::Server LoggingRole  == /arn:.*role/.*/ <<  LoggingRole is a required pattern for AWS::Transfer::Server
-AWS::Transfer::Server SecurityPolicyName  == /TransferSecurityPolicy-.+/ <<  SecurityPolicyName is a required pattern for AWS::Transfer::Server
-AWS::Transfer::Server SecurityPolicyName  == /arn.*{0,100}/ <<  SecurityPolicyName is a required property for AWS::Transfer::Server
 AWS::Transfer::User HomeDirectory  == /^$|/.*/ <<  HomeDirectory is a required pattern for AWS::Transfer::User
 AWS::Transfer::User HomeDirectoryType  == /LOGICAL/ <<  LOGICAL is an expected value for AWS::Transfer::User HomeDirectoryType
 AWS::Transfer::User HomeDirectoryType  == /PATH/ <<  PATH is an expected value for AWS::Transfer::User HomeDirectoryType
@@ -5534,6 +5548,9 @@ DynamoDBConfig.Versioned IN [True,False] << Enforce Allowed Values
 ElasticsearchClusterConfig.DedicatedMasterEnabled == False << Enforce Expected Value for elasticsearch.domain.elasticsearchclusterconfig.DedicatedMasterEnabled
 ElasticsearchClusterConfig.DedicatedMasterEnabled == True << Enforce Expected Value for elasticsearch.domain.elasticsearchclusterconfig.DedicatedMasterEnabled
 ElasticsearchClusterConfig.DedicatedMasterEnabled IN [True,False] << Enforce Allowed Values
+ElasticsearchClusterConfig.WarmEnabled == False << Enforce Expected Value for elasticsearch.domain.elasticsearchclusterconfig.WarmEnabled
+ElasticsearchClusterConfig.WarmEnabled == True << Enforce Expected Value for elasticsearch.domain.elasticsearchclusterconfig.WarmEnabled
+ElasticsearchClusterConfig.WarmEnabled IN [True,False] << Enforce Allowed Values
 ElasticsearchClusterConfig.ZoneAwarenessEnabled == False << Enforce Expected Value for elasticsearch.domain.elasticsearchclusterconfig.ZoneAwarenessEnabled
 ElasticsearchClusterConfig.ZoneAwarenessEnabled == True << Enforce Expected Value for elasticsearch.domain.elasticsearchclusterconfig.ZoneAwarenessEnabled
 ElasticsearchClusterConfig.ZoneAwarenessEnabled IN [True,False] << Enforce Allowed Values
@@ -5649,7 +5666,8 @@ PointInTimeRecoverySpecification.PointInTimeRecoveryEnabled == False << Enforce 
 PointInTimeRecoverySpecification.PointInTimeRecoveryEnabled == True << Enforce Expected Value for dynamodb.table.pointintimerecoveryspecification.PointInTimeRecoveryEnabled
 PointInTimeRecoverySpecification.PointInTimeRecoveryEnabled IN [True,False] << Enforce Allowed Values
 PolicyDetails.PolicyType == EBS_SNAPSHOT_MANAGEMENT << Enforce Expected Value for dlm.lifecyclepolicy.policydetails.PolicyType
-PolicyDetails.PolicyType IN [EBS_SNAPSHOT_MANAGEMENT] << Enforce Allowed Values
+PolicyDetails.PolicyType == IMAGE_MANAGEMENT << Enforce Expected Value for dlm.lifecyclepolicy.policydetails.PolicyType
+PolicyDetails.PolicyType IN [EBS_SNAPSHOT_MANAGEMENT,IMAGE_MANAGEMENT] << Enforce Allowed Values
 Predicates.Negated == False << Enforce Expected Value for waf.rule.predicates.Negated
 Predicates.Negated == True << Enforce Expected Value for waf.rule.predicates.Negated
 Predicates.Negated IN [True,False] << Enforce Allowed Values

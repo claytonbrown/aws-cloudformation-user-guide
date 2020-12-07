@@ -9,7 +9,8 @@
   },
   "cloudfront.distribution.origin.CustomOriginConfig": {
     "Required": "Conditional",
-    "UpdateRequires": "No interruption"
+    "Type": "CustomOriginConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudfront.distribution.origin.Id": {
     "Required": "Yes",
@@ -26,9 +27,14 @@
   },
   "cloudfront.distribution.origin.S3OriginConfig": {
     "Required": "Conditional",
-    "UpdateRequires": "No interruption"
+    "Type": "S3OriginConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "cloudfront.distribution.origin.ConnectionTimeout": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "cloudfront.distribution.origin.OriginShield": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   }

@@ -18,10 +18,10 @@
     "Maximum": "30",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "globalaccelerator.endpointgroup.HealthCheckPath": {
+  "globalaccelerator.endpointgroup.PortOverrides": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "255",
+    "Type": "List of [PortOverride",
+    "Maximum": "10",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "globalaccelerator.endpointgroup.EndpointGroupRegion": {
@@ -29,6 +29,12 @@
     "Type": "String",
     "Maximum": "255",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "globalaccelerator.endpointgroup.HealthCheckProtocol": {
+    "Allowed values": "HTTP | HTTPS | TCP",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "globalaccelerator.endpointgroup.ListenerArn": {
     "Required": "Yes",
@@ -49,10 +55,10 @@
     "Maximum": "10",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "globalaccelerator.endpointgroup.HealthCheckProtocol": {
-    "Allowed values": "HTTP | HTTPS | TCP",
+  "globalaccelerator.endpointgroup.HealthCheckPath": {
     "Required": "No",
     "Type": "String",
+    "Maximum": "255",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

@@ -14,13 +14,10 @@
     ]
   },
   "kms.key.KeyUsage": {
-    "Type": "String",
+    "Allowed values": "ENCRYPT_DECRYPT | SIGN_VERIFY",
     "Required": "No",
-    "Allowed Values": "ENCRYPT\\_DECRYPT",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "ENCRYPT\\_DECRYPT"
-    ]
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "kms.key.Enabled": {
     "Required": "No",
@@ -36,6 +33,10 @@
     "Type": "String",
     "Maximum": "8192",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kms.key.KeySpec": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
   },
   "kms.key.Tags": {
     "Required": "No",

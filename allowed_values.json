@@ -2246,6 +2246,15 @@
         "UniqueKey": "appflow.connectorprofile.salesforceconnectorprofilecredentials.AccessToken",
         "UpdateRequires": "Replacement"
     },
+    "appflow.connectorprofile.salesforceconnectorprofilecredentials.clientcredentialsarn": {
+        "Maximum": "2048",
+        "Minimum": "20",
+        "Pattern": "arn:aws:secretsmanager:.*:[0-9]+:.*",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appflow.connectorprofile.salesforceconnectorprofilecredentials.ClientCredentialsArn",
+        "UpdateRequires": "Replacement"
+    },
     "appflow.connectorprofile.salesforceconnectorprofilecredentials.connectoroauthrequest": {
         "Required": "No",
         "Type": "ConnectorOAuthRequest",
@@ -2930,6 +2939,7 @@
     },
     "appflow.flow.scheduledtriggerproperties.timezone": {
         "Maximum": "256",
+        "Pattern": ".*",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "appflow.flow.scheduledtriggerproperties.TimeZone",
@@ -4198,10 +4208,34 @@
         "UniqueKey": "appmesh.virtualgateway.virtualgatewayclientpolicytls.Validation",
         "UpdateRequires": "Replacement"
     },
+    "appmesh.virtualgateway.virtualgatewayconnectionpool.grpc": {
+        "Required": "No",
+        "Type": "VirtualGatewayGrpcConnectionPool",
+        "UniqueKey": "appmesh.virtualgateway.virtualgatewayconnectionpool.GRPC",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualgateway.virtualgatewayconnectionpool.http": {
+        "Required": "No",
+        "Type": "VirtualGatewayHttpConnectionPool",
+        "UniqueKey": "appmesh.virtualgateway.virtualgatewayconnectionpool.HTTP",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualgateway.virtualgatewayconnectionpool.http2": {
+        "Required": "No",
+        "Type": "VirtualGatewayHttp2ConnectionPool",
+        "UniqueKey": "appmesh.virtualgateway.virtualgatewayconnectionpool.HTTP2",
+        "UpdateRequires": "Replacement"
+    },
     "appmesh.virtualgateway.virtualgatewayfileaccesslog.path": {
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "appmesh.virtualgateway.virtualgatewayfileaccesslog.Path",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualgateway.virtualgatewaygrpcconnectionpool.maxrequests": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.virtualgateway.virtualgatewaygrpcconnectionpool.MaxRequests",
         "UpdateRequires": "Replacement"
     },
     "appmesh.virtualgateway.virtualgatewayhealthcheckpolicy.healthythreshold": {
@@ -4244,6 +4278,30 @@
         "Required": "Yes",
         "Type": "Integer",
         "UniqueKey": "appmesh.virtualgateway.virtualgatewayhealthcheckpolicy.UnhealthyThreshold",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualgateway.virtualgatewayhttp2connectionpool.maxrequests": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.virtualgateway.virtualgatewayhttp2connectionpool.MaxRequests",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualgateway.virtualgatewayhttpconnectionpool.maxconnections": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.virtualgateway.virtualgatewayhttpconnectionpool.MaxConnections",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualgateway.virtualgatewayhttpconnectionpool.maxpendingrequests": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.virtualgateway.virtualgatewayhttpconnectionpool.MaxPendingRequests",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualgateway.virtualgatewaylistener.connectionpool": {
+        "Required": "No",
+        "Type": "VirtualGatewayConnectionPool",
+        "UniqueKey": "appmesh.virtualgateway.virtualgatewaylistener.ConnectionPool",
         "UpdateRequires": "Replacement"
     },
     "appmesh.virtualgateway.virtualgatewaylistener.healthcheck": {
@@ -4540,10 +4598,22 @@
         "UniqueKey": "appmesh.virtualnode.httptimeout.PerRequest",
         "UpdateRequires": "Replacement"
     },
+    "appmesh.virtualnode.listener.connectionpool": {
+        "Required": "No",
+        "Type": "VirtualNodeConnectionPool",
+        "UniqueKey": "appmesh.virtualnode.listener.ConnectionPool",
+        "UpdateRequires": "Replacement"
+    },
     "appmesh.virtualnode.listener.healthcheck": {
         "Required": "No",
         "Type": "HealthCheck",
         "UniqueKey": "appmesh.virtualnode.listener.HealthCheck",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.listener.outlierdetection": {
+        "Required": "No",
+        "Type": "OutlierDetection",
+        "UniqueKey": "appmesh.virtualnode.listener.OutlierDetection",
         "UpdateRequires": "Replacement"
     },
     "appmesh.virtualnode.listener.portmapping": {
@@ -4636,6 +4706,30 @@
         "UniqueKey": "appmesh.virtualnode.logging.AccessLog",
         "UpdateRequires": "Replacement"
     },
+    "appmesh.virtualnode.outlierdetection.baseejectionduration": {
+        "Required": "Yes",
+        "Type": "Duration",
+        "UniqueKey": "appmesh.virtualnode.outlierdetection.BaseEjectionDuration",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.outlierdetection.interval": {
+        "Required": "Yes",
+        "Type": "Duration",
+        "UniqueKey": "appmesh.virtualnode.outlierdetection.Interval",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.outlierdetection.maxejectionpercent": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.virtualnode.outlierdetection.MaxEjectionPercent",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.outlierdetection.maxservererrors": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.virtualnode.outlierdetection.MaxServerErrors",
+        "UpdateRequires": "Replacement"
+    },
     "appmesh.virtualnode.portmapping.port": {
         "Required": "Yes",
         "Type": "Integer",
@@ -4708,6 +4802,54 @@
         "UniqueKey": "appmesh.virtualnode.tlsvalidationcontexttrust.File",
         "UpdateRequires": "Replacement"
     },
+    "appmesh.virtualnode.virtualnodeconnectionpool.grpc": {
+        "Required": "No",
+        "Type": "VirtualNodeGrpcConnectionPool",
+        "UniqueKey": "appmesh.virtualnode.virtualnodeconnectionpool.GRPC",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.virtualnodeconnectionpool.http": {
+        "Required": "No",
+        "Type": "VirtualNodeHttpConnectionPool",
+        "UniqueKey": "appmesh.virtualnode.virtualnodeconnectionpool.HTTP",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.virtualnodeconnectionpool.http2": {
+        "Required": "No",
+        "Type": "VirtualNodeHttp2ConnectionPool",
+        "UniqueKey": "appmesh.virtualnode.virtualnodeconnectionpool.HTTP2",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.virtualnodeconnectionpool.tcp": {
+        "Required": "No",
+        "Type": "VirtualNodeTcpConnectionPool",
+        "UniqueKey": "appmesh.virtualnode.virtualnodeconnectionpool.TCP",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.virtualnodegrpcconnectionpool.maxrequests": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.virtualnode.virtualnodegrpcconnectionpool.MaxRequests",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.virtualnodehttp2connectionpool.maxrequests": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.virtualnode.virtualnodehttp2connectionpool.MaxRequests",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.virtualnodehttpconnectionpool.maxconnections": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.virtualnode.virtualnodehttpconnectionpool.MaxConnections",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.virtualnodehttpconnectionpool.maxpendingrequests": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.virtualnode.virtualnodehttpconnectionpool.MaxPendingRequests",
+        "UpdateRequires": "Replacement"
+    },
     "appmesh.virtualnode.virtualnodespec.backenddefaults": {
         "Required": "No",
         "Type": "BackendDefaults",
@@ -4736,6 +4878,12 @@
         "Required": "No",
         "Type": "ServiceDiscovery",
         "UniqueKey": "appmesh.virtualnode.virtualnodespec.ServiceDiscovery",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.virtualnodetcpconnectionpool.maxconnections": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.virtualnode.virtualnodetcpconnectionpool.MaxConnections",
         "UpdateRequires": "Replacement"
     },
     "appmesh.virtualnode.virtualservicebackend.clientpolicy": {
@@ -5141,6 +5289,32 @@
         "UniqueKey": "appsync.datasource.relationaldatabaseconfig.RelationalDatabaseSourceType",
         "UpdateRequires": "Replacement"
     },
+    "appsync.functionconfiguration.lambdaconflicthandlerconfig.lambdaconflicthandlerarn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appsync.functionconfiguration.lambdaconflicthandlerconfig.LambdaConflictHandlerArn",
+        "UpdateRequires": "Replacement"
+    },
+    "appsync.functionconfiguration.syncconfig.conflictdetection": {
+        "ConflictDetection`  <a name=\"cfn-appsync-functionconfiguration-syncconfig-conflictdetection\"></a>\nThe Conflict Detection strategy to use\\.  \n+  **VERSION*": "Detect conflicts based on object versions for this resolver\\.\n+  **NONE*",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "appsync.functionconfiguration.syncconfig.ConflictDetection",
+        "UpdateRequires": "Replacement"
+    },
+    "appsync.functionconfiguration.syncconfig.conflicthandler": {
+        "ConflictHandler`  <a name=\"cfn-appsync-functionconfiguration-syncconfig-conflicthandler\"></a>\nThe Conflict Resolution strategy to perform in the event of a conflict\\.  \n+  **OPTIMISTIC\\_CONCURRENCY*": "Resolve conflicts by rejecting mutations when versions do not match the latest version at the server\\.\n+  **AUTOMERGE*",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appsync.functionconfiguration.syncconfig.ConflictHandler",
+        "UpdateRequires": "Replacement"
+    },
+    "appsync.functionconfiguration.syncconfig.lambdaconflicthandlerconfig": {
+        "Required": "No",
+        "Type": "LambdaConflictHandlerConfig",
+        "UniqueKey": "appsync.functionconfiguration.syncconfig.LambdaConflictHandlerConfig",
+        "UpdateRequires": "Replacement"
+    },
     "appsync.graphqlapi.additionalauthenticationprovider.authenticationtype": {
         "Required": "Yes",
         "Type": "String",
@@ -5309,6 +5483,17 @@
         "UniqueKey": "as.group.AvailabilityZones",
         "UpdateRequires": "Replacement"
     },
+    "as.group.capacityrebalance": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "UniqueKey": "as.group.CapacityRebalance",
+        "UpdateRequires": "Replacement"
+    },
     "as.group.cooldown": {
         "Required": "No",
         "SampleValue": "TODO-Cooldown",
@@ -5359,7 +5544,7 @@
     },
     "as.group.loadbalancernames": {
         "Required": "No",
-        "SampleValue": "TODO-LoadBalancerNames",
+        "Type": "List of String",
         "UniqueKey": "as.group.LoadBalancerNames",
         "UpdateRequires": "Replacement"
     },
@@ -5401,7 +5586,6 @@
         "Pattern": "^[True|False]",
         "Required": "No",
         "SampleValue": "True|False",
-        "Type": "Boolean",
         "UniqueKey": "as.group.NewInstancesProtectedFromScaleIn",
         "UpdateRequires": "Replacement"
     },
@@ -5413,19 +5597,19 @@
     },
     "as.group.placementgroup": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-PlacementGroup",
         "UniqueKey": "as.group.PlacementGroup",
         "UpdateRequires": "Replacement"
     },
     "as.group.servicelinkedrolearn": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-ServiceLinkedRoleARN",
         "UniqueKey": "as.group.ServiceLinkedRoleARN",
         "UpdateRequires": "Replacement"
     },
     "as.group.tags": {
         "Required": "No",
-        "Type": "List of [TagProperty",
+        "SampleValue": "TODO-Tags",
         "UniqueKey": "as.group.Tags",
         "UpdateRequires": "Replacement"
     },
@@ -5624,6 +5808,12 @@
         "Required": "No",
         "Type": "String",
         "UniqueKey": "as.launchconfig.LaunchConfigurationName",
+        "UpdateRequires": "Replacement"
+    },
+    "as.launchconfig.metadataoptions": {
+        "Required": "No",
+        "SampleValue": "TODO-MetadataOptions",
+        "UniqueKey": "as.launchconfig.MetadataOptions",
         "UpdateRequires": "Replacement"
     },
     "as.launchconfig.placementtenancy": {
@@ -6076,6 +6266,12 @@
         "UniqueKey": "autoscaling.autoscalinggroup.launchtemplateoverrides.InstanceType",
         "UpdateRequires": "Replacement"
     },
+    "autoscaling.autoscalinggroup.launchtemplateoverrides.launchtemplatespecification": {
+        "Required": "No",
+        "SampleValue": "TODO-LaunchTemplateSpecification",
+        "UniqueKey": "autoscaling.autoscalinggroup.launchtemplateoverrides.LaunchTemplateSpecification",
+        "UpdateRequires": "Replacement"
+    },
     "autoscaling.autoscalinggroup.launchtemplateoverrides.weightedcapacity": {
         "Required": "No",
         "SampleValue": "TODO-WeightedCapacity",
@@ -6158,6 +6354,30 @@
         "Required": "Yes",
         "Type": "LaunchTemplate",
         "UniqueKey": "autoscaling.autoscalinggroup.mixedinstancespolicy.LaunchTemplate",
+        "UpdateRequires": "Replacement"
+    },
+    "autoscaling.launchconfig.metadataoption.httpendpoint": {
+        "Allowed values": "disabled | enabled",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "autoscaling.launchconfig.metadataoption.HttpEndpoint",
+        "UpdateRequires": "Replacement"
+    },
+    "autoscaling.launchconfig.metadataoption.httpputresponsehoplimit": {
+        "Maximum": "64",
+        "Minimum": "1",
+        "Pattern": "^[1,64]}$",
+        "Required": "No",
+        "SampleValue": "1...64",
+        "Type": "Integer",
+        "UniqueKey": "autoscaling.launchconfig.metadataoption.HttpPutResponseHopLimit",
+        "UpdateRequires": "Replacement"
+    },
+    "autoscaling.launchconfig.metadataoption.httptokens": {
+        "Allowed values": "optional | required",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "autoscaling.launchconfig.metadataoption.HttpTokens",
         "UpdateRequires": "Replacement"
     },
     "autoscaling.scalingpolicy.customizedmetricspecification.dimensions": {
@@ -6729,6 +6949,12 @@
         "UniqueKey": "batch.computeenvironment.computeresources.DesiredvCpus",
         "UpdateRequires": "Replacement"
     },
+    "batch.computeenvironment.computeresources.ec2configuration": {
+        "Required": "No",
+        "Type": "List of [Ec2ConfigurationObject",
+        "UniqueKey": "batch.computeenvironment.computeresources.Ec2Configuration",
+        "UpdateRequires": "Replacement"
+    },
     "batch.computeenvironment.computeresources.ec2keypair": {
         "Required": "No",
         "Type": "String",
@@ -6737,7 +6963,7 @@
     },
     "batch.computeenvironment.computeresources.imageid": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-ImageId",
         "UniqueKey": "batch.computeenvironment.computeresources.ImageId",
         "UpdateRequires": "Replacement"
     },
@@ -6802,10 +7028,21 @@
         "UpdateRequires": "Replacement"
     },
     "batch.computeenvironment.computeresources.type": {
-        "Allowed values": "EC2 | SPOT",
+        "Required": "Yes",
+        "SampleValue": "TODO-Type",
+        "UniqueKey": "batch.computeenvironment.computeresources.Type",
+        "UpdateRequires": "Replacement"
+    },
+    "batch.computeenvironment.ec2configurationobject.imageidoverride": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "batch.computeenvironment.ec2configurationobject.ImageIdOverride",
+        "UpdateRequires": "Replacement"
+    },
+    "batch.computeenvironment.ec2configurationobject.imagetype": {
         "Required": "Yes",
         "Type": "String",
-        "UniqueKey": "batch.computeenvironment.computeresources.Type",
+        "UniqueKey": "batch.computeenvironment.ec2configurationobject.ImageType",
         "UpdateRequires": "Replacement"
     },
     "batch.computeenvironment.launchtemplatespecification.launchtemplateid": {
@@ -6840,7 +7077,7 @@
     },
     "batch.jobdefinition.containerproperties.executionrolearn": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-ExecutionRoleArn",
         "UniqueKey": "batch.jobdefinition.containerproperties.ExecutionRoleArn",
         "UpdateRequires": "Replacement"
     },
@@ -6858,7 +7095,7 @@
     },
     "batch.jobdefinition.containerproperties.jobrolearn": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-JobRoleArn",
         "UniqueKey": "batch.jobdefinition.containerproperties.JobRoleArn",
         "UpdateRequires": "Replacement"
     },
@@ -7036,6 +7273,31 @@
         "UniqueKey": "batch.jobdefinition.environment.Value",
         "UpdateRequires": "Replacement"
     },
+    "batch.jobdefinition.evaluateonexit.action": {
+        "Allowed values": "EXIT | RETRY",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "batch.jobdefinition.evaluateonexit.Action",
+        "UpdateRequires": "Replacement"
+    },
+    "batch.jobdefinition.evaluateonexit.onexitcode": {
+        "Required": "No",
+        "SampleValue": "TODO-OnExitCode",
+        "UniqueKey": "batch.jobdefinition.evaluateonexit.OnExitCode",
+        "UpdateRequires": "Replacement"
+    },
+    "batch.jobdefinition.evaluateonexit.onreason": {
+        "Required": "No",
+        "SampleValue": "TODO-OnReason",
+        "UniqueKey": "batch.jobdefinition.evaluateonexit.OnReason",
+        "UpdateRequires": "Replacement"
+    },
+    "batch.jobdefinition.evaluateonexit.onstatusreason": {
+        "Required": "No",
+        "SampleValue": "TODO-OnStatusReason",
+        "UniqueKey": "batch.jobdefinition.evaluateonexit.OnStatusReason",
+        "UpdateRequires": "Replacement"
+    },
     "batch.jobdefinition.mountpoints.containerpath": {
         "Required": "No",
         "Type": "String",
@@ -7091,7 +7353,7 @@
         "UpdateRequires": "Replacement"
     },
     "batch.jobdefinition.resourcerequirement.type": {
-        "Allowed values": "GPU",
+        "Allowed values": "GPU | MEMORY | VCPU",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "batch.jobdefinition.resourcerequirement.Type",
@@ -7099,7 +7361,7 @@
     },
     "batch.jobdefinition.resourcerequirement.value": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-Value",
         "UniqueKey": "batch.jobdefinition.resourcerequirement.Value",
         "UpdateRequires": "Replacement"
     },
@@ -7107,6 +7369,12 @@
         "Required": "No",
         "Type": "Integer",
         "UniqueKey": "batch.jobdefinition.retrystrategy.Attempts",
+        "UpdateRequires": "Replacement"
+    },
+    "batch.jobdefinition.retrystrategy.evaluateonexit": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "batch.jobdefinition.retrystrategy.EvaluateOnExit",
         "UpdateRequires": "Replacement"
     },
     "batch.jobdefinition.secret.name": {
@@ -8022,6 +8290,12 @@
         "UniqueKey": "cloudfront.distribution.cachebehavior.PathPattern",
         "UpdateRequires": "Replacement"
     },
+    "cloudfront.distribution.cachebehavior.realtimelogconfigarn": {
+        "Required": "No",
+        "SampleValue": "TODO-RealtimeLogConfigArn",
+        "UniqueKey": "cloudfront.distribution.cachebehavior.RealtimeLogConfigArn",
+        "UpdateRequires": "Replacement"
+    },
     "cloudfront.distribution.cachebehavior.smoothstreaming": {
         "AllowedValues": [
             "True",
@@ -8038,6 +8312,12 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "cloudfront.distribution.cachebehavior.TargetOriginId",
+        "UpdateRequires": "Replacement"
+    },
+    "cloudfront.distribution.cachebehavior.trustedkeygroups": {
+        "Required": "No",
+        "SampleValue": "TODO-TrustedKeyGroups",
+        "UniqueKey": "cloudfront.distribution.cachebehavior.TrustedKeyGroups",
         "UpdateRequires": "Replacement"
     },
     "cloudfront.distribution.cachebehavior.trustedsigners": {
@@ -8196,6 +8476,12 @@
         "UniqueKey": "cloudfront.distribution.defaultcachebehavior.OriginRequestPolicyId",
         "UpdateRequires": "Replacement"
     },
+    "cloudfront.distribution.defaultcachebehavior.realtimelogconfigarn": {
+        "Required": "No",
+        "SampleValue": "TODO-RealtimeLogConfigArn",
+        "UniqueKey": "cloudfront.distribution.defaultcachebehavior.RealtimeLogConfigArn",
+        "UpdateRequires": "Replacement"
+    },
     "cloudfront.distribution.defaultcachebehavior.smoothstreaming": {
         "AllowedValues": [
             "True",
@@ -8212,6 +8498,12 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "cloudfront.distribution.defaultcachebehavior.TargetOriginId",
+        "UpdateRequires": "Replacement"
+    },
+    "cloudfront.distribution.defaultcachebehavior.trustedkeygroups": {
+        "Required": "No",
+        "SampleValue": "TODO-TrustedKeyGroups",
+        "UniqueKey": "cloudfront.distribution.defaultcachebehavior.TrustedKeyGroups",
         "UpdateRequires": "Replacement"
     },
     "cloudfront.distribution.defaultcachebehavior.trustedsigners": {
@@ -8439,7 +8731,7 @@
     },
     "cloudfront.distribution.origin.customoriginconfig": {
         "Required": "Conditional",
-        "SampleValue": "TODO-CustomOriginConfig",
+        "Type": "CustomOriginConfig",
         "UniqueKey": "cloudfront.distribution.origin.CustomOriginConfig",
         "UpdateRequires": "Replacement"
     },
@@ -8467,9 +8759,15 @@
         "UniqueKey": "cloudfront.distribution.origin.OriginPath",
         "UpdateRequires": "Replacement"
     },
+    "cloudfront.distribution.origin.originshield": {
+        "Required": "No",
+        "SampleValue": "TODO-OriginShield",
+        "UniqueKey": "cloudfront.distribution.origin.OriginShield",
+        "UpdateRequires": "Replacement"
+    },
     "cloudfront.distribution.origin.s3originconfig": {
         "Required": "Conditional",
-        "SampleValue": "TODO-S3OriginConfig",
+        "Type": "S3OriginConfig",
         "UniqueKey": "cloudfront.distribution.origin.S3OriginConfig",
         "UpdateRequires": "Replacement"
     },
@@ -8540,6 +8838,26 @@
         "UniqueKey": "cloudfront.distribution.origingroups.Quantity",
         "UpdateRequires": "Replacement"
     },
+    "cloudfront.distribution.originshield.enabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "Yes",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "cloudfront.distribution.originshield.Enabled",
+        "UpdateRequires": "Replacement"
+    },
+    "cloudfront.distribution.originshield.originshieldregion": {
+        "Maximum": "32",
+        "Minimum": "1",
+        "Pattern": "[a-z]{2}-[a-z]+-\\d",
+        "Required": "No",
+        "UniqueKey": "cloudfront.distribution.originshield.OriginShieldRegion",
+        "UpdateRequires": "Replacement"
+    },
     "cloudfront.distribution.restrictions.georestriction": {
         "Required": "Yes",
         "Type": "GeoRestriction",
@@ -8599,6 +8917,24 @@
         "Required": "Conditional",
         "Type": "String",
         "UniqueKey": "cloudfront.distribution.viewercertificate.SslSupportMethod",
+        "UpdateRequires": "Replacement"
+    },
+    "cloudfront.keygroup.keygroupconfig.comment": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "cloudfront.keygroup.keygroupconfig.Comment",
+        "UpdateRequires": "Replacement"
+    },
+    "cloudfront.keygroup.keygroupconfig.items": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "cloudfront.keygroup.keygroupconfig.items",
+        "UpdateRequires": "Replacement"
+    },
+    "cloudfront.keygroup.keygroupconfig.name": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "cloudfront.keygroup.keygroupconfig.Name",
         "UpdateRequires": "Replacement"
     },
     "cloudfront.originrequestpolicy.cookiesconfig.cookiebehavior": {
@@ -8665,6 +9001,30 @@
         "Required": "No",
         "Type": "List of String",
         "UniqueKey": "cloudfront.originrequestpolicy.querystringsconfig.QueryStrings",
+        "UpdateRequires": "Replacement"
+    },
+    "cloudfront.publickey.publickeyconfig.callerreference": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "cloudfront.publickey.publickeyconfig.CallerReference",
+        "UpdateRequires": "Replacement"
+    },
+    "cloudfront.publickey.publickeyconfig.comment": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "cloudfront.publickey.publickeyconfig.Comment",
+        "UpdateRequires": "Replacement"
+    },
+    "cloudfront.publickey.publickeyconfig.encodedkey": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "cloudfront.publickey.publickeyconfig.EncodedKey",
+        "UpdateRequires": "Replacement"
+    },
+    "cloudfront.publickey.publickeyconfig.name": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "cloudfront.publickey.publickeyconfig.Name",
         "UpdateRequires": "Replacement"
     },
     "cloudfront.realtimelogconfig.endpoint.kinesisstreamconfig": {
@@ -8974,6 +9334,12 @@
         "UniqueKey": "cloudwatch.anomalydetector.range.StartTime",
         "UpdateRequires": "Replacement"
     },
+    "cloudwatch.metricstream.metricstreamfilter.namespace": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "cloudwatch.metricstream.metricstreamfilter.Namespace",
+        "UpdateRequires": "Replacement"
+    },
     "codebuild.project.artifacts.artifactidentifier": {
         "Required": "No",
         "Type": "String",
@@ -9105,7 +9471,7 @@
     },
     "codebuild.project.environment.certificate": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-Certificate",
         "UniqueKey": "codebuild.project.environment.Certificate",
         "UpdateRequires": "Replacement"
     },
@@ -11740,6 +12106,569 @@
         "UniqueKey": "cw.dimension.Value",
         "UpdateRequires": "Replacement"
     },
+    "databrew.job.output.compressionformat": {
+        "Allowed values": "BROTLI | BZIP2 | DEFLATE | GZIP | LZ4 | LZO | SNAPPY | ZLIB | ZSTD",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.job.output.CompressionFormat",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.job.output.format": {
+        "Allowed values": "AVRO | CSV | GLUEPARQUET | JSON | ORC | PARQUET | XML",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.job.output.Format",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.job.output.location": {
+        "Required": "Yes",
+        "Type": "S3Location",
+        "UniqueKey": "databrew.job.output.Location",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.job.output.overwrite": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "databrew.job.output.Overwrite",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.job.output.partitioncolumns": {
+        "Maximum": "200",
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "databrew.job.output.PartitionColumns",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.job.s3location.bucket": {
+        "Maximum": "63",
+        "Minimum": "3",
+        "Pattern": "^.{3,63}$",
+        "Required": "Yes",
+        "SampleValue": "TODO-databrew.job.s3location.Bucket",
+        "Type": "String",
+        "UniqueKey": "databrew.job.s3location.Bucket",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.job.s3location.key": {
+        "Maximum": "1280",
+        "Minimum": "1",
+        "Pattern": "^.{1,1280}$",
+        "Required": "No",
+        "SampleValue": "TODO-databrew.job.s3location.Key",
+        "Type": "String",
+        "UniqueKey": "databrew.job.s3location.Key",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.action.operation": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.action.Operation",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.action.parameters": {
+        "Required": "No",
+        "Type": "",
+        "UniqueKey": "databrew.recipe.action.Parameters",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.conditionexpression.condition": {
+        "Maximum": "128",
+        "Minimum": "1",
+        "Pattern": "^[A-Z\\_]+$",
+        "Required": "Yes",
+        "UniqueKey": "databrew.recipe.conditionexpression.Condition",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.conditionexpression.targetcolumn": {
+        "Maximum": "1024",
+        "Minimum": "1",
+        "Pattern": "^.{1,1024}$",
+        "Required": "Yes",
+        "SampleValue": "TODO-databrew.recipe.conditionexpression.TargetColumn",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.conditionexpression.TargetColumn",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.conditionexpression.value": {
+        "Maximum": "1024",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.conditionexpression.Value",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.datacataloginputdefinition.catalogid": {
+        "Maximum": "255",
+        "Minimum": "1",
+        "Pattern": "^.{1,255}$",
+        "Required": "No",
+        "SampleValue": "TODO-databrew.recipe.datacataloginputdefinition.CatalogId",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.datacataloginputdefinition.CatalogId",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.datacataloginputdefinition.databasename": {
+        "Maximum": "255",
+        "Minimum": "1",
+        "Pattern": "^.{1,255}$",
+        "Required": "No",
+        "SampleValue": "TODO-databrew.recipe.datacataloginputdefinition.DatabaseName",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.datacataloginputdefinition.DatabaseName",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.datacataloginputdefinition.tablename": {
+        "Maximum": "255",
+        "Minimum": "1",
+        "Pattern": "^.{1,255}$",
+        "Required": "No",
+        "SampleValue": "TODO-databrew.recipe.datacataloginputdefinition.TableName",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.datacataloginputdefinition.TableName",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.datacataloginputdefinition.tempdirectory": {
+        "Required": "No",
+        "Type": "S3Location",
+        "UniqueKey": "databrew.recipe.datacataloginputdefinition.TempDirectory",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.aggregatefunction": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.AggregateFunction",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.base": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.Base",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.casestatement": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.CaseStatement",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.categorymap": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.CategoryMap",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.charstoremove": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.CharsToRemove",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.collapseconsecutivewhitespace": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.CollapseConsecutiveWhitespace",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.columndatatype": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.ColumnDataType",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.columnrange": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.ColumnRange",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.count": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.Count",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.customcharacters": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.CustomCharacters",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.customstopwords": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.CustomStopWords",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.customvalue": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.CustomValue",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.datasetscolumns": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.DatasetsColumns",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.dateaddvalue": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.DateAddValue",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.datetimeformat": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.DateTimeFormat",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.datetimeparameters": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.DateTimeParameters",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.deleteotherrows": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.DeleteOtherRows",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.delimiter": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.Delimiter",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.endpattern": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.EndPattern",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.endposition": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.EndPosition",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.endvalue": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.EndValue",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.expandcontractions": {
+        "Required": "No",
+        "SampleValue": "TODO-ExpandContractions",
+        "UniqueKey": "databrew.recipe.recipeparameters.ExpandContractions",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.exponent": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.Exponent",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.falsestring": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.FalseString",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.groupbyaggfunctionoptions": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.GroupByAggFunctionOptions",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.groupbycolumns": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.GroupByColumns",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.hiddencolumns": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.HiddenColumns",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.ignorecase": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.IgnoreCase",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.includeinsplit": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.IncludeInSplit",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.input": {
+        "Required": "No",
+        "Type": "Json",
+        "UniqueKey": "databrew.recipe.recipeparameters.Input",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.interval": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.Interval",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.istext": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.IsText",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.joinkeys": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.JoinKeys",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.jointype": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.JoinType",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.leftcolumns": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.LeftColumns",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.limit": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.Limit",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.lowerbound": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.LowerBound",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.maptype": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.MapType",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.modetype": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.ModeType",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.multiline": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "databrew.recipe.recipeparameters.MultiLine",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.numrows": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.NumRows",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.numrowsafter": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.NumRowsAfter",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.numrowsbefore": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.NumRowsBefore",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.orderbycolumn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.OrderByColumn",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.orderbycolumns": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.OrderByColumns",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.other": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.Other",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.pattern": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.Pattern",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.patternoption1": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.PatternOption1",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.patternoption2": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.PatternOption2",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.patternoptions": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.PatternOptions",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.period": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.Period",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.position": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.Position",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.removeallpunctuation": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.RemoveAllPunctuation",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.removeallquotes": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.RemoveAllQuotes",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.removeallwhitespace": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.RemoveAllWhitespace",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.removecustomcharacters": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.RemoveCustomCharacters",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.removecustomvalue": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.RemoveCustomValue",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.removeleadingandtrailingpunctuation": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.RemoveLeadingAndTrailingPunctuation",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.removeleadingandtrailingquotes": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.RemoveLeadingAndTrailingQuotes",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.removeleadingandtrailingwhitespace": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.RemoveLeadingAndTrailingWhitespace",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.removeletters": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.RemoveLetters",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.removenumbers": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.RemoveNumbers",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.removesourcecolumn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.recipeparameters.RemoveSourceColumn",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipeparameters.removespecialcharacters": {
+        "UniqueKey": "databrew.recipe.recipeparameters.RemoveSpecialCharacters"
+    },
+    "databrew.recipe.recipestep.action": {
+        "Required": "Yes",
+        "Type": "Action",
+        "UniqueKey": "databrew.recipe.recipestep.Action",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.recipestep.conditionexpressions": {
+        "Required": "No",
+        "Type": "List of [ConditionExpression",
+        "UniqueKey": "databrew.recipe.recipestep.ConditionExpressions",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.s3location.bucket": {
+        "Maximum": "63",
+        "Minimum": "3",
+        "Pattern": "^.{3,63}$",
+        "Required": "Yes",
+        "SampleValue": "TODO-databrew.recipe.s3location.Bucket",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.s3location.Bucket",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.s3location.key": {
+        "Maximum": "1280",
+        "Minimum": "1",
+        "Pattern": "^.{1,1280}$",
+        "Required": "No",
+        "SampleValue": "TODO-databrew.recipe.s3location.Key",
+        "Type": "String",
+        "UniqueKey": "databrew.recipe.s3location.Key",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.secondaryinput.datacataloginputdefinition": {
+        "Required": "No",
+        "Type": "DataCatalogInputDefinition",
+        "UniqueKey": "databrew.recipe.secondaryinput.DataCatalogInputDefinition",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.recipe.secondaryinput.s3inputdefinition": {
+        "Required": "No",
+        "Type": "S3Location",
+        "UniqueKey": "databrew.recipe.secondaryinput.S3InputDefinition",
+        "UpdateRequires": "Replacement"
+    },
     "datapipeline.pipeline.parameterobjects.attributes": {
         "Required": "Yes",
         "Type": "List of [ParameterAttribute",
@@ -12024,6 +12953,18 @@
         "UniqueKey": "dlm.lifecyclepolicy.parameters.ExcludeBootVolume",
         "UpdateRequires": "Replacement"
     },
+    "dlm.lifecyclepolicy.parameters.noreboot": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "dlm.lifecyclepolicy.parameters.NoReboot",
+        "UpdateRequires": "Replacement"
+    },
     "dlm.lifecyclepolicy.policydetails.parameters": {
         "Required": "No",
         "Type": "Parameters",
@@ -12031,7 +12972,7 @@
         "UpdateRequires": "Replacement"
     },
     "dlm.lifecyclepolicy.policydetails.policytype": {
-        "Allowed values": "EBS_SNAPSHOT_MANAGEMENT",
+        "Allowed values": "EBS_SNAPSHOT_MANAGEMENT | IMAGE_MANAGEMENT",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "dlm.lifecyclepolicy.policydetails.PolicyType",
@@ -12829,6 +13770,24 @@
         "UniqueKey": "ec2.clientvpnendpoint.clientauthenticationrequest.Type",
         "UpdateRequires": "Replacement"
     },
+    "ec2.clientvpnendpoint.clientconnectoptions.enabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "Yes",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "ec2.clientvpnendpoint.clientconnectoptions.Enabled",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.clientvpnendpoint.clientconnectoptions.lambdafunctionarn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.clientvpnendpoint.clientconnectoptions.LambdaFunctionArn",
+        "UpdateRequires": "Replacement"
+    },
     "ec2.clientvpnendpoint.connectionlogoptions.cloudwatchloggroup": {
         "Required": "No",
         "Type": "String",
@@ -12863,6 +13822,12 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "ec2.clientvpnendpoint.federatedauthenticationrequest.SAMLProviderArn",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.clientvpnendpoint.federatedauthenticationrequest.selfservicesamlproviderarn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.clientvpnendpoint.federatedauthenticationrequest.SelfServiceSAMLProviderArn",
         "UpdateRequires": "Replacement"
     },
     "ec2.clientvpnendpoint.tagspecification.resourcetype": {
@@ -13007,7 +13972,7 @@
         "UpdateRequires": "Replacement"
     },
     "ec2.ec2fleet.fleetlaunchtemplateoverridesrequest.instancetype": {
-        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ec2.ec2fleet.fleetlaunchtemplateoverridesrequest.InstanceType",
@@ -14067,6 +15032,12 @@
         "UniqueKey": "ec2.launchtemplate.capacityreservationtarget.CapacityReservationId",
         "UpdateRequires": "Replacement"
     },
+    "ec2.launchtemplate.capacityreservationtarget.capacityreservationresourcegrouparn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.launchtemplate.capacityreservationtarget.CapacityReservationResourceGroupArn",
+        "UpdateRequires": "Replacement"
+    },
     "ec2.launchtemplate.elasticgpuspecification.type": {
         "Required": "No",
         "SampleValue": "TODO-Type",
@@ -14168,6 +15139,24 @@
         "Required": "No",
         "Type": "List of [LaunchTemplateElasticInferenceAccelerator",
         "UniqueKey": "ec2.launchtemplate.launchtemplatedata.ElasticInferenceAccelerators",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.enclaveoptions": {
+        "Required": "No",
+        "Type": "EnclaveOptions",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.EnclaveOptions",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.enclaveoptions.enabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.enclaveoptions.Enabled",
         "UpdateRequires": "Replacement"
     },
     "ec2.launchtemplate.launchtemplatedata.hibernationoptions": {
@@ -14448,6 +15437,17 @@
         "UniqueKey": "ec2.launchtemplate.licensespecification.LicenseConfigurationArn",
         "UpdateRequires": "Replacement"
     },
+    "ec2.launchtemplate.networkinterface.associatecarrieripaddress": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "UniqueKey": "ec2.launchtemplate.networkinterface.AssociateCarrierIpAddress",
+        "UpdateRequires": "Replacement"
+    },
     "ec2.launchtemplate.networkinterface.associatepublicipaddress": {
         "AllowedValues": [
             "True",
@@ -14506,6 +15506,12 @@
         "Required": "No",
         "Type": "List of [Ipv6Add",
         "UniqueKey": "ec2.launchtemplate.networkinterface.Ipv6Addresses",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.networkinterface.networkcardindex": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "ec2.launchtemplate.networkinterface.NetworkCardIndex",
         "UpdateRequires": "Replacement"
     },
     "ec2.launchtemplate.networkinterface.networkinterfaceid": {
@@ -15025,7 +16031,7 @@
         "UpdateRequires": "Replacement"
     },
     "ec2.spotfleet.launchtemplateoverrides.instancetype": {
-        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ec2.spotfleet.launchtemplateoverrides.InstanceType",
@@ -15202,7 +16208,7 @@
         "UpdateRequires": "Replacement"
     },
     "ec2.spotfleet.spotfleetrequestconfigdata.launchspecifications.instancetype": {
-        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "ec2.spotfleet.spotfleetrequestconfigdata.launchspecifications.InstanceType",
@@ -17321,6 +18327,59 @@
         "UniqueKey": "elasticfilesystem.filesystem.lifecyclepolicy.transitiontoia",
         "UpdateRequires": "Replacement"
     },
+    "elasticloadbalancingv2.listener.action.authenticatecognitoconfig": {
+        "Required": "No",
+        "Type": "AuthenticateCognitoConfig",
+        "UniqueKey": "elasticloadbalancingv2.listener.action.AuthenticateCognitoConfig",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticloadbalancingv2.listener.action.authenticateoidcconfig": {
+        "Required": "No",
+        "Type": "AuthenticateOidcConfig",
+        "UniqueKey": "elasticloadbalancingv2.listener.action.AuthenticateOidcConfig",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticloadbalancingv2.listener.action.fixedresponseconfig": {
+        "Required": "No",
+        "Type": "FixedResponseConfig",
+        "UniqueKey": "elasticloadbalancingv2.listener.action.FixedResponseConfig",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticloadbalancingv2.listener.action.forwardconfig": {
+        "Required": "No",
+        "Type": "ForwardConfig",
+        "UniqueKey": "elasticloadbalancingv2.listener.action.ForwardConfig",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticloadbalancingv2.listener.action.order": {
+        "Maximum": "50000",
+        "Minimum": "1",
+        "Pattern": "^[1,50000]}$",
+        "Required": "No",
+        "SampleValue": "1...50000",
+        "Type": "Integer",
+        "UniqueKey": "elasticloadbalancingv2.listener.action.Order",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticloadbalancingv2.listener.action.redirectconfig": {
+        "Required": "No",
+        "Type": "RedirectConfig",
+        "UniqueKey": "elasticloadbalancingv2.listener.action.RedirectConfig",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticloadbalancingv2.listener.action.targetgrouparn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "elasticloadbalancingv2.listener.action.TargetGroupArn",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticloadbalancingv2.listener.action.type": {
+        "Allowed values": "authenticate-cognito | authenticate-oidc | fixed-response | forward | redirect",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "elasticloadbalancingv2.listener.action.Type",
+        "UpdateRequires": "Replacement"
+    },
     "elasticloadbalancingv2.listener.authenticatecognitoconfig.authenticationrequestextraparams": {
         "Required": "No",
         "Type": "Map of String",
@@ -17348,7 +18407,7 @@
     },
     "elasticloadbalancingv2.listener.authenticatecognitoconfig.sessiontimeout": {
         "Required": "No",
-        "Type": "Long",
+        "Type": "String",
         "UniqueKey": "elasticloadbalancingv2.listener.authenticatecognitoconfig.SessionTimeout",
         "UpdateRequires": "Replacement"
     },
@@ -17421,7 +18480,7 @@
     },
     "elasticloadbalancingv2.listener.authenticateoidcconfig.sessiontimeout": {
         "Required": "No",
-        "Type": "Long",
+        "Type": "String",
         "UniqueKey": "elasticloadbalancingv2.listener.authenticateoidcconfig.SessionTimeout",
         "UpdateRequires": "Replacement"
     },
@@ -17435,6 +18494,12 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "elasticloadbalancingv2.listener.authenticateoidcconfig.UserInfoEndpoint",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticloadbalancingv2.listener.certificate.certificatearn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "elasticloadbalancingv2.listener.certificate.CertificateArn",
         "UpdateRequires": "Replacement"
     },
     "elasticloadbalancingv2.listener.certificates.1.certificatearn": {
@@ -17562,14 +18627,14 @@
         "UpdateRequires": "Replacement"
     },
     "elasticloadbalancingv2.listener.redirectconfig.port": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "elasticloadbalancingv2.listener.redirectconfig.Port",
         "UpdateRequires": "Replacement"
     },
     "elasticloadbalancingv2.listener.redirectconfig.protocol": {
         "Pattern": "^(HTTPS?|#\\{protocol\\})$",
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "elasticloadbalancingv2.listener.redirectconfig.Protocol",
         "UpdateRequires": "Replacement"
@@ -18033,6 +19098,12 @@
         "UniqueKey": "elasticloadbalancingv2.loadbalancer.subnetmapping.AllocationId",
         "UpdateRequires": "Replacement"
     },
+    "elasticloadbalancingv2.loadbalancer.subnetmapping.ipv6address": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "elasticloadbalancingv2.loadbalancer.subnetmapping.IPv6Address",
+        "UpdateRequires": "Replacement"
+    },
     "elasticloadbalancingv2.loadbalancer.subnetmapping.privateipv4address": {
         "Required": "No",
         "Type": "String",
@@ -18046,7 +19117,7 @@
         "UpdateRequires": "Replacement"
     },
     "elasticloadbalancingv2.targetgroup.matcher.httpcode": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "elasticloadbalancingv2.targetgroup.matcher.HttpCode",
         "UpdateRequires": "Replacement"
@@ -18195,6 +19266,37 @@
         "UniqueKey": "elasticmapreduce.cluster.cloudwatchalarmdefinition.Unit",
         "UpdateRequires": "Replacement"
     },
+    "elasticmapreduce.cluster.computelimits.maximumcapacityunits": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "elasticmapreduce.cluster.computelimits.MaximumCapacityUnits",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticmapreduce.cluster.computelimits.maximumcorecapacityunits": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "elasticmapreduce.cluster.computelimits.MaximumCoreCapacityUnits",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticmapreduce.cluster.computelimits.maximumondemandcapacityunits": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "elasticmapreduce.cluster.computelimits.MaximumOnDemandCapacityUnits",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticmapreduce.cluster.computelimits.minimumcapacityunits": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "elasticmapreduce.cluster.computelimits.MinimumCapacityUnits",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticmapreduce.cluster.computelimits.unittype": {
+        "Allowed values": "InstanceFleetUnits | Instances | VCPU",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "elasticmapreduce.cluster.computelimits.UnitType",
+        "UpdateRequires": "Replacement"
+    },
     "elasticmapreduce.cluster.configuration.classification": {
         "Required": "No",
         "Type": "String",
@@ -18308,8 +19410,14 @@
         "UniqueKey": "elasticmapreduce.cluster.instancefleetconfig.TargetSpotCapacity",
         "UpdateRequires": "Replacement"
     },
+    "elasticmapreduce.cluster.instancefleetprovisioningspecifications.ondemandspecification": {
+        "Required": "No",
+        "Type": "OnDemandProvisioningSpecification",
+        "UniqueKey": "elasticmapreduce.cluster.instancefleetprovisioningspecifications.OnDemandSpecification",
+        "UpdateRequires": "Replacement"
+    },
     "elasticmapreduce.cluster.instancefleetprovisioningspecifications.spotspecification": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "SpotProvisioningSpecification",
         "UniqueKey": "elasticmapreduce.cluster.instancefleetprovisioningspecifications.SpotSpecification",
         "UpdateRequires": "Replacement"
@@ -18604,6 +19712,12 @@
         "UniqueKey": "elasticmapreduce.cluster.keyvalue.Value",
         "UpdateRequires": "Replacement"
     },
+    "elasticmapreduce.cluster.managedscalingpolicy.computelimits": {
+        "Required": "No",
+        "Type": "ComputeLimits",
+        "UniqueKey": "elasticmapreduce.cluster.managedscalingpolicy.ComputeLimits",
+        "UpdateRequires": "Replacement"
+    },
     "elasticmapreduce.cluster.metricdimension.key": {
         "Required": "Yes",
         "Type": "String",
@@ -18614,6 +19728,13 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "elasticmapreduce.cluster.metricdimension.Value",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticmapreduce.cluster.ondemandprovisioningspecification.allocationstrategy": {
+        "Allowed values": "lowest-price",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "elasticmapreduce.cluster.ondemandprovisioningspecification.AllocationStrategy",
         "UpdateRequires": "Replacement"
     },
     "elasticmapreduce.cluster.placementtype.availabilityzone": {
@@ -18712,6 +19833,13 @@
         "Required": "Yes",
         "Type": "Integer",
         "UniqueKey": "elasticmapreduce.cluster.simplescalingpolicyconfiguration.ScalingAdjustment",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticmapreduce.cluster.spotprovisioningspecification.allocationstrategy": {
+        "Allowed values": "capacity-optimized",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "elasticmapreduce.cluster.spotprovisioningspecification.AllocationStrategy",
         "UpdateRequires": "Replacement"
     },
     "elasticmapreduce.cluster.spotprovisioningspecification.blockdurationminutes": {
@@ -18822,8 +19950,14 @@
         "UniqueKey": "elasticmapreduce.instancefleetconfig.ebsconfiguration.EbsOptimized",
         "UpdateRequires": "Replacement"
     },
+    "elasticmapreduce.instancefleetconfig.instancefleetprovisioningspecifications.ondemandspecification": {
+        "Required": "No",
+        "Type": "OnDemandProvisioningSpecification",
+        "UniqueKey": "elasticmapreduce.instancefleetconfig.instancefleetprovisioningspecifications.OnDemandSpecification",
+        "UpdateRequires": "Replacement"
+    },
     "elasticmapreduce.instancefleetconfig.instancefleetprovisioningspecifications.spotspecification": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "SpotProvisioningSpecification",
         "UniqueKey": "elasticmapreduce.instancefleetconfig.instancefleetprovisioningspecifications.SpotSpecification",
         "UpdateRequires": "Replacement"
@@ -18869,6 +20003,20 @@
         "Required": "No",
         "Type": "Integer",
         "UniqueKey": "elasticmapreduce.instancefleetconfig.instancetypeconfig.WeightedCapacity",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticmapreduce.instancefleetconfig.ondemandprovisioningspecification.allocationstrategy": {
+        "Allowed values": "lowest-price",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "elasticmapreduce.instancefleetconfig.ondemandprovisioningspecification.AllocationStrategy",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticmapreduce.instancefleetconfig.spotprovisioningspecification.allocationstrategy": {
+        "Allowed values": "capacity-optimized",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "elasticmapreduce.instancefleetconfig.spotprovisioningspecification.AllocationStrategy",
         "UpdateRequires": "Replacement"
     },
     "elasticmapreduce.instancefleetconfig.spotprovisioningspecification.blockdurationminutes": {
@@ -19257,6 +20405,30 @@
         "UniqueKey": "elasticsearch.domain.elasticsearchclusterconfig.InstanceType",
         "UpdateRequires": "Replacement"
     },
+    "elasticsearch.domain.elasticsearchclusterconfig.warmcount": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "elasticsearch.domain.elasticsearchclusterconfig.WarmCount",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticsearch.domain.elasticsearchclusterconfig.warmenabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "elasticsearch.domain.elasticsearchclusterconfig.WarmEnabled",
+        "UpdateRequires": "Replacement"
+    },
+    "elasticsearch.domain.elasticsearchclusterconfig.warmtype": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "elasticsearch.domain.elasticsearchclusterconfig.WarmType",
+        "UpdateRequires": "Replacement"
+    },
     "elasticsearch.domain.elasticsearchclusterconfig.zoneawarenessconfig": {
         "Required": "No",
         "Type": "ZoneAwarenessConfig",
@@ -19503,6 +20675,12 @@
         "UniqueKey": "events.rule.batchretrystrategy.Attempts",
         "UpdateRequires": "Replacement"
     },
+    "events.rule.deadletterconfig.arn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "events.rule.deadletterconfig.Arn",
+        "UpdateRequires": "Replacement"
+    },
     "events.rule.ecsparameters.group": {
         "Required": "No",
         "Type": "String",
@@ -19587,6 +20765,77 @@
         "UniqueKey": "events.rule.networkconfiguration.AwsVpcConfiguration",
         "UpdateRequires": "Replacement"
     },
+    "events.rule.redshiftdataparameters.database": {
+        "Maximum": "64",
+        "Minimum": "1",
+        "Pattern": "([a-zA-Z0-9]+)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "events.rule.redshiftdataparameters.Database",
+        "UpdateRequires": "Replacement"
+    },
+    "events.rule.redshiftdataparameters.dbuser": {
+        "Maximum": "128",
+        "Minimum": "1",
+        "Pattern": "([a-zA-Z0-9]+)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "events.rule.redshiftdataparameters.DbUser",
+        "UpdateRequires": "Replacement"
+    },
+    "events.rule.redshiftdataparameters.secretmanagerarn": {
+        "Maximum": "1600",
+        "Minimum": "1",
+        "Pattern": "(^arn:aws([a-z]|\\-)*:secretsmanager:[a-z0-9-.]+:.*)|(\\$(\\.[\\w_-]+(\\[(\\d+|\\*)\\])*)*)",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "events.rule.redshiftdataparameters.SecretManagerArn",
+        "UpdateRequires": "Replacement"
+    },
+    "events.rule.redshiftdataparameters.sql": {
+        "Maximum": "100000",
+        "Minimum": "1",
+        "Pattern": "^.{1,100000}$",
+        "Required": "Yes",
+        "SampleValue": "TODO-events.rule.redshiftdataparameters.Sql",
+        "Type": "String",
+        "UniqueKey": "events.rule.redshiftdataparameters.Sql",
+        "UpdateRequires": "Replacement"
+    },
+    "events.rule.redshiftdataparameters.statementname": {
+        "Maximum": "500",
+        "Minimum": "1",
+        "Pattern": "^.{1,500}$",
+        "Required": "No",
+        "SampleValue": "TODO-events.rule.redshiftdataparameters.StatementName",
+        "Type": "String",
+        "UniqueKey": "events.rule.redshiftdataparameters.StatementName",
+        "UpdateRequires": "Replacement"
+    },
+    "events.rule.redshiftdataparameters.withevent": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "events.rule.redshiftdataparameters.WithEvent",
+        "UpdateRequires": "Replacement"
+    },
+    "events.rule.retrypolicy.maximumeventageinseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "events.rule.retrypolicy.MaximumEventAgeInSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "events.rule.retrypolicy.maximumretryattempts": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "events.rule.retrypolicy.MaximumRetryAttempts",
+        "UpdateRequires": "Replacement"
+    },
     "events.rule.runcommandparameters.runcommandtargets": {
         "Maximum": "5",
         "Required": "Yes",
@@ -19628,6 +20877,12 @@
         "Required": "No",
         "SampleValue": "TODO-BatchParameters",
         "UniqueKey": "events.rule.target.BatchParameters",
+        "UpdateRequires": "Replacement"
+    },
+    "events.rule.target.deadletterconfig": {
+        "Required": "No",
+        "Type": "DeadLetterConfig",
+        "UniqueKey": "events.rule.target.DeadLetterConfig",
         "UpdateRequires": "Replacement"
     },
     "events.rule.target.ecsparameters": {
@@ -19675,6 +20930,18 @@
         "Required": "No",
         "Type": "KinesisParameters",
         "UniqueKey": "events.rule.target.KinesisParameters",
+        "UpdateRequires": "Replacement"
+    },
+    "events.rule.target.redshiftdataparameters": {
+        "Required": "No",
+        "Type": "RedshiftDataParameters",
+        "UniqueKey": "events.rule.target.RedshiftDataParameters",
+        "UpdateRequires": "Replacement"
+    },
+    "events.rule.target.retrypolicy": {
+        "Required": "No",
+        "Type": "RetryPolicy",
+        "UniqueKey": "events.rule.target.RetryPolicy",
         "UpdateRequires": "Replacement"
     },
     "events.rule.target.rolearn": {
@@ -19829,7 +21096,7 @@
         "UpdateRequires": "Replacement"
     },
     "fsx.filesystem.lustreconfiguration.exportpath": {
-        "Maximum": "900",
+        "Maximum": "4357",
         "Minimum": "3",
         "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{3,4357}$",
         "Required": "No",
@@ -19848,7 +21115,7 @@
         "UpdateRequires": "Replacement"
     },
     "fsx.filesystem.lustreconfiguration.importpath": {
-        "Maximum": "900",
+        "Maximum": "4357",
         "Minimum": "3",
         "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{3,4357}$",
         "Required": "No",
@@ -19876,9 +21143,16 @@
         "Maximum": "12",
         "Minimum": "12",
         "Pattern": "^d-[0-9a-f]{10}$",
-        "Required": "No",
+        "Required": "Conditional",
         "Type": "String",
         "UniqueKey": "fsx.filesystem.windowsconfiguration.ActiveDirectoryId",
+        "UpdateRequires": "Replacement"
+    },
+    "fsx.filesystem.windowsconfiguration.aliases": {
+        "Maximum": "50",
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "fsx.filesystem.windowsconfiguration.Aliases",
         "UpdateRequires": "Replacement"
     },
     "fsx.filesystem.windowsconfiguration.automaticbackupretentiondays": {
@@ -20317,6 +21591,26 @@
         "Minimum": "0",
         "Required": "No",
         "UniqueKey": "globalaccelerator.endpointgroup.endpointconfiguration.Weight",
+        "UpdateRequires": "Replacement"
+    },
+    "globalaccelerator.endpointgroup.portoverride.endpointport": {
+        "Maximum": "65535",
+        "Minimum": "1",
+        "Pattern": "^[1,65535]}$",
+        "Required": "Yes",
+        "SampleValue": "1...65535",
+        "Type": "Integer",
+        "UniqueKey": "globalaccelerator.endpointgroup.portoverride.EndpointPort",
+        "UpdateRequires": "Replacement"
+    },
+    "globalaccelerator.endpointgroup.portoverride.listenerport": {
+        "Maximum": "65535",
+        "Minimum": "1",
+        "Pattern": "^[1,65535]}$",
+        "Required": "Yes",
+        "SampleValue": "1...65535",
+        "Type": "Integer",
+        "UniqueKey": "globalaccelerator.endpointgroup.portoverride.ListenerPort",
         "UpdateRequires": "Replacement"
     },
     "globalaccelerator.listener.portrange.fromport": {
@@ -20931,6 +22225,54 @@
         "SampleValue": "True|False",
         "Type": "Boolean",
         "UniqueKey": "glue.partition.storagedescriptor.StoredAsSubDirectories",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.schema.registry.arn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.schema.registry.Arn",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.schema.registry.name": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.schema.registry.Name",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.schema.schemaversion.islatest": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "glue.schema.schemaversion.IsLatest",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.schema.schemaversion.versionnumber": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "glue.schema.schemaversion.VersionNumber",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.schemaversion.schema.registryname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.schemaversion.schema.RegistryName",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.schemaversion.schema.schemaarn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.schemaversion.schema.SchemaArn",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.schemaversion.schema.schemaname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.schemaversion.schema.SchemaName",
         "UpdateRequires": "Replacement"
     },
     "glue.securityconfiguration.cloudwatchencryption.cloudwatchencryptionmode": {
@@ -22940,6 +24282,48 @@
         "UniqueKey": "iot.authorizer.tags.Tags",
         "UpdateRequires": "Replacement"
     },
+    "iot.domainconfiguration.authorizerconfig.allowauthorizeroverride": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "iot.domainconfiguration.authorizerconfig.AllowAuthorizerOverride",
+        "UpdateRequires": "Replacement"
+    },
+    "iot.domainconfiguration.authorizerconfig.defaultauthorizername": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "iot.domainconfiguration.authorizerconfig.DefaultAuthorizerName",
+        "UpdateRequires": "Replacement"
+    },
+    "iot.domainconfiguration.servercertificatesummary.servercertificatearn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "iot.domainconfiguration.servercertificatesummary.ServerCertificateArn",
+        "UpdateRequires": "Replacement"
+    },
+    "iot.domainconfiguration.servercertificatesummary.servercertificatestatus": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "iot.domainconfiguration.servercertificatesummary.ServerCertificateStatus",
+        "UpdateRequires": "Replacement"
+    },
+    "iot.domainconfiguration.servercertificatesummary.servercertificatestatusdetail": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "iot.domainconfiguration.servercertificatesummary.ServerCertificateStatusDetail",
+        "UpdateRequires": "Replacement"
+    },
+    "iot.domainconfiguration.tags.tags": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "iot.domainconfiguration.tags.Tags",
+        "UpdateRequires": "Replacement"
+    },
     "iot.provisioningtemplate.provisioninghook.payloadversion": {
         "Required": "No",
         "Type": "String",
@@ -23592,6 +24976,12 @@
         "Required": "Yes",
         "SampleValue": "TODO-Sql",
         "UniqueKey": "iot.topicrule.topicrulepayload.Sql",
+        "UpdateRequires": "Replacement"
+    },
+    "iot.topicruledestination.httpurldestinationsummary.confirmationurl": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "iot.topicruledestination.httpurldestinationsummary.ConfirmationUrl",
         "UpdateRequires": "Replacement"
     },
     "iot1click.project.devicetemplate.callbackoverrides": {
@@ -24982,6 +26372,264 @@
         "UniqueKey": "iotevents.input.inputdefinition.Attributes",
         "UpdateRequires": "Replacement"
     },
+    "iotsitewise.accesspolicy.accesspolicyidentity.user": {
+        "Required": "No",
+        "Type": "User",
+        "UniqueKey": "iotsitewise.accesspolicy.accesspolicyidentity.User",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.accesspolicy.accesspolicyresource.portal": {
+        "Required": "No",
+        "Type": "Portal",
+        "UniqueKey": "iotsitewise.accesspolicy.accesspolicyresource.Portal",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.accesspolicy.accesspolicyresource.project": {
+        "Required": "No",
+        "Type": "Project",
+        "UniqueKey": "iotsitewise.accesspolicy.accesspolicyresource.Project",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.accesspolicy.portal.id": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.accesspolicy.portal.id",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.accesspolicy.project.id": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.accesspolicy.project.id",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.accesspolicy.user.id": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.accesspolicy.user.id",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.asset.assethierarchy.childassetid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.asset.assethierarchy.ChildAssetId",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.asset.assethierarchy.logicalid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.asset.assethierarchy.LogicalId",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.asset.assetproperty.alias": {
+        "Required": "No",
+        "SampleValue": "TODO-Alias",
+        "UniqueKey": "iotsitewise.asset.assetproperty.Alias",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.asset.assetproperty.logicalid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.asset.assetproperty.LogicalId",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.asset.assetproperty.notificationstate": {
+        "Required": "No",
+        "SampleValue": "TODO-NotificationState",
+        "UniqueKey": "iotsitewise.asset.assetproperty.NotificationState",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.assetmodelhierarchy.childassetmodelid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.assetmodel.assetmodelhierarchy.ChildAssetModelId",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.assetmodelhierarchy.logicalid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.assetmodel.assetmodelhierarchy.LogicalId",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.assetmodelhierarchy.name": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.assetmodel.assetmodelhierarchy.Name",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.assetmodelproperty.datatype": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.assetmodel.assetmodelproperty.DataType",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.assetmodelproperty.logicalid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.assetmodel.assetmodelproperty.LogicalId",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.assetmodelproperty.name": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.assetmodel.assetmodelproperty.Name",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.assetmodelproperty.type": {
+        "Required": "Yes",
+        "Type": "PropertyType",
+        "UniqueKey": "iotsitewise.assetmodel.assetmodelproperty.Type",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.assetmodelproperty.unit": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.assetmodel.assetmodelproperty.Unit",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.attribute.defaultvalue": {
+        "Required": "No",
+        "SampleValue": "TODO-DefaultValue",
+        "UniqueKey": "iotsitewise.assetmodel.attribute.DefaultValue",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.expressionvariable.name": {
+        "Required": "Yes",
+        "SampleValue": "TODO-Name",
+        "UniqueKey": "iotsitewise.assetmodel.expressionvariable.Name",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.expressionvariable.value": {
+        "Required": "Yes",
+        "Type": "VariableValue",
+        "UniqueKey": "iotsitewise.assetmodel.expressionvariable.Value",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.metric.expression": {
+        "Required": "Yes",
+        "SampleValue": "TODO-Expression",
+        "UniqueKey": "iotsitewise.assetmodel.metric.Expression",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.metric.variables": {
+        "Required": "Yes",
+        "Type": "List of [ExpressionVariable",
+        "UniqueKey": "iotsitewise.assetmodel.metric.Variables",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.metric.window": {
+        "Required": "Yes",
+        "Type": "MetricWindow",
+        "UniqueKey": "iotsitewise.assetmodel.metric.Window",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.metricwindow.tumbling": {
+        "Required": "No",
+        "Type": "TumblingWindow",
+        "UniqueKey": "iotsitewise.assetmodel.metricwindow.Tumbling",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.propertytype.attribute": {
+        "Required": "No",
+        "Type": "Attribute",
+        "UniqueKey": "iotsitewise.assetmodel.propertytype.Attribute",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.propertytype.metric": {
+        "Required": "No",
+        "Type": "Metric",
+        "UniqueKey": "iotsitewise.assetmodel.propertytype.Metric",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.propertytype.transform": {
+        "Required": "No",
+        "Type": "Transform",
+        "UniqueKey": "iotsitewise.assetmodel.propertytype.Transform",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.propertytype.typename": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.assetmodel.propertytype.TypeName",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.transform.expression": {
+        "Required": "Yes",
+        "SampleValue": "TODO-Expression",
+        "UniqueKey": "iotsitewise.assetmodel.transform.Expression",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.transform.variables": {
+        "Required": "Yes",
+        "Type": "List of [ExpressionVariable",
+        "UniqueKey": "iotsitewise.assetmodel.transform.Variables",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.tumblingwindow.interval": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.assetmodel.tumblingwindow.Interval",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.variablevalue.hierarchylogicalid": {
+        "Required": "No",
+        "SampleValue": "TODO-HierarchyLogicalId",
+        "UniqueKey": "iotsitewise.assetmodel.variablevalue.HierarchyLogicalId",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.assetmodel.variablevalue.propertylogicalid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.assetmodel.variablevalue.PropertyLogicalId",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.gateway.gatewaycapabilitysummary.capabilityconfiguration": {
+        "Required": "No",
+        "SampleValue": "TODO-CapabilityConfiguration",
+        "UniqueKey": "iotsitewise.gateway.gatewaycapabilitysummary.CapabilityConfiguration",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.gateway.gatewaycapabilitysummary.capabilitynamespace": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.gateway.gatewaycapabilitysummary.CapabilityNamespace",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.gateway.gatewayplatform.greengrass": {
+        "Required": "Yes",
+        "Type": "Greengrass",
+        "UniqueKey": "iotsitewise.gateway.gatewayplatform.Greengrass",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.gateway.greengrass.grouparn": {
+        "Required": "Yes",
+        "SampleValue": "TODO-GroupArn",
+        "UniqueKey": "iotsitewise.gateway.greengrass.GroupArn",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.portal.monitorerrordetails.code": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.portal.monitorerrordetails.code",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.portal.monitorerrordetails.message": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.portal.monitorerrordetails.message",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.portal.portalstatus.error": {
+        "Required": "No",
+        "Type": "MonitorErrorDetails",
+        "UniqueKey": "iotsitewise.portal.portalstatus.error",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.portal.portalstatus.state": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.portal.portalstatus.state",
+        "UpdateRequires": "Replacement"
+    },
     "iotthingsgraph.flowtemplate.definitiondocument.language": {
         "Required": "Yes",
         "Type": "String",
@@ -25331,6 +26979,12 @@
         "Maximum": "100",
         "Required": "No",
         "UniqueKey": "kendra.datasource.s3datasourceconfiguration.ExclusionPatterns",
+        "UpdateRequires": "Replacement"
+    },
+    "kendra.datasource.s3datasourceconfiguration.inclusionpatterns": {
+        "Maximum": "100",
+        "Required": "No",
+        "UniqueKey": "kendra.datasource.s3datasourceconfiguration.InclusionPatterns",
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.s3datasourceconfiguration.inclusionprefixes": {
@@ -27220,6 +28874,22 @@
         "UniqueKey": "kinesisfirehose.deliverystream.dataformatconversionconfiguration.SchemaConfiguration",
         "UpdateRequires": "Replacement"
     },
+    "kinesisfirehose.deliverystream.deliverystreamencryptionconfigurationinput.keyarn": {
+        "Maximum": "512",
+        "Minimum": "1",
+        "Pattern": "arn:.*",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "kinesisfirehose.deliverystream.deliverystreamencryptionconfigurationinput.KeyARN",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisfirehose.deliverystream.deliverystreamencryptionconfigurationinput.keytype": {
+        "Allowed values": "AWS_OWNED_CMK | CUSTOMER_MANAGED_CMK",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "kinesisfirehose.deliverystream.deliverystreamencryptionconfigurationinput.KeyType",
+        "UpdateRequires": "Replacement"
+    },
     "kinesisfirehose.deliverystream.deserializer.hivejsonserde": {
         "Required": "No",
         "Type": "HiveJsonSerDe",
@@ -28255,6 +29925,20 @@
         "UniqueKey": "lambda.alias.versionweight.FunctionWeight",
         "UpdateRequires": "Replacement"
     },
+    "lambda.codesigningconfig.allowedpublishers.signingprofileversionarns": {
+        "Maximum": "20",
+        "Required": "Yes",
+        "Type": "List of String",
+        "UniqueKey": "lambda.codesigningconfig.allowedpublishers.SigningProfileVersionArns",
+        "UpdateRequires": "Replacement"
+    },
+    "lambda.codesigningconfig.codesigningpolicies.untrustedartifactondeployment": {
+        "Allowed values": "Enforce | Warn",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "lambda.codesigningconfig.codesigningpolicies.UntrustedArtifactOnDeployment",
+        "UpdateRequires": "Replacement"
+    },
     "lambda.eventinvokeconfig.destinationconfig.onfailure": {
         "Required": "No",
         "Type": "OnFailure",
@@ -28295,6 +29979,18 @@
         "Required": "No",
         "Type": "String",
         "UniqueKey": "lambda.eventsourcemapping.onfailure.Destination",
+        "UpdateRequires": "Replacement"
+    },
+    "lambda.eventsourcemapping.sourceaccessconfiguration.type": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lambda.eventsourcemapping.sourceaccessconfiguration.Type",
+        "UpdateRequires": "Replacement"
+    },
+    "lambda.eventsourcemapping.sourceaccessconfiguration.uri": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lambda.eventsourcemapping.sourceaccessconfiguration.URI",
         "UpdateRequires": "Replacement"
     },
     "lambda.function.code.s3bucket": {
@@ -32102,6 +33798,720 @@
         "UniqueKey": "medialive.inputsecuritygroup.inputwhitelistrulecidr.Cidr",
         "UpdateRequires": "Replacement"
     },
+    "mediapackage.asset.egressendpoint.packagingconfigurationid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "mediapackage.asset.egressendpoint.PackagingConfigurationId",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.asset.egressendpoint.url": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "mediapackage.asset.egressendpoint.Url",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.channel.hlsingest.ingestendpoints": {
+        "Required": "No",
+        "Type": "List of [IngestEndpoint",
+        "UniqueKey": "mediapackage.channel.hlsingest.ingestEndpoints",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.channel.ingestendpoint.id": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.channel.ingestendpoint.Id",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.channel.ingestendpoint.password": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.channel.ingestendpoint.Password",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.channel.ingestendpoint.url": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.channel.ingestendpoint.Url",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.channel.ingestendpoint.username": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.channel.ingestendpoint.Username",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.authorization.cdnidentifiersecret": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.authorization.CdnIdentifierSecret",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.authorization.secretsrolearn": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.authorization.SecretsRoleArn",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.cmafencryption.keyrotationintervalseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.cmafencryption.KeyRotationIntervalSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.cmafencryption.spekekeyprovider": {
+        "Required": "Yes",
+        "Type": "SpekeKeyProvider",
+        "UniqueKey": "mediapackage.originendpoint.cmafencryption.SpekeKeyProvider",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.cmafpackage.encryption": {
+        "Required": "No",
+        "Type": "CmafEncryption",
+        "UniqueKey": "mediapackage.originendpoint.cmafpackage.Encryption",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.cmafpackage.hlsmanifests": {
+        "Required": "No",
+        "Type": "List of [HlsManifest",
+        "UniqueKey": "mediapackage.originendpoint.cmafpackage.HlsManifests",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.cmafpackage.segmentdurationseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.cmafpackage.SegmentDurationSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.cmafpackage.segmentprefix": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.cmafpackage.SegmentPrefix",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.cmafpackage.streamselection": {
+        "Required": "No",
+        "Type": "StreamSelection",
+        "UniqueKey": "mediapackage.originendpoint.cmafpackage.StreamSelection",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashencryption.keyrotationintervalseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.dashencryption.KeyRotationIntervalSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashencryption.spekekeyprovider": {
+        "Required": "Yes",
+        "Type": "SpekeKeyProvider",
+        "UniqueKey": "mediapackage.originendpoint.dashencryption.SpekeKeyProvider",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.adsondeliveryrestrictions": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.AdsOnDeliveryRestrictions",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.adtriggers": {
+        "Required": "No",
+        "SampleValue": "TODO-AdTriggers",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.AdTriggers",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.encryption": {
+        "Required": "No",
+        "Type": "DashEncryption",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.Encryption",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.manifestlayout": {
+        "Required": "No",
+        "SampleValue": "TODO-ManifestLayout",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.ManifestLayout",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.manifestwindowseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.ManifestWindowSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.minbuffertimeseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.MinBufferTimeSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.minupdateperiodseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.MinUpdatePeriodSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.periodtriggers": {
+        "Required": "No",
+        "SampleValue": "TODO-PeriodTriggers",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.PeriodTriggers",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.profile": {
+        "Required": "No",
+        "SampleValue": "TODO-Profile",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.Profile",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.segmentdurationseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.SegmentDurationSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.segmenttemplateformat": {
+        "Required": "No",
+        "SampleValue": "TODO-SegmentTemplateFormat",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.SegmentTemplateFormat",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.streamselection": {
+        "Required": "No",
+        "Type": "StreamSelection",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.StreamSelection",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.suggestedpresentationdelayseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.SuggestedPresentationDelaySeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsencryption.constantinitializationvector": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.hlsencryption.ConstantInitializationVector",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsencryption.encryptionmethod": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.hlsencryption.EncryptionMethod",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsencryption.keyrotationintervalseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.hlsencryption.KeyRotationIntervalSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsencryption.repeatextxkey": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "mediapackage.originendpoint.hlsencryption.RepeatExtXKey",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsencryption.spekekeyprovider": {
+        "Required": "Yes",
+        "Type": "SpekeKeyProvider",
+        "UniqueKey": "mediapackage.originendpoint.hlsencryption.SpekeKeyProvider",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsmanifest.admarkers": {
+        "Required": "No",
+        "SampleValue": "TODO-AdMarkers",
+        "UniqueKey": "mediapackage.originendpoint.hlsmanifest.AdMarkers",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsmanifest.adsondeliveryrestrictions": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.hlsmanifest.AdsOnDeliveryRestrictions",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsmanifest.adtriggers": {
+        "Required": "No",
+        "SampleValue": "TODO-AdTriggers",
+        "UniqueKey": "mediapackage.originendpoint.hlsmanifest.AdTriggers",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsmanifest.id": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.hlsmanifest.Id",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsmanifest.includeiframeonlystream": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "mediapackage.originendpoint.hlsmanifest.IncludeIframeOnlyStream",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsmanifest.manifestname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.hlsmanifest.ManifestName",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsmanifest.playlisttype": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.hlsmanifest.PlaylistType",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsmanifest.playlistwindowseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.hlsmanifest.PlaylistWindowSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsmanifest.programdatetimeintervalseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.hlsmanifest.ProgramDateTimeIntervalSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlsmanifest.url": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.hlsmanifest.Url",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlspackage.admarkers": {
+        "Required": "No",
+        "SampleValue": "TODO-AdMarkers",
+        "UniqueKey": "mediapackage.originendpoint.hlspackage.AdMarkers",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlspackage.adsondeliveryrestrictions": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.hlspackage.AdsOnDeliveryRestrictions",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlspackage.adtriggers": {
+        "Required": "No",
+        "SampleValue": "TODO-AdTriggers",
+        "UniqueKey": "mediapackage.originendpoint.hlspackage.AdTriggers",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlspackage.encryption": {
+        "Required": "No",
+        "Type": "HlsEncryption",
+        "UniqueKey": "mediapackage.originendpoint.hlspackage.Encryption",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlspackage.includeiframeonlystream": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "mediapackage.originendpoint.hlspackage.IncludeIframeOnlyStream",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlspackage.playlisttype": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.hlspackage.PlaylistType",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlspackage.playlistwindowseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.hlspackage.PlaylistWindowSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlspackage.programdatetimeintervalseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.hlspackage.ProgramDateTimeIntervalSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlspackage.segmentdurationseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.hlspackage.SegmentDurationSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlspackage.streamselection": {
+        "Required": "No",
+        "Type": "StreamSelection",
+        "UniqueKey": "mediapackage.originendpoint.hlspackage.StreamSelection",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.hlspackage.useaudiorenditiongroup": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "mediapackage.originendpoint.hlspackage.UseAudioRenditionGroup",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.mssencryption.spekekeyprovider": {
+        "Required": "Yes",
+        "Type": "SpekeKeyProvider",
+        "UniqueKey": "mediapackage.originendpoint.mssencryption.SpekeKeyProvider",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.msspackage.encryption": {
+        "Required": "No",
+        "Type": "MssEncryption",
+        "UniqueKey": "mediapackage.originendpoint.msspackage.Encryption",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.msspackage.manifestwindowseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.msspackage.ManifestWindowSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.msspackage.segmentdurationseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.msspackage.SegmentDurationSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.msspackage.streamselection": {
+        "Required": "No",
+        "Type": "StreamSelection",
+        "UniqueKey": "mediapackage.originendpoint.msspackage.StreamSelection",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.spekekeyprovider.certificatearn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.spekekeyprovider.CertificateArn",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.spekekeyprovider.resourceid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.spekekeyprovider.ResourceId",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.spekekeyprovider.rolearn": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.spekekeyprovider.RoleArn",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.spekekeyprovider.systemids": {
+        "Required": "Yes",
+        "Type": "List of String",
+        "UniqueKey": "mediapackage.originendpoint.spekekeyprovider.SystemIds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.spekekeyprovider.url": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.spekekeyprovider.Url",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.streamselection.maxvideobitspersecond": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.streamselection.MaxVideoBitsPerSecond",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.streamselection.minvideobitspersecond": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.originendpoint.streamselection.MinVideoBitsPerSecond",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.streamselection.streamorder": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.streamselection.StreamOrder",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.cmafencryption.spekekeyprovider": {
+        "Required": "Yes",
+        "Type": "",
+        "UniqueKey": "mediapackage.packagingconfiguration.cmafencryption.SpekeKeyProvider",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.cmafpackage.encryption": {
+        "Required": "No",
+        "Type": "CmafEncryption",
+        "UniqueKey": "mediapackage.packagingconfiguration.cmafpackage.Encryption",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.cmafpackage.hlsmanifests": {
+        "Required": "Yes",
+        "Type": "List of [HlsManifest",
+        "UniqueKey": "mediapackage.packagingconfiguration.cmafpackage.HlsManifests",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.cmafpackage.segmentdurationseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.packagingconfiguration.cmafpackage.SegmentDurationSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.dashencryption.spekekeyprovider": {
+        "Required": "Yes",
+        "Type": "",
+        "UniqueKey": "mediapackage.packagingconfiguration.dashencryption.SpekeKeyProvider",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.dashmanifest.manifestlayout": {
+        "Required": "No",
+        "SampleValue": "TODO-ManifestLayout",
+        "UniqueKey": "mediapackage.packagingconfiguration.dashmanifest.ManifestLayout",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.dashmanifest.manifestname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.packagingconfiguration.dashmanifest.ManifestName",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.dashmanifest.minbuffertimeseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.packagingconfiguration.dashmanifest.MinBufferTimeSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.dashmanifest.profile": {
+        "Required": "No",
+        "SampleValue": "TODO-Profile",
+        "UniqueKey": "mediapackage.packagingconfiguration.dashmanifest.Profile",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.dashmanifest.streamselection": {
+        "Required": "No",
+        "Type": "StreamSelection",
+        "UniqueKey": "mediapackage.packagingconfiguration.dashmanifest.StreamSelection",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.dashpackage.dashmanifests": {
+        "Required": "Yes",
+        "Type": "List of [DashManifest",
+        "UniqueKey": "mediapackage.packagingconfiguration.dashpackage.DashManifests",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.dashpackage.encryption": {
+        "Required": "No",
+        "Type": "DashEncryption",
+        "UniqueKey": "mediapackage.packagingconfiguration.dashpackage.Encryption",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.dashpackage.periodtriggers": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "mediapackage.packagingconfiguration.dashpackage.PeriodTriggers",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.dashpackage.segmentdurationseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.packagingconfiguration.dashpackage.SegmentDurationSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.dashpackage.segmenttemplateformat": {
+        "Required": "No",
+        "SampleValue": "TODO-SegmentTemplateFormat",
+        "UniqueKey": "mediapackage.packagingconfiguration.dashpackage.SegmentTemplateFormat",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlsencryption.constantinitializationvector": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlsencryption.ConstantInitializationVector",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlsencryption.encryptionmethod": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlsencryption.EncryptionMethod",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlsencryption.spekekeyprovider": {
+        "Required": "Yes",
+        "Type": "",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlsencryption.SpekeKeyProvider",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlsmanifest.admarkers": {
+        "Required": "No",
+        "SampleValue": "TODO-AdMarkers",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlsmanifest.AdMarkers",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlsmanifest.includeiframeonlystream": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlsmanifest.IncludeIframeOnlyStream",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlsmanifest.manifestname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlsmanifest.ManifestName",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlsmanifest.programdatetimeintervalseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlsmanifest.ProgramDateTimeIntervalSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlsmanifest.repeatextxkey": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlsmanifest.RepeatExtXKey",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlsmanifest.streamselection": {
+        "Required": "No",
+        "Type": "StreamSelection",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlsmanifest.StreamSelection",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlspackage.encryption": {
+        "Required": "No",
+        "Type": "HlsEncryption",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlspackage.Encryption",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlspackage.hlsmanifests": {
+        "Required": "Yes",
+        "Type": "List of [HlsManifest",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlspackage.HlsManifests",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlspackage.segmentdurationseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlspackage.SegmentDurationSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.hlspackage.useaudiorenditiongroup": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "mediapackage.packagingconfiguration.hlspackage.UseAudioRenditionGroup",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.mssencryption.spekekeyprovider": {
+        "Required": "Yes",
+        "Type": "",
+        "UniqueKey": "mediapackage.packagingconfiguration.mssencryption.SpekeKeyProvider",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.mssmanifest.manifestname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.packagingconfiguration.mssmanifest.ManifestName",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.mssmanifest.streamselection": {
+        "Required": "No",
+        "Type": "StreamSelection",
+        "UniqueKey": "mediapackage.packagingconfiguration.mssmanifest.StreamSelection",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.msspackage.encryption": {
+        "Required": "No",
+        "Type": "MssEncryption",
+        "UniqueKey": "mediapackage.packagingconfiguration.msspackage.Encryption",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.msspackage.mssmanifests": {
+        "Required": "Yes",
+        "Type": "List of [MssManifest",
+        "UniqueKey": "mediapackage.packagingconfiguration.msspackage.MssManifests",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.msspackage.segmentdurationseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.packagingconfiguration.msspackage.SegmentDurationSeconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.spekekeyprovider.rolearn": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "mediapackage.packagingconfiguration.spekekeyprovider.RoleArn",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.spekekeyprovider.systemids": {
+        "Required": "Yes",
+        "Type": "List of String",
+        "UniqueKey": "mediapackage.packagingconfiguration.spekekeyprovider.SystemIds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.spekekeyprovider.url": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "mediapackage.packagingconfiguration.spekekeyprovider.Url",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.streamselection.maxvideobitspersecond": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.packagingconfiguration.streamselection.MaxVideoBitsPerSecond",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.streamselection.minvideobitspersecond": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "mediapackage.packagingconfiguration.streamselection.MinVideoBitsPerSecond",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.streamselection.streamorder": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.packagingconfiguration.streamselection.StreamOrder",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packaginggroup.authorization.cdnidentifiersecret": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "mediapackage.packaginggroup.authorization.CdnIdentifierSecret",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packaginggroup.authorization.secretsrolearn": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "mediapackage.packaginggroup.authorization.SecretsRoleArn",
+        "UpdateRequires": "Replacement"
+    },
     "mediastore.container.corsrule.allowedheaders": {
         "Maximum": "100",
         "Required": "No",
@@ -32431,6 +34841,561 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "neptune.dbcluster.dbclusterrole.RoleArn",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewall.subnetmapping.subnetid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.firewall.subnetmapping.SubnetId",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.actiondefinition.publishmetricaction": {
+        "Required": "No",
+        "Type": "PublishMetricAction",
+        "UniqueKey": "networkfirewall.firewallpolicy.actiondefinition.PublishMetricAction",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.customaction.actiondefinition": {
+        "Required": "Yes",
+        "Type": "ActionDefinition",
+        "UniqueKey": "networkfirewall.firewallpolicy.customaction.ActionDefinition",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.customaction.actionname": {
+        "Maximum": "128",
+        "Minimum": "1",
+        "Pattern": "^[a-zA-Z0-9]+$",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.firewallpolicy.customaction.ActionName",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.customactions.customactions": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.firewallpolicy.customactions.CustomActions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.dimension.value": {
+        "Maximum": "128",
+        "Minimum": "1",
+        "Pattern": "^[a-zA-Z0-9-_ ]+$",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.firewallpolicy.dimension.Value",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.dimensions.dimensions": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.firewallpolicy.dimensions.Dimensions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.firewallpolicy.statefulrulegroupreferences": {
+        "Required": "No",
+        "Type": "StatefulRuleGroupReferences",
+        "UniqueKey": "networkfirewall.firewallpolicy.firewallpolicy.StatefulRuleGroupReferences",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.firewallpolicy.statelesscustomactions": {
+        "Required": "No",
+        "Type": "CustomActions",
+        "UniqueKey": "networkfirewall.firewallpolicy.firewallpolicy.StatelessCustomActions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.firewallpolicy.statelessdefaultactions": {
+        "Required": "Yes",
+        "Type": "StatelessActions",
+        "UniqueKey": "networkfirewall.firewallpolicy.firewallpolicy.StatelessDefaultActions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.firewallpolicy.statelessfragmentdefaultactions": {
+        "Required": "Yes",
+        "Type": "StatelessActions",
+        "UniqueKey": "networkfirewall.firewallpolicy.firewallpolicy.StatelessFragmentDefaultActions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.firewallpolicy.statelessrulegroupreferences": {
+        "Required": "No",
+        "Type": "StatelessRuleGroupReferences",
+        "UniqueKey": "networkfirewall.firewallpolicy.firewallpolicy.StatelessRuleGroupReferences",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.publishmetricaction.dimensions": {
+        "Maximum": "1",
+        "Required": "Yes",
+        "Type": "Dimensions",
+        "UniqueKey": "networkfirewall.firewallpolicy.publishmetricaction.Dimensions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.statefulrulegroupreference.resourcearn": {
+        "Maximum": "256",
+        "Minimum": "1",
+        "Pattern": "^arn:aws.*",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.firewallpolicy.statefulrulegroupreference.ResourceArn",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.statefulrulegroupreferences.statefulrulegroupreferences": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.firewallpolicy.statefulrulegroupreferences.StatefulRuleGroupReferences",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.statelessactions.statelessactions": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.firewallpolicy.statelessactions.StatelessActions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.statelessrulegroupreference.priority": {
+        "Maximum": "65535",
+        "Minimum": "1",
+        "Pattern": "^[1,65535]}$",
+        "Required": "Yes",
+        "SampleValue": "1...65535",
+        "Type": "Integer",
+        "UniqueKey": "networkfirewall.firewallpolicy.statelessrulegroupreference.Priority",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.statelessrulegroupreference.resourcearn": {
+        "Maximum": "256",
+        "Minimum": "1",
+        "Pattern": "^arn:aws.*",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.firewallpolicy.statelessrulegroupreference.ResourceArn",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.statelessrulegroupreferences.statelessrulegroupreferences": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.firewallpolicy.statelessrulegroupreferences.StatelessRuleGroupReferences",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.loggingconfiguration.logdestinationconfig.logdestination": {
+        "Required": "Yes",
+        "Type": "Map of String",
+        "UniqueKey": "networkfirewall.loggingconfiguration.logdestinationconfig.LogDestination",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.loggingconfiguration.logdestinationconfig.logdestinationtype": {
+        "Allowed values": "CloudWatchLogs | KinesisDataFirehose | S3",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.loggingconfiguration.logdestinationconfig.LogDestinationType",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.loggingconfiguration.logdestinationconfig.logtype": {
+        "Allowed values": "ALERT | FLOW",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.loggingconfiguration.logdestinationconfig.LogType",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.loggingconfiguration.logdestinationconfigs.logdestinationconfigs": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.loggingconfiguration.logdestinationconfigs.LogDestinationConfigs",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.loggingconfiguration.loggingconfiguration.logdestinationconfigs": {
+        "Required": "Yes",
+        "Type": "LogDestinationConfigs",
+        "UniqueKey": "networkfirewall.loggingconfiguration.loggingconfiguration.LogDestinationConfigs",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.actiondefinition.publishmetricaction": {
+        "Required": "No",
+        "Type": "PublishMetricAction",
+        "UniqueKey": "networkfirewall.rulegroup.actiondefinition.PublishMetricAction",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.address.addressdefinition": {
+        "Maximum": "255",
+        "Minimum": "1",
+        "Pattern": "^([a-fA-F\\d:\\.]+/\\d{1,3})$",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.rulegroup.address.AddressDefinition",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.addresses.addresses": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.addresses.Addresses",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.customaction.actiondefinition": {
+        "Required": "Yes",
+        "Type": "ActionDefinition",
+        "UniqueKey": "networkfirewall.rulegroup.customaction.ActionDefinition",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.customaction.actionname": {
+        "Maximum": "128",
+        "Minimum": "1",
+        "Pattern": "^[a-zA-Z0-9]+$",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.rulegroup.customaction.ActionName",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.customactions.customactions": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.customactions.CustomActions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.dimension.value": {
+        "Maximum": "128",
+        "Minimum": "1",
+        "Pattern": "^[a-zA-Z0-9-_ ]+$",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.rulegroup.dimension.Value",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.dimensions.dimensions": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.dimensions.Dimensions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.flags.flags": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.flags.Flags",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.header.destination": {
+        "Maximum": "1024",
+        "Minimum": "1",
+        "Pattern": "^.*$",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.rulegroup.header.Destination",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.header.destinationport": {
+        "Maximum": "1024",
+        "Minimum": "1",
+        "Pattern": "^.*$",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.rulegroup.header.DestinationPort",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.header.direction": {
+        "Allowed values": "ANY | FORWARD",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.rulegroup.header.Direction",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.header.protocol": {
+        "Allowed values": "DCERPC | DHCP | DNS | FTP | HTTP | ICMP | IKEV2 | IMAP | IP | KRB5 | MSN | NTP | SMB | SMTP | SSH | TCP | TFTP | TLS | UDP",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.rulegroup.header.Protocol",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.header.source": {
+        "Maximum": "1024",
+        "Minimum": "1",
+        "Pattern": "^.*$",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.rulegroup.header.Source",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.header.sourceport": {
+        "Maximum": "1024",
+        "Minimum": "1",
+        "Pattern": "^.*$",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.rulegroup.header.SourcePort",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.ipset.definition": {
+        "Required": "No",
+        "Type": "VariableDefinitionList",
+        "UniqueKey": "networkfirewall.rulegroup.ipset.Definition",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.matchattributes.destinationports": {
+        "Required": "No",
+        "Type": "PortRanges",
+        "UniqueKey": "networkfirewall.rulegroup.matchattributes.DestinationPorts",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.matchattributes.destinations": {
+        "Required": "No",
+        "Type": "Addresses",
+        "UniqueKey": "networkfirewall.rulegroup.matchattributes.Destinations",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.matchattributes.protocols": {
+        "Required": "No",
+        "Type": "ProtocolNumbers",
+        "UniqueKey": "networkfirewall.rulegroup.matchattributes.Protocols",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.matchattributes.sourceports": {
+        "Required": "No",
+        "Type": "PortRanges",
+        "UniqueKey": "networkfirewall.rulegroup.matchattributes.SourcePorts",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.matchattributes.sources": {
+        "Required": "No",
+        "Type": "Addresses",
+        "UniqueKey": "networkfirewall.rulegroup.matchattributes.Sources",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.matchattributes.tcpflags": {
+        "Required": "No",
+        "Type": "TCPFlags",
+        "UniqueKey": "networkfirewall.rulegroup.matchattributes.TCPFlags",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.portrange.fromport": {
+        "Maximum": "65535",
+        "Minimum": "0",
+        "Pattern": "^[0,65535]}$",
+        "Required": "Yes",
+        "SampleValue": "0...65535",
+        "Type": "Integer",
+        "UniqueKey": "networkfirewall.rulegroup.portrange.FromPort",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.portrange.toport": {
+        "Maximum": "65535",
+        "Minimum": "0",
+        "Pattern": "^[0,65535]}$",
+        "Required": "Yes",
+        "SampleValue": "0...65535",
+        "Type": "Integer",
+        "UniqueKey": "networkfirewall.rulegroup.portrange.ToPort",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.portranges.portranges": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.portranges.PortRanges",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.portset.definition": {
+        "Required": "No",
+        "Type": "VariableDefinitionList",
+        "UniqueKey": "networkfirewall.rulegroup.portset.Definition",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.protocolnumbers.protocolnumbers": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.protocolnumbers.ProtocolNumbers",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.publishmetricaction.dimensions": {
+        "Maximum": "1",
+        "Required": "Yes",
+        "Type": "Dimensions",
+        "UniqueKey": "networkfirewall.rulegroup.publishmetricaction.Dimensions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.ruledefinition.actions": {
+        "Required": "Yes",
+        "SampleValue": "TODO-Actions",
+        "UniqueKey": "networkfirewall.rulegroup.ruledefinition.Actions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.ruledefinition.matchattributes": {
+        "Required": "Yes",
+        "Type": "MatchAttributes",
+        "UniqueKey": "networkfirewall.rulegroup.ruledefinition.MatchAttributes",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.rulegroup.rulessource": {
+        "Required": "Yes",
+        "Type": "RulesSource",
+        "UniqueKey": "networkfirewall.rulegroup.rulegroup.RulesSource",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.rulegroup.rulevariables": {
+        "Required": "No",
+        "Type": "RuleVariables",
+        "UniqueKey": "networkfirewall.rulegroup.rulegroup.RuleVariables",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.ruleoption.keyword": {
+        "Maximum": "128",
+        "Minimum": "1",
+        "Pattern": ".*",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.rulegroup.ruleoption.Keyword",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.ruleoption.settings": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "networkfirewall.rulegroup.ruleoption.Settings",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.ruleoptions.ruleoptions": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.ruleoptions.RuleOptions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.rulessource.rulessourcelist": {
+        "Required": "No",
+        "Type": "RulesSourceList",
+        "UniqueKey": "networkfirewall.rulegroup.rulessource.RulesSourceList",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.rulessource.rulesstring": {
+        "Maximum": "1000000",
+        "Minimum": "0",
+        "Pattern": "^.{0,1000000}$",
+        "Required": "No",
+        "SampleValue": "TODO-networkfirewall.rulegroup.rulessource.RulesString",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.rulegroup.rulessource.RulesString",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.rulessource.statefulrules": {
+        "Required": "No",
+        "Type": "StatefulRules",
+        "UniqueKey": "networkfirewall.rulegroup.rulessource.StatefulRules",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.rulessource.statelessrulesandcustomactions": {
+        "Required": "No",
+        "Type": "StatelessRulesAndCustomActions",
+        "UniqueKey": "networkfirewall.rulegroup.rulessource.StatelessRulesAndCustomActions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.rulessourcelist.generatedrulestype": {
+        "Allowed values": "ALLOWLIST | DENYLIST",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "networkfirewall.rulegroup.rulessourcelist.GeneratedRulesType",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.rulessourcelist.targets": {
+        "Required": "Yes",
+        "Type": "List of String",
+        "UniqueKey": "networkfirewall.rulegroup.rulessourcelist.Targets",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.rulessourcelist.targettypes": {
+        "Required": "Yes",
+        "Type": "TargetTypes",
+        "UniqueKey": "networkfirewall.rulegroup.rulessourcelist.TargetTypes",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.rulevariables.ipsets": {
+        "Required": "No",
+        "Type": "Map of [IPSet",
+        "UniqueKey": "networkfirewall.rulegroup.rulevariables.IPSets",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.rulevariables.portsets": {
+        "Required": "No",
+        "Type": "Map of [PortSet",
+        "UniqueKey": "networkfirewall.rulegroup.rulevariables.PortSets",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.statefulrule.action": {
+        "Required": "Yes",
+        "SampleValue": "TODO-Action",
+        "UniqueKey": "networkfirewall.rulegroup.statefulrule.Action",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.statefulrule.header": {
+        "Required": "Yes",
+        "Type": "Header",
+        "UniqueKey": "networkfirewall.rulegroup.statefulrule.Header",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.statefulrule.ruleoptions": {
+        "Required": "Yes",
+        "Type": "RuleOptions",
+        "UniqueKey": "networkfirewall.rulegroup.statefulrule.RuleOptions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.statefulrules.statefulrules": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.statefulrules.StatefulRules",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.statelessrule.priority": {
+        "Maximum": "65535",
+        "Minimum": "1",
+        "Pattern": "^[1,65535]}$",
+        "Required": "Yes",
+        "SampleValue": "1...65535",
+        "Type": "Integer",
+        "UniqueKey": "networkfirewall.rulegroup.statelessrule.Priority",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.statelessrule.ruledefinition": {
+        "Required": "Yes",
+        "Type": "RuleDefinition",
+        "UniqueKey": "networkfirewall.rulegroup.statelessrule.RuleDefinition",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.statelessrules.statelessrules": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.statelessrules.StatelessRules",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.statelessrulesandcustomactions.customactions": {
+        "Required": "No",
+        "Type": "CustomActions",
+        "UniqueKey": "networkfirewall.rulegroup.statelessrulesandcustomactions.CustomActions",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.statelessrulesandcustomactions.statelessrules": {
+        "Required": "Yes",
+        "Type": "StatelessRules",
+        "UniqueKey": "networkfirewall.rulegroup.statelessrulesandcustomactions.StatelessRules",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.targettypes.targettypes": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.targettypes.TargetTypes",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.tcpflagfield.flags": {
+        "Required": "Yes",
+        "Type": "Flags",
+        "UniqueKey": "networkfirewall.rulegroup.tcpflagfield.Flags",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.tcpflagfield.masks": {
+        "Required": "No",
+        "Type": "Flags",
+        "UniqueKey": "networkfirewall.rulegroup.tcpflagfield.Masks",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.tcpflags.tcpflags": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.tcpflags.TCPFlags",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.variabledefinitionlist.variabledefinitionlist": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.variabledefinitionlist.VariableDefinitionList",
         "UpdateRequires": "Replacement"
     },
     "networkmanager.device.location.address": {
@@ -33920,7 +36885,7 @@
     },
     "rds.database.instance.availabilityzone": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-AvailabilityZone",
         "UniqueKey": "rds.database.instance.AvailabilityZone",
         "UpdateRequires": "Replacement"
     },
@@ -35526,6 +38491,43 @@
         "UniqueKey": "s3.bucket.encryptionconfiguration.ReplicaKmsKeyID",
         "UpdateRequires": "Replacement"
     },
+    "s3.bucket.intelligenttieringconfiguration.id": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "s3.bucket.intelligenttieringconfiguration.Id",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.intelligenttieringconfiguration.prefix": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "s3.bucket.intelligenttieringconfiguration.Prefix",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.intelligenttieringconfiguration.status": {
+        "Allowed values": "Disabled | Enabled",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "s3.bucket.intelligenttieringconfiguration.Status",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.intelligenttieringconfiguration.tagfilters": {
+        "Required": "No",
+        "Type": "List of [TagFilter",
+        "UniqueKey": "s3.bucket.intelligenttieringconfiguration.TagFilters",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.intelligenttieringconfiguration.tierings": {
+        "Required": "Yes",
+        "Type": "List of [Tiering",
+        "UniqueKey": "s3.bucket.intelligenttieringconfiguration.Tierings",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.intelligenttieringconfigurations": {
+        "Required": "No",
+        "Type": "List of [IntelligentTieringConfiguration",
+        "UniqueKey": "s3.bucket.IntelligentTieringConfigurations",
+        "UpdateRequires": "Replacement"
+    },
     "s3.bucket.inventoryconfiguration.destination": {
         "Required": "Yes",
         "Type": "Destination",
@@ -35717,7 +38719,7 @@
         "UpdateRequires": "Replacement"
     },
     "s3.bucket.metrics.eventthreshold": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "ReplicationTimeValue",
         "UniqueKey": "s3.bucket.metrics.EventThreshold",
         "UpdateRequires": "Replacement"
@@ -35890,6 +38892,25 @@
         "Required": "No",
         "Type": "DefaultRetention",
         "UniqueKey": "s3.bucket.objectlockrule.DefaultRetention",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.ownershipcontrols": {
+        "Required": "No",
+        "Type": "OwnershipControls",
+        "UniqueKey": "s3.bucket.OwnershipControls",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.ownershipcontrols.rules": {
+        "Required": "Yes",
+        "Type": "List of [OwnershipControlsRule",
+        "UniqueKey": "s3.bucket.ownershipcontrols.Rules",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.ownershipcontrolsrule.objectownership": {
+        "Allowed values": "ObjectWriter` \\| `BucketOwnerPreferred",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "s3.bucket.ownershipcontrolsrule.ObjectOwnership",
         "UpdateRequires": "Replacement"
     },
     "s3.bucket.publicaccessblockconfiguration": {
@@ -36124,7 +39145,7 @@
         "UpdateRequires": "Replacement"
     },
     "s3.bucket.sourceselectioncriteria.ssekmsencryptedobjects": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "SseKmsEncryptedObjects",
         "UniqueKey": "s3.bucket.sourceselectioncriteria.SseKmsEncryptedObjects",
         "UpdateRequires": "Replacement"
@@ -36160,6 +39181,19 @@
         "UniqueKey": "s3.bucket.Tags",
         "UpdateRequires": "Replacement"
     },
+    "s3.bucket.tiering.accesstier": {
+        "Allowed values": "ARCHIVE_ACCESS | DEEP_ARCHIVE_ACCESS",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "s3.bucket.tiering.AccessTier",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.tiering.days": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "s3.bucket.tiering.Days",
+        "UpdateRequires": "Replacement"
+    },
     "s3.bucket.versioningconfig.status": {
         "Allowed values": "Enabled | Suspended",
         "Required": "Yes",
@@ -36189,6 +39223,198 @@
         "Required": "Yes",
         "SampleValue": "TODO-PolicyDocument",
         "UniqueKey": "s3.policy.PolicyDocument",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.accountlevel.activitymetrics": {
+        "Required": "No",
+        "Type": "ActivityMetrics",
+        "UniqueKey": "s3.storagelens.accountlevel.ActivityMetrics",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.accountlevel.bucketlevel": {
+        "Required": "Yes",
+        "Type": "BucketLevel",
+        "UniqueKey": "s3.storagelens.accountlevel.BucketLevel",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.activitymetrics.isenabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "s3.storagelens.activitymetrics.IsEnabled",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.awsorg.arn": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "s3.storagelens.awsorg.Arn",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.bucketlevel.activitymetrics": {
+        "Required": "No",
+        "Type": "ActivityMetrics",
+        "UniqueKey": "s3.storagelens.bucketlevel.ActivityMetrics",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.bucketlevel.prefixlevel": {
+        "Required": "No",
+        "Type": "PrefixLevel",
+        "UniqueKey": "s3.storagelens.bucketlevel.PrefixLevel",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.bucketsandregions.buckets": {
+        "Required": "No",
+        "SampleValue": "TODO-Buckets",
+        "UniqueKey": "s3.storagelens.bucketsandregions.Buckets",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.bucketsandregions.regions": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "s3.storagelens.bucketsandregions.Regions",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.dataexport.s3bucketdestination": {
+        "Required": "Yes",
+        "Type": "S3BucketDestination",
+        "UniqueKey": "s3.storagelens.dataexport.S3BucketDestination",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.prefixlevel.storagemetrics": {
+        "Required": "Yes",
+        "Type": "PrefixLevelStorageMetrics",
+        "UniqueKey": "s3.storagelens.prefixlevel.StorageMetrics",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.prefixlevelstoragemetrics.isenabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "s3.storagelens.prefixlevelstoragemetrics.IsEnabled",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.prefixlevelstoragemetrics.selectioncriteria": {
+        "Required": "No",
+        "Type": "SelectionCriteria",
+        "UniqueKey": "s3.storagelens.prefixlevelstoragemetrics.SelectionCriteria",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.s3bucketdestination.accountid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "s3.storagelens.s3bucketdestination.AccountId",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.s3bucketdestination.arn": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "s3.storagelens.s3bucketdestination.Arn",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.s3bucketdestination.encryption": {
+        "Required": "No",
+        "Type": "Encryption",
+        "UniqueKey": "s3.storagelens.s3bucketdestination.Encryption",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.s3bucketdestination.format": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "s3.storagelens.s3bucketdestination.Format",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.s3bucketdestination.outputschemaversion": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "s3.storagelens.s3bucketdestination.OutputSchemaVersion",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.s3bucketdestination.prefix": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "s3.storagelens.s3bucketdestination.Prefix",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.selectioncriteria.delimiter": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "s3.storagelens.selectioncriteria.Delimiter",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.selectioncriteria.maxdepth": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "s3.storagelens.selectioncriteria.MaxDepth",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.selectioncriteria.minstoragebytespercentage": {
+        "Required": "No",
+        "Type": "Double",
+        "UniqueKey": "s3.storagelens.selectioncriteria.MinStorageBytesPercentage",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.storagelensconfiguration.accountlevel": {
+        "Required": "Yes",
+        "Type": "AccountLevel",
+        "UniqueKey": "s3.storagelens.storagelensconfiguration.AccountLevel",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.storagelensconfiguration.awsorg": {
+        "Required": "No",
+        "Type": "AwsOrg",
+        "UniqueKey": "s3.storagelens.storagelensconfiguration.AwsOrg",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.storagelensconfiguration.dataexport": {
+        "Required": "No",
+        "Type": "DataExport",
+        "UniqueKey": "s3.storagelens.storagelensconfiguration.DataExport",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.storagelensconfiguration.exclude": {
+        "Required": "No",
+        "Type": "BucketsAndRegions",
+        "UniqueKey": "s3.storagelens.storagelensconfiguration.Exclude",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.storagelensconfiguration.id": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "s3.storagelens.storagelensconfiguration.Id",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.storagelensconfiguration.include": {
+        "Required": "No",
+        "Type": "BucketsAndRegions",
+        "UniqueKey": "s3.storagelens.storagelensconfiguration.Include",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.storagelensconfiguration.isenabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "Yes",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "s3.storagelens.storagelensconfiguration.IsEnabled",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.storagelens.storagelensconfiguration.storagelensarn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "s3.storagelens.storagelensconfiguration.StorageLensArn",
         "UpdateRequires": "Replacement"
     },
     "s3.websiteconfiguration.errordocument": {
@@ -36451,6 +39677,19 @@
         "UniqueKey": "sagemaker.model.containerdefinition.Image",
         "UpdateRequires": "Replacement"
     },
+    "sagemaker.model.containerdefinition.imageconfig": {
+        "Required": "No",
+        "Type": "ImageConfig",
+        "UniqueKey": "sagemaker.model.containerdefinition.ImageConfig",
+        "UpdateRequires": "Replacement"
+    },
+    "sagemaker.model.containerdefinition.imageconfig.repositoryaccessmode": {
+        "Allowed values": "Platform | Vpc",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "sagemaker.model.containerdefinition.imageconfig.RepositoryAccessMode",
+        "UpdateRequires": "Replacement"
+    },
     "sagemaker.model.containerdefinition.mode": {
         "Allowed values": "MultiModel | SingleModel",
         "Required": "No",
@@ -36466,9 +39705,9 @@
         "UpdateRequires": "Replacement"
     },
     "sagemaker.model.containerdefinition.modelpackagename": {
-        "Maximum": "170",
+        "Maximum": "176",
         "Minimum": "1",
-        "Pattern": "(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:[a-z\\-]*\\/)?([a-zA-Z0-9]([a-zA-Z0-9-]){0,62})(?<!-)$",
+        "Pattern": "(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:[a-z\\-]*\\/)?([a-zA-Z0-9]([a-zA-Z0-9-]){0,62})(?<!-)(\\/[0-9]{1,5})?$",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "sagemaker.model.containerdefinition.ModelPackageName",
@@ -37210,6 +40449,30 @@
         "UniqueKey": "ses.configurationseteventdestination.kinesisfirehosedestination.IAMRoleARN",
         "UpdateRequires": "Replacement"
     },
+    "ses.contactlist.topic.defaultsubscriptionstatus": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "ses.contactlist.topic.DefaultSubscriptionStatus",
+        "UpdateRequires": "Replacement"
+    },
+    "ses.contactlist.topic.description": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ses.contactlist.topic.Description",
+        "UpdateRequires": "Replacement"
+    },
+    "ses.contactlist.topic.displayname": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "ses.contactlist.topic.DisplayName",
+        "UpdateRequires": "Replacement"
+    },
+    "ses.contactlist.topic.topicname": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "ses.contactlist.topic.TopicName",
+        "UpdateRequires": "Replacement"
+    },
     "ses.receiptfilter.filter.ipfilter": {
         "Required": "Yes",
         "Type": "IpFilter",
@@ -37517,6 +40780,18 @@
         "Required": "No",
         "Type": "String",
         "UniqueKey": "sns.topic.DisplayName",
+        "UpdateRequires": "Replacement"
+    },
+    "sns.topic.fifotopic": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "sns.topic.FifoTopic",
         "UpdateRequires": "Replacement"
     },
     "sns.topic.kmsmasterkeyid": {
@@ -38353,6 +41628,12 @@
         "UniqueKey": "transfer.server.endpointdetails.AddressAllocationIds",
         "UpdateRequires": "Replacement"
     },
+    "transfer.server.endpointdetails.securitygroupids": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "transfer.server.endpointdetails.SecurityGroupIds",
+        "UpdateRequires": "Replacement"
+    },
     "transfer.server.endpointdetails.subnetids": {
         "Required": "No",
         "Type": "List of String",
@@ -38406,39 +41687,39 @@
         "UniqueKey": "transfer.user.homedirectorymapentry.Target",
         "UpdateRequires": "Replacement"
     },
-    "w7002ab1c27c15c15c27c19b7.default": {
+    "w7379ab1c27c15c15c27c19b7.default": {
         "Required": "No",
         "SampleValue": "TODO-default",
         "Type": "String",
-        "UniqueKey": "w7002ab1c27c15c15c27c19b7.default"
+        "UniqueKey": "w7379ab1c27c15c15c27c19b7.default"
     },
-    "w7002ab1c27c15c15c27c23b7.label": {
+    "w7379ab1c27c15c15c27c23b7.label": {
         "Required": "No",
         "SampleValue": "TODO-Label",
         "Type": "AWS::CloudFormation::Interface Label",
-        "UniqueKey": "w7002ab1c27c15c15c27c23b7.Label"
+        "UniqueKey": "w7379ab1c27c15c15c27c23b7.Label"
     },
-    "w7002ab1c27c15c15c27c23b7.parameters": {
+    "w7379ab1c27c15c15c27c23b7.parameters": {
         "Required": "No",
         "SampleValue": "TODO-Parameters",
         "Type": "List of String values",
-        "UniqueKey": "w7002ab1c27c15c15c27c23b7.Parameters"
+        "UniqueKey": "w7379ab1c27c15c15c27c23b7.Parameters"
     },
-    "w7002ab1c27c15c15c27c27b7.parameterlogicalid": {
+    "w7379ab1c27c15c15c27c27b7.parameterlogicalid": {
         "Required": "No",
-        "UniqueKey": "w7002ab1c27c15c15c27c27b7.ParameterLogicalID"
+        "UniqueKey": "w7379ab1c27c15c15c27c27b7.ParameterLogicalID"
     },
-    "w7002ab1c33c10d268c13c17.key": {
+    "w7379ab1c33c10d278c13c17.key": {
         "Required": "Yes",
         "SampleValue": "TODO-Key",
         "Type": "String",
-        "UniqueKey": "w7002ab1c33c10d268c13c17.Key"
+        "UniqueKey": "w7379ab1c33c10d278c13c17.Key"
     },
-    "w7002ab1c33c10d268c13c17.value": {
+    "w7379ab1c33c10d278c13c17.value": {
         "Required": "Yes",
         "SampleValue": "TODO-Value",
         "Type": "String\n\n#",
-        "UniqueKey": "w7002ab1c33c10d268c13c17.Value"
+        "UniqueKey": "w7379ab1c33c10d278c13c17.Value"
     },
     "waf.bytematchset.bytematchtuples.fieldtomatch": {
         "Required": "Yes",
