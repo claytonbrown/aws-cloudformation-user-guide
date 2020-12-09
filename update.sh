@@ -1,4 +1,5 @@
 # Update to latest CFN spec 
+git pull upstream main
 cp ../cfn_resource_specs/CloudFormationResourceSpecification-us-east-1.json ./CloudFormationResourceSpecification.json
 
 # Process Resources
