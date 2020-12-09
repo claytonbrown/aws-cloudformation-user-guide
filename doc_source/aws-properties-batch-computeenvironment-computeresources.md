@@ -103,8 +103,11 @@ This parameter isn't applicable to jobs running on Fargate resources, and should
 
 `ImageId`  <a name="cfn-batch-computeenvironment-computeresources-imageid"></a>
 The Amazon Machine Image \(AMI\) ID used for instances launched in the compute environment\. This parameter is overridden by the `imageIdOverride` member of the `Ec2Configuration` structure\.  
+<<<<<<< HEAD
 This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified\.
 The AMI that you choose for a compute environment must match the architecture of the instance types that you intend to use for that compute environment\. For example, if your compute environment uses A1 instance types, the compute resource AMI that you choose must support ARM instances\. Amazon ECS vends both x86 and ARM versions of the Amazon ECS\-optimized Amazon Linux 2 AMI\. For more information, see [Amazon ECS\-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html) in the *Amazon Elastic Container Service Developer Guide*\.
+=======
+>>>>>>> 79effd1277fc1df030a8e74f0cfaf2086e846ee1
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
