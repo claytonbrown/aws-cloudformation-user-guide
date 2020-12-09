@@ -14,7 +14,7 @@
     "Type": "String"
   },
   "sagemaker.model.containerdefinition.ContainerHostname": {
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
     "Required": "No",
     "Type": "String",
     "Maximum": "63",
@@ -30,6 +30,11 @@
     "Required": "No",
     "Type": "String",
     "Maximum": "255",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.model.containerdefinition.MultiModelConfig": {
+    "Required": "No",
+    "Type": "MultiModelConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "sagemaker.model.containerdefinition.Environment": {

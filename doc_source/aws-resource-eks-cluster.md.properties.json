@@ -1,0 +1,34 @@
+{
+  "eks.cluster.Name": {
+    "Pattern": "^[0-9A-Za-z][A-Za-z0-9\\-_]*",
+    "Required": "No",
+    "Maximum": "100",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "eks.cluster.RoleArn": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
+  "eks.cluster.EncryptionConfig": {
+    "Required": "No",
+    "Type": "List",
+    "Maximum": "1",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "eks.cluster.ResourcesVpcConfig": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
+  "eks.cluster.KubernetesNetworkConfig": {
+    "Required": "No",
+    "Type": "KubernetesNetworkConfig",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "eks.cluster.Version": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

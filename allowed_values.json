@@ -11271,9 +11271,6 @@
         "UpdateRequires": "Replacement"
     },
     "cognito.userpoolclient.analyticsconfiguration.externalid": {
-        "Maximum": "1224",
-        "Minimum": "2",
-        "Pattern": "[\\w+=,.@:\\/-]*",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "cognito.userpoolclient.analyticsconfiguration.externalid",
@@ -12819,6 +12816,18 @@
         "UniqueKey": "directoryservice.simplead.vpcsettings.vpcid",
         "UpdateRequires": "Replacement"
     },
+    "dlm.lifecyclepolicy.action.crossregioncopy": {
+        "Required": "Yes",
+        "Type": "List of [CrossRegionCopyAction",
+        "UniqueKey": "dlm.lifecyclepolicy.action.crossregioncopy",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.action.name": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "dlm.lifecyclepolicy.action.name",
+        "UpdateRequires": "Replacement"
+    },
     "dlm.lifecyclepolicy.createrule.cronexpression": {
         "Maximum": "106",
         "Minimum": "17",
@@ -12846,6 +12855,24 @@
         "Required": "No",
         "Type": "List of String",
         "UniqueKey": "dlm.lifecyclepolicy.createrule.times",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.crossregioncopyaction.encryptionconfiguration": {
+        "Required": "Yes",
+        "Type": "EncryptionConfiguration",
+        "UniqueKey": "dlm.lifecyclepolicy.crossregioncopyaction.encryptionconfiguration",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.crossregioncopyaction.retainrule": {
+        "Required": "No",
+        "Type": "CrossRegionCopyRetainRule",
+        "UniqueKey": "dlm.lifecyclepolicy.crossregioncopyaction.retainrule",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.crossregioncopyaction.target": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "dlm.lifecyclepolicy.crossregioncopyaction.target",
         "UpdateRequires": "Replacement"
     },
     "dlm.lifecyclepolicy.crossregioncopyretainrule.interval": {
@@ -12910,6 +12937,54 @@
         "UniqueKey": "dlm.lifecyclepolicy.crossregioncopyrule.targetregion",
         "UpdateRequires": "Replacement"
     },
+    "dlm.lifecyclepolicy.encryptionconfiguration.cmkarn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "dlm.lifecyclepolicy.encryptionconfiguration.cmkarn",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.encryptionconfiguration.encrypted": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "Yes",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "dlm.lifecyclepolicy.encryptionconfiguration.encrypted",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.eventparameters.descriptionregex": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "dlm.lifecyclepolicy.eventparameters.descriptionregex",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.eventparameters.eventtype": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "dlm.lifecyclepolicy.eventparameters.eventtype",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.eventparameters.snapshotowner": {
+        "Required": "Yes",
+        "Type": "List of String",
+        "UniqueKey": "dlm.lifecyclepolicy.eventparameters.snapshotowner",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.eventsource.parameters": {
+        "Required": "No",
+        "Type": "EventParameters",
+        "UniqueKey": "dlm.lifecyclepolicy.eventsource.parameters",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.eventsource.type": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "dlm.lifecyclepolicy.eventsource.type",
+        "UpdateRequires": "Replacement"
+    },
     "dlm.lifecyclepolicy.fastrestorerule.availabilityzones": {
         "Maximum": "10",
         "Required": "No",
@@ -12965,6 +13040,18 @@
         "UniqueKey": "dlm.lifecyclepolicy.parameters.noreboot",
         "UpdateRequires": "Replacement"
     },
+    "dlm.lifecyclepolicy.policydetails.actions": {
+        "Required": "No",
+        "Type": "List of [Action",
+        "UniqueKey": "dlm.lifecyclepolicy.policydetails.actions",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.policydetails.eventsource": {
+        "Required": "No",
+        "Type": "EventSource",
+        "UniqueKey": "dlm.lifecyclepolicy.policydetails.eventsource",
+        "UpdateRequires": "Replacement"
+    },
     "dlm.lifecyclepolicy.policydetails.parameters": {
         "Required": "No",
         "Type": "Parameters",
@@ -12980,21 +13067,21 @@
     },
     "dlm.lifecyclepolicy.policydetails.resourcetypes": {
         "Maximum": "1",
-        "Required": "Yes",
+        "Required": "No",
         "Type": "List of String",
         "UniqueKey": "dlm.lifecyclepolicy.policydetails.resourcetypes",
         "UpdateRequires": "Replacement"
     },
     "dlm.lifecyclepolicy.policydetails.schedules": {
         "Maximum": "4",
-        "Required": "Yes",
+        "Required": "No",
         "Type": "List of [Schedule",
         "UniqueKey": "dlm.lifecyclepolicy.policydetails.schedules",
         "UpdateRequires": "Replacement"
     },
     "dlm.lifecyclepolicy.policydetails.targettags": {
         "Maximum": "50",
-        "Required": "Yes",
+        "Required": "No",
         "Type": "List of [Tag",
         "UniqueKey": "dlm.lifecyclepolicy.policydetails.targettags",
         "UpdateRequires": "Replacement"
@@ -13069,6 +13156,12 @@
         "UniqueKey": "dlm.lifecyclepolicy.schedule.retainrule",
         "UpdateRequires": "Replacement"
     },
+    "dlm.lifecyclepolicy.schedule.sharerules": {
+        "Required": "No",
+        "Type": "List of [ShareRule",
+        "UniqueKey": "dlm.lifecyclepolicy.schedule.sharerules",
+        "UpdateRequires": "Replacement"
+    },
     "dlm.lifecyclepolicy.schedule.tagstoadd": {
         "Maximum": "45",
         "Required": "No",
@@ -13081,6 +13174,24 @@
         "Required": "No",
         "Type": "List of [Tag",
         "UniqueKey": "dlm.lifecyclepolicy.schedule.variabletags",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.sharerule.targetaccounts": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "dlm.lifecyclepolicy.sharerule.targetaccounts",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.sharerule.unshareinterval": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "dlm.lifecyclepolicy.sharerule.unshareinterval",
+        "UpdateRequires": "Replacement"
+    },
+    "dlm.lifecyclepolicy.sharerule.unshareintervalunit": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "dlm.lifecyclepolicy.sharerule.unshareintervalunit",
         "UpdateRequires": "Replacement"
     },
     "dms.endpoint.dynamodbsettings.serviceaccessrolearn": {
@@ -13305,34 +13416,26 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.attributedef.attributename": {
-        "Maximum": "255",
-        "Minimum": "1",
-        "Pattern": "^.{1,255}$",
         "Required": "Yes",
-        "SampleValue": "TODO-dynamodb.attributedef.AttributeName",
         "Type": "String",
         "UniqueKey": "dynamodb.attributedef.attributename",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.attributedef.attributetype": {
-        "Allowed values": "B | N | S",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.attributedef.attributetype",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.gsi.indexname": {
-        "Maximum": "255",
-        "Minimum": "3",
-        "Pattern": "[a-zA-Z0-9_.-]+",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.gsi.indexname",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.gsi.keyschema": {
-        "Maximum": "2",
         "Required": "Yes",
+        "SampleValue": "TODO-KeySchema",
         "UniqueKey": "dynamodb.gsi.keyschema",
         "UpdateRequires": "Replacement"
     },
@@ -13365,17 +13468,14 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.lsi.indexname": {
-        "Maximum": "255",
-        "Minimum": "3",
-        "Pattern": "[a-zA-Z0-9_.-]+",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.lsi.indexname",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.lsi.keyschema": {
-        "Maximum": "2",
         "Required": "Yes",
+        "SampleValue": "TODO-KeySchema",
         "UniqueKey": "dynamodb.lsi.keyschema",
         "UpdateRequires": "Replacement"
     },
@@ -13386,14 +13486,12 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.projectionobject.nonkeyattributes": {
-        "Maximum": "20",
         "Required": "No",
         "Type": "List of String",
         "UniqueKey": "dynamodb.projectionobject.nonkeyattributes",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.projectionobject.projectiontype": {
-        "Allowed values": "ALL | INCLUDE | KEYS_ONLY",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "dynamodb.projectionobject.projectiontype",
@@ -13412,7 +13510,6 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.streamspecification.streamviewtype": {
-        "Allowed values": "KEYS_ONLY | NEW_AND_OLD_IMAGES | NEW_IMAGE | OLD_IMAGE",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.streamspecification.streamviewtype",
@@ -13609,11 +13706,7 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.timetolivespecification.attributename": {
-        "Maximum": "255",
-        "Minimum": "1",
-        "Pattern": "^.{1,255}$",
         "Required": "Yes",
-        "SampleValue": "TODO-dynamodb.timetolivespecification.AttributeName",
         "Type": "String",
         "UniqueKey": "dynamodb.timetolivespecification.attributename",
         "UpdateRequires": "Replacement"
@@ -13680,7 +13773,7 @@
     },
     "ec2.blockdev.template.iops": {
         "Required": "Conditional",
-        "SampleValue": "TODO-Iops",
+        "Type": "Integer",
         "UniqueKey": "ec2.blockdev.template.iops",
         "UpdateRequires": "Replacement"
     },
@@ -13874,7 +13967,7 @@
     },
     "ec2.ebs.volume.iops": {
         "Required": "No",
-        "SampleValue": "TODO-Iops",
+        "Type": "Integer",
         "UniqueKey": "ec2.ebs.volume.iops",
         "UpdateRequires": "Replacement"
     },
@@ -13921,9 +14014,8 @@
         "UpdateRequires": "Replacement"
     },
     "ec2.ebs.volume.volumetype": {
-        "Allowed values": "gp2 | io1 | io2 | sc1 | st1 | standard",
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-VolumeType",
         "UniqueKey": "ec2.ebs.volume.volumetype",
         "UpdateRequires": "Replacement"
     },
@@ -13972,7 +14064,7 @@
         "UpdateRequires": "Replacement"
     },
     "ec2.ec2fleet.fleetlaunchtemplateoverridesrequest.instancetype": {
-        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | mac1.metal | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ec2.ec2fleet.fleetlaunchtemplateoverridesrequest.instancetype",
@@ -14985,7 +15077,7 @@
     },
     "ec2.launchtemplate.blockdevicemapping.ebs.iops": {
         "Required": "No",
-        "SampleValue": "TODO-Iops",
+        "Type": "Integer",
         "UniqueKey": "ec2.launchtemplate.blockdevicemapping.ebs.iops",
         "UpdateRequires": "Replacement"
     },
@@ -15008,9 +15100,8 @@
         "UpdateRequires": "Replacement"
     },
     "ec2.launchtemplate.blockdevicemapping.ebs.volumetype": {
-        "Allowed values": "gp2 | io1 | io2 | sc1 | st1 | standard",
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-VolumeType",
         "UniqueKey": "ec2.launchtemplate.blockdevicemapping.ebs.volumetype",
         "UpdateRequires": "Replacement"
     },
@@ -16031,7 +16122,7 @@
         "UpdateRequires": "Replacement"
     },
     "ec2.spotfleet.launchtemplateoverrides.instancetype": {
-        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | mac1.metal | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ec2.spotfleet.launchtemplateoverrides.instancetype",
@@ -16143,7 +16234,7 @@
     },
     "ec2.spotfleet.spotfleetrequestconfigdata.launchspecifications.blockdevicemappings.ebs.iops": {
         "Required": "No",
-        "SampleValue": "TODO-Iops",
+        "Type": "Integer",
         "UniqueKey": "ec2.spotfleet.spotfleetrequestconfigdata.launchspecifications.blockdevicemappings.ebs.iops",
         "UpdateRequires": "Replacement"
     },
@@ -16208,7 +16299,7 @@
         "UpdateRequires": "Replacement"
     },
     "ec2.spotfleet.spotfleetrequestconfigdata.launchspecifications.instancetype": {
-        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | mac1.metal | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.metal | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "ec2.spotfleet.spotfleetrequestconfigdata.launchspecifications.instancetype",
@@ -21143,16 +21234,9 @@
         "Maximum": "12",
         "Minimum": "12",
         "Pattern": "^d-[0-9a-f]{10}$",
-        "Required": "Conditional",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "fsx.filesystem.windowsconfiguration.activedirectoryid",
-        "UpdateRequires": "Replacement"
-    },
-    "fsx.filesystem.windowsconfiguration.aliases": {
-        "Maximum": "50",
-        "Required": "No",
-        "Type": "List of String",
-        "UniqueKey": "fsx.filesystem.windowsconfiguration.aliases",
         "UpdateRequires": "Replacement"
     },
     "fsx.filesystem.windowsconfiguration.automaticbackupretentiondays": {
@@ -21423,7 +21507,6 @@
         "UpdateRequires": "Replacement"
     },
     "gamelift.gameservergroup.autoscalingpolicy.estimatedinstancewarmup": {
-        "Minimum": "1",
         "Required": "No",
         "Type": "Double",
         "UniqueKey": "gamelift.gameservergroup.autoscalingpolicy.estimatedinstancewarmup",
@@ -21451,34 +21534,24 @@
         "UpdateRequires": "Replacement"
     },
     "gamelift.gameservergroup.instancedefinitions.instancedefinitions": {
-        "Maximum": "20",
         "Required": "No",
         "Type": "List",
         "UniqueKey": "gamelift.gameservergroup.instancedefinitions.instancedefinitions",
         "UpdateRequires": "Replacement"
     },
     "gamelift.gameservergroup.launchtemplate.launchtemplateid": {
-        "Maximum": "255",
-        "Minimum": "1",
-        "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]+",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "gamelift.gameservergroup.launchtemplate.launchtemplateid",
         "UpdateRequires": "Replacement"
     },
     "gamelift.gameservergroup.launchtemplate.launchtemplatename": {
-        "Maximum": "128",
-        "Minimum": "3",
-        "Pattern": "[a-zA-Z0-9\\(\\)\\.\\-/_]+",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "gamelift.gameservergroup.launchtemplate.launchtemplatename",
         "UpdateRequires": "Replacement"
     },
     "gamelift.gameservergroup.launchtemplate.version": {
-        "Maximum": "128",
-        "Minimum": "1",
-        "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]+",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "gamelift.gameservergroup.launchtemplate.version",
@@ -21497,7 +21570,6 @@
         "UpdateRequires": "Replacement"
     },
     "gamelift.gameservergroup.vpcsubnets.vpcsubnets": {
-        "Maximum": "20",
         "Required": "No",
         "Type": "List",
         "UniqueKey": "gamelift.gameservergroup.vpcsubnets.vpcsubnets",
@@ -21742,7 +21814,7 @@
         "UpdateRequires": "Replacement"
     },
     "glue.connection.connectioninput.connectionproperties": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "Json",
         "UniqueKey": "glue.connection.connectioninput.connectionproperties",
         "UpdateRequires": "Replacement"
@@ -21831,6 +21903,12 @@
         "UniqueKey": "glue.crawler.jdbctarget.path",
         "UpdateRequires": "Replacement"
     },
+    "glue.crawler.s3target.connectionname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.crawler.s3target.connectionname",
+        "UpdateRequires": "Replacement"
+    },
     "glue.crawler.s3target.exclusions": {
         "Required": "No",
         "Type": "List of String",
@@ -21885,6 +21963,24 @@
         "UniqueKey": "glue.crawler.targets.s3targets",
         "UpdateRequires": "Replacement"
     },
+    "glue.database.databaseidentifier.catalogid": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.database.databaseidentifier.catalogid",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.database.databaseidentifier.databasename": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.database.databaseidentifier.databasename",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.database.databaseinput.createtabledefaultpermissions": {
+        "Required": "No",
+        "Type": "List of [PrincipalPrivileges",
+        "UniqueKey": "glue.database.databaseinput.createtabledefaultpermissions",
+        "UpdateRequires": "Replacement"
+    },
     "glue.database.databaseinput.description": {
         "Required": "No",
         "Type": "String",
@@ -21907,6 +22003,30 @@
         "Required": "No",
         "Type": "Json",
         "UniqueKey": "glue.database.databaseinput.parameters",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.database.databaseinput.targetdatabase": {
+        "Required": "No",
+        "Type": "DatabaseIdentifier",
+        "UniqueKey": "glue.database.databaseinput.targetdatabase",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.database.datalakeprincipal.datalakeprincipalidentifier": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.database.datalakeprincipal.datalakeprincipalidentifier",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.database.principalprivileges.permissions": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "glue.database.principalprivileges.permissions",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.database.principalprivileges.principal": {
+        "Required": "No",
+        "Type": "DataLakePrincipal",
+        "UniqueKey": "glue.database.principalprivileges.principal",
         "UpdateRequires": "Replacement"
     },
     "glue.datacatalogencryptionsettings.connectionpasswordencryption.kmskeyid": {
@@ -22015,6 +22135,30 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "glue.mltransform.inputrecordtables.gluetables.tablename",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.mltransform.transformencryption.mluserdataencryption": {
+        "Required": "No",
+        "Type": "MLUserDataEncryption",
+        "UniqueKey": "glue.mltransform.transformencryption.mluserdataencryption",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.mltransform.transformencryption.mluserdataencryption.kmskeyid": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.mltransform.transformencryption.mluserdataencryption.kmskeyid",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.mltransform.transformencryption.mluserdataencryption.mluserdataencryptionmode": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "glue.mltransform.transformencryption.mluserdataencryption.mluserdataencryptionmode",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.mltransform.transformencryption.taskrunsecurityconfigurationname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.mltransform.transformencryption.taskrunsecurityconfigurationname",
         "UpdateRequires": "Replacement"
     },
     "glue.mltransform.transformparameters.findmatchesparameters": {
@@ -22479,6 +22623,24 @@
         "UniqueKey": "glue.table.storagedescriptor.storedassubdirectories",
         "UpdateRequires": "Replacement"
     },
+    "glue.table.tableidentifier.catalogid": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.table.tableidentifier.catalogid",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.table.tableidentifier.databasename": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.table.tableidentifier.databasename",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.table.tableidentifier.name": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.table.tableidentifier.name",
+        "UpdateRequires": "Replacement"
+    },
     "glue.table.tableinput.description": {
         "Required": "No",
         "Type": "String",
@@ -22525,6 +22687,12 @@
         "Required": "No",
         "Type": "String",
         "UniqueKey": "glue.table.tableinput.tabletype",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.table.tableinput.targettable": {
+        "Required": "No",
+        "Type": "TableIdentifier",
+        "UniqueKey": "glue.table.tableinput.targettable",
         "UpdateRequires": "Replacement"
     },
     "glue.table.tableinput.viewexpandedtext": {
@@ -34849,6 +35017,12 @@
         "UniqueKey": "networkfirewall.firewall.subnetmapping.subnetid",
         "UpdateRequires": "Replacement"
     },
+    "networkfirewall.firewall.tags.tags": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.firewall.tags.tags",
+        "UpdateRequires": "Replacement"
+    },
     "networkfirewall.firewallpolicy.actiondefinition.publishmetricaction": {
         "Required": "No",
         "Type": "PublishMetricAction",
@@ -34972,6 +35146,12 @@
         "Required": "No",
         "Type": "List",
         "UniqueKey": "networkfirewall.firewallpolicy.statelessrulegroupreferences.statelessrulegroupreferences",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.firewallpolicy.tags.tags": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.firewallpolicy.tags.tags",
         "UpdateRequires": "Replacement"
     },
     "networkfirewall.loggingconfiguration.logdestinationconfig.logdestination": {
@@ -35366,6 +35546,12 @@
         "Required": "Yes",
         "Type": "StatelessRules",
         "UniqueKey": "networkfirewall.rulegroup.statelessrulesandcustomactions.statelessrules",
+        "UpdateRequires": "Replacement"
+    },
+    "networkfirewall.rulegroup.tags.tags": {
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "networkfirewall.rulegroup.tags.tags",
         "UpdateRequires": "Replacement"
     },
     "networkfirewall.rulegroup.targettypes.targettypes": {
@@ -36885,7 +37071,7 @@
     },
     "rds.database.instance.availabilityzone": {
         "Required": "No",
-        "SampleValue": "TODO-AvailabilityZone",
+        "Type": "String",
         "UniqueKey": "rds.database.instance.availabilityzone",
         "UpdateRequires": "Replacement"
     },
@@ -38369,7 +38555,7 @@
     },
     "s3.bucket.bucketname": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-BucketName",
         "UniqueKey": "s3.bucket.bucketname",
         "UpdateRequires": "Replacement"
     },
@@ -38441,9 +38627,8 @@
         "UpdateRequires": "Replacement"
     },
     "s3.bucket.defaultretention.mode": {
-        "Allowed values": "COMPLIANCE | GOVERNANCE",
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-Mode",
         "UniqueKey": "s3.bucket.defaultretention.mode",
         "UpdateRequires": "Replacement"
     },
@@ -39649,7 +39834,7 @@
     },
     "sagemaker.endpointconfig.productionvariant.variantname": {
         "Maximum": "63",
-        "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+        "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "sagemaker.endpointconfig.productionvariant.variantname",
@@ -39657,7 +39842,7 @@
     },
     "sagemaker.model.containerdefinition.containerhostname": {
         "Maximum": "63",
-        "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+        "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "sagemaker.model.containerdefinition.containerhostname",
@@ -39711,6 +39896,18 @@
         "Required": "No",
         "Type": "String",
         "UniqueKey": "sagemaker.model.containerdefinition.modelpackagename",
+        "UpdateRequires": "Replacement"
+    },
+    "sagemaker.model.containerdefinition.multimodelconfig": {
+        "Required": "No",
+        "Type": "MultiModelConfig",
+        "UniqueKey": "sagemaker.model.containerdefinition.multimodelconfig",
+        "UpdateRequires": "Replacement"
+    },
+    "sagemaker.model.containerdefinition.multimodelconfig.modelcachesetting": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "sagemaker.model.containerdefinition.multimodelconfig.modelcachesetting",
         "UpdateRequires": "Replacement"
     },
     "sagemaker.model.vpcconfig.securitygroupids": {
@@ -39771,7 +39968,7 @@
     },
     "sagemaker.monitoringschedule.endpointinput.endpointname": {
         "Maximum": "63",
-        "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+        "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "sagemaker.monitoringschedule.endpointinput.endpointname",
@@ -39845,7 +40042,7 @@
     },
     "sagemaker.monitoringschedule.monitoringexecutionsummary.endpointname": {
         "Maximum": "63",
-        "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+        "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "sagemaker.monitoringschedule.monitoringexecutionsummary.endpointname",
@@ -39874,7 +40071,7 @@
     "sagemaker.monitoringschedule.monitoringexecutionsummary.monitoringschedulename": {
         "Maximum": "63",
         "Minimum": "1",
-        "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+        "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "sagemaker.monitoringschedule.monitoringexecutionsummary.monitoringschedulename",
@@ -40734,6 +40931,18 @@
         "UniqueKey": "ses.template.template.textpart",
         "UpdateRequires": "Replacement"
     },
+    "signer.signingprofile.signaturevalidityperiod.type": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "signer.signingprofile.signaturevalidityperiod.type",
+        "UpdateRequires": "Replacement"
+    },
+    "signer.signingprofile.signaturevalidityperiod.value": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "signer.signingprofile.signaturevalidityperiod.value",
+        "UpdateRequires": "Replacement"
+    },
     "simpledb.description": {
         "Required": "No",
         "Type": "String",
@@ -41569,6 +41778,12 @@
         "UniqueKey": "synthetics.canary.runconfig.activetracing",
         "UpdateRequires": "Replacement"
     },
+    "synthetics.canary.runconfig.environmentvariables": {
+        "Required": "No",
+        "Type": "Map of String",
+        "UniqueKey": "synthetics.canary.runconfig.environmentvariables",
+        "UpdateRequires": "Replacement"
+    },
     "synthetics.canary.runconfig.memoryinmb": {
         "Maximum": "3008",
         "Minimum": "960",
@@ -41687,39 +41902,39 @@
         "UniqueKey": "transfer.user.homedirectorymapentry.target",
         "UpdateRequires": "Replacement"
     },
-    "w7379ab1c27c15c15c27c19b7.default": {
+    "w7423ab1c27c15c15c27c19b7.default": {
         "Required": "No",
         "SampleValue": "TODO-default",
         "Type": "String",
-        "UniqueKey": "w7379ab1c27c15c15c27c19b7.default"
+        "UniqueKey": "w7423ab1c27c15c15c27c19b7.default"
     },
-    "w7379ab1c27c15c15c27c23b7.label": {
+    "w7423ab1c27c15c15c27c23b7.label": {
         "Required": "No",
         "SampleValue": "TODO-Label",
         "Type": "AWS::CloudFormation::Interface Label",
-        "UniqueKey": "w7379ab1c27c15c15c27c23b7.label"
+        "UniqueKey": "w7423ab1c27c15c15c27c23b7.label"
     },
-    "w7379ab1c27c15c15c27c23b7.parameters": {
+    "w7423ab1c27c15c15c27c23b7.parameters": {
         "Required": "No",
         "SampleValue": "TODO-Parameters",
         "Type": "List of String values",
-        "UniqueKey": "w7379ab1c27c15c15c27c23b7.parameters"
+        "UniqueKey": "w7423ab1c27c15c15c27c23b7.parameters"
     },
-    "w7379ab1c27c15c15c27c27b7.parameterlogicalid": {
+    "w7423ab1c27c15c15c27c27b7.parameterlogicalid": {
         "Required": "No",
-        "UniqueKey": "w7379ab1c27c15c15c27c27b7.parameterlogicalid"
+        "UniqueKey": "w7423ab1c27c15c15c27c27b7.parameterlogicalid"
     },
-    "w7379ab1c33c10d278c13c17.key": {
+    "w7423ab1c33c10d280c13c17.key": {
         "Required": "Yes",
         "SampleValue": "TODO-Key",
         "Type": "String",
-        "UniqueKey": "w7379ab1c33c10d278c13c17.key"
+        "UniqueKey": "w7423ab1c33c10d280c13c17.key"
     },
-    "w7379ab1c33c10d278c13c17.value": {
+    "w7423ab1c33c10d280c13c17.value": {
         "Required": "Yes",
         "SampleValue": "TODO-Value",
         "Type": "String\n\n#",
-        "UniqueKey": "w7379ab1c33c10d278c13c17.value"
+        "UniqueKey": "w7423ab1c33c10d280c13c17.value"
     },
     "waf.bytematchset.bytematchtuples.fieldtomatch": {
         "Required": "Yes",
