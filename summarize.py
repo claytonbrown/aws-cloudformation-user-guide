@@ -84,7 +84,7 @@ for file in files:
                 v["UpdateRequires"] = "Replacement"
 
         if isinstance(v, dict):
-            v["UniqueKey"] = k
+            v["UniqueKey"] = k.lower()
 
             if len(v.keys()) == 3:
                 v["SampleValue"] = 'TODO-' + k.split('.')[-1]
