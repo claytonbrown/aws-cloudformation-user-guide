@@ -16,7 +16,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[Description](#cfn-networkfirewall-rulegroup-description)" : String,
       "[RuleGroup](#cfn-networkfirewall-rulegroup-rulegroup)" : RuleGroup,
       "[RuleGroupName](#cfn-networkfirewall-rulegroup-rulegroupname)" : String,
-      "[Tags](#cfn-networkfirewall-rulegroup-tags)" : [ Tag, ... ],
+      "[Tags](#cfn-networkfirewall-rulegroup-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ],
       "[Type](#cfn-networkfirewall-rulegroup-type)" : String
     }
 }
@@ -33,7 +33,7 @@ Properties:
     RuleGroup
   [RuleGroupName](#cfn-networkfirewall-rulegroup-rulegroupname): String
   [Tags](#cfn-networkfirewall-rulegroup-tags): 
-    - Tag
+    - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
   [Type](#cfn-networkfirewall-rulegroup-type): String
 ```
 
@@ -73,7 +73,7 @@ The descriptive name of the rule group\. You can't change the name of a rule gro
 An array of key\-value pairs to apply to this resource\.  
 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)\.  
 *Required*: No  
-*Type*: [List](aws-properties-networkfirewall-rulegroup-tags.md) of [Tag](aws-properties-networkfirewall-rulegroup-tags.md)  
+*Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Maximum*: `200`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
@@ -109,6 +109,8 @@ The Amazon Resource Name \(ARN\) of the [AWS::NetworkFirewall::RuleGroup](#aws-r
 The unique ID of the [AWS::NetworkFirewall::RuleGroup](#aws-resource-networkfirewall-rulegroup) resource\. 
 
 ## Examples<a name="aws-resource-networkfirewall-rulegroup--examples"></a>
+
+
 
 ### Create a stateful rule group<a name="aws-resource-networkfirewall-rulegroup--examples--Create_a_stateful_rule_group"></a>
 
@@ -250,10 +252,10 @@ SampleStatelessRulegroup:
                       - AddressDefinition: 10.0.0.0/8
                     SourcePorts:
                       - FromPort: 15000
-                      - ToPort: 30000
+                        ToPort: 30000
                     DestinationPorts:
                       - FromPort: 443
-                      - ToPort: 443
+                        ToPort: 443
                     Protocols:
                       - 6
                   Actions:

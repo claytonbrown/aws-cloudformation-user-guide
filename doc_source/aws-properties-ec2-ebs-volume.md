@@ -37,6 +37,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[Size](#cfn-ec2-ebs-volume-size)" : Integer,
       "[SnapshotId](#cfn-ec2-ebs-volume-snapshotid)" : String,
       "[Tags](#cfn-ec2-ebs-volume-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ],
+      "[Throughput](#cfn-ec2-ebs-volume-throughput)" : Integer,
       "[VolumeType](#cfn-ec2-ebs-volume-volumetype)" : String
     }
 }
@@ -58,6 +59,7 @@ Properties:
   [SnapshotId](#cfn-ec2-ebs-volume-snapshotid): String
   [Tags](#cfn-ec2-ebs-volume-tags): 
     - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
+  [Throughput](#cfn-ec2-ebs-volume-throughput): Integer
   [VolumeType](#cfn-ec2-ebs-volume-volumetype): String
 ```
 
@@ -142,6 +144,12 @@ The tags to apply to the volume during creation\.
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`Throughput`  <a name="cfn-ec2-ebs-volume-throughput"></a>
+The throughput that the volume supports, in MiB/s\.  
+*Required*: No  
+*Type*: Integer  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `VolumeType`  <a name="cfn-ec2-ebs-volume-volumetype"></a>
 The volume type\. This parameter can be one of the following values:  
 + General Purpose SSD: `gp2` \| `gp3` 
@@ -165,6 +173,8 @@ When you pass the logical ID of this resource to the intrinsic `Ref` function, `
 For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ## Examples<a name="aws-properties-ec2-ebs-volume--examples"></a>
+
+
 
 ### Encrypted Amazon EBS Volume with DeletionPolicy to Make a Snapshot on Delete<a name="aws-properties-ec2-ebs-volume--examples--Encrypted_Amazon_EBS_Volume_with_DeletionPolicy_to_Make_a_Snapshot_on_Delete"></a>
 

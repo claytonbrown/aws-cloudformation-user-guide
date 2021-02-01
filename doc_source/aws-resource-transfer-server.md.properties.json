@@ -29,6 +29,13 @@
     "Maximum": "1600",
     "UpdateRequires": "No interruption"
   },
+  "transfer.server.SecurityPolicyName": {
+    "Pattern": "TransferSecurityPolicy-.+",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "transfer.server.IdentityProviderDetails": {
     "Required": "No",
     "Type": "IdentityProviderDetails",
@@ -36,6 +43,12 @@
   },
   "transfer.server.IdentityProviderType": {
     "Allowed values": "API_GATEWAY | SERVICE_MANAGED",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "transfer.server.Domain": {
+    "Allowed values": "EFS | S3",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"

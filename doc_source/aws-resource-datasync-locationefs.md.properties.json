@@ -1,0 +1,26 @@
+{
+  "datasync.locationefs.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "datasync.locationefs.Subdirectory": {
+    "Pattern": "^[a-zA-Z0-9_\\-\\+\\./\\(\\)\\p{Zs}]*$",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "4096",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "datasync.locationefs.Ec2Config": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
+  "datasync.locationefs.EfsFilesystemArn": {
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):elasticfilesystem:[a-z\\-0-9]*:[0-9]{12}:file-system/fs-.*$",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  }
+}

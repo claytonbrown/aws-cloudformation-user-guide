@@ -10,8 +10,7 @@
   },
   "rds.database.instance.MaxAllocatedStorage": {
     "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "rds.database.instance.PreferredBackupWindow": {
     "Required": "No",
@@ -41,7 +40,7 @@
   },
   "rds.database.instance.DBInstanceClass": {
     "Required": "Yes",
-    "UpdateRequires": "No interruption"
+    "UpdateRequires": "Some interruptions"
   },
   "rds.database.instance.MasterUserPassword": {
     "Required": "No",
@@ -92,7 +91,7 @@
     "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
   "rds.database.instance.Engine": {
-    "Required": "No",
+    "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
@@ -179,7 +178,7 @@
   "rds.database.instance.AutoMinorVersionUpgrade": {
     "Required": "No",
     "Type": "Boolean",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"

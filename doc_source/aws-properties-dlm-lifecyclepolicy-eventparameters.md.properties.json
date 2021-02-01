@@ -2,14 +2,18 @@
   "dlm.lifecyclepolicy.eventparameters.SnapshotOwner": {
     "Required": "Yes",
     "Type": "List of String",
+    "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dlm.lifecyclepolicy.eventparameters.DescriptionRegex": {
+    "Pattern": "[\\p{all}]*",
+    "Minimum": "0",
     "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Maximum": "1000",
+    "UpdateRequires": "No interruption"
   },
   "dlm.lifecyclepolicy.eventparameters.EventType": {
+    "Allowed values": "shareSnapshot",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

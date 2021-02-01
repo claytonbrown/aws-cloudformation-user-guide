@@ -1,10 +1,8 @@
 {
-  "sagemaker.endpoint.EndpointName": {
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
+  "sagemaker.endpoint.Tags": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "63",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Maximum": "50",
+    "UpdateRequires": "No interruption"
   },
   "sagemaker.endpoint.ExcludeRetainedVariantProperties": {
     "Required": "No",
@@ -12,17 +10,19 @@
     "Maximum": "3",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "sagemaker.endpoint.EndpointName": {
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "63",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "sagemaker.endpoint.EndpointConfigName": {
     "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
     "Required": "Yes",
     "Type": "String",
     "Maximum": "63",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "sagemaker.endpoint.Tags": {
-    "Required": "No",
-    "Maximum": "50",
-    "UpdateRequires": "No interruption"
   },
   "sagemaker.endpoint.RetainAllVariantProperties": {
     "Required": "No",
@@ -32,5 +32,10 @@
       "True",
       "False"
     ]
+  },
+  "sagemaker.endpoint.DeploymentConfig": {
+    "Required": "No",
+    "Type": "DeploymentConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

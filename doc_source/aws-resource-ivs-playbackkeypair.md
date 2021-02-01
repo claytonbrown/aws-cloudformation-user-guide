@@ -62,7 +62,7 @@ When you pass the logical ID of this resource to the intrinsic `Ref` function, `
 
  `{ "Ref": "myPlaybackKeyPair" }` 
 
-For the Amazon IVS playback key pair `myPlaybackKeyPair`, Ref returns the playback key pair ARN\.
+For the Amazon IVS playback key pair `myPlaybackKeyPair`, `Ref` returns the playback key pair ARN\.
 
 For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
@@ -81,6 +81,8 @@ Key\-pair ARN\. For example: `arn:aws:ivs:us-west-2:693991300569:playback-key/f9
 Key\-pair identifier\. For example: `98:0d:1a:a0:19:96:1e:ea:0a:0a:2c:9a:42:19:2b:e7`
 
 ## Examples<a name="aws-resource-ivs-playbackkeypair--examples"></a>
+
+
 
 ### Playback Key Pair Template Examples<a name="aws-resource-ivs-playbackkeypair--examples--Playback_Key_Pair_Template_Examples"></a>
 

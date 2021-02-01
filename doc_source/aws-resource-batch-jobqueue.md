@@ -78,6 +78,8 @@ For more information about using the `Ref` function, see [Ref](https://docs.aws.
 
 ## Examples<a name="aws-resource-batch-jobqueue--examples"></a>
 
+
+
 ### Job queue with two compute environments<a name="aws-resource-batch-jobqueue--examples--Job_queue_with_two_compute_environments"></a>
 
 The following example defines a job queue called HighPriority that has two compute environments mapped to it\.

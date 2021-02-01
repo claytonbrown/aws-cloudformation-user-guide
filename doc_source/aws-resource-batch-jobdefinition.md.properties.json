@@ -8,6 +8,11 @@
     "Required": "Yes",
     "UpdateRequires": "No interruption"
   },
+  "batch.jobdefinition.ContainerProperties": {
+    "Required": "No",
+    "Type": "ContainerProperties",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "batch.jobdefinition.JobDefinitionName": {
     "Required": "No",
     "Type": "String",
@@ -22,15 +27,24 @@
     "Type": "Timeout",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "batch.jobdefinition.ContainerProperties": {
+  "batch.jobdefinition.PlatformCapabilities": {
     "Required": "No",
-    "Type": "ContainerProperties",
+    "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "batch.jobdefinition.Tags": {
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "batch.jobdefinition.PropagateTags": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   },
   "batch.jobdefinition.RetryStrategy": {
     "Required": "No",

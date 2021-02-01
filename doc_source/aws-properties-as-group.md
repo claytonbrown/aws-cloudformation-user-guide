@@ -3,11 +3,7 @@
 The AWS::AutoScaling::AutoScalingGroup resource defines an Amazon EC2 Auto Scaling group, which is a collection of Amazon EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management\.
 
 **Note**  
-Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration\. We recommend that you use a launch template to make sure that you can use the latest features of Amazon EC2, such as Dedicated Hosts and T2 Unlimited instances\. For more information, see [Creating a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html)\.
-
-When you update the launch template or launch configuration for an Auto Scaling group, this update action does not deploy any change across the running Amazon EC2 instances in the Auto Scaling group\. All new instances will get the updated configuration, but existing instances continue to run with the configuration that they were originally launched with\. This works the same way as any other Auto Scaling group\. 
-
-You can add an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html) to your stack to perform rolling updates \(or replace the group\) when a change has been made to the group\. You can find sample update policies for rolling updates in [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html)\. Alternatively, you can force a rolling update on your instances at any time after updating the stack by starting an instance refresh\. For more information, see [Replacing Auto Scaling instances based on an instance refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html) in the *Amazon EC2 Auto Scaling User Guide*\. 
+Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a launch template or a launch configuration\. We recommend that you use a launch template to make sure that you can use the latest features of Amazon EC2, such as Dedicated Hosts and T2 Unlimited instances\. For more information, see [Creating a launch template for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html)\. You can find sample launch templates in [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html)\.
 
 For more information, see [CreateAutoScalingGroup](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html) and [UpdateAutoScalingGroup](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_UpdateAutoScalingGroup.html) in the *Amazon EC2 Auto Scaling API Reference*\. For more information about Amazon EC2 Auto Scaling, see the [Amazon EC2 Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)\. 
 
@@ -125,7 +121,7 @@ The amount of time, in seconds, after a scaling activity completes before anothe
 `DesiredCapacity`  <a name="cfn-as-group-desiredcapacity"></a>
 The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain\. It can scale beyond this capacity if you configure automatic scaling\.  
 The number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group\. If you do not specify a desired capacity when creating the stack, the default is the minimum size of the group\.  
-CloudFormation marks the Auto Scaling group as successful \(by setting its status to CREATE\_COMPLETE\) when the desired capacity is reached\. However, if `SpotPrice` is set in the [launch configuration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html), then desired capacity is not used as a criteria for success, because whether your request is fulfilled depends on Spot Instance capacity and your maximum price\. If the current Spot price is less than your specified maximum price, Amazon EC2 Auto Scaling uses `DesiredCapacity` as the target capacity for the group\.   
+CloudFormation marks the Auto Scaling group as successful \(by setting its status to CREATE\_COMPLETE\) when the desired capacity is reached\. However, if a maximum Spot price is set in the launch template or launch configuration that you specified, then desired capacity is not used as a criteria for success\. Whether your request is fulfilled depends on Spot Instance capacity and your maximum price\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -204,7 +200,7 @@ The minimum size of the group\.
 
 `MixedInstancesPolicy`  <a name="cfn-as-group-mixedinstancespolicy"></a>
 An embedded object that specifies a mixed instances policy\.  
-The policy includes properties that not only define the distribution of On\-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates instance types to fulfill On\-Demand and Spot capacities, but also the properties that specify the instance configuration information—the launch template and instance types\. The policy can also include a weight for each instance type\.  
+The policy includes properties that not only define the distribution of On\-Demand Instances and Spot Instances, the maximum price to pay for Spot Instances \(optional\), and how the Auto Scaling group allocates instance types to fulfill On\-Demand and Spot capacities, but also the properties that specify the instance configuration information—the launch template and instance types\. The policy can also include a weight for each instance type and different launch templates for individual instance types\.  
 For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html) in the *Amazon EC2 Auto Scaling User Guide*\.  
 If you specify `LaunchTemplate`, `InstanceId`, or `LaunchConfigurationName`, don't specify `MixedInstancesPolicy`\.  
 *Required*: Conditional  
@@ -268,6 +264,12 @@ When you update `VPCZoneIdentifier`, this retains the same Auto Scaling group an
 When the logical ID of this resource is provided to the `Ref` intrinsic function, `Ref` returns the resource name\. For example: `mystack-myasgroup-NT5EUXTNTXXD`\.
 
 For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\. 
+
+## Remarks<a name="aws-properties-as-group--remarks"></a>
+
+When you update the launch template or launch configuration for an Auto Scaling group, this update action does not deploy any change across the running Amazon EC2 instances in the Auto Scaling group\. All new instances will get the updated configuration, but existing instances continue to run with the configuration that they were originally launched with\. This works the same way as any other Auto Scaling group\. 
+
+You can add an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html) to your stack to perform rolling updates \(or replace the group\) when a change has been made to the group\. You can find sample update policies for rolling updates in [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html)\. Alternatively, you can force a rolling update on your instances at any time after updating the stack by starting an instance refresh\. For more information, see [Replacing Auto Scaling instances based on an instance refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html) in the *Amazon EC2 Auto Scaling User Guide*\.
 
 ## Examples<a name="aws-properties-as-group--examples"></a>
 
@@ -513,3 +515,4 @@ Resources:
 + [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html)
 + [AWS CloudFormation stack updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html)
 + [Suspending and resuming scaling processes](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html) in the *Amazon EC2 Auto Scaling User Guide*
+

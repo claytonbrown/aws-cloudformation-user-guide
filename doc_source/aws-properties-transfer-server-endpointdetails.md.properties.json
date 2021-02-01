@@ -15,9 +15,11 @@
     "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
   "transfer.server.endpointdetails.SecurityGroupIds": {
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "Required": "No",
     "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Maximum": "5",
+    "Maximum number of security groups": "5"
   },
   "transfer.server.endpointdetails.VpcEndpointId": {
     "Pattern": "^vpce-[0-9a-f]{17}$",

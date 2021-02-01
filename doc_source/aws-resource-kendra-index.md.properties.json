@@ -16,16 +16,13 @@
   },
   "kendra.index.Tags": {
     "Required": "No",
-    "Type": "TagList",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kendra.index.Name": {
-    "Pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*",
-    "Required": "Yes",
-    "Maximum": "1000",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
+  "kendra.index.UserContextPolicy": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.index.RoleArn": {
     "Required": "Yes",
@@ -38,9 +35,22 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "kendra.index.UserTokenConfigurations": {
+    "Required": "No",
+    "Type": "List of [UserTokenConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
   "kendra.index.DocumentMetadataConfigurations": {
     "Required": "No",
-    "Type": "DocumentMetadataConfigurationList",
+    "Type": "List of [DocumentMetadataConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kendra.index.Name": {
+    "Pattern": "[a-zA-Z0-9][a-zA-Z0-9_-]*",
+    "Required": "Yes",
+    "Maximum": "1000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   }
 }

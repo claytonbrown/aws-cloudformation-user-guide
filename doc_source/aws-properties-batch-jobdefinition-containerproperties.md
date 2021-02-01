@@ -1,6 +1,6 @@
 # AWS::Batch::JobDefinition ContainerProperties<a name="aws-properties-batch-jobdefinition-containerproperties"></a>
 
-Container properties are used in job definitions to describe the container that is launched as part of a job\.
+Container properties are used in job definitions to describe the container that's launched as part of a job\.
 
 ## Syntax<a name="aws-properties-batch-jobdefinition-containerproperties-syntax"></a>
 
@@ -13,6 +13,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "[Command](#cfn-batch-jobdefinition-containerproperties-command)" : [ String, ... ],
   "[Environment](#cfn-batch-jobdefinition-containerproperties-environment)" : [ Environment, ... ],
   "[ExecutionRoleArn](#cfn-batch-jobdefinition-containerproperties-executionrolearn)" : String,
+  "[FargatePlatformConfiguration](#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration)" : FargatePlatformConfiguration,
   "[Image](#cfn-batch-jobdefinition-containerproperties-image)" : String,
   "[InstanceType](#cfn-batch-jobdefinition-containerproperties-instancetype)" : String,
   "[JobRoleArn](#cfn-batch-jobdefinition-containerproperties-jobrolearn)" : String,
@@ -20,6 +21,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "[LogConfiguration](#cfn-batch-jobdefinition-containerproperties-logconfiguration)" : LogConfiguration,
   "[Memory](#cfn-batch-jobdefinition-containerproperties-memory)" : Integer,
   "[MountPoints](#cfn-batch-jobdefinition-containerproperties-mountpoints)" : [ MountPoints, ... ],
+  "[NetworkConfiguration](#cfn-batch-jobdefinition-containerproperties-networkconfiguration)" : NetworkConfiguration,
   "[Privileged](#cfn-batch-jobdefinition-containerproperties-privileged)" : Boolean,
   "[ReadonlyRootFilesystem](#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem)" : Boolean,
   "[ResourceRequirements](#cfn-batch-jobdefinition-containerproperties-resourcerequirements)" : [ ResourceRequirement, ... ],
@@ -39,6 +41,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   [Environment](#cfn-batch-jobdefinition-containerproperties-environment): 
     - Environment
   [ExecutionRoleArn](#cfn-batch-jobdefinition-containerproperties-executionrolearn): String
+  [FargatePlatformConfiguration](#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration): 
+    FargatePlatformConfiguration
   [Image](#cfn-batch-jobdefinition-containerproperties-image): String
   [InstanceType](#cfn-batch-jobdefinition-containerproperties-instancetype): String
   [JobRoleArn](#cfn-batch-jobdefinition-containerproperties-jobrolearn): String
@@ -49,6 +53,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   [Memory](#cfn-batch-jobdefinition-containerproperties-memory): Integer
   [MountPoints](#cfn-batch-jobdefinition-containerproperties-mountpoints): 
     - MountPoints
+  [NetworkConfiguration](#cfn-batch-jobdefinition-containerproperties-networkconfiguration): 
+    NetworkConfiguration
   [Privileged](#cfn-batch-jobdefinition-containerproperties-privileged): Boolean
   [ReadonlyRootFilesystem](#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem): Boolean
   [ResourceRequirements](#cfn-batch-jobdefinition-containerproperties-resourcerequirements): 
@@ -66,7 +72,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ## Properties<a name="aws-properties-batch-jobdefinition-containerproperties-properties"></a>
 
 `Command`  <a name="cfn-batch-jobdefinition-containerproperties-command"></a>
-The command that is passed to the container\. This parameter maps to `Cmd` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.docker.com/engine/reference/run/)\. For more information, see [https://docs\.docker\.com/engine/reference/builder/\#cmd](https://docs.docker.com/engine/reference/builder/#cmd)\.  
+The command that's passed to the container\. This parameter maps to `Cmd` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.docker.com/engine/reference/run/)\. For more information, see [https://docs\.docker\.com/engine/reference/builder/\#cmd](https://docs.docker.com/engine/reference/builder/#cmd)\.  
 *Required*: No  
 *Type*: List of String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -83,6 +89,12 @@ Environment variables must not start with `AWS_BATCH`; this naming convention is
 The Amazon Resource Name \(ARN\) of the execution role that AWS Batch can assume\. Jobs running on Fargate resources must provide an execution role\. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide*\.  
 *Required*: No  
 *Type*: String  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`FargatePlatformConfiguration`  <a name="cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration"></a>
+The platform configuration for jobs running on Fargate resources\. Jobs running on EC2 resources must not specify this parameter\.  
+*Required*: No  
+*Type*: [FargatePlatformConfiguration](aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Image`  <a name="cfn-batch-jobdefinition-containerproperties-image"></a>
@@ -136,6 +148,12 @@ If you're trying to maximize your resource utilization by providing your jobs as
 The mount points for data volumes in your container\. This parameter maps to `Volumes` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.docker.com/engine/reference/run/)\.  
 *Required*: No  
 *Type*: [List](aws-properties-batch-jobdefinition-mountpoints.md) of [MountPoints](aws-properties-batch-jobdefinition-mountpoints.md)  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`NetworkConfiguration`  <a name="cfn-batch-jobdefinition-containerproperties-networkconfiguration"></a>
+The network configuration for jobs running on Fargate resources\. Jobs running on EC2 resources must not specify this parameter\.  
+*Required*: No  
+*Type*: [NetworkConfiguration](aws-properties-batch-jobdefinition-containerproperties-networkconfiguration.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Privileged`  <a name="cfn-batch-jobdefinition-containerproperties-privileged"></a>

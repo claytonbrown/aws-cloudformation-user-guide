@@ -1,0 +1,39 @@
+{
+  "datasync.agent.AgentName": {
+    "Pattern": "^[a-zA-Z0-9\\s+=._:@/-]+$",
+    "Required": "No",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "datasync.agent.VpcEndpointId": {
+    "Pattern": "^vpce-[0-9a-f]{17}$",
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "datasync.agent.SecurityGroupArns": {
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "1",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "datasync.agent.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.agent.SubnetArns": {
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "1",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "datasync.agent.ActivationKey": {
+    "Pattern": "[A-Z0-9]{5}(-[A-Z0-9]{5}){4}",
+    "Required": "Yes",
+    "Maximum": "29",
+    "UpdateRequires": "Replacement"
+  }
+}

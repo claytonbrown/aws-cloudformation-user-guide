@@ -13,7 +13,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "Type" : "AWS::SSO::PermissionSet",
   "Properties" : {
       "[Description](#cfn-sso-permissionset-description)" : String,
-      "[InlinePolicy](#cfn-sso-permissionset-inlinepolicy)" : String,
+      "[InlinePolicy](#cfn-sso-permissionset-inlinepolicy)" : Json,
       "[InstanceArn](#cfn-sso-permissionset-instancearn)" : String,
       "[ManagedPolicies](#cfn-sso-permissionset-managedpolicies)" : [ String, ... ],
       "[Name](#cfn-sso-permissionset-name)" : String,
@@ -30,7 +30,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 Type: AWS::SSO::PermissionSet
 Properties: 
   [Description](#cfn-sso-permissionset-description): String
-  [InlinePolicy](#cfn-sso-permissionset-inlinepolicy): String
+  [InlinePolicy](#cfn-sso-permissionset-inlinepolicy): Json
   [InstanceArn](#cfn-sso-permissionset-instancearn): String
   [ManagedPolicies](#cfn-sso-permissionset-managedpolicies): 
     - String
@@ -55,7 +55,7 @@ The description of the [AWS::SSO::PermissionSet](#aws-resource-sso-permissionset
 `InlinePolicy`  <a name="cfn-sso-permissionset-inlinepolicy"></a>
 The IAM inline policy that is attached to the permission set\.  
 *Required*: No  
-*Type*: String  
+*Type*: Json  
 *Minimum*: `1`  
 *Maximum*: `10240`  
 *Pattern*: `[\u0009\u000A\u000D\u0020-\u00FF]+`  
@@ -130,6 +130,8 @@ For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::G
 The permission set ARN of the permission set, such as `arn:aws:sso:::permissionSet/ins-instanceid/ps-permissionsetid`\.
 
 ## Examples<a name="aws-resource-sso-permissionset--examples"></a>
+
+
 
 ### Creating a new custom permission set for AWS SSO<a name="aws-resource-sso-permissionset--examples--Creating_a_new_custom_permission_set_for_AWS_SSO"></a>
 

@@ -74,7 +74,7 @@ Currently, only Resolver can create rules that have a value of `RECURSIVE` for `
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Tags`  <a name="cfn-route53resolver-resolverrule-tags"></a>
-A list of the tag keys and values that you want to associate with the endpoint\.  
+Route 53 Resolver doesn't support updating tags through CloudFormation\.  
 *Required*: No  
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Maximum*: `200`  
@@ -121,6 +121,8 @@ When the value of `RuleType` is `FORWARD`, the ID that Resolver assigned to the 
 When the value of `RuleType` is `FORWARD`, the IP addresses that the outbound endpoint forwards DNS queries to, typically the IP addresses for DNS resolvers on your network\. This value isn't applicable when `RuleType` is `SYSTEM`\.
 
 ## Examples<a name="aws-resource-route53resolver-resolverrule--examples"></a>
+
+
 
 ### Create Resolver rule<a name="aws-resource-route53resolver-resolverrule--examples--Create_Resolver_rule"></a>
 
@@ -180,3 +182,4 @@ Properties :
 
 ## See also<a name="aws-resource-route53resolver-resolverrule--seealso"></a>
 +  [ResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverRule.html) in the *Amazon Route 53 API Reference* 
+

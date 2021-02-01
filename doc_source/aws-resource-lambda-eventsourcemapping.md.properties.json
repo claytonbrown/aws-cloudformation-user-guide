@@ -4,9 +4,15 @@
     "Type": "DestinationConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "lambda.eventsourcemapping.FunctionResponseTypes": {
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "1",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "lambda.eventsourcemapping.EventSourceArn": {
     "Pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
-    "Required": "Yes",
+    "Required": "No",
     "UpdateRequires": "Replacement"
   },
   "lambda.eventsourcemapping.BisectBatchOnFunctionError": {
@@ -68,6 +74,11 @@
     "Type": "Integer",
     "Maximum": "300",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.SelfManagedEventSource": {
+    "Required": "No",
+    "Type": "SelfManagedEventSource",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lambda.eventsourcemapping.Enabled": {
     "Required": "No",

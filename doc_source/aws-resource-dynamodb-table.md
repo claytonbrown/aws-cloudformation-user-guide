@@ -158,8 +158,6 @@ For detailed information about the limits in DynamoDB, see [Limits in Amazon Dyn
 
  When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the resource name\. For example:
 
- 
-
 ```
 { "Ref": "MyResource" }
 ```

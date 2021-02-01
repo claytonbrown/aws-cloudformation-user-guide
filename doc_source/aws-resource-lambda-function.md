@@ -1,6 +1,6 @@
 # AWS::Lambda::Function<a name="aws-resource-lambda-function"></a>
 
-The `AWS::Lambda::Function` resource creates a Lambda function\. To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html) and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role)\. The deployment package contains your function code\. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X\-Ray for request tracing\.
+The `AWS::Lambda::Function` resource creates a Lambda function\. To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html)\. The deployment package contains your function code\. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X\-Ray for request tracing\.
 
 ## Syntax<a name="aws-resource-lambda-function-syntax"></a>
 
@@ -20,9 +20,11 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[FileSystemConfigs](#cfn-lambda-function-filesystemconfigs)" : [ FileSystemConfig, ... ],
       "[FunctionName](#cfn-lambda-function-functionname)" : String,
       "[Handler](#cfn-lambda-function-handler)" : String,
+      "[ImageConfig](#cfn-lambda-function-imageconfig)" : ImageConfig,
       "[KmsKeyArn](#cfn-lambda-function-kmskeyarn)" : String,
       "[Layers](#cfn-lambda-function-layers)" : [ String, ... ],
       "[MemorySize](#cfn-lambda-function-memorysize)" : Integer,
+      "[PackageType](#cfn-lambda-function-packagetype)" : String,
       "[ReservedConcurrentExecutions](#cfn-lambda-function-reservedconcurrentexecutions)" : Integer,
       "[Role](#cfn-lambda-function-role)" : String,
       "[Runtime](#cfn-lambda-function-runtime)" : String,
@@ -51,10 +53,13 @@ Properties:
     - FileSystemConfig
   [FunctionName](#cfn-lambda-function-functionname): String
   [Handler](#cfn-lambda-function-handler): String
+  [ImageConfig](#cfn-lambda-function-imageconfig): 
+    ImageConfig
   [KmsKeyArn](#cfn-lambda-function-kmskeyarn): String
   [Layers](#cfn-lambda-function-layers): 
     - String
   [MemorySize](#cfn-lambda-function-memorysize): Integer
+  [PackageType](#cfn-lambda-function-packagetype): String
   [ReservedConcurrentExecutions](#cfn-lambda-function-reservedconcurrentexecutions): Integer
   [Role](#cfn-lambda-function-role): String
   [Runtime](#cfn-lambda-function-runtime): String
@@ -118,10 +123,16 @@ If you specify a name, you cannot perform updates that require replacement of th
 
 `Handler`  <a name="cfn-lambda-function-handler"></a>
 The name of the method within your code that Lambda calls to execute your function\. The format includes the file name\. It can also include namespaces and other qualifiers, depending on the runtime\. For more information, see [Programming Model](https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html)\.  
-*Required*: Yes  
+*Required*: No  
 *Type*: String  
 *Maximum*: `128`  
 *Pattern*: `[^\s]+`  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`ImageConfig`  <a name="cfn-lambda-function-imageconfig"></a>
+Configuration values that override the container image Dockerfile settings\. See [Container settings](https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html)\.   
+*Required*: No  
+*Type*: [ImageConfig](aws-properties-lambda-function-imageconfig.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `KmsKeyArn`  <a name="cfn-lambda-function-kmskeyarn"></a>
@@ -145,6 +156,13 @@ The amount of memory available to the function at runtime\. Increasing the funct
 *Maximum*: `10240`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`PackageType`  <a name="cfn-lambda-function-packagetype"></a>
+The type of deployment package\. Set to `Image` for container image and set `Zip` for \.zip file archive\.  
+*Required*: No  
+*Type*: String  
+*Allowed values*: `Image | Zip`  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `ReservedConcurrentExecutions`  <a name="cfn-lambda-function-reservedconcurrentexecutions"></a>
 The number of simultaneous executions to reserve for the function\.  
 *Required*: No  
@@ -161,7 +179,7 @@ The Amazon Resource Name \(ARN\) of the function's execution role\.
 
 `Runtime`  <a name="cfn-lambda-function-runtime"></a>
 The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)\.  
-*Required*: Yes  
+*Required*: No  
 *Type*: String  
 *Allowed values*: `dotnetcore1.0 | dotnetcore2.0 | dotnetcore2.1 | dotnetcore3.1 | go1.x | java11 | java8 | java8.al2 | nodejs | nodejs10.x | nodejs12.x | nodejs4.3 | nodejs4.3-edge | nodejs6.10 | nodejs8.10 | provided | provided.al2 | python2.7 | python3.6 | python3.7 | python3.8 | ruby2.5 | ruby2.7`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -211,6 +229,8 @@ For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::G
 The Amazon Resource Name \(ARN\) of the function\.
 
 ## Examples<a name="aws-resource-lambda-function--examples"></a>
+
+
 
 ### Function<a name="aws-resource-lambda-function--examples--Function"></a>
 
@@ -297,22 +317,22 @@ Function connected to a VPC\.
 AWSTemplateFormatVersion: '2010-09-09'
 Description: VPC function.
 Resources:
-  Function: 
+  Function:
     Type: AWS::Lambda::Function
-    Properties: 
+    Properties:
       Handler: index.handler
       Role: arn:aws:iam::123456789012:role/lambda-role
-      Code: 
+      Code:
         S3Bucket: my-bucket
         S3Key: function.zip
       Runtime: nodejs12.x
       Timeout: 5
       TracingConfig:
         Mode: Active
-      VpcConfig: 
-        SecurityGroupIds: 
+      VpcConfig:
+        SecurityGroupIds:
           - sg-085912345678492fb
-        SubnetIds: 
+        SubnetIds:
           - subnet-071f712345678e7c8
           - subnet-07fd123456788a036
 ```

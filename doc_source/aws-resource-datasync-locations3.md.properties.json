@@ -1,0 +1,32 @@
+{
+  "datasync.locations3.S3BucketArn": {
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):(s3|s3-outposts):[a-z\\-0-9]*:[0-9]*:.*$",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "156",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "datasync.locations3.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "datasync.locations3.S3Config": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
+  "datasync.locations3.S3StorageClass": {
+    "Allowed values": "DEEP_ARCHIVE | GLACIER | INTELLIGENT_TIERING | ONEZONE_IA | OUTPOSTS | STANDARD | STANDARD_IA",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "datasync.locations3.Subdirectory": {
+    "Pattern": "^[a-zA-Z0-9_\\-\\+\\./\\(\\)\\p{Zs}]*$",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "4096",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  }
+}

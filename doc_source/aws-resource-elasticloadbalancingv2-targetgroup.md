@@ -1,6 +1,6 @@
 # AWS::ElasticLoadBalancingV2::TargetGroup<a name="aws-resource-elasticloadbalancingv2-targetgroup"></a>
 
-Specifies a target group for an Application Load Balancer or Network Load Balancer\.
+Specifies a target group for a load balancer\.
 
 Before you register a Lambda function as a target, you must create a `AWS::Lambda::Permission` resource that grants the Elastic Load Balancing service principal permission to invoke the Lambda function\.
 
@@ -72,7 +72,7 @@ Indicates whether health checks are enabled\. If the target type is `lambda`, he
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `HealthCheckIntervalSeconds`  <a name="cfn-elasticloadbalancingv2-targetgroup-healthcheckintervalseconds"></a>
-The approximate amount of time, in seconds, between health checks of an individual target\. For TCP health checks, the supported values are 10 and 30 seconds\. If the target type is `instance` or `ip`, the default is 30 seconds\. If the target group protocol is GENEVE, the default is 10 seconds\. If the target type is `lambda`, the default is 35 seconds\.  
+The approximate amount of time, in seconds, between health checks of an individual target\. If the target group protocol is TCP, TLS, UDP, or TCP\_UDP, the supported values are 10 and 30 seconds\. If the target group protocol is HTTP or HTTPS, the default is 30 seconds\. If the target group protocol is GENEVE, the default is 10 seconds\. If the target type is `lambda`, the default is 35 seconds\.  
 *Required*: No  
 *Type*: Integer  
 *Minimum*: `5`  
@@ -293,5 +293,7 @@ Resources:
 
 ## See also<a name="aws-resource-elasticloadbalancingv2-targetgroup--seealso"></a>
 +  [CreateTargetGroup](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) in the *Elastic Load Balancing API Reference \(version 2015\-12\-01\)* 
-+  [Target Groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html) in the *User Guide for Application Load Balancers* 
-+  [Target Groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html) in the *User Guide for Network Load Balancers* 
++  [Target groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html) in the *User Guide for Application Load Balancers* 
++  [Target groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html) in the *User Guide for Network Load Balancers* 
++  [Target groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html) in the *User Guide for Gateway Load Balancers* 
+

@@ -71,7 +71,7 @@ The ID of one or more security groups that control access to this VPC\. The secu
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Tags`  <a name="cfn-route53resolver-resolverendpoint-tags"></a>
-A list of the tag keys and values that you want to associate with the endpoint\.  
+Route 53 Resolver doesn't support updating tags through CloudFormation\.  
 *Required*: No  
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Maximum*: `200`  
@@ -112,6 +112,8 @@ The name that you assigned to the resolver endpoint when you created the endpoin
 The ID of the resolver endpoint\.
 
 ## Examples<a name="aws-resource-route53resolver-resolverendpoint--examples"></a>
+
+
 
 ### Create Resolver endpoint<a name="aws-resource-route53resolver-resolverendpoint--examples--Create_Resolver_endpoint"></a>
 
@@ -164,3 +166,4 @@ Properties :
 
 ## See also<a name="aws-resource-route53resolver-resolverendpoint--seealso"></a>
 +  [ResolverEndpoint](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverEndpoint.html) in the *Amazon Route 53 API Reference* 
+
