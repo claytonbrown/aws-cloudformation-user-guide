@@ -57,7 +57,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 *Type*: String  
 *Minimum*: `1`  
 *Maximum*: `300`  
-*Pattern*: `^[\w\W\s\S]*$`  
+*Pattern*: `^[^\\]*$`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Comment`  <a name="cfn-auditmanager-assessment-delegation-comment"></a>
@@ -118,7 +118,9 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 `RoleType`  <a name="cfn-auditmanager-assessment-delegation-roletype"></a>
  The type of customer persona\.   
-In `CreateAssessment`, `RoleType` can only be `PROCESS_OWNER`\. 
+In `CreateAssessment`, `roleType` can only be `PROCESS_OWNER`\.   
+In `UpdateSettings`, `roleType` can only be `PROCESS_OWNER`\.  
+In `BatchCreateDelegationByAssessment`, `roleType` can only be `RESOURCE_OWNER`\.
 *Required*: No  
 *Type*: String  
 *Allowed values*: `PROCESS_OWNER | RESOURCE_OWNER`  

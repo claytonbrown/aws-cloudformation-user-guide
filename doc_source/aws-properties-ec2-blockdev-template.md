@@ -74,7 +74,7 @@ You can specify the CMK using any of the following:
 
 `SnapshotId`  <a name="cfn-ec2-blockdev-template-snapshotid"></a>
 The ID of the snapshot\.  
-If you specify both `SnapshotId` and `VolumeSize`,`VolumeSize` must be equal or greater than the size of the snapshot\.  
+If you specify both `SnapshotId` and `VolumeSize`, `VolumeSize` must be equal or greater than the size of the snapshot\.  
 *Required*: Conditional  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -99,11 +99,11 @@ The volume type\. For more information, see [Amazon EBS volume types](https://do
 
 ## Examples<a name="aws-properties-ec2-blockdev-template--examples"></a>
 
-### Creating an EBS volume from a snapshot<a name="aws-properties-ec2-blockdev-template--examples--Creating_an_EBS_volume_from_a_snapshot"></a>
+### Create an EBS volume from a snapshot<a name="aws-properties-ec2-blockdev-template--examples--Create_an_EBS_volume_from_a_snapshot"></a>
 
 This example creates a 50GB io1 EBS volume from a snapshot, and configures it to support 1000 IOPS and to persist after terminating the instance to which it is attached\.
 
-#### JSON<a name="aws-properties-ec2-blockdev-template--examples--Creating_an_EBS_volume_from_a_snapshot--json"></a>
+#### JSON<a name="aws-properties-ec2-blockdev-template--examples--Create_an_EBS_volume_from_a_snapshot--json"></a>
 
 ```
 {
@@ -118,7 +118,7 @@ This example creates a 50GB io1 EBS volume from a snapshot, and configures it to
 }
 ```
 
-#### YAML<a name="aws-properties-ec2-blockdev-template--examples--Creating_an_EBS_volume_from_a_snapshot--yaml"></a>
+#### YAML<a name="aws-properties-ec2-blockdev-template--examples--Create_an_EBS_volume_from_a_snapshot--yaml"></a>
 
 ```
 BlockDeviceMappings:

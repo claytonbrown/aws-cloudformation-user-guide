@@ -15,14 +15,15 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[DatasetName](#cfn-databrew-job-datasetname)" : String,
       "[EncryptionKeyArn](#cfn-databrew-job-encryptionkeyarn)" : String,
       "[EncryptionMode](#cfn-databrew-job-encryptionmode)" : String,
+      "[JobSample](#cfn-databrew-job-jobsample)" : JobSample,
       "[LogSubscription](#cfn-databrew-job-logsubscription)" : String,
       "[MaxCapacity](#cfn-databrew-job-maxcapacity)" : Integer,
       "[MaxRetries](#cfn-databrew-job-maxretries)" : Integer,
       "[Name](#cfn-databrew-job-name)" : String,
-      "[OutputLocation](#cfn-databrew-job-outputlocation)" : Json,
+      "[OutputLocation](#cfn-databrew-job-outputlocation)" : OutputLocation,
       "[Outputs](#cfn-databrew-job-outputs)" : [ Output, ... ],
       "[ProjectName](#cfn-databrew-job-projectname)" : String,
-      "[Recipe](#cfn-databrew-job-recipe)" : Json,
+      "[Recipe](#cfn-databrew-job-recipe)" : Recipe,
       "[RoleArn](#cfn-databrew-job-rolearn)" : String,
       "[Tags](#cfn-databrew-job-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ],
       "[Timeout](#cfn-databrew-job-timeout)" : Integer,
@@ -39,15 +40,19 @@ Properties:
   [DatasetName](#cfn-databrew-job-datasetname): String
   [EncryptionKeyArn](#cfn-databrew-job-encryptionkeyarn): String
   [EncryptionMode](#cfn-databrew-job-encryptionmode): String
+  [JobSample](#cfn-databrew-job-jobsample): 
+    JobSample
   [LogSubscription](#cfn-databrew-job-logsubscription): String
   [MaxCapacity](#cfn-databrew-job-maxcapacity): Integer
   [MaxRetries](#cfn-databrew-job-maxretries): Integer
   [Name](#cfn-databrew-job-name): String
-  [OutputLocation](#cfn-databrew-job-outputlocation): Json
+  [OutputLocation](#cfn-databrew-job-outputlocation): 
+    OutputLocation
   [Outputs](#cfn-databrew-job-outputs): 
     - Output
   [ProjectName](#cfn-databrew-job-projectname): String
-  [Recipe](#cfn-databrew-job-recipe): Json
+  [Recipe](#cfn-databrew-job-recipe): 
+    Recipe
   [RoleArn](#cfn-databrew-job-rolearn): String
   [Tags](#cfn-databrew-job-tags): 
     - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
@@ -75,11 +80,17 @@ The Amazon Resource Name \(ARN\) of an encryption key that is used to protect th
 
 `EncryptionMode`  <a name="cfn-databrew-job-encryptionmode"></a>
 The encryption mode for the job, which can be one of the following:  
-+  `SSE-KMS` \- Server\-side encryption with AWS KMS\-managed keys\.
++  `SSE-KMS` \- Server\-side encryption with keys managed by AWS KMS\.
 +  `SSE-S3` \- Server\-side encryption with keys managed by Amazon S3\.
 *Required*: No  
 *Type*: String  
 *Allowed values*: `SSE-KMS | SSE-S3`  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`JobSample`  <a name="cfn-databrew-job-jobsample"></a>
+A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run\. If a `JobSample` value isn't provided, the default value is used\. The default value is CUSTOM\_ROWS for the mode parameter and 20,000 for the size parameter\.  
+*Required*: No  
+*Type*: [JobSample](aws-properties-databrew-job-jobsample.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `LogSubscription`  <a name="cfn-databrew-job-logsubscription"></a>
@@ -113,7 +124,7 @@ The unique name of the job\.
 `OutputLocation`  <a name="cfn-databrew-job-outputlocation"></a>
 The location in Amazon S3 where the job writes its output\.  
 *Required*: No  
-*Type*: Json  
+*Type*: [OutputLocation](aws-properties-databrew-job-outputlocation.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Outputs`  <a name="cfn-databrew-job-outputs"></a>
@@ -133,11 +144,11 @@ The name of the project that the job is associated with\.
 `Recipe`  <a name="cfn-databrew-job-recipe"></a>
 A series of data transformation steps that the job runs\.  
 *Required*: No  
-*Type*: Json  
+*Type*: [Recipe](aws-properties-databrew-job-recipe.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `RoleArn`  <a name="cfn-databrew-job-rolearn"></a>
-The Amazon Resource Name \(ARN\) of the role that will be assumed for this job\.  
+The Amazon Resource Name \(ARN\) of the role to be assumed for this job\.  
 *Required*: Yes  
 *Type*: String  
 *Minimum*: `20`  
@@ -195,6 +206,9 @@ Resources:
       Name: job-name
       DatasetName: dataset-name
       RoleArn: arn:aws:iam::12345678910:role/PassRoleAdmin
+      JobSample: 
+        Mode: 'CUSTOM_ROWS'
+        Size: 50000 
       OutputLocation:
         Bucket: !Join [ '', ['databrew-cfn-integration-tests-', !Ref 'AWS::Region', '-', !Ref 'AWS::AccountId' ] ]
       Tags: [{Key: key00AtCreate, Value: value001AtCreate}]
@@ -214,6 +228,9 @@ Resources:
                 "Name": "job-test",
                 "DatasetName": "dataset-test",
                 "RoleArn": "arn:aws:iam::1234567891011:role/PassRoleAdmin",
+                "JobSample": {
+                    "Mode": "FULL_DATASET"
+                },
                 "OutputLocation": {
                     "Bucket": "test-output",
                     "Key": "job-output.json"

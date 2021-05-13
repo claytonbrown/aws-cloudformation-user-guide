@@ -1,8 +1,6 @@
 # AWS::SES::Template<a name="aws-resource-ses-template"></a>
 
-Specifies an email template\. Email templates enable you to send personalized email to one or more destinations in a single API operation\. For more information, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html)\.
-
-You can execute this operation no more than once per second\.
+Specifies an email template\. Email templates enable you to send personalized email to one or more destinations in a single API operation\.
 
 ## Syntax<a name="aws-resource-ses-template-syntax"></a>
 

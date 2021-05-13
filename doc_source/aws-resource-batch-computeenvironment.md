@@ -1,6 +1,6 @@
 # AWS::Batch::ComputeEnvironment<a name="aws-resource-batch-computeenvironment"></a>
 
-The `AWS::Batch::ComputeEnvironment` resource defines your AWS Batch compute environment\. You can define `MANAGED` or `UNMANAGED` compute environments\. `MANAGED` compute environments can use Amazon EC2 or AWS Fargate resources\. `UNMANAGED` compute environments can only use EC2 resources\. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide*\.
+The `AWS::Batch::ComputeEnvironment` resource defines your AWS Batch compute environment\. You can define `MANAGED` or `UNMANAGED` compute environments\. `MANAGED` compute environments can use Amazon EC2 or resources\. `UNMANAGED` compute environments can only use EC2 resources\. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide*\.
 
 In a managed compute environment, AWS Batch manages the capacity and instance types of the compute resources within the environment\. This is based on the compute resource specification that you define or the [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) that you specify when you create the compute environment\. You can choose either to use EC2 On\-Demand Instances and EC2 Spot Instances, or to use Fargate and Fargate Spot capacity in your managed compute environment\. You can optionally set a maximum price so that Spot Instances only launch when the Spot Instance price is below a specified percentage of the On\-Demand price\.
 
@@ -66,24 +66,17 @@ The ComputeResources property type specifies details of the compute resources ma
 
 `ServiceRole`  <a name="cfn-batch-computeenvironment-servicerole"></a>
 The full Amazon Resource Name \(ARN\) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf\. For more information, see [AWS Batch service IAM role](https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html) in the *AWS Batch User Guide*\.  
-If your specified role has a path other than `/`, then you must either specify the full role ARN \(this is recommended\) or prefix the role name with the path\.  
-<<<<<<< HEAD
-Depending on how you created your AWS Batch service role, its ARN may contain the `service-role` path prefix\. When you only specify the name of the service role, AWS Batch assumes that your ARN doesn't use the `service-role` path prefix\. Because of this, we recommend that you specify the full ARN of your service role when you create compute environments\.
-=======
+If your account has already created the AWS Batch service\-linked role, that role is used by default for your compute environment unless you specify a role here\. If the AWS Batch service\-linked role does not exist in your account, and no role is specified here, the service will try to create the AWS Batch service\-linked role in your account\.
+If your specified role has a path other than `/`, then you must specify either the full role ARN \(recommended\) or prefix the role name with the path\. For example, if a role with the name `bar` has a path of `/foo/` then you would specify `/foo/bar` as the role name\. For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide*\.  
 Depending on how you created your AWS Batch service role, its ARN might contain the `service-role` path prefix\. When you only specify the name of the service role, AWS Batch assumes that your ARN doesn't use the `service-role` path prefix\. Because of this, we recommend that you specify the full ARN of your service role when you create compute environments\.
->>>>>>> 1096456c6b2b25f069505b56b407ae9946e80022
-*Required*: Yes  
+*Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `State`  <a name="cfn-batch-computeenvironment-state"></a>
 The state of the compute environment\. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues\.  
 If the state is `ENABLED`, then the AWS Batch scheduler can attempt to place jobs from an associated job queue on the compute resources within the environment\. If the compute environment is managed, then it can scale its instances out or in automatically, based on the job queue demand\.  
-<<<<<<< HEAD
-If the state is `DISABLED`, then the AWS Batch scheduler doesn't attempt to place jobs within the environment\. Jobs in a `STARTING` or `RUNNING` state continue to progress normally\. Managed compute environments in the `DISABLED` state do not scale out\. However, they scale in to `minvCpus` value after instances become idle\.  
-=======
 If the state is `DISABLED`, then the AWS Batch scheduler doesn't attempt to place jobs within the environment\. Jobs in a `STARTING` or `RUNNING` state continue to progress normally\. Managed compute environments in the `DISABLED` state don't scale out\. However, they scale in to `minvCpus` value after instances become idle\.  
->>>>>>> 1096456c6b2b25f069505b56b407ae9946e80022
 *Required*: No  
 *Type*: String  
 *Allowed values*: `DISABLED | ENABLED`  

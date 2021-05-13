@@ -135,7 +135,7 @@ The permission set ARN of the permission set, such as `arn:aws:sso:::permissionS
 
 ### Creating a new custom permission set for AWS SSO<a name="aws-resource-sso-permissionset--examples--Creating_a_new_custom_permission_set_for_AWS_SSO"></a>
 
-The following example creates a custom permission set `“PermissionSet”` with a managed policies attachment and inline policy\.
+The following example creates a custom permission set `PermissionSet` with a managed policies attachment and inline policy\.
 
 #### JSON<a name="aws-resource-sso-permissionset--examples--Creating_a_new_custom_permission_set_for_AWS_SSO--json"></a>
 
@@ -147,6 +147,7 @@ The following example creates a custom permission set `“PermissionSet”` with
          "InstanceArn": "arn:aws:sso:::instance/ssoins-instanceId",
          "Name": "PermissionSet",
          "Description": "This is a sample permission set.",
+         "SessionDuration": "PT8H",
          "ManagedPolicies": [
             "arn:aws:iam::aws:policy/AdministratorAccess"
          ],
@@ -171,6 +172,7 @@ PermissionSet:
       InstanceArn: 'arn:aws:sso:::instance/ssoins-instanceId'
       Name: 'PermissionSet'
       Description: 'This is a sample permission set.'
+      SessionDuration: 'PT8H'
       ManagedPolicies:
         - 'arn:aws:iam::aws:policy/AdministratorAccess'
       InlinePolicy: 'Inline policy json string'

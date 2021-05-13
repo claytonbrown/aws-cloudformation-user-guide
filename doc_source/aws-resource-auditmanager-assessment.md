@@ -69,9 +69,12 @@ Properties:
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `FrameworkId`  <a name="cfn-auditmanager-assessment-frameworkid"></a>
-Not currently supported by AWS CloudFormation\.  
+The unique identifier for the framework\.   
 *Required*: No  
 *Type*: String  
+*Minimum*: `36`  
+*Maximum*: `36`  
+*Pattern*: `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Name`  <a name="cfn-auditmanager-assessment-name"></a>
@@ -80,7 +83,7 @@ Not currently supported by AWS CloudFormation\.
 *Type*: String  
 *Minimum*: `1`  
 *Maximum*: `300`  
-*Pattern*: `^[\w\W\s\S]*$`  
+*Pattern*: `^[^\\]*$`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Roles`  <a name="cfn-auditmanager-assessment-roles"></a>

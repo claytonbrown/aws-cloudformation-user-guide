@@ -86,13 +86,13 @@ Environment variables must not start with `AWS_BATCH`; this naming convention is
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `ExecutionRoleArn`  <a name="cfn-batch-jobdefinition-containerproperties-executionrolearn"></a>
-The Amazon Resource Name \(ARN\) of the execution role that AWS Batch can assume\. Jobs running on Fargate resources must provide an execution role\. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide*\.  
+The Amazon Resource Name \(ARN\) of the execution role that AWS Batch can assume\. For jobs that run on Fargate resources, you must provide an execution role\. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide*\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `FargatePlatformConfiguration`  <a name="cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration"></a>
-The platform configuration for jobs running on Fargate resources\. Jobs running on EC2 resources must not specify this parameter\.  
+The platform configuration for jobs that are running on Fargate resources\. Jobs that are running on EC2 resources must not specify this parameter\.  
 *Required*: No  
 *Type*: [FargatePlatformConfiguration](aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -110,7 +110,7 @@ Docker image architecture must match the processor architecture of the compute r
 
 `InstanceType`  <a name="cfn-batch-jobdefinition-containerproperties-instancetype"></a>
 The instance type to use for a multi\-node parallel job\. All node groups in a multi\-node parallel job must use the same instance type\.  
-This parameter isn't applicable to single\-node container jobs or for jobs running on Fargate resources and shouldn't be provided\.
+This parameter isn't applicable to single\-node container jobs or jobs that run on Fargate resources, and shouldn't be provided\.
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -138,7 +138,9 @@ The Amazon ECS container agent running on a container instance must register the
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Memory`  <a name="cfn-batch-jobdefinition-containerproperties-memory"></a>
-This parameter is deprecated and not supported for jobs run on Fargate resources, use `ResourceRequirement`\. For jobs run on EC2 resources can specify the memory requirement using the `ResourceRequirement` structure\. The hard limit \(in MiB\) of memory to present to the container\. If your container attempts to exceed the memory specified here, the container is killed\. This parameter maps to `Memory` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `--memory` option to [docker run](https://docs.docker.com/engine/reference/run/)\. You must specify at least 4 MiB of memory for a job\. This is required but can be specified in several places; it must be specified for each node at least once\.  
+This parameter indicates the memory hard limit \(in MiB\) for a container\. If your container attempts to exceed the specified number, it's terminated\. You must specify at least 4 MiB of memory for a job using this parameter\. The memory hard limit can be specified in several places\. It must be specified for each node at least once\.  
+This parameter maps to `Memory` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `--memory` option to [docker run](https://docs.docker.com/engine/reference/run/)\.  
+This parameter is supported on EC2 resources but isn't supported on Fargate resources\. For Fargate resources, you should specify the memory requirement using `resourceRequirement`\. You can also do this for EC2 resources\.  
 If you're trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see [Memory Management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide*\.
 *Required*: No  
 *Type*: Integer  
@@ -151,14 +153,14 @@ The mount points for data volumes in your container\. This parameter maps to `Vo
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `NetworkConfiguration`  <a name="cfn-batch-jobdefinition-containerproperties-networkconfiguration"></a>
-The network configuration for jobs running on Fargate resources\. Jobs running on EC2 resources must not specify this parameter\.  
+The network configuration for jobs that are running on Fargate resources\. Jobs that are running on EC2 resources must not specify this parameter\.  
 *Required*: No  
 *Type*: [NetworkConfiguration](aws-properties-batch-jobdefinition-containerproperties-networkconfiguration.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Privileged`  <a name="cfn-batch-jobdefinition-containerproperties-privileged"></a>
 When this parameter is true, the container is given elevated permissions on the host container instance \(similar to the `root` user\)\. This parameter maps to `Privileged` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `--privileged` option to [docker run](https://docs.docker.com/engine/reference/run/)\. The default value is false\.  
-This parameter isn't applicable to jobs running on Fargate resources and shouldn't be provided, or specified as false\.
+This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided, or specified as false\.
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -183,7 +185,7 @@ The secrets for the container\. For more information, see [Specifying sensitive 
 
 `Ulimits`  <a name="cfn-batch-jobdefinition-containerproperties-ulimits"></a>
 A list of `ulimits` to set in the container\. This parameter maps to `Ulimits` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `--ulimit` option to [docker run](https://docs.docker.com/engine/reference/run/)\.  
-This parameter isn't applicable to jobs running on Fargate resources and shouldn't be provided\.
+This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided\.
 *Required*: No  
 *Type*: List of [Ulimit](aws-properties-batch-jobdefinition-ulimit.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -195,8 +197,9 @@ The user name to use inside the container\. This parameter maps to `User` in the
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Vcpus`  <a name="cfn-batch-jobdefinition-containerproperties-vcpus"></a>
-This parameter is deprecated and not supported for jobs run on Fargate resources, see `resourceRequirement`\. The number of vCPUs reserved for the container\. Jobs running on EC2 resources can specify the vCPU requirement for the job using `resourceRequirements` but the vCPU requirements can't be specified both here and in the `resourceRequirement` structure\. This parameter maps to `CpuShares` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `--cpu-shares` option to [docker run](https://docs.docker.com/engine/reference/run/)\. Each vCPU is equivalent to 1,024 CPU shares\. You must specify at least one vCPU\. This is required but can be specified in several places\. It must be specified for each node at least once\.  
-This parameter isn't applicable to jobs running on Fargate resources and shouldn't be provided\. Jobs running on Fargate resources must specify the vCPU requirement for the job using `resourceRequirements`\.
+The number of vCPUs reserved for the job\. Each vCPU is equivalent to 1,024 CPU shares\. This parameter maps to `CpuShares` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `--cpu-shares` option to [docker run](https://docs.docker.com/engine/reference/run/)\. The number of vCPUs must be specified but can be specified in several places\. You must specify it at least once for each node\.  
+This parameter is supported on EC2 resources but isn't supported for jobs that run on Fargate resources\. For these resources, use `resourceRequirement` instead\. You can use this parameter or `resourceRequirements` structure but not both\.  
+This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided\. For jobs that run on Fargate resources, you must specify the vCPU requirement for the job using `resourceRequirements`\.
 *Required*: No  
 *Type*: Integer  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

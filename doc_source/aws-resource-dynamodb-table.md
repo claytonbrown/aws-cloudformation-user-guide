@@ -17,8 +17,10 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "Properties" : {
       "[AttributeDefinitions](#cfn-dynamodb-table-attributedef)" : [ AttributeDefinition, ... ],
       "[BillingMode](#cfn-dynamodb-table-billingmode)" : String,
+      "[ContributorInsightsSpecification](#cfn-dynamodb-contributorinsightsspecification-enabled)" : ContributorInsightsSpecification,
       "[GlobalSecondaryIndexes](#cfn-dynamodb-table-gsi)" : [ GlobalSecondaryIndex, ... ],
       "[KeySchema](#cfn-dynamodb-table-keyschema)" : [ KeySchema, ... ],
+      "[KinesisStreamSpecification](#cfn-dynamodb-table-kinesisstreamspecification)" : KinesisStreamSpecification,
       "[LocalSecondaryIndexes](#cfn-dynamodb-table-lsi)" : [ LocalSecondaryIndex, ... ],
       "[PointInTimeRecoverySpecification](#cfn-dynamodb-table-pointintimerecoveryspecification)" : PointInTimeRecoverySpecification,
       "[ProvisionedThroughput](#cfn-dynamodb-table-provisionedthroughput)" : ProvisionedThroughput,
@@ -39,10 +41,14 @@ Properties:
   [AttributeDefinitions](#cfn-dynamodb-table-attributedef): 
     - AttributeDefinition
   [BillingMode](#cfn-dynamodb-table-billingmode): String
+  [ContributorInsightsSpecification](#cfn-dynamodb-contributorinsightsspecification-enabled): 
+    ContributorInsightsSpecification
   [GlobalSecondaryIndexes](#cfn-dynamodb-table-gsi): 
     - GlobalSecondaryIndex
   [KeySchema](#cfn-dynamodb-table-keyschema): 
     - KeySchema
+  [KinesisStreamSpecification](#cfn-dynamodb-table-kinesisstreamspecification): 
+    KinesisStreamSpecification
   [LocalSecondaryIndexes](#cfn-dynamodb-table-lsi): 
     - LocalSecondaryIndex
   [PointInTimeRecoverySpecification](#cfn-dynamodb-table-pointintimerecoveryspecification): 
@@ -80,6 +86,12 @@ If not specified, the default is `PROVISIONED`\.
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`ContributorInsightsSpecification`  <a name="cfn-dynamodb-contributorinsightsspecification-enabled"></a>
+The settings used to enable or disable CloudWatch Contributor Insights for the specified table\.  
+*Required*: No  
+*Type*: [ContributorInsightsSpecification](aws-properties-dynamodb-contributorinsightsspecification.md)  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `GlobalSecondaryIndexes`  <a name="cfn-dynamodb-table-gsi"></a>
 Global secondary indexes to be created on the table\. You can create up to 20 global secondary indexes\.  
 If you update a table to include a new global secondary index, AWS CloudFormation initiates the index creation and then proceeds with the stack update\. AWS CloudFormation doesn't wait for the index to complete creation because the backfilling phase can take a long time, depending on the size of the table\. You can't use the index or update the table until the index's status is `ACTIVE`\. You can track its status by using the DynamoDB [DescribeTable](https://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html) command\.  
@@ -97,6 +109,12 @@ Specifies the attributes that make up the primary key for the table\. The attrib
 *Type*: [List](aws-properties-dynamodb-keyschema.md) of [KeySchema](aws-properties-dynamodb-keyschema.md)  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
+`KinesisStreamSpecification`  <a name="cfn-dynamodb-table-kinesisstreamspecification"></a>
+The Kinesis Data Streams configuration for the specified table\.  
+*Required*: No  
+*Type*: [KinesisStreamSpecification](aws-properties-dynamodb-kinesisstreamspecification.md)  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `LocalSecondaryIndexes`  <a name="cfn-dynamodb-table-lsi"></a>
 Local secondary indexes to be created on the table\. You can create up to 5 local secondary indexes\. Each index is scoped to a given hash key value\. The size of each hash key can be up to 10 gigabytes\.  
 *Required*: No  
@@ -104,7 +122,7 @@ Local secondary indexes to be created on the table\. You can create up to 5 loca
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `PointInTimeRecoverySpecification`  <a name="cfn-dynamodb-table-pointintimerecoveryspecification"></a>
-The settings used to enable point in time recover\.  
+The settings used to enable point in time recovery\.  
 *Required*: No  
 *Type*: [PointInTimeRecoverySpecification](aws-properties-dynamodb-table-pointintimerecoveryspecification.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

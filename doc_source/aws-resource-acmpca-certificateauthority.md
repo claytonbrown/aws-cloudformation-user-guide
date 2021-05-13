@@ -17,6 +17,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "Properties" : {
       "[CsrExtensions](#cfn-acmpca-certificateauthority-csrextensions)" : CsrExtensions,
       "[KeyAlgorithm](#cfn-acmpca-certificateauthority-keyalgorithm)" : String,
+      "[KeyStorageSecurityStandard](#cfn-acmpca-certificateauthority-keystoragesecuritystandard)" : String,
       "[RevocationConfiguration](#cfn-acmpca-certificateauthority-revocationconfiguration)" : RevocationConfiguration,
       "[SigningAlgorithm](#cfn-acmpca-certificateauthority-signingalgorithm)" : String,
       "[Subject](#cfn-acmpca-certificateauthority-subject)" : Subject,
@@ -34,6 +35,7 @@ Properties:
   [CsrExtensions](#cfn-acmpca-certificateauthority-csrextensions): 
     CsrExtensions
   [KeyAlgorithm](#cfn-acmpca-certificateauthority-keyalgorithm): String
+  [KeyStorageSecurityStandard](#cfn-acmpca-certificateauthority-keystoragesecuritystandard): String
   [RevocationConfiguration](#cfn-acmpca-certificateauthority-revocationconfiguration): 
     RevocationConfiguration
   [SigningAlgorithm](#cfn-acmpca-certificateauthority-signingalgorithm): String
@@ -57,6 +59,15 @@ Type of the public key algorithm and size, in bits, of the key pair that your CA
 *Required*: Yes  
 *Type*: String  
 *Allowed values*: `EC_prime256v1 | EC_secp384r1 | RSA_2048 | RSA_4096`  
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+
+`KeyStorageSecurityStandard`  <a name="cfn-acmpca-certificateauthority-keystoragesecuritystandard"></a>
+Specifies a cryptographic key management compliance standard used for handling CA keys\.  
+Default: FIPS\_140\_2\_LEVEL\_3\_OR\_HIGHER  
+Note: `FIPS_140_2_LEVEL_3_OR_HIGHER` is not supported in Region ap\-northeast\-3\. When creating a CA in the ap\-northeast\-3, you must provide `FIPS_140_2_LEVEL_2_OR_HIGHER` as the argument for `KeyStorageSecurityStandard`\. Failure to do this results in an `InvalidArgsException` with the message, "A certificate authority cannot be created in this region with the specified security standard\."  
+*Required*: No  
+*Type*: String  
+*Allowed values*: `FIPS_140_2_LEVEL_2_OR_HIGHER | FIPS_140_2_LEVEL_3_OR_HIGHER`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `RevocationConfiguration`  <a name="cfn-acmpca-certificateauthority-revocationconfiguration"></a>

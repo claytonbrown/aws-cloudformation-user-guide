@@ -58,7 +58,8 @@ Properties:
 ## Properties<a name="aws-resource-sagemaker-notebookinstance-properties"></a>
 
 `AcceleratorTypes`  <a name="cfn-sagemaker-notebookinstance-acceleratortypes"></a>
-Not currently supported by AWS CloudFormation\.  
+A list of Amazon Elastic Inference \(EI\) instance types to associate with the notebook instance\. Currently, only one instance type can be associated with a notebook instance\. For more information, see [Using Elastic Inference in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html)\.  
+*Valid Values:* `ml.eia1.medium | ml.eia1.large | ml.eia1.xlarge | ml.eia2.medium | ml.eia2.large | ml.eia2.xlarge`\.  
 *Required*: No  
 *Type*: List of String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -80,7 +81,7 @@ The Git repository associated with the notebook instance as its default code rep
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `DirectInternetAccess`  <a name="cfn-sagemaker-notebookinstance-directinternetaccess"></a>
-Sets whether Amazon SageMaker provides internet access to the notebook instance\. If you set this to `Disabled` this notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC\.  
+Sets whether Amazon SageMaker provides internet access to the notebook instance\. If you set this to `Disabled` this notebook instance is able to access resources only in your VPC, and is not be able to connect to Amazon SageMaker training and endpoint services unless you configure a NAT Gateway in your VPC\.  
 For more information, see [Notebook Instances Are Internet\-Enabled by Default](https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access)\. You can set the value of this parameter to `Disabled` only if you set a value for the `SubnetId` parameter\.  
 *Required*: No  
 *Type*: String  

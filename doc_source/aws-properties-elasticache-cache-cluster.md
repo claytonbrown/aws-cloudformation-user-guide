@@ -21,6 +21,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[ClusterName](#cfn-elasticache-cachecluster-clustername)" : String,
       "[Engine](#cfn-elasticache-cachecluster-engine)" : String,
       "[EngineVersion](#cfn-elasticache-cachecluster-engineversion)" : String,
+      "[LogDeliveryConfigurations](#cfn-elasticache-cachecluster-logdeliveryconfigurations)" : [ LogDeliveryConfigurationRequest, ... ],
       "[NotificationTopicArn](#cfn-elasticache-cachecluster-notificationtopicarn)" : String,
       "[NumCacheNodes](#cfn-elasticache-cachecluster-numcachenodes)" : Integer,
       "[Port](#cfn-elasticache-cachecluster-port)" : Integer,
@@ -52,6 +53,8 @@ Properties:
   [ClusterName](#cfn-elasticache-cachecluster-clustername): String
   [Engine](#cfn-elasticache-cachecluster-engine): String
   [EngineVersion](#cfn-elasticache-cachecluster-engineversion): String
+  [LogDeliveryConfigurations](#cfn-elasticache-cachecluster-logdeliveryconfigurations): 
+    - LogDeliveryConfigurationRequest
   [NotificationTopicArn](#cfn-elasticache-cachecluster-notificationtopicarn): String
   [NumCacheNodes](#cfn-elasticache-cachecluster-numcachenodes): Integer
   [Port](#cfn-elasticache-cachecluster-port): Integer
@@ -178,6 +181,12 @@ The version number of the cache engine to be used for this cluster\. To view the
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`LogDeliveryConfigurations`  <a name="cfn-elasticache-cachecluster-logdeliveryconfigurations"></a>
+Specifies the destination, format and type of the logs\.  
+*Required*: No  
+*Type*: List of [LogDeliveryConfigurationRequest](aws-properties-elasticache-cachecluster-logdeliveryconfigurationrequest.md)  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `NotificationTopicArn`  <a name="cfn-elasticache-cachecluster-notificationtopicarn"></a>
 The Amazon Resource Name \(ARN\) of the Amazon Simple Notification Service \(SNS\) topic to which notifications are sent\.  
 The Amazon SNS topic owner must be the same as the cluster owner\.
@@ -266,7 +275,7 @@ This parameter is only valid if the `Engine` parameter is `redis`\.
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Tags`  <a name="cfn-elasticache-cachecluster-tags"></a>
-A list of cost allocation tags to be added to this resource\.  
+A list of tags to be added to this resource\.  
 *Required*: No  
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -344,8 +353,7 @@ For the cache cluster, the `VpcSecurityGroupIds` property is used to associate t
     },
     "ElasticacheCluster": {
         "Type": "AWS::ElastiCache::CacheCluster",
-        "Properties": {
-            "AutoMinorVersionUpgrade": "true",
+        "Properties": {            
             "Engine": "memcached",
             "CacheNodeType": "cache.t2.micro",
             "NumCacheNodes": "1",
@@ -376,8 +384,7 @@ ElasticacheSecurityGroup:
         SourceSecurityGroupName: !Ref InstanceSecurityGroup
 ElasticacheCluster:
   Type: 'AWS::ElastiCache::CacheCluster'
-  Properties:
-    AutoMinorVersionUpgrade: 'true'
+  Properties:    
     Engine: memcached
     CacheNodeType: cache.t2.micro
     NumCacheNodes: '1'

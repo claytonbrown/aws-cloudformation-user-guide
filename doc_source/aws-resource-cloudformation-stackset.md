@@ -67,7 +67,7 @@ Use customized administrator roles to control which users or groups can manage s
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `AutoDeployment`  <a name="cfn-cloudformation-stackset-autodeployment"></a>
-\[`Service-managed` permissions\] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit \(OU\)\.   
+\[`Service-managed` permissions\] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit \(OU\)\.  
 *Required*: No  
 *Type*: [AutoDeployment](aws-properties-cloudformation-stackset-autodeployment.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -172,3 +172,7 @@ For more information about using the `Fn::GetAtt` instrinsic function, see [http
 
 `StackSetId`  <a name="StackSetId-fn::getatt"></a>
 The ID of the stack that you're creating\.
+
+## See also<a name="aws-resource-cloudformation-stackset--seealso"></a>
++ [AWS CloudFormation StackSets sample templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-sampletemplates.html)
+

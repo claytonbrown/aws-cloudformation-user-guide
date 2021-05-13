@@ -133,6 +133,13 @@ The type of resource data sync\. If `SyncType` is `SyncToDestination`, then the 
 
 For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
+### Fn::GetAtt<a name="aws-resource-ssm-resourcedatasync-return-values-fn--getatt"></a>
+
+#### <a name="aws-resource-ssm-resourcedatasync-return-values-fn--getatt-fn--getatt"></a>
+
+`SyncName`  <a name="SyncName-fn::getatt"></a>
+Not currently supported by AWS CloudFormation\.
+
 ## Examples<a name="aws-resource-ssm-resourcedatasync--examples"></a>
 
 ### Create a SyncToDestination Resource Data Sync<a name="aws-resource-ssm-resourcedatasync--examples--Create_a_SyncToDestination_Resource_Data_Sync"></a>

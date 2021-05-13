@@ -12,6 +12,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "Type" : "AWS::ECR::Repository",
   "Properties" : {
+      "[EncryptionConfiguration](#cfn-ecr-repository-encryptionconfiguration)" : Json,
       "[ImageScanningConfiguration](#cfn-ecr-repository-imagescanningconfiguration)" : Json,
       "[ImageTagMutability](#cfn-ecr-repository-imagetagmutability)" : String,
       "[LifecyclePolicy](#cfn-ecr-repository-lifecyclepolicy)" : LifecyclePolicy,
@@ -27,6 +28,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ```
 Type: AWS::ECR::Repository
 Properties: 
+  [EncryptionConfiguration](#cfn-ecr-repository-encryptionconfiguration): Json
   [ImageScanningConfiguration](#cfn-ecr-repository-imagescanningconfiguration): Json
   [ImageTagMutability](#cfn-ecr-repository-imagetagmutability): String
   [LifecyclePolicy](#cfn-ecr-repository-lifecyclepolicy): 
@@ -38,6 +40,12 @@ Properties:
 ```
 
 ## Properties<a name="aws-resource-ecr-repository-properties"></a>
+
+`EncryptionConfiguration`  <a name="cfn-ecr-repository-encryptionconfiguration"></a>
+The encryption configuration for the repository\. This determines how the contents of your repository are encrypted at rest\.  
+*Required*: No  
+*Type*: Json  
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `ImageScanningConfiguration`  <a name="cfn-ecr-repository-imagescanningconfiguration"></a>
 The image scanning configuration for the repository\. This determines whether images are scanned for known vulnerabilities after being pushed to the repository\.  
@@ -100,6 +108,9 @@ For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::G
 
 `Arn`  <a name="Arn-fn::getatt"></a>
 Returns the Amazon Resource Name \(ARN\) for the specified `AWS::ECR::Repository` resource\. For example, `arn:aws:ecr:eu-west-1:123456789012:repository/test-repository `\.
+
+`RepositoryUri`  <a name="RepositoryUri-fn::getatt"></a>
+Not currently supported by AWS CloudFormation\.
 
 ## Examples<a name="aws-resource-ecr-repository--examples"></a>
 
@@ -169,6 +180,35 @@ MyRepository:
             - "ecr:InitiateLayerUpload"
             - "ecr:UploadLayerPart"
             - "ecr:CompleteLayerUpload"
+```
+
+### Specify a repository with an image scanning configuration<a name="aws-resource-ecr-repository--examples--Specify_a_repository_with_an_image_scanning_configuration"></a>
+
+The following example creates a repository named `test-repository` with image scanning enabled\. For more information on image scanning, see [Image scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) in the *Amazon ECR User Guide*\.
+
+#### JSON<a name="aws-resource-ecr-repository--examples--Specify_a_repository_with_an_image_scanning_configuration--json"></a>
+
+```
+"MyRepository": {
+  "Type": "AWS::ECR::Repository",
+  "Properties": {
+    "RepositoryName" : "test-repository",
+    "ImageScanningConfiguration" : {
+      "ScanOnPush": "true"
+    }
+  }
+}
+```
+
+#### YAML<a name="aws-resource-ecr-repository--examples--Specify_a_repository_with_an_image_scanning_configuration--yaml"></a>
+
+```
+MyRepository: 
+  Type: AWS::ECR::Repository
+  Properties: 
+    RepositoryName: "test-repository"
+    ImageScanningConfiguration: 
+      ScanOnPush: "true"
 ```
 
 ### Specify a repository with a lifecycle policy<a name="aws-resource-ecr-repository--examples--Specify_a_repository_with_a_lifecycle_policy"></a>
@@ -242,35 +282,6 @@ Resources:
 Outputs:    
   Arn:
     Value: !GetAtt MyRepository.Arn
-```
-
-### Specify a repository with an image scanning configuration<a name="aws-resource-ecr-repository--examples--Specify_a_repository_with_an_image_scanning_configuration"></a>
-
-The following example creates a repository named `test-repository` with image scanning enabled\. For more information on image scanning, see [Image scanning](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) in the *Amazon ECR User Guide*\.
-
-#### JSON<a name="aws-resource-ecr-repository--examples--Specify_a_repository_with_an_image_scanning_configuration--json"></a>
-
-```
-"MyRepository": {
-  "Type": "AWS::ECR::Repository",
-  "Properties": {
-    "RepositoryName" : "test-repository",
-    "ImageScanningConfiguration" : {
-      "scanOnPush": "true"
-    }
-  }
-}
-```
-
-#### YAML<a name="aws-resource-ecr-repository--examples--Specify_a_repository_with_an_image_scanning_configuration--yaml"></a>
-
-```
-MyRepository: 
-  Type: AWS::ECR::Repository
-  Properties: 
-    RepositoryName: "test-repository"
-    ImageScanningConfiguration: 
-      scanOnPush: "true"
 ```
 
 ## See also<a name="aws-resource-ecr-repository--seealso"></a>

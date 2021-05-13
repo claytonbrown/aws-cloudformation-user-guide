@@ -1,6 +1,6 @@
 # AWS::SES::ReceiptRuleSet<a name="aws-resource-ses-receiptruleset"></a>
 
-Specifies an empty receipt rule set\.
+Creates an empty receipt rule set\.
 
 For information about setting up receipt rule sets, see the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html)\.
 
@@ -32,7 +32,7 @@ Properties:
 ## Properties<a name="aws-resource-ses-receiptruleset-properties"></a>
 
 `RuleSetName`  <a name="cfn-ses-receiptruleset-rulesetname"></a>
-The name of the receipt rule set that you want to reorder\.  
+The name of the receipt rule set to reorder\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
