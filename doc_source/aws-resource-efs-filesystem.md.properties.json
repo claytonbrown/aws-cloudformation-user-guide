@@ -28,7 +28,10 @@
     "UpdateRequires": "No interruption"
   },
   "efs.filesystem.FileSystemPolicy": {
+    "Pattern": "[\\s\\S]+",
+    "Minimum": "1",
     "Required": "No",
+    "Maximum": "20000",
     "UpdateRequires": "No interruption"
   },
   "efs.filesystem.PerformanceMode": {
@@ -36,6 +39,22 @@
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "efs.filesystem.AvailabilityZoneName": {
+    "Pattern": ".+",
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "64",
+    "UpdateRequires": "Replacement"
+  },
+  "efs.filesystem.BypassPolicyLockoutSafetyCheck": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   },
   "efs.filesystem.ProvisionedThroughputInMibps": {
     "Required": "Conditional",

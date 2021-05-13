@@ -6,14 +6,15 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cloud9.environmentec2.SubnetId": {
-    "Minimum": "5",
+    "Pattern": "^(subnet-[0-9a-f]{8}|subnet-[0-9a-f]{17})$",
     "Required": "No",
-    "Type": "String",
-    "Maximum": "30",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Maximum": "24",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "15",
+    "Type": "String"
   },
   "cloud9.environmentec2.OwnerArn": {
-    "Pattern": "^arn:aws:(iam|sts)::\\d+:(root|(user\\/[\\w+=/:,.@-]{1,64}|federated-user\\/[\\w+=/:,.@-]{2,32}|assumed-role\\/[\\w+=:,.@-]{1,64}\\/[\\w+=,.@-]{1,64}))$",
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):(iam|sts)::\\d+:(root|(user\\/[\\w+=/:,.@-]{1,64}|federated-user\\/[\\w+=/:,.@-]{2,32}|assumed-role\\/[\\w+=:,.@-]{1,64}\\/[\\w+=,.@-]{1,64}))$",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -28,12 +29,6 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cloud9.environmentec2.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "Maximum": "200",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
   "cloud9.environmentec2.InstanceType": {
     "Pattern": "^[a-z][1-9][.][a-z0-9]+$",
     "Required": "Yes",
@@ -41,6 +36,17 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "Minimum": "5",
     "Type": "String"
+  },
+  "cloud9.environmentec2.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "cloud9.environmentec2.ImageId": {
+    "Required": "No",
+    "Maximum": "512",
+    "UpdateRequires": "Replacement"
   },
   "cloud9.environmentec2.Description": {
     "Required": "No",

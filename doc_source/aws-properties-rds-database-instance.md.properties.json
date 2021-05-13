@@ -2,7 +2,7 @@
   "rds.database.instance.PerformanceInsightsKMSKeyId": {
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "rds.database.instance.DBName": {
     "Required": "No",
@@ -43,7 +43,7 @@
     "UpdateRequires": "Some interruptions"
   },
   "rds.database.instance.MasterUserPassword": {
-    "Required": "No",
+    "Required": "Conditional",
     "UpdateRequires": "No interruption"
   },
   "rds.database.instance.UseDefaultProcessorFeatures": {
@@ -109,8 +109,7 @@
   },
   "rds.database.instance.MultiAZ": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)",
+    "UpdateRequires": "Some interruptions",
     "AllowedValues": [
       "True",
       "False"
@@ -232,7 +231,7 @@
     "UpdateRequires": "No interruption"
   },
   "rds.database.instance.MasterUsername": {
-    "Required": "No",
+    "Required": "Conditional",
     "UpdateRequires": "Replacement"
   },
   "rds.database.instance.PromotionTier": {

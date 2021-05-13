@@ -1,8 +1,11 @@
 {
   "quicksight.analysis.AwsAccountId": {
+    "Pattern": "^[0-9]{12}$",
     "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Maximum": "12",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "12",
+    "Type": "String"
   },
   "quicksight.analysis.Parameters": {
     "Required": "No",
@@ -43,11 +46,13 @@
   "quicksight.analysis.Permissions": {
     "Required": "No",
     "Type": "List of [ResourcePermission",
+    "Maximum": "64",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.analysis.Tags": {
     "Required": "No",
     "Type": "List of [Tag",
+    "Maximum": "200",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

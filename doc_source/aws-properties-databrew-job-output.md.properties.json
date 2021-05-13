@@ -1,13 +1,8 @@
 {
-  "databrew.job.output.PartitionColumns": {
+  "databrew.job.output.Format": {
+    "Allowed values": "AVRO | CSV | GLUEPARQUET | JSON | ORC | PARQUET | XML",
     "Required": "No",
-    "Type": "List of String",
-    "Maximum": "200",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "databrew.job.output.Location": {
-    "Required": "Yes",
-    "Type": "S3Location",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.output.CompressionFormat": {
@@ -25,10 +20,20 @@
       "False"
     ]
   },
-  "databrew.job.output.Format": {
-    "Allowed values": "AVRO | CSV | GLUEPARQUET | JSON | ORC | PARQUET | XML",
+  "databrew.job.output.FormatOptions": {
     "Required": "No",
-    "Type": "String",
+    "Type": "OutputFormatOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "databrew.job.output.PartitionColumns": {
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "databrew.job.output.Location": {
+    "Required": "Yes",
+    "Type": "S3Location",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

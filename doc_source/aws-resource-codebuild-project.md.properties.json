@@ -1,11 +1,8 @@
 {
-  "codebuild.project.SourceVersion": {
+  "codebuild.project.EncryptionKey": {
+    "Minimum": "1",
     "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "codebuild.project.LogsConfig": {
-    "Required": "No",
-    "Type": "LogsConfig",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codebuild.project.Cache": {
@@ -13,24 +10,13 @@
     "Type": "ProjectCache",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codebuild.project.Artifacts": {
-    "Required": "Yes",
-    "Type": "Artifacts",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codebuild.project.EncryptionKey": {
-    "Minimum": "1",
+  "codebuild.project.BadgeEnabled": {
     "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codebuild.project.Name": {
-    "Pattern": "[A-Za-z0-9][A-Za-z0-9\\-_]{1,254}",
-    "Required": "No",
-    "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "2",
-    "Type": "String"
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   },
   "codebuild.project.Description": {
     "Minimum": "0",
@@ -39,33 +25,11 @@
     "Maximum": "255",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codebuild.project.Environment": {
-    "Required": "Yes",
-    "Type": "Environment",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "codebuild.project.QueuedTimeoutInMinutes": {
     "Minimum": "5",
     "Required": "No",
     "Type": "Integer",
     "Maximum": "480",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codebuild.project.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "Maximum": "50",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codebuild.project.FileSystemLocations": {
-    "Required": "No",
-    "Type": "List of [ProjectFileSystemLocation",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codebuild.project.SecondaryArtifacts": {
-    "Required": "No",
-    "Type": "List of [Artifacts",
-    "Maximum": "12",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codebuild.project.BuildBatchConfig": {
@@ -78,21 +42,18 @@
     "Type": "Source",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codebuild.project.BadgeEnabled": {
+  "codebuild.project.Name": {
+    "Pattern": "[A-Za-z0-9][A-Za-z0-9\\-_]{1,254}",
     "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "Maximum": "255",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "2",
+    "Type": "String"
   },
-  "codebuild.project.VpcConfig": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "codebuild.project.Triggers": {
-    "Required": "No",
-    "Type": "ProjectTriggers",
+  "codebuild.project.ServiceRole": {
+    "Minimum": "1",
+    "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codebuild.project.SecondarySources": {
@@ -101,17 +62,61 @@
     "Maximum": "12",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "codebuild.project.Environment": {
+    "Required": "Yes",
+    "Type": "Environment",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codebuild.project.SecondaryArtifacts": {
+    "Required": "No",
+    "Type": "List of [Artifacts",
+    "Maximum": "12",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codebuild.project.Triggers": {
+    "Required": "No",
+    "Type": "ProjectTriggers",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codebuild.project.FileSystemLocations": {
+    "Required": "No",
+    "Type": "List of [ProjectFileSystemLocation",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codebuild.project.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "codebuild.project.SecondarySourceVersions": {
     "Required": "No",
     "Type": "List of [ProjectSourceVersion",
     "Maximum": "12",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codebuild.project.ServiceRole": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "String",
+  "codebuild.project.SourceVersion": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "codebuild.project.LogsConfig": {
+    "Required": "No",
+    "Type": "LogsConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codebuild.project.Artifacts": {
+    "Required": "Yes",
+    "Type": "Artifacts",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codebuild.project.ConcurrentBuildLimit": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codebuild.project.VpcConfig": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   },
   "codebuild.project.TimeoutInMinutes": {
     "Minimum": "5",

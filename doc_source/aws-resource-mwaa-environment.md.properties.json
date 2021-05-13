@@ -1,9 +1,4 @@
 {
-  "mwaa.environment.WebserverUrl": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "mwaa.environment.AirflowVersion": {
     "Required": "No",
     "Type": "String",
@@ -19,17 +14,16 @@
     "Type": "TagMap",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "mwaa.environment.default_ui_timezone=UTC": {
-    "Required": "No",
-    "Type": "AirflowConfigurationOptions",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "mwaa.environment.ExecutionRoleArn": {
-    "Required": "No",
+  "mwaa.environment.Name": {
+    "Required": "Yes",
     "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "mwaa.environment.AirflowConfigurationOptions": {
+    "Required": "No",
+    "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "mwaa.environment.AirflowConfigurationOptions": {},
   "mwaa.environment.SourceBucketArn": {
     "Required": "No",
     "Type": "String",
@@ -40,7 +34,11 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
-  "mwaa.environment.[webserver]": {},
+  "mwaa.environment.MinWorkers": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "mwaa.environment.PluginsS3Path": {
     "Required": "No",
     "Type": "String",
@@ -51,10 +49,15 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "mwaa.environment.KmsKey": {
+  "mwaa.environment.ExecutionRoleArn": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mwaa.environment.KmsKey": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "mwaa.environment.WebserverAccessMode": {
     "Required": "No",
@@ -64,7 +67,7 @@
   "mwaa.environment.NetworkConfiguration": {
     "Required": "No",
     "Type": "NetworkConfiguration",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mwaa.environment.LoggingConfiguration": {
     "Required": "No",

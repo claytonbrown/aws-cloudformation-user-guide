@@ -10,6 +10,7 @@
   "quicksight.theme.Permissions": {
     "Required": "No",
     "Type": "List of [ResourcePermission",
+    "Maximum": "64",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.theme.Configuration": {
@@ -19,26 +20,31 @@
   },
   "quicksight.theme.BaseThemeId": {
     "Pattern": "[\\w\\-]+",
+    "Minimum": "1",
     "Required": "No",
     "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
+    "UpdateRequires": "No interruption"
   },
   "quicksight.theme.Tags": {
     "Required": "No",
     "Type": "List of [Tag",
+    "Maximum": "200",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.theme.VersionDescription": {
+    "Minimum": "1",
     "Required": "No",
     "Type": "String",
+    "Maximum": "512",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "quicksight.theme.AwsAccountId": {
+    "Pattern": "^[0-9]{12}$",
     "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Maximum": "12",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "12",
+    "Type": "String"
   },
   "quicksight.theme.Name": {
     "Minimum": "1",

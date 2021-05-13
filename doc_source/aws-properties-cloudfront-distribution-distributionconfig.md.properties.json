@@ -1,7 +1,8 @@
 {
-  "cloudfront.distribution.distributionconfig.PriceClass": {
+  "cloudfront.distribution.distributionconfig.CustomOrigin": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
+    "Type": "CustomOrigin",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudfront.distribution.distributionconfig.Aliases": {
     "Required": "No",
@@ -16,6 +17,19 @@
   "cloudfront.distribution.distributionconfig.ViewerCertificate": {
     "Required": "No",
     "Type": "ViewerCertificate",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.distribution.distributionconfig.IPV6Enabled": {
+    "Required": "No",
+    "UpdateRequires": "No interruption",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "cloudfront.distribution.distributionconfig.Origins": {
+    "Required": "No",
+    "Type": "List of [Origin",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudfront.distribution.distributionconfig.OriginGroups": {
@@ -53,12 +67,16 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cloudfront.distribution.distributionconfig.Origins": {
+  "cloudfront.distribution.distributionconfig.S3Origin": {
     "Required": "No",
-    "Type": "List of [Origin",
+    "Type": "S3Origin",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudfront.distribution.distributionconfig.CustomErrorResponses": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "cloudfront.distribution.distributionconfig.PriceClass": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
@@ -67,13 +85,10 @@
     "Type": "List of [CacheBehavior",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cloudfront.distribution.distributionconfig.IPV6Enabled": {
+  "cloudfront.distribution.distributionconfig.CNAMEs": {
     "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudfront.distribution.distributionconfig.Logging": {
     "Required": "No",

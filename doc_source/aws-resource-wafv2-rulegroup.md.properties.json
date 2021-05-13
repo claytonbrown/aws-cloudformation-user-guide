@@ -7,15 +7,15 @@
     "Minimum": "1",
     "Type": "String"
   },
-  "wafv2.rulegroup.Capacity": {
-    "Required": "Yes",
-    "Type": "Integer",
+  "wafv2.rulegroup.CustomResponseBodies": {
+    "Required": "No",
+    "Type": "Map of [CustomResponseBody",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.rulegroup.Scope": {
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "wafv2.rulegroup.VisibilityConfig": {
     "Required": "Yes",
@@ -36,8 +36,13 @@
     "Pattern": "^[\\w\\-]+$",
     "Required": "No",
     "Maximum": "128",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "Minimum": "1",
     "Type": "String"
+  },
+  "wafv2.rulegroup.Capacity": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

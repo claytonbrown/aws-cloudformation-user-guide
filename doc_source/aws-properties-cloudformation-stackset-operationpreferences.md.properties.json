@@ -1,11 +1,22 @@
 {
-  "cloudformation.stackset.operationpreferences.MaxConcurrentPercentage": {
+  "cloudformation.stackset.operationpreferences.FailureToleranceCount": {
     "Required": "Conditional",
-    "UpdateRequires": "No interruption"
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudformation.stackset.operationpreferences.RegionOrder": {
     "Required": "No",
     "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudformation.stackset.operationpreferences.MaxConcurrentPercentage": {
+    "Required": "Conditional",
+    "UpdateRequires": "No interruption"
+  },
+  "cloudformation.stackset.operationpreferences.RegionConcurrencyType": {
+    "Type": "String",
+    "Required": "No",
+    "Allowed values": "SEQUENTIAL` \\| `PARALLEL",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudformation.stackset.operationpreferences.FailureTolerancePercentage": {
@@ -15,10 +26,5 @@
   "cloudformation.stackset.operationpreferences.MaxConcurrentCount": {
     "Required": "Conditional",
     "UpdateRequires": "No interruption"
-  },
-  "cloudformation.stackset.operationpreferences.FailureToleranceCount": {
-    "Required": "Conditional",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

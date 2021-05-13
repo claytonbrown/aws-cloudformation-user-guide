@@ -1,0 +1,49 @@
+{
+  "budgets.budgetsaction.ExecutionRoleArn": {
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov|us-iso-east-1|us-isob-east-1):iam::\\d{12}:role(\\u002F[\\u0021-\\u007F]+\\u002F|\\u002F)[\\w+=,.@-]+$",
+    "Required": "Yes",
+    "Maximum": "618",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "32",
+    "Type": "String"
+  },
+  "budgets.budgetsaction.ActionThreshold": {
+    "Required": "Yes",
+    "Type": "ActionThreshold",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "budgets.budgetsaction.NotificationType": {
+    "Allowed values": "ACTUAL | FORECASTED",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "budgets.budgetsaction.BudgetName": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "budgets.budgetsaction.ApprovalModel": {
+    "Allowed values": "AUTOMATIC | MANUAL",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "budgets.budgetsaction.Subscribers": {
+    "Required": "No",
+    "Type": "List of [Subscriber",
+    "Maximum": "11",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "budgets.budgetsaction.ActionType": {
+    "Allowed values": "APPLY_IAM_POLICY | APPLY_SCP_POLICY | RUN_SSM_DOCUMENTS",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "budgets.budgetsaction.Definition": {
+    "Required": "Yes",
+    "Type": "Definition",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

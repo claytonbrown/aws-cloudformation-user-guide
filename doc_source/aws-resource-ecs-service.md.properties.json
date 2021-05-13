@@ -5,7 +5,7 @@
   },
   "ecs.service.PlatformVersion": {
     "Required": "No",
-    "UpdateRequires": "Replacement"
+    "UpdateRequires": "No interruption"
   },
   "ecs.service.PropagateTags": {
     "Allowed values": "SERVICE | TASK_DEFINITION",
@@ -81,6 +81,15 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "ecs.service.EnableExecuteCommand": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
   "ecs.service.ServiceRegistries": {
     "Required": "No",
     "Type": "List of [ServiceRegistry",
@@ -90,11 +99,6 @@
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "50",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ecs.service.ServiceArn": {
-    "Required": "No",
-    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ecs.service.Cluster": {

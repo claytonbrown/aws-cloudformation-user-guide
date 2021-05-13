@@ -1,14 +1,18 @@
 {
+  "gamelift.gamesessionqueue.PriorityConfiguration": {
+    "Required": "No",
+    "Type": "PriorityConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "gamelift.gamesessionqueue.Destinations": {
     "Required": "No",
     "Type": "List of [Destination",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "gamelift.gamesessionqueue.TimeoutInSeconds": {
-    "Minimum": "0",
+  "gamelift.gamesessionqueue.FilterConfiguration": {
     "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Type": "FilterConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "gamelift.gamesessionqueue.PlayerLatencyPolicies": {
     "Required": "No",
@@ -21,6 +25,28 @@
     "Maximum": "128",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "Minimum": "1",
+    "Type": "String"
+  },
+  "gamelift.gamesessionqueue.TimeoutInSeconds": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "gamelift.gamesessionqueue.CustomEventData": {
+    "Pattern": "[\\s\\S]*",
+    "Required": "No",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "0",
+    "Type": "String"
+  },
+  "gamelift.gamesessionqueue.NotificationTarget": {
+    "Pattern": "[a-zA-Z0-9:_-]*(\\.fifo)?",
+    "Required": "No",
+    "Maximum": "300",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "0",
     "Type": "String"
   }
 }

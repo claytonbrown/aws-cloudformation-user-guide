@@ -1,0 +1,54 @@
+{
+  "sagemaker.domain.VpcId": {
+    "Pattern": "[-0-9a-zA-Z]+",
+    "Length Constraints": "Maximum length of 32\\.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  },
+  "sagemaker.domain.DomainName": {
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "63",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.domain.Tags": {
+    "Required": "No",
+    "Array members": "Minimum number of 0 items\\. Maximum number of 50 items\\.",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.domain.SubnetIds": {
+    "Length Constraints": "Maximum length of 32\\.",
+    "Pattern": "[-0-9a-zA-Z]+",
+    "Required": "Yes",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Array members": "Minimum number of 1 item\\. Maximum number of 16 items\\.",
+    "Type": "List of String"
+  },
+  "sagemaker.domain.AppNetworkAccessType": {
+    "Valid Values": "PublicInternetOnly | VpcOnly",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.domain.DefaultUserSettings": {
+    "Required": "Yes",
+    "Type": "UserSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.domain.KmsKeyId": {
+    "Pattern": ".*",
+    "Length Constraints": "Maximum length of 2048\\.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.domain.AuthMode": {
+    "Valid Values": "SSO | IAM",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  }
+}

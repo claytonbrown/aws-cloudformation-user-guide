@@ -25,9 +25,10 @@
     "Type": "List of [InferenceAccelerator",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.ProxyConfiguration": {
+  "ecs.taskdefinition.EphemeralStorage": {
     "Required": "No",
-    "UpdateRequires": "Replacement"
+    "Type": "EphemeralStorage",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ecs.taskdefinition.PlacementConstraints": {
     "Required": "No",
@@ -39,6 +40,10 @@
     "UpdateRequires": "Replacement"
   },
   "ecs.taskdefinition.Volumes": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ecs.taskdefinition.ProxyConfiguration": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   },

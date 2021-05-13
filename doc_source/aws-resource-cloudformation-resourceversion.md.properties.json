@@ -1,0 +1,27 @@
+{
+  "cloudformation.resourceversion.SchemaHandlerPackage": {
+    "Minimum": "1",
+    "Required": "Yes",
+    "Maximum": "4096",
+    "UpdateRequires": "No interruption"
+  },
+  "cloudformation.resourceversion.ExecutionRoleArn": {
+    "Pattern": "arn:.+:iam::[0-9]{12}:role/.+",
+    "Minimum": "1",
+    "Required": "No",
+    "Maximum": "256",
+    "UpdateRequires": "No interruption"
+  },
+  "cloudformation.resourceversion.LoggingConfig": {
+    "Required": "No",
+    "Type": "LoggingConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudformation.resourceversion.TypeName": {
+    "Pattern": "[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}(::MODULE){0,1}",
+    "Minimum": "10",
+    "Required": "Yes",
+    "Maximum": "204",
+    "UpdateRequires": "No interruption"
+  }
+}
