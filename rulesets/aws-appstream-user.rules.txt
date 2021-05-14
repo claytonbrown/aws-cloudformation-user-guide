@@ -1,0 +1,17 @@
+#AWS::AppStream::User AuthenticationType  == API |OR| AWS::AppStream::User AuthenticationType  == SAML |OR| AWS::AppStream::User AuthenticationType  == USERPOOL << Enforce allowed values [API | SAML | USERPOOL]
+#AWS::AppStream::User MessageAction  == RESEND |OR| AWS::AppStream::User MessageAction  == SUPPRESS << Enforce allowed values [RESEND | SUPPRESS]
+AWS::AppStream::User AuthenticationType  == /.*/ <<  AuthenticationType is a required property for AWS::AppStream::User
+AWS::AppStream::User AuthenticationType  == /API/ <<  API is an expected value for AWS::AppStream::User AuthenticationType
+AWS::AppStream::User AuthenticationType  == /SAML/ <<  SAML is an expected value for AWS::AppStream::User AuthenticationType
+AWS::AppStream::User AuthenticationType  == /USERPOOL/ <<  USERPOOL is an expected value for AWS::AppStream::User AuthenticationType
+AWS::AppStream::User AuthenticationType IN [API,SAML,USERPOOL] << Enforcing Allowed Values only
+AWS::AppStream::User FirstName  == /^[A-Za-z0-9_\-\s]+$/ <<  FirstName is a required pattern for AWS::AppStream::User
+AWS::AppStream::User FirstName  == /arn.*{0,2048}/ <<  FirstName is a required property for AWS::AppStream::User
+AWS::AppStream::User LastName  == /^[A-Za-z0-9_\-\s]+$/ <<  LastName is a required pattern for AWS::AppStream::User
+AWS::AppStream::User LastName  == /arn.*{0,2048}/ <<  LastName is a required property for AWS::AppStream::User
+AWS::AppStream::User MessageAction  == /RESEND/ <<  RESEND is an expected value for AWS::AppStream::User MessageAction
+AWS::AppStream::User MessageAction  == /SUPPRESS/ <<  SUPPRESS is an expected value for AWS::AppStream::User MessageAction
+AWS::AppStream::User MessageAction IN [RESEND,SUPPRESS] << Enforcing Allowed Values only
+AWS::AppStream::User UserName  == /.*/ <<  UserName is a required property for AWS::AppStream::User
+AWS::AppStream::User UserName  == /[\p{L}\p{M}\p{S}\p{N}\p{P}]+/ <<  UserName is a required pattern for AWS::AppStream::User
+AWS::AppStream::User UserName  == /\S{1,128}/ <<  UserName is a required property for AWS::AppStream::User

@@ -1,0 +1,29 @@
+#AWS::EC2::ClientVpnEndpoint SelfServicePortal  == disabled |OR| AWS::EC2::ClientVpnEndpoint SelfServicePortal  == enabled << Enforce allowed values [disabled | enabled]
+#AWS::EC2::ClientVpnEndpoint SplitTunnel  == True |OR| AWS::EC2::ClientVpnEndpoint SplitTunnel  == False << Enforce allowed values [True | False]
+#AWS::EC2::ClientVpnEndpoint TransportProtocol  == tcp |OR| AWS::EC2::ClientVpnEndpoint TransportProtocol  == udp << Enforce allowed values [tcp | udp]
+AWS::EC2::ClientVpnEndpoint AuthenticationOptions  == /.*/ <<  AuthenticationOptions is a required property for AWS::EC2::ClientVpnEndpoint
+AWS::EC2::ClientVpnEndpoint ClientCidrBlock  == /.*/ <<  ClientCidrBlock is a required property for AWS::EC2::ClientVpnEndpoint
+AWS::EC2::ClientVpnEndpoint ClientConnectOptions.LambdaFunctionArn  == /\S/ <<  AWS::EC2::ClientVpnEndpoint is an expected but optional String property for ClientConnectOptions
+AWS::EC2::ClientVpnEndpoint ClientConnectOptions.ec2.clientvpnendpoint.clientconnectoptions.Enabled  == /.*/ <<  ec2.clientvpnendpoint.clientconnectoptions.Enabled is a required property for AWS::EC2::ClientVpnEndpoint ClientConnectOptions
+AWS::EC2::ClientVpnEndpoint ConnectionLogOptions  == /.*/ <<  ConnectionLogOptions is a required property for AWS::EC2::ClientVpnEndpoint
+AWS::EC2::ClientVpnEndpoint ConnectionLogOptions.CloudwatchLogGroup  == /\S/ <<  AWS::EC2::ClientVpnEndpoint is an expected but optional String property for ConnectionLogOptions
+AWS::EC2::ClientVpnEndpoint ConnectionLogOptions.CloudwatchLogStream  == /\S/ <<  AWS::EC2::ClientVpnEndpoint is an expected but optional String property for ConnectionLogOptions
+AWS::EC2::ClientVpnEndpoint ConnectionLogOptions.ec2.clientvpnendpoint.connectionlogoptions.Enabled  == /.*/ <<  ec2.clientvpnendpoint.connectionlogoptions.Enabled is a required property for AWS::EC2::ClientVpnEndpoint ConnectionLogOptions
+AWS::EC2::ClientVpnEndpoint SelfServicePortal  == /disabled/ <<  disabled is an expected value for AWS::EC2::ClientVpnEndpoint SelfServicePortal
+AWS::EC2::ClientVpnEndpoint SelfServicePortal  == /enabled/ <<  enabled is an expected value for AWS::EC2::ClientVpnEndpoint SelfServicePortal
+AWS::EC2::ClientVpnEndpoint SelfServicePortal IN [disabled,enabled] << Enforcing Allowed Values only
+AWS::EC2::ClientVpnEndpoint ServerCertificateArn  == /.*/ <<  ServerCertificateArn is a required property for AWS::EC2::ClientVpnEndpoint
+AWS::EC2::ClientVpnEndpoint SplitTunnel  == /False/ <<  False is an expected value for AWS::EC2::ClientVpnEndpoint SplitTunnel
+AWS::EC2::ClientVpnEndpoint SplitTunnel  == /True/ <<  True is an expected value for AWS::EC2::ClientVpnEndpoint SplitTunnel
+AWS::EC2::ClientVpnEndpoint SplitTunnel IN [True,False] << Enforcing Allowed Values only
+AWS::EC2::ClientVpnEndpoint TagSpecifications.ResourceType  == /\S/ <<  AWS::EC2::ClientVpnEndpoint is an expected but optional String property for TagSpecifications
+AWS::EC2::ClientVpnEndpoint TransportProtocol  == /tcp/ <<  tcp is an expected value for AWS::EC2::ClientVpnEndpoint TransportProtocol
+AWS::EC2::ClientVpnEndpoint TransportProtocol  == /udp/ <<  udp is an expected value for AWS::EC2::ClientVpnEndpoint TransportProtocol
+AWS::EC2::ClientVpnEndpoint TransportProtocol IN [tcp,udp] << Enforcing Allowed Values only
+AWS::EC2::ClientVpnEndpoint VpnPort  == /[0-9].+/ <<  Integer is expected for AWS::EC2::ClientVpnEndpoint of VpnPort 
+ClientConnectOptions.Enabled == False << Enforce Expected Value for ec2.clientvpnendpoint.clientconnectoptions.Enabled
+ClientConnectOptions.Enabled == True << Enforce Expected Value for ec2.clientvpnendpoint.clientconnectoptions.Enabled
+ClientConnectOptions.Enabled IN [True,False] << Enforce Allowed Values
+ConnectionLogOptions.Enabled == False << Enforce Expected Value for ec2.clientvpnendpoint.connectionlogoptions.Enabled
+ConnectionLogOptions.Enabled == True << Enforce Expected Value for ec2.clientvpnendpoint.connectionlogoptions.Enabled
+ConnectionLogOptions.Enabled IN [True,False] << Enforce Allowed Values

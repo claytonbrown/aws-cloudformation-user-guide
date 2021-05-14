@@ -1,0 +1,30 @@
+#AWS::GameLift::MatchmakingConfiguration AcceptanceRequired  == True |OR| AWS::GameLift::MatchmakingConfiguration AcceptanceRequired  == False << Enforce allowed values [True | False]
+#AWS::GameLift::MatchmakingConfiguration BackfillMode  == AUTOMATIC |OR| AWS::GameLift::MatchmakingConfiguration BackfillMode  == MANUAL << Enforce allowed values [AUTOMATIC | MANUAL]
+AWS::GameLift::MatchmakingConfiguration AcceptanceRequired  == /.*/ <<  AcceptanceRequired is a required property for AWS::GameLift::MatchmakingConfiguration
+AWS::GameLift::MatchmakingConfiguration AcceptanceRequired  == /False/ <<  False is an expected value for AWS::GameLift::MatchmakingConfiguration AcceptanceRequired
+AWS::GameLift::MatchmakingConfiguration AcceptanceRequired  == /True/ <<  True is an expected value for AWS::GameLift::MatchmakingConfiguration AcceptanceRequired
+AWS::GameLift::MatchmakingConfiguration AcceptanceRequired  == False <<  False is expected  safe default value
+AWS::GameLift::MatchmakingConfiguration AcceptanceRequired  == True <<  True is expected safe default value
+AWS::GameLift::MatchmakingConfiguration AcceptanceRequired IN [True,False] << Enforcing Allowed Values only
+AWS::GameLift::MatchmakingConfiguration AcceptanceTimeoutSeconds  <= 600 <<  Integer is expected for AWS::GameLift::MatchmakingConfiguration of AcceptanceTimeoutSeconds 
+AWS::GameLift::MatchmakingConfiguration AcceptanceTimeoutSeconds  == /[0-9].+/ <<  Integer is expected for AWS::GameLift::MatchmakingConfiguration of AcceptanceTimeoutSeconds 
+AWS::GameLift::MatchmakingConfiguration AcceptanceTimeoutSeconds  >= 1 <<  Integer is expected for AWS::GameLift::MatchmakingConfiguration of AcceptanceTimeoutSeconds 
+AWS::GameLift::MatchmakingConfiguration AdditionalPlayerCount  == /[0-9].+/ <<  Integer is expected for AWS::GameLift::MatchmakingConfiguration of AdditionalPlayerCount 
+AWS::GameLift::MatchmakingConfiguration AdditionalPlayerCount  >= 0 <<  Integer is expected for AWS::GameLift::MatchmakingConfiguration of AdditionalPlayerCount 
+AWS::GameLift::MatchmakingConfiguration BackfillMode  == /AUTOMATIC/ <<  AUTOMATIC is an expected value for AWS::GameLift::MatchmakingConfiguration BackfillMode
+AWS::GameLift::MatchmakingConfiguration BackfillMode  == /MANUAL/ <<  MANUAL is an expected value for AWS::GameLift::MatchmakingConfiguration BackfillMode
+AWS::GameLift::MatchmakingConfiguration BackfillMode IN [AUTOMATIC,MANUAL] << Enforcing Allowed Values only
+AWS::GameLift::MatchmakingConfiguration CustomEventData  == /\S{0,256}/ <<  AWS::GameLift::MatchmakingConfiguration is an expected length of String property for CustomEventData
+AWS::GameLift::MatchmakingConfiguration Description  == /\S{1,1024}/ <<  Description is a required property for AWS::GameLift::MatchmakingConfiguration
+AWS::GameLift::MatchmakingConfiguration GameSessionData  == /\S{1,4096}/ <<  AWS::GameLift::MatchmakingConfiguration is an expected length of String property for GameSessionData
+AWS::GameLift::MatchmakingConfiguration Name  == /.*/ <<  Name is a required property for AWS::GameLift::MatchmakingConfiguration
+AWS::GameLift::MatchmakingConfiguration Name  == /[a-zA-Z0-9-\.]*/ <<  Name is a required pattern for AWS::GameLift::MatchmakingConfiguration
+AWS::GameLift::MatchmakingConfiguration Name  == /arn.*{0,128}/ <<  Name is a required property for AWS::GameLift::MatchmakingConfiguration
+AWS::GameLift::MatchmakingConfiguration NotificationTarget  == /[a-zA-Z0-9:_/-]*(.fifo)?/ <<  NotificationTarget is a required pattern for AWS::GameLift::MatchmakingConfiguration
+AWS::GameLift::MatchmakingConfiguration RequestTimeoutSeconds  <= 43200 <<  Integer is expected for AWS::GameLift::MatchmakingConfiguration of RequestTimeoutSeconds 
+AWS::GameLift::MatchmakingConfiguration RequestTimeoutSeconds  == /.*/ <<  RequestTimeoutSeconds is a required property for AWS::GameLift::MatchmakingConfiguration
+AWS::GameLift::MatchmakingConfiguration RequestTimeoutSeconds  == /[0-9].+/ <<  Integer is expected for AWS::GameLift::MatchmakingConfiguration of RequestTimeoutSeconds 
+AWS::GameLift::MatchmakingConfiguration RequestTimeoutSeconds  >= 1 <<  Integer is expected for AWS::GameLift::MatchmakingConfiguration of RequestTimeoutSeconds 
+AWS::GameLift::MatchmakingConfiguration RuleSetName  == /.*/ <<  RuleSetName is a required property for AWS::GameLift::MatchmakingConfiguration
+AWS::GameLift::MatchmakingConfiguration RuleSetName  == /[a-zA-Z0-9-\.]*|^arn:.*:matchmakingruleset\/[a-zA-Z0-9-\.]*/ <<  RuleSetName is a required pattern for AWS::GameLift::MatchmakingConfiguration
+AWS::GameLift::MatchmakingConfiguration RuleSetName  == /\S{1,256}/ <<  RuleSetName is a required property for AWS::GameLift::MatchmakingConfiguration

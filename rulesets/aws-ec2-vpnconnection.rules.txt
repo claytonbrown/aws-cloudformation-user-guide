@@ -1,0 +1,13 @@
+#AWS::EC2::VPNConnection StaticRoutesOnly  == True |OR| AWS::EC2::VPNConnection StaticRoutesOnly  == False << Enforce allowed values [True | False]
+#AWS::EC2::VPNConnection Type  == ipsec.1 << Enforce allowed values [ipsec.1]
+AWS::EC2::VPNConnection CustomerGatewayId  == /.*/ <<  CustomerGatewayId is a required property for AWS::EC2::VPNConnection
+AWS::EC2::VPNConnection StaticRoutesOnly  == /False/ <<  False is an expected value for AWS::EC2::VPNConnection StaticRoutesOnly
+AWS::EC2::VPNConnection StaticRoutesOnly  == /True/ <<  True is an expected value for AWS::EC2::VPNConnection StaticRoutesOnly
+AWS::EC2::VPNConnection StaticRoutesOnly  == False <<  False is expected  safe default value
+AWS::EC2::VPNConnection StaticRoutesOnly  == True <<  True is expected safe default value
+AWS::EC2::VPNConnection StaticRoutesOnly IN [True,False] << Enforcing Allowed Values only
+AWS::EC2::VPNConnection Type  == /.*/ <<  Type is a required property for AWS::EC2::VPNConnection
+AWS::EC2::VPNConnection Type  == /ipsec.1/ <<  ipsec.1 is an expected value for AWS::EC2::VPNConnection Type
+AWS::EC2::VPNConnection Type IN [ipsec.1] << Enforcing Allowed Values only
+AWS::EC2::VPNConnection VpnTunnelOptionsSpecifications.PreSharedKey  == /\S/ <<  AWS::EC2::VPNConnection is an expected but optional String property for VpnTunnelOptionsSpecifications
+AWS::EC2::VPNConnection VpnTunnelOptionsSpecifications.TunnelInsideCidr  == /\S/ <<  AWS::EC2::VPNConnection is an expected but optional String property for VpnTunnelOptionsSpecifications

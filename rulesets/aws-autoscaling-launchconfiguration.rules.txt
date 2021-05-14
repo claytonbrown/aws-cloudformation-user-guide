@@ -1,0 +1,19 @@
+#AWS::AutoScaling::LaunchConfiguration AssociatePublicIpAddress  == True |OR| AWS::AutoScaling::LaunchConfiguration AssociatePublicIpAddress  == False << Enforce allowed values [True | False]
+#AWS::AutoScaling::LaunchConfiguration EbsOptimized  == True |OR| AWS::AutoScaling::LaunchConfiguration EbsOptimized  == False << Enforce allowed values [True | False]
+#AWS::AutoScaling::LaunchConfiguration InstanceMonitoring  == True |OR| AWS::AutoScaling::LaunchConfiguration InstanceMonitoring  == False << Enforce allowed values [True | False]
+AWS::AutoScaling::LaunchConfiguration AssociatePublicIpAddress  == /False/ <<  False is an expected value for AWS::AutoScaling::LaunchConfiguration AssociatePublicIpAddress
+AWS::AutoScaling::LaunchConfiguration AssociatePublicIpAddress  == /True/ <<  True is an expected value for AWS::AutoScaling::LaunchConfiguration AssociatePublicIpAddress
+AWS::AutoScaling::LaunchConfiguration AssociatePublicIpAddress IN [True,False] << Enforcing Allowed Values only
+AWS::AutoScaling::LaunchConfiguration BlockDeviceMappings.DeviceName  == /\S/ <<  AWS::AutoScaling::LaunchConfiguration is an expected but optional String property for BlockDeviceMappings
+AWS::AutoScaling::LaunchConfiguration BlockDeviceMappings.VirtualName  == /\S/ <<  AWS::AutoScaling::LaunchConfiguration is an expected but optional String property for BlockDeviceMappings
+AWS::AutoScaling::LaunchConfiguration EbsOptimized  == /False/ <<  False is an expected value for AWS::AutoScaling::LaunchConfiguration EbsOptimized
+AWS::AutoScaling::LaunchConfiguration EbsOptimized  == /True/ <<  True is an expected value for AWS::AutoScaling::LaunchConfiguration EbsOptimized
+AWS::AutoScaling::LaunchConfiguration EbsOptimized IN [True,False] << Enforcing Allowed Values only
+AWS::AutoScaling::LaunchConfiguration ImageId  == /.*/ <<  ImageId is a required property for AWS::AutoScaling::LaunchConfiguration
+AWS::AutoScaling::LaunchConfiguration InstanceMonitoring  == /False/ <<  False is an expected value for AWS::AutoScaling::LaunchConfiguration InstanceMonitoring
+AWS::AutoScaling::LaunchConfiguration InstanceMonitoring  == /True/ <<  True is an expected value for AWS::AutoScaling::LaunchConfiguration InstanceMonitoring
+AWS::AutoScaling::LaunchConfiguration InstanceMonitoring IN [True,False] << Enforcing Allowed Values only
+AWS::AutoScaling::LaunchConfiguration InstanceType  == /.*/ <<  InstanceType is a required property for AWS::AutoScaling::LaunchConfiguration
+AWS::AutoScaling::LaunchConfiguration LaunchConfigurationName  == /[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*/ <<  LaunchConfigurationName is a required pattern for AWS::AutoScaling::LaunchConfiguration
+AWS::AutoScaling::LaunchConfiguration LaunchConfigurationName  == /\S{1,255}/ <<  LaunchConfigurationName is a required property for AWS::AutoScaling::LaunchConfiguration
+AWS::AutoScaling::LaunchConfiguration UserData  == /[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*/ <<  UserData is a required pattern for AWS::AutoScaling::LaunchConfiguration

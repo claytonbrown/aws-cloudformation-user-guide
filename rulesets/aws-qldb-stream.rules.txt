@@ -1,0 +1,14 @@
+AWS::QLDB::Stream InclusiveStartTime  == /.*/ <<  InclusiveStartTime is a required property for AWS::QLDB::Stream
+AWS::QLDB::Stream KinesisConfiguration  == /.*/ <<  KinesisConfiguration is a required property for AWS::QLDB::Stream
+AWS::QLDB::Stream KinesisConfiguration.StreamArn  == /\S/ <<  AWS::QLDB::Stream is an expected but optional String property for KinesisConfiguration
+AWS::QLDB::Stream LedgerName  == /(?!^.*--)(?!^[0-9]+$)(?!^-)(?!.*-$)^[A-Za-z0-9-]+$/ <<  LedgerName is a required pattern for AWS::QLDB::Stream
+AWS::QLDB::Stream LedgerName  == /.*/ <<  LedgerName is a required property for AWS::QLDB::Stream
+AWS::QLDB::Stream LedgerName  == /\S{1,32}/ <<  LedgerName is a required property for AWS::QLDB::Stream
+AWS::QLDB::Stream RoleArn  == /.*/ <<  RoleArn is a required property for AWS::QLDB::Stream
+AWS::QLDB::Stream RoleArn  == /arn.*{20,1600}/ <<  RoleArn is a required property for AWS::QLDB::Stream
+AWS::QLDB::Stream StreamName  == /(?!^.*--)(?!^[0-9]+$)(?!^-)(?!.*-$)^[A-Za-z0-9-]+$/ <<  StreamName is a required pattern for AWS::QLDB::Stream
+AWS::QLDB::Stream StreamName  == /.*/ <<  StreamName is a required property for AWS::QLDB::Stream
+AWS::QLDB::Stream StreamName  == /\S{1,32}/ <<  StreamName is a required property for AWS::QLDB::Stream
+KinesisConfiguration.AggregationEnabled == False << Enforce Expected Value for qldb.stream.kinesisconfiguration.AggregationEnabled
+KinesisConfiguration.AggregationEnabled == True << Enforce Expected Value for qldb.stream.kinesisconfiguration.AggregationEnabled
+KinesisConfiguration.AggregationEnabled IN [True,False] << Enforce Allowed Values

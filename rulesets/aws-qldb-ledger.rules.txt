@@ -1,0 +1,12 @@
+#AWS::QLDB::Ledger DeletionProtection  == True |OR| AWS::QLDB::Ledger DeletionProtection  == False << Enforce allowed values [True | False]
+#AWS::QLDB::Ledger PermissionsMode  == ALLOW_ALL << Enforce allowed values [ALLOW_ALL]
+AWS::QLDB::Ledger DeletionProtection  == /False/ <<  False is an expected value for AWS::QLDB::Ledger DeletionProtection
+AWS::QLDB::Ledger DeletionProtection  == /True/ <<  True is an expected value for AWS::QLDB::Ledger DeletionProtection
+AWS::QLDB::Ledger DeletionProtection  == False <<  False is expected  safe default value
+AWS::QLDB::Ledger DeletionProtection  == True <<  True is expected safe default value
+AWS::QLDB::Ledger DeletionProtection IN [True,False] << Enforcing Allowed Values only
+AWS::QLDB::Ledger Name  == /(?!^.*--)(?!^[0-9]+$)(?!^-)(?!.*-$)^[A-Za-z0-9-]+$/ <<  Name is a required pattern for AWS::QLDB::Ledger
+AWS::QLDB::Ledger Name  == /\S{1,32}/ <<  Name is a required property for AWS::QLDB::Ledger
+AWS::QLDB::Ledger PermissionsMode  == /.*/ <<  PermissionsMode is a required property for AWS::QLDB::Ledger
+AWS::QLDB::Ledger PermissionsMode  == /ALLOW_ALL/ <<  ALLOW_ALL is an expected value for AWS::QLDB::Ledger PermissionsMode
+AWS::QLDB::Ledger PermissionsMode IN [ALLOW_ALL] << Enforcing Allowed Values only

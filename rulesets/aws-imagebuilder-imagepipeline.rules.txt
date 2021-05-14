@@ -1,0 +1,19 @@
+#AWS::ImageBuilder::ImagePipeline EnhancedImageMetadataEnabled  == True |OR| AWS::ImageBuilder::ImagePipeline EnhancedImageMetadataEnabled  == False << Enforce allowed values [True | False]
+#AWS::ImageBuilder::ImagePipeline Status  == DISABLED |OR| AWS::ImageBuilder::ImagePipeline Status  == ENABLED << Enforce allowed values [DISABLED | ENABLED]
+AWS::ImageBuilder::ImagePipeline Description  == /\S{1,1024}/ <<  Description is a required property for AWS::ImageBuilder::ImagePipeline
+AWS::ImageBuilder::ImagePipeline EnhancedImageMetadataEnabled  == /False/ <<  False is an expected value for AWS::ImageBuilder::ImagePipeline EnhancedImageMetadataEnabled
+AWS::ImageBuilder::ImagePipeline EnhancedImageMetadataEnabled  == /True/ <<  True is an expected value for AWS::ImageBuilder::ImagePipeline EnhancedImageMetadataEnabled
+AWS::ImageBuilder::ImagePipeline EnhancedImageMetadataEnabled  == False <<  False is expected  safe default value
+AWS::ImageBuilder::ImagePipeline EnhancedImageMetadataEnabled  == True <<  True is expected safe default value
+AWS::ImageBuilder::ImagePipeline EnhancedImageMetadataEnabled IN [True,False] << Enforcing Allowed Values only
+AWS::ImageBuilder::ImagePipeline InfrastructureConfigurationArn  == /.*/ <<  InfrastructureConfigurationArn is a required property for AWS::ImageBuilder::ImagePipeline
+AWS::ImageBuilder::ImagePipeline Name  == /.*/ <<  Name is a required property for AWS::ImageBuilder::ImagePipeline
+AWS::ImageBuilder::ImagePipeline Name  == /^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$/ <<  Name is a required pattern for AWS::ImageBuilder::ImagePipeline
+AWS::ImageBuilder::ImagePipeline Schedule.PipelineExecutionStartCondition  == /\S/ <<  AWS::ImageBuilder::ImagePipeline is an expected but optional String property for Schedule
+AWS::ImageBuilder::ImagePipeline Schedule.ScheduleExpression  == /\S/ <<  AWS::ImageBuilder::ImagePipeline is an expected but optional String property for Schedule
+AWS::ImageBuilder::ImagePipeline Status  == /DISABLED/ <<  DISABLED is an expected value for AWS::ImageBuilder::ImagePipeline Status
+AWS::ImageBuilder::ImagePipeline Status  == /ENABLED/ <<  ENABLED is an expected value for AWS::ImageBuilder::ImagePipeline Status
+AWS::ImageBuilder::ImagePipeline Status IN [DISABLED,ENABLED] << Enforcing Allowed Values only
+ImageTestsConfiguration.ImageTestsEnabled == False << Enforce Expected Value for imagebuilder.imagepipeline.imagetestsconfiguration.ImageTestsEnabled
+ImageTestsConfiguration.ImageTestsEnabled == True << Enforce Expected Value for imagebuilder.imagepipeline.imagetestsconfiguration.ImageTestsEnabled
+ImageTestsConfiguration.ImageTestsEnabled IN [True,False] << Enforce Allowed Values

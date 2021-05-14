@@ -1,0 +1,13 @@
+#AWS::ApiGateway::RequestValidator ValidateRequestBody  == True |OR| AWS::ApiGateway::RequestValidator ValidateRequestBody  == False << Enforce allowed values [True | False]
+#AWS::ApiGateway::RequestValidator ValidateRequestParameters  == True |OR| AWS::ApiGateway::RequestValidator ValidateRequestParameters  == False << Enforce allowed values [True | False]
+AWS::ApiGateway::RequestValidator RestApiId  == /.*/ <<  RestApiId is a required property for AWS::ApiGateway::RequestValidator
+AWS::ApiGateway::RequestValidator ValidateRequestBody  == /False/ <<  False is an expected value for AWS::ApiGateway::RequestValidator ValidateRequestBody
+AWS::ApiGateway::RequestValidator ValidateRequestBody  == /True/ <<  True is an expected value for AWS::ApiGateway::RequestValidator ValidateRequestBody
+AWS::ApiGateway::RequestValidator ValidateRequestBody  == False <<  False is expected  safe default value
+AWS::ApiGateway::RequestValidator ValidateRequestBody  == True <<  True is expected safe default value
+AWS::ApiGateway::RequestValidator ValidateRequestBody IN [True,False] << Enforcing Allowed Values only
+AWS::ApiGateway::RequestValidator ValidateRequestParameters  == /False/ <<  False is an expected value for AWS::ApiGateway::RequestValidator ValidateRequestParameters
+AWS::ApiGateway::RequestValidator ValidateRequestParameters  == /True/ <<  True is an expected value for AWS::ApiGateway::RequestValidator ValidateRequestParameters
+AWS::ApiGateway::RequestValidator ValidateRequestParameters  == False <<  False is expected  safe default value
+AWS::ApiGateway::RequestValidator ValidateRequestParameters  == True <<  True is expected safe default value
+AWS::ApiGateway::RequestValidator ValidateRequestParameters IN [True,False] << Enforcing Allowed Values only

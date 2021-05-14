@@ -1,0 +1,31 @@
+#AWS::WorkSpaces::Workspace RootVolumeEncryptionEnabled  == True |OR| AWS::WorkSpaces::Workspace RootVolumeEncryptionEnabled  == False << Enforce allowed values [True | False]
+#AWS::WorkSpaces::Workspace UserVolumeEncryptionEnabled  == True |OR| AWS::WorkSpaces::Workspace UserVolumeEncryptionEnabled  == False << Enforce allowed values [True | False]
+AWS::WorkSpaces::Workspace BundleId  == /.*/ <<  BundleId is a required property for AWS::WorkSpaces::Workspace
+AWS::WorkSpaces::Workspace BundleId  == /^wsb-[0-9a-z]{8,63}$/ <<  BundleId is a required pattern for AWS::WorkSpaces::Workspace
+AWS::WorkSpaces::Workspace DirectoryId  == /.*/ <<  DirectoryId is a required property for AWS::WorkSpaces::Workspace
+AWS::WorkSpaces::Workspace DirectoryId  == /^d-[0-9a-f]{8,63}$/ <<  DirectoryId is a required pattern for AWS::WorkSpaces::Workspace
+AWS::WorkSpaces::Workspace RootVolumeEncryptionEnabled  == /False/ <<  False is an expected value for AWS::WorkSpaces::Workspace RootVolumeEncryptionEnabled
+AWS::WorkSpaces::Workspace RootVolumeEncryptionEnabled  == /True/ <<  True is an expected value for AWS::WorkSpaces::Workspace RootVolumeEncryptionEnabled
+AWS::WorkSpaces::Workspace RootVolumeEncryptionEnabled  == False <<  False is expected  safe default value
+AWS::WorkSpaces::Workspace RootVolumeEncryptionEnabled  == True <<  True is expected safe default value
+AWS::WorkSpaces::Workspace RootVolumeEncryptionEnabled IN [True,False] << Enforcing Allowed Values only
+AWS::WorkSpaces::Workspace UserName  == /.*/ <<  UserName is a required property for AWS::WorkSpaces::Workspace
+AWS::WorkSpaces::Workspace UserName  == /\S{1,63}/ <<  UserName is a required property for AWS::WorkSpaces::Workspace
+AWS::WorkSpaces::Workspace UserVolumeEncryptionEnabled  == /False/ <<  False is an expected value for AWS::WorkSpaces::Workspace UserVolumeEncryptionEnabled
+AWS::WorkSpaces::Workspace UserVolumeEncryptionEnabled  == /True/ <<  True is an expected value for AWS::WorkSpaces::Workspace UserVolumeEncryptionEnabled
+AWS::WorkSpaces::Workspace UserVolumeEncryptionEnabled  == False <<  False is expected  safe default value
+AWS::WorkSpaces::Workspace UserVolumeEncryptionEnabled  == True <<  True is expected safe default value
+AWS::WorkSpaces::Workspace UserVolumeEncryptionEnabled IN [True,False] << Enforcing Allowed Values only
+AWS::WorkSpaces::Workspace WorkspaceProperties.ComputeTypeName  == /\S/ <<  AWS::WorkSpaces::Workspace is an expected but optional String property for WorkspaceProperties
+AWS::WorkSpaces::Workspace WorkspaceProperties.RunningMode  == /\S/ <<  AWS::WorkSpaces::Workspace is an expected but optional String property for WorkspaceProperties
+WorkspaceProperties.ComputeTypeName == GRAPHICS << Enforce Expected Value for workspaces.workspace.workspaceproperties.ComputeTypeName
+WorkspaceProperties.ComputeTypeName == GRAPHICSPRO << Enforce Expected Value for workspaces.workspace.workspaceproperties.ComputeTypeName
+WorkspaceProperties.ComputeTypeName == PERFORMANCE << Enforce Expected Value for workspaces.workspace.workspaceproperties.ComputeTypeName
+WorkspaceProperties.ComputeTypeName == POWER << Enforce Expected Value for workspaces.workspace.workspaceproperties.ComputeTypeName
+WorkspaceProperties.ComputeTypeName == POWERPRO << Enforce Expected Value for workspaces.workspace.workspaceproperties.ComputeTypeName
+WorkspaceProperties.ComputeTypeName == STANDARD << Enforce Expected Value for workspaces.workspace.workspaceproperties.ComputeTypeName
+WorkspaceProperties.ComputeTypeName == VALUE << Enforce Expected Value for workspaces.workspace.workspaceproperties.ComputeTypeName
+WorkspaceProperties.ComputeTypeName IN [GRAPHICS,GRAPHICSPRO,PERFORMANCE,POWER,POWERPRO,STANDARD,VALUE] << Enforce Allowed Values
+WorkspaceProperties.RunningMode == ALWAYS_ON << Enforce Expected Value for workspaces.workspace.workspaceproperties.RunningMode
+WorkspaceProperties.RunningMode == AUTO_STOP << Enforce Expected Value for workspaces.workspace.workspaceproperties.RunningMode
+WorkspaceProperties.RunningMode IN [ALWAYS_ON,AUTO_STOP] << Enforce Allowed Values

@@ -1,0 +1,16 @@
+AWS::RoboMaker::RobotApplication Name  == /[a-zA-Z0-9_\-]*/ <<  Name is a required pattern for AWS::RoboMaker::RobotApplication
+AWS::RoboMaker::RobotApplication Name  == /\S{1,255}/ <<  Name is a required property for AWS::RoboMaker::RobotApplication
+AWS::RoboMaker::RobotApplication RobotSoftwareSuite  == /.*/ <<  RobotSoftwareSuite is a required property for AWS::RoboMaker::RobotApplication
+AWS::RoboMaker::RobotApplication RobotSoftwareSuite.Name  == /\S/ <<  AWS::RoboMaker::RobotApplication is an expected but optional String property for RobotSoftwareSuite
+AWS::RoboMaker::RobotApplication RobotSoftwareSuite.Version  == /\S/ <<  AWS::RoboMaker::RobotApplication is an expected but optional String property for RobotSoftwareSuite
+AWS::RoboMaker::RobotApplication RobotSoftwareSuite.robomaker.robotapplication.robotsoftwaresuite.Name  == /.*/ <<  robomaker.robotapplication.robotsoftwaresuite.Name is a required property for AWS::RoboMaker::RobotApplication RobotSoftwareSuite
+AWS::RoboMaker::RobotApplication RobotSoftwareSuite.robomaker.robotapplication.robotsoftwaresuite.Version  == /.*/ <<  robomaker.robotapplication.robotsoftwaresuite.Version is a required property for AWS::RoboMaker::RobotApplication RobotSoftwareSuite
+AWS::RoboMaker::RobotApplication Sources  == /.*/ <<  Sources is a required property for AWS::RoboMaker::RobotApplication
+RobotSoftwareSuite.Name == ROS << Enforce Expected Value for robomaker.robotapplication.robotsoftwaresuite.Name
+RobotSoftwareSuite.Name == ROS2 << Enforce Expected Value for robomaker.robotapplication.robotsoftwaresuite.Name
+RobotSoftwareSuite.Name IN [ROS,ROS2] << Enforce Allowed Values
+RobotSoftwareSuite.Version == Dashing << Enforce Expected Value for robomaker.robotapplication.robotsoftwaresuite.Version
+RobotSoftwareSuite.Version == Foxy << Enforce Expected Value for robomaker.robotapplication.robotsoftwaresuite.Version
+RobotSoftwareSuite.Version == Kinetic << Enforce Expected Value for robomaker.robotapplication.robotsoftwaresuite.Version
+RobotSoftwareSuite.Version == Melodic << Enforce Expected Value for robomaker.robotapplication.robotsoftwaresuite.Version
+RobotSoftwareSuite.Version IN [Dashing,Foxy,Kinetic,Melodic] << Enforce Allowed Values

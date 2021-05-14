@@ -1,0 +1,36 @@
+#AWS::Cognito::UserPoolClient AllowedOAuthFlowsUserPoolClient  == True |OR| AWS::Cognito::UserPoolClient AllowedOAuthFlowsUserPoolClient  == False << Enforce allowed values [True | False]
+#AWS::Cognito::UserPoolClient GenerateSecret  == True |OR| AWS::Cognito::UserPoolClient GenerateSecret  == False << Enforce allowed values [True | False]
+#AWS::Cognito::UserPoolClient PreventUserExistenceErrors  == ENABLED |OR| AWS::Cognito::UserPoolClient PreventUserExistenceErrors  == LEGACY << Enforce allowed values [ENABLED | LEGACY]
+AWS::Cognito::UserPoolClient AccessTokenValidity  == /[0-9].+/ <<  Integer is expected for AWS::Cognito::UserPoolClient of AccessTokenValidity 
+AWS::Cognito::UserPoolClient AllowedOAuthFlowsUserPoolClient  == /False/ <<  False is an expected value for AWS::Cognito::UserPoolClient AllowedOAuthFlowsUserPoolClient
+AWS::Cognito::UserPoolClient AllowedOAuthFlowsUserPoolClient  == /True/ <<  True is an expected value for AWS::Cognito::UserPoolClient AllowedOAuthFlowsUserPoolClient
+AWS::Cognito::UserPoolClient AllowedOAuthFlowsUserPoolClient  == False <<  False is expected  safe default value
+AWS::Cognito::UserPoolClient AllowedOAuthFlowsUserPoolClient  == True <<  True is expected safe default value
+AWS::Cognito::UserPoolClient AllowedOAuthFlowsUserPoolClient IN [True,False] << Enforcing Allowed Values only
+AWS::Cognito::UserPoolClient AnalyticsConfiguration.ApplicationArn  == /\S/ <<  AWS::Cognito::UserPoolClient is an expected but optional String property for AnalyticsConfiguration
+AWS::Cognito::UserPoolClient AnalyticsConfiguration.ApplicationId  == /\S/ <<  AWS::Cognito::UserPoolClient is an expected but optional String property for AnalyticsConfiguration
+AWS::Cognito::UserPoolClient AnalyticsConfiguration.ExternalId  == /\S/ <<  AWS::Cognito::UserPoolClient is an expected but optional String property for AnalyticsConfiguration
+AWS::Cognito::UserPoolClient AnalyticsConfiguration.RoleArn  == /\S/ <<  AWS::Cognito::UserPoolClient is an expected but optional String property for AnalyticsConfiguration
+AWS::Cognito::UserPoolClient ClientName  == /[\w\s+=,.@-]+/ <<  ClientName is a required pattern for AWS::Cognito::UserPoolClient
+AWS::Cognito::UserPoolClient ClientName  == /\S{1,128}/ <<  ClientName is a required property for AWS::Cognito::UserPoolClient
+AWS::Cognito::UserPoolClient DefaultRedirectURI  == /[\p{L}\p{M}\p{S}\p{N}\p{P}]+/ <<  DefaultRedirectURI is a required pattern for AWS::Cognito::UserPoolClient
+AWS::Cognito::UserPoolClient GenerateSecret  == /False/ <<  False is an expected value for AWS::Cognito::UserPoolClient GenerateSecret
+AWS::Cognito::UserPoolClient GenerateSecret  == /True/ <<  True is an expected value for AWS::Cognito::UserPoolClient GenerateSecret
+AWS::Cognito::UserPoolClient GenerateSecret  == False <<  False is expected  safe default value
+AWS::Cognito::UserPoolClient GenerateSecret  == True <<  True is expected safe default value
+AWS::Cognito::UserPoolClient GenerateSecret IN [True,False] << Enforcing Allowed Values only
+AWS::Cognito::UserPoolClient IdTokenValidity  == /[0-9].+/ <<  Integer is expected for AWS::Cognito::UserPoolClient of IdTokenValidity 
+AWS::Cognito::UserPoolClient PreventUserExistenceErrors  == /ENABLED/ <<  ENABLED is an expected value for AWS::Cognito::UserPoolClient PreventUserExistenceErrors
+AWS::Cognito::UserPoolClient PreventUserExistenceErrors  == /LEGACY/ <<  LEGACY is an expected value for AWS::Cognito::UserPoolClient PreventUserExistenceErrors
+AWS::Cognito::UserPoolClient PreventUserExistenceErrors IN [ENABLED,LEGACY] << Enforcing Allowed Values only
+AWS::Cognito::UserPoolClient RefreshTokenValidity  <= 315360000 <<  Integer is expected for AWS::Cognito::UserPoolClient of RefreshTokenValidity 
+AWS::Cognito::UserPoolClient RefreshTokenValidity  == /[0-9].+/ <<  Integer is expected for AWS::Cognito::UserPoolClient of RefreshTokenValidity 
+AWS::Cognito::UserPoolClient RefreshTokenValidity  >= 0 <<  Integer is expected for AWS::Cognito::UserPoolClient of RefreshTokenValidity 
+AWS::Cognito::UserPoolClient TokenValidityUnits.AccessToken  == /\S/ <<  AWS::Cognito::UserPoolClient is an expected but optional String property for TokenValidityUnits
+AWS::Cognito::UserPoolClient TokenValidityUnits.IdToken  == /\S/ <<  AWS::Cognito::UserPoolClient is an expected but optional String property for TokenValidityUnits
+AWS::Cognito::UserPoolClient TokenValidityUnits.RefreshToken  == /\S/ <<  AWS::Cognito::UserPoolClient is an expected but optional String property for TokenValidityUnits
+AWS::Cognito::UserPoolClient UserPoolId  == /.*/ <<  UserPoolId is a required property for AWS::Cognito::UserPoolClient
+AWS::Cognito::UserPoolClient UserPoolId  == /[\w-]+_[0-9a-zA-Z]+/ <<  UserPoolId is a required pattern for AWS::Cognito::UserPoolClient
+AnalyticsConfiguration.UserDataShared == False << Enforce Expected Value for cognito.userpoolclient.analyticsconfiguration.UserDataShared
+AnalyticsConfiguration.UserDataShared == True << Enforce Expected Value for cognito.userpoolclient.analyticsconfiguration.UserDataShared
+AnalyticsConfiguration.UserDataShared IN [True,False] << Enforce Allowed Values

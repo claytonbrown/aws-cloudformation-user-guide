@@ -1,0 +1,64 @@
+#AWS::CloudWatch::Alarm ActionsEnabled  == True |OR| AWS::CloudWatch::Alarm ActionsEnabled  == False << Enforce allowed values [True | False]
+#AWS::CloudWatch::Alarm ComparisonOperator  == GreaterThanOrEqualToThreshold |OR| AWS::CloudWatch::Alarm ComparisonOperator  == GreaterThanThreshold |OR| AWS::CloudWatch::Alarm ComparisonOperator  == GreaterThanUpperThreshold |OR| AWS::CloudWatch::Alarm ComparisonOperator  == LessThanLowerOrGreaterThanUpperThreshold |OR| AWS::CloudWatch::Alarm ComparisonOperator  == LessThanLowerThreshold |OR| AWS::CloudWatch::Alarm ComparisonOperator  == LessThanOrEqualToThreshold |OR| AWS::CloudWatch::Alarm ComparisonOperator  == LessThanThreshold << Enforce allowed values [GreaterThanOrEqualToThreshold | GreaterThanThreshold | GreaterThanUpperThreshold | LessThanLowerOrGreaterThanUpperThreshold | LessThanLowerThreshold | LessThanOrEqualToThreshold | LessThanThreshold]
+#AWS::CloudWatch::Alarm Statistic  == Average |OR| AWS::CloudWatch::Alarm Statistic  == Maximum |OR| AWS::CloudWatch::Alarm Statistic  == Minimum |OR| AWS::CloudWatch::Alarm Statistic  == SampleCount |OR| AWS::CloudWatch::Alarm Statistic  == Sum << Enforce allowed values [Average | Maximum | Minimum | SampleCount | Sum]
+#AWS::CloudWatch::Alarm Unit  == Bits |OR| AWS::CloudWatch::Alarm Unit  == Bits/Second |OR| AWS::CloudWatch::Alarm Unit  == Bytes |OR| AWS::CloudWatch::Alarm Unit  == Bytes/Second |OR| AWS::CloudWatch::Alarm Unit  == Count |OR| AWS::CloudWatch::Alarm Unit  == Count/Second |OR| AWS::CloudWatch::Alarm Unit  == Gigabits |OR| AWS::CloudWatch::Alarm Unit  == Gigabits/Second |OR| AWS::CloudWatch::Alarm Unit  == Gigabytes |OR| AWS::CloudWatch::Alarm Unit  == Gigabytes/Second |OR| AWS::CloudWatch::Alarm Unit  == Kilobits |OR| AWS::CloudWatch::Alarm Unit  == Kilobits/Second |OR| AWS::CloudWatch::Alarm Unit  == Kilobytes |OR| AWS::CloudWatch::Alarm Unit  == Kilobytes/Second |OR| AWS::CloudWatch::Alarm Unit  == Megabits |OR| AWS::CloudWatch::Alarm Unit  == Megabits/Second |OR| AWS::CloudWatch::Alarm Unit  == Megabytes |OR| AWS::CloudWatch::Alarm Unit  == Megabytes/Second |OR| AWS::CloudWatch::Alarm Unit  == Microseconds |OR| AWS::CloudWatch::Alarm Unit  == Milliseconds |OR| AWS::CloudWatch::Alarm Unit  == None |OR| AWS::CloudWatch::Alarm Unit  == Percent |OR| AWS::CloudWatch::Alarm Unit  == Seconds |OR| AWS::CloudWatch::Alarm Unit  == Terabits |OR| AWS::CloudWatch::Alarm Unit  == Terabits/Second |OR| AWS::CloudWatch::Alarm Unit  == Terabytes |OR| AWS::CloudWatch::Alarm Unit  == Terabytes/Second << Enforce allowed values [Bits | Bits/Second | Bytes | Bytes/Second | Count | Count/Second | Gigabits | Gigabits/Second | Gigabytes | Gigabytes/Second | Kilobits | Kilobits/Second | Kilobytes | Kilobytes/Second | Megabits | Megabits/Second | Megabytes | Megabytes/Second | Microseconds | Milliseconds | None | Percent | Seconds | Terabits | Terabits/Second | Terabytes | Terabytes/Second]
+AWS::CloudWatch::Alarm ActionsEnabled  == /False/ <<  False is an expected value for AWS::CloudWatch::Alarm ActionsEnabled
+AWS::CloudWatch::Alarm ActionsEnabled  == /True/ <<  True is an expected value for AWS::CloudWatch::Alarm ActionsEnabled
+AWS::CloudWatch::Alarm ActionsEnabled  == False <<  False is expected  safe default value
+AWS::CloudWatch::Alarm ActionsEnabled  == True <<  True is expected safe default value
+AWS::CloudWatch::Alarm ActionsEnabled IN [True,False] << Enforcing Allowed Values only
+AWS::CloudWatch::Alarm AlarmDescription  == /\S{0,1024}/ <<  AlarmDescription is a required property for AWS::CloudWatch::Alarm
+AWS::CloudWatch::Alarm AlarmName  == /\S{1,255}/ <<  AlarmName is a required property for AWS::CloudWatch::Alarm
+AWS::CloudWatch::Alarm ComparisonOperator  == /.*/ <<  ComparisonOperator is a required property for AWS::CloudWatch::Alarm
+AWS::CloudWatch::Alarm ComparisonOperator  == /GreaterThanOrEqualToThreshold/ <<  GreaterThanOrEqualToThreshold is an expected value for AWS::CloudWatch::Alarm ComparisonOperator
+AWS::CloudWatch::Alarm ComparisonOperator  == /GreaterThanThreshold/ <<  GreaterThanThreshold is an expected value for AWS::CloudWatch::Alarm ComparisonOperator
+AWS::CloudWatch::Alarm ComparisonOperator  == /GreaterThanUpperThreshold/ <<  GreaterThanUpperThreshold is an expected value for AWS::CloudWatch::Alarm ComparisonOperator
+AWS::CloudWatch::Alarm ComparisonOperator  == /LessThanLowerOrGreaterThanUpperThreshold/ <<  LessThanLowerOrGreaterThanUpperThreshold is an expected value for AWS::CloudWatch::Alarm ComparisonOperator
+AWS::CloudWatch::Alarm ComparisonOperator  == /LessThanLowerThreshold/ <<  LessThanLowerThreshold is an expected value for AWS::CloudWatch::Alarm ComparisonOperator
+AWS::CloudWatch::Alarm ComparisonOperator  == /LessThanOrEqualToThreshold/ <<  LessThanOrEqualToThreshold is an expected value for AWS::CloudWatch::Alarm ComparisonOperator
+AWS::CloudWatch::Alarm ComparisonOperator  == /LessThanThreshold/ <<  LessThanThreshold is an expected value for AWS::CloudWatch::Alarm ComparisonOperator
+AWS::CloudWatch::Alarm ComparisonOperator IN [GreaterThanOrEqualToThreshold,GreaterThanThreshold,GreaterThanUpperThreshold,LessThanLowerOrGreaterThanUpperThreshold,LessThanLowerThreshold,LessThanOrEqualToThreshold,LessThanThreshold] << Enforcing Allowed Values only
+AWS::CloudWatch::Alarm Dimensions.Name  == /\S/ <<  AWS::CloudWatch::Alarm is an expected but optional String property for Dimensions
+AWS::CloudWatch::Alarm Dimensions.Value  == /\S/ <<  AWS::CloudWatch::Alarm is an expected but optional String property for Dimensions
+AWS::CloudWatch::Alarm EvaluateLowSampleCountPercentile  == /\S{1,255}/ <<  AWS::CloudWatch::Alarm is an expected length of String property for EvaluateLowSampleCountPercentile
+AWS::CloudWatch::Alarm EvaluationPeriods  == /.*/ <<  EvaluationPeriods is a required property for AWS::CloudWatch::Alarm
+AWS::CloudWatch::Alarm ExtendedStatistic  == /p(\d{1,2}(\.\d{0,2})?|100)/ <<  ExtendedStatistic is a required pattern for AWS::CloudWatch::Alarm
+AWS::CloudWatch::Alarm MetricName  == /\S{1,255}/ <<  MetricName is a required property for AWS::CloudWatch::Alarm
+AWS::CloudWatch::Alarm Metrics.MetricName  == /\S/ <<  AWS::CloudWatch::Alarm is an expected but optional String property for Metrics
+AWS::CloudWatch::Alarm Metrics.Namespace  == /\S/ <<  AWS::CloudWatch::Alarm is an expected but optional String property for Metrics
+AWS::CloudWatch::Alarm Namespace  == /[^:].*/ <<  Namespace is a required pattern for AWS::CloudWatch::Alarm
+AWS::CloudWatch::Alarm Statistic  == /Average/ <<  Average is an expected value for AWS::CloudWatch::Alarm Statistic
+AWS::CloudWatch::Alarm Statistic  == /Maximum/ <<  Maximum is an expected value for AWS::CloudWatch::Alarm Statistic
+AWS::CloudWatch::Alarm Statistic  == /Minimum/ <<  Minimum is an expected value for AWS::CloudWatch::Alarm Statistic
+AWS::CloudWatch::Alarm Statistic  == /SampleCount/ <<  SampleCount is an expected value for AWS::CloudWatch::Alarm Statistic
+AWS::CloudWatch::Alarm Statistic  == /Sum/ <<  Sum is an expected value for AWS::CloudWatch::Alarm Statistic
+AWS::CloudWatch::Alarm Statistic IN [Average,Maximum,Minimum,SampleCount,Sum] << Enforcing Allowed Values only
+AWS::CloudWatch::Alarm ThresholdMetricId  == /\S{1,255}/ <<  AWS::CloudWatch::Alarm is an expected length of String property for ThresholdMetricId
+AWS::CloudWatch::Alarm Unit  == /Bits/ <<  Bits is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Bits/Second/ <<  Bits/Second is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Bytes/ <<  Bytes is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Bytes/Second/ <<  Bytes/Second is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Count/ <<  Count is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Count/Second/ <<  Count/Second is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Gigabits/ <<  Gigabits is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Gigabits/Second/ <<  Gigabits/Second is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Gigabytes/ <<  Gigabytes is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Gigabytes/Second/ <<  Gigabytes/Second is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Kilobits/ <<  Kilobits is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Kilobits/Second/ <<  Kilobits/Second is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Kilobytes/ <<  Kilobytes is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Kilobytes/Second/ <<  Kilobytes/Second is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Megabits/ <<  Megabits is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Megabits/Second/ <<  Megabits/Second is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Megabytes/ <<  Megabytes is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Megabytes/Second/ <<  Megabytes/Second is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Microseconds/ <<  Microseconds is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Milliseconds/ <<  Milliseconds is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /None/ <<  None is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Percent/ <<  Percent is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Seconds/ <<  Seconds is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Terabits/ <<  Terabits is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Terabits/Second/ <<  Terabits/Second is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Terabytes/ <<  Terabytes is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit  == /Terabytes/Second/ <<  Terabytes/Second is an expected value for AWS::CloudWatch::Alarm Unit
+AWS::CloudWatch::Alarm Unit IN [Bits,Bits/Second,Bytes,Bytes/Second,Count,Count/Second,Gigabits,Gigabits/Second,Gigabytes,Gigabytes/Second,Kilobits,Kilobits/Second,Kilobytes,Kilobytes/Second,Megabits,Megabits/Second,Megabytes,Megabytes/Second,Microseconds,Milliseconds,None,Percent,Seconds,Terabits,Terabits/Second,Terabytes,Terabytes/Second] << Enforcing Allowed Values only

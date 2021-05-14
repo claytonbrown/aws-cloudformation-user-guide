@@ -1,0 +1,28 @@
+#AWS::FMS::Policy DeleteAllPolicyResources  == True |OR| AWS::FMS::Policy DeleteAllPolicyResources  == False << Enforce allowed values [True | False]
+#AWS::FMS::Policy ExcludeResourceTags  == True |OR| AWS::FMS::Policy ExcludeResourceTags  == False << Enforce allowed values [True | False]
+#AWS::FMS::Policy RemediationEnabled  == True |OR| AWS::FMS::Policy RemediationEnabled  == False << Enforce allowed values [True | False]
+AWS::FMS::Policy DeleteAllPolicyResources  == /False/ <<  False is an expected value for AWS::FMS::Policy DeleteAllPolicyResources
+AWS::FMS::Policy DeleteAllPolicyResources  == /True/ <<  True is an expected value for AWS::FMS::Policy DeleteAllPolicyResources
+AWS::FMS::Policy DeleteAllPolicyResources  == False <<  False is expected  safe default value
+AWS::FMS::Policy DeleteAllPolicyResources  == True <<  True is expected safe default value
+AWS::FMS::Policy DeleteAllPolicyResources IN [True,False] << Enforcing Allowed Values only
+AWS::FMS::Policy ExcludeResourceTags  == /.*/ <<  ExcludeResourceTags is a required property for AWS::FMS::Policy
+AWS::FMS::Policy ExcludeResourceTags  == /False/ <<  False is an expected value for AWS::FMS::Policy ExcludeResourceTags
+AWS::FMS::Policy ExcludeResourceTags  == /True/ <<  True is an expected value for AWS::FMS::Policy ExcludeResourceTags
+AWS::FMS::Policy ExcludeResourceTags  == False <<  False is expected  safe default value
+AWS::FMS::Policy ExcludeResourceTags  == True <<  True is expected safe default value
+AWS::FMS::Policy ExcludeResourceTags IN [True,False] << Enforcing Allowed Values only
+AWS::FMS::Policy PolicyName  == /.*/ <<  PolicyName is a required property for AWS::FMS::Policy
+AWS::FMS::Policy PolicyName  == /\S{1,128}/ <<  PolicyName is a required property for AWS::FMS::Policy
+AWS::FMS::Policy PolicyName  == /^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$/ <<  PolicyName is a required pattern for AWS::FMS::Policy
+AWS::FMS::Policy RemediationEnabled  == /.*/ <<  RemediationEnabled is a required property for AWS::FMS::Policy
+AWS::FMS::Policy RemediationEnabled  == /False/ <<  False is an expected value for AWS::FMS::Policy RemediationEnabled
+AWS::FMS::Policy RemediationEnabled  == /True/ <<  True is an expected value for AWS::FMS::Policy RemediationEnabled
+AWS::FMS::Policy RemediationEnabled  == False <<  False is expected  safe default value
+AWS::FMS::Policy RemediationEnabled  == True <<  True is expected safe default value
+AWS::FMS::Policy RemediationEnabled IN [True,False] << Enforcing Allowed Values only
+AWS::FMS::Policy ResourceTags.Key  == /\S/ <<  AWS::FMS::Policy is an expected but optional String property for ResourceTags
+AWS::FMS::Policy ResourceTags.Value  == /\S/ <<  AWS::FMS::Policy is an expected but optional String property for ResourceTags
+AWS::FMS::Policy ResourceType  == /.*/ <<  ResourceType is a required property for AWS::FMS::Policy
+AWS::FMS::Policy ResourceType  == /^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$/ <<  ResourceType is a required pattern for AWS::FMS::Policy
+AWS::FMS::Policy SecurityServicePolicyData  == /.*/ <<  SecurityServicePolicyData is a required property for AWS::FMS::Policy

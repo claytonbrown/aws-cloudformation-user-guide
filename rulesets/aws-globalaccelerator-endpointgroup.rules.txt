@@ -1,0 +1,20 @@
+#AWS::GlobalAccelerator::EndpointGroup HealthCheckProtocol  == HTTP |OR| AWS::GlobalAccelerator::EndpointGroup HealthCheckProtocol  == HTTPS |OR| AWS::GlobalAccelerator::EndpointGroup HealthCheckProtocol  == TCP << Enforce allowed values [HTTP | HTTPS | TCP]
+AWS::GlobalAccelerator::EndpointGroup EndpointConfigurations.EndpointId  == /\S/ <<  AWS::GlobalAccelerator::EndpointGroup is an expected but optional String property for EndpointConfigurations
+AWS::GlobalAccelerator::EndpointGroup EndpointGroupRegion  == /.*/ <<  EndpointGroupRegion is a required property for AWS::GlobalAccelerator::EndpointGroup
+AWS::GlobalAccelerator::EndpointGroup EndpointGroupRegion  == /\S{0,255}/ <<  AWS::GlobalAccelerator::EndpointGroup is an expected length of String property for EndpointGroupRegion
+AWS::GlobalAccelerator::EndpointGroup HealthCheckIntervalSeconds  <= 30 <<  Integer is expected for AWS::GlobalAccelerator::EndpointGroup of HealthCheckIntervalSeconds 
+AWS::GlobalAccelerator::EndpointGroup HealthCheckIntervalSeconds  == /[0-9].+/ <<  Integer is expected for AWS::GlobalAccelerator::EndpointGroup of HealthCheckIntervalSeconds 
+AWS::GlobalAccelerator::EndpointGroup HealthCheckIntervalSeconds  >= 10 <<  Integer is expected for AWS::GlobalAccelerator::EndpointGroup of HealthCheckIntervalSeconds 
+AWS::GlobalAccelerator::EndpointGroup HealthCheckPath  == /^/[-a-zA-Z0-9@:%_\\+.~#?&/=]*$/ <<  HealthCheckPath is a required pattern for AWS::GlobalAccelerator::EndpointGroup
+AWS::GlobalAccelerator::EndpointGroup HealthCheckPort  <= 65535 <<  Integer is expected for AWS::GlobalAccelerator::EndpointGroup of HealthCheckPort 
+AWS::GlobalAccelerator::EndpointGroup HealthCheckPort  == /[0-9].+/ <<  Integer is expected for AWS::GlobalAccelerator::EndpointGroup of HealthCheckPort 
+AWS::GlobalAccelerator::EndpointGroup HealthCheckPort  >= 1 <<  Integer is expected for AWS::GlobalAccelerator::EndpointGroup of HealthCheckPort 
+AWS::GlobalAccelerator::EndpointGroup HealthCheckProtocol  == /HTTP/ <<  HTTP is an expected value for AWS::GlobalAccelerator::EndpointGroup HealthCheckProtocol
+AWS::GlobalAccelerator::EndpointGroup HealthCheckProtocol  == /HTTPS/ <<  HTTPS is an expected value for AWS::GlobalAccelerator::EndpointGroup HealthCheckProtocol
+AWS::GlobalAccelerator::EndpointGroup HealthCheckProtocol  == /TCP/ <<  TCP is an expected value for AWS::GlobalAccelerator::EndpointGroup HealthCheckProtocol
+AWS::GlobalAccelerator::EndpointGroup HealthCheckProtocol IN [HTTP,HTTPS,TCP] << Enforcing Allowed Values only
+AWS::GlobalAccelerator::EndpointGroup ListenerArn  == /.*/ <<  ListenerArn is a required property for AWS::GlobalAccelerator::EndpointGroup
+AWS::GlobalAccelerator::EndpointGroup ListenerArn  == /arn.*{0,255}/ <<  ListenerArn is a required property for AWS::GlobalAccelerator::EndpointGroup
+AWS::GlobalAccelerator::EndpointGroup ThresholdCount  <= 10 <<  Integer is expected for AWS::GlobalAccelerator::EndpointGroup of ThresholdCount 
+AWS::GlobalAccelerator::EndpointGroup ThresholdCount  == /[0-9].+/ <<  Integer is expected for AWS::GlobalAccelerator::EndpointGroup of ThresholdCount 
+AWS::GlobalAccelerator::EndpointGroup ThresholdCount  >= 1 <<  Integer is expected for AWS::GlobalAccelerator::EndpointGroup of ThresholdCount 

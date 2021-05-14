@@ -1,0 +1,7 @@
+#AWS::EC2::NetworkInterfacePermission Permission  == EIP-ASSOCIATE |OR| AWS::EC2::NetworkInterfacePermission Permission  == INSTANCE-ATTACH << Enforce allowed values [EIP-ASSOCIATE | INSTANCE-ATTACH]
+AWS::EC2::NetworkInterfacePermission AwsAccountId  == /.*/ <<  AwsAccountId is a required property for AWS::EC2::NetworkInterfacePermission
+AWS::EC2::NetworkInterfacePermission NetworkInterfaceId  == /.*/ <<  NetworkInterfaceId is a required property for AWS::EC2::NetworkInterfacePermission
+AWS::EC2::NetworkInterfacePermission Permission  == /.*/ <<  Permission is a required property for AWS::EC2::NetworkInterfacePermission
+AWS::EC2::NetworkInterfacePermission Permission  == /EIP-ASSOCIATE/ <<  EIP-ASSOCIATE is an expected value for AWS::EC2::NetworkInterfacePermission Permission
+AWS::EC2::NetworkInterfacePermission Permission  == /INSTANCE-ATTACH/ <<  INSTANCE-ATTACH is an expected value for AWS::EC2::NetworkInterfacePermission Permission
+AWS::EC2::NetworkInterfacePermission Permission IN [EIP-ASSOCIATE,INSTANCE-ATTACH] << Enforcing Allowed Values only

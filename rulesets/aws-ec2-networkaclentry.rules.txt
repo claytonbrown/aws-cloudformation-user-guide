@@ -1,0 +1,16 @@
+#AWS::EC2::NetworkAclEntry Egress  == True |OR| AWS::EC2::NetworkAclEntry Egress  == False << Enforce allowed values [True | False]
+#AWS::EC2::NetworkAclEntry RuleAction  == allow |OR| AWS::EC2::NetworkAclEntry RuleAction  == deny << Enforce allowed values [allow | deny]
+AWS::EC2::NetworkAclEntry Egress  == /False/ <<  False is an expected value for AWS::EC2::NetworkAclEntry Egress
+AWS::EC2::NetworkAclEntry Egress  == /True/ <<  True is an expected value for AWS::EC2::NetworkAclEntry Egress
+AWS::EC2::NetworkAclEntry Egress  == False <<  False is expected  safe default value
+AWS::EC2::NetworkAclEntry Egress  == True <<  True is expected safe default value
+AWS::EC2::NetworkAclEntry Egress IN [True,False] << Enforcing Allowed Values only
+AWS::EC2::NetworkAclEntry NetworkAclId  == /.*/ <<  NetworkAclId is a required property for AWS::EC2::NetworkAclEntry
+AWS::EC2::NetworkAclEntry Protocol  == /.*/ <<  Protocol is a required property for AWS::EC2::NetworkAclEntry
+AWS::EC2::NetworkAclEntry Protocol  == /[0-9].+/ <<  Integer is expected for AWS::EC2::NetworkAclEntry of Protocol 
+AWS::EC2::NetworkAclEntry RuleAction  == /.*/ <<  RuleAction is a required property for AWS::EC2::NetworkAclEntry
+AWS::EC2::NetworkAclEntry RuleAction  == /allow/ <<  allow is an expected value for AWS::EC2::NetworkAclEntry RuleAction
+AWS::EC2::NetworkAclEntry RuleAction  == /deny/ <<  deny is an expected value for AWS::EC2::NetworkAclEntry RuleAction
+AWS::EC2::NetworkAclEntry RuleAction IN [allow,deny] << Enforcing Allowed Values only
+AWS::EC2::NetworkAclEntry RuleNumber  == /.*/ <<  RuleNumber is a required property for AWS::EC2::NetworkAclEntry
+AWS::EC2::NetworkAclEntry RuleNumber  == /[0-9].+/ <<  Integer is expected for AWS::EC2::NetworkAclEntry of RuleNumber 

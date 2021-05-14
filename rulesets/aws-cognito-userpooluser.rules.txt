@@ -1,0 +1,14 @@
+#AWS::Cognito::UserPoolUser ForceAliasCreation  == True |OR| AWS::Cognito::UserPoolUser ForceAliasCreation  == False << Enforce allowed values [True | False]
+#AWS::Cognito::UserPoolUser MessageAction  == RESEND |OR| AWS::Cognito::UserPoolUser MessageAction  == SUPPRESS << Enforce allowed values [RESEND | SUPPRESS]
+AWS::Cognito::UserPoolUser ForceAliasCreation  == /False/ <<  False is an expected value for AWS::Cognito::UserPoolUser ForceAliasCreation
+AWS::Cognito::UserPoolUser ForceAliasCreation  == /True/ <<  True is an expected value for AWS::Cognito::UserPoolUser ForceAliasCreation
+AWS::Cognito::UserPoolUser ForceAliasCreation  == False <<  False is expected  safe default value
+AWS::Cognito::UserPoolUser ForceAliasCreation  == True <<  True is expected safe default value
+AWS::Cognito::UserPoolUser ForceAliasCreation IN [True,False] << Enforcing Allowed Values only
+AWS::Cognito::UserPoolUser MessageAction  == /RESEND/ <<  RESEND is an expected value for AWS::Cognito::UserPoolUser MessageAction
+AWS::Cognito::UserPoolUser MessageAction  == /SUPPRESS/ <<  SUPPRESS is an expected value for AWS::Cognito::UserPoolUser MessageAction
+AWS::Cognito::UserPoolUser MessageAction IN [RESEND,SUPPRESS] << Enforcing Allowed Values only
+AWS::Cognito::UserPoolUser UserPoolId  == /.*/ <<  UserPoolId is a required property for AWS::Cognito::UserPoolUser
+AWS::Cognito::UserPoolUser UserPoolId  == /[\w-]+_[0-9a-zA-Z]+/ <<  UserPoolId is a required pattern for AWS::Cognito::UserPoolUser
+AWS::Cognito::UserPoolUser Username  == /[\p{L}\p{M}\p{S}\p{N}\p{P}]+/ <<  Username is a required pattern for AWS::Cognito::UserPoolUser
+AWS::Cognito::UserPoolUser Username  == /\S{1,128}/ <<  Username is a required property for AWS::Cognito::UserPoolUser

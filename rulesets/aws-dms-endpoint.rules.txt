@@ -1,0 +1,37 @@
+#AWS::DMS::Endpoint EndpointType  == source |OR| AWS::DMS::Endpoint EndpointType  == target << Enforce allowed values [source | target]
+#AWS::DMS::Endpoint SslMode  == none |OR| AWS::DMS::Endpoint SslMode  == require |OR| AWS::DMS::Endpoint SslMode  == verify-ca |OR| AWS::DMS::Endpoint SslMode  == verify-full << Enforce allowed values [none | require | verify-ca | verify-full]
+AWS::DMS::Endpoint DocDbSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for DocDbSettings
+AWS::DMS::Endpoint DocDbSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for DocDbSettings
+AWS::DMS::Endpoint EndpointType  == /.*/ <<  EndpointType is a required property for AWS::DMS::Endpoint
+AWS::DMS::Endpoint EndpointType  == /source/ <<  source is an expected value for AWS::DMS::Endpoint EndpointType
+AWS::DMS::Endpoint EndpointType  == /target/ <<  target is an expected value for AWS::DMS::Endpoint EndpointType
+AWS::DMS::Endpoint EndpointType IN [source,target] << Enforcing Allowed Values only
+AWS::DMS::Endpoint EngineName  == /.*/ <<  EngineName is a required property for AWS::DMS::Endpoint
+AWS::DMS::Endpoint IbmDb2Settings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for IbmDb2Settings
+AWS::DMS::Endpoint IbmDb2Settings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for IbmDb2Settings
+AWS::DMS::Endpoint MicrosoftSqlServerSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MicrosoftSqlServerSettings
+AWS::DMS::Endpoint MicrosoftSqlServerSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MicrosoftSqlServerSettings
+AWS::DMS::Endpoint MySqlSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MySqlSettings
+AWS::DMS::Endpoint MySqlSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MySqlSettings
+AWS::DMS::Endpoint NeptuneSettings.S3BucketFolder  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for NeptuneSettings
+AWS::DMS::Endpoint NeptuneSettings.S3BucketName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for NeptuneSettings
+AWS::DMS::Endpoint NeptuneSettings.ServiceAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for NeptuneSettings
+AWS::DMS::Endpoint OracleSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+AWS::DMS::Endpoint OracleSettings.SecretsManagerOracleAsmAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+AWS::DMS::Endpoint OracleSettings.SecretsManagerOracleAsmSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+AWS::DMS::Endpoint OracleSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+AWS::DMS::Endpoint Port  == /[0-9].+/ <<  Integer is expected for AWS::DMS::Endpoint of Port 
+AWS::DMS::Endpoint PostgreSqlSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for PostgreSqlSettings
+AWS::DMS::Endpoint PostgreSqlSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for PostgreSqlSettings
+AWS::DMS::Endpoint RedshiftSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+AWS::DMS::Endpoint RedshiftSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+AWS::DMS::Endpoint SslMode  == /none/ <<  none is an expected value for AWS::DMS::Endpoint SslMode
+AWS::DMS::Endpoint SslMode  == /require/ <<  require is an expected value for AWS::DMS::Endpoint SslMode
+AWS::DMS::Endpoint SslMode  == /verify-ca/ <<  verify-ca is an expected value for AWS::DMS::Endpoint SslMode
+AWS::DMS::Endpoint SslMode  == /verify-full/ <<  verify-full is an expected value for AWS::DMS::Endpoint SslMode
+AWS::DMS::Endpoint SslMode IN [none,require,verify-ca,verify-full] << Enforcing Allowed Values only
+AWS::DMS::Endpoint SybaseSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for SybaseSettings
+AWS::DMS::Endpoint SybaseSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for SybaseSettings
+NeptuneSettings.IamAuthEnabled == False << Enforce Expected Value for dms.endpoint.neptunesettings.IamAuthEnabled
+NeptuneSettings.IamAuthEnabled == True << Enforce Expected Value for dms.endpoint.neptunesettings.IamAuthEnabled
+NeptuneSettings.IamAuthEnabled IN [True,False] << Enforce Allowed Values

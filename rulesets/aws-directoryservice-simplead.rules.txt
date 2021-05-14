@@ -1,0 +1,24 @@
+#AWS::DirectoryService::SimpleAD CreateAlias  == True |OR| AWS::DirectoryService::SimpleAD CreateAlias  == False << Enforce allowed values [True | False]
+#AWS::DirectoryService::SimpleAD EnableSso  == True |OR| AWS::DirectoryService::SimpleAD EnableSso  == False << Enforce allowed values [True | False]
+AWS::DirectoryService::SimpleAD CreateAlias  == /False/ <<  False is an expected value for AWS::DirectoryService::SimpleAD CreateAlias
+AWS::DirectoryService::SimpleAD CreateAlias  == /True/ <<  True is an expected value for AWS::DirectoryService::SimpleAD CreateAlias
+AWS::DirectoryService::SimpleAD CreateAlias  == False <<  False is expected  safe default value
+AWS::DirectoryService::SimpleAD CreateAlias  == True <<  True is expected safe default value
+AWS::DirectoryService::SimpleAD CreateAlias IN [True,False] << Enforcing Allowed Values only
+AWS::DirectoryService::SimpleAD Description  == /\S{0,128}/ <<  Description is a required property for AWS::DirectoryService::SimpleAD
+AWS::DirectoryService::SimpleAD Description  == /^([a-zA-Z0-9_])[\\a-zA-Z0-9_@#%*+=:?./!\s-]*$/ <<  Description is a required pattern for AWS::DirectoryService::SimpleAD
+AWS::DirectoryService::SimpleAD EnableSso  == /False/ <<  False is an expected value for AWS::DirectoryService::SimpleAD EnableSso
+AWS::DirectoryService::SimpleAD EnableSso  == /True/ <<  True is an expected value for AWS::DirectoryService::SimpleAD EnableSso
+AWS::DirectoryService::SimpleAD EnableSso  == False <<  False is expected  safe default value
+AWS::DirectoryService::SimpleAD EnableSso  == True <<  True is expected safe default value
+AWS::DirectoryService::SimpleAD EnableSso IN [True,False] << Enforcing Allowed Values only
+AWS::DirectoryService::SimpleAD Name  == /.*/ <<  Name is a required property for AWS::DirectoryService::SimpleAD
+AWS::DirectoryService::SimpleAD Name  == /^([a-zA-Z0-9]+[\\.-])+([a-zA-Z0-9])+$/ <<  Name is a required pattern for AWS::DirectoryService::SimpleAD
+AWS::DirectoryService::SimpleAD Password  == /(?=^.{8,64}$)((?=.*\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[^A-Za-z0-9\s])(?=.*[a-z])|(?=.*[^A-Za-z0-9\s])(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9\s]))^.*/ <<  Password is a required pattern for AWS::DirectoryService::SimpleAD
+AWS::DirectoryService::SimpleAD Password  == /.*/ <<  Password is a required property for AWS::DirectoryService::SimpleAD
+AWS::DirectoryService::SimpleAD ShortName  == /^[^\\/:*?"<>|.]+[^\\/:*?"<>|]*$/ <<  ShortName is a required pattern for AWS::DirectoryService::SimpleAD
+AWS::DirectoryService::SimpleAD Size  == /.*/ <<  Size is a required property for AWS::DirectoryService::SimpleAD
+AWS::DirectoryService::SimpleAD VpcSettings  == /.*/ <<  VpcSettings is a required property for AWS::DirectoryService::SimpleAD
+AWS::DirectoryService::SimpleAD VpcSettings.VpcId  == /\S/ <<  AWS::DirectoryService::SimpleAD is an expected but optional String property for VpcSettings
+AWS::DirectoryService::SimpleAD VpcSettings.directoryservice.simplead.vpcsettings.SubnetIds  == /.*/ <<  directoryservice.simplead.vpcsettings.SubnetIds is a required property for AWS::DirectoryService::SimpleAD VpcSettings
+AWS::DirectoryService::SimpleAD VpcSettings.directoryservice.simplead.vpcsettings.VpcId  == /.*/ <<  directoryservice.simplead.vpcsettings.VpcId is a required property for AWS::DirectoryService::SimpleAD VpcSettings

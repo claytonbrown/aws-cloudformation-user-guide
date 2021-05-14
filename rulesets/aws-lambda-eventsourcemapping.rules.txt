@@ -1,0 +1,39 @@
+#AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError  == True |OR| AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError  == False << Enforce allowed values [True | False]
+#AWS::Lambda::EventSourceMapping Enabled  == True |OR| AWS::Lambda::EventSourceMapping Enabled  == False << Enforce allowed values [True | False]
+#AWS::Lambda::EventSourceMapping PartialBatchResponse  == True |OR| AWS::Lambda::EventSourceMapping PartialBatchResponse  == False << Enforce allowed values [True | False]
+AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError  == /False/ <<  False is an expected value for AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError
+AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError  == /True/ <<  True is an expected value for AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError
+AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError  == False <<  False is expected  safe default value
+AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError  == True <<  True is expected safe default value
+AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError IN [True,False] << Enforcing Allowed Values only
+AWS::Lambda::EventSourceMapping Enabled  == /False/ <<  False is an expected value for AWS::Lambda::EventSourceMapping Enabled
+AWS::Lambda::EventSourceMapping Enabled  == /True/ <<  True is an expected value for AWS::Lambda::EventSourceMapping Enabled
+AWS::Lambda::EventSourceMapping Enabled  == False <<  False is expected  safe default value
+AWS::Lambda::EventSourceMapping Enabled  == True <<  True is expected safe default value
+AWS::Lambda::EventSourceMapping Enabled IN [True,False] << Enforcing Allowed Values only
+AWS::Lambda::EventSourceMapping EventSourceArn  == /arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?-[a-z]+-\d{1})?:(\d{12})?:(.*)/ <<  EventSourceArn is a required pattern for AWS::Lambda::EventSourceMapping
+AWS::Lambda::EventSourceMapping FunctionName  == /(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?/ <<  FunctionName is a required pattern for AWS::Lambda::EventSourceMapping
+AWS::Lambda::EventSourceMapping FunctionName  == /.*/ <<  FunctionName is a required property for AWS::Lambda::EventSourceMapping
+AWS::Lambda::EventSourceMapping FunctionName  == /\S{1,140}/ <<  FunctionName is a required property for AWS::Lambda::EventSourceMapping
+AWS::Lambda::EventSourceMapping MaximumBatchingWindowInSeconds  <= 300 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumBatchingWindowInSeconds 
+AWS::Lambda::EventSourceMapping MaximumBatchingWindowInSeconds  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumBatchingWindowInSeconds 
+AWS::Lambda::EventSourceMapping MaximumBatchingWindowInSeconds  >= 0 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumBatchingWindowInSeconds 
+AWS::Lambda::EventSourceMapping MaximumRecordAgeInSeconds  <= 604800 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRecordAgeInSeconds 
+AWS::Lambda::EventSourceMapping MaximumRecordAgeInSeconds  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRecordAgeInSeconds 
+AWS::Lambda::EventSourceMapping MaximumRecordAgeInSeconds  >= -1 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRecordAgeInSeconds 
+AWS::Lambda::EventSourceMapping MaximumRetryAttempts  <= 10000 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRetryAttempts 
+AWS::Lambda::EventSourceMapping MaximumRetryAttempts  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRetryAttempts 
+AWS::Lambda::EventSourceMapping MaximumRetryAttempts  >= -1 <<  Integer is expected for AWS::Lambda::EventSourceMapping of MaximumRetryAttempts 
+AWS::Lambda::EventSourceMapping ParallelizationFactor  <= 10 <<  Integer is expected for AWS::Lambda::EventSourceMapping of ParallelizationFactor 
+AWS::Lambda::EventSourceMapping ParallelizationFactor  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::EventSourceMapping of ParallelizationFactor 
+AWS::Lambda::EventSourceMapping ParallelizationFactor  >= 1 <<  Integer is expected for AWS::Lambda::EventSourceMapping of ParallelizationFactor 
+AWS::Lambda::EventSourceMapping PartialBatchResponse  == /False/ <<  False is an expected value for AWS::Lambda::EventSourceMapping PartialBatchResponse
+AWS::Lambda::EventSourceMapping PartialBatchResponse  == /True/ <<  True is an expected value for AWS::Lambda::EventSourceMapping PartialBatchResponse
+AWS::Lambda::EventSourceMapping PartialBatchResponse  == False <<  False is expected  safe default value
+AWS::Lambda::EventSourceMapping PartialBatchResponse  == True <<  True is expected safe default value
+AWS::Lambda::EventSourceMapping PartialBatchResponse IN [True,False] << Enforcing Allowed Values only
+AWS::Lambda::EventSourceMapping SourceAccessConfigurations.Type  == /\S/ <<  AWS::Lambda::EventSourceMapping is an expected but optional String property for SourceAccessConfigurations
+AWS::Lambda::EventSourceMapping SourceAccessConfigurations.URI  == /\S/ <<  AWS::Lambda::EventSourceMapping is an expected but optional String property for SourceAccessConfigurations
+AWS::Lambda::EventSourceMapping TumblingWindowInSeconds  <= 900 <<  Integer is expected for AWS::Lambda::EventSourceMapping of TumblingWindowInSeconds 
+AWS::Lambda::EventSourceMapping TumblingWindowInSeconds  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::EventSourceMapping of TumblingWindowInSeconds 
+AWS::Lambda::EventSourceMapping TumblingWindowInSeconds  >= 0 <<  Integer is expected for AWS::Lambda::EventSourceMapping of TumblingWindowInSeconds 

@@ -1,0 +1,12 @@
+#AWS::SSM::Document DocumentFormat  == JSON |OR| AWS::SSM::Document DocumentFormat  == TEXT |OR| AWS::SSM::Document DocumentFormat  == YAML << Enforce allowed values [JSON | TEXT | YAML]
+#AWS::SSM::Document DocumentType  == ApplicationConfigurationSchema` \| `Automation` \| `ChangeCalendar` \| `Command` \| `DeploymentStrategy` \| `Package` \| `Policy` \| `Session << Enforce allowed values [ApplicationConfigurationSchema` \| `Automation` \| `ChangeCalendar` \| `Command` \| `DeploymentStrategy` \| `Package` \| `Policy` \| `Session]
+AWS::SSM::Document Content  == /.*/ <<  Content is a required property for AWS::SSM::Document
+AWS::SSM::Document DocumentFormat  == /JSON/ <<  JSON is an expected value for AWS::SSM::Document DocumentFormat
+AWS::SSM::Document DocumentFormat  == /TEXT/ <<  TEXT is an expected value for AWS::SSM::Document DocumentFormat
+AWS::SSM::Document DocumentFormat  == /YAML/ <<  YAML is an expected value for AWS::SSM::Document DocumentFormat
+AWS::SSM::Document DocumentFormat IN [JSON,TEXT,YAML] << Enforcing Allowed Values only
+AWS::SSM::Document DocumentType  == /ApplicationConfigurationSchema` \| `Automation` \| `ChangeCalendar` \| `Command` \| `DeploymentStrategy` \| `Package` \| `Policy` \| `Session/ <<  ApplicationConfigurationSchema` \| `Automation` \| `ChangeCalendar` \| `Command` \| `DeploymentStrategy` \| `Package` \| `Policy` \| `Session is an expected value for AWS::SSM::Document DocumentType
+AWS::SSM::Document DocumentType IN [ApplicationConfigurationSchema` \| `Automation` \| `ChangeCalendar` \| `Command` \| `DeploymentStrategy` \| `Package` \| `Policy` \| `Session] << Enforcing Allowed Values only
+AWS::SSM::Document Name  == /^[a-zA-Z0-9_\-.]{3,128}$/ <<  Name is a required pattern for AWS::SSM::Document
+AWS::SSM::Document TargetType  == /^\/[\w\.\-\:\/]*$/ <<  TargetType is a required pattern for AWS::SSM::Document
+AWS::SSM::Document VersionName  == /^[a-zA-Z0-9_\-.]{1,128}$/ <<  VersionName is a required pattern for AWS::SSM::Document

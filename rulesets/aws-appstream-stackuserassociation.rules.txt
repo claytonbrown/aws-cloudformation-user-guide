@@ -1,0 +1,16 @@
+#AWS::AppStream::StackUserAssociation AuthenticationType  == API |OR| AWS::AppStream::StackUserAssociation AuthenticationType  == SAML |OR| AWS::AppStream::StackUserAssociation AuthenticationType  == USERPOOL << Enforce allowed values [API | SAML | USERPOOL]
+#AWS::AppStream::StackUserAssociation SendEmailNotification  == True |OR| AWS::AppStream::StackUserAssociation SendEmailNotification  == False << Enforce allowed values [True | False]
+AWS::AppStream::StackUserAssociation AuthenticationType  == /.*/ <<  AuthenticationType is a required property for AWS::AppStream::StackUserAssociation
+AWS::AppStream::StackUserAssociation AuthenticationType  == /API/ <<  API is an expected value for AWS::AppStream::StackUserAssociation AuthenticationType
+AWS::AppStream::StackUserAssociation AuthenticationType  == /SAML/ <<  SAML is an expected value for AWS::AppStream::StackUserAssociation AuthenticationType
+AWS::AppStream::StackUserAssociation AuthenticationType  == /USERPOOL/ <<  USERPOOL is an expected value for AWS::AppStream::StackUserAssociation AuthenticationType
+AWS::AppStream::StackUserAssociation AuthenticationType IN [API,SAML,USERPOOL] << Enforcing Allowed Values only
+AWS::AppStream::StackUserAssociation SendEmailNotification  == /False/ <<  False is an expected value for AWS::AppStream::StackUserAssociation SendEmailNotification
+AWS::AppStream::StackUserAssociation SendEmailNotification  == /True/ <<  True is an expected value for AWS::AppStream::StackUserAssociation SendEmailNotification
+AWS::AppStream::StackUserAssociation SendEmailNotification  == False <<  False is expected  safe default value
+AWS::AppStream::StackUserAssociation SendEmailNotification  == True <<  True is expected safe default value
+AWS::AppStream::StackUserAssociation SendEmailNotification IN [True,False] << Enforcing Allowed Values only
+AWS::AppStream::StackUserAssociation StackName  == /.*/ <<  StackName is a required property for AWS::AppStream::StackUserAssociation
+AWS::AppStream::StackUserAssociation UserName  == /.*/ <<  UserName is a required property for AWS::AppStream::StackUserAssociation
+AWS::AppStream::StackUserAssociation UserName  == /[\p{L}\p{M}\p{S}\p{N}\p{P}]+/ <<  UserName is a required pattern for AWS::AppStream::StackUserAssociation
+AWS::AppStream::StackUserAssociation UserName  == /\S{1,128}/ <<  UserName is a required property for AWS::AppStream::StackUserAssociation

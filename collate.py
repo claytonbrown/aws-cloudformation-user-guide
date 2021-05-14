@@ -4,6 +4,7 @@ import csv
 import os
 import logging
 import sys
+import inflection
 
 
 def setup_logging(logger, verbosity=None):
@@ -35,7 +36,8 @@ def setup_logging(logger, verbosity=None):
         kinesis_handler = kinesishandler.KinesisHandler(10, q)
         kinesis_handler.setFormatter(formatter_json)
         kinesis_handler.setLevel(logging.INFO)
-        worker = kinesishandler.Worker(q, "aws-account-base-stream", region="us-east-1")
+        worker = kinesishandler.Worker(
+            q, "aws-account-base-stream", region="us-east-1")
         worker.start()
         log.addHandler(kinesis_handler)
         """
@@ -87,39 +89,6 @@ spec["PropertyTypes"]["Timestamp"] = "1970-01-01T01:02:30.070Z"
 all_keys = set()
 processed_selectors = {}
 
-"""
-def create_rules(data, resource, property):
-    new_rules = []
-    for sub_property, value in data.items():
-        new_selector = "%s.%s" % (property, sub_property)
-        if new_selector not in processed_selectors:
-            for ignore_property in ['UpdateRequires','Documentation','Update Requires','UpdateRequires']:
-                try:
-                    del data[ignore_property]
-                except:pass
-
-        #waf-bytematchset-bytematchtuples-fieldtomatch
-        coerced_file_part = "%s-%s" % (resource, property)
-        coerced_file_part = coerced_file_part.lower().replace("::","-").replace(" ","-").replace("wafv2","waf")[4:]
-        sub_selector_doc_file = "./doc_source/aws-properties-%s.md.properties.json" % (coerced_file_part)
-        file_found = os.path.isfile(sub_selector_doc_file)
-        # show the trailing unhandled properties
-        if file_found:
-            with open(sub_selector_doc_file, 'r') as props_file:
-                sub_props = json.load(props_file)
-                log.info(json.dumps(sub_props))
-
-                for prop_key, prop_value in sub_props.items():
-                    drill_in_selector = "%s.%s" % (sub_selector, prop_key.split('.')[-1])
-                    log.info(drill_in_selector)
-                    log.info(json.dumps(sub_props[prop_key], indent=4))
-        #elif sub_properties[sub_property].keys():
-        #    log.info("Selector: %s [%s - %s]" % (sub_selector, sub_selector_doc_file, file_found))
-        #    log.info(json.dumps(sub_properties[sub_property], indent=4))
-        if len(data.keys()):
-            log.info(json.dumps())
-    return new_rules, data
-"""
 
 # MERGE ALL REGIONAL CFN SCHEMAS INTO SUPERSCHEMA WITH ENRICHMENT
 
@@ -145,8 +114,6 @@ for resource in spec["cfn"]["PropertyTypes"].keys():
                 region)
             log.debug("\tAdding region: %s" % (region))
 
-# sys.exit()
-
 
 def massage_schema(schema):
 
@@ -156,7 +123,7 @@ def massage_schema(schema):
             schema["UpdateRequires"] = schema["UpdateRequires"].split(']')[
                 0].split("[")[1]
             #    if 'no interruption' in schema['UpdateRequires']:
-            ##        schema['UpdateRequires'] = "No interruption"
+            # schema['UpdateRequires'] = "No interruption"
             #    elif 'replacement' in schema['UpdateRequires']:
             #        schema['UpdateRequires'] = "Replacement"
 
@@ -338,10 +305,43 @@ log.debug(json.dumps(sorted(list(all_keys)), indent=4))
 
 
 # process documentation nodes
-rules = []
+rules = {
+    "all": []
+}
 count_matched = 0
 
+rules_graph = {
+    "vertices": [],
+    "edges": []
+}
+
+
+def add_rule(resource, rule):
+    resource_type = inflection.parameterize(resource)
+    if resource_type not in rules.keys():
+        log.info("Adding rules file for: %s - %s " % (resource_type, resource))
+        rules[resource_type] = []
+
+    rules['all'].append(rule)
+    rules[resource_type].append(rule)
+
+    # maintain vertices for each rule
+    # ~id,~label,Documentation,hierarchy
+    rule_id = inflection.parameterize(rule.split('<<')[0])
+
+    if rule_id not in rules_graph["vertices"]:
+        rules_graph["vertices"].append({
+            "~id": "",
+            "~label": "",
+            "Documentation": "",
+            "hierarchy": ""
+        })
+    else:
+        log.info("Duplicate rule_id: %s" % rule_id)
+
+
 for resource in spec["cfn"]["ResourceTypes"]:
+
     docs = spec["cfn"]["ResourceTypes"][resource]['Documentation']
     log.debug(docs)
     cfn_resource_json = "./doc_source/aws-%s.md.properties.json" % (
@@ -379,34 +379,85 @@ for resource in spec["cfn"]["ResourceTypes"]:
 
                         if property.lower()[-4:] == "name" or property.lower()[-11:] == "description":
                             if "Minimum" in data[key] and "Maximum" in data[key]:
-                                rules.append("%s %s  == /\S{%s,%s}/ <<  %s is a required property for %s" % (
-                                    resource, property, data[key]["Minimum"], data[key]["Maximum"], property, resource))
+
+                                add_rule(
+                                    resource,
+                                    "%s %s  == /\S{%s,%s}/ <<  %s is a required property for %s" % (
+                                        resource,
+                                        property,
+                                        data[key]["Minimum"],
+                                        data[key]["Maximum"],
+                                        property,
+                                        resource
+                                    )
+                                )
                                 del data[key]["Minimum"]  # prune
                                 del data[key]["Maximum"]  # prune
+
                             elif "Maximum" in data[key]:
-                                rules.append("%s %s  == /arn.*{0,%s}/ <<  %s is a required property for %s" % (
-                                    resource, property, data[key]["Maximum"], property, resource))
+                                add_rule(
+                                    resource,
+                                    "%s %s  == /arn.*{0,%s}/ <<  %s is a required property for %s" % (
+                                        resource,
+                                        property,
+                                        data[key]["Maximum"],
+                                        property,
+                                        resource
+                                    )
+                                )
                                 del data[key]["Maximum"]  # prune
 
                         if property.lower()[-3:] == "arn":
                             if "Minimum" in data[key] and "Maximum" in data[key]:
-                                rules.append("%s %s  == /arn.*{%s,%s}/ <<  %s is a required property for %s" % (
-                                    resource, property, data[key]["Minimum"], data[key]["Maximum"], property, resource))
+
+                                add_rule(
+                                    resource,
+                                    "%s %s  == /arn.*{%s,%s}/ <<  %s is a required property for %s" % (
+                                        resource,
+                                        property,
+                                        data[key]["Minimum"],
+                                        data[key]["Maximum"],
+                                        property,
+                                        resource
+                                    )
+                                )
                                 del data[key]["Minimum"]  # prune
                                 del data[key]["Maximum"]  # prune
                             elif "Maximum" in data[key]:
-                                rules.append("%s %s  == /arn.*{0,%s}/ <<  %s is a required property for %s" % (
-                                    resource, property, data[key]["Maximum"], property, resource))
+
+                                add_rule(
+                                    resource,
+                                    "%s %s  == /arn.*{0,%s}/ <<  %s is a required property for %s" % (
+                                        resource,
+                                        property,
+                                        data[key]["Maximum"],
+                                        property,
+                                        resource
+                                    )
+                                )
                                 del data[key]["Maximum"]  # prune
 
                         if "Required" in data[key] and data[key]['Required'] == 'Yes':
-                            rules.append("%s %s  == /.*/ <<  %s is a required property for %s" %
-                                         (resource, property, property, resource))
+
+                            add_rule(
+                                resource,
+                                "%s %s  == /.*/ <<  %s is a required property for %s" %
+                                (resource, property, property, resource)
+                            )
                             del data[key]["Required"]  # prune
 
                         if "Pattern" in data[key]:
-                            rules.append("%s %s  == /%s/ <<  %s is a required pattern for %s" % (
-                                resource, property, data[key]["Pattern"], property, resource))
+
+                            add_rule(
+                                resource,
+                                "%s %s  == /%s/ <<  %s is a required pattern for %s" % (
+                                    resource,
+                                    property,
+                                    data[key]["Pattern"],
+                                    property,
+                                    resource
+                                )
+                            )
 
                             if "Minimum" in data[key]:
                                 del data[key]["Minimum"]
@@ -423,24 +474,60 @@ for resource in spec["cfn"]["ResourceTypes"]:
                                 del data[key]["Type"]
 
                             elif data[key]["Type"] == "Boolean":
-                                rules.append("%s %s  == True <<  True is expected safe default value" % (
-                                    resource, property))
-                                rules.append("%s %s  == False <<  False is expected  safe default value" % (
-                                    resource, property))
+                                add_rule(
+                                    resource,
+                                    "%s %s  == True <<  True is expected safe default value" % (
+                                        resource,
+                                        property
+                                    )
+                                )
+
+                                add_rule(
+                                    resource,
+                                    "%s %s  == False <<  False is expected  safe default value" % (
+                                        resource,
+                                        property
+                                    )
+                                )
+
                                 del data[key]["Type"]  # prune
 
                             elif data[key]["Type"] == "Integer":
                                 # TODO : validate regex logic
-                                rules.append("%s %s  == /[0-9].+/ <<  Integer is expected for %s of %s " % (
-                                    resource, property, resource, property))
+                                add_rule(
+                                    resource,
+                                    "%s %s  == /[0-9].+/ <<  Integer is expected for %s of %s " % (
+                                        resource,
+                                        property,
+                                        resource,
+                                        property
+                                    )
+                                )
+
                                 if "Minimum" in data[key]:
-                                    rules.append("%s %s  >= %s <<  Integer is expected for %s of %s " % (
-                                        resource, property, data[key]["Minimum"], resource, property))
+                                    add_rule(
+                                        resource,
+                                        "%s %s  >= %s <<  Integer is expected for %s of %s " % (
+                                            resource,
+                                            property,
+                                            data[key]["Minimum"],
+                                            resource,
+                                            property
+                                        )
+                                    )
+
                                     del data[key]["Minimum"]  # prune
 
                                 if "Maximum" in data[key]:
-                                    rules.append("%s %s  <= %s <<  Integer is expected for %s of %s " % (
-                                        resource, property, data[key]["Maximum"], resource, property))
+                                    add_rule(resource,
+                                             "%s %s  <= %s <<  Integer is expected for %s of %s " % (
+                                                 resource,
+                                                 property,
+                                                 data[key]["Maximum"],
+                                                 resource,
+                                                 property
+                                             )
+                                             )
                                     del data[key]["Maximum"]  # prune
 
                                 del data[key]["Type"]
@@ -454,32 +541,65 @@ for resource in spec["cfn"]["ResourceTypes"]:
                             allowed = []
                             allowed_options = data[key]["Allowed values"].split(
                                 ' | ')
-                            rules.append("%s %s IN [%s] << Enforcing Allowed Values only" % (
-                                resource, property, ",".join(allowed_options)))
+
+                            add_rule(
+                                resource,
+                                "%s %s IN [%s] << Enforcing Allowed Values only" % (
+                                    resource,
+                                    property,
+                                    ",".join(allowed_options))
+                            )
+
                             for allowed_value in allowed_options:
                                 # AWS::EC2::Volume AvailabilityZone == us-west-2b |OR| AWS::EC2::Volume AvailabilityZone == us-west-2c
                                 allowed.append("%s %s  == %s" % (
                                     resource, property, allowed_value))
-                                rules.append("%s %s  == /%s/ <<  %s is an expected value for %s %s" % (
-                                    resource, property,  allowed_value, allowed_value, resource, property))
+
+                                add_rule(
+                                    resource,
+                                    "%s %s  == /%s/ <<  %s is an expected value for %s %s" % (
+                                        resource,
+                                        property,
+                                        allowed_value,
+                                        allowed_value,
+                                        resource,
+                                        property
+                                    )
+                                )
 
                             message = " << Enforce allowed values [%s]" % (
                                 ' | '.join(allowed_options))
-                            rules.append(
-                                '#' + ' |OR| '.join(allowed) + message)
+
+                            add_rule(
+                                resource,
+                                '#' + ' |OR| '.join(allowed) + message
+                            )
                             del data[key]["Allowed values"]
 
                         if "Type" in data[key] and data[key]["Type"] == "String":
                             if "Minimum" not in data[key] and "Maximum" in data[key]:
                                 # TODO: validate regex pattern
-                                rules.append("%s %s  == /\S{0,%s}/ <<  %s is an expected length of String property for %s" % (
-                                    resource, property,  data[key]["Maximum"], resource, property))
+
+                                add_rule(
+                                    resource,
+                                    "%s %s  == /\S{0,%s}/ <<  %s is an expected length of String property for %s" % (
+                                        resource,
+                                        property,
+                                        data[key]["Maximum"],
+                                        resource,
+                                        property
+                                    )
+                                )
                                 # del data[key]["Minimum"]
                                 del data[key]["Maximum"]
                             if "Minimum" in data[key] and "Maximum" in data[key]:
                                 # TODO: validate regex pattern
-                                rules.append("%s %s  == /\S{%s,%s}/ <<  %s is an expected length of String property for %s" % (
-                                    resource, property, data[key]["Minimum"], data[key]["Maximum"], resource, property))
+
+                                add_rule(
+                                    resource,
+                                    "%s %s  == /\S{%s,%s}/ <<  %s is an expected length of String property for %s" % (
+                                        resource, property, data[key]["Minimum"], data[key]["Maximum"], resource, property)
+                                )
                                 del data[key]["Minimum"]
                                 del data[key]["Maximum"]
                             del data[key]["Type"]
@@ -500,7 +620,7 @@ for resource in spec["cfn"]["ResourceTypes"]:
                             singular_type = data_type[:-
                                                       1] in spec["cfn"]["PropertyTypes"]
                             if singular_type:
-                                data_type = data_type[:-1]
+                                data_type = data_type[: -1]
                                 known_type = True
 
                             if known_type:
@@ -522,27 +642,37 @@ for resource in spec["cfn"]["ResourceTypes"]:
                                         try:
                                             del sub_properties[sub_property]["UpdateType"]
                                         except:
-                                            pass  # ot the droids
+                                            pass  # not the droids
 
                                         if "PrimitiveType" in sub_properties[sub_property]:
                                             if sub_properties[sub_property]["PrimitiveType"] == "String":
                                                 if sub_properties[sub_property]["Required"] == "True":
-                                                    rules.append(
-                                                        "%s  == /\S/ <<  %s is a required String property for %s" % (sub_selector, resource, property))
-                                                    rules.append(
-                                                        "%s  == /\S/ <<  %s is a required String property for all resources" % (wilcard_selector, property))
+                                                    add_rule(
+                                                        resource,
+                                                        "%s  == /\S/ <<  %s is a required String property for %s" % (
+                                                            sub_selector, resource, property)
+                                                    )
+                                                    # rules['todo'].append(
+                                                    #    "%s  == /\S/ <<  %s is a required String property for all resources" % (wilcard_selector, property))
                                                 else:
-                                                    rules.append("%s  == /\S/ <<  %s is an expected but optional String property for %s" % (
-                                                        sub_selector, resource, property))
-                                                    rules.append(
-                                                        "%s  == /\S/ <<  %s is an expected but optional String property for all resources" % (wilcard_selector, property))
+                                                    add_rule(
+                                                        resource,
+                                                        "%s  == /\S/ <<  %s is an expected but optional String property for %s" % (
+                                                            sub_selector, resource, property)
+                                                    )
+                                                    # rules['todo'].append(
+                                                    #    "%s  == /\S/ <<  %s is an expected but optional String property for all resources" % (wilcard_selector, property))
                                             del sub_properties[sub_property]["PrimitiveType"]
                                             del sub_properties[sub_property]["Required"]
 
                                         if "Type" in sub_properties[sub_property]:
                                             if sub_properties[sub_property]["Type"] == "Integer":
-                                                rules.append("%s  == /[0-9].+/ <<  %s must be an expected but an Integer property for %s" % (
-                                                    sub_selector, resource, property))
+
+                                                add_rule(
+                                                    resource,
+                                                    "%s  == /[0-9].+/ <<  %s must be an expected but an Integer property for %s" % (
+                                                        sub_selector, resource, property)
+                                                )
                                                 del sub_properties[sub_property]["Type"]
 
                                         # waf-bytematchset-bytematchtuples-fieldtomatch
@@ -585,23 +715,47 @@ for resource in spec["cfn"]["ResourceTypes"]:
                                                         except:
                                                             allowed_values = sub_props[prop_key]["Allowed values"]
 
-                                                        rules.append("%s IN [%s] << Enforce Allowed Values" % (
-                                                            drill_in_selector, ','.join(allowed_values)))
+                                                        add_rule(
+                                                            resource,
+                                                            "%s IN [%s] << Enforce Allowed Values" % (
+                                                                drill_in_selector, ','.join(allowed_values))
+                                                        )
+
                                                         for value in allowed_values:
-                                                            rules.append("%s == %s << Enforce Expected Value for %s" % (
-                                                                drill_in_selector, value, prop_key))
+
+                                                            add_rule(
+                                                                resource,
+                                                                "%s == %s << Enforce Expected Value for %s" % (
+                                                                    drill_in_selector, value, prop_key)
+                                                            )
                                                         del sub_props[prop_key]["Allowed values"]
 
                                                     if "Required" in sub_props[prop_key]:
                                                         if sub_props[prop_key]['Required'] == 'Yes':
-                                                            rules.append("%s %s.%s  == /.*/ <<  %s is a required property for %s %s" % (
-                                                                resource, property, prop_key, prop_key, resource, property))
+
+                                                            add_rule(
+                                                                resource,
+                                                                "%s %s.%s  == /.*/ <<  %s is a required property for %s %s" % (
+                                                                    resource, property, prop_key, prop_key, resource, property)
+                                                            )
+
+                                                        elif sub_props[prop_key]['Required'] == 'Conditional':
+
+                                                            add_rule(
+                                                                resource,
+                                                                "%s %s.%s  == /.*/ <<  %s is a Conditional property for %s %s" % (
+                                                                    resource, property, prop_key, prop_key, resource, property)
+                                                            )
                                                         # prune
                                                         del sub_props[prop_key]["Required"]
 
                                                     if "Pattern" in data[key]:
-                                                        rules.append("%s %s  == /%s/ <<  %s is a required pattern for %s" % (
-                                                            resource, property, data[key]["Pattern"], property, resource))
+
+                                                        add_rule(
+                                                            resource,
+                                                            "%s %s  == /%s/ <<  %s is a required pattern for %s" % (
+                                                                resource, property, data[key]["Pattern"], property, resource)
+                                                        )
 
                                                         if "Minimum" in data[key]:
                                                             del data[key]["Minimum"]
@@ -643,6 +797,12 @@ with open("spec.json", 'w') as f:
     f.write(json.dumps(spec, indent=4, sort_keys=True))
     log.warning("Written spec.json")
 
-with open("cfndecorator.ruleset", 'w') as f:
-    f.write('\n'.join(sorted(list(set(rules)))))
+with open("rulesets/all.rules.txt", 'w') as f:
+    f.write('\n'.join(sorted(list(set(rules['all'])))))
     log.warning("Written %s rules" % (len(rules)))
+
+for key in rules.keys():
+    if key != "all":
+        with open("rulesets/%s.rules.txt" % (key), 'w') as f:
+            f.write('\n'.join(sorted(list(set(rules[key])))))
+            log.warning("Written %s rules" % (len(rules)))

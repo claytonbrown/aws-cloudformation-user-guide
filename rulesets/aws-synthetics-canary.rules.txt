@@ -1,0 +1,39 @@
+#AWS::Synthetics::Canary StartCanaryAfterCreation  == True |OR| AWS::Synthetics::Canary StartCanaryAfterCreation  == False << Enforce allowed values [True | False]
+AWS::Synthetics::Canary ArtifactS3Location  == /.*/ <<  ArtifactS3Location is a required property for AWS::Synthetics::Canary
+AWS::Synthetics::Canary ArtifactS3Location  == /\S{1,1024}/ <<  AWS::Synthetics::Canary is an expected length of String property for ArtifactS3Location
+AWS::Synthetics::Canary Code  == /.*/ <<  Code is a required property for AWS::Synthetics::Canary
+AWS::Synthetics::Canary Code.Handler  == /\S/ <<  AWS::Synthetics::Canary is an expected but optional String property for Code
+AWS::Synthetics::Canary Code.S3Bucket  == /\S/ <<  AWS::Synthetics::Canary is an expected but optional String property for Code
+AWS::Synthetics::Canary Code.S3Key  == /\S/ <<  AWS::Synthetics::Canary is an expected but optional String property for Code
+AWS::Synthetics::Canary Code.S3ObjectVersion  == /\S/ <<  AWS::Synthetics::Canary is an expected but optional String property for Code
+AWS::Synthetics::Canary Code.Script  == /\S/ <<  AWS::Synthetics::Canary is an expected but optional String property for Code
+AWS::Synthetics::Canary ExecutionRoleArn  == /.*/ <<  ExecutionRoleArn is a required property for AWS::Synthetics::Canary
+AWS::Synthetics::Canary ExecutionRoleArn  == /arn.*{1,2048}/ <<  ExecutionRoleArn is a required property for AWS::Synthetics::Canary
+AWS::Synthetics::Canary ExecutionRoleArn  == /arn:(aws[a-zA-Z-]*)?:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+/ <<  ExecutionRoleArn is a required pattern for AWS::Synthetics::Canary
+AWS::Synthetics::Canary FailureRetentionPeriod  <= 1024 <<  Integer is expected for AWS::Synthetics::Canary of FailureRetentionPeriod 
+AWS::Synthetics::Canary FailureRetentionPeriod  == /[0-9].+/ <<  Integer is expected for AWS::Synthetics::Canary of FailureRetentionPeriod 
+AWS::Synthetics::Canary FailureRetentionPeriod  >= 1 <<  Integer is expected for AWS::Synthetics::Canary of FailureRetentionPeriod 
+AWS::Synthetics::Canary Name  == /.*/ <<  Name is a required property for AWS::Synthetics::Canary
+AWS::Synthetics::Canary Name  == /\S{1,21}/ <<  Name is a required property for AWS::Synthetics::Canary
+AWS::Synthetics::Canary Name  == /^[0-9a-z_\-]+$/ <<  Name is a required pattern for AWS::Synthetics::Canary
+AWS::Synthetics::Canary RuntimeVersion  == /.*/ <<  RuntimeVersion is a required property for AWS::Synthetics::Canary
+AWS::Synthetics::Canary RuntimeVersion  == /\S{1,1024}/ <<  AWS::Synthetics::Canary is an expected length of String property for RuntimeVersion
+AWS::Synthetics::Canary Schedule  == /.*/ <<  Schedule is a required property for AWS::Synthetics::Canary
+AWS::Synthetics::Canary Schedule.DurationInSeconds  == /\S/ <<  AWS::Synthetics::Canary is an expected but optional String property for Schedule
+AWS::Synthetics::Canary Schedule.Expression  == /\S/ <<  AWS::Synthetics::Canary is an expected but optional String property for Schedule
+AWS::Synthetics::Canary Schedule.synthetics.canary.schedule.Expression  == /.*/ <<  synthetics.canary.schedule.Expression is a required property for AWS::Synthetics::Canary Schedule
+AWS::Synthetics::Canary StartCanaryAfterCreation  == /.*/ <<  StartCanaryAfterCreation is a required property for AWS::Synthetics::Canary
+AWS::Synthetics::Canary StartCanaryAfterCreation  == /False/ <<  False is an expected value for AWS::Synthetics::Canary StartCanaryAfterCreation
+AWS::Synthetics::Canary StartCanaryAfterCreation  == /True/ <<  True is an expected value for AWS::Synthetics::Canary StartCanaryAfterCreation
+AWS::Synthetics::Canary StartCanaryAfterCreation  == False <<  False is expected  safe default value
+AWS::Synthetics::Canary StartCanaryAfterCreation  == True <<  True is expected safe default value
+AWS::Synthetics::Canary StartCanaryAfterCreation IN [True,False] << Enforcing Allowed Values only
+AWS::Synthetics::Canary SuccessRetentionPeriod  <= 1024 <<  Integer is expected for AWS::Synthetics::Canary of SuccessRetentionPeriod 
+AWS::Synthetics::Canary SuccessRetentionPeriod  == /[0-9].+/ <<  Integer is expected for AWS::Synthetics::Canary of SuccessRetentionPeriod 
+AWS::Synthetics::Canary SuccessRetentionPeriod  >= 1 <<  Integer is expected for AWS::Synthetics::Canary of SuccessRetentionPeriod 
+AWS::Synthetics::Canary VPCConfig.VpcId  == /\S/ <<  AWS::Synthetics::Canary is an expected but optional String property for VPCConfig
+AWS::Synthetics::Canary VPCConfig.synthetics.canary.vpcconfig.SecurityGroupIds  == /.*/ <<  synthetics.canary.vpcconfig.SecurityGroupIds is a required property for AWS::Synthetics::Canary VPCConfig
+AWS::Synthetics::Canary VPCConfig.synthetics.canary.vpcconfig.SubnetIds  == /.*/ <<  synthetics.canary.vpcconfig.SubnetIds is a required property for AWS::Synthetics::Canary VPCConfig
+RunConfig.ActiveTracing == False << Enforce Expected Value for synthetics.canary.runconfig.ActiveTracing
+RunConfig.ActiveTracing == True << Enforce Expected Value for synthetics.canary.runconfig.ActiveTracing
+RunConfig.ActiveTracing IN [True,False] << Enforce Allowed Values

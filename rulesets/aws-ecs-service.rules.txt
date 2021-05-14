@@ -1,0 +1,23 @@
+#AWS::ECS::Service EnableECSManagedTags  == True |OR| AWS::ECS::Service EnableECSManagedTags  == False << Enforce allowed values [True | False]
+#AWS::ECS::Service EnableExecuteCommand  == True |OR| AWS::ECS::Service EnableExecuteCommand  == False << Enforce allowed values [True | False]
+#AWS::ECS::Service PropagateTags  == SERVICE |OR| AWS::ECS::Service PropagateTags  == TASK_DEFINITION << Enforce allowed values [SERVICE | TASK_DEFINITION]
+AWS::ECS::Service DeploymentController.Type  == /\S/ <<  AWS::ECS::Service is an expected but optional String property for DeploymentController
+AWS::ECS::Service DesiredCount  == /[0-9].+/ <<  Integer is expected for AWS::ECS::Service of DesiredCount 
+AWS::ECS::Service EnableECSManagedTags  == /False/ <<  False is an expected value for AWS::ECS::Service EnableECSManagedTags
+AWS::ECS::Service EnableECSManagedTags  == /True/ <<  True is an expected value for AWS::ECS::Service EnableECSManagedTags
+AWS::ECS::Service EnableECSManagedTags IN [True,False] << Enforcing Allowed Values only
+AWS::ECS::Service EnableExecuteCommand  == /False/ <<  False is an expected value for AWS::ECS::Service EnableExecuteCommand
+AWS::ECS::Service EnableExecuteCommand  == /True/ <<  True is an expected value for AWS::ECS::Service EnableExecuteCommand
+AWS::ECS::Service EnableExecuteCommand  == False <<  False is expected  safe default value
+AWS::ECS::Service EnableExecuteCommand  == True <<  True is expected safe default value
+AWS::ECS::Service EnableExecuteCommand IN [True,False] << Enforcing Allowed Values only
+AWS::ECS::Service HealthCheckGracePeriodSeconds  == /[0-9].+/ <<  Integer is expected for AWS::ECS::Service of HealthCheckGracePeriodSeconds 
+AWS::ECS::Service PlacementConstraints.Expression  == /\S/ <<  AWS::ECS::Service is an expected but optional String property for PlacementConstraints
+AWS::ECS::Service PlacementConstraints.Type  == /\S/ <<  AWS::ECS::Service is an expected but optional String property for PlacementConstraints
+AWS::ECS::Service PropagateTags  == /SERVICE/ <<  SERVICE is an expected value for AWS::ECS::Service PropagateTags
+AWS::ECS::Service PropagateTags  == /TASK_DEFINITION/ <<  TASK_DEFINITION is an expected value for AWS::ECS::Service PropagateTags
+AWS::ECS::Service PropagateTags IN [SERVICE,TASK_DEFINITION] << Enforcing Allowed Values only
+DeploymentController.Type == CODE_DEPLOY << Enforce Expected Value for ecs.service.deploymentcontroller.Type
+DeploymentController.Type == ECS << Enforce Expected Value for ecs.service.deploymentcontroller.Type
+DeploymentController.Type == EXTERNAL << Enforce Expected Value for ecs.service.deploymentcontroller.Type
+DeploymentController.Type IN [CODE_DEPLOY,ECS,EXTERNAL] << Enforce Allowed Values

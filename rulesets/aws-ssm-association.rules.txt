@@ -1,0 +1,26 @@
+#AWS::SSM::Association ApplyOnlyAtCronInterval  == True |OR| AWS::SSM::Association ApplyOnlyAtCronInterval  == False << Enforce allowed values [True | False]
+#AWS::SSM::Association ComplianceSeverity  == CRITICAL |OR| AWS::SSM::Association ComplianceSeverity  == HIGH |OR| AWS::SSM::Association ComplianceSeverity  == LOW |OR| AWS::SSM::Association ComplianceSeverity  == MEDIUM |OR| AWS::SSM::Association ComplianceSeverity  == UNSPECIFIED << Enforce allowed values [CRITICAL | HIGH | LOW | MEDIUM | UNSPECIFIED]
+#AWS::SSM::Association SyncCompliance  == AUTO |OR| AWS::SSM::Association SyncCompliance  == MANUAL << Enforce allowed values [AUTO | MANUAL]
+AWS::SSM::Association ApplyOnlyAtCronInterval  == /False/ <<  False is an expected value for AWS::SSM::Association ApplyOnlyAtCronInterval
+AWS::SSM::Association ApplyOnlyAtCronInterval  == /True/ <<  True is an expected value for AWS::SSM::Association ApplyOnlyAtCronInterval
+AWS::SSM::Association ApplyOnlyAtCronInterval  == False <<  False is expected  safe default value
+AWS::SSM::Association ApplyOnlyAtCronInterval  == True <<  True is expected safe default value
+AWS::SSM::Association ApplyOnlyAtCronInterval IN [True,False] << Enforcing Allowed Values only
+AWS::SSM::Association AssociationName  == /^[a-zA-Z0-9_\-.]{3,128}$/ <<  AssociationName is a required pattern for AWS::SSM::Association
+AWS::SSM::Association AutomationTargetParameterName  == /\S{1,50}/ <<  AutomationTargetParameterName is a required property for AWS::SSM::Association
+AWS::SSM::Association ComplianceSeverity  == /CRITICAL/ <<  CRITICAL is an expected value for AWS::SSM::Association ComplianceSeverity
+AWS::SSM::Association ComplianceSeverity  == /HIGH/ <<  HIGH is an expected value for AWS::SSM::Association ComplianceSeverity
+AWS::SSM::Association ComplianceSeverity  == /LOW/ <<  LOW is an expected value for AWS::SSM::Association ComplianceSeverity
+AWS::SSM::Association ComplianceSeverity  == /MEDIUM/ <<  MEDIUM is an expected value for AWS::SSM::Association ComplianceSeverity
+AWS::SSM::Association ComplianceSeverity  == /UNSPECIFIED/ <<  UNSPECIFIED is an expected value for AWS::SSM::Association ComplianceSeverity
+AWS::SSM::Association ComplianceSeverity IN [CRITICAL,HIGH,LOW,MEDIUM,UNSPECIFIED] << Enforcing Allowed Values only
+AWS::SSM::Association DocumentVersion  == /([$]LATEST|[$]DEFAULT|^[1-9][0-9]*$)/ <<  DocumentVersion is a required pattern for AWS::SSM::Association
+AWS::SSM::Association InstanceId  == /(^i-(\w{8}|\w{17})$)|(^mi-\w{17}$)/ <<  InstanceId is a required pattern for AWS::SSM::Association
+AWS::SSM::Association MaxConcurrency  == /^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$/ <<  MaxConcurrency is a required pattern for AWS::SSM::Association
+AWS::SSM::Association MaxErrors  == /^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$/ <<  MaxErrors is a required pattern for AWS::SSM::Association
+AWS::SSM::Association ScheduleExpression  == /\S{1,256}/ <<  AWS::SSM::Association is an expected length of String property for ScheduleExpression
+AWS::SSM::Association SyncCompliance  == /AUTO/ <<  AUTO is an expected value for AWS::SSM::Association SyncCompliance
+AWS::SSM::Association SyncCompliance  == /MANUAL/ <<  MANUAL is an expected value for AWS::SSM::Association SyncCompliance
+AWS::SSM::Association SyncCompliance IN [AUTO,MANUAL] << Enforcing Allowed Values only
+AWS::SSM::Association Targets.Key  == /\S/ <<  AWS::SSM::Association is an expected but optional String property for Targets
+AWS::SSM::Association WaitForSuccessTimeoutSeconds  == /[0-9].+/ <<  Integer is expected for AWS::SSM::Association of WaitForSuccessTimeoutSeconds 

@@ -1,0 +1,18 @@
+#AWS::CodeStarNotifications::NotificationRule DetailType  == BASIC |OR| AWS::CodeStarNotifications::NotificationRule DetailType  == FULL << Enforce allowed values [BASIC | FULL]
+#AWS::CodeStarNotifications::NotificationRule Status  == DISABLED |OR| AWS::CodeStarNotifications::NotificationRule Status  == ENABLED << Enforce allowed values [DISABLED | ENABLED]
+AWS::CodeStarNotifications::NotificationRule DetailType  == /.*/ <<  DetailType is a required property for AWS::CodeStarNotifications::NotificationRule
+AWS::CodeStarNotifications::NotificationRule DetailType  == /BASIC/ <<  BASIC is an expected value for AWS::CodeStarNotifications::NotificationRule DetailType
+AWS::CodeStarNotifications::NotificationRule DetailType  == /FULL/ <<  FULL is an expected value for AWS::CodeStarNotifications::NotificationRule DetailType
+AWS::CodeStarNotifications::NotificationRule DetailType IN [BASIC,FULL] << Enforcing Allowed Values only
+AWS::CodeStarNotifications::NotificationRule EventTypeIds  == /.*/ <<  EventTypeIds is a required property for AWS::CodeStarNotifications::NotificationRule
+AWS::CodeStarNotifications::NotificationRule Name  == /.*/ <<  Name is a required property for AWS::CodeStarNotifications::NotificationRule
+AWS::CodeStarNotifications::NotificationRule Name  == /[A-Za-z0-9\-_ ]+$/ <<  Name is a required pattern for AWS::CodeStarNotifications::NotificationRule
+AWS::CodeStarNotifications::NotificationRule Name  == /\S{1,64}/ <<  Name is a required property for AWS::CodeStarNotifications::NotificationRule
+AWS::CodeStarNotifications::NotificationRule Resource  == /.*/ <<  Resource is a required property for AWS::CodeStarNotifications::NotificationRule
+AWS::CodeStarNotifications::NotificationRule Resource  == /^arn:aws[^:\s]*:[^:\s]*:[^:\s]*:[0-9]{12}:[^\s]+$/ <<  Resource is a required pattern for AWS::CodeStarNotifications::NotificationRule
+AWS::CodeStarNotifications::NotificationRule Status  == /DISABLED/ <<  DISABLED is an expected value for AWS::CodeStarNotifications::NotificationRule Status
+AWS::CodeStarNotifications::NotificationRule Status  == /ENABLED/ <<  ENABLED is an expected value for AWS::CodeStarNotifications::NotificationRule Status
+AWS::CodeStarNotifications::NotificationRule Status IN [DISABLED,ENABLED] << Enforcing Allowed Values only
+AWS::CodeStarNotifications::NotificationRule Targets  == /.*/ <<  Targets is a required property for AWS::CodeStarNotifications::NotificationRule
+AWS::CodeStarNotifications::NotificationRule Targets.TargetAddress  == /\S/ <<  AWS::CodeStarNotifications::NotificationRule is an expected but optional String property for Targets
+AWS::CodeStarNotifications::NotificationRule Targets.TargetType  == /\S/ <<  AWS::CodeStarNotifications::NotificationRule is an expected but optional String property for Targets

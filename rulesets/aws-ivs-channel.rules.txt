@@ -1,0 +1,14 @@
+#AWS::IVS::Channel Authorized  == True |OR| AWS::IVS::Channel Authorized  == False << Enforce allowed values [True | False]
+#AWS::IVS::Channel LatencyMode  == LOW |OR| AWS::IVS::Channel LatencyMode  == NORMAL << Enforce allowed values [LOW | NORMAL]
+AWS::IVS::Channel Authorized  == /False/ <<  False is an expected value for AWS::IVS::Channel Authorized
+AWS::IVS::Channel Authorized  == /True/ <<  True is an expected value for AWS::IVS::Channel Authorized
+AWS::IVS::Channel Authorized  == False <<  False is expected  safe default value
+AWS::IVS::Channel Authorized  == True <<  True is expected safe default value
+AWS::IVS::Channel Authorized IN [True,False] << Enforcing Allowed Values only
+AWS::IVS::Channel LatencyMode  == /LOW/ <<  LOW is an expected value for AWS::IVS::Channel LatencyMode
+AWS::IVS::Channel LatencyMode  == /NORMAL/ <<  NORMAL is an expected value for AWS::IVS::Channel LatencyMode
+AWS::IVS::Channel LatencyMode IN [LOW,NORMAL] << Enforcing Allowed Values only
+AWS::IVS::Channel Name  == /\S{0,128}/ <<  Name is a required property for AWS::IVS::Channel
+AWS::IVS::Channel Name  == /^[a-zA-Z0-9-_]*$/ <<  Name is a required pattern for AWS::IVS::Channel
+AWS::IVS::Channel RecordingConfigurationArn  == /^$|^arn:aws:ivs:[a-z0-9-]+:[0-9]+:recording-configuration/[a-zA-Z0-9-]+$/ <<  RecordingConfigurationArn is a required pattern for AWS::IVS::Channel
+AWS::IVS::Channel RecordingConfigurationArn  == /arn.*{0,128}/ <<  RecordingConfigurationArn is a required property for AWS::IVS::Channel

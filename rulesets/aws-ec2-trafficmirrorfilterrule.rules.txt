@@ -1,0 +1,16 @@
+#AWS::EC2::TrafficMirrorFilterRule RuleAction  == accept |OR| AWS::EC2::TrafficMirrorFilterRule RuleAction  == reject << Enforce allowed values [accept | reject]
+#AWS::EC2::TrafficMirrorFilterRule TrafficDirection  == egress |OR| AWS::EC2::TrafficMirrorFilterRule TrafficDirection  == ingress << Enforce allowed values [egress | ingress]
+AWS::EC2::TrafficMirrorFilterRule DestinationCidrBlock  == /.*/ <<  DestinationCidrBlock is a required property for AWS::EC2::TrafficMirrorFilterRule
+AWS::EC2::TrafficMirrorFilterRule Protocol  == /[0-9].+/ <<  Integer is expected for AWS::EC2::TrafficMirrorFilterRule of Protocol 
+AWS::EC2::TrafficMirrorFilterRule RuleAction  == /.*/ <<  RuleAction is a required property for AWS::EC2::TrafficMirrorFilterRule
+AWS::EC2::TrafficMirrorFilterRule RuleAction  == /accept/ <<  accept is an expected value for AWS::EC2::TrafficMirrorFilterRule RuleAction
+AWS::EC2::TrafficMirrorFilterRule RuleAction  == /reject/ <<  reject is an expected value for AWS::EC2::TrafficMirrorFilterRule RuleAction
+AWS::EC2::TrafficMirrorFilterRule RuleAction IN [accept,reject] << Enforcing Allowed Values only
+AWS::EC2::TrafficMirrorFilterRule RuleNumber  == /.*/ <<  RuleNumber is a required property for AWS::EC2::TrafficMirrorFilterRule
+AWS::EC2::TrafficMirrorFilterRule RuleNumber  == /[0-9].+/ <<  Integer is expected for AWS::EC2::TrafficMirrorFilterRule of RuleNumber 
+AWS::EC2::TrafficMirrorFilterRule SourceCidrBlock  == /.*/ <<  SourceCidrBlock is a required property for AWS::EC2::TrafficMirrorFilterRule
+AWS::EC2::TrafficMirrorFilterRule TrafficDirection  == /.*/ <<  TrafficDirection is a required property for AWS::EC2::TrafficMirrorFilterRule
+AWS::EC2::TrafficMirrorFilterRule TrafficDirection  == /egress/ <<  egress is an expected value for AWS::EC2::TrafficMirrorFilterRule TrafficDirection
+AWS::EC2::TrafficMirrorFilterRule TrafficDirection  == /ingress/ <<  ingress is an expected value for AWS::EC2::TrafficMirrorFilterRule TrafficDirection
+AWS::EC2::TrafficMirrorFilterRule TrafficDirection IN [egress,ingress] << Enforcing Allowed Values only
+AWS::EC2::TrafficMirrorFilterRule TrafficMirrorFilterId  == /.*/ <<  TrafficMirrorFilterId is a required property for AWS::EC2::TrafficMirrorFilterRule

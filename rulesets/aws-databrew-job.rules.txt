@@ -1,0 +1,37 @@
+#AWS::DataBrew::Job EncryptionMode  == SSE-KMS |OR| AWS::DataBrew::Job EncryptionMode  == SSE-S3 << Enforce allowed values [SSE-KMS | SSE-S3]
+#AWS::DataBrew::Job LogSubscription  == DISABLE |OR| AWS::DataBrew::Job LogSubscription  == ENABLE << Enforce allowed values [DISABLE | ENABLE]
+#AWS::DataBrew::Job Type  == PROFILE |OR| AWS::DataBrew::Job Type  == RECIPE << Enforce allowed values [PROFILE | RECIPE]
+AWS::DataBrew::Job DatasetName  == /\S{1,255}/ <<  DatasetName is a required property for AWS::DataBrew::Job
+AWS::DataBrew::Job EncryptionKeyArn  == /arn.*{20,2048}/ <<  EncryptionKeyArn is a required property for AWS::DataBrew::Job
+AWS::DataBrew::Job EncryptionMode  == /SSE-KMS/ <<  SSE-KMS is an expected value for AWS::DataBrew::Job EncryptionMode
+AWS::DataBrew::Job EncryptionMode  == /SSE-S3/ <<  SSE-S3 is an expected value for AWS::DataBrew::Job EncryptionMode
+AWS::DataBrew::Job EncryptionMode IN [SSE-KMS,SSE-S3] << Enforcing Allowed Values only
+AWS::DataBrew::Job JobSample.Mode  == /\S/ <<  AWS::DataBrew::Job is an expected but optional String property for JobSample
+AWS::DataBrew::Job LogSubscription  == /DISABLE/ <<  DISABLE is an expected value for AWS::DataBrew::Job LogSubscription
+AWS::DataBrew::Job LogSubscription  == /ENABLE/ <<  ENABLE is an expected value for AWS::DataBrew::Job LogSubscription
+AWS::DataBrew::Job LogSubscription IN [DISABLE,ENABLE] << Enforcing Allowed Values only
+AWS::DataBrew::Job MaxCapacity  == /[0-9].+/ <<  Integer is expected for AWS::DataBrew::Job of MaxCapacity 
+AWS::DataBrew::Job MaxRetries  == /[0-9].+/ <<  Integer is expected for AWS::DataBrew::Job of MaxRetries 
+AWS::DataBrew::Job MaxRetries  >= 0 <<  Integer is expected for AWS::DataBrew::Job of MaxRetries 
+AWS::DataBrew::Job Name  == /.*/ <<  Name is a required property for AWS::DataBrew::Job
+AWS::DataBrew::Job Name  == /\S{1,240}/ <<  Name is a required property for AWS::DataBrew::Job
+AWS::DataBrew::Job OutputLocation.Bucket  == /\S/ <<  AWS::DataBrew::Job is an expected but optional String property for OutputLocation
+AWS::DataBrew::Job OutputLocation.Key  == /\S/ <<  AWS::DataBrew::Job is an expected but optional String property for OutputLocation
+AWS::DataBrew::Job OutputLocation.databrew.job.outputlocation.Bucket  == /.*/ <<  databrew.job.outputlocation.Bucket is a required property for AWS::DataBrew::Job OutputLocation
+AWS::DataBrew::Job Outputs.CompressionFormat  == /\S/ <<  AWS::DataBrew::Job is an expected but optional String property for Outputs
+AWS::DataBrew::Job Outputs.Format  == /\S/ <<  AWS::DataBrew::Job is an expected but optional String property for Outputs
+AWS::DataBrew::Job ProjectName  == /\S{1,255}/ <<  ProjectName is a required property for AWS::DataBrew::Job
+AWS::DataBrew::Job Recipe.Name  == /\S/ <<  AWS::DataBrew::Job is an expected but optional String property for Recipe
+AWS::DataBrew::Job Recipe.Version  == /\S/ <<  AWS::DataBrew::Job is an expected but optional String property for Recipe
+AWS::DataBrew::Job Recipe.databrew.job.recipe.Name  == /.*/ <<  databrew.job.recipe.Name is a required property for AWS::DataBrew::Job Recipe
+AWS::DataBrew::Job RoleArn  == /.*/ <<  RoleArn is a required property for AWS::DataBrew::Job
+AWS::DataBrew::Job RoleArn  == /arn.*{20,2048}/ <<  RoleArn is a required property for AWS::DataBrew::Job
+AWS::DataBrew::Job Timeout  == /[0-9].+/ <<  Integer is expected for AWS::DataBrew::Job of Timeout 
+AWS::DataBrew::Job Timeout  >= 0 <<  Integer is expected for AWS::DataBrew::Job of Timeout 
+AWS::DataBrew::Job Type  == /.*/ <<  Type is a required property for AWS::DataBrew::Job
+AWS::DataBrew::Job Type  == /PROFILE/ <<  PROFILE is an expected value for AWS::DataBrew::Job Type
+AWS::DataBrew::Job Type  == /RECIPE/ <<  RECIPE is an expected value for AWS::DataBrew::Job Type
+AWS::DataBrew::Job Type IN [PROFILE,RECIPE] << Enforcing Allowed Values only
+JobSample.Mode == CUSTOM_ROWS << Enforce Expected Value for databrew.job.jobsample.Mode
+JobSample.Mode == FULL_DATASET << Enforce Expected Value for databrew.job.jobsample.Mode
+JobSample.Mode IN [CUSTOM_ROWS,FULL_DATASET] << Enforce Allowed Values

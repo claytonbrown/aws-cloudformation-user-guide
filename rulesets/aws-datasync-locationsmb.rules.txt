@@ -1,0 +1,16 @@
+AWS::DataSync::LocationSMB AgentArns  == /.*/ <<  AgentArns is a required property for AWS::DataSync::LocationSMB
+AWS::DataSync::LocationSMB Domain  == /^([A-Za-z0-9]+[A-Za-z0-9-.]*)*[A-Za-z0-9-]*[A-Za-z0-9]$/ <<  Domain is a required pattern for AWS::DataSync::LocationSMB
+AWS::DataSync::LocationSMB MountOptions.Version  == /\S/ <<  AWS::DataSync::LocationSMB is an expected but optional String property for MountOptions
+AWS::DataSync::LocationSMB Password  == /.*/ <<  Password is a required property for AWS::DataSync::LocationSMB
+AWS::DataSync::LocationSMB Password  == /^.{0,104}$/ <<  Password is a required pattern for AWS::DataSync::LocationSMB
+AWS::DataSync::LocationSMB ServerHostname  == /.*/ <<  ServerHostname is a required property for AWS::DataSync::LocationSMB
+AWS::DataSync::LocationSMB ServerHostname  == /^(([a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9\-]*[A-Za-z0-9])$/ <<  ServerHostname is a required pattern for AWS::DataSync::LocationSMB
+AWS::DataSync::LocationSMB ServerHostname  == /arn.*{0,255}/ <<  ServerHostname is a required property for AWS::DataSync::LocationSMB
+AWS::DataSync::LocationSMB Subdirectory  == /.*/ <<  Subdirectory is a required property for AWS::DataSync::LocationSMB
+AWS::DataSync::LocationSMB Subdirectory  == /^[a-zA-Z0-9_\-\+\./\(\)\$\p{Zs}]+$/ <<  Subdirectory is a required pattern for AWS::DataSync::LocationSMB
+AWS::DataSync::LocationSMB User  == /.*/ <<  User is a required property for AWS::DataSync::LocationSMB
+AWS::DataSync::LocationSMB User  == /^[^\x5B\x5D\\/:;|=,+*?]{1,104}$/ <<  User is a required pattern for AWS::DataSync::LocationSMB
+MountOptions.Version == AUTOMATIC << Enforce Expected Value for datasync.locationsmb.mountoptions.Version
+MountOptions.Version == SMB2 << Enforce Expected Value for datasync.locationsmb.mountoptions.Version
+MountOptions.Version == SMB3 << Enforce Expected Value for datasync.locationsmb.mountoptions.Version
+MountOptions.Version IN [AUTOMATIC,SMB2,SMB3] << Enforce Allowed Values

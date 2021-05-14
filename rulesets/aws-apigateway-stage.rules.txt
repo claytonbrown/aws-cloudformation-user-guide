@@ -1,0 +1,20 @@
+#AWS::ApiGateway::Stage CacheClusterEnabled  == True |OR| AWS::ApiGateway::Stage CacheClusterEnabled  == False << Enforce allowed values [True | False]
+#AWS::ApiGateway::Stage TracingEnabled  == True |OR| AWS::ApiGateway::Stage TracingEnabled  == False << Enforce allowed values [True | False]
+AWS::ApiGateway::Stage AccessLogSetting.DestinationArn  == /\S/ <<  AWS::ApiGateway::Stage is an expected but optional String property for AccessLogSetting
+AWS::ApiGateway::Stage AccessLogSetting.Format  == /\S/ <<  AWS::ApiGateway::Stage is an expected but optional String property for AccessLogSetting
+AWS::ApiGateway::Stage CacheClusterEnabled  == /False/ <<  False is an expected value for AWS::ApiGateway::Stage CacheClusterEnabled
+AWS::ApiGateway::Stage CacheClusterEnabled  == /True/ <<  True is an expected value for AWS::ApiGateway::Stage CacheClusterEnabled
+AWS::ApiGateway::Stage CacheClusterEnabled  == False <<  False is expected  safe default value
+AWS::ApiGateway::Stage CacheClusterEnabled  == True <<  True is expected safe default value
+AWS::ApiGateway::Stage CacheClusterEnabled IN [True,False] << Enforcing Allowed Values only
+AWS::ApiGateway::Stage CanarySetting.DeploymentId  == /\S/ <<  AWS::ApiGateway::Stage is an expected but optional String property for CanarySetting
+AWS::ApiGateway::Stage MethodSettings.HttpMethod  == /\S/ <<  AWS::ApiGateway::Stage is an expected but optional String property for MethodSettings
+AWS::ApiGateway::Stage MethodSettings.LoggingLevel  == /\S/ <<  AWS::ApiGateway::Stage is an expected but optional String property for MethodSettings
+AWS::ApiGateway::Stage MethodSettings.ResourcePath  == /\S/ <<  AWS::ApiGateway::Stage is an expected but optional String property for MethodSettings
+AWS::ApiGateway::Stage RestApiId  == /.*/ <<  RestApiId is a required property for AWS::ApiGateway::Stage
+AWS::ApiGateway::Stage TracingEnabled  == /False/ <<  False is an expected value for AWS::ApiGateway::Stage TracingEnabled
+AWS::ApiGateway::Stage TracingEnabled  == /True/ <<  True is an expected value for AWS::ApiGateway::Stage TracingEnabled
+AWS::ApiGateway::Stage TracingEnabled IN [True,False] << Enforcing Allowed Values only
+CanarySetting.UseStageCache == False << Enforce Expected Value for apigateway.stage.canarysetting.UseStageCache
+CanarySetting.UseStageCache == True << Enforce Expected Value for apigateway.stage.canarysetting.UseStageCache
+CanarySetting.UseStageCache IN [True,False] << Enforce Allowed Values

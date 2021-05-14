@@ -1,0 +1,22 @@
+#AWS::EFS::FileSystem BypassPolicyLockoutSafetyCheck  == True |OR| AWS::EFS::FileSystem BypassPolicyLockoutSafetyCheck  == False << Enforce allowed values [True | False]
+#AWS::EFS::FileSystem Encrypted  == True |OR| AWS::EFS::FileSystem Encrypted  == False << Enforce allowed values [True | False]
+#AWS::EFS::FileSystem PerformanceMode  == generalPurpose |OR| AWS::EFS::FileSystem PerformanceMode  == maxIO << Enforce allowed values [generalPurpose | maxIO]
+AWS::EFS::FileSystem AvailabilityZoneName  == /.+/ <<  AvailabilityZoneName is a required pattern for AWS::EFS::FileSystem
+AWS::EFS::FileSystem AvailabilityZoneName  == /\S{1,64}/ <<  AvailabilityZoneName is a required property for AWS::EFS::FileSystem
+AWS::EFS::FileSystem BackupPolicy.Status  == /\S/ <<  AWS::EFS::FileSystem is an expected but optional String property for BackupPolicy
+AWS::EFS::FileSystem BackupPolicy.efs.filesystem.backuppolicy.Status  == /.*/ <<  efs.filesystem.backuppolicy.Status is a required property for AWS::EFS::FileSystem BackupPolicy
+AWS::EFS::FileSystem BypassPolicyLockoutSafetyCheck  == /False/ <<  False is an expected value for AWS::EFS::FileSystem BypassPolicyLockoutSafetyCheck
+AWS::EFS::FileSystem BypassPolicyLockoutSafetyCheck  == /True/ <<  True is an expected value for AWS::EFS::FileSystem BypassPolicyLockoutSafetyCheck
+AWS::EFS::FileSystem BypassPolicyLockoutSafetyCheck  == False <<  False is expected  safe default value
+AWS::EFS::FileSystem BypassPolicyLockoutSafetyCheck  == True <<  True is expected safe default value
+AWS::EFS::FileSystem BypassPolicyLockoutSafetyCheck IN [True,False] << Enforcing Allowed Values only
+AWS::EFS::FileSystem Encrypted  == /False/ <<  False is an expected value for AWS::EFS::FileSystem Encrypted
+AWS::EFS::FileSystem Encrypted  == /True/ <<  True is an expected value for AWS::EFS::FileSystem Encrypted
+AWS::EFS::FileSystem Encrypted  == False <<  False is expected  safe default value
+AWS::EFS::FileSystem Encrypted  == True <<  True is expected safe default value
+AWS::EFS::FileSystem Encrypted IN [True,False] << Enforcing Allowed Values only
+AWS::EFS::FileSystem FileSystemPolicy  == /[\s\S]+/ <<  FileSystemPolicy is a required pattern for AWS::EFS::FileSystem
+AWS::EFS::FileSystem KmsKeyId  == /^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|alias/[a-zA-Z0-9/_-]+|(arn:aws[-a-z]*:kms:[a-z0-9-]+:\d{12}:((key/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|(alias/[a-zA-Z0-9/_-]+))))$/ <<  KmsKeyId is a required pattern for AWS::EFS::FileSystem
+AWS::EFS::FileSystem PerformanceMode  == /generalPurpose/ <<  generalPurpose is an expected value for AWS::EFS::FileSystem PerformanceMode
+AWS::EFS::FileSystem PerformanceMode  == /maxIO/ <<  maxIO is an expected value for AWS::EFS::FileSystem PerformanceMode
+AWS::EFS::FileSystem PerformanceMode IN [generalPurpose,maxIO] << Enforcing Allowed Values only

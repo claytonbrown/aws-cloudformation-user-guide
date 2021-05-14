@@ -1,0 +1,13 @@
+#AWS::EMR::StudioSessionMapping IdentityType  == GROUP |OR| AWS::EMR::StudioSessionMapping IdentityType  == USER << Enforce allowed values [GROUP | USER]
+AWS::EMR::StudioSessionMapping IdentityName  == /.*/ <<  IdentityName is a required property for AWS::EMR::StudioSessionMapping
+AWS::EMR::StudioSessionMapping IdentityName  == /[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*/ <<  IdentityName is a required pattern for AWS::EMR::StudioSessionMapping
+AWS::EMR::StudioSessionMapping IdentityName  == /\S{0,256}/ <<  IdentityName is a required property for AWS::EMR::StudioSessionMapping
+AWS::EMR::StudioSessionMapping IdentityType  == /.*/ <<  IdentityType is a required property for AWS::EMR::StudioSessionMapping
+AWS::EMR::StudioSessionMapping IdentityType  == /GROUP/ <<  GROUP is an expected value for AWS::EMR::StudioSessionMapping IdentityType
+AWS::EMR::StudioSessionMapping IdentityType  == /USER/ <<  USER is an expected value for AWS::EMR::StudioSessionMapping IdentityType
+AWS::EMR::StudioSessionMapping IdentityType IN [GROUP,USER] << Enforcing Allowed Values only
+AWS::EMR::StudioSessionMapping SessionPolicyArn  == /.*/ <<  SessionPolicyArn is a required property for AWS::EMR::StudioSessionMapping
+AWS::EMR::StudioSessionMapping SessionPolicyArn  == /[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*/ <<  SessionPolicyArn is a required pattern for AWS::EMR::StudioSessionMapping
+AWS::EMR::StudioSessionMapping SessionPolicyArn  == /arn.*{0,256}/ <<  SessionPolicyArn is a required property for AWS::EMR::StudioSessionMapping
+AWS::EMR::StudioSessionMapping StudioId  == /.*/ <<  StudioId is a required property for AWS::EMR::StudioSessionMapping
+AWS::EMR::StudioSessionMapping StudioId  == /[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*/ <<  StudioId is a required pattern for AWS::EMR::StudioSessionMapping

@@ -1,0 +1,34 @@
+#AWS::OpsWorks::Stack ClonePermissions  == True |OR| AWS::OpsWorks::Stack ClonePermissions  == False << Enforce allowed values [True | False]
+#AWS::OpsWorks::Stack DefaultRootDeviceType  == ebs |OR| AWS::OpsWorks::Stack DefaultRootDeviceType  == instance-store << Enforce allowed values [ebs | instance-store]
+#AWS::OpsWorks::Stack UseCustomCookbooks  == True |OR| AWS::OpsWorks::Stack UseCustomCookbooks  == False << Enforce allowed values [True | False]
+#AWS::OpsWorks::Stack UseOpsworksSecurityGroups  == True |OR| AWS::OpsWorks::Stack UseOpsworksSecurityGroups  == False << Enforce allowed values [True | False]
+AWS::OpsWorks::Stack ChefConfiguration.BerkshelfVersion  == /\S/ <<  AWS::OpsWorks::Stack is an expected but optional String property for ChefConfiguration
+AWS::OpsWorks::Stack ClonePermissions  == /False/ <<  False is an expected value for AWS::OpsWorks::Stack ClonePermissions
+AWS::OpsWorks::Stack ClonePermissions  == /True/ <<  True is an expected value for AWS::OpsWorks::Stack ClonePermissions
+AWS::OpsWorks::Stack ClonePermissions  == False <<  False is expected  safe default value
+AWS::OpsWorks::Stack ClonePermissions  == True <<  True is expected safe default value
+AWS::OpsWorks::Stack ClonePermissions IN [True,False] << Enforcing Allowed Values only
+AWS::OpsWorks::Stack DefaultInstanceProfileArn  == /.*/ <<  DefaultInstanceProfileArn is a required property for AWS::OpsWorks::Stack
+AWS::OpsWorks::Stack DefaultRootDeviceType  == /ebs/ <<  ebs is an expected value for AWS::OpsWorks::Stack DefaultRootDeviceType
+AWS::OpsWorks::Stack DefaultRootDeviceType  == /instance-store/ <<  instance-store is an expected value for AWS::OpsWorks::Stack DefaultRootDeviceType
+AWS::OpsWorks::Stack DefaultRootDeviceType IN [ebs,instance-store] << Enforcing Allowed Values only
+AWS::OpsWorks::Stack ElasticIps.Ip  == /\S/ <<  AWS::OpsWorks::Stack is an expected but optional String property for ElasticIps
+AWS::OpsWorks::Stack ElasticIps.Name  == /\S/ <<  AWS::OpsWorks::Stack is an expected but optional String property for ElasticIps
+AWS::OpsWorks::Stack Name  == /.*/ <<  Name is a required property for AWS::OpsWorks::Stack
+AWS::OpsWorks::Stack RdsDbInstances.DbPassword  == /\S/ <<  AWS::OpsWorks::Stack is an expected but optional String property for RdsDbInstances
+AWS::OpsWorks::Stack RdsDbInstances.DbUser  == /\S/ <<  AWS::OpsWorks::Stack is an expected but optional String property for RdsDbInstances
+AWS::OpsWorks::Stack RdsDbInstances.RdsDbInstanceArn  == /\S/ <<  AWS::OpsWorks::Stack is an expected but optional String property for RdsDbInstances
+AWS::OpsWorks::Stack ServiceRoleArn  == /.*/ <<  ServiceRoleArn is a required property for AWS::OpsWorks::Stack
+AWS::OpsWorks::Stack UseCustomCookbooks  == /False/ <<  False is an expected value for AWS::OpsWorks::Stack UseCustomCookbooks
+AWS::OpsWorks::Stack UseCustomCookbooks  == /True/ <<  True is an expected value for AWS::OpsWorks::Stack UseCustomCookbooks
+AWS::OpsWorks::Stack UseCustomCookbooks  == False <<  False is expected  safe default value
+AWS::OpsWorks::Stack UseCustomCookbooks  == True <<  True is expected safe default value
+AWS::OpsWorks::Stack UseCustomCookbooks IN [True,False] << Enforcing Allowed Values only
+AWS::OpsWorks::Stack UseOpsworksSecurityGroups  == /False/ <<  False is an expected value for AWS::OpsWorks::Stack UseOpsworksSecurityGroups
+AWS::OpsWorks::Stack UseOpsworksSecurityGroups  == /True/ <<  True is an expected value for AWS::OpsWorks::Stack UseOpsworksSecurityGroups
+AWS::OpsWorks::Stack UseOpsworksSecurityGroups  == False <<  False is expected  safe default value
+AWS::OpsWorks::Stack UseOpsworksSecurityGroups  == True <<  True is expected safe default value
+AWS::OpsWorks::Stack UseOpsworksSecurityGroups IN [True,False] << Enforcing Allowed Values only
+ChefConfiguration.ManageBerkshelf == False << Enforce Expected Value for opsworks.stack.chefconfiguration.ManageBerkshelf
+ChefConfiguration.ManageBerkshelf == True << Enforce Expected Value for opsworks.stack.chefconfiguration.ManageBerkshelf
+ChefConfiguration.ManageBerkshelf IN [True,False] << Enforce Allowed Values

@@ -1,0 +1,32 @@
+#AWS::OpsWorksCM::Server AssociatePublicIpAddress  == True |OR| AWS::OpsWorksCM::Server AssociatePublicIpAddress  == False << Enforce allowed values [True | False]
+#AWS::OpsWorksCM::Server DisableAutomatedBackup  == True |OR| AWS::OpsWorksCM::Server DisableAutomatedBackup  == False << Enforce allowed values [True | False]
+AWS::OpsWorksCM::Server AssociatePublicIpAddress  == /False/ <<  False is an expected value for AWS::OpsWorksCM::Server AssociatePublicIpAddress
+AWS::OpsWorksCM::Server AssociatePublicIpAddress  == /True/ <<  True is an expected value for AWS::OpsWorksCM::Server AssociatePublicIpAddress
+AWS::OpsWorksCM::Server AssociatePublicIpAddress  == False <<  False is expected  safe default value
+AWS::OpsWorksCM::Server AssociatePublicIpAddress  == True <<  True is expected safe default value
+AWS::OpsWorksCM::Server AssociatePublicIpAddress IN [True,False] << Enforcing Allowed Values only
+AWS::OpsWorksCM::Server BackupId  == /[a-zA-Z][a-zA-Z0-9\-\.\:]*/ <<  BackupId is a required pattern for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server BackupRetentionCount  == /[0-9].+/ <<  Integer is expected for AWS::OpsWorksCM::Server of BackupRetentionCount 
+AWS::OpsWorksCM::Server BackupRetentionCount  >= 1 <<  Integer is expected for AWS::OpsWorksCM::Server of BackupRetentionCount 
+AWS::OpsWorksCM::Server CustomCertificate  == /(?s)\s*-----BEGIN CERTIFICATE-----.+-----END CERTIFICATE-----\s*/ <<  CustomCertificate is a required pattern for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server CustomDomain  == /^(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$/ <<  CustomDomain is a required pattern for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server CustomPrivateKey  == /(?ms)\s*^-----BEGIN (?-s:.*)PRIVATE KEY-----$.*?^-----END (?-s:.*)PRIVATE KEY-----$\s*/ <<  CustomPrivateKey is a required pattern for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server DisableAutomatedBackup  == /False/ <<  False is an expected value for AWS::OpsWorksCM::Server DisableAutomatedBackup
+AWS::OpsWorksCM::Server DisableAutomatedBackup  == /True/ <<  True is an expected value for AWS::OpsWorksCM::Server DisableAutomatedBackup
+AWS::OpsWorksCM::Server DisableAutomatedBackup  == False <<  False is expected  safe default value
+AWS::OpsWorksCM::Server DisableAutomatedBackup  == True <<  True is expected safe default value
+AWS::OpsWorksCM::Server DisableAutomatedBackup IN [True,False] << Enforcing Allowed Values only
+AWS::OpsWorksCM::Server Engine  == /(?s).*/ <<  Engine is a required pattern for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server EngineModel  == /(?s).*/ <<  EngineModel is a required pattern for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server EngineVersion  == /(?s).*/ <<  EngineVersion is a required pattern for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server InstanceProfileArn  == /.*/ <<  InstanceProfileArn is a required property for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server InstanceProfileArn  == /arn.*{0,10000}/ <<  InstanceProfileArn is a required property for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server InstanceProfileArn  == /arn:aws:iam::[0-9]{12}:instance-profile/.*/ <<  InstanceProfileArn is a required pattern for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server InstanceType  == /(?s).*/ <<  InstanceType is a required pattern for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server InstanceType  == /.*/ <<  InstanceType is a required property for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server KeyPair  == /.*/ <<  KeyPair is a required pattern for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server ServerName  == /[a-zA-Z][a-zA-Z0-9\-]*/ <<  ServerName is a required pattern for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server ServerName  == /\S{1,40}/ <<  ServerName is a required property for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server ServiceRoleArn  == /.*/ <<  ServiceRoleArn is a required property for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server ServiceRoleArn  == /arn.*{0,10000}/ <<  ServiceRoleArn is a required property for AWS::OpsWorksCM::Server
+AWS::OpsWorksCM::Server ServiceRoleArn  == /arn:aws:iam::[0-9]{12}:role/.*/ <<  ServiceRoleArn is a required pattern for AWS::OpsWorksCM::Server

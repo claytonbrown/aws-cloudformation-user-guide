@@ -1,0 +1,28 @@
+#AWS::AppStream::Fleet EnableDefaultInternetAccess  == True |OR| AWS::AppStream::Fleet EnableDefaultInternetAccess  == False << Enforce allowed values [True | False]
+#AWS::AppStream::Fleet FleetType  == ALWAYS_ON |OR| AWS::AppStream::Fleet FleetType  == ON_DEMAND << Enforce allowed values [ALWAYS_ON | ON_DEMAND]
+#AWS::AppStream::Fleet StreamView  == APP |OR| AWS::AppStream::Fleet StreamView  == DESKTOP << Enforce allowed values [APP | DESKTOP]
+AWS::AppStream::Fleet ComputeCapacity  == /.*/ <<  ComputeCapacity is a required property for AWS::AppStream::Fleet
+AWS::AppStream::Fleet ComputeCapacity.appstream.fleet.computecapacity.DesiredInstances  == /.*/ <<  appstream.fleet.computecapacity.DesiredInstances is a required property for AWS::AppStream::Fleet ComputeCapacity
+AWS::AppStream::Fleet Description  == /arn.*{0,256}/ <<  Description is a required property for AWS::AppStream::Fleet
+AWS::AppStream::Fleet DisconnectTimeoutInSeconds  == /[0-9].+/ <<  Integer is expected for AWS::AppStream::Fleet of DisconnectTimeoutInSeconds 
+AWS::AppStream::Fleet DisplayName  == /arn.*{0,100}/ <<  DisplayName is a required property for AWS::AppStream::Fleet
+AWS::AppStream::Fleet DomainJoinInfo.DirectoryName  == /\S/ <<  AWS::AppStream::Fleet is an expected but optional String property for DomainJoinInfo
+AWS::AppStream::Fleet DomainJoinInfo.OrganizationalUnitDistinguishedName  == /\S/ <<  AWS::AppStream::Fleet is an expected but optional String property for DomainJoinInfo
+AWS::AppStream::Fleet EnableDefaultInternetAccess  == /False/ <<  False is an expected value for AWS::AppStream::Fleet EnableDefaultInternetAccess
+AWS::AppStream::Fleet EnableDefaultInternetAccess  == /True/ <<  True is an expected value for AWS::AppStream::Fleet EnableDefaultInternetAccess
+AWS::AppStream::Fleet EnableDefaultInternetAccess  == False <<  False is expected  safe default value
+AWS::AppStream::Fleet EnableDefaultInternetAccess  == True <<  True is expected safe default value
+AWS::AppStream::Fleet EnableDefaultInternetAccess IN [True,False] << Enforcing Allowed Values only
+AWS::AppStream::Fleet FleetType  == /ALWAYS_ON/ <<  ALWAYS_ON is an expected value for AWS::AppStream::Fleet FleetType
+AWS::AppStream::Fleet FleetType  == /ON_DEMAND/ <<  ON_DEMAND is an expected value for AWS::AppStream::Fleet FleetType
+AWS::AppStream::Fleet FleetType IN [ALWAYS_ON,ON_DEMAND] << Enforcing Allowed Values only
+AWS::AppStream::Fleet IamRoleArn  == /^arn:aws(?:\-cn|\-iso\-b|\-iso|\-us\-gov)?:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.\\-]{0,1023}$/ <<  IamRoleArn is a required pattern for AWS::AppStream::Fleet
+AWS::AppStream::Fleet IdleDisconnectTimeoutInSeconds  == /[0-9].+/ <<  Integer is expected for AWS::AppStream::Fleet of IdleDisconnectTimeoutInSeconds 
+AWS::AppStream::Fleet ImageArn  == /^arn:aws(?:\-cn|\-iso\-b|\-iso|\-us\-gov)?:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.\\-]{0,1023}$/ <<  ImageArn is a required pattern for AWS::AppStream::Fleet
+AWS::AppStream::Fleet InstanceType  == /.*/ <<  InstanceType is a required property for AWS::AppStream::Fleet
+AWS::AppStream::Fleet MaxUserDurationInSeconds  == /[0-9].+/ <<  Integer is expected for AWS::AppStream::Fleet of MaxUserDurationInSeconds 
+AWS::AppStream::Fleet Name  == /.*/ <<  Name is a required property for AWS::AppStream::Fleet
+AWS::AppStream::Fleet Name  == /^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$/ <<  Name is a required pattern for AWS::AppStream::Fleet
+AWS::AppStream::Fleet StreamView  == /APP/ <<  APP is an expected value for AWS::AppStream::Fleet StreamView
+AWS::AppStream::Fleet StreamView  == /DESKTOP/ <<  DESKTOP is an expected value for AWS::AppStream::Fleet StreamView
+AWS::AppStream::Fleet StreamView IN [APP,DESKTOP] << Enforcing Allowed Values only

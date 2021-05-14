@@ -1,0 +1,48 @@
+#AWS::EC2::Instance DisableApiTermination  == True |OR| AWS::EC2::Instance DisableApiTermination  == False << Enforce allowed values [True | False]
+#AWS::EC2::Instance EbsOptimized  == True |OR| AWS::EC2::Instance EbsOptimized  == False << Enforce allowed values [True | False]
+#AWS::EC2::Instance InstanceInitiatedShutdownBehavior  == stop |OR| AWS::EC2::Instance InstanceInitiatedShutdownBehavior  == terminate << Enforce allowed values [stop | terminate]
+#AWS::EC2::Instance Monitoring  == True |OR| AWS::EC2::Instance Monitoring  == False << Enforce allowed values [True | False]
+#AWS::EC2::Instance SourceDestCheck  == True |OR| AWS::EC2::Instance SourceDestCheck  == False << Enforce allowed values [True | False]
+#AWS::EC2::Instance Tenancy  == dedicated |OR| AWS::EC2::Instance Tenancy  == default |OR| AWS::EC2::Instance Tenancy  == host << Enforce allowed values [dedicated | default | host]
+AWS::EC2::Instance BlockDeviceMappings.DeviceName  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for BlockDeviceMappings
+AWS::EC2::Instance BlockDeviceMappings.VirtualName  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for BlockDeviceMappings
+AWS::EC2::Instance DisableApiTermination  == /False/ <<  False is an expected value for AWS::EC2::Instance DisableApiTermination
+AWS::EC2::Instance DisableApiTermination  == /True/ <<  True is an expected value for AWS::EC2::Instance DisableApiTermination
+AWS::EC2::Instance DisableApiTermination  == False <<  False is expected  safe default value
+AWS::EC2::Instance DisableApiTermination  == True <<  True is expected safe default value
+AWS::EC2::Instance DisableApiTermination IN [True,False] << Enforcing Allowed Values only
+AWS::EC2::Instance EbsOptimized  == /False/ <<  False is an expected value for AWS::EC2::Instance EbsOptimized
+AWS::EC2::Instance EbsOptimized  == /True/ <<  True is an expected value for AWS::EC2::Instance EbsOptimized
+AWS::EC2::Instance EbsOptimized  == False <<  False is expected  safe default value
+AWS::EC2::Instance EbsOptimized  == True <<  True is expected safe default value
+AWS::EC2::Instance EbsOptimized IN [True,False] << Enforcing Allowed Values only
+AWS::EC2::Instance ElasticInferenceAccelerators.Type  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for ElasticInferenceAccelerators
+AWS::EC2::Instance InstanceInitiatedShutdownBehavior  == /stop/ <<  stop is an expected value for AWS::EC2::Instance InstanceInitiatedShutdownBehavior
+AWS::EC2::Instance InstanceInitiatedShutdownBehavior  == /terminate/ <<  terminate is an expected value for AWS::EC2::Instance InstanceInitiatedShutdownBehavior
+AWS::EC2::Instance InstanceInitiatedShutdownBehavior IN [stop,terminate] << Enforcing Allowed Values only
+AWS::EC2::Instance Ipv6AddressCount  == /[0-9].+/ <<  Integer is expected for AWS::EC2::Instance of Ipv6AddressCount 
+AWS::EC2::Instance LicenseSpecifications.LicenseConfigurationArn  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for LicenseSpecifications
+AWS::EC2::Instance Monitoring  == /False/ <<  False is an expected value for AWS::EC2::Instance Monitoring
+AWS::EC2::Instance Monitoring  == /True/ <<  True is an expected value for AWS::EC2::Instance Monitoring
+AWS::EC2::Instance Monitoring  == False <<  False is expected  safe default value
+AWS::EC2::Instance Monitoring  == True <<  True is expected safe default value
+AWS::EC2::Instance Monitoring IN [True,False] << Enforcing Allowed Values only
+AWS::EC2::Instance NetworkInterfaces.Description  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for NetworkInterfaces
+AWS::EC2::Instance NetworkInterfaces.DeviceIndex  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for NetworkInterfaces
+AWS::EC2::Instance NetworkInterfaces.NetworkInterfaceId  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for NetworkInterfaces
+AWS::EC2::Instance NetworkInterfaces.PrivateIpAddress  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for NetworkInterfaces
+AWS::EC2::Instance NetworkInterfaces.SubnetId  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for NetworkInterfaces
+AWS::EC2::Instance SourceDestCheck  == /False/ <<  False is an expected value for AWS::EC2::Instance SourceDestCheck
+AWS::EC2::Instance SourceDestCheck  == /True/ <<  True is an expected value for AWS::EC2::Instance SourceDestCheck
+AWS::EC2::Instance SourceDestCheck  == False <<  False is expected  safe default value
+AWS::EC2::Instance SourceDestCheck  == True <<  True is expected safe default value
+AWS::EC2::Instance SourceDestCheck IN [True,False] << Enforcing Allowed Values only
+AWS::EC2::Instance Tenancy  == /dedicated/ <<  dedicated is an expected value for AWS::EC2::Instance Tenancy
+AWS::EC2::Instance Tenancy  == /default/ <<  default is an expected value for AWS::EC2::Instance Tenancy
+AWS::EC2::Instance Tenancy  == /host/ <<  host is an expected value for AWS::EC2::Instance Tenancy
+AWS::EC2::Instance Tenancy IN [dedicated,default,host] << Enforcing Allowed Values only
+AWS::EC2::Instance Volumes.Device  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for Volumes
+AWS::EC2::Instance Volumes.VolumeId  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for Volumes
+EnclaveOptions.Enabled == False << Enforce Expected Value for ec2.instance.enclaveoptions.Enabled
+EnclaveOptions.Enabled == True << Enforce Expected Value for ec2.instance.enclaveoptions.Enabled
+EnclaveOptions.Enabled IN [True,False] << Enforce Allowed Values

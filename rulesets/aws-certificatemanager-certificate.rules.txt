@@ -1,0 +1,16 @@
+#AWS::CertificateManager::Certificate CertificateTransparencyLoggingPreference  == DISABLED |OR| AWS::CertificateManager::Certificate CertificateTransparencyLoggingPreference  == ENABLED << Enforce allowed values [DISABLED | ENABLED]
+#AWS::CertificateManager::Certificate ValidationMethod  == DNS |OR| AWS::CertificateManager::Certificate ValidationMethod  == EMAIL << Enforce allowed values [DNS | EMAIL]
+AWS::CertificateManager::Certificate CertificateAuthorityArn  == /arn.*{20,2048}/ <<  CertificateAuthorityArn is a required property for AWS::CertificateManager::Certificate
+AWS::CertificateManager::Certificate CertificateAuthorityArn  == /arn:[\w+=/,.@-]+:[\w+=/,.@-]+:[\w+=/,.@-]*:[0-9]+:[\w+=,.@-]+(/[\w+=,.@-]+)*/ <<  CertificateAuthorityArn is a required pattern for AWS::CertificateManager::Certificate
+AWS::CertificateManager::Certificate CertificateTransparencyLoggingPreference  == /DISABLED/ <<  DISABLED is an expected value for AWS::CertificateManager::Certificate CertificateTransparencyLoggingPreference
+AWS::CertificateManager::Certificate CertificateTransparencyLoggingPreference  == /ENABLED/ <<  ENABLED is an expected value for AWS::CertificateManager::Certificate CertificateTransparencyLoggingPreference
+AWS::CertificateManager::Certificate CertificateTransparencyLoggingPreference IN [DISABLED,ENABLED] << Enforcing Allowed Values only
+AWS::CertificateManager::Certificate DomainName  == /.*/ <<  DomainName is a required property for AWS::CertificateManager::Certificate
+AWS::CertificateManager::Certificate DomainName  == /\S{1,253}/ <<  DomainName is a required property for AWS::CertificateManager::Certificate
+AWS::CertificateManager::Certificate DomainName  == /^(\*\.)?(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])$/ <<  DomainName is a required pattern for AWS::CertificateManager::Certificate
+AWS::CertificateManager::Certificate DomainValidationOptions.DomainName  == /\S/ <<  AWS::CertificateManager::Certificate is an expected but optional String property for DomainValidationOptions
+AWS::CertificateManager::Certificate DomainValidationOptions.HostedZoneId  == /\S/ <<  AWS::CertificateManager::Certificate is an expected but optional String property for DomainValidationOptions
+AWS::CertificateManager::Certificate DomainValidationOptions.ValidationDomain  == /\S/ <<  AWS::CertificateManager::Certificate is an expected but optional String property for DomainValidationOptions
+AWS::CertificateManager::Certificate ValidationMethod  == /DNS/ <<  DNS is an expected value for AWS::CertificateManager::Certificate ValidationMethod
+AWS::CertificateManager::Certificate ValidationMethod  == /EMAIL/ <<  EMAIL is an expected value for AWS::CertificateManager::Certificate ValidationMethod
+AWS::CertificateManager::Certificate ValidationMethod IN [DNS,EMAIL] << Enforcing Allowed Values only

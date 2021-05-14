@@ -1,0 +1,18 @@
+#AWS::CodePipeline::Pipeline RestartExecutionOnUpdate  == True |OR| AWS::CodePipeline::Pipeline RestartExecutionOnUpdate  == False << Enforce allowed values [True | False]
+AWS::CodePipeline::Pipeline ArtifactStore.Location  == /\S/ <<  AWS::CodePipeline::Pipeline is an expected but optional String property for ArtifactStore
+AWS::CodePipeline::Pipeline ArtifactStore.Type  == /\S/ <<  AWS::CodePipeline::Pipeline is an expected but optional String property for ArtifactStore
+AWS::CodePipeline::Pipeline ArtifactStore.codepipeline.pipeline.artifactstore.Location  == /.*/ <<  codepipeline.pipeline.artifactstore.Location is a required property for AWS::CodePipeline::Pipeline ArtifactStore
+AWS::CodePipeline::Pipeline ArtifactStore.codepipeline.pipeline.artifactstore.Type  == /.*/ <<  codepipeline.pipeline.artifactstore.Type is a required property for AWS::CodePipeline::Pipeline ArtifactStore
+AWS::CodePipeline::Pipeline Name  == /[A-Za-z0-9.@\-_]+/ <<  Name is a required pattern for AWS::CodePipeline::Pipeline
+AWS::CodePipeline::Pipeline Name  == /\S{1,100}/ <<  Name is a required property for AWS::CodePipeline::Pipeline
+AWS::CodePipeline::Pipeline RestartExecutionOnUpdate  == /False/ <<  False is an expected value for AWS::CodePipeline::Pipeline RestartExecutionOnUpdate
+AWS::CodePipeline::Pipeline RestartExecutionOnUpdate  == /True/ <<  True is an expected value for AWS::CodePipeline::Pipeline RestartExecutionOnUpdate
+AWS::CodePipeline::Pipeline RestartExecutionOnUpdate  == False <<  False is expected  safe default value
+AWS::CodePipeline::Pipeline RestartExecutionOnUpdate  == True <<  True is expected safe default value
+AWS::CodePipeline::Pipeline RestartExecutionOnUpdate IN [True,False] << Enforcing Allowed Values only
+AWS::CodePipeline::Pipeline RoleArn  == /.*/ <<  RoleArn is a required property for AWS::CodePipeline::Pipeline
+AWS::CodePipeline::Pipeline RoleArn  == /arn.*{0,1024}/ <<  RoleArn is a required property for AWS::CodePipeline::Pipeline
+AWS::CodePipeline::Pipeline RoleArn  == /arn:aws(-[\w]+)*:iam::[0-9]{12}:role/.*/ <<  RoleArn is a required pattern for AWS::CodePipeline::Pipeline
+AWS::CodePipeline::Pipeline Stages  == /.*/ <<  Stages is a required property for AWS::CodePipeline::Pipeline
+ArtifactStore.Type == S3 << Enforce Expected Value for codepipeline.pipeline.artifactstore.Type
+ArtifactStore.Type IN [S3] << Enforce Allowed Values

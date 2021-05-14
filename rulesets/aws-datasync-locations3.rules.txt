@@ -1,0 +1,14 @@
+#AWS::DataSync::LocationS3 S3StorageClass  == DEEP_ARCHIVE |OR| AWS::DataSync::LocationS3 S3StorageClass  == GLACIER |OR| AWS::DataSync::LocationS3 S3StorageClass  == INTELLIGENT_TIERING |OR| AWS::DataSync::LocationS3 S3StorageClass  == ONEZONE_IA |OR| AWS::DataSync::LocationS3 S3StorageClass  == OUTPOSTS |OR| AWS::DataSync::LocationS3 S3StorageClass  == STANDARD |OR| AWS::DataSync::LocationS3 S3StorageClass  == STANDARD_IA << Enforce allowed values [DEEP_ARCHIVE | GLACIER | INTELLIGENT_TIERING | ONEZONE_IA | OUTPOSTS | STANDARD | STANDARD_IA]
+AWS::DataSync::LocationS3 S3BucketArn  == /.*/ <<  S3BucketArn is a required property for AWS::DataSync::LocationS3
+AWS::DataSync::LocationS3 S3BucketArn  == /^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):(s3|s3-outposts):[a-z\-0-9]*:[0-9]*:.*$/ <<  S3BucketArn is a required pattern for AWS::DataSync::LocationS3
+AWS::DataSync::LocationS3 S3BucketArn  == /arn.*{0,156}/ <<  S3BucketArn is a required property for AWS::DataSync::LocationS3
+AWS::DataSync::LocationS3 S3Config  == /.*/ <<  S3Config is a required property for AWS::DataSync::LocationS3
+AWS::DataSync::LocationS3 S3StorageClass  == /DEEP_ARCHIVE/ <<  DEEP_ARCHIVE is an expected value for AWS::DataSync::LocationS3 S3StorageClass
+AWS::DataSync::LocationS3 S3StorageClass  == /GLACIER/ <<  GLACIER is an expected value for AWS::DataSync::LocationS3 S3StorageClass
+AWS::DataSync::LocationS3 S3StorageClass  == /INTELLIGENT_TIERING/ <<  INTELLIGENT_TIERING is an expected value for AWS::DataSync::LocationS3 S3StorageClass
+AWS::DataSync::LocationS3 S3StorageClass  == /ONEZONE_IA/ <<  ONEZONE_IA is an expected value for AWS::DataSync::LocationS3 S3StorageClass
+AWS::DataSync::LocationS3 S3StorageClass  == /OUTPOSTS/ <<  OUTPOSTS is an expected value for AWS::DataSync::LocationS3 S3StorageClass
+AWS::DataSync::LocationS3 S3StorageClass  == /STANDARD/ <<  STANDARD is an expected value for AWS::DataSync::LocationS3 S3StorageClass
+AWS::DataSync::LocationS3 S3StorageClass  == /STANDARD_IA/ <<  STANDARD_IA is an expected value for AWS::DataSync::LocationS3 S3StorageClass
+AWS::DataSync::LocationS3 S3StorageClass IN [DEEP_ARCHIVE,GLACIER,INTELLIGENT_TIERING,ONEZONE_IA,OUTPOSTS,STANDARD,STANDARD_IA] << Enforcing Allowed Values only
+AWS::DataSync::LocationS3 Subdirectory  == /^[a-zA-Z0-9_\-\+\./\(\)\p{Zs}]*$/ <<  Subdirectory is a required pattern for AWS::DataSync::LocationS3

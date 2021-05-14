@@ -1,0 +1,19 @@
+#AWS::Config::RemediationConfiguration Automatic  == True |OR| AWS::Config::RemediationConfiguration Automatic  == False << Enforce allowed values [True | False]
+#AWS::Config::RemediationConfiguration TargetType  == SSM_DOCUMENT << Enforce allowed values [SSM_DOCUMENT]
+AWS::Config::RemediationConfiguration Automatic  == /False/ <<  False is an expected value for AWS::Config::RemediationConfiguration Automatic
+AWS::Config::RemediationConfiguration Automatic  == /True/ <<  True is an expected value for AWS::Config::RemediationConfiguration Automatic
+AWS::Config::RemediationConfiguration Automatic  == False <<  False is expected  safe default value
+AWS::Config::RemediationConfiguration Automatic  == True <<  True is expected safe default value
+AWS::Config::RemediationConfiguration Automatic IN [True,False] << Enforcing Allowed Values only
+AWS::Config::RemediationConfiguration ConfigRuleName  == /.*/ <<  ConfigRuleName is a required property for AWS::Config::RemediationConfiguration
+AWS::Config::RemediationConfiguration ConfigRuleName  == /.*\S.*/ <<  ConfigRuleName is a required pattern for AWS::Config::RemediationConfiguration
+AWS::Config::RemediationConfiguration ConfigRuleName  == /\S{1,128}/ <<  ConfigRuleName is a required property for AWS::Config::RemediationConfiguration
+AWS::Config::RemediationConfiguration MaximumAutomaticAttempts  <= 25 <<  Integer is expected for AWS::Config::RemediationConfiguration of MaximumAutomaticAttempts 
+AWS::Config::RemediationConfiguration MaximumAutomaticAttempts  == /[0-9].+/ <<  Integer is expected for AWS::Config::RemediationConfiguration of MaximumAutomaticAttempts 
+AWS::Config::RemediationConfiguration MaximumAutomaticAttempts  >= 1 <<  Integer is expected for AWS::Config::RemediationConfiguration of MaximumAutomaticAttempts 
+AWS::Config::RemediationConfiguration RetryAttemptSeconds  == /[0-9].+/ <<  Integer is expected for AWS::Config::RemediationConfiguration of RetryAttemptSeconds 
+AWS::Config::RemediationConfiguration TargetId  == /.*/ <<  TargetId is a required property for AWS::Config::RemediationConfiguration
+AWS::Config::RemediationConfiguration TargetId  == /\S{1,256}/ <<  AWS::Config::RemediationConfiguration is an expected length of String property for TargetId
+AWS::Config::RemediationConfiguration TargetType  == /.*/ <<  TargetType is a required property for AWS::Config::RemediationConfiguration
+AWS::Config::RemediationConfiguration TargetType  == /SSM_DOCUMENT/ <<  SSM_DOCUMENT is an expected value for AWS::Config::RemediationConfiguration TargetType
+AWS::Config::RemediationConfiguration TargetType IN [SSM_DOCUMENT] << Enforcing Allowed Values only

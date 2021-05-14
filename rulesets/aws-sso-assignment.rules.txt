@@ -1,0 +1,19 @@
+#AWS::SSO::Assignment PrincipalType  == GROUP |OR| AWS::SSO::Assignment PrincipalType  == USER << Enforce allowed values [GROUP | USER]
+#AWS::SSO::Assignment TargetType  == AWS_ACCOUNT << Enforce allowed values [AWS_ACCOUNT]
+AWS::SSO::Assignment InstanceArn  == /.*/ <<  InstanceArn is a required property for AWS::SSO::Assignment
+AWS::SSO::Assignment InstanceArn  == /arn.*{10,1224}/ <<  InstanceArn is a required property for AWS::SSO::Assignment
+AWS::SSO::Assignment InstanceArn  == /arn:aws:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}/ <<  InstanceArn is a required pattern for AWS::SSO::Assignment
+AWS::SSO::Assignment PermissionSetArn  == /.*/ <<  PermissionSetArn is a required property for AWS::SSO::Assignment
+AWS::SSO::Assignment PermissionSetArn  == /arn.*{10,1224}/ <<  PermissionSetArn is a required property for AWS::SSO::Assignment
+AWS::SSO::Assignment PermissionSetArn  == /arn:aws:sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}/ <<  PermissionSetArn is a required pattern for AWS::SSO::Assignment
+AWS::SSO::Assignment PrincipalId  == /.*/ <<  PrincipalId is a required property for AWS::SSO::Assignment
+AWS::SSO::Assignment PrincipalId  == /^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$/ <<  PrincipalId is a required pattern for AWS::SSO::Assignment
+AWS::SSO::Assignment PrincipalType  == /.*/ <<  PrincipalType is a required property for AWS::SSO::Assignment
+AWS::SSO::Assignment PrincipalType  == /GROUP/ <<  GROUP is an expected value for AWS::SSO::Assignment PrincipalType
+AWS::SSO::Assignment PrincipalType  == /USER/ <<  USER is an expected value for AWS::SSO::Assignment PrincipalType
+AWS::SSO::Assignment PrincipalType IN [GROUP,USER] << Enforcing Allowed Values only
+AWS::SSO::Assignment TargetId  == /.*/ <<  TargetId is a required property for AWS::SSO::Assignment
+AWS::SSO::Assignment TargetId  == /\d{12}/ <<  TargetId is a required pattern for AWS::SSO::Assignment
+AWS::SSO::Assignment TargetType  == /.*/ <<  TargetType is a required property for AWS::SSO::Assignment
+AWS::SSO::Assignment TargetType  == /AWS_ACCOUNT/ <<  AWS_ACCOUNT is an expected value for AWS::SSO::Assignment TargetType
+AWS::SSO::Assignment TargetType IN [AWS_ACCOUNT] << Enforcing Allowed Values only

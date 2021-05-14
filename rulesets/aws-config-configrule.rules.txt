@@ -1,0 +1,21 @@
+#AWS::Config::ConfigRule MaximumExecutionFrequency  == One_Hour |OR| AWS::Config::ConfigRule MaximumExecutionFrequency  == Six_Hours |OR| AWS::Config::ConfigRule MaximumExecutionFrequency  == Three_Hours |OR| AWS::Config::ConfigRule MaximumExecutionFrequency  == Twelve_Hours |OR| AWS::Config::ConfigRule MaximumExecutionFrequency  == TwentyFour_Hours << Enforce allowed values [One_Hour | Six_Hours | Three_Hours | Twelve_Hours | TwentyFour_Hours]
+AWS::Config::ConfigRule ConfigRuleName  == /.*\S.*/ <<  ConfigRuleName is a required pattern for AWS::Config::ConfigRule
+AWS::Config::ConfigRule ConfigRuleName  == /\S{1,128}/ <<  ConfigRuleName is a required property for AWS::Config::ConfigRule
+AWS::Config::ConfigRule Description  == /\S{0,256}/ <<  Description is a required property for AWS::Config::ConfigRule
+AWS::Config::ConfigRule MaximumExecutionFrequency  == /One_Hour/ <<  One_Hour is an expected value for AWS::Config::ConfigRule MaximumExecutionFrequency
+AWS::Config::ConfigRule MaximumExecutionFrequency  == /Six_Hours/ <<  Six_Hours is an expected value for AWS::Config::ConfigRule MaximumExecutionFrequency
+AWS::Config::ConfigRule MaximumExecutionFrequency  == /Three_Hours/ <<  Three_Hours is an expected value for AWS::Config::ConfigRule MaximumExecutionFrequency
+AWS::Config::ConfigRule MaximumExecutionFrequency  == /Twelve_Hours/ <<  Twelve_Hours is an expected value for AWS::Config::ConfigRule MaximumExecutionFrequency
+AWS::Config::ConfigRule MaximumExecutionFrequency  == /TwentyFour_Hours/ <<  TwentyFour_Hours is an expected value for AWS::Config::ConfigRule MaximumExecutionFrequency
+AWS::Config::ConfigRule MaximumExecutionFrequency IN [One_Hour,Six_Hours,Three_Hours,Twelve_Hours,TwentyFour_Hours] << Enforcing Allowed Values only
+AWS::Config::ConfigRule Scope.ComplianceResourceId  == /\S/ <<  AWS::Config::ConfigRule is an expected but optional String property for Scope
+AWS::Config::ConfigRule Scope.TagKey  == /\S/ <<  AWS::Config::ConfigRule is an expected but optional String property for Scope
+AWS::Config::ConfigRule Scope.TagValue  == /\S/ <<  AWS::Config::ConfigRule is an expected but optional String property for Scope
+AWS::Config::ConfigRule Source  == /.*/ <<  Source is a required property for AWS::Config::ConfigRule
+AWS::Config::ConfigRule Source.Owner  == /\S/ <<  AWS::Config::ConfigRule is an expected but optional String property for Source
+AWS::Config::ConfigRule Source.SourceIdentifier  == /\S/ <<  AWS::Config::ConfigRule is an expected but optional String property for Source
+AWS::Config::ConfigRule Source.config.configrule.source.Owner  == /.*/ <<  config.configrule.source.Owner is a required property for AWS::Config::ConfigRule Source
+AWS::Config::ConfigRule Source.config.configrule.source.SourceIdentifier  == /.*/ <<  config.configrule.source.SourceIdentifier is a required property for AWS::Config::ConfigRule Source
+Source.Owner == AWS << Enforce Expected Value for config.configrule.source.Owner
+Source.Owner == CUSTOM_LAMBDA << Enforce Expected Value for config.configrule.source.Owner
+Source.Owner IN [AWS,CUSTOM_LAMBDA] << Enforce Allowed Values

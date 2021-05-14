@@ -1,0 +1,29 @@
+#AWS::ApplicationInsights::Application AutoConfigurationEnabled  == True |OR| AWS::ApplicationInsights::Application AutoConfigurationEnabled  == False << Enforce allowed values [True | False]
+#AWS::ApplicationInsights::Application CWEMonitorEnabled  == True |OR| AWS::ApplicationInsights::Application CWEMonitorEnabled  == False << Enforce allowed values [True | False]
+#AWS::ApplicationInsights::Application OpsCenterEnabled  == True |OR| AWS::ApplicationInsights::Application OpsCenterEnabled  == False << Enforce allowed values [True | False]
+AWS::ApplicationInsights::Application AutoConfigurationEnabled  == /False/ <<  False is an expected value for AWS::ApplicationInsights::Application AutoConfigurationEnabled
+AWS::ApplicationInsights::Application AutoConfigurationEnabled  == /True/ <<  True is an expected value for AWS::ApplicationInsights::Application AutoConfigurationEnabled
+AWS::ApplicationInsights::Application AutoConfigurationEnabled  == False <<  False is expected  safe default value
+AWS::ApplicationInsights::Application AutoConfigurationEnabled  == True <<  True is expected safe default value
+AWS::ApplicationInsights::Application AutoConfigurationEnabled IN [True,False] << Enforcing Allowed Values only
+AWS::ApplicationInsights::Application CWEMonitorEnabled  == /False/ <<  False is an expected value for AWS::ApplicationInsights::Application CWEMonitorEnabled
+AWS::ApplicationInsights::Application CWEMonitorEnabled  == /True/ <<  True is an expected value for AWS::ApplicationInsights::Application CWEMonitorEnabled
+AWS::ApplicationInsights::Application CWEMonitorEnabled  == False <<  False is expected  safe default value
+AWS::ApplicationInsights::Application CWEMonitorEnabled  == True <<  True is expected safe default value
+AWS::ApplicationInsights::Application CWEMonitorEnabled IN [True,False] << Enforcing Allowed Values only
+AWS::ApplicationInsights::Application ComponentMonitoringSettings.ComponentARN  == /\S/ <<  AWS::ApplicationInsights::Application is an expected but optional String property for ComponentMonitoringSettings
+AWS::ApplicationInsights::Application ComponentMonitoringSettings.ComponentConfigurationMode  == /\S/ <<  AWS::ApplicationInsights::Application is an expected but optional String property for ComponentMonitoringSettings
+AWS::ApplicationInsights::Application ComponentMonitoringSettings.ComponentName  == /\S/ <<  AWS::ApplicationInsights::Application is an expected but optional String property for ComponentMonitoringSettings
+AWS::ApplicationInsights::Application ComponentMonitoringSettings.Tier  == /\S/ <<  AWS::ApplicationInsights::Application is an expected but optional String property for ComponentMonitoringSettings
+AWS::ApplicationInsights::Application CustomComponents.ComponentName  == /\S/ <<  AWS::ApplicationInsights::Application is an expected but optional String property for CustomComponents
+AWS::ApplicationInsights::Application LogPatternSets.PatternSetName  == /\S/ <<  AWS::ApplicationInsights::Application is an expected but optional String property for LogPatternSets
+AWS::ApplicationInsights::Application OpsCenterEnabled  == /False/ <<  False is an expected value for AWS::ApplicationInsights::Application OpsCenterEnabled
+AWS::ApplicationInsights::Application OpsCenterEnabled  == /True/ <<  True is an expected value for AWS::ApplicationInsights::Application OpsCenterEnabled
+AWS::ApplicationInsights::Application OpsCenterEnabled  == False <<  False is expected  safe default value
+AWS::ApplicationInsights::Application OpsCenterEnabled  == True <<  True is expected safe default value
+AWS::ApplicationInsights::Application OpsCenterEnabled IN [True,False] << Enforcing Allowed Values only
+AWS::ApplicationInsights::Application OpsItemSNSTopicArn  == /^arn:aws(-\w+)?:[\w\d-]+:([\w\d-]*)?:[\w\d_-]*([:/].+)*$/ <<  OpsItemSNSTopicArn is a required pattern for AWS::ApplicationInsights::Application
+AWS::ApplicationInsights::Application OpsItemSNSTopicArn  == /arn.*{20,300}/ <<  OpsItemSNSTopicArn is a required property for AWS::ApplicationInsights::Application
+AWS::ApplicationInsights::Application ResourceGroupName  == /.*/ <<  ResourceGroupName is a required property for AWS::ApplicationInsights::Application
+AWS::ApplicationInsights::Application ResourceGroupName  == /[a-zA-Z0-9\.\-_]*/ <<  ResourceGroupName is a required pattern for AWS::ApplicationInsights::Application
+AWS::ApplicationInsights::Application ResourceGroupName  == /\S{1,256}/ <<  ResourceGroupName is a required property for AWS::ApplicationInsights::Application

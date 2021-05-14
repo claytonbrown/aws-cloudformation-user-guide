@@ -1,0 +1,12 @@
+#AWS::GlobalAccelerator::Listener ClientAffinity  == NONE |OR| AWS::GlobalAccelerator::Listener ClientAffinity  == SOURCE_IP << Enforce allowed values [NONE | SOURCE_IP]
+#AWS::GlobalAccelerator::Listener Protocol  == TCP |OR| AWS::GlobalAccelerator::Listener Protocol  == UDP << Enforce allowed values [TCP | UDP]
+AWS::GlobalAccelerator::Listener AcceleratorArn  == /.*/ <<  AcceleratorArn is a required property for AWS::GlobalAccelerator::Listener
+AWS::GlobalAccelerator::Listener AcceleratorArn  == /arn.*{0,255}/ <<  AcceleratorArn is a required property for AWS::GlobalAccelerator::Listener
+AWS::GlobalAccelerator::Listener ClientAffinity  == /NONE/ <<  NONE is an expected value for AWS::GlobalAccelerator::Listener ClientAffinity
+AWS::GlobalAccelerator::Listener ClientAffinity  == /SOURCE_IP/ <<  SOURCE_IP is an expected value for AWS::GlobalAccelerator::Listener ClientAffinity
+AWS::GlobalAccelerator::Listener ClientAffinity IN [NONE,SOURCE_IP] << Enforcing Allowed Values only
+AWS::GlobalAccelerator::Listener PortRanges  == /.*/ <<  PortRanges is a required property for AWS::GlobalAccelerator::Listener
+AWS::GlobalAccelerator::Listener Protocol  == /.*/ <<  Protocol is a required property for AWS::GlobalAccelerator::Listener
+AWS::GlobalAccelerator::Listener Protocol  == /TCP/ <<  TCP is an expected value for AWS::GlobalAccelerator::Listener Protocol
+AWS::GlobalAccelerator::Listener Protocol  == /UDP/ <<  UDP is an expected value for AWS::GlobalAccelerator::Listener Protocol
+AWS::GlobalAccelerator::Listener Protocol IN [TCP,UDP] << Enforcing Allowed Values only

@@ -1,0 +1,34 @@
+#AWS::OpsWorks::Instance Architecture  == i386 |OR| AWS::OpsWorks::Instance Architecture  == x86_64 << Enforce allowed values [i386 | x86_64]
+#AWS::OpsWorks::Instance AutoScalingType  == load |OR| AWS::OpsWorks::Instance AutoScalingType  == timer << Enforce allowed values [load | timer]
+#AWS::OpsWorks::Instance EbsOptimized  == True |OR| AWS::OpsWorks::Instance EbsOptimized  == False << Enforce allowed values [True | False]
+#AWS::OpsWorks::Instance InstallUpdatesOnBoot  == True |OR| AWS::OpsWorks::Instance InstallUpdatesOnBoot  == False << Enforce allowed values [True | False]
+#AWS::OpsWorks::Instance RootDeviceType  == ebs |OR| AWS::OpsWorks::Instance RootDeviceType  == instance-store << Enforce allowed values [ebs | instance-store]
+#AWS::OpsWorks::Instance TimeBasedAutoScaling  == load |OR| AWS::OpsWorks::Instance TimeBasedAutoScaling  == timer << Enforce allowed values [load | timer]
+AWS::OpsWorks::Instance Architecture  == /i386/ <<  i386 is an expected value for AWS::OpsWorks::Instance Architecture
+AWS::OpsWorks::Instance Architecture  == /x86_64/ <<  x86_64 is an expected value for AWS::OpsWorks::Instance Architecture
+AWS::OpsWorks::Instance Architecture IN [i386,x86_64] << Enforcing Allowed Values only
+AWS::OpsWorks::Instance AutoScalingType  == /load/ <<  load is an expected value for AWS::OpsWorks::Instance AutoScalingType
+AWS::OpsWorks::Instance AutoScalingType  == /timer/ <<  timer is an expected value for AWS::OpsWorks::Instance AutoScalingType
+AWS::OpsWorks::Instance AutoScalingType IN [load,timer] << Enforcing Allowed Values only
+AWS::OpsWorks::Instance BlockDeviceMappings.DeviceName  == /\S/ <<  AWS::OpsWorks::Instance is an expected but optional String property for BlockDeviceMappings
+AWS::OpsWorks::Instance BlockDeviceMappings.NoDevice  == /\S/ <<  AWS::OpsWorks::Instance is an expected but optional String property for BlockDeviceMappings
+AWS::OpsWorks::Instance BlockDeviceMappings.VirtualName  == /\S/ <<  AWS::OpsWorks::Instance is an expected but optional String property for BlockDeviceMappings
+AWS::OpsWorks::Instance EbsOptimized  == /False/ <<  False is an expected value for AWS::OpsWorks::Instance EbsOptimized
+AWS::OpsWorks::Instance EbsOptimized  == /True/ <<  True is an expected value for AWS::OpsWorks::Instance EbsOptimized
+AWS::OpsWorks::Instance EbsOptimized  == False <<  False is expected  safe default value
+AWS::OpsWorks::Instance EbsOptimized  == True <<  True is expected safe default value
+AWS::OpsWorks::Instance EbsOptimized IN [True,False] << Enforcing Allowed Values only
+AWS::OpsWorks::Instance InstallUpdatesOnBoot  == /False/ <<  False is an expected value for AWS::OpsWorks::Instance InstallUpdatesOnBoot
+AWS::OpsWorks::Instance InstallUpdatesOnBoot  == /True/ <<  True is an expected value for AWS::OpsWorks::Instance InstallUpdatesOnBoot
+AWS::OpsWorks::Instance InstallUpdatesOnBoot  == False <<  False is expected  safe default value
+AWS::OpsWorks::Instance InstallUpdatesOnBoot  == True <<  True is expected safe default value
+AWS::OpsWorks::Instance InstallUpdatesOnBoot IN [True,False] << Enforcing Allowed Values only
+AWS::OpsWorks::Instance InstanceType  == /.*/ <<  InstanceType is a required property for AWS::OpsWorks::Instance
+AWS::OpsWorks::Instance LayerIds  == /.*/ <<  LayerIds is a required property for AWS::OpsWorks::Instance
+AWS::OpsWorks::Instance RootDeviceType  == /ebs/ <<  ebs is an expected value for AWS::OpsWorks::Instance RootDeviceType
+AWS::OpsWorks::Instance RootDeviceType  == /instance-store/ <<  instance-store is an expected value for AWS::OpsWorks::Instance RootDeviceType
+AWS::OpsWorks::Instance RootDeviceType IN [ebs,instance-store] << Enforcing Allowed Values only
+AWS::OpsWorks::Instance StackId  == /.*/ <<  StackId is a required property for AWS::OpsWorks::Instance
+AWS::OpsWorks::Instance TimeBasedAutoScaling  == /load/ <<  load is an expected value for AWS::OpsWorks::Instance TimeBasedAutoScaling
+AWS::OpsWorks::Instance TimeBasedAutoScaling  == /timer/ <<  timer is an expected value for AWS::OpsWorks::Instance TimeBasedAutoScaling
+AWS::OpsWorks::Instance TimeBasedAutoScaling IN [load,timer] << Enforcing Allowed Values only

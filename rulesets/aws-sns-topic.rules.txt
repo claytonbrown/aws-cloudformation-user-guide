@@ -1,0 +1,14 @@
+#AWS::SNS::Topic ContentBasedDeduplication  == True |OR| AWS::SNS::Topic ContentBasedDeduplication  == False << Enforce allowed values [True | False]
+#AWS::SNS::Topic FifoTopic  == True |OR| AWS::SNS::Topic FifoTopic  == False << Enforce allowed values [True | False]
+AWS::SNS::Topic ContentBasedDeduplication  == /False/ <<  False is an expected value for AWS::SNS::Topic ContentBasedDeduplication
+AWS::SNS::Topic ContentBasedDeduplication  == /True/ <<  True is an expected value for AWS::SNS::Topic ContentBasedDeduplication
+AWS::SNS::Topic ContentBasedDeduplication  == False <<  False is expected  safe default value
+AWS::SNS::Topic ContentBasedDeduplication  == True <<  True is expected safe default value
+AWS::SNS::Topic ContentBasedDeduplication IN [True,False] << Enforcing Allowed Values only
+AWS::SNS::Topic FifoTopic  == /False/ <<  False is an expected value for AWS::SNS::Topic FifoTopic
+AWS::SNS::Topic FifoTopic  == /True/ <<  True is an expected value for AWS::SNS::Topic FifoTopic
+AWS::SNS::Topic FifoTopic  == False <<  False is expected  safe default value
+AWS::SNS::Topic FifoTopic  == True <<  True is expected safe default value
+AWS::SNS::Topic FifoTopic IN [True,False] << Enforcing Allowed Values only
+AWS::SNS::Topic Subscription.Endpoint  == /\S/ <<  AWS::SNS::Topic is an expected but optional String property for Subscription
+AWS::SNS::Topic Subscription.Protocol  == /\S/ <<  AWS::SNS::Topic is an expected but optional String property for Subscription

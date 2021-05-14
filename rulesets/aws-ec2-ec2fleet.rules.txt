@@ -1,0 +1,17 @@
+#AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy  == no-termination |OR| AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy  == termination << Enforce allowed values [no-termination | termination]
+#AWS::EC2::EC2Fleet ReplaceUnhealthyInstances  == True |OR| AWS::EC2::EC2Fleet ReplaceUnhealthyInstances  == False << Enforce allowed values [True | False]
+#AWS::EC2::EC2Fleet TerminateInstancesWithExpiration  == True |OR| AWS::EC2::EC2Fleet TerminateInstancesWithExpiration  == False << Enforce allowed values [True | False]
+AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy  == /no-termination/ <<  no-termination is an expected value for AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy
+AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy  == /termination/ <<  termination is an expected value for AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy
+AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy IN [no-termination,termination] << Enforcing Allowed Values only
+AWS::EC2::EC2Fleet LaunchTemplateConfigs  == /.*/ <<  LaunchTemplateConfigs is a required property for AWS::EC2::EC2Fleet
+AWS::EC2::EC2Fleet ReplaceUnhealthyInstances  == /False/ <<  False is an expected value for AWS::EC2::EC2Fleet ReplaceUnhealthyInstances
+AWS::EC2::EC2Fleet ReplaceUnhealthyInstances  == /True/ <<  True is an expected value for AWS::EC2::EC2Fleet ReplaceUnhealthyInstances
+AWS::EC2::EC2Fleet ReplaceUnhealthyInstances IN [True,False] << Enforcing Allowed Values only
+AWS::EC2::EC2Fleet TagSpecifications.ResourceType  == /\S/ <<  AWS::EC2::EC2Fleet is an expected but optional String property for TagSpecifications
+AWS::EC2::EC2Fleet TargetCapacitySpecification  == /.*/ <<  TargetCapacitySpecification is a required property for AWS::EC2::EC2Fleet
+AWS::EC2::EC2Fleet TerminateInstancesWithExpiration  == /False/ <<  False is an expected value for AWS::EC2::EC2Fleet TerminateInstancesWithExpiration
+AWS::EC2::EC2Fleet TerminateInstancesWithExpiration  == /True/ <<  True is an expected value for AWS::EC2::EC2Fleet TerminateInstancesWithExpiration
+AWS::EC2::EC2Fleet TerminateInstancesWithExpiration  == False <<  False is expected  safe default value
+AWS::EC2::EC2Fleet TerminateInstancesWithExpiration  == True <<  True is expected safe default value
+AWS::EC2::EC2Fleet TerminateInstancesWithExpiration IN [True,False] << Enforcing Allowed Values only

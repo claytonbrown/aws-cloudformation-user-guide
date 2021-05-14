@@ -1,0 +1,22 @@
+AWS::WAF::Rule MetricName  == /.*/ <<  MetricName is a required property for AWS::WAF::Rule
+AWS::WAF::Rule MetricName  == /.*\S.*/ <<  MetricName is a required pattern for AWS::WAF::Rule
+AWS::WAF::Rule MetricName  == /\S{1,128}/ <<  MetricName is a required property for AWS::WAF::Rule
+AWS::WAF::Rule Name  == /.*/ <<  Name is a required property for AWS::WAF::Rule
+AWS::WAF::Rule Name  == /.*\S.*/ <<  Name is a required pattern for AWS::WAF::Rule
+AWS::WAF::Rule Name  == /\S{1,128}/ <<  Name is a required property for AWS::WAF::Rule
+AWS::WAF::Rule Predicates.DataId  == /\S/ <<  AWS::WAF::Rule is an expected but optional String property for Predicates
+AWS::WAF::Rule Predicates.Type  == /\S/ <<  AWS::WAF::Rule is an expected but optional String property for Predicates
+AWS::WAF::Rule Predicates.waf.rule.predicates.DataId  == /.*/ <<  waf.rule.predicates.DataId is a required property for AWS::WAF::Rule Predicates
+AWS::WAF::Rule Predicates.waf.rule.predicates.Negated  == /.*/ <<  waf.rule.predicates.Negated is a required property for AWS::WAF::Rule Predicates
+AWS::WAF::Rule Predicates.waf.rule.predicates.Type  == /.*/ <<  waf.rule.predicates.Type is a required property for AWS::WAF::Rule Predicates
+Predicates.Negated == False << Enforce Expected Value for waf.rule.predicates.Negated
+Predicates.Negated == True << Enforce Expected Value for waf.rule.predicates.Negated
+Predicates.Negated IN [True,False] << Enforce Allowed Values
+Predicates.Type == ByteMatch << Enforce Expected Value for waf.rule.predicates.Type
+Predicates.Type == GeoMatch << Enforce Expected Value for waf.rule.predicates.Type
+Predicates.Type == IPMatch << Enforce Expected Value for waf.rule.predicates.Type
+Predicates.Type == RegexMatch << Enforce Expected Value for waf.rule.predicates.Type
+Predicates.Type == SizeConstraint << Enforce Expected Value for waf.rule.predicates.Type
+Predicates.Type == SqlInjectionMatch << Enforce Expected Value for waf.rule.predicates.Type
+Predicates.Type == XssMatch << Enforce Expected Value for waf.rule.predicates.Type
+Predicates.Type IN [ByteMatch,GeoMatch,IPMatch,RegexMatch,SizeConstraint,SqlInjectionMatch,XssMatch] << Enforce Allowed Values
