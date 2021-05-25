@@ -1,50 +1,50 @@
-#AWS::SageMaker::App AppType  == JupyterServer |OR| AWS::SageMaker::App AppType  == KernelGateway |OR| AWS::SageMaker::App AppType  == TensorBoard << Enforce allowed values [JupyterServer | KernelGateway | TensorBoard]
-AWS::SageMaker::App AppName  == /.*/ <<  AppName is a required property for AWS::SageMaker::App
-AWS::SageMaker::App AppName  == /^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}/ <<  AppName is a required pattern for AWS::SageMaker::App
-AWS::SageMaker::App AppName  == /arn.*{0,63}/ <<  AppName is a required property for AWS::SageMaker::App
-AWS::SageMaker::App AppType  == /.*/ <<  AppType is a required property for AWS::SageMaker::App
-AWS::SageMaker::App AppType  == /JupyterServer/ <<  JupyterServer is an expected value for AWS::SageMaker::App AppType
-AWS::SageMaker::App AppType  == /KernelGateway/ <<  KernelGateway is an expected value for AWS::SageMaker::App AppType
-AWS::SageMaker::App AppType  == /TensorBoard/ <<  TensorBoard is an expected value for AWS::SageMaker::App AppType
-AWS::SageMaker::App AppType IN [JupyterServer,KernelGateway,TensorBoard] << Enforcing Allowed Values only
-AWS::SageMaker::App DomainId  == /.*/ <<  DomainId is a required property for AWS::SageMaker::App
-AWS::SageMaker::App DomainId  == /\S{0,63}/ <<  AWS::SageMaker::App is an expected length of String property for DomainId
-AWS::SageMaker::App ResourceSpec.InstanceType  == /\S/ <<  AWS::SageMaker::App is an expected but optional String property for ResourceSpec
-AWS::SageMaker::App ResourceSpec.SageMakerImageArn  == /\S/ <<  AWS::SageMaker::App is an expected but optional String property for ResourceSpec
-AWS::SageMaker::App ResourceSpec.SageMakerImageVersionArn  == /\S/ <<  AWS::SageMaker::App is an expected but optional String property for ResourceSpec
-AWS::SageMaker::App UserProfileName  == /.*/ <<  UserProfileName is a required property for AWS::SageMaker::App
-AWS::SageMaker::App UserProfileName  == /^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}/ <<  UserProfileName is a required pattern for AWS::SageMaker::App
-AWS::SageMaker::App UserProfileName  == /arn.*{0,63}/ <<  UserProfileName is a required property for AWS::SageMaker::App
-ResourceSpec.InstanceType == ml.c5.12xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.c5.18xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.c5.24xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.c5.2xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.c5.4xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.c5.9xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.c5.large << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.c5.xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.g4dn.12xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.g4dn.16xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.g4dn.2xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.g4dn.4xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.g4dn.8xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.g4dn.xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.m5.12xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.m5.16xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.m5.24xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.m5.2xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.m5.4xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.m5.8xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.m5.large << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.m5.xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.p3.16xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.p3.2xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.p3.8xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.t3.2xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.t3.large << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.t3.medium << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.t3.micro << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.t3.small << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == ml.t3.xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType == system << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
-ResourceSpec.InstanceType IN [ml.c5.12xlarge,ml.c5.18xlarge,ml.c5.24xlarge,ml.c5.2xlarge,ml.c5.4xlarge,ml.c5.9xlarge,ml.c5.large,ml.c5.xlarge,ml.g4dn.12xlarge,ml.g4dn.16xlarge,ml.g4dn.2xlarge,ml.g4dn.4xlarge,ml.g4dn.8xlarge,ml.g4dn.xlarge,ml.m5.12xlarge,ml.m5.16xlarge,ml.m5.24xlarge,ml.m5.2xlarge,ml.m5.4xlarge,ml.m5.8xlarge,ml.m5.large,ml.m5.xlarge,ml.p3.16xlarge,ml.p3.2xlarge,ml.p3.8xlarge,ml.t3.2xlarge,ml.t3.large,ml.t3.medium,ml.t3.micro,ml.t3.small,ml.t3.xlarge,system] << Enforce Allowed Values
+# #AWS::SageMaker::App AppType  == JupyterServer |OR| AWS::SageMaker::App AppType  == KernelGateway |OR| AWS::SageMaker::App AppType  == TensorBoard << Enforce allowed values [JupyterServer | KernelGateway | TensorBoard]
+# AWS::SageMaker::App AppName  == /.*/ <<  AppName is a required property for AWS::SageMaker::App
+# AWS::SageMaker::App AppName  == /^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}/ <<  AppName is a required pattern for AWS::SageMaker::App
+# AWS::SageMaker::App AppName  == /arn.*{0,63}/ <<  AppName is a required property for AWS::SageMaker::App
+# AWS::SageMaker::App AppType  == /.*/ <<  AppType is a required property for AWS::SageMaker::App
+# AWS::SageMaker::App AppType  == /JupyterServer/ <<  JupyterServer is an expected value for AWS::SageMaker::App AppType
+# AWS::SageMaker::App AppType  == /KernelGateway/ <<  KernelGateway is an expected value for AWS::SageMaker::App AppType
+# AWS::SageMaker::App AppType  == /TensorBoard/ <<  TensorBoard is an expected value for AWS::SageMaker::App AppType
+# AWS::SageMaker::App AppType IN [JupyterServer,KernelGateway,TensorBoard] << Enforcing Allowed Values only
+# AWS::SageMaker::App DomainId  == /.*/ <<  DomainId is a required property for AWS::SageMaker::App
+# AWS::SageMaker::App DomainId  == /\S{0,63}/ <<  AWS::SageMaker::App is an expected length of String property for DomainId
+# AWS::SageMaker::App ResourceSpec.InstanceType  == /\S/ <<  AWS::SageMaker::App is an expected but optional String property for ResourceSpec
+# AWS::SageMaker::App ResourceSpec.SageMakerImageArn  == /\S/ <<  AWS::SageMaker::App is an expected but optional String property for ResourceSpec
+# AWS::SageMaker::App ResourceSpec.SageMakerImageVersionArn  == /\S/ <<  AWS::SageMaker::App is an expected but optional String property for ResourceSpec
+# AWS::SageMaker::App UserProfileName  == /.*/ <<  UserProfileName is a required property for AWS::SageMaker::App
+# AWS::SageMaker::App UserProfileName  == /^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}/ <<  UserProfileName is a required pattern for AWS::SageMaker::App
+# AWS::SageMaker::App UserProfileName  == /arn.*{0,63}/ <<  UserProfileName is a required property for AWS::SageMaker::App
+# ResourceSpec.InstanceType == ml.c5.12xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.c5.18xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.c5.24xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.c5.2xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.c5.4xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.c5.9xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.c5.large << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.c5.xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.g4dn.12xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.g4dn.16xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.g4dn.2xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.g4dn.4xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.g4dn.8xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.g4dn.xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.m5.12xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.m5.16xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.m5.24xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.m5.2xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.m5.4xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.m5.8xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.m5.large << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.m5.xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.p3.16xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.p3.2xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.p3.8xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.t3.2xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.t3.large << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.t3.medium << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.t3.micro << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.t3.small << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == ml.t3.xlarge << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType == system << Enforce Expected Value for sagemaker.app.resourcespec.InstanceType
+# ResourceSpec.InstanceType IN [ml.c5.12xlarge,ml.c5.18xlarge,ml.c5.24xlarge,ml.c5.2xlarge,ml.c5.4xlarge,ml.c5.9xlarge,ml.c5.large,ml.c5.xlarge,ml.g4dn.12xlarge,ml.g4dn.16xlarge,ml.g4dn.2xlarge,ml.g4dn.4xlarge,ml.g4dn.8xlarge,ml.g4dn.xlarge,ml.m5.12xlarge,ml.m5.16xlarge,ml.m5.24xlarge,ml.m5.2xlarge,ml.m5.4xlarge,ml.m5.8xlarge,ml.m5.large,ml.m5.xlarge,ml.p3.16xlarge,ml.p3.2xlarge,ml.p3.8xlarge,ml.t3.2xlarge,ml.t3.large,ml.t3.medium,ml.t3.micro,ml.t3.small,ml.t3.xlarge,system] << Enforce Allowed Values

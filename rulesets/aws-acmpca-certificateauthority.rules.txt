@@ -1,40 +1,40 @@
-#AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == EC_prime256v1 |OR| AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == EC_secp384r1 |OR| AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == RSA_2048 |OR| AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == RSA_4096 << Enforce allowed values [EC_prime256v1 | EC_secp384r1 | RSA_2048 | RSA_4096]
-#AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard  == FIPS_140_2_LEVEL_2_OR_HIGHER |OR| AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard  == FIPS_140_2_LEVEL_3_OR_HIGHER << Enforce allowed values [FIPS_140_2_LEVEL_2_OR_HIGHER | FIPS_140_2_LEVEL_3_OR_HIGHER]
-#AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == SHA256WITHECDSA |OR| AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == SHA256WITHRSA |OR| AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == SHA384WITHECDSA |OR| AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == SHA384WITHRSA |OR| AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == SHA512WITHECDSA |OR| AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == SHA512WITHRSA << Enforce allowed values [SHA256WITHECDSA | SHA256WITHRSA | SHA384WITHECDSA | SHA384WITHRSA | SHA512WITHECDSA | SHA512WITHRSA]
-#AWS::ACMPCA::CertificateAuthority Type  == ROOT |OR| AWS::ACMPCA::CertificateAuthority Type  == SUBORDINATE << Enforce allowed values [ROOT | SUBORDINATE]
-AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == /.*/ <<  KeyAlgorithm is a required property for AWS::ACMPCA::CertificateAuthority
-AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == /EC_prime256v1/ <<  EC_prime256v1 is an expected value for AWS::ACMPCA::CertificateAuthority KeyAlgorithm
-AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == /EC_secp384r1/ <<  EC_secp384r1 is an expected value for AWS::ACMPCA::CertificateAuthority KeyAlgorithm
-AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == /RSA_2048/ <<  RSA_2048 is an expected value for AWS::ACMPCA::CertificateAuthority KeyAlgorithm
-AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == /RSA_4096/ <<  RSA_4096 is an expected value for AWS::ACMPCA::CertificateAuthority KeyAlgorithm
-AWS::ACMPCA::CertificateAuthority KeyAlgorithm IN [EC_prime256v1,EC_secp384r1,RSA_2048,RSA_4096] << Enforcing Allowed Values only
-AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard  == /FIPS_140_2_LEVEL_2_OR_HIGHER/ <<  FIPS_140_2_LEVEL_2_OR_HIGHER is an expected value for AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard
-AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard  == /FIPS_140_2_LEVEL_3_OR_HIGHER/ <<  FIPS_140_2_LEVEL_3_OR_HIGHER is an expected value for AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard
-AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard IN [FIPS_140_2_LEVEL_2_OR_HIGHER,FIPS_140_2_LEVEL_3_OR_HIGHER] << Enforcing Allowed Values only
-AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /.*/ <<  SigningAlgorithm is a required property for AWS::ACMPCA::CertificateAuthority
-AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /SHA256WITHECDSA/ <<  SHA256WITHECDSA is an expected value for AWS::ACMPCA::CertificateAuthority SigningAlgorithm
-AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /SHA256WITHRSA/ <<  SHA256WITHRSA is an expected value for AWS::ACMPCA::CertificateAuthority SigningAlgorithm
-AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /SHA384WITHECDSA/ <<  SHA384WITHECDSA is an expected value for AWS::ACMPCA::CertificateAuthority SigningAlgorithm
-AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /SHA384WITHRSA/ <<  SHA384WITHRSA is an expected value for AWS::ACMPCA::CertificateAuthority SigningAlgorithm
-AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /SHA512WITHECDSA/ <<  SHA512WITHECDSA is an expected value for AWS::ACMPCA::CertificateAuthority SigningAlgorithm
-AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /SHA512WITHRSA/ <<  SHA512WITHRSA is an expected value for AWS::ACMPCA::CertificateAuthority SigningAlgorithm
-AWS::ACMPCA::CertificateAuthority SigningAlgorithm IN [SHA256WITHECDSA,SHA256WITHRSA,SHA384WITHECDSA,SHA384WITHRSA,SHA512WITHECDSA,SHA512WITHRSA] << Enforcing Allowed Values only
-AWS::ACMPCA::CertificateAuthority Subject  == /.*/ <<  Subject is a required property for AWS::ACMPCA::CertificateAuthority
-AWS::ACMPCA::CertificateAuthority Subject.CommonName  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.Country  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.DistinguishedNameQualifier  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.GenerationQualifier  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.GivenName  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.Initials  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.Locality  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.Organization  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.OrganizationalUnit  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.Pseudonym  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.SerialNumber  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.State  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.Surname  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Subject.Title  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
-AWS::ACMPCA::CertificateAuthority Type  == /.*/ <<  Type is a required property for AWS::ACMPCA::CertificateAuthority
-AWS::ACMPCA::CertificateAuthority Type  == /ROOT/ <<  ROOT is an expected value for AWS::ACMPCA::CertificateAuthority Type
-AWS::ACMPCA::CertificateAuthority Type  == /SUBORDINATE/ <<  SUBORDINATE is an expected value for AWS::ACMPCA::CertificateAuthority Type
-AWS::ACMPCA::CertificateAuthority Type IN [ROOT,SUBORDINATE] << Enforcing Allowed Values only
+# #AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == EC_prime256v1 |OR| AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == EC_secp384r1 |OR| AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == RSA_2048 |OR| AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == RSA_4096 << Enforce allowed values [EC_prime256v1 | EC_secp384r1 | RSA_2048 | RSA_4096]
+# #AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard  == FIPS_140_2_LEVEL_2_OR_HIGHER |OR| AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard  == FIPS_140_2_LEVEL_3_OR_HIGHER << Enforce allowed values [FIPS_140_2_LEVEL_2_OR_HIGHER | FIPS_140_2_LEVEL_3_OR_HIGHER]
+# #AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == SHA256WITHECDSA |OR| AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == SHA256WITHRSA |OR| AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == SHA384WITHECDSA |OR| AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == SHA384WITHRSA |OR| AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == SHA512WITHECDSA |OR| AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == SHA512WITHRSA << Enforce allowed values [SHA256WITHECDSA | SHA256WITHRSA | SHA384WITHECDSA | SHA384WITHRSA | SHA512WITHECDSA | SHA512WITHRSA]
+# #AWS::ACMPCA::CertificateAuthority Type  == ROOT |OR| AWS::ACMPCA::CertificateAuthority Type  == SUBORDINATE << Enforce allowed values [ROOT | SUBORDINATE]
+# AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == /.*/ <<  KeyAlgorithm is a required property for AWS::ACMPCA::CertificateAuthority
+# AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == /EC_prime256v1/ <<  EC_prime256v1 is an expected value for AWS::ACMPCA::CertificateAuthority KeyAlgorithm
+# AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == /EC_secp384r1/ <<  EC_secp384r1 is an expected value for AWS::ACMPCA::CertificateAuthority KeyAlgorithm
+# AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == /RSA_2048/ <<  RSA_2048 is an expected value for AWS::ACMPCA::CertificateAuthority KeyAlgorithm
+# AWS::ACMPCA::CertificateAuthority KeyAlgorithm  == /RSA_4096/ <<  RSA_4096 is an expected value for AWS::ACMPCA::CertificateAuthority KeyAlgorithm
+# AWS::ACMPCA::CertificateAuthority KeyAlgorithm IN [EC_prime256v1,EC_secp384r1,RSA_2048,RSA_4096] << Enforcing Allowed Values only
+# AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard  == /FIPS_140_2_LEVEL_2_OR_HIGHER/ <<  FIPS_140_2_LEVEL_2_OR_HIGHER is an expected value for AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard
+# AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard  == /FIPS_140_2_LEVEL_3_OR_HIGHER/ <<  FIPS_140_2_LEVEL_3_OR_HIGHER is an expected value for AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard
+# AWS::ACMPCA::CertificateAuthority KeyStorageSecurityStandard IN [FIPS_140_2_LEVEL_2_OR_HIGHER,FIPS_140_2_LEVEL_3_OR_HIGHER] << Enforcing Allowed Values only
+# AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /.*/ <<  SigningAlgorithm is a required property for AWS::ACMPCA::CertificateAuthority
+# AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /SHA256WITHECDSA/ <<  SHA256WITHECDSA is an expected value for AWS::ACMPCA::CertificateAuthority SigningAlgorithm
+# AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /SHA256WITHRSA/ <<  SHA256WITHRSA is an expected value for AWS::ACMPCA::CertificateAuthority SigningAlgorithm
+# AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /SHA384WITHECDSA/ <<  SHA384WITHECDSA is an expected value for AWS::ACMPCA::CertificateAuthority SigningAlgorithm
+# AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /SHA384WITHRSA/ <<  SHA384WITHRSA is an expected value for AWS::ACMPCA::CertificateAuthority SigningAlgorithm
+# AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /SHA512WITHECDSA/ <<  SHA512WITHECDSA is an expected value for AWS::ACMPCA::CertificateAuthority SigningAlgorithm
+# AWS::ACMPCA::CertificateAuthority SigningAlgorithm  == /SHA512WITHRSA/ <<  SHA512WITHRSA is an expected value for AWS::ACMPCA::CertificateAuthority SigningAlgorithm
+# AWS::ACMPCA::CertificateAuthority SigningAlgorithm IN [SHA256WITHECDSA,SHA256WITHRSA,SHA384WITHECDSA,SHA384WITHRSA,SHA512WITHECDSA,SHA512WITHRSA] << Enforcing Allowed Values only
+# AWS::ACMPCA::CertificateAuthority Subject  == /.*/ <<  Subject is a required property for AWS::ACMPCA::CertificateAuthority
+# AWS::ACMPCA::CertificateAuthority Subject.CommonName  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.Country  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.DistinguishedNameQualifier  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.GenerationQualifier  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.GivenName  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.Initials  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.Locality  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.Organization  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.OrganizationalUnit  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.Pseudonym  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.SerialNumber  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.State  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.Surname  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Subject.Title  == /\S/ <<  AWS::ACMPCA::CertificateAuthority is an expected but optional String property for Subject
+# AWS::ACMPCA::CertificateAuthority Type  == /.*/ <<  Type is a required property for AWS::ACMPCA::CertificateAuthority
+# AWS::ACMPCA::CertificateAuthority Type  == /ROOT/ <<  ROOT is an expected value for AWS::ACMPCA::CertificateAuthority Type
+# AWS::ACMPCA::CertificateAuthority Type  == /SUBORDINATE/ <<  SUBORDINATE is an expected value for AWS::ACMPCA::CertificateAuthority Type
+# AWS::ACMPCA::CertificateAuthority Type IN [ROOT,SUBORDINATE] << Enforcing Allowed Values only

@@ -1,23 +1,23 @@
-#AWS::GameLift::GameServerGroup BalancingStrategy  == ON_DEMAND_ONLY |OR| AWS::GameLift::GameServerGroup BalancingStrategy  == SPOT_ONLY |OR| AWS::GameLift::GameServerGroup BalancingStrategy  == SPOT_PREFERRED << Enforce allowed values [ON_DEMAND_ONLY | SPOT_ONLY | SPOT_PREFERRED]
-#AWS::GameLift::GameServerGroup GameServerProtectionPolicy  == FULL_PROTECTION |OR| AWS::GameLift::GameServerGroup GameServerProtectionPolicy  == NO_PROTECTION << Enforce allowed values [FULL_PROTECTION | NO_PROTECTION]
-AWS::GameLift::GameServerGroup AutoScalingPolicy.gamelift.gameservergroup.autoscalingpolicy.TargetTrackingConfiguration  == /.*/ <<  gamelift.gameservergroup.autoscalingpolicy.TargetTrackingConfiguration is a required property for AWS::GameLift::GameServerGroup AutoScalingPolicy
-AWS::GameLift::GameServerGroup BalancingStrategy  == /ON_DEMAND_ONLY/ <<  ON_DEMAND_ONLY is an expected value for AWS::GameLift::GameServerGroup BalancingStrategy
-AWS::GameLift::GameServerGroup BalancingStrategy  == /SPOT_ONLY/ <<  SPOT_ONLY is an expected value for AWS::GameLift::GameServerGroup BalancingStrategy
-AWS::GameLift::GameServerGroup BalancingStrategy  == /SPOT_PREFERRED/ <<  SPOT_PREFERRED is an expected value for AWS::GameLift::GameServerGroup BalancingStrategy
-AWS::GameLift::GameServerGroup BalancingStrategy IN [ON_DEMAND_ONLY,SPOT_ONLY,SPOT_PREFERRED] << Enforcing Allowed Values only
-AWS::GameLift::GameServerGroup GameServerGroupName  == /.*/ <<  GameServerGroupName is a required property for AWS::GameLift::GameServerGroup
-AWS::GameLift::GameServerGroup GameServerGroupName  == /[a-zA-Z0-9-\.]+/ <<  GameServerGroupName is a required pattern for AWS::GameLift::GameServerGroup
-AWS::GameLift::GameServerGroup GameServerGroupName  == /\S{1,128}/ <<  GameServerGroupName is a required property for AWS::GameLift::GameServerGroup
-AWS::GameLift::GameServerGroup GameServerProtectionPolicy  == /FULL_PROTECTION/ <<  FULL_PROTECTION is an expected value for AWS::GameLift::GameServerGroup GameServerProtectionPolicy
-AWS::GameLift::GameServerGroup GameServerProtectionPolicy  == /NO_PROTECTION/ <<  NO_PROTECTION is an expected value for AWS::GameLift::GameServerGroup GameServerProtectionPolicy
-AWS::GameLift::GameServerGroup GameServerProtectionPolicy IN [FULL_PROTECTION,NO_PROTECTION] << Enforcing Allowed Values only
-AWS::GameLift::GameServerGroup InstanceDefinitions  == /.*/ <<  InstanceDefinitions is a required property for AWS::GameLift::GameServerGroup
-AWS::GameLift::GameServerGroup InstanceDefinitions.InstanceType  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for InstanceDefinitions
-AWS::GameLift::GameServerGroup InstanceDefinitions.WeightedCapacity  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for InstanceDefinitions
-AWS::GameLift::GameServerGroup LaunchTemplate  == /.*/ <<  LaunchTemplate is a required property for AWS::GameLift::GameServerGroup
-AWS::GameLift::GameServerGroup LaunchTemplate.LaunchTemplateId  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for LaunchTemplate
-AWS::GameLift::GameServerGroup LaunchTemplate.LaunchTemplateName  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for LaunchTemplate
-AWS::GameLift::GameServerGroup LaunchTemplate.Version  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for LaunchTemplate
-AWS::GameLift::GameServerGroup RoleArn  == /.*/ <<  RoleArn is a required property for AWS::GameLift::GameServerGroup
-AWS::GameLift::GameServerGroup RoleArn  == /^arn:.*:role\/[\w+=,.@-]+/ <<  RoleArn is a required pattern for AWS::GameLift::GameServerGroup
-AWS::GameLift::GameServerGroup RoleArn  == /arn.*{1,256}/ <<  RoleArn is a required property for AWS::GameLift::GameServerGroup
+# #AWS::GameLift::GameServerGroup BalancingStrategy  == ON_DEMAND_ONLY |OR| AWS::GameLift::GameServerGroup BalancingStrategy  == SPOT_ONLY |OR| AWS::GameLift::GameServerGroup BalancingStrategy  == SPOT_PREFERRED << Enforce allowed values [ON_DEMAND_ONLY | SPOT_ONLY | SPOT_PREFERRED]
+# #AWS::GameLift::GameServerGroup GameServerProtectionPolicy  == FULL_PROTECTION |OR| AWS::GameLift::GameServerGroup GameServerProtectionPolicy  == NO_PROTECTION << Enforce allowed values [FULL_PROTECTION | NO_PROTECTION]
+# AWS::GameLift::GameServerGroup AutoScalingPolicy.gamelift.gameservergroup.autoscalingpolicy.TargetTrackingConfiguration  == /.*/ <<  gamelift.gameservergroup.autoscalingpolicy.TargetTrackingConfiguration is a required property for AWS::GameLift::GameServerGroup AutoScalingPolicy
+# AWS::GameLift::GameServerGroup BalancingStrategy  == /ON_DEMAND_ONLY/ <<  ON_DEMAND_ONLY is an expected value for AWS::GameLift::GameServerGroup BalancingStrategy
+# AWS::GameLift::GameServerGroup BalancingStrategy  == /SPOT_ONLY/ <<  SPOT_ONLY is an expected value for AWS::GameLift::GameServerGroup BalancingStrategy
+# AWS::GameLift::GameServerGroup BalancingStrategy  == /SPOT_PREFERRED/ <<  SPOT_PREFERRED is an expected value for AWS::GameLift::GameServerGroup BalancingStrategy
+# AWS::GameLift::GameServerGroup BalancingStrategy IN [ON_DEMAND_ONLY,SPOT_ONLY,SPOT_PREFERRED] << Enforcing Allowed Values only
+# AWS::GameLift::GameServerGroup GameServerGroupName  == /.*/ <<  GameServerGroupName is a required property for AWS::GameLift::GameServerGroup
+# AWS::GameLift::GameServerGroup GameServerGroupName  == /[a-zA-Z0-9-\.]+/ <<  GameServerGroupName is a required pattern for AWS::GameLift::GameServerGroup
+# AWS::GameLift::GameServerGroup GameServerGroupName  == /\S{1,128}/ <<  GameServerGroupName is a required property for AWS::GameLift::GameServerGroup
+# AWS::GameLift::GameServerGroup GameServerProtectionPolicy  == /FULL_PROTECTION/ <<  FULL_PROTECTION is an expected value for AWS::GameLift::GameServerGroup GameServerProtectionPolicy
+# AWS::GameLift::GameServerGroup GameServerProtectionPolicy  == /NO_PROTECTION/ <<  NO_PROTECTION is an expected value for AWS::GameLift::GameServerGroup GameServerProtectionPolicy
+# AWS::GameLift::GameServerGroup GameServerProtectionPolicy IN [FULL_PROTECTION,NO_PROTECTION] << Enforcing Allowed Values only
+# AWS::GameLift::GameServerGroup InstanceDefinitions  == /.*/ <<  InstanceDefinitions is a required property for AWS::GameLift::GameServerGroup
+# AWS::GameLift::GameServerGroup InstanceDefinitions.InstanceType  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for InstanceDefinitions
+# AWS::GameLift::GameServerGroup InstanceDefinitions.WeightedCapacity  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for InstanceDefinitions
+# AWS::GameLift::GameServerGroup LaunchTemplate  == /.*/ <<  LaunchTemplate is a required property for AWS::GameLift::GameServerGroup
+# AWS::GameLift::GameServerGroup LaunchTemplate.LaunchTemplateId  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for LaunchTemplate
+# AWS::GameLift::GameServerGroup LaunchTemplate.LaunchTemplateName  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for LaunchTemplate
+# AWS::GameLift::GameServerGroup LaunchTemplate.Version  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for LaunchTemplate
+# AWS::GameLift::GameServerGroup RoleArn  == /.*/ <<  RoleArn is a required property for AWS::GameLift::GameServerGroup
+# AWS::GameLift::GameServerGroup RoleArn  == /^arn:.*:role\/[\w+=,.@-]+/ <<  RoleArn is a required pattern for AWS::GameLift::GameServerGroup
+# AWS::GameLift::GameServerGroup RoleArn  == /arn.*{1,256}/ <<  RoleArn is a required property for AWS::GameLift::GameServerGroup

@@ -1,18 +1,18 @@
-#AWS::EC2::FlowLog LogDestinationType  == cloud-watch-logs |OR| AWS::EC2::FlowLog LogDestinationType  == s3 << Enforce allowed values [cloud-watch-logs | s3]
-#AWS::EC2::FlowLog ResourceType  == NetworkInterface |OR| AWS::EC2::FlowLog ResourceType  == Subnet |OR| AWS::EC2::FlowLog ResourceType  == VPC << Enforce allowed values [NetworkInterface | Subnet | VPC]
-#AWS::EC2::FlowLog TrafficType  == ACCEPT |OR| AWS::EC2::FlowLog TrafficType  == ALL |OR| AWS::EC2::FlowLog TrafficType  == REJECT << Enforce allowed values [ACCEPT | ALL | REJECT]
-AWS::EC2::FlowLog LogDestinationType  == /cloud-watch-logs/ <<  cloud-watch-logs is an expected value for AWS::EC2::FlowLog LogDestinationType
-AWS::EC2::FlowLog LogDestinationType  == /s3/ <<  s3 is an expected value for AWS::EC2::FlowLog LogDestinationType
-AWS::EC2::FlowLog LogDestinationType IN [cloud-watch-logs,s3] << Enforcing Allowed Values only
-AWS::EC2::FlowLog MaxAggregationInterval  == /[0-9].+/ <<  Integer is expected for AWS::EC2::FlowLog of MaxAggregationInterval 
-AWS::EC2::FlowLog ResourceId  == /.*/ <<  ResourceId is a required property for AWS::EC2::FlowLog
-AWS::EC2::FlowLog ResourceType  == /.*/ <<  ResourceType is a required property for AWS::EC2::FlowLog
-AWS::EC2::FlowLog ResourceType  == /NetworkInterface/ <<  NetworkInterface is an expected value for AWS::EC2::FlowLog ResourceType
-AWS::EC2::FlowLog ResourceType  == /Subnet/ <<  Subnet is an expected value for AWS::EC2::FlowLog ResourceType
-AWS::EC2::FlowLog ResourceType  == /VPC/ <<  VPC is an expected value for AWS::EC2::FlowLog ResourceType
-AWS::EC2::FlowLog ResourceType IN [NetworkInterface,Subnet,VPC] << Enforcing Allowed Values only
-AWS::EC2::FlowLog TrafficType  == /.*/ <<  TrafficType is a required property for AWS::EC2::FlowLog
-AWS::EC2::FlowLog TrafficType  == /ACCEPT/ <<  ACCEPT is an expected value for AWS::EC2::FlowLog TrafficType
-AWS::EC2::FlowLog TrafficType  == /ALL/ <<  ALL is an expected value for AWS::EC2::FlowLog TrafficType
-AWS::EC2::FlowLog TrafficType  == /REJECT/ <<  REJECT is an expected value for AWS::EC2::FlowLog TrafficType
-AWS::EC2::FlowLog TrafficType IN [ACCEPT,ALL,REJECT] << Enforcing Allowed Values only
+# #AWS::EC2::FlowLog LogDestinationType  == cloud-watch-logs |OR| AWS::EC2::FlowLog LogDestinationType  == s3 << Enforce allowed values [cloud-watch-logs | s3]
+# #AWS::EC2::FlowLog ResourceType  == NetworkInterface |OR| AWS::EC2::FlowLog ResourceType  == Subnet |OR| AWS::EC2::FlowLog ResourceType  == VPC << Enforce allowed values [NetworkInterface | Subnet | VPC]
+# #AWS::EC2::FlowLog TrafficType  == ACCEPT |OR| AWS::EC2::FlowLog TrafficType  == ALL |OR| AWS::EC2::FlowLog TrafficType  == REJECT << Enforce allowed values [ACCEPT | ALL | REJECT]
+# AWS::EC2::FlowLog LogDestinationType  == /cloud-watch-logs/ <<  cloud-watch-logs is an expected value for AWS::EC2::FlowLog LogDestinationType
+# AWS::EC2::FlowLog LogDestinationType  == /s3/ <<  s3 is an expected value for AWS::EC2::FlowLog LogDestinationType
+# AWS::EC2::FlowLog LogDestinationType IN [cloud-watch-logs,s3] << Enforcing Allowed Values only
+# AWS::EC2::FlowLog MaxAggregationInterval  == /[0-9].+/ <<  Integer is expected for AWS::EC2::FlowLog of MaxAggregationInterval 
+# AWS::EC2::FlowLog ResourceId  == /.*/ <<  ResourceId is a required property for AWS::EC2::FlowLog
+# AWS::EC2::FlowLog ResourceType  == /.*/ <<  ResourceType is a required property for AWS::EC2::FlowLog
+# AWS::EC2::FlowLog ResourceType  == /NetworkInterface/ <<  NetworkInterface is an expected value for AWS::EC2::FlowLog ResourceType
+# AWS::EC2::FlowLog ResourceType  == /Subnet/ <<  Subnet is an expected value for AWS::EC2::FlowLog ResourceType
+# AWS::EC2::FlowLog ResourceType  == /VPC/ <<  VPC is an expected value for AWS::EC2::FlowLog ResourceType
+# AWS::EC2::FlowLog ResourceType IN [NetworkInterface,Subnet,VPC] << Enforcing Allowed Values only
+# AWS::EC2::FlowLog TrafficType  == /.*/ <<  TrafficType is a required property for AWS::EC2::FlowLog
+# AWS::EC2::FlowLog TrafficType  == /ACCEPT/ <<  ACCEPT is an expected value for AWS::EC2::FlowLog TrafficType
+# AWS::EC2::FlowLog TrafficType  == /ALL/ <<  ALL is an expected value for AWS::EC2::FlowLog TrafficType
+# AWS::EC2::FlowLog TrafficType  == /REJECT/ <<  REJECT is an expected value for AWS::EC2::FlowLog TrafficType
+# AWS::EC2::FlowLog TrafficType IN [ACCEPT,ALL,REJECT] << Enforcing Allowed Values only

@@ -1,25 +1,25 @@
-#AWS::SSM::MaintenanceWindowTask TaskType  == AUTOMATION |OR| AWS::SSM::MaintenanceWindowTask TaskType  == LAMBDA |OR| AWS::SSM::MaintenanceWindowTask TaskType  == RUN_COMMAND |OR| AWS::SSM::MaintenanceWindowTask TaskType  == STEP_FUNCTIONS << Enforce allowed values [AUTOMATION | LAMBDA | RUN_COMMAND | STEP_FUNCTIONS]
-AWS::SSM::MaintenanceWindowTask Description  == /\S{1,128}/ <<  Description is a required property for AWS::SSM::MaintenanceWindowTask
-AWS::SSM::MaintenanceWindowTask LoggingInfo.Region  == /\S/ <<  AWS::SSM::MaintenanceWindowTask is an expected but optional String property for LoggingInfo
-AWS::SSM::MaintenanceWindowTask LoggingInfo.S3Bucket  == /\S/ <<  AWS::SSM::MaintenanceWindowTask is an expected but optional String property for LoggingInfo
-AWS::SSM::MaintenanceWindowTask LoggingInfo.S3Prefix  == /\S/ <<  AWS::SSM::MaintenanceWindowTask is an expected but optional String property for LoggingInfo
-AWS::SSM::MaintenanceWindowTask LoggingInfo.ssm.maintenancewindowtask.logginginfo.Region  == /.*/ <<  ssm.maintenancewindowtask.logginginfo.Region is a required property for AWS::SSM::MaintenanceWindowTask LoggingInfo
-AWS::SSM::MaintenanceWindowTask LoggingInfo.ssm.maintenancewindowtask.logginginfo.S3Bucket  == /.*/ <<  ssm.maintenancewindowtask.logginginfo.S3Bucket is a required property for AWS::SSM::MaintenanceWindowTask LoggingInfo
-AWS::SSM::MaintenanceWindowTask MaxConcurrency  == /^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$/ <<  MaxConcurrency is a required pattern for AWS::SSM::MaintenanceWindowTask
-AWS::SSM::MaintenanceWindowTask MaxErrors  == /^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$/ <<  MaxErrors is a required pattern for AWS::SSM::MaintenanceWindowTask
-AWS::SSM::MaintenanceWindowTask Name  == /\S{3,128}/ <<  Name is a required property for AWS::SSM::MaintenanceWindowTask
-AWS::SSM::MaintenanceWindowTask Name  == /^[a-zA-Z0-9_\-.]{3,128}$/ <<  Name is a required pattern for AWS::SSM::MaintenanceWindowTask
-AWS::SSM::MaintenanceWindowTask Priority  == /.*/ <<  Priority is a required property for AWS::SSM::MaintenanceWindowTask
-AWS::SSM::MaintenanceWindowTask Priority  == /[0-9].+/ <<  Integer is expected for AWS::SSM::MaintenanceWindowTask of Priority 
-AWS::SSM::MaintenanceWindowTask Priority  >= 0 <<  Integer is expected for AWS::SSM::MaintenanceWindowTask of Priority 
-AWS::SSM::MaintenanceWindowTask Targets.Key  == /\S/ <<  AWS::SSM::MaintenanceWindowTask is an expected but optional String property for Targets
-AWS::SSM::MaintenanceWindowTask TaskArn  == /.*/ <<  TaskArn is a required property for AWS::SSM::MaintenanceWindowTask
-AWS::SSM::MaintenanceWindowTask TaskArn  == /arn.*{1,1600}/ <<  TaskArn is a required property for AWS::SSM::MaintenanceWindowTask
-AWS::SSM::MaintenanceWindowTask TaskType  == /.*/ <<  TaskType is a required property for AWS::SSM::MaintenanceWindowTask
-AWS::SSM::MaintenanceWindowTask TaskType  == /AUTOMATION/ <<  AUTOMATION is an expected value for AWS::SSM::MaintenanceWindowTask TaskType
-AWS::SSM::MaintenanceWindowTask TaskType  == /LAMBDA/ <<  LAMBDA is an expected value for AWS::SSM::MaintenanceWindowTask TaskType
-AWS::SSM::MaintenanceWindowTask TaskType  == /RUN_COMMAND/ <<  RUN_COMMAND is an expected value for AWS::SSM::MaintenanceWindowTask TaskType
-AWS::SSM::MaintenanceWindowTask TaskType  == /STEP_FUNCTIONS/ <<  STEP_FUNCTIONS is an expected value for AWS::SSM::MaintenanceWindowTask TaskType
-AWS::SSM::MaintenanceWindowTask TaskType IN [AUTOMATION,LAMBDA,RUN_COMMAND,STEP_FUNCTIONS] << Enforcing Allowed Values only
-AWS::SSM::MaintenanceWindowTask WindowId  == /.*/ <<  WindowId is a required property for AWS::SSM::MaintenanceWindowTask
-AWS::SSM::MaintenanceWindowTask WindowId  == /^mw-[0-9a-f]{17}$/ <<  WindowId is a required pattern for AWS::SSM::MaintenanceWindowTask
+# #AWS::SSM::MaintenanceWindowTask TaskType  == AUTOMATION |OR| AWS::SSM::MaintenanceWindowTask TaskType  == LAMBDA |OR| AWS::SSM::MaintenanceWindowTask TaskType  == RUN_COMMAND |OR| AWS::SSM::MaintenanceWindowTask TaskType  == STEP_FUNCTIONS << Enforce allowed values [AUTOMATION | LAMBDA | RUN_COMMAND | STEP_FUNCTIONS]
+# AWS::SSM::MaintenanceWindowTask Description  == /\S{1,128}/ <<  Description is a required property for AWS::SSM::MaintenanceWindowTask
+# AWS::SSM::MaintenanceWindowTask LoggingInfo.Region  == /\S/ <<  AWS::SSM::MaintenanceWindowTask is an expected but optional String property for LoggingInfo
+# AWS::SSM::MaintenanceWindowTask LoggingInfo.S3Bucket  == /\S/ <<  AWS::SSM::MaintenanceWindowTask is an expected but optional String property for LoggingInfo
+# AWS::SSM::MaintenanceWindowTask LoggingInfo.S3Prefix  == /\S/ <<  AWS::SSM::MaintenanceWindowTask is an expected but optional String property for LoggingInfo
+# AWS::SSM::MaintenanceWindowTask LoggingInfo.ssm.maintenancewindowtask.logginginfo.Region  == /.*/ <<  ssm.maintenancewindowtask.logginginfo.Region is a required property for AWS::SSM::MaintenanceWindowTask LoggingInfo
+# AWS::SSM::MaintenanceWindowTask LoggingInfo.ssm.maintenancewindowtask.logginginfo.S3Bucket  == /.*/ <<  ssm.maintenancewindowtask.logginginfo.S3Bucket is a required property for AWS::SSM::MaintenanceWindowTask LoggingInfo
+# AWS::SSM::MaintenanceWindowTask MaxConcurrency  == /^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$/ <<  MaxConcurrency is a required pattern for AWS::SSM::MaintenanceWindowTask
+# AWS::SSM::MaintenanceWindowTask MaxErrors  == /^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$/ <<  MaxErrors is a required pattern for AWS::SSM::MaintenanceWindowTask
+# AWS::SSM::MaintenanceWindowTask Name  == /\S{3,128}/ <<  Name is a required property for AWS::SSM::MaintenanceWindowTask
+# AWS::SSM::MaintenanceWindowTask Name  == /^[a-zA-Z0-9_\-.]{3,128}$/ <<  Name is a required pattern for AWS::SSM::MaintenanceWindowTask
+# AWS::SSM::MaintenanceWindowTask Priority  == /.*/ <<  Priority is a required property for AWS::SSM::MaintenanceWindowTask
+# AWS::SSM::MaintenanceWindowTask Priority  == /[0-9].+/ <<  Integer is expected for AWS::SSM::MaintenanceWindowTask of Priority 
+# AWS::SSM::MaintenanceWindowTask Priority  >= 0 <<  Integer is expected for AWS::SSM::MaintenanceWindowTask of Priority 
+# AWS::SSM::MaintenanceWindowTask Targets.Key  == /\S/ <<  AWS::SSM::MaintenanceWindowTask is an expected but optional String property for Targets
+# AWS::SSM::MaintenanceWindowTask TaskArn  == /.*/ <<  TaskArn is a required property for AWS::SSM::MaintenanceWindowTask
+# AWS::SSM::MaintenanceWindowTask TaskArn  == /arn.*{1,1600}/ <<  TaskArn is a required property for AWS::SSM::MaintenanceWindowTask
+# AWS::SSM::MaintenanceWindowTask TaskType  == /.*/ <<  TaskType is a required property for AWS::SSM::MaintenanceWindowTask
+# AWS::SSM::MaintenanceWindowTask TaskType  == /AUTOMATION/ <<  AUTOMATION is an expected value for AWS::SSM::MaintenanceWindowTask TaskType
+# AWS::SSM::MaintenanceWindowTask TaskType  == /LAMBDA/ <<  LAMBDA is an expected value for AWS::SSM::MaintenanceWindowTask TaskType
+# AWS::SSM::MaintenanceWindowTask TaskType  == /RUN_COMMAND/ <<  RUN_COMMAND is an expected value for AWS::SSM::MaintenanceWindowTask TaskType
+# AWS::SSM::MaintenanceWindowTask TaskType  == /STEP_FUNCTIONS/ <<  STEP_FUNCTIONS is an expected value for AWS::SSM::MaintenanceWindowTask TaskType
+# AWS::SSM::MaintenanceWindowTask TaskType IN [AUTOMATION,LAMBDA,RUN_COMMAND,STEP_FUNCTIONS] << Enforcing Allowed Values only
+# AWS::SSM::MaintenanceWindowTask WindowId  == /.*/ <<  WindowId is a required property for AWS::SSM::MaintenanceWindowTask
+# AWS::SSM::MaintenanceWindowTask WindowId  == /^mw-[0-9a-f]{17}$/ <<  WindowId is a required pattern for AWS::SSM::MaintenanceWindowTask

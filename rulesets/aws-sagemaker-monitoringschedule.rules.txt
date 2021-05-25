@@ -1,19 +1,19 @@
-#AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == Failed |OR| AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == Pending |OR| AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == Scheduled |OR| AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == Stopped << Enforce allowed values [Failed | Pending | Scheduled | Stopped]
-AWS::SageMaker::MonitoringSchedule EndpointName  == /^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}/ <<  EndpointName is a required pattern for AWS::SageMaker::MonitoringSchedule
-AWS::SageMaker::MonitoringSchedule EndpointName  == /arn.*{0,63}/ <<  EndpointName is a required property for AWS::SageMaker::MonitoringSchedule
-AWS::SageMaker::MonitoringSchedule MonitoringScheduleConfig  == /.*/ <<  MonitoringScheduleConfig is a required property for AWS::SageMaker::MonitoringSchedule
-AWS::SageMaker::MonitoringSchedule MonitoringScheduleConfig.MonitoringJobDefinitionName  == /\S/ <<  AWS::SageMaker::MonitoringSchedule is an expected but optional String property for MonitoringScheduleConfig
-AWS::SageMaker::MonitoringSchedule MonitoringScheduleConfig.MonitoringType  == /\S/ <<  AWS::SageMaker::MonitoringSchedule is an expected but optional String property for MonitoringScheduleConfig
-AWS::SageMaker::MonitoringSchedule MonitoringScheduleName  == /.*/ <<  MonitoringScheduleName is a required property for AWS::SageMaker::MonitoringSchedule
-AWS::SageMaker::MonitoringSchedule MonitoringScheduleName  == /\S{1,63}/ <<  MonitoringScheduleName is a required property for AWS::SageMaker::MonitoringSchedule
-AWS::SageMaker::MonitoringSchedule MonitoringScheduleName  == /^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$/ <<  MonitoringScheduleName is a required pattern for AWS::SageMaker::MonitoringSchedule
-AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == /Failed/ <<  Failed is an expected value for AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus
-AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == /Pending/ <<  Pending is an expected value for AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus
-AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == /Scheduled/ <<  Scheduled is an expected value for AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus
-AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == /Stopped/ <<  Stopped is an expected value for AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus
-AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus IN [Failed,Pending,Scheduled,Stopped] << Enforcing Allowed Values only
-MonitoringScheduleConfig.MonitoringType == DataQuality << Enforce Expected Value for sagemaker.monitoringschedule.monitoringscheduleconfig.MonitoringType
-MonitoringScheduleConfig.MonitoringType == ModelBias << Enforce Expected Value for sagemaker.monitoringschedule.monitoringscheduleconfig.MonitoringType
-MonitoringScheduleConfig.MonitoringType == ModelExplainability << Enforce Expected Value for sagemaker.monitoringschedule.monitoringscheduleconfig.MonitoringType
-MonitoringScheduleConfig.MonitoringType == ModelQuality << Enforce Expected Value for sagemaker.monitoringschedule.monitoringscheduleconfig.MonitoringType
-MonitoringScheduleConfig.MonitoringType IN [DataQuality,ModelBias,ModelExplainability,ModelQuality] << Enforce Allowed Values
+# #AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == Failed |OR| AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == Pending |OR| AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == Scheduled |OR| AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == Stopped << Enforce allowed values [Failed | Pending | Scheduled | Stopped]
+# AWS::SageMaker::MonitoringSchedule EndpointName  == /^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}/ <<  EndpointName is a required pattern for AWS::SageMaker::MonitoringSchedule
+# AWS::SageMaker::MonitoringSchedule EndpointName  == /arn.*{0,63}/ <<  EndpointName is a required property for AWS::SageMaker::MonitoringSchedule
+# AWS::SageMaker::MonitoringSchedule MonitoringScheduleConfig  == /.*/ <<  MonitoringScheduleConfig is a required property for AWS::SageMaker::MonitoringSchedule
+# AWS::SageMaker::MonitoringSchedule MonitoringScheduleConfig.MonitoringJobDefinitionName  == /\S/ <<  AWS::SageMaker::MonitoringSchedule is an expected but optional String property for MonitoringScheduleConfig
+# AWS::SageMaker::MonitoringSchedule MonitoringScheduleConfig.MonitoringType  == /\S/ <<  AWS::SageMaker::MonitoringSchedule is an expected but optional String property for MonitoringScheduleConfig
+# AWS::SageMaker::MonitoringSchedule MonitoringScheduleName  == /.*/ <<  MonitoringScheduleName is a required property for AWS::SageMaker::MonitoringSchedule
+# AWS::SageMaker::MonitoringSchedule MonitoringScheduleName  == /\S{1,63}/ <<  MonitoringScheduleName is a required property for AWS::SageMaker::MonitoringSchedule
+# AWS::SageMaker::MonitoringSchedule MonitoringScheduleName  == /^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$/ <<  MonitoringScheduleName is a required pattern for AWS::SageMaker::MonitoringSchedule
+# AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == /Failed/ <<  Failed is an expected value for AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus
+# AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == /Pending/ <<  Pending is an expected value for AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus
+# AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == /Scheduled/ <<  Scheduled is an expected value for AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus
+# AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus  == /Stopped/ <<  Stopped is an expected value for AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus
+# AWS::SageMaker::MonitoringSchedule MonitoringScheduleStatus IN [Failed,Pending,Scheduled,Stopped] << Enforcing Allowed Values only
+# MonitoringScheduleConfig.MonitoringType == DataQuality << Enforce Expected Value for sagemaker.monitoringschedule.monitoringscheduleconfig.MonitoringType
+# MonitoringScheduleConfig.MonitoringType == ModelBias << Enforce Expected Value for sagemaker.monitoringschedule.monitoringscheduleconfig.MonitoringType
+# MonitoringScheduleConfig.MonitoringType == ModelExplainability << Enforce Expected Value for sagemaker.monitoringschedule.monitoringscheduleconfig.MonitoringType
+# MonitoringScheduleConfig.MonitoringType == ModelQuality << Enforce Expected Value for sagemaker.monitoringschedule.monitoringscheduleconfig.MonitoringType
+# MonitoringScheduleConfig.MonitoringType IN [DataQuality,ModelBias,ModelExplainability,ModelQuality] << Enforce Allowed Values

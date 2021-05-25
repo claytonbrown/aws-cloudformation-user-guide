@@ -1,77 +1,79 @@
-#AWS::CodeBuild::Project BadgeEnabled  == True |OR| AWS::CodeBuild::Project BadgeEnabled  == False << Enforce allowed values [True | False]
-AWS::CodeBuild::Project Artifacts  == /.*/ <<  Artifacts is a required property for AWS::CodeBuild::Project
-AWS::CodeBuild::Project Artifacts.ArtifactIdentifier  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
-AWS::CodeBuild::Project Artifacts.Location  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
-AWS::CodeBuild::Project Artifacts.Name  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
-AWS::CodeBuild::Project Artifacts.NamespaceType  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
-AWS::CodeBuild::Project Artifacts.Packaging  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
-AWS::CodeBuild::Project Artifacts.Path  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
-AWS::CodeBuild::Project Artifacts.Type  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
-AWS::CodeBuild::Project Artifacts.codebuild.project.artifacts.Type  == /.*/ <<  codebuild.project.artifacts.Type is a required property for AWS::CodeBuild::Project Artifacts
-AWS::CodeBuild::Project BadgeEnabled  == /False/ <<  False is an expected value for AWS::CodeBuild::Project BadgeEnabled
-AWS::CodeBuild::Project BadgeEnabled  == /True/ <<  True is an expected value for AWS::CodeBuild::Project BadgeEnabled
-AWS::CodeBuild::Project BadgeEnabled IN [True,False] << Enforcing Allowed Values only
-AWS::CodeBuild::Project ConcurrentBuildLimit  == /[0-9].+/ <<  Integer is expected for AWS::CodeBuild::Project of ConcurrentBuildLimit 
-AWS::CodeBuild::Project Description  == /\S{0,255}/ <<  Description is a required property for AWS::CodeBuild::Project
-AWS::CodeBuild::Project Environment  == /.*/ <<  Environment is a required property for AWS::CodeBuild::Project
-AWS::CodeBuild::Project Environment.Certificate  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Environment
-AWS::CodeBuild::Project Environment.ComputeType  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Environment
-AWS::CodeBuild::Project Environment.Image  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Environment
-AWS::CodeBuild::Project Environment.ImagePullCredentialsType  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Environment
-AWS::CodeBuild::Project Environment.Type  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Environment
-AWS::CodeBuild::Project Environment.codebuild.project.environment.ComputeType  == /.*/ <<  codebuild.project.environment.ComputeType is a required property for AWS::CodeBuild::Project Environment
-AWS::CodeBuild::Project Environment.codebuild.project.environment.Image  == /.*/ <<  codebuild.project.environment.Image is a required property for AWS::CodeBuild::Project Environment
-AWS::CodeBuild::Project Environment.codebuild.project.environment.Type  == /.*/ <<  codebuild.project.environment.Type is a required property for AWS::CodeBuild::Project Environment
-AWS::CodeBuild::Project Name  == /[A-Za-z0-9][A-Za-z0-9\-_]{1,254}/ <<  Name is a required pattern for AWS::CodeBuild::Project
-AWS::CodeBuild::Project Name  == /\S{2,255}/ <<  Name is a required property for AWS::CodeBuild::Project
-AWS::CodeBuild::Project QueuedTimeoutInMinutes  <= 480 <<  Integer is expected for AWS::CodeBuild::Project of QueuedTimeoutInMinutes 
-AWS::CodeBuild::Project QueuedTimeoutInMinutes  == /[0-9].+/ <<  Integer is expected for AWS::CodeBuild::Project of QueuedTimeoutInMinutes 
-AWS::CodeBuild::Project QueuedTimeoutInMinutes  >= 5 <<  Integer is expected for AWS::CodeBuild::Project of QueuedTimeoutInMinutes 
-AWS::CodeBuild::Project ServiceRole  == /.*/ <<  ServiceRole is a required property for AWS::CodeBuild::Project
-AWS::CodeBuild::Project Source  == /.*/ <<  Source is a required property for AWS::CodeBuild::Project
-AWS::CodeBuild::Project Source.BuildSpec  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Source
-AWS::CodeBuild::Project Source.Location  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Source
-AWS::CodeBuild::Project Source.SourceIdentifier  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Source
-AWS::CodeBuild::Project Source.Type  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Source
-AWS::CodeBuild::Project Source.codebuild.project.source.Type  == /.*/ <<  codebuild.project.source.Type is a required property for AWS::CodeBuild::Project Source
-AWS::CodeBuild::Project TimeoutInMinutes  <= 480 <<  Integer is expected for AWS::CodeBuild::Project of TimeoutInMinutes 
-AWS::CodeBuild::Project TimeoutInMinutes  == /[0-9].+/ <<  Integer is expected for AWS::CodeBuild::Project of TimeoutInMinutes 
-AWS::CodeBuild::Project TimeoutInMinutes  >= 5 <<  Integer is expected for AWS::CodeBuild::Project of TimeoutInMinutes 
-Artifacts.EncryptionDisabled == False << Enforce Expected Value for codebuild.project.artifacts.EncryptionDisabled
-Artifacts.EncryptionDisabled == True << Enforce Expected Value for codebuild.project.artifacts.EncryptionDisabled
-Artifacts.EncryptionDisabled IN [True,False] << Enforce Allowed Values
-Artifacts.NamespaceType == BUILD_ID << Enforce Expected Value for codebuild.project.artifacts.NamespaceType
-Artifacts.NamespaceType == NONE << Enforce Expected Value for codebuild.project.artifacts.NamespaceType
-Artifacts.NamespaceType IN [BUILD_ID,NONE] << Enforce Allowed Values
-Artifacts.OverrideArtifactName == False << Enforce Expected Value for codebuild.project.artifacts.OverrideArtifactName
-Artifacts.OverrideArtifactName == True << Enforce Expected Value for codebuild.project.artifacts.OverrideArtifactName
-Artifacts.OverrideArtifactName IN [True,False] << Enforce Allowed Values
-Artifacts.Packaging == NONE << Enforce Expected Value for codebuild.project.artifacts.Packaging
-Artifacts.Packaging == ZIP << Enforce Expected Value for codebuild.project.artifacts.Packaging
-Artifacts.Packaging IN [NONE,ZIP] << Enforce Allowed Values
-Environment.; sleep 1; done" == False << Enforce Expected Value for codebuild.project.environment.- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
-Environment.; sleep 1; done" == True << Enforce Expected Value for codebuild.project.environment.- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
-Environment.; sleep 1; done" IN [True,False] << Enforce Allowed Values
-Environment.ImagePullCredentialsType == CODEBUILD << Enforce Expected Value for codebuild.project.environment.ImagePullCredentialsType
-Environment.ImagePullCredentialsType == SERVICE_ROLE << Enforce Expected Value for codebuild.project.environment.ImagePullCredentialsType
-Environment.ImagePullCredentialsType IN [CODEBUILD,SERVICE_ROLE] << Enforce Allowed Values
-Environment.Type == ARM_CONTAINER << Enforce Expected Value for codebuild.project.environment.Type
-Environment.Type == LINUX_CONTAINER << Enforce Expected Value for codebuild.project.environment.Type
-Environment.Type == LINUX_GPU_CONTAINER << Enforce Expected Value for codebuild.project.environment.Type
-Environment.Type == WINDOWS_CONTAINER << Enforce Expected Value for codebuild.project.environment.Type
-Environment.Type == WINDOWS_SERVER_2019_CONTAINER << Enforce Expected Value for codebuild.project.environment.Type
-Environment.Type IN [ARM_CONTAINER,LINUX_CONTAINER,LINUX_GPU_CONTAINER,WINDOWS_CONTAINER,WINDOWS_SERVER_2019_CONTAINER] << Enforce Allowed Values
-Source.InsecureSsl == False << Enforce Expected Value for codebuild.project.source.InsecureSsl
-Source.InsecureSsl == True << Enforce Expected Value for codebuild.project.source.InsecureSsl
-Source.InsecureSsl IN [True,False] << Enforce Allowed Values
-Source.ReportBuildStatus == False << Enforce Expected Value for codebuild.project.source.ReportBuildStatus
-Source.ReportBuildStatus == True << Enforce Expected Value for codebuild.project.source.ReportBuildStatus
-Source.ReportBuildStatus IN [True,False] << Enforce Allowed Values
-Source.Type == BITBUCKET << Enforce Expected Value for codebuild.project.source.Type
-Source.Type == CODECOMMIT << Enforce Expected Value for codebuild.project.source.Type
-Source.Type == CODEPIPELINE << Enforce Expected Value for codebuild.project.source.Type
-Source.Type == GITHUB << Enforce Expected Value for codebuild.project.source.Type
-Source.Type == GITHUB_ENTERPRISE << Enforce Expected Value for codebuild.project.source.Type
-Source.Type == NO_SOURCE << Enforce Expected Value for codebuild.project.source.Type
-Source.Type == S3 << Enforce Expected Value for codebuild.project.source.Type
-Source.Type IN [BITBUCKET,CODECOMMIT,CODEPIPELINE,GITHUB,GITHUB_ENTERPRISE,NO_SOURCE,S3] << Enforce Allowed Values
+# #AWS::CodeBuild::Project BadgeEnabled  == True |OR| AWS::CodeBuild::Project BadgeEnabled  == False << Enforce allowed values [True | False]
+# AWS::CodeBuild::Project Artifacts  == /.*/ <<  Artifacts is a required property for AWS::CodeBuild::Project
+# AWS::CodeBuild::Project Artifacts.ArtifactIdentifier  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
+# AWS::CodeBuild::Project Artifacts.Location  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
+# AWS::CodeBuild::Project Artifacts.Name  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
+# AWS::CodeBuild::Project Artifacts.NamespaceType  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
+# AWS::CodeBuild::Project Artifacts.Packaging  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
+# AWS::CodeBuild::Project Artifacts.Path  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
+# AWS::CodeBuild::Project Artifacts.Type  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Artifacts
+# AWS::CodeBuild::Project Artifacts.codebuild.project.artifacts.Location  == /.*/ <<  codebuild.project.artifacts.Location is a Conditional property for AWS::CodeBuild::Project Artifacts
+# AWS::CodeBuild::Project Artifacts.codebuild.project.artifacts.Name  == /.*/ <<  codebuild.project.artifacts.Name is a Conditional property for AWS::CodeBuild::Project Artifacts
+# AWS::CodeBuild::Project Artifacts.codebuild.project.artifacts.Type  == /.*/ <<  codebuild.project.artifacts.Type is a required property for AWS::CodeBuild::Project Artifacts
+# AWS::CodeBuild::Project BadgeEnabled  == /False/ <<  False is an expected value for AWS::CodeBuild::Project BadgeEnabled
+# AWS::CodeBuild::Project BadgeEnabled  == /True/ <<  True is an expected value for AWS::CodeBuild::Project BadgeEnabled
+# AWS::CodeBuild::Project BadgeEnabled IN [True,False] << Enforcing Allowed Values only
+# AWS::CodeBuild::Project ConcurrentBuildLimit  == /[0-9].+/ <<  Integer is expected for AWS::CodeBuild::Project of ConcurrentBuildLimit 
+# AWS::CodeBuild::Project Description  == /\S{0,255}/ <<  Description is a required property for AWS::CodeBuild::Project
+# AWS::CodeBuild::Project Environment  == /.*/ <<  Environment is a required property for AWS::CodeBuild::Project
+# AWS::CodeBuild::Project Environment.Certificate  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Environment
+# AWS::CodeBuild::Project Environment.ComputeType  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Environment
+# AWS::CodeBuild::Project Environment.Image  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Environment
+# AWS::CodeBuild::Project Environment.ImagePullCredentialsType  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Environment
+# AWS::CodeBuild::Project Environment.Type  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Environment
+# AWS::CodeBuild::Project Environment.codebuild.project.environment.ComputeType  == /.*/ <<  codebuild.project.environment.ComputeType is a required property for AWS::CodeBuild::Project Environment
+# AWS::CodeBuild::Project Environment.codebuild.project.environment.Image  == /.*/ <<  codebuild.project.environment.Image is a required property for AWS::CodeBuild::Project Environment
+# AWS::CodeBuild::Project Environment.codebuild.project.environment.Type  == /.*/ <<  codebuild.project.environment.Type is a required property for AWS::CodeBuild::Project Environment
+# AWS::CodeBuild::Project Name  == /[A-Za-z0-9][A-Za-z0-9\-_]{1,254}/ <<  Name is a required pattern for AWS::CodeBuild::Project
+# AWS::CodeBuild::Project Name  == /\S{2,255}/ <<  Name is a required property for AWS::CodeBuild::Project
+# AWS::CodeBuild::Project QueuedTimeoutInMinutes  <= 480 <<  Integer is expected for AWS::CodeBuild::Project of QueuedTimeoutInMinutes 
+# AWS::CodeBuild::Project QueuedTimeoutInMinutes  == /[0-9].+/ <<  Integer is expected for AWS::CodeBuild::Project of QueuedTimeoutInMinutes 
+# AWS::CodeBuild::Project QueuedTimeoutInMinutes  >= 5 <<  Integer is expected for AWS::CodeBuild::Project of QueuedTimeoutInMinutes 
+# AWS::CodeBuild::Project ServiceRole  == /.*/ <<  ServiceRole is a required property for AWS::CodeBuild::Project
+# AWS::CodeBuild::Project Source  == /.*/ <<  Source is a required property for AWS::CodeBuild::Project
+# AWS::CodeBuild::Project Source.BuildSpec  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Source
+# AWS::CodeBuild::Project Source.Location  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Source
+# AWS::CodeBuild::Project Source.SourceIdentifier  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Source
+# AWS::CodeBuild::Project Source.Type  == /\S/ <<  AWS::CodeBuild::Project is an expected but optional String property for Source
+# AWS::CodeBuild::Project Source.codebuild.project.source.Type  == /.*/ <<  codebuild.project.source.Type is a required property for AWS::CodeBuild::Project Source
+# AWS::CodeBuild::Project TimeoutInMinutes  <= 480 <<  Integer is expected for AWS::CodeBuild::Project of TimeoutInMinutes 
+# AWS::CodeBuild::Project TimeoutInMinutes  == /[0-9].+/ <<  Integer is expected for AWS::CodeBuild::Project of TimeoutInMinutes 
+# AWS::CodeBuild::Project TimeoutInMinutes  >= 5 <<  Integer is expected for AWS::CodeBuild::Project of TimeoutInMinutes 
+# Artifacts.EncryptionDisabled == False << Enforce Expected Value for codebuild.project.artifacts.EncryptionDisabled
+# Artifacts.EncryptionDisabled == True << Enforce Expected Value for codebuild.project.artifacts.EncryptionDisabled
+# Artifacts.EncryptionDisabled IN [True,False] << Enforce Allowed Values
+# Artifacts.NamespaceType == BUILD_ID << Enforce Expected Value for codebuild.project.artifacts.NamespaceType
+# Artifacts.NamespaceType == NONE << Enforce Expected Value for codebuild.project.artifacts.NamespaceType
+# Artifacts.NamespaceType IN [BUILD_ID,NONE] << Enforce Allowed Values
+# Artifacts.OverrideArtifactName == False << Enforce Expected Value for codebuild.project.artifacts.OverrideArtifactName
+# Artifacts.OverrideArtifactName == True << Enforce Expected Value for codebuild.project.artifacts.OverrideArtifactName
+# Artifacts.OverrideArtifactName IN [True,False] << Enforce Allowed Values
+# Artifacts.Packaging == NONE << Enforce Expected Value for codebuild.project.artifacts.Packaging
+# Artifacts.Packaging == ZIP << Enforce Expected Value for codebuild.project.artifacts.Packaging
+# Artifacts.Packaging IN [NONE,ZIP] << Enforce Allowed Values
+# Environment.; sleep 1; done" == False << Enforce Expected Value for codebuild.project.environment.- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
+# Environment.; sleep 1; done" == True << Enforce Expected Value for codebuild.project.environment.- timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
+# Environment.; sleep 1; done" IN [True,False] << Enforce Allowed Values
+# Environment.ImagePullCredentialsType == CODEBUILD << Enforce Expected Value for codebuild.project.environment.ImagePullCredentialsType
+# Environment.ImagePullCredentialsType == SERVICE_ROLE << Enforce Expected Value for codebuild.project.environment.ImagePullCredentialsType
+# Environment.ImagePullCredentialsType IN [CODEBUILD,SERVICE_ROLE] << Enforce Allowed Values
+# Environment.Type == ARM_CONTAINER << Enforce Expected Value for codebuild.project.environment.Type
+# Environment.Type == LINUX_CONTAINER << Enforce Expected Value for codebuild.project.environment.Type
+# Environment.Type == LINUX_GPU_CONTAINER << Enforce Expected Value for codebuild.project.environment.Type
+# Environment.Type == WINDOWS_CONTAINER << Enforce Expected Value for codebuild.project.environment.Type
+# Environment.Type == WINDOWS_SERVER_2019_CONTAINER << Enforce Expected Value for codebuild.project.environment.Type
+# Environment.Type IN [ARM_CONTAINER,LINUX_CONTAINER,LINUX_GPU_CONTAINER,WINDOWS_CONTAINER,WINDOWS_SERVER_2019_CONTAINER] << Enforce Allowed Values
+# Source.InsecureSsl == False << Enforce Expected Value for codebuild.project.source.InsecureSsl
+# Source.InsecureSsl == True << Enforce Expected Value for codebuild.project.source.InsecureSsl
+# Source.InsecureSsl IN [True,False] << Enforce Allowed Values
+# Source.ReportBuildStatus == False << Enforce Expected Value for codebuild.project.source.ReportBuildStatus
+# Source.ReportBuildStatus == True << Enforce Expected Value for codebuild.project.source.ReportBuildStatus
+# Source.ReportBuildStatus IN [True,False] << Enforce Allowed Values
+# Source.Type == BITBUCKET << Enforce Expected Value for codebuild.project.source.Type
+# Source.Type == CODECOMMIT << Enforce Expected Value for codebuild.project.source.Type
+# Source.Type == CODEPIPELINE << Enforce Expected Value for codebuild.project.source.Type
+# Source.Type == GITHUB << Enforce Expected Value for codebuild.project.source.Type
+# Source.Type == GITHUB_ENTERPRISE << Enforce Expected Value for codebuild.project.source.Type
+# Source.Type == NO_SOURCE << Enforce Expected Value for codebuild.project.source.Type
+# Source.Type == S3 << Enforce Expected Value for codebuild.project.source.Type
+# Source.Type IN [BITBUCKET,CODECOMMIT,CODEPIPELINE,GITHUB,GITHUB_ENTERPRISE,NO_SOURCE,S3] << Enforce Allowed Values

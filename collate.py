@@ -5,6 +5,7 @@ import os
 import logging
 import sys
 import inflection
+from botocore.session import get_session
 
 
 def setup_logging(logger, verbosity=None):
@@ -85,6 +86,12 @@ spec["PropertyTypes"]["Double"] = "123.45"
 spec["PropertyTypes"]["Float"] = "1.23456789"
 spec["PropertyTypes"]["Json"] = {"todo": "json"}
 spec["PropertyTypes"]["Timestamp"] = "1970-01-01T01:02:30.070Z"
+spec["PropertyTypes"]["Tags"] = [
+    {
+        "Key": "keyName",
+        "Value": "valueName"
+    }
+]
 
 all_keys = set()
 processed_selectors = {}
@@ -315,15 +322,29 @@ rules_graph = {
     "edges": []
 }
 
+cfn_sample = {
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "CFNGuardGoat",
+    "Metadata": {},
+    "Parameters": {},
+    "Rules": {},
+    "Mappings": {},
+    "Conditions": {},
+    "Transform": {},
+    "Resources": {},
+    "Outputs": {}
+}
+
 
 def add_rule(resource, rule):
+    comment = "# "
     resource_type = inflection.parameterize(resource)
     if resource_type not in rules.keys():
         log.info("Adding rules file for: %s - %s " % (resource_type, resource))
         rules[resource_type] = []
 
-    rules['all'].append(rule)
-    rules[resource_type].append(rule)
+    rules['all'].append(comment + rule)
+    rules[resource_type].append(comment + rule)
 
     # maintain vertices for each rule
     # ~id,~label,Documentation,hierarchy
@@ -340,9 +361,31 @@ def add_rule(resource, rule):
         log.info("Duplicate rule_id: %s" % rule_id)
 
 
+def generate_sample_property(resource, property, type):
+    property_key = "%s-"
+    if type in spec["PropertyTypes"]:
+        """
+            "Boolean": "True",
+            "Double": "123.45",
+            "Float": "1.23456789",
+        """
+        return spec["PropertyTypes"][type]
+    else:
+        return {}
+
+
 for resource in spec["cfn"]["ResourceTypes"]:
+    resource_id = inflection.parameterize(resource)
+
+    # create reference template
+    cfn_sample["Resources"][resource_id] = {
+        "Type:": resource,
+        "Metadata": {},
+        "Properties": {}
+    }
 
     docs = spec["cfn"]["ResourceTypes"][resource]['Documentation']
+
     log.debug(docs)
     cfn_resource_json = "./doc_source/aws-%s.md.properties.json" % (
         docs.split("/aws-")[-1].split('.html')[0])
@@ -354,16 +397,18 @@ for resource in spec["cfn"]["ResourceTypes"]:
             data = json.load(resource_json)
             log.debug(json.dumps(data))
             for property in spec["cfn"]["ResourceTypes"][resource]["Properties"]:
+
+                cfn_sample["Resources"][resource_id]["Properties"][property] = ""
+
                 cfn_guard_selector = "%s %s" % (resource, property)
                 cfn_docs_selector = (
                     "%s-%s" % (resource.lower().replace('::', '.'), property)).lower()
                 docs = spec["cfn"]["ResourceTypes"][resource]["Properties"][property]['Documentation']
                 cfn_doc_id = docs.split('#')[-1]
-                # .lstrip("cfn-")
                 cfn_prefix = cfn_doc_id.split("-")[0]
                 cfn_doc_id = cfn_doc_id[len(cfn_prefix)+1:]
                 log.debug("Property: %s %s " % (resource, property))
-                for key, validue in data.items():
+                for key in data.keys():
 
                     if key.split('.')[-1].lower() == property.lower():
                         log.debug("Property: %s %s " % (resource, property))
@@ -791,11 +836,6 @@ for property_type, properties in spec["cfn"]["PropertyTypes"].items():
     log.debug("Property Type: %s" % (property_type))
     selector = "* %s"
 
-log.warning("Matched :%s" % (count_matched))
-
-with open("spec.json", 'w') as f:
-    f.write(json.dumps(spec, indent=4, sort_keys=True))
-    log.warning("Written spec.json")
 
 with open("rulesets/all.rules.txt", 'w') as f:
     f.write('\n'.join(sorted(list(set(rules['all'])))))
@@ -805,4 +845,14 @@ for key in rules.keys():
     if key != "all":
         with open("rulesets/%s.rules.txt" % (key), 'w') as f:
             f.write('\n'.join(sorted(list(set(rules[key])))))
-            log.warning("Written %s rules" % (len(rules)))
+            log.warning("Written %s [%s] rules" % (key, len(rules[key])))
+
+log.warning("Matched :%s" % (count_matched))
+
+with open("spec.json", 'w') as f:
+    f.write(json.dumps(spec, indent=4, sort_keys=True))
+    log.warning("Written spec.json")
+
+with open("cfn_sample.json", 'w') as f:
+    f.write(json.dumps(cfn_sample, indent=4, sort_keys=True))
+    log.warning("Written cfn_sample.json")

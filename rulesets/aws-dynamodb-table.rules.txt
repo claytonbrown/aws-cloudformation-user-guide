@@ -1,37 +1,41 @@
-AWS::DynamoDB::Table AttributeDefinitions.AttributeName  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for AttributeDefinitions
-AWS::DynamoDB::Table AttributeDefinitions.AttributeType  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for AttributeDefinitions
-AWS::DynamoDB::Table KeySchema  == /.*/ <<  KeySchema is a required property for AWS::DynamoDB::Table
-AWS::DynamoDB::Table KeySchema.AttributeName  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for KeySchema
-AWS::DynamoDB::Table KeySchema.KeyType  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for KeySchema
-AWS::DynamoDB::Table KeySchema.dynamodb.table.keyschema.AttributeName  == /.*/ <<  dynamodb.table.keyschema.AttributeName is a required property for AWS::DynamoDB::Table KeySchema
-AWS::DynamoDB::Table KeySchema.dynamodb.table.keyschema.KeyType  == /.*/ <<  dynamodb.table.keyschema.KeyType is a required property for AWS::DynamoDB::Table KeySchema
-AWS::DynamoDB::Table KinesisStreamSpecification.StreamArn  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for KinesisStreamSpecification
-AWS::DynamoDB::Table ProvisionedThroughput.dynamodb.table.provisionedthroughput.ReadCapacityUnits  == /.*/ <<  dynamodb.table.provisionedthroughput.ReadCapacityUnits is a required property for AWS::DynamoDB::Table ProvisionedThroughput
-AWS::DynamoDB::Table ProvisionedThroughput.dynamodb.table.provisionedthroughput.WriteCapacityUnits  == /.*/ <<  dynamodb.table.provisionedthroughput.WriteCapacityUnits is a required property for AWS::DynamoDB::Table ProvisionedThroughput
-AWS::DynamoDB::Table SSESpecification.KMSMasterKeyId  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for SSESpecification
-AWS::DynamoDB::Table SSESpecification.SSEType  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for SSESpecification
-AWS::DynamoDB::Table SSESpecification.dynamodb.table.ssespecification.SSEEnabled  == /.*/ <<  dynamodb.table.ssespecification.SSEEnabled is a required property for AWS::DynamoDB::Table SSESpecification
-AWS::DynamoDB::Table StreamSpecification.StreamViewType  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for StreamSpecification
-AWS::DynamoDB::Table StreamSpecification.dynamodb.table.streamspecification.StreamViewType  == /.*/ <<  dynamodb.table.streamspecification.StreamViewType is a required property for AWS::DynamoDB::Table StreamSpecification
-AWS::DynamoDB::Table TableName  == /[a-zA-Z0-9_.-]+/ <<  TableName is a required pattern for AWS::DynamoDB::Table
-AWS::DynamoDB::Table TableName  == /\S{3,255}/ <<  TableName is a required property for AWS::DynamoDB::Table
-AWS::DynamoDB::Table TimeToLiveSpecification.AttributeName  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for TimeToLiveSpecification
-AWS::DynamoDB::Table TimeToLiveSpecification.dynamodb.table.timetolivespecification.AttributeName  == /.*/ <<  dynamodb.table.timetolivespecification.AttributeName is a required property for AWS::DynamoDB::Table TimeToLiveSpecification
-AWS::DynamoDB::Table TimeToLiveSpecification.dynamodb.table.timetolivespecification.Enabled  == /.*/ <<  dynamodb.table.timetolivespecification.Enabled is a required property for AWS::DynamoDB::Table TimeToLiveSpecification
-ContributorInsightsSpecification.Enabled == False << Enforce Expected Value for dynamodb.table.contributorinsightsspecification.Enabled
-ContributorInsightsSpecification.Enabled == True << Enforce Expected Value for dynamodb.table.contributorinsightsspecification.Enabled
-ContributorInsightsSpecification.Enabled IN [True,False] << Enforce Allowed Values
-PointInTimeRecoverySpecification.PointInTimeRecoveryEnabled == False << Enforce Expected Value for dynamodb.table.pointintimerecoveryspecification.PointInTimeRecoveryEnabled
-PointInTimeRecoverySpecification.PointInTimeRecoveryEnabled == True << Enforce Expected Value for dynamodb.table.pointintimerecoveryspecification.PointInTimeRecoveryEnabled
-PointInTimeRecoverySpecification.PointInTimeRecoveryEnabled IN [True,False] << Enforce Allowed Values
-SSESpecification.SSEEnabled == False << Enforce Expected Value for dynamodb.table.ssespecification.SSEEnabled
-SSESpecification.SSEEnabled == True << Enforce Expected Value for dynamodb.table.ssespecification.SSEEnabled
-SSESpecification.SSEEnabled IN [True,False] << Enforce Allowed Values
-StreamSpecification.StreamViewType == KEYS_ONLY << Enforce Expected Value for dynamodb.table.streamspecification.StreamViewType
-StreamSpecification.StreamViewType == NEW_AND_OLD_IMAGES << Enforce Expected Value for dynamodb.table.streamspecification.StreamViewType
-StreamSpecification.StreamViewType == NEW_IMAGE << Enforce Expected Value for dynamodb.table.streamspecification.StreamViewType
-StreamSpecification.StreamViewType == OLD_IMAGE << Enforce Expected Value for dynamodb.table.streamspecification.StreamViewType
-StreamSpecification.StreamViewType IN [KEYS_ONLY,NEW_AND_OLD_IMAGES,NEW_IMAGE,OLD_IMAGE] << Enforce Allowed Values
-TimeToLiveSpecification.Enabled == False << Enforce Expected Value for dynamodb.table.timetolivespecification.Enabled
-TimeToLiveSpecification.Enabled == True << Enforce Expected Value for dynamodb.table.timetolivespecification.Enabled
-TimeToLiveSpecification.Enabled IN [True,False] << Enforce Allowed Values
+# #AWS::DynamoDB::Table BillingMode  == PAY_PER_REQUEST |OR| AWS::DynamoDB::Table BillingMode  == PROVISIONED << Enforce allowed values [PAY_PER_REQUEST | PROVISIONED]
+# AWS::DynamoDB::Table AttributeDefinitions.AttributeName  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for AttributeDefinitions
+# AWS::DynamoDB::Table AttributeDefinitions.AttributeType  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for AttributeDefinitions
+# AWS::DynamoDB::Table BillingMode  == /PAY_PER_REQUEST/ <<  PAY_PER_REQUEST is an expected value for AWS::DynamoDB::Table BillingMode
+# AWS::DynamoDB::Table BillingMode  == /PROVISIONED/ <<  PROVISIONED is an expected value for AWS::DynamoDB::Table BillingMode
+# AWS::DynamoDB::Table BillingMode IN [PAY_PER_REQUEST,PROVISIONED] << Enforcing Allowed Values only
+# AWS::DynamoDB::Table KeySchema  == /.*/ <<  KeySchema is a required property for AWS::DynamoDB::Table
+# AWS::DynamoDB::Table KeySchema.AttributeName  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for KeySchema
+# AWS::DynamoDB::Table KeySchema.KeyType  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for KeySchema
+# AWS::DynamoDB::Table KeySchema.dynamodb.table.keyschema.AttributeName  == /.*/ <<  dynamodb.table.keyschema.AttributeName is a required property for AWS::DynamoDB::Table KeySchema
+# AWS::DynamoDB::Table KeySchema.dynamodb.table.keyschema.KeyType  == /.*/ <<  dynamodb.table.keyschema.KeyType is a required property for AWS::DynamoDB::Table KeySchema
+# AWS::DynamoDB::Table KinesisStreamSpecification.StreamArn  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for KinesisStreamSpecification
+# AWS::DynamoDB::Table ProvisionedThroughput.dynamodb.table.provisionedthroughput.ReadCapacityUnits  == /.*/ <<  dynamodb.table.provisionedthroughput.ReadCapacityUnits is a required property for AWS::DynamoDB::Table ProvisionedThroughput
+# AWS::DynamoDB::Table ProvisionedThroughput.dynamodb.table.provisionedthroughput.WriteCapacityUnits  == /.*/ <<  dynamodb.table.provisionedthroughput.WriteCapacityUnits is a required property for AWS::DynamoDB::Table ProvisionedThroughput
+# AWS::DynamoDB::Table SSESpecification.KMSMasterKeyId  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for SSESpecification
+# AWS::DynamoDB::Table SSESpecification.SSEType  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for SSESpecification
+# AWS::DynamoDB::Table SSESpecification.dynamodb.table.ssespecification.SSEEnabled  == /.*/ <<  dynamodb.table.ssespecification.SSEEnabled is a required property for AWS::DynamoDB::Table SSESpecification
+# AWS::DynamoDB::Table StreamSpecification.StreamViewType  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for StreamSpecification
+# AWS::DynamoDB::Table StreamSpecification.dynamodb.table.streamspecification.StreamViewType  == /.*/ <<  dynamodb.table.streamspecification.StreamViewType is a required property for AWS::DynamoDB::Table StreamSpecification
+# AWS::DynamoDB::Table TableName  == /[a-zA-Z0-9_.-]+/ <<  TableName is a required pattern for AWS::DynamoDB::Table
+# AWS::DynamoDB::Table TableName  == /\S{3,255}/ <<  TableName is a required property for AWS::DynamoDB::Table
+# AWS::DynamoDB::Table TimeToLiveSpecification.AttributeName  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for TimeToLiveSpecification
+# AWS::DynamoDB::Table TimeToLiveSpecification.dynamodb.table.timetolivespecification.AttributeName  == /.*/ <<  dynamodb.table.timetolivespecification.AttributeName is a required property for AWS::DynamoDB::Table TimeToLiveSpecification
+# AWS::DynamoDB::Table TimeToLiveSpecification.dynamodb.table.timetolivespecification.Enabled  == /.*/ <<  dynamodb.table.timetolivespecification.Enabled is a required property for AWS::DynamoDB::Table TimeToLiveSpecification
+# ContributorInsightsSpecification.Enabled == False << Enforce Expected Value for dynamodb.table.contributorinsightsspecification.Enabled
+# ContributorInsightsSpecification.Enabled == True << Enforce Expected Value for dynamodb.table.contributorinsightsspecification.Enabled
+# ContributorInsightsSpecification.Enabled IN [True,False] << Enforce Allowed Values
+# PointInTimeRecoverySpecification.PointInTimeRecoveryEnabled == False << Enforce Expected Value for dynamodb.table.pointintimerecoveryspecification.PointInTimeRecoveryEnabled
+# PointInTimeRecoverySpecification.PointInTimeRecoveryEnabled == True << Enforce Expected Value for dynamodb.table.pointintimerecoveryspecification.PointInTimeRecoveryEnabled
+# PointInTimeRecoverySpecification.PointInTimeRecoveryEnabled IN [True,False] << Enforce Allowed Values
+# SSESpecification.SSEEnabled == False << Enforce Expected Value for dynamodb.table.ssespecification.SSEEnabled
+# SSESpecification.SSEEnabled == True << Enforce Expected Value for dynamodb.table.ssespecification.SSEEnabled
+# SSESpecification.SSEEnabled IN [True,False] << Enforce Allowed Values
+# StreamSpecification.StreamViewType == KEYS_ONLY << Enforce Expected Value for dynamodb.table.streamspecification.StreamViewType
+# StreamSpecification.StreamViewType == NEW_AND_OLD_IMAGES << Enforce Expected Value for dynamodb.table.streamspecification.StreamViewType
+# StreamSpecification.StreamViewType == NEW_IMAGE << Enforce Expected Value for dynamodb.table.streamspecification.StreamViewType
+# StreamSpecification.StreamViewType == OLD_IMAGE << Enforce Expected Value for dynamodb.table.streamspecification.StreamViewType
+# StreamSpecification.StreamViewType IN [KEYS_ONLY,NEW_AND_OLD_IMAGES,NEW_IMAGE,OLD_IMAGE] << Enforce Allowed Values
+# TimeToLiveSpecification.Enabled == False << Enforce Expected Value for dynamodb.table.timetolivespecification.Enabled
+# TimeToLiveSpecification.Enabled == True << Enforce Expected Value for dynamodb.table.timetolivespecification.Enabled
+# TimeToLiveSpecification.Enabled IN [True,False] << Enforce Allowed Values

@@ -1,11 +1,15 @@
 {
   "dynamodb.gsi.IndexName": {
+    "Pattern": "[a-zA-Z0-9_.-]+",
     "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Maximum": "255",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "3",
+    "Type": "String"
   },
   "dynamodb.gsi.KeySchema": {
     "Required": "Yes",
+    "Maximum": "2",
     "UpdateRequires": "No interruption"
   },
   "dynamodb.gsi.ContributorInsightsSpecification": {

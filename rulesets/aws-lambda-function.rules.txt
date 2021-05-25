@@ -1,56 +1,60 @@
-#AWS::Lambda::Function PackageType  == Image |OR| AWS::Lambda::Function PackageType  == Zip << Enforce allowed values [Image | Zip]
-#AWS::Lambda::Function Runtime  == dotnetcore1.0 |OR| AWS::Lambda::Function Runtime  == dotnetcore2.0 |OR| AWS::Lambda::Function Runtime  == dotnetcore2.1 |OR| AWS::Lambda::Function Runtime  == dotnetcore3.1 |OR| AWS::Lambda::Function Runtime  == go1.x |OR| AWS::Lambda::Function Runtime  == java11 |OR| AWS::Lambda::Function Runtime  == java8 |OR| AWS::Lambda::Function Runtime  == java8.al2 |OR| AWS::Lambda::Function Runtime  == nodejs |OR| AWS::Lambda::Function Runtime  == nodejs10.x |OR| AWS::Lambda::Function Runtime  == nodejs12.x |OR| AWS::Lambda::Function Runtime  == nodejs14.x |OR| AWS::Lambda::Function Runtime  == nodejs4.3 |OR| AWS::Lambda::Function Runtime  == nodejs4.3-edge |OR| AWS::Lambda::Function Runtime  == nodejs6.10 |OR| AWS::Lambda::Function Runtime  == nodejs8.10 |OR| AWS::Lambda::Function Runtime  == provided |OR| AWS::Lambda::Function Runtime  == provided.al2 |OR| AWS::Lambda::Function Runtime  == python2.7 |OR| AWS::Lambda::Function Runtime  == python3.6 |OR| AWS::Lambda::Function Runtime  == python3.7 |OR| AWS::Lambda::Function Runtime  == python3.8 |OR| AWS::Lambda::Function Runtime  == ruby2.5 |OR| AWS::Lambda::Function Runtime  == ruby2.7 << Enforce allowed values [dotnetcore1.0 | dotnetcore2.0 | dotnetcore2.1 | dotnetcore3.1 | go1.x | java11 | java8 | java8.al2 | nodejs | nodejs10.x | nodejs12.x | nodejs14.x | nodejs4.3 | nodejs4.3-edge | nodejs6.10 | nodejs8.10 | provided | provided.al2 | python2.7 | python3.6 | python3.7 | python3.8 | ruby2.5 | ruby2.7]
-AWS::Lambda::Function Code  == /.*/ <<  Code is a required property for AWS::Lambda::Function
-AWS::Lambda::Function Code.ImageUri  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for Code
-AWS::Lambda::Function Code.S3Bucket  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for Code
-AWS::Lambda::Function Code.S3Key  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for Code
-AWS::Lambda::Function Code.S3ObjectVersion  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for Code
-AWS::Lambda::Function Code.ZipFile  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for Code
-AWS::Lambda::Function DeadLetterConfig.TargetArn  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for DeadLetterConfig
-AWS::Lambda::Function Description  == /\S{0,256}/ <<  Description is a required property for AWS::Lambda::Function
-AWS::Lambda::Function FileSystemConfigs.Arn  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for FileSystemConfigs
-AWS::Lambda::Function FileSystemConfigs.LocalMountPath  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for FileSystemConfigs
-AWS::Lambda::Function Handler  == /[^\s]+/ <<  Handler is a required pattern for AWS::Lambda::Function
-AWS::Lambda::Function ImageConfig.WorkingDirectory  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for ImageConfig
-AWS::Lambda::Function KmsKeyArn  == /(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()/ <<  KmsKeyArn is a required pattern for AWS::Lambda::Function
-AWS::Lambda::Function MemorySize  <= 10240 <<  Integer is expected for AWS::Lambda::Function of MemorySize 
-AWS::Lambda::Function MemorySize  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::Function of MemorySize 
-AWS::Lambda::Function MemorySize  >= 128 <<  Integer is expected for AWS::Lambda::Function of MemorySize 
-AWS::Lambda::Function PackageType  == /Image/ <<  Image is an expected value for AWS::Lambda::Function PackageType
-AWS::Lambda::Function PackageType  == /Zip/ <<  Zip is an expected value for AWS::Lambda::Function PackageType
-AWS::Lambda::Function PackageType IN [Image,Zip] << Enforcing Allowed Values only
-AWS::Lambda::Function ReservedConcurrentExecutions  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::Function of ReservedConcurrentExecutions 
-AWS::Lambda::Function ReservedConcurrentExecutions  >= 0 <<  Integer is expected for AWS::Lambda::Function of ReservedConcurrentExecutions 
-AWS::Lambda::Function Role  == /.*/ <<  Role is a required property for AWS::Lambda::Function
-AWS::Lambda::Function Role  == /arn:(aws[a-zA-Z-]*)?:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+/ <<  Role is a required pattern for AWS::Lambda::Function
-AWS::Lambda::Function Runtime  == /dotnetcore1.0/ <<  dotnetcore1.0 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /dotnetcore2.0/ <<  dotnetcore2.0 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /dotnetcore2.1/ <<  dotnetcore2.1 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /dotnetcore3.1/ <<  dotnetcore3.1 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /go1.x/ <<  go1.x is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /java11/ <<  java11 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /java8.al2/ <<  java8.al2 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /java8/ <<  java8 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /nodejs/ <<  nodejs is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /nodejs10.x/ <<  nodejs10.x is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /nodejs12.x/ <<  nodejs12.x is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /nodejs14.x/ <<  nodejs14.x is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /nodejs4.3-edge/ <<  nodejs4.3-edge is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /nodejs4.3/ <<  nodejs4.3 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /nodejs6.10/ <<  nodejs6.10 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /nodejs8.10/ <<  nodejs8.10 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /provided.al2/ <<  provided.al2 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /provided/ <<  provided is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /python2.7/ <<  python2.7 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /python3.6/ <<  python3.6 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /python3.7/ <<  python3.7 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /python3.8/ <<  python3.8 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /ruby2.5/ <<  ruby2.5 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime  == /ruby2.7/ <<  ruby2.7 is an expected value for AWS::Lambda::Function Runtime
-AWS::Lambda::Function Runtime IN [dotnetcore1.0,dotnetcore2.0,dotnetcore2.1,dotnetcore3.1,go1.x,java11,java8,java8.al2,nodejs,nodejs10.x,nodejs12.x,nodejs14.x,nodejs4.3,nodejs4.3-edge,nodejs6.10,nodejs8.10,provided,provided.al2,python2.7,python3.6,python3.7,python3.8,ruby2.5,ruby2.7] << Enforcing Allowed Values only
-AWS::Lambda::Function Timeout  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::Function of Timeout 
-AWS::Lambda::Function Timeout  >= 1 <<  Integer is expected for AWS::Lambda::Function of Timeout 
-AWS::Lambda::Function TracingConfig.Mode  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for TracingConfig
-TracingConfig.Mode == Active << Enforce Expected Value for lambda.function.tracingconfig.Mode
-TracingConfig.Mode == PassThrough << Enforce Expected Value for lambda.function.tracingconfig.Mode
-TracingConfig.Mode IN [Active,PassThrough] << Enforce Allowed Values
+# #AWS::Lambda::Function PackageType  == Image |OR| AWS::Lambda::Function PackageType  == Zip << Enforce allowed values [Image | Zip]
+# #AWS::Lambda::Function Runtime  == dotnetcore1.0 |OR| AWS::Lambda::Function Runtime  == dotnetcore2.0 |OR| AWS::Lambda::Function Runtime  == dotnetcore2.1 |OR| AWS::Lambda::Function Runtime  == dotnetcore3.1 |OR| AWS::Lambda::Function Runtime  == go1.x |OR| AWS::Lambda::Function Runtime  == java11 |OR| AWS::Lambda::Function Runtime  == java8 |OR| AWS::Lambda::Function Runtime  == java8.al2 |OR| AWS::Lambda::Function Runtime  == nodejs |OR| AWS::Lambda::Function Runtime  == nodejs10.x |OR| AWS::Lambda::Function Runtime  == nodejs12.x |OR| AWS::Lambda::Function Runtime  == nodejs14.x |OR| AWS::Lambda::Function Runtime  == nodejs4.3 |OR| AWS::Lambda::Function Runtime  == nodejs4.3-edge |OR| AWS::Lambda::Function Runtime  == nodejs6.10 |OR| AWS::Lambda::Function Runtime  == nodejs8.10 |OR| AWS::Lambda::Function Runtime  == provided |OR| AWS::Lambda::Function Runtime  == provided.al2 |OR| AWS::Lambda::Function Runtime  == python2.7 |OR| AWS::Lambda::Function Runtime  == python3.6 |OR| AWS::Lambda::Function Runtime  == python3.7 |OR| AWS::Lambda::Function Runtime  == python3.8 |OR| AWS::Lambda::Function Runtime  == ruby2.5 |OR| AWS::Lambda::Function Runtime  == ruby2.7 << Enforce allowed values [dotnetcore1.0 | dotnetcore2.0 | dotnetcore2.1 | dotnetcore3.1 | go1.x | java11 | java8 | java8.al2 | nodejs | nodejs10.x | nodejs12.x | nodejs14.x | nodejs4.3 | nodejs4.3-edge | nodejs6.10 | nodejs8.10 | provided | provided.al2 | python2.7 | python3.6 | python3.7 | python3.8 | ruby2.5 | ruby2.7]
+# AWS::Lambda::Function Code  == /.*/ <<  Code is a required property for AWS::Lambda::Function
+# AWS::Lambda::Function Code.ImageUri  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for Code
+# AWS::Lambda::Function Code.S3Bucket  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for Code
+# AWS::Lambda::Function Code.S3Key  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for Code
+# AWS::Lambda::Function Code.S3ObjectVersion  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for Code
+# AWS::Lambda::Function Code.ZipFile  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for Code
+# AWS::Lambda::Function Code.lambda.function.code.S3Bucket  == /.*/ <<  lambda.function.code.S3Bucket is a Conditional property for AWS::Lambda::Function Code
+# AWS::Lambda::Function Code.lambda.function.code.S3Key  == /.*/ <<  lambda.function.code.S3Key is a Conditional property for AWS::Lambda::Function Code
+# AWS::Lambda::Function Code.lambda.function.code.S3ObjectVersion  == /.*/ <<  lambda.function.code.S3ObjectVersion is a Conditional property for AWS::Lambda::Function Code
+# AWS::Lambda::Function Code.lambda.function.code.ZipFile  == /.*/ <<  lambda.function.code.ZipFile is a Conditional property for AWS::Lambda::Function Code
+# AWS::Lambda::Function DeadLetterConfig.TargetArn  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for DeadLetterConfig
+# AWS::Lambda::Function Description  == /\S{0,256}/ <<  Description is a required property for AWS::Lambda::Function
+# AWS::Lambda::Function FileSystemConfigs.Arn  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for FileSystemConfigs
+# AWS::Lambda::Function FileSystemConfigs.LocalMountPath  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for FileSystemConfigs
+# AWS::Lambda::Function Handler  == /[^\s]+/ <<  Handler is a required pattern for AWS::Lambda::Function
+# AWS::Lambda::Function ImageConfig.WorkingDirectory  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for ImageConfig
+# AWS::Lambda::Function KmsKeyArn  == /(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()/ <<  KmsKeyArn is a required pattern for AWS::Lambda::Function
+# AWS::Lambda::Function MemorySize  <= 10240 <<  Integer is expected for AWS::Lambda::Function of MemorySize 
+# AWS::Lambda::Function MemorySize  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::Function of MemorySize 
+# AWS::Lambda::Function MemorySize  >= 128 <<  Integer is expected for AWS::Lambda::Function of MemorySize 
+# AWS::Lambda::Function PackageType  == /Image/ <<  Image is an expected value for AWS::Lambda::Function PackageType
+# AWS::Lambda::Function PackageType  == /Zip/ <<  Zip is an expected value for AWS::Lambda::Function PackageType
+# AWS::Lambda::Function PackageType IN [Image,Zip] << Enforcing Allowed Values only
+# AWS::Lambda::Function ReservedConcurrentExecutions  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::Function of ReservedConcurrentExecutions 
+# AWS::Lambda::Function ReservedConcurrentExecutions  >= 0 <<  Integer is expected for AWS::Lambda::Function of ReservedConcurrentExecutions 
+# AWS::Lambda::Function Role  == /.*/ <<  Role is a required property for AWS::Lambda::Function
+# AWS::Lambda::Function Role  == /arn:(aws[a-zA-Z-]*)?:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+/ <<  Role is a required pattern for AWS::Lambda::Function
+# AWS::Lambda::Function Runtime  == /dotnetcore1.0/ <<  dotnetcore1.0 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /dotnetcore2.0/ <<  dotnetcore2.0 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /dotnetcore2.1/ <<  dotnetcore2.1 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /dotnetcore3.1/ <<  dotnetcore3.1 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /go1.x/ <<  go1.x is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /java11/ <<  java11 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /java8.al2/ <<  java8.al2 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /java8/ <<  java8 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /nodejs/ <<  nodejs is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /nodejs10.x/ <<  nodejs10.x is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /nodejs12.x/ <<  nodejs12.x is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /nodejs14.x/ <<  nodejs14.x is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /nodejs4.3-edge/ <<  nodejs4.3-edge is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /nodejs4.3/ <<  nodejs4.3 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /nodejs6.10/ <<  nodejs6.10 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /nodejs8.10/ <<  nodejs8.10 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /provided.al2/ <<  provided.al2 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /provided/ <<  provided is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /python2.7/ <<  python2.7 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /python3.6/ <<  python3.6 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /python3.7/ <<  python3.7 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /python3.8/ <<  python3.8 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /ruby2.5/ <<  ruby2.5 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime  == /ruby2.7/ <<  ruby2.7 is an expected value for AWS::Lambda::Function Runtime
+# AWS::Lambda::Function Runtime IN [dotnetcore1.0,dotnetcore2.0,dotnetcore2.1,dotnetcore3.1,go1.x,java11,java8,java8.al2,nodejs,nodejs10.x,nodejs12.x,nodejs14.x,nodejs4.3,nodejs4.3-edge,nodejs6.10,nodejs8.10,provided,provided.al2,python2.7,python3.6,python3.7,python3.8,ruby2.5,ruby2.7] << Enforcing Allowed Values only
+# AWS::Lambda::Function Timeout  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::Function of Timeout 
+# AWS::Lambda::Function Timeout  >= 1 <<  Integer is expected for AWS::Lambda::Function of Timeout 
+# AWS::Lambda::Function TracingConfig.Mode  == /\S/ <<  AWS::Lambda::Function is an expected but optional String property for TracingConfig
+# TracingConfig.Mode == Active << Enforce Expected Value for lambda.function.tracingconfig.Mode
+# TracingConfig.Mode == PassThrough << Enforce Expected Value for lambda.function.tracingconfig.Mode
+# TracingConfig.Mode IN [Active,PassThrough] << Enforce Allowed Values

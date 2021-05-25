@@ -1,35 +1,35 @@
-#AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == CRITICAL |OR| AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == HIGH |OR| AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == INFORMATIONAL |OR| AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == LOW |OR| AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == MEDIUM |OR| AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == UNSPECIFIED << Enforce allowed values [CRITICAL | HIGH | INFORMATIONAL | LOW | MEDIUM | UNSPECIFIED]
-#AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity  == True |OR| AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity  == False << Enforce allowed values [True | False]
-#AWS::SSM::PatchBaseline OperatingSystem  == AMAZON_LINUX |OR| AWS::SSM::PatchBaseline OperatingSystem  == AMAZON_LINUX_2 |OR| AWS::SSM::PatchBaseline OperatingSystem  == CENTOS |OR| AWS::SSM::PatchBaseline OperatingSystem  == DEBIAN |OR| AWS::SSM::PatchBaseline OperatingSystem  == MACOS |OR| AWS::SSM::PatchBaseline OperatingSystem  == ORACLE_LINUX |OR| AWS::SSM::PatchBaseline OperatingSystem  == REDHAT_ENTERPRISE_LINUX |OR| AWS::SSM::PatchBaseline OperatingSystem  == SUSE |OR| AWS::SSM::PatchBaseline OperatingSystem  == UBUNTU |OR| AWS::SSM::PatchBaseline OperatingSystem  == WINDOWS << Enforce allowed values [AMAZON_LINUX | AMAZON_LINUX_2 | CENTOS | DEBIAN | MACOS | ORACLE_LINUX | REDHAT_ENTERPRISE_LINUX | SUSE | UBUNTU | WINDOWS]
-#AWS::SSM::PatchBaseline RejectedPatchesAction  == ALLOW_AS_DEPENDENCY |OR| AWS::SSM::PatchBaseline RejectedPatchesAction  == BLOCK << Enforce allowed values [ALLOW_AS_DEPENDENCY | BLOCK]
-AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == /CRITICAL/ <<  CRITICAL is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel
-AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == /HIGH/ <<  HIGH is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel
-AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == /INFORMATIONAL/ <<  INFORMATIONAL is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel
-AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == /LOW/ <<  LOW is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel
-AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == /MEDIUM/ <<  MEDIUM is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel
-AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == /UNSPECIFIED/ <<  UNSPECIFIED is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel
-AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel IN [CRITICAL,HIGH,INFORMATIONAL,LOW,MEDIUM,UNSPECIFIED] << Enforcing Allowed Values only
-AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity  == /False/ <<  False is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity
-AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity  == /True/ <<  True is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity
-AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity  == False <<  False is expected  safe default value
-AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity  == True <<  True is expected safe default value
-AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity IN [True,False] << Enforcing Allowed Values only
-AWS::SSM::PatchBaseline Description  == /\S{1,1024}/ <<  Description is a required property for AWS::SSM::PatchBaseline
-AWS::SSM::PatchBaseline Name  == /.*/ <<  Name is a required property for AWS::SSM::PatchBaseline
-AWS::SSM::PatchBaseline Name  == /\S{3,128}/ <<  Name is a required property for AWS::SSM::PatchBaseline
-AWS::SSM::PatchBaseline Name  == /^[a-zA-Z0-9_\-.]{3,128}$/ <<  Name is a required pattern for AWS::SSM::PatchBaseline
-AWS::SSM::PatchBaseline OperatingSystem  == /AMAZON_LINUX/ <<  AMAZON_LINUX is an expected value for AWS::SSM::PatchBaseline OperatingSystem
-AWS::SSM::PatchBaseline OperatingSystem  == /AMAZON_LINUX_2/ <<  AMAZON_LINUX_2 is an expected value for AWS::SSM::PatchBaseline OperatingSystem
-AWS::SSM::PatchBaseline OperatingSystem  == /CENTOS/ <<  CENTOS is an expected value for AWS::SSM::PatchBaseline OperatingSystem
-AWS::SSM::PatchBaseline OperatingSystem  == /DEBIAN/ <<  DEBIAN is an expected value for AWS::SSM::PatchBaseline OperatingSystem
-AWS::SSM::PatchBaseline OperatingSystem  == /MACOS/ <<  MACOS is an expected value for AWS::SSM::PatchBaseline OperatingSystem
-AWS::SSM::PatchBaseline OperatingSystem  == /ORACLE_LINUX/ <<  ORACLE_LINUX is an expected value for AWS::SSM::PatchBaseline OperatingSystem
-AWS::SSM::PatchBaseline OperatingSystem  == /REDHAT_ENTERPRISE_LINUX/ <<  REDHAT_ENTERPRISE_LINUX is an expected value for AWS::SSM::PatchBaseline OperatingSystem
-AWS::SSM::PatchBaseline OperatingSystem  == /SUSE/ <<  SUSE is an expected value for AWS::SSM::PatchBaseline OperatingSystem
-AWS::SSM::PatchBaseline OperatingSystem  == /UBUNTU/ <<  UBUNTU is an expected value for AWS::SSM::PatchBaseline OperatingSystem
-AWS::SSM::PatchBaseline OperatingSystem  == /WINDOWS/ <<  WINDOWS is an expected value for AWS::SSM::PatchBaseline OperatingSystem
-AWS::SSM::PatchBaseline OperatingSystem IN [AMAZON_LINUX,AMAZON_LINUX_2,CENTOS,DEBIAN,MACOS,ORACLE_LINUX,REDHAT_ENTERPRISE_LINUX,SUSE,UBUNTU,WINDOWS] << Enforcing Allowed Values only
-AWS::SSM::PatchBaseline PatchGroups  == /^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$/ <<  PatchGroups is a required pattern for AWS::SSM::PatchBaseline
-AWS::SSM::PatchBaseline RejectedPatchesAction  == /ALLOW_AS_DEPENDENCY/ <<  ALLOW_AS_DEPENDENCY is an expected value for AWS::SSM::PatchBaseline RejectedPatchesAction
-AWS::SSM::PatchBaseline RejectedPatchesAction  == /BLOCK/ <<  BLOCK is an expected value for AWS::SSM::PatchBaseline RejectedPatchesAction
-AWS::SSM::PatchBaseline RejectedPatchesAction IN [ALLOW_AS_DEPENDENCY,BLOCK] << Enforcing Allowed Values only
+# #AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == CRITICAL |OR| AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == HIGH |OR| AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == INFORMATIONAL |OR| AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == LOW |OR| AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == MEDIUM |OR| AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == UNSPECIFIED << Enforce allowed values [CRITICAL | HIGH | INFORMATIONAL | LOW | MEDIUM | UNSPECIFIED]
+# #AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity  == True |OR| AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity  == False << Enforce allowed values [True | False]
+# #AWS::SSM::PatchBaseline OperatingSystem  == AMAZON_LINUX |OR| AWS::SSM::PatchBaseline OperatingSystem  == AMAZON_LINUX_2 |OR| AWS::SSM::PatchBaseline OperatingSystem  == CENTOS |OR| AWS::SSM::PatchBaseline OperatingSystem  == DEBIAN |OR| AWS::SSM::PatchBaseline OperatingSystem  == MACOS |OR| AWS::SSM::PatchBaseline OperatingSystem  == ORACLE_LINUX |OR| AWS::SSM::PatchBaseline OperatingSystem  == REDHAT_ENTERPRISE_LINUX |OR| AWS::SSM::PatchBaseline OperatingSystem  == SUSE |OR| AWS::SSM::PatchBaseline OperatingSystem  == UBUNTU |OR| AWS::SSM::PatchBaseline OperatingSystem  == WINDOWS << Enforce allowed values [AMAZON_LINUX | AMAZON_LINUX_2 | CENTOS | DEBIAN | MACOS | ORACLE_LINUX | REDHAT_ENTERPRISE_LINUX | SUSE | UBUNTU | WINDOWS]
+# #AWS::SSM::PatchBaseline RejectedPatchesAction  == ALLOW_AS_DEPENDENCY |OR| AWS::SSM::PatchBaseline RejectedPatchesAction  == BLOCK << Enforce allowed values [ALLOW_AS_DEPENDENCY | BLOCK]
+# AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == /CRITICAL/ <<  CRITICAL is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel
+# AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == /HIGH/ <<  HIGH is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel
+# AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == /INFORMATIONAL/ <<  INFORMATIONAL is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel
+# AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == /LOW/ <<  LOW is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel
+# AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == /MEDIUM/ <<  MEDIUM is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel
+# AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel  == /UNSPECIFIED/ <<  UNSPECIFIED is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel
+# AWS::SSM::PatchBaseline ApprovedPatchesComplianceLevel IN [CRITICAL,HIGH,INFORMATIONAL,LOW,MEDIUM,UNSPECIFIED] << Enforcing Allowed Values only
+# AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity  == /False/ <<  False is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity
+# AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity  == /True/ <<  True is an expected value for AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity
+# AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity  == False <<  False is expected  safe default value
+# AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity  == True <<  True is expected safe default value
+# AWS::SSM::PatchBaseline ApprovedPatchesEnableNonSecurity IN [True,False] << Enforcing Allowed Values only
+# AWS::SSM::PatchBaseline Description  == /\S{1,1024}/ <<  Description is a required property for AWS::SSM::PatchBaseline
+# AWS::SSM::PatchBaseline Name  == /.*/ <<  Name is a required property for AWS::SSM::PatchBaseline
+# AWS::SSM::PatchBaseline Name  == /\S{3,128}/ <<  Name is a required property for AWS::SSM::PatchBaseline
+# AWS::SSM::PatchBaseline Name  == /^[a-zA-Z0-9_\-.]{3,128}$/ <<  Name is a required pattern for AWS::SSM::PatchBaseline
+# AWS::SSM::PatchBaseline OperatingSystem  == /AMAZON_LINUX/ <<  AMAZON_LINUX is an expected value for AWS::SSM::PatchBaseline OperatingSystem
+# AWS::SSM::PatchBaseline OperatingSystem  == /AMAZON_LINUX_2/ <<  AMAZON_LINUX_2 is an expected value for AWS::SSM::PatchBaseline OperatingSystem
+# AWS::SSM::PatchBaseline OperatingSystem  == /CENTOS/ <<  CENTOS is an expected value for AWS::SSM::PatchBaseline OperatingSystem
+# AWS::SSM::PatchBaseline OperatingSystem  == /DEBIAN/ <<  DEBIAN is an expected value for AWS::SSM::PatchBaseline OperatingSystem
+# AWS::SSM::PatchBaseline OperatingSystem  == /MACOS/ <<  MACOS is an expected value for AWS::SSM::PatchBaseline OperatingSystem
+# AWS::SSM::PatchBaseline OperatingSystem  == /ORACLE_LINUX/ <<  ORACLE_LINUX is an expected value for AWS::SSM::PatchBaseline OperatingSystem
+# AWS::SSM::PatchBaseline OperatingSystem  == /REDHAT_ENTERPRISE_LINUX/ <<  REDHAT_ENTERPRISE_LINUX is an expected value for AWS::SSM::PatchBaseline OperatingSystem
+# AWS::SSM::PatchBaseline OperatingSystem  == /SUSE/ <<  SUSE is an expected value for AWS::SSM::PatchBaseline OperatingSystem
+# AWS::SSM::PatchBaseline OperatingSystem  == /UBUNTU/ <<  UBUNTU is an expected value for AWS::SSM::PatchBaseline OperatingSystem
+# AWS::SSM::PatchBaseline OperatingSystem  == /WINDOWS/ <<  WINDOWS is an expected value for AWS::SSM::PatchBaseline OperatingSystem
+# AWS::SSM::PatchBaseline OperatingSystem IN [AMAZON_LINUX,AMAZON_LINUX_2,CENTOS,DEBIAN,MACOS,ORACLE_LINUX,REDHAT_ENTERPRISE_LINUX,SUSE,UBUNTU,WINDOWS] << Enforcing Allowed Values only
+# AWS::SSM::PatchBaseline PatchGroups  == /^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$/ <<  PatchGroups is a required pattern for AWS::SSM::PatchBaseline
+# AWS::SSM::PatchBaseline RejectedPatchesAction  == /ALLOW_AS_DEPENDENCY/ <<  ALLOW_AS_DEPENDENCY is an expected value for AWS::SSM::PatchBaseline RejectedPatchesAction
+# AWS::SSM::PatchBaseline RejectedPatchesAction  == /BLOCK/ <<  BLOCK is an expected value for AWS::SSM::PatchBaseline RejectedPatchesAction
+# AWS::SSM::PatchBaseline RejectedPatchesAction IN [ALLOW_AS_DEPENDENCY,BLOCK] << Enforcing Allowed Values only

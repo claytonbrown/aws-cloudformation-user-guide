@@ -1,24 +1,24 @@
-#AWS::EKS::Nodegroup AmiType  == AL2_ARM_64 |OR| AWS::EKS::Nodegroup AmiType  == AL2_x86_64 |OR| AWS::EKS::Nodegroup AmiType  == AL2_x86_64_GPU |OR| AWS::EKS::Nodegroup AmiType  == CUSTOM << Enforce allowed values [AL2_ARM_64 | AL2_x86_64 | AL2_x86_64_GPU | CUSTOM]
-#AWS::EKS::Nodegroup CapacityType  == ON_DEMAND |OR| AWS::EKS::Nodegroup CapacityType  == SPOT << Enforce allowed values [ON_DEMAND | SPOT]
-#AWS::EKS::Nodegroup ForceUpdateEnabled  == True |OR| AWS::EKS::Nodegroup ForceUpdateEnabled  == False << Enforce allowed values [True | False]
-AWS::EKS::Nodegroup AmiType  == /AL2_ARM_64/ <<  AL2_ARM_64 is an expected value for AWS::EKS::Nodegroup AmiType
-AWS::EKS::Nodegroup AmiType  == /AL2_x86_64/ <<  AL2_x86_64 is an expected value for AWS::EKS::Nodegroup AmiType
-AWS::EKS::Nodegroup AmiType  == /AL2_x86_64_GPU/ <<  AL2_x86_64_GPU is an expected value for AWS::EKS::Nodegroup AmiType
-AWS::EKS::Nodegroup AmiType  == /CUSTOM/ <<  CUSTOM is an expected value for AWS::EKS::Nodegroup AmiType
-AWS::EKS::Nodegroup AmiType IN [AL2_ARM_64,AL2_x86_64,AL2_x86_64_GPU,CUSTOM] << Enforcing Allowed Values only
-AWS::EKS::Nodegroup CapacityType  == /ON_DEMAND/ <<  ON_DEMAND is an expected value for AWS::EKS::Nodegroup CapacityType
-AWS::EKS::Nodegroup CapacityType  == /SPOT/ <<  SPOT is an expected value for AWS::EKS::Nodegroup CapacityType
-AWS::EKS::Nodegroup CapacityType IN [ON_DEMAND,SPOT] << Enforcing Allowed Values only
-AWS::EKS::Nodegroup ClusterName  == /.*/ <<  ClusterName is a required property for AWS::EKS::Nodegroup
-AWS::EKS::Nodegroup ForceUpdateEnabled  == /False/ <<  False is an expected value for AWS::EKS::Nodegroup ForceUpdateEnabled
-AWS::EKS::Nodegroup ForceUpdateEnabled  == /True/ <<  True is an expected value for AWS::EKS::Nodegroup ForceUpdateEnabled
-AWS::EKS::Nodegroup ForceUpdateEnabled  == False <<  False is expected  safe default value
-AWS::EKS::Nodegroup ForceUpdateEnabled  == True <<  True is expected safe default value
-AWS::EKS::Nodegroup ForceUpdateEnabled IN [True,False] << Enforcing Allowed Values only
-AWS::EKS::Nodegroup NodeRole  == /.*/ <<  NodeRole is a required property for AWS::EKS::Nodegroup
-AWS::EKS::Nodegroup RemoteAccess.Ec2SshKey  == /\S/ <<  AWS::EKS::Nodegroup is an expected but optional String property for RemoteAccess
-AWS::EKS::Nodegroup RemoteAccess.eks.nodegroup.remoteaccess.Ec2SshKey  == /.*/ <<  eks.nodegroup.remoteaccess.Ec2SshKey is a required property for AWS::EKS::Nodegroup RemoteAccess
-AWS::EKS::Nodegroup Subnets  == /.*/ <<  Subnets is a required property for AWS::EKS::Nodegroup
-AWS::EKS::Nodegroup Taints.Effect  == /\S/ <<  AWS::EKS::Nodegroup is an expected but optional String property for Taints
-AWS::EKS::Nodegroup Taints.Key  == /\S/ <<  AWS::EKS::Nodegroup is an expected but optional String property for Taints
-AWS::EKS::Nodegroup Taints.Value  == /\S/ <<  AWS::EKS::Nodegroup is an expected but optional String property for Taints
+# #AWS::EKS::Nodegroup AmiType  == AL2_ARM_64 |OR| AWS::EKS::Nodegroup AmiType  == AL2_x86_64 |OR| AWS::EKS::Nodegroup AmiType  == AL2_x86_64_GPU |OR| AWS::EKS::Nodegroup AmiType  == CUSTOM << Enforce allowed values [AL2_ARM_64 | AL2_x86_64 | AL2_x86_64_GPU | CUSTOM]
+# #AWS::EKS::Nodegroup CapacityType  == ON_DEMAND |OR| AWS::EKS::Nodegroup CapacityType  == SPOT << Enforce allowed values [ON_DEMAND | SPOT]
+# #AWS::EKS::Nodegroup ForceUpdateEnabled  == True |OR| AWS::EKS::Nodegroup ForceUpdateEnabled  == False << Enforce allowed values [True | False]
+# AWS::EKS::Nodegroup AmiType  == /AL2_ARM_64/ <<  AL2_ARM_64 is an expected value for AWS::EKS::Nodegroup AmiType
+# AWS::EKS::Nodegroup AmiType  == /AL2_x86_64/ <<  AL2_x86_64 is an expected value for AWS::EKS::Nodegroup AmiType
+# AWS::EKS::Nodegroup AmiType  == /AL2_x86_64_GPU/ <<  AL2_x86_64_GPU is an expected value for AWS::EKS::Nodegroup AmiType
+# AWS::EKS::Nodegroup AmiType  == /CUSTOM/ <<  CUSTOM is an expected value for AWS::EKS::Nodegroup AmiType
+# AWS::EKS::Nodegroup AmiType IN [AL2_ARM_64,AL2_x86_64,AL2_x86_64_GPU,CUSTOM] << Enforcing Allowed Values only
+# AWS::EKS::Nodegroup CapacityType  == /ON_DEMAND/ <<  ON_DEMAND is an expected value for AWS::EKS::Nodegroup CapacityType
+# AWS::EKS::Nodegroup CapacityType  == /SPOT/ <<  SPOT is an expected value for AWS::EKS::Nodegroup CapacityType
+# AWS::EKS::Nodegroup CapacityType IN [ON_DEMAND,SPOT] << Enforcing Allowed Values only
+# AWS::EKS::Nodegroup ClusterName  == /.*/ <<  ClusterName is a required property for AWS::EKS::Nodegroup
+# AWS::EKS::Nodegroup ForceUpdateEnabled  == /False/ <<  False is an expected value for AWS::EKS::Nodegroup ForceUpdateEnabled
+# AWS::EKS::Nodegroup ForceUpdateEnabled  == /True/ <<  True is an expected value for AWS::EKS::Nodegroup ForceUpdateEnabled
+# AWS::EKS::Nodegroup ForceUpdateEnabled  == False <<  False is expected  safe default value
+# AWS::EKS::Nodegroup ForceUpdateEnabled  == True <<  True is expected safe default value
+# AWS::EKS::Nodegroup ForceUpdateEnabled IN [True,False] << Enforcing Allowed Values only
+# AWS::EKS::Nodegroup NodeRole  == /.*/ <<  NodeRole is a required property for AWS::EKS::Nodegroup
+# AWS::EKS::Nodegroup RemoteAccess.Ec2SshKey  == /\S/ <<  AWS::EKS::Nodegroup is an expected but optional String property for RemoteAccess
+# AWS::EKS::Nodegroup RemoteAccess.eks.nodegroup.remoteaccess.Ec2SshKey  == /.*/ <<  eks.nodegroup.remoteaccess.Ec2SshKey is a required property for AWS::EKS::Nodegroup RemoteAccess
+# AWS::EKS::Nodegroup Subnets  == /.*/ <<  Subnets is a required property for AWS::EKS::Nodegroup
+# AWS::EKS::Nodegroup Taints.Effect  == /\S/ <<  AWS::EKS::Nodegroup is an expected but optional String property for Taints
+# AWS::EKS::Nodegroup Taints.Key  == /\S/ <<  AWS::EKS::Nodegroup is an expected but optional String property for Taints
+# AWS::EKS::Nodegroup Taints.Value  == /\S/ <<  AWS::EKS::Nodegroup is an expected but optional String property for Taints

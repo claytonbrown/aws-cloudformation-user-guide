@@ -1,42 +1,46 @@
-#AWS::FSx::FileSystem FileSystemType  == LUSTRE |OR| AWS::FSx::FileSystem FileSystemType  == WINDOWS << Enforce allowed values [LUSTRE | WINDOWS]
-AWS::FSx::FileSystem FileSystemType  == /.*/ <<  FileSystemType is a required property for AWS::FSx::FileSystem
-AWS::FSx::FileSystem FileSystemType  == /LUSTRE/ <<  LUSTRE is an expected value for AWS::FSx::FileSystem FileSystemType
-AWS::FSx::FileSystem FileSystemType  == /WINDOWS/ <<  WINDOWS is an expected value for AWS::FSx::FileSystem FileSystemType
-AWS::FSx::FileSystem FileSystemType IN [LUSTRE,WINDOWS] << Enforcing Allowed Values only
-AWS::FSx::FileSystem LustreConfiguration.AutoImportPolicy  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
-AWS::FSx::FileSystem LustreConfiguration.DailyAutomaticBackupStartTime  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
-AWS::FSx::FileSystem LustreConfiguration.DeploymentType  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
-AWS::FSx::FileSystem LustreConfiguration.DriveCacheType  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
-AWS::FSx::FileSystem LustreConfiguration.ExportPath  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
-AWS::FSx::FileSystem LustreConfiguration.ImportPath  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
-AWS::FSx::FileSystem LustreConfiguration.WeeklyMaintenanceStartTime  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
-AWS::FSx::FileSystem StorageCapacity  <= 2147483647 <<  Integer is expected for AWS::FSx::FileSystem of StorageCapacity 
-AWS::FSx::FileSystem StorageCapacity  == /[0-9].+/ <<  Integer is expected for AWS::FSx::FileSystem of StorageCapacity 
-AWS::FSx::FileSystem StorageCapacity  >= 0 <<  Integer is expected for AWS::FSx::FileSystem of StorageCapacity 
-AWS::FSx::FileSystem SubnetIds  == /.*/ <<  SubnetIds is a required property for AWS::FSx::FileSystem
-AWS::FSx::FileSystem WindowsConfiguration.ActiveDirectoryId  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for WindowsConfiguration
-AWS::FSx::FileSystem WindowsConfiguration.DailyAutomaticBackupStartTime  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for WindowsConfiguration
-AWS::FSx::FileSystem WindowsConfiguration.DeploymentType  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for WindowsConfiguration
-AWS::FSx::FileSystem WindowsConfiguration.PreferredSubnetId  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for WindowsConfiguration
-AWS::FSx::FileSystem WindowsConfiguration.WeeklyMaintenanceStartTime  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for WindowsConfiguration
-LustreConfiguration.AutoImportPolicy == NEW << Enforce Expected Value for fsx.filesystem.lustreconfiguration.AutoImportPolicy
-LustreConfiguration.AutoImportPolicy == NEW_CHANGED << Enforce Expected Value for fsx.filesystem.lustreconfiguration.AutoImportPolicy
-LustreConfiguration.AutoImportPolicy == NONE << Enforce Expected Value for fsx.filesystem.lustreconfiguration.AutoImportPolicy
-LustreConfiguration.AutoImportPolicy IN [NEW,NEW_CHANGED,NONE] << Enforce Allowed Values
-LustreConfiguration.CopyTagsToBackups == False << Enforce Expected Value for fsx.filesystem.lustreconfiguration.CopyTagsToBackups
-LustreConfiguration.CopyTagsToBackups == True << Enforce Expected Value for fsx.filesystem.lustreconfiguration.CopyTagsToBackups
-LustreConfiguration.CopyTagsToBackups IN [True,False] << Enforce Allowed Values
-LustreConfiguration.DeploymentType == PERSISTENT_1 << Enforce Expected Value for fsx.filesystem.lustreconfiguration.DeploymentType
-LustreConfiguration.DeploymentType == SCRATCH_1 << Enforce Expected Value for fsx.filesystem.lustreconfiguration.DeploymentType
-LustreConfiguration.DeploymentType == SCRATCH_2 << Enforce Expected Value for fsx.filesystem.lustreconfiguration.DeploymentType
-LustreConfiguration.DeploymentType IN [PERSISTENT_1,SCRATCH_1,SCRATCH_2] << Enforce Allowed Values
-LustreConfiguration.DriveCacheType == NONE << Enforce Expected Value for fsx.filesystem.lustreconfiguration.DriveCacheType
-LustreConfiguration.DriveCacheType == READ << Enforce Expected Value for fsx.filesystem.lustreconfiguration.DriveCacheType
-LustreConfiguration.DriveCacheType IN [NONE,READ] << Enforce Allowed Values
-WindowsConfiguration.CopyTagsToBackups == False << Enforce Expected Value for fsx.filesystem.windowsconfiguration.CopyTagsToBackups
-WindowsConfiguration.CopyTagsToBackups == True << Enforce Expected Value for fsx.filesystem.windowsconfiguration.CopyTagsToBackups
-WindowsConfiguration.CopyTagsToBackups IN [True,False] << Enforce Allowed Values
-WindowsConfiguration.DeploymentType == MULTI_AZ_1 << Enforce Expected Value for fsx.filesystem.windowsconfiguration.DeploymentType
-WindowsConfiguration.DeploymentType == SINGLE_AZ_1 << Enforce Expected Value for fsx.filesystem.windowsconfiguration.DeploymentType
-WindowsConfiguration.DeploymentType == SINGLE_AZ_2 << Enforce Expected Value for fsx.filesystem.windowsconfiguration.DeploymentType
-WindowsConfiguration.DeploymentType IN [MULTI_AZ_1,SINGLE_AZ_1,SINGLE_AZ_2] << Enforce Allowed Values
+# #AWS::FSx::FileSystem FileSystemType  == LUSTRE |OR| AWS::FSx::FileSystem FileSystemType  == WINDOWS << Enforce allowed values [LUSTRE | WINDOWS]
+# AWS::FSx::FileSystem FileSystemType  == /.*/ <<  FileSystemType is a required property for AWS::FSx::FileSystem
+# AWS::FSx::FileSystem FileSystemType  == /LUSTRE/ <<  LUSTRE is an expected value for AWS::FSx::FileSystem FileSystemType
+# AWS::FSx::FileSystem FileSystemType  == /WINDOWS/ <<  WINDOWS is an expected value for AWS::FSx::FileSystem FileSystemType
+# AWS::FSx::FileSystem FileSystemType IN [LUSTRE,WINDOWS] << Enforcing Allowed Values only
+# AWS::FSx::FileSystem LustreConfiguration.AutoImportPolicy  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
+# AWS::FSx::FileSystem LustreConfiguration.DailyAutomaticBackupStartTime  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
+# AWS::FSx::FileSystem LustreConfiguration.DeploymentType  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
+# AWS::FSx::FileSystem LustreConfiguration.DriveCacheType  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
+# AWS::FSx::FileSystem LustreConfiguration.ExportPath  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
+# AWS::FSx::FileSystem LustreConfiguration.ImportPath  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
+# AWS::FSx::FileSystem LustreConfiguration.WeeklyMaintenanceStartTime  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for LustreConfiguration
+# AWS::FSx::FileSystem LustreConfiguration.fsx.filesystem.lustreconfiguration.PerUnitStorageThroughput  == /.*/ <<  fsx.filesystem.lustreconfiguration.PerUnitStorageThroughput is a Conditional property for AWS::FSx::FileSystem LustreConfiguration
+# AWS::FSx::FileSystem StorageCapacity  <= 2147483647 <<  Integer is expected for AWS::FSx::FileSystem of StorageCapacity 
+# AWS::FSx::FileSystem StorageCapacity  == /[0-9].+/ <<  Integer is expected for AWS::FSx::FileSystem of StorageCapacity 
+# AWS::FSx::FileSystem StorageCapacity  >= 0 <<  Integer is expected for AWS::FSx::FileSystem of StorageCapacity 
+# AWS::FSx::FileSystem SubnetIds  == /.*/ <<  SubnetIds is a required property for AWS::FSx::FileSystem
+# AWS::FSx::FileSystem WindowsConfiguration.ActiveDirectoryId  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for WindowsConfiguration
+# AWS::FSx::FileSystem WindowsConfiguration.DailyAutomaticBackupStartTime  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for WindowsConfiguration
+# AWS::FSx::FileSystem WindowsConfiguration.DeploymentType  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for WindowsConfiguration
+# AWS::FSx::FileSystem WindowsConfiguration.PreferredSubnetId  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for WindowsConfiguration
+# AWS::FSx::FileSystem WindowsConfiguration.WeeklyMaintenanceStartTime  == /\S/ <<  AWS::FSx::FileSystem is an expected but optional String property for WindowsConfiguration
+# AWS::FSx::FileSystem WindowsConfiguration.fsx.filesystem.windowsconfiguration.ActiveDirectoryId  == /.*/ <<  fsx.filesystem.windowsconfiguration.ActiveDirectoryId is a Conditional property for AWS::FSx::FileSystem WindowsConfiguration
+# AWS::FSx::FileSystem WindowsConfiguration.fsx.filesystem.windowsconfiguration.PreferredSubnetId  == /.*/ <<  fsx.filesystem.windowsconfiguration.PreferredSubnetId is a Conditional property for AWS::FSx::FileSystem WindowsConfiguration
+# AWS::FSx::FileSystem WindowsConfiguration.fsx.filesystem.windowsconfiguration.ThroughputCapacity  == /.*/ <<  fsx.filesystem.windowsconfiguration.ThroughputCapacity is a Conditional property for AWS::FSx::FileSystem WindowsConfiguration
+# LustreConfiguration.AutoImportPolicy == NEW << Enforce Expected Value for fsx.filesystem.lustreconfiguration.AutoImportPolicy
+# LustreConfiguration.AutoImportPolicy == NEW_CHANGED << Enforce Expected Value for fsx.filesystem.lustreconfiguration.AutoImportPolicy
+# LustreConfiguration.AutoImportPolicy == NONE << Enforce Expected Value for fsx.filesystem.lustreconfiguration.AutoImportPolicy
+# LustreConfiguration.AutoImportPolicy IN [NEW,NEW_CHANGED,NONE] << Enforce Allowed Values
+# LustreConfiguration.CopyTagsToBackups == False << Enforce Expected Value for fsx.filesystem.lustreconfiguration.CopyTagsToBackups
+# LustreConfiguration.CopyTagsToBackups == True << Enforce Expected Value for fsx.filesystem.lustreconfiguration.CopyTagsToBackups
+# LustreConfiguration.CopyTagsToBackups IN [True,False] << Enforce Allowed Values
+# LustreConfiguration.DeploymentType == PERSISTENT_1 << Enforce Expected Value for fsx.filesystem.lustreconfiguration.DeploymentType
+# LustreConfiguration.DeploymentType == SCRATCH_1 << Enforce Expected Value for fsx.filesystem.lustreconfiguration.DeploymentType
+# LustreConfiguration.DeploymentType == SCRATCH_2 << Enforce Expected Value for fsx.filesystem.lustreconfiguration.DeploymentType
+# LustreConfiguration.DeploymentType IN [PERSISTENT_1,SCRATCH_1,SCRATCH_2] << Enforce Allowed Values
+# LustreConfiguration.DriveCacheType == NONE << Enforce Expected Value for fsx.filesystem.lustreconfiguration.DriveCacheType
+# LustreConfiguration.DriveCacheType == READ << Enforce Expected Value for fsx.filesystem.lustreconfiguration.DriveCacheType
+# LustreConfiguration.DriveCacheType IN [NONE,READ] << Enforce Allowed Values
+# WindowsConfiguration.CopyTagsToBackups == False << Enforce Expected Value for fsx.filesystem.windowsconfiguration.CopyTagsToBackups
+# WindowsConfiguration.CopyTagsToBackups == True << Enforce Expected Value for fsx.filesystem.windowsconfiguration.CopyTagsToBackups
+# WindowsConfiguration.CopyTagsToBackups IN [True,False] << Enforce Allowed Values
+# WindowsConfiguration.DeploymentType == MULTI_AZ_1 << Enforce Expected Value for fsx.filesystem.windowsconfiguration.DeploymentType
+# WindowsConfiguration.DeploymentType == SINGLE_AZ_1 << Enforce Expected Value for fsx.filesystem.windowsconfiguration.DeploymentType
+# WindowsConfiguration.DeploymentType == SINGLE_AZ_2 << Enforce Expected Value for fsx.filesystem.windowsconfiguration.DeploymentType
+# WindowsConfiguration.DeploymentType IN [MULTI_AZ_1,SINGLE_AZ_1,SINGLE_AZ_2] << Enforce Allowed Values

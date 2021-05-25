@@ -27,14 +27,18 @@
     "Maximum": "128",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "cloudformation.stackset.AutoDeployment": {
+  "cloudformation.stackset.CallAs": {
     "Required": "No",
-    "Type": "AutoDeployment",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "cloudformation.stackset.Tags": {
     "Required": "No",
     "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudformation.stackset.AutoDeployment": {
+    "Required": "No",
+    "Type": "AutoDeployment",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudformation.stackset.Description": {
@@ -62,16 +66,16 @@
     "Type": "List of [StackInstances",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "cloudformation.stackset.Capabilities": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "cloudformation.stackset.AdministrationRoleARN": {
     "Required": "No",
     "Minimum": "20",
     "Maximum": "2048",
     "UpdateRequires": "No interruption"
-  },
-  "cloudformation.stackset.Capabilities": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudformation.stackset.TemplateURL": {
     "Required": "Conditional",

@@ -1,29 +1,29 @@
-#AWS::Budgets::BudgetsAction ActionType  == APPLY_IAM_POLICY |OR| AWS::Budgets::BudgetsAction ActionType  == APPLY_SCP_POLICY |OR| AWS::Budgets::BudgetsAction ActionType  == RUN_SSM_DOCUMENTS << Enforce allowed values [APPLY_IAM_POLICY | APPLY_SCP_POLICY | RUN_SSM_DOCUMENTS]
-#AWS::Budgets::BudgetsAction ApprovalModel  == AUTOMATIC |OR| AWS::Budgets::BudgetsAction ApprovalModel  == MANUAL << Enforce allowed values [AUTOMATIC | MANUAL]
-#AWS::Budgets::BudgetsAction NotificationType  == ACTUAL |OR| AWS::Budgets::BudgetsAction NotificationType  == FORECASTED << Enforce allowed values [ACTUAL | FORECASTED]
-AWS::Budgets::BudgetsAction ActionThreshold  == /.*/ <<  ActionThreshold is a required property for AWS::Budgets::BudgetsAction
-AWS::Budgets::BudgetsAction ActionThreshold.Type  == /\S/ <<  AWS::Budgets::BudgetsAction is an expected but optional String property for ActionThreshold
-AWS::Budgets::BudgetsAction ActionThreshold.budgets.budgetsaction.actionthreshold.Type  == /.*/ <<  budgets.budgetsaction.actionthreshold.Type is a required property for AWS::Budgets::BudgetsAction ActionThreshold
-AWS::Budgets::BudgetsAction ActionThreshold.budgets.budgetsaction.actionthreshold.Value  == /.*/ <<  budgets.budgetsaction.actionthreshold.Value is a required property for AWS::Budgets::BudgetsAction ActionThreshold
-AWS::Budgets::BudgetsAction ActionType  == /.*/ <<  ActionType is a required property for AWS::Budgets::BudgetsAction
-AWS::Budgets::BudgetsAction ActionType  == /APPLY_IAM_POLICY/ <<  APPLY_IAM_POLICY is an expected value for AWS::Budgets::BudgetsAction ActionType
-AWS::Budgets::BudgetsAction ActionType  == /APPLY_SCP_POLICY/ <<  APPLY_SCP_POLICY is an expected value for AWS::Budgets::BudgetsAction ActionType
-AWS::Budgets::BudgetsAction ActionType  == /RUN_SSM_DOCUMENTS/ <<  RUN_SSM_DOCUMENTS is an expected value for AWS::Budgets::BudgetsAction ActionType
-AWS::Budgets::BudgetsAction ActionType IN [APPLY_IAM_POLICY,APPLY_SCP_POLICY,RUN_SSM_DOCUMENTS] << Enforcing Allowed Values only
-AWS::Budgets::BudgetsAction ApprovalModel  == /AUTOMATIC/ <<  AUTOMATIC is an expected value for AWS::Budgets::BudgetsAction ApprovalModel
-AWS::Budgets::BudgetsAction ApprovalModel  == /MANUAL/ <<  MANUAL is an expected value for AWS::Budgets::BudgetsAction ApprovalModel
-AWS::Budgets::BudgetsAction ApprovalModel IN [AUTOMATIC,MANUAL] << Enforcing Allowed Values only
-AWS::Budgets::BudgetsAction BudgetName  == /.*/ <<  BudgetName is a required property for AWS::Budgets::BudgetsAction
-AWS::Budgets::BudgetsAction Definition  == /.*/ <<  Definition is a required property for AWS::Budgets::BudgetsAction
-AWS::Budgets::BudgetsAction ExecutionRoleArn  == /.*/ <<  ExecutionRoleArn is a required property for AWS::Budgets::BudgetsAction
-AWS::Budgets::BudgetsAction ExecutionRoleArn  == /^arn:(aws|aws-cn|aws-us-gov|us-iso-east-1|us-isob-east-1):iam::\d{12}:role(\u002F[\u0021-\u007F]+\u002F|\u002F)[\w+=,.@-]+$/ <<  ExecutionRoleArn is a required pattern for AWS::Budgets::BudgetsAction
-AWS::Budgets::BudgetsAction ExecutionRoleArn  == /arn.*{32,618}/ <<  ExecutionRoleArn is a required property for AWS::Budgets::BudgetsAction
-AWS::Budgets::BudgetsAction NotificationType  == /.*/ <<  NotificationType is a required property for AWS::Budgets::BudgetsAction
-AWS::Budgets::BudgetsAction NotificationType  == /ACTUAL/ <<  ACTUAL is an expected value for AWS::Budgets::BudgetsAction NotificationType
-AWS::Budgets::BudgetsAction NotificationType  == /FORECASTED/ <<  FORECASTED is an expected value for AWS::Budgets::BudgetsAction NotificationType
-AWS::Budgets::BudgetsAction NotificationType IN [ACTUAL,FORECASTED] << Enforcing Allowed Values only
-AWS::Budgets::BudgetsAction Subscribers.Address  == /\S/ <<  AWS::Budgets::BudgetsAction is an expected but optional String property for Subscribers
-AWS::Budgets::BudgetsAction Subscribers.Type  == /\S/ <<  AWS::Budgets::BudgetsAction is an expected but optional String property for Subscribers
-ActionThreshold.Type == ABSOLUTE_VALUE << Enforce Expected Value for budgets.budgetsaction.actionthreshold.Type
-ActionThreshold.Type == PERCENTAGE << Enforce Expected Value for budgets.budgetsaction.actionthreshold.Type
-ActionThreshold.Type IN [ABSOLUTE_VALUE,PERCENTAGE] << Enforce Allowed Values
+# #AWS::Budgets::BudgetsAction ActionType  == APPLY_IAM_POLICY |OR| AWS::Budgets::BudgetsAction ActionType  == APPLY_SCP_POLICY |OR| AWS::Budgets::BudgetsAction ActionType  == RUN_SSM_DOCUMENTS << Enforce allowed values [APPLY_IAM_POLICY | APPLY_SCP_POLICY | RUN_SSM_DOCUMENTS]
+# #AWS::Budgets::BudgetsAction ApprovalModel  == AUTOMATIC |OR| AWS::Budgets::BudgetsAction ApprovalModel  == MANUAL << Enforce allowed values [AUTOMATIC | MANUAL]
+# #AWS::Budgets::BudgetsAction NotificationType  == ACTUAL |OR| AWS::Budgets::BudgetsAction NotificationType  == FORECASTED << Enforce allowed values [ACTUAL | FORECASTED]
+# AWS::Budgets::BudgetsAction ActionThreshold  == /.*/ <<  ActionThreshold is a required property for AWS::Budgets::BudgetsAction
+# AWS::Budgets::BudgetsAction ActionThreshold.Type  == /\S/ <<  AWS::Budgets::BudgetsAction is an expected but optional String property for ActionThreshold
+# AWS::Budgets::BudgetsAction ActionThreshold.budgets.budgetsaction.actionthreshold.Type  == /.*/ <<  budgets.budgetsaction.actionthreshold.Type is a required property for AWS::Budgets::BudgetsAction ActionThreshold
+# AWS::Budgets::BudgetsAction ActionThreshold.budgets.budgetsaction.actionthreshold.Value  == /.*/ <<  budgets.budgetsaction.actionthreshold.Value is a required property for AWS::Budgets::BudgetsAction ActionThreshold
+# AWS::Budgets::BudgetsAction ActionType  == /.*/ <<  ActionType is a required property for AWS::Budgets::BudgetsAction
+# AWS::Budgets::BudgetsAction ActionType  == /APPLY_IAM_POLICY/ <<  APPLY_IAM_POLICY is an expected value for AWS::Budgets::BudgetsAction ActionType
+# AWS::Budgets::BudgetsAction ActionType  == /APPLY_SCP_POLICY/ <<  APPLY_SCP_POLICY is an expected value for AWS::Budgets::BudgetsAction ActionType
+# AWS::Budgets::BudgetsAction ActionType  == /RUN_SSM_DOCUMENTS/ <<  RUN_SSM_DOCUMENTS is an expected value for AWS::Budgets::BudgetsAction ActionType
+# AWS::Budgets::BudgetsAction ActionType IN [APPLY_IAM_POLICY,APPLY_SCP_POLICY,RUN_SSM_DOCUMENTS] << Enforcing Allowed Values only
+# AWS::Budgets::BudgetsAction ApprovalModel  == /AUTOMATIC/ <<  AUTOMATIC is an expected value for AWS::Budgets::BudgetsAction ApprovalModel
+# AWS::Budgets::BudgetsAction ApprovalModel  == /MANUAL/ <<  MANUAL is an expected value for AWS::Budgets::BudgetsAction ApprovalModel
+# AWS::Budgets::BudgetsAction ApprovalModel IN [AUTOMATIC,MANUAL] << Enforcing Allowed Values only
+# AWS::Budgets::BudgetsAction BudgetName  == /.*/ <<  BudgetName is a required property for AWS::Budgets::BudgetsAction
+# AWS::Budgets::BudgetsAction Definition  == /.*/ <<  Definition is a required property for AWS::Budgets::BudgetsAction
+# AWS::Budgets::BudgetsAction ExecutionRoleArn  == /.*/ <<  ExecutionRoleArn is a required property for AWS::Budgets::BudgetsAction
+# AWS::Budgets::BudgetsAction ExecutionRoleArn  == /^arn:(aws|aws-cn|aws-us-gov|us-iso-east-1|us-isob-east-1):iam::\d{12}:role(\u002F[\u0021-\u007F]+\u002F|\u002F)[\w+=,.@-]+$/ <<  ExecutionRoleArn is a required pattern for AWS::Budgets::BudgetsAction
+# AWS::Budgets::BudgetsAction ExecutionRoleArn  == /arn.*{32,618}/ <<  ExecutionRoleArn is a required property for AWS::Budgets::BudgetsAction
+# AWS::Budgets::BudgetsAction NotificationType  == /.*/ <<  NotificationType is a required property for AWS::Budgets::BudgetsAction
+# AWS::Budgets::BudgetsAction NotificationType  == /ACTUAL/ <<  ACTUAL is an expected value for AWS::Budgets::BudgetsAction NotificationType
+# AWS::Budgets::BudgetsAction NotificationType  == /FORECASTED/ <<  FORECASTED is an expected value for AWS::Budgets::BudgetsAction NotificationType
+# AWS::Budgets::BudgetsAction NotificationType IN [ACTUAL,FORECASTED] << Enforcing Allowed Values only
+# AWS::Budgets::BudgetsAction Subscribers.Address  == /\S/ <<  AWS::Budgets::BudgetsAction is an expected but optional String property for Subscribers
+# AWS::Budgets::BudgetsAction Subscribers.Type  == /\S/ <<  AWS::Budgets::BudgetsAction is an expected but optional String property for Subscribers
+# ActionThreshold.Type == ABSOLUTE_VALUE << Enforce Expected Value for budgets.budgetsaction.actionthreshold.Type
+# ActionThreshold.Type == PERCENTAGE << Enforce Expected Value for budgets.budgetsaction.actionthreshold.Type
+# ActionThreshold.Type IN [ABSOLUTE_VALUE,PERCENTAGE] << Enforce Allowed Values
