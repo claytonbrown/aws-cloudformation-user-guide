@@ -595,7 +595,7 @@
     },
     "acmpca.certificateauthority.csrextensions.subjectinformationaccess": {
         "Required": "No",
-        "Type": "SubjectInformationAccess",
+        "Type": "List of [AccessDescription",
         "UniqueKey": "acmpca.certificateauthority.csrextensions.subjectinformationaccess",
         "UpdateRequires": "Replacement"
     },
@@ -3407,6 +3407,12 @@
         "UniqueKey": "appflow.flow.destinationconnectorproperties.upsolver",
         "UpdateRequires": "Replacement"
     },
+    "appflow.flow.destinationconnectorproperties.zendesk": {
+        "Required": "No",
+        "Type": "ZendeskDestinationProperties",
+        "UniqueKey": "appflow.flow.destinationconnectorproperties.zendesk",
+        "UpdateRequires": "Replacement"
+    },
     "appflow.flow.destinationflowconfig.connectorprofilename": {
         "Maximum": "256",
         "Pattern": "[\\w/!@#+=.-]+",
@@ -4031,6 +4037,30 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "appflow.flow.veevasourceproperties.object",
+        "UpdateRequires": "Replacement"
+    },
+    "appflow.flow.zendeskdestinationproperties.errorhandlingconfig": {
+        "Required": "No",
+        "Type": "ErrorHandlingConfig",
+        "UniqueKey": "appflow.flow.zendeskdestinationproperties.errorhandlingconfig",
+        "UpdateRequires": "Replacement"
+    },
+    "appflow.flow.zendeskdestinationproperties.idfieldnames": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "appflow.flow.zendeskdestinationproperties.idfieldnames",
+        "UpdateRequires": "Replacement"
+    },
+    "appflow.flow.zendeskdestinationproperties.object": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "appflow.flow.zendeskdestinationproperties.object",
+        "UpdateRequires": "Replacement"
+    },
+    "appflow.flow.zendeskdestinationproperties.writeoperationtype": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appflow.flow.zendeskdestinationproperties.writeoperationtype",
         "UpdateRequires": "Replacement"
     },
     "appflow.flow.zendesksourceproperties.object": {
@@ -6056,6 +6086,287 @@
         "Required": "No",
         "Type": "VirtualServiceProvider",
         "UniqueKey": "appmesh.virtualservice.virtualservicespec.provider",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.authenticationconfiguration.accessrolearn": {
+        "Maximum": "102",
+        "Minimum": "29",
+        "Pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):iam::[0-9]{12}:(role|role/service-role)/[\\w+=,.@-]{1,64}",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.authenticationconfiguration.accessrolearn",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.authenticationconfiguration.connectionarn": {
+        "Maximum": "1011",
+        "Minimum": "1",
+        "Pattern": "arn:aws(-[\\w]+)*:[a-z0-9-\\\\.]{0,63}:[a-z0-9-\\\\.]{0,63}:[0-9]{12}:(\\w|\\/|-){1,1011}",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.authenticationconfiguration.connectionarn",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.codeconfiguration.codeconfigurationvalues": {
+        "Required": "No",
+        "Type": "CodeConfigurationValues",
+        "UniqueKey": "apprunner.service.codeconfiguration.codeconfigurationvalues",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.codeconfiguration.configurationsource": {
+        "Allowed values": "API | REPOSITORY",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.codeconfiguration.configurationsource",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.codeconfigurationvalues.buildcommand": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.codeconfigurationvalues.buildcommand",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.codeconfigurationvalues.port": {
+        "Maximum": "51200",
+        "Minimum": "0",
+        "Pattern": ".*",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.codeconfigurationvalues.port",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.codeconfigurationvalues.runtime": {
+        "Allowed values": "NODEJS_12 | PYTHON_3",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.codeconfigurationvalues.runtime",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.codeconfigurationvalues.runtimeenvironmentvariables": {
+        "Required": "No",
+        "Type": "List of [KeyValuePair",
+        "UniqueKey": "apprunner.service.codeconfigurationvalues.runtimeenvironmentvariables",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.codeconfigurationvalues.startcommand": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.codeconfigurationvalues.startcommand",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.coderepository.codeconfiguration": {
+        "Required": "No",
+        "Type": "CodeConfiguration",
+        "UniqueKey": "apprunner.service.coderepository.codeconfiguration",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.coderepository.repositoryurl": {
+        "Maximum": "51200",
+        "Minimum": "0",
+        "Pattern": ".*",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.coderepository.repositoryurl",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.coderepository.sourcecodeversion": {
+        "Required": "Yes",
+        "Type": "SourceCodeVersion",
+        "UniqueKey": "apprunner.service.coderepository.sourcecodeversion",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.encryptionconfiguration.kmskey": {
+        "Maximum": "256",
+        "Minimum": "0",
+        "Pattern": "arn:aws(-[\\w]+)*:kms:[a-z\\-]+-[0-9]{1}:[0-9]{12}:key\\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.encryptionconfiguration.kmskey",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.healthcheckconfiguration.healthythreshold": {
+        "Maximum": "20",
+        "Minimum": "1",
+        "Pattern": "^[1,20]}$",
+        "Required": "No",
+        "SampleValue": "1...20",
+        "Type": "Integer",
+        "UniqueKey": "apprunner.service.healthcheckconfiguration.healthythreshold",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.healthcheckconfiguration.interval": {
+        "Maximum": "20",
+        "Minimum": "1",
+        "Pattern": "^[1,20]}$",
+        "Required": "No",
+        "SampleValue": "1...20",
+        "Type": "Integer",
+        "UniqueKey": "apprunner.service.healthcheckconfiguration.interval",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.healthcheckconfiguration.path": {
+        "Maximum": "51200",
+        "Minimum": "0",
+        "Pattern": ".*",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.healthcheckconfiguration.path",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.healthcheckconfiguration.protocol": {
+        "Allowed values": "HTTP | TCP",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.healthcheckconfiguration.protocol",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.healthcheckconfiguration.timeout": {
+        "Maximum": "20",
+        "Minimum": "1",
+        "Pattern": "^[1,20]}$",
+        "Required": "No",
+        "SampleValue": "1...20",
+        "Type": "Integer",
+        "UniqueKey": "apprunner.service.healthcheckconfiguration.timeout",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.healthcheckconfiguration.unhealthythreshold": {
+        "Maximum": "20",
+        "Minimum": "1",
+        "Pattern": "^[1,20]}$",
+        "Required": "No",
+        "SampleValue": "1...20",
+        "Type": "Integer",
+        "UniqueKey": "apprunner.service.healthcheckconfiguration.unhealthythreshold",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.imageconfiguration.port": {
+        "Maximum": "51200",
+        "Minimum": "0",
+        "Pattern": ".*",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.imageconfiguration.port",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.imageconfiguration.runtimeenvironmentvariables": {
+        "Required": "No",
+        "Type": "List of [KeyValuePair",
+        "UniqueKey": "apprunner.service.imageconfiguration.runtimeenvironmentvariables",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.imageconfiguration.startcommand": {
+        "Maximum": "51200",
+        "Minimum": "0",
+        "Pattern": ".*",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.imageconfiguration.startcommand",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.imagerepository.imageconfiguration": {
+        "Required": "No",
+        "Type": "ImageConfiguration",
+        "UniqueKey": "apprunner.service.imagerepository.imageconfiguration",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.imagerepository.imageidentifier": {
+        "Maximum": "1024",
+        "Minimum": "1",
+        "Pattern": "([0-9]{12}.dkr.ecr.[a-z\\-]+-[0-9]{1}.amazonaws.com\\/.*)|(^public\\.ecr\\.aws\\/.+\\/.+)",
+        "Required": "Yes",
+        "UniqueKey": "apprunner.service.imagerepository.imageidentifier",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.imagerepository.imagerepositorytype": {
+        "Allowed values": "ECR | ECR_PUBLIC",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.imagerepository.imagerepositorytype",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.instanceconfiguration.cpu": {
+        "Maximum": "6",
+        "Minimum": "4",
+        "Pattern": "1024|2048|(1|2) vCPU",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.instanceconfiguration.cpu",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.instanceconfiguration.instancerolearn": {
+        "Maximum": "102",
+        "Minimum": "29",
+        "Pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):iam::[0-9]{12}:(role|role/service-role)/[\\w+=,.@-]{1,64}",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.instanceconfiguration.instancerolearn",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.instanceconfiguration.memory": {
+        "Maximum": "4",
+        "Minimum": "4",
+        "Pattern": "2048|3072|4096|(2|3|4) GB",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.instanceconfiguration.memory",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.keyvaluepair.name": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.keyvaluepair.name",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.keyvaluepair.value": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.keyvaluepair.value",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.sourcecodeversion.type": {
+        "Allowed values": "BRANCH",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.sourcecodeversion.type",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.sourcecodeversion.value": {
+        "Maximum": "51200",
+        "Minimum": "0",
+        "Pattern": ".*",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "apprunner.service.sourcecodeversion.value",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.sourceconfiguration.authenticationconfiguration": {
+        "Required": "No",
+        "Type": "AuthenticationConfiguration",
+        "UniqueKey": "apprunner.service.sourceconfiguration.authenticationconfiguration",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.sourceconfiguration.autodeploymentsenabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "apprunner.service.sourceconfiguration.autodeploymentsenabled",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.sourceconfiguration.coderepository": {
+        "Required": "No",
+        "Type": "CodeRepository",
+        "UniqueKey": "apprunner.service.sourceconfiguration.coderepository",
+        "UpdateRequires": "Replacement"
+    },
+    "apprunner.service.sourceconfiguration.imagerepository": {
+        "Required": "No",
+        "Type": "ImageRepository",
+        "UniqueKey": "apprunner.service.sourceconfiguration.imagerepository",
         "UpdateRequires": "Replacement"
     },
     "appstream.directoryconfig.serviceaccountcredentials.accountname": {
@@ -10137,7 +10448,7 @@
     },
     "cloudfront.distribution.distributionconfig.customorigin": {
         "Required": "No",
-        "Type": "CustomOrigin",
+        "Type": "LegacyCustomOrigin",
         "UniqueKey": "cloudfront.distribution.distributionconfig.customorigin",
         "UpdateRequires": "Replacement"
     },
@@ -10215,7 +10526,7 @@
     },
     "cloudfront.distribution.distributionconfig.s3origin": {
         "Required": "No",
-        "Type": "S3Origin",
+        "Type": "LegacyS3Origin",
         "UniqueKey": "cloudfront.distribution.distributionconfig.s3origin",
         "UpdateRequires": "Replacement"
     },
@@ -13653,6 +13964,294 @@
         "Required": "No",
         "Type": "List of String",
         "UniqueKey": "config.remediationconfiguration.staticvalue.values",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.connectoroperator.marketo": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.connectoroperator.marketo",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.connectoroperator.s3": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.connectoroperator.s3",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.connectoroperator.salesforce": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.connectoroperator.salesforce",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.connectoroperator.servicenow": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.connectoroperator.servicenow",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.connectoroperator.zendesk": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.connectoroperator.zendesk",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.flowdefinition.description": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.flowdefinition.description",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.flowdefinition.flowname": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.flowdefinition.flowname",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.flowdefinition.kmsarn": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.flowdefinition.kmsarn",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.flowdefinition.sourceflowconfig": {
+        "Required": "Yes",
+        "Type": "SourceFlowConfig",
+        "UniqueKey": "customerprofiles.integration.flowdefinition.sourceflowconfig",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.flowdefinition.tasks": {
+        "Required": "Yes",
+        "Type": "List of [Task",
+        "UniqueKey": "customerprofiles.integration.flowdefinition.tasks",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.flowdefinition.triggerconfig": {
+        "Required": "Yes",
+        "Type": "TriggerConfig",
+        "UniqueKey": "customerprofiles.integration.flowdefinition.triggerconfig",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.incrementalpullconfig.datetimetypefieldname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.incrementalpullconfig.datetimetypefieldname",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.marketosourceproperties.object": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.marketosourceproperties.object",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.s3sourceproperties.bucketname": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.s3sourceproperties.bucketname",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.s3sourceproperties.bucketprefix": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.s3sourceproperties.bucketprefix",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.salesforcesourceproperties.enabledynamicfieldupdate": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "customerprofiles.integration.salesforcesourceproperties.enabledynamicfieldupdate",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.salesforcesourceproperties.includedeletedrecords": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "customerprofiles.integration.salesforcesourceproperties.includedeletedrecords",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.salesforcesourceproperties.object": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.salesforcesourceproperties.object",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.scheduledtriggerproperties.datapullmode": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.scheduledtriggerproperties.datapullmode",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.scheduledtriggerproperties.firstexecutionfrom": {
+        "Required": "No",
+        "Type": "Double",
+        "UniqueKey": "customerprofiles.integration.scheduledtriggerproperties.firstexecutionfrom",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.scheduledtriggerproperties.scheduleendtime": {
+        "Required": "No",
+        "Type": "Double",
+        "UniqueKey": "customerprofiles.integration.scheduledtriggerproperties.scheduleendtime",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.scheduledtriggerproperties.scheduleexpression": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.scheduledtriggerproperties.scheduleexpression",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.scheduledtriggerproperties.scheduleoffset": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "customerprofiles.integration.scheduledtriggerproperties.scheduleoffset",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.scheduledtriggerproperties.schedulestarttime": {
+        "Required": "No",
+        "Type": "Double",
+        "UniqueKey": "customerprofiles.integration.scheduledtriggerproperties.schedulestarttime",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.scheduledtriggerproperties.timezone": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.scheduledtriggerproperties.timezone",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.servicenowsourceproperties.object": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.servicenowsourceproperties.object",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.sourceconnectorproperties.marketo": {
+        "Required": "No",
+        "Type": "MarketoSourceProperties",
+        "UniqueKey": "customerprofiles.integration.sourceconnectorproperties.marketo",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.sourceconnectorproperties.s3": {
+        "Required": "No",
+        "Type": "S3SourceProperties",
+        "UniqueKey": "customerprofiles.integration.sourceconnectorproperties.s3",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.sourceconnectorproperties.salesforce": {
+        "Required": "No",
+        "Type": "SalesforceSourceProperties",
+        "UniqueKey": "customerprofiles.integration.sourceconnectorproperties.salesforce",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.sourceconnectorproperties.servicenow": {
+        "Required": "No",
+        "Type": "ServiceNowSourceProperties",
+        "UniqueKey": "customerprofiles.integration.sourceconnectorproperties.servicenow",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.sourceconnectorproperties.zendesk": {
+        "Required": "No",
+        "Type": "ZendeskSourceProperties",
+        "UniqueKey": "customerprofiles.integration.sourceconnectorproperties.zendesk",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.sourceflowconfig.connectorprofilename": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.sourceflowconfig.connectorprofilename",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.sourceflowconfig.connectortype": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.sourceflowconfig.connectortype",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.sourceflowconfig.incrementalpullconfig": {
+        "Required": "No",
+        "Type": "IncrementalPullConfig",
+        "UniqueKey": "customerprofiles.integration.sourceflowconfig.incrementalpullconfig",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.sourceflowconfig.sourceconnectorproperties": {
+        "Required": "Yes",
+        "Type": "SourceConnectorProperties",
+        "UniqueKey": "customerprofiles.integration.sourceflowconfig.sourceconnectorproperties",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.task.connectoroperator": {
+        "Required": "No",
+        "Type": "ConnectorOperator",
+        "UniqueKey": "customerprofiles.integration.task.connectoroperator",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.task.destinationfield": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.task.destinationfield",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.task.sourcefields": {
+        "Required": "Yes",
+        "Type": "List of String",
+        "UniqueKey": "customerprofiles.integration.task.sourcefields",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.task.taskproperties": {
+        "Required": "No",
+        "Type": "List of [TaskPropertiesMap",
+        "UniqueKey": "customerprofiles.integration.task.taskproperties",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.task.tasktype": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.task.tasktype",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.taskpropertiesmap.operatorpropertykey": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.taskpropertiesmap.operatorpropertykey",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.taskpropertiesmap.property": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.taskpropertiesmap.property",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.triggerconfig.triggerproperties": {
+        "Required": "No",
+        "Type": "TriggerProperties",
+        "UniqueKey": "customerprofiles.integration.triggerconfig.triggerproperties",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.triggerconfig.triggertype": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.triggerconfig.triggertype",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.triggerproperties.scheduled": {
+        "Required": "No",
+        "Type": "ScheduledTriggerProperties",
+        "UniqueKey": "customerprofiles.integration.triggerproperties.scheduled",
+        "UpdateRequires": "Replacement"
+    },
+    "customerprofiles.integration.zendesksourceproperties.object": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "customerprofiles.integration.zendesksourceproperties.object",
         "UpdateRequires": "Replacement"
     },
     "customerprofiles.objecttype.fieldmap.name": {
@@ -20192,6 +20791,18 @@
         "UniqueKey": "ec2.transitgatewayconnect.transitgatewayconnectoptions.protocol",
         "UpdateRequires": "Replacement"
     },
+    "ec2.transitgatewaypeeringattachment.peeringattachmentstatus.code": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.transitgatewaypeeringattachment.peeringattachmentstatus.code",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.transitgatewaypeeringattachment.peeringattachmentstatus.message": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.transitgatewaypeeringattachment.peeringattachmentstatus.message",
+        "UpdateRequires": "Replacement"
+    },
     "ec2.vpnconnection.vpntunneloptionsspecification.presharedkey": {
         "Required": "No",
         "Type": "String",
@@ -21698,7 +22309,7 @@
         "UpdateRequires": "Replacement"
     },
     "eks.nodegroup.scalingconfig.desiredsize": {
-        "Minimum": "0",
+        "Minimum": "1",
         "Required": "No",
         "Type": "Double",
         "UniqueKey": "eks.nodegroup.scalingconfig.desiredsize",
@@ -21711,7 +22322,7 @@
         "UpdateRequires": "Replacement"
     },
     "eks.nodegroup.scalingconfig.minsize": {
-        "Minimum": "0",
+        "Minimum": "1",
         "Required": "No",
         "Type": "Double",
         "UniqueKey": "eks.nodegroup.scalingconfig.minsize",
@@ -26042,13 +26653,6 @@
         "UniqueKey": "fsx.filesystem.windowsconfiguration.activedirectoryid",
         "UpdateRequires": "Replacement"
     },
-    "fsx.filesystem.windowsconfiguration.aliases": {
-        "Maximum": "50",
-        "Required": "No",
-        "Type": "List of String",
-        "UniqueKey": "fsx.filesystem.windowsconfiguration.aliases",
-        "UpdateRequires": "Replacement"
-    },
     "fsx.filesystem.windowsconfiguration.automaticbackupretentiondays": {
         "Maximum": "90",
         "Minimum": "0",
@@ -26387,6 +26991,7 @@
         "UpdateRequires": "Replacement"
     },
     "gamelift.gameservergroup.autoscalingpolicy.estimatedinstancewarmup": {
+        "Minimum": "1",
         "Required": "No",
         "Type": "Double",
         "UniqueKey": "gamelift.gameservergroup.autoscalingpolicy.estimatedinstancewarmup",
@@ -26420,18 +27025,27 @@
         "UpdateRequires": "Replacement"
     },
     "gamelift.gameservergroup.launchtemplate.launchtemplateid": {
+        "Maximum": "255",
+        "Minimum": "1",
+        "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]+",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "gamelift.gameservergroup.launchtemplate.launchtemplateid",
         "UpdateRequires": "Replacement"
     },
     "gamelift.gameservergroup.launchtemplate.launchtemplatename": {
+        "Maximum": "128",
+        "Minimum": "3",
+        "Pattern": "[a-zA-Z0-9\\(\\)\\.\\-/_]+",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "gamelift.gameservergroup.launchtemplate.launchtemplatename",
         "UpdateRequires": "Replacement"
     },
     "gamelift.gameservergroup.launchtemplate.version": {
+        "Maximum": "128",
+        "Minimum": "1",
+        "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]+",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "gamelift.gameservergroup.launchtemplate.version",
@@ -28951,39 +29565,51 @@
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.antennadownlinkconfig.spectrumconfig": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "SpectrumConfig",
         "UniqueKey": "groundstation.config.antennadownlinkconfig.spectrumconfig",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.antennadownlinkdemoddecodeconfig.decodeconfig": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "DecodeConfig",
         "UniqueKey": "groundstation.config.antennadownlinkdemoddecodeconfig.decodeconfig",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.antennadownlinkdemoddecodeconfig.demodulationconfig": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "DemodulationConfig",
         "UniqueKey": "groundstation.config.antennadownlinkdemoddecodeconfig.demodulationconfig",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.antennadownlinkdemoddecodeconfig.spectrumconfig": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "SpectrumConfig",
         "UniqueKey": "groundstation.config.antennadownlinkdemoddecodeconfig.spectrumconfig",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.antennauplinkconfig.spectrumconfig": {
-        "Required": "Yes",
-        "Type": "SpectrumConfig",
+        "Required": "No",
+        "Type": "UplinkSpectrumConfig",
         "UniqueKey": "groundstation.config.antennauplinkconfig.spectrumconfig",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.antennauplinkconfig.targeteirp": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "Eirp",
         "UniqueKey": "groundstation.config.antennauplinkconfig.targeteirp",
+        "UpdateRequires": "Replacement"
+    },
+    "groundstation.config.antennauplinkconfig.transmitdisabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "groundstation.config.antennauplinkconfig.transmitdisabled",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.bandwidth.units": {
@@ -29022,6 +29648,12 @@
         "UniqueKey": "groundstation.config.configdata.dataflowendpointconfig",
         "UpdateRequires": "Replacement"
     },
+    "groundstation.config.configdata.s3recordingconfig": {
+        "Required": "No",
+        "Type": "S3RecordingConfig",
+        "UniqueKey": "groundstation.config.configdata.s3recordingconfig",
+        "UpdateRequires": "Replacement"
+    },
     "groundstation.config.configdata.trackingconfig": {
         "Required": "No",
         "Type": "TrackingConfig",
@@ -29035,7 +29667,7 @@
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.dataflowendpointconfig.dataflowendpointname": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "groundstation.config.dataflowendpointconfig.dataflowendpointname",
         "UpdateRequires": "Replacement"
@@ -29047,37 +29679,37 @@
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.decodeconfig.unvalidatedjson": {
-        "Required": "Yes",
-        "Type": "JSON",
+        "Required": "No",
+        "Type": "String",
         "UniqueKey": "groundstation.config.decodeconfig.unvalidatedjson",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.demodulationconfig.unvalidatedjson": {
-        "Required": "Yes",
-        "Type": "JSON",
+        "Required": "No",
+        "Type": "String",
         "UniqueKey": "groundstation.config.demodulationconfig.unvalidatedjson",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.eirp.units": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "groundstation.config.eirp.units",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.eirp.value": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "Double",
         "UniqueKey": "groundstation.config.eirp.value",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.frequency.units": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "groundstation.config.frequency.units",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.frequency.value": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "Double",
         "UniqueKey": "groundstation.config.frequency.value",
         "UpdateRequires": "Replacement"
@@ -29114,13 +29746,13 @@
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.spectrumconfig.bandwidth": {
-        "Required": "Yes",
-        "Type": "Bandwidth",
+        "Required": "No",
+        "Type": "FrequencyBandwidth",
         "UniqueKey": "groundstation.config.spectrumconfig.bandwidth",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.spectrumconfig.centerfrequency": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "Frequency",
         "UniqueKey": "groundstation.config.spectrumconfig.centerfrequency",
         "UpdateRequires": "Replacement"
@@ -29132,13 +29764,13 @@
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.trackingconfig.autotrack": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "groundstation.config.trackingconfig.autotrack",
         "UpdateRequires": "Replacement"
     },
     "groundstation.config.uplinkechoconfig.antennauplinkconfigarn": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "groundstation.config.uplinkechoconfig.antennauplinkconfigarn",
         "UpdateRequires": "Replacement"
@@ -29149,7 +29781,7 @@
             "False"
         ],
         "Pattern": "^[True|False]",
-        "Required": "Yes",
+        "Required": "No",
         "SampleValue": "True|False",
         "Type": "Boolean",
         "UniqueKey": "groundstation.config.uplinkechoconfig.enabled",
@@ -29185,10 +29817,10 @@
         "UniqueKey": "groundstation.dataflowendpointgroup.dataflowendpoint.name",
         "UpdateRequires": "Replacement"
     },
-    "groundstation.dataflowendpointgroup.endpointdetails.dataflowendpoint": {
+    "groundstation.dataflowendpointgroup.endpointdetails.endpoint": {
         "Required": "No",
         "Type": "DataflowEndpoint",
-        "UniqueKey": "groundstation.dataflowendpointgroup.endpointdetails.dataflowendpoint",
+        "UniqueKey": "groundstation.dataflowendpointgroup.endpointdetails.endpoint",
         "UpdateRequires": "Replacement"
     },
     "groundstation.dataflowendpointgroup.endpointdetails.securitydetails": {
@@ -29228,13 +29860,13 @@
         "UpdateRequires": "Replacement"
     },
     "groundstation.missionprofile.dataflowedge.destination": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "groundstation.missionprofile.dataflowedge.destination",
         "UpdateRequires": "Replacement"
     },
     "groundstation.missionprofile.dataflowedge.source": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "groundstation.missionprofile.dataflowedge.source",
         "UpdateRequires": "Replacement"
@@ -54767,39 +55399,39 @@
         "UniqueKey": "transfer.user.posixprofile.uid",
         "UpdateRequires": "Replacement"
     },
-    "w8978ab1c27c15c15c27c19b7.default": {
+    "w9005ab1c27c15c15c27c19b7.default": {
         "Required": "No",
         "SampleValue": "TODO-default",
         "Type": "String",
-        "UniqueKey": "w8978ab1c27c15c15c27c19b7.default"
+        "UniqueKey": "w9005ab1c27c15c15c27c19b7.default"
     },
-    "w8978ab1c27c15c15c27c23b7.label": {
+    "w9005ab1c27c15c15c27c23b7.label": {
         "Required": "No",
         "SampleValue": "TODO-Label",
-        "Type": "AWS::CloudFormation::Interface Label",
-        "UniqueKey": "w8978ab1c27c15c15c27c23b7.label"
+        "Type": "`AWS::CloudFormation::Interface Label`",
+        "UniqueKey": "w9005ab1c27c15c15c27c23b7.label"
     },
-    "w8978ab1c27c15c15c27c23b7.parameters": {
+    "w9005ab1c27c15c15c27c23b7.parameters": {
         "Required": "No",
         "SampleValue": "TODO-Parameters",
         "Type": "List of String values",
-        "UniqueKey": "w8978ab1c27c15c15c27c23b7.parameters"
+        "UniqueKey": "w9005ab1c27c15c15c27c23b7.parameters"
     },
-    "w8978ab1c27c15c15c27c27b7.parameterlogicalid": {
+    "w9005ab1c27c15c15c27c27b7.parameterlogicalid": {
         "Required": "No",
-        "UniqueKey": "w8978ab1c27c15c15c27c27b7.parameterlogicalid"
+        "UniqueKey": "w9005ab1c27c15c15c27c27b7.parameterlogicalid"
     },
-    "w8978ab1c33c10d330c13c17.key": {
+    "w9005ab1c33c10d334c13c17.key": {
         "Required": "Yes",
         "SampleValue": "TODO-Key",
         "Type": "String",
-        "UniqueKey": "w8978ab1c33c10d330c13c17.key"
+        "UniqueKey": "w9005ab1c33c10d334c13c17.key"
     },
-    "w8978ab1c33c10d330c13c17.value": {
+    "w9005ab1c33c10d334c13c17.value": {
         "Required": "Yes",
         "SampleValue": "TODO-Value",
         "Type": "String\n\n#",
-        "UniqueKey": "w8978ab1c33c10d330c13c17.value"
+        "UniqueKey": "w9005ab1c33c10d334c13c17.value"
     },
     "waf.bytematchset.bytematchtuples.fieldtomatch": {
         "Required": "Yes",

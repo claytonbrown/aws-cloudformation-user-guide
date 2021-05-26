@@ -240,6 +240,7 @@ The `PermissionModel` property is required\.]
 # #AWS::GameLift::Fleet FleetType  == ON_DEMAND |OR| AWS::GameLift::Fleet FleetType  == SPOT << Enforce allowed values [ON_DEMAND | SPOT]
 # #AWS::GameLift::Fleet NewGameSessionProtectionPolicy  == FullProtection |OR| AWS::GameLift::Fleet NewGameSessionProtectionPolicy  == NoProtection << Enforce allowed values [FullProtection | NoProtection]
 # #AWS::GameLift::GameServerGroup BalancingStrategy  == ON_DEMAND_ONLY |OR| AWS::GameLift::GameServerGroup BalancingStrategy  == SPOT_ONLY |OR| AWS::GameLift::GameServerGroup BalancingStrategy  == SPOT_PREFERRED << Enforce allowed values [ON_DEMAND_ONLY | SPOT_ONLY | SPOT_PREFERRED]
+# #AWS::GameLift::GameServerGroup DeleteOption  == FORCE_DELETE |OR| AWS::GameLift::GameServerGroup DeleteOption  == RETAIN |OR| AWS::GameLift::GameServerGroup DeleteOption  == SAFE_DELETE << Enforce allowed values [FORCE_DELETE | RETAIN | SAFE_DELETE]
 # #AWS::GameLift::GameServerGroup GameServerProtectionPolicy  == FULL_PROTECTION |OR| AWS::GameLift::GameServerGroup GameServerProtectionPolicy  == NO_PROTECTION << Enforce allowed values [FULL_PROTECTION | NO_PROTECTION]
 # #AWS::GameLift::MatchmakingConfiguration AcceptanceRequired  == True |OR| AWS::GameLift::MatchmakingConfiguration AcceptanceRequired  == False << Enforce allowed values [True | False]
 # #AWS::GameLift::MatchmakingConfiguration BackfillMode  == AUTOMATIC |OR| AWS::GameLift::MatchmakingConfiguration BackfillMode  == MANUAL << Enforce allowed values [AUTOMATIC | MANUAL]
@@ -281,7 +282,6 @@ The `PermissionModel` property is required\.]
 # #AWS::LakeFormation::Resource UseServiceLinkedRole  == True |OR| AWS::LakeFormation::Resource UseServiceLinkedRole  == False << Enforce allowed values [True | False]
 # #AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError  == True |OR| AWS::Lambda::EventSourceMapping BisectBatchOnFunctionError  == False << Enforce allowed values [True | False]
 # #AWS::Lambda::EventSourceMapping Enabled  == True |OR| AWS::Lambda::EventSourceMapping Enabled  == False << Enforce allowed values [True | False]
-# #AWS::Lambda::EventSourceMapping PartialBatchResponse  == True |OR| AWS::Lambda::EventSourceMapping PartialBatchResponse  == False << Enforce allowed values [True | False]
 # #AWS::Lambda::Function PackageType  == Image |OR| AWS::Lambda::Function PackageType  == Zip << Enforce allowed values [Image | Zip]
 # #AWS::Lambda::Function Runtime  == dotnetcore1.0 |OR| AWS::Lambda::Function Runtime  == dotnetcore2.0 |OR| AWS::Lambda::Function Runtime  == dotnetcore2.1 |OR| AWS::Lambda::Function Runtime  == dotnetcore3.1 |OR| AWS::Lambda::Function Runtime  == go1.x |OR| AWS::Lambda::Function Runtime  == java11 |OR| AWS::Lambda::Function Runtime  == java8 |OR| AWS::Lambda::Function Runtime  == java8.al2 |OR| AWS::Lambda::Function Runtime  == nodejs |OR| AWS::Lambda::Function Runtime  == nodejs10.x |OR| AWS::Lambda::Function Runtime  == nodejs12.x |OR| AWS::Lambda::Function Runtime  == nodejs14.x |OR| AWS::Lambda::Function Runtime  == nodejs4.3 |OR| AWS::Lambda::Function Runtime  == nodejs4.3-edge |OR| AWS::Lambda::Function Runtime  == nodejs6.10 |OR| AWS::Lambda::Function Runtime  == nodejs8.10 |OR| AWS::Lambda::Function Runtime  == provided |OR| AWS::Lambda::Function Runtime  == provided.al2 |OR| AWS::Lambda::Function Runtime  == python2.7 |OR| AWS::Lambda::Function Runtime  == python3.6 |OR| AWS::Lambda::Function Runtime  == python3.7 |OR| AWS::Lambda::Function Runtime  == python3.8 |OR| AWS::Lambda::Function Runtime  == ruby2.5 |OR| AWS::Lambda::Function Runtime  == ruby2.7 << Enforce allowed values [dotnetcore1.0 | dotnetcore2.0 | dotnetcore2.1 | dotnetcore3.1 | go1.x | java11 | java8 | java8.al2 | nodejs | nodejs10.x | nodejs12.x | nodejs14.x | nodejs4.3 | nodejs4.3-edge | nodejs6.10 | nodejs8.10 | provided | provided.al2 | python2.7 | python3.6 | python3.7 | python3.8 | ruby2.5 | ruby2.7]
 # #AWS::MediaStore::Container AccessLoggingEnabled  == True |OR| AWS::MediaStore::Container AccessLoggingEnabled  == False << Enforce allowed values [True | False]
@@ -2680,6 +2680,16 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::EC2::TransitGatewayAttachment VpcId  == /.*/ <<  VpcId is a required property for AWS::EC2::TransitGatewayAttachment
 # AWS::EC2::TransitGatewayConnect Options  == /.*/ <<  Options is a required property for AWS::EC2::TransitGatewayConnect
 # AWS::EC2::TransitGatewayConnect TransportTransitGatewayAttachmentId  == /.*/ <<  TransportTransitGatewayAttachmentId is a required property for AWS::EC2::TransitGatewayConnect
+# AWS::EC2::TransitGatewayMulticastDomain TransitGatewayId  == /.*/ <<  TransitGatewayId is a required property for AWS::EC2::TransitGatewayMulticastDomain
+# AWS::EC2::TransitGatewayMulticastDomainAssociation SubnetId  == /.*/ <<  SubnetId is a required property for AWS::EC2::TransitGatewayMulticastDomainAssociation
+# AWS::EC2::TransitGatewayMulticastDomainAssociation TransitGatewayAttachmentId  == /.*/ <<  TransitGatewayAttachmentId is a required property for AWS::EC2::TransitGatewayMulticastDomainAssociation
+# AWS::EC2::TransitGatewayMulticastDomainAssociation TransitGatewayMulticastDomainId  == /.*/ <<  TransitGatewayMulticastDomainId is a required property for AWS::EC2::TransitGatewayMulticastDomainAssociation
+# AWS::EC2::TransitGatewayMulticastGroupMember GroupIpAddress  == /.*/ <<  GroupIpAddress is a required property for AWS::EC2::TransitGatewayMulticastGroupMember
+# AWS::EC2::TransitGatewayMulticastGroupMember NetworkInterfaceId  == /.*/ <<  NetworkInterfaceId is a required property for AWS::EC2::TransitGatewayMulticastGroupMember
+# AWS::EC2::TransitGatewayMulticastGroupMember TransitGatewayMulticastDomainId  == /.*/ <<  TransitGatewayMulticastDomainId is a required property for AWS::EC2::TransitGatewayMulticastGroupMember
+# AWS::EC2::TransitGatewayMulticastGroupSource GroupIpAddress  == /.*/ <<  GroupIpAddress is a required property for AWS::EC2::TransitGatewayMulticastGroupSource
+# AWS::EC2::TransitGatewayMulticastGroupSource NetworkInterfaceId  == /.*/ <<  NetworkInterfaceId is a required property for AWS::EC2::TransitGatewayMulticastGroupSource
+# AWS::EC2::TransitGatewayMulticastGroupSource TransitGatewayMulticastDomainId  == /.*/ <<  TransitGatewayMulticastDomainId is a required property for AWS::EC2::TransitGatewayMulticastGroupSource
 # AWS::EC2::TransitGatewayRoute Blackhole  == /False/ <<  False is an expected value for AWS::EC2::TransitGatewayRoute Blackhole
 # AWS::EC2::TransitGatewayRoute Blackhole  == /True/ <<  True is an expected value for AWS::EC2::TransitGatewayRoute Blackhole
 # AWS::EC2::TransitGatewayRoute Blackhole  == False <<  False is expected  safe default value
@@ -2846,7 +2856,7 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::EFS::FileSystem Encrypted  == True <<  True is expected safe default value
 # AWS::EFS::FileSystem Encrypted IN [True,False] << Enforcing Allowed Values only
 # AWS::EFS::FileSystem FileSystemPolicy  == /[\s\S]+/ <<  FileSystemPolicy is a required pattern for AWS::EFS::FileSystem
-# AWS::EFS::FileSystem KmsKeyId  == /^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|alias/[a-zA-Z0-9/_-]+|(arn:aws[-a-z]*:kms:[a-z0-9-]+:\d{12}:((key/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|(alias/[a-zA-Z0-9/_-]+))))$/ <<  KmsKeyId is a required pattern for AWS::EFS::FileSystem
+# AWS::EFS::FileSystem KmsKeyId  == /^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|mrk-[0-9a-f]{32}|alias/[a-zA-Z0-9/_-]+|(arn:aws[-a-z]*:kms:[a-z0-9-]+:\d{12}:((key/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|(key/mrk-[0-9a-f]{32})|(alias/[a-zA-Z0-9/_-]+))))$/ <<  KmsKeyId is a required pattern for AWS::EFS::FileSystem
 # AWS::EFS::FileSystem PerformanceMode  == /generalPurpose/ <<  generalPurpose is an expected value for AWS::EFS::FileSystem PerformanceMode
 # AWS::EFS::FileSystem PerformanceMode  == /maxIO/ <<  maxIO is an expected value for AWS::EFS::FileSystem PerformanceMode
 # AWS::EFS::FileSystem PerformanceMode IN [generalPurpose,maxIO] << Enforcing Allowed Values only
@@ -3501,6 +3511,10 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::GameLift::GameServerGroup BalancingStrategy  == /SPOT_ONLY/ <<  SPOT_ONLY is an expected value for AWS::GameLift::GameServerGroup BalancingStrategy
 # AWS::GameLift::GameServerGroup BalancingStrategy  == /SPOT_PREFERRED/ <<  SPOT_PREFERRED is an expected value for AWS::GameLift::GameServerGroup BalancingStrategy
 # AWS::GameLift::GameServerGroup BalancingStrategy IN [ON_DEMAND_ONLY,SPOT_ONLY,SPOT_PREFERRED] << Enforcing Allowed Values only
+# AWS::GameLift::GameServerGroup DeleteOption  == /FORCE_DELETE/ <<  FORCE_DELETE is an expected value for AWS::GameLift::GameServerGroup DeleteOption
+# AWS::GameLift::GameServerGroup DeleteOption  == /RETAIN/ <<  RETAIN is an expected value for AWS::GameLift::GameServerGroup DeleteOption
+# AWS::GameLift::GameServerGroup DeleteOption  == /SAFE_DELETE/ <<  SAFE_DELETE is an expected value for AWS::GameLift::GameServerGroup DeleteOption
+# AWS::GameLift::GameServerGroup DeleteOption IN [FORCE_DELETE,RETAIN,SAFE_DELETE] << Enforcing Allowed Values only
 # AWS::GameLift::GameServerGroup GameServerGroupName  == /.*/ <<  GameServerGroupName is a required property for AWS::GameLift::GameServerGroup
 # AWS::GameLift::GameServerGroup GameServerGroupName  == /[a-zA-Z0-9-\.]+/ <<  GameServerGroupName is a required pattern for AWS::GameLift::GameServerGroup
 # AWS::GameLift::GameServerGroup GameServerGroupName  == /\S{1,128}/ <<  GameServerGroupName is a required property for AWS::GameLift::GameServerGroup
@@ -3511,9 +3525,6 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::GameLift::GameServerGroup InstanceDefinitions.InstanceType  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for InstanceDefinitions
 # AWS::GameLift::GameServerGroup InstanceDefinitions.WeightedCapacity  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for InstanceDefinitions
 # AWS::GameLift::GameServerGroup LaunchTemplate  == /.*/ <<  LaunchTemplate is a required property for AWS::GameLift::GameServerGroup
-# AWS::GameLift::GameServerGroup LaunchTemplate.LaunchTemplateId  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for LaunchTemplate
-# AWS::GameLift::GameServerGroup LaunchTemplate.LaunchTemplateName  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for LaunchTemplate
-# AWS::GameLift::GameServerGroup LaunchTemplate.Version  == /\S/ <<  AWS::GameLift::GameServerGroup is an expected but optional String property for LaunchTemplate
 # AWS::GameLift::GameServerGroup RoleArn  == /.*/ <<  RoleArn is a required property for AWS::GameLift::GameServerGroup
 # AWS::GameLift::GameServerGroup RoleArn  == /^arn:.*:role\/[\w+=,.@-]+/ <<  RoleArn is a required pattern for AWS::GameLift::GameServerGroup
 # AWS::GameLift::GameServerGroup RoleArn  == /arn.*{1,256}/ <<  RoleArn is a required property for AWS::GameLift::GameServerGroup
@@ -3737,6 +3748,7 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::Greengrass::SubscriptionDefinitionVersion Subscriptions.Target  == /\S/ <<  AWS::Greengrass::SubscriptionDefinitionVersion is an expected but optional String property for Subscriptions
 # AWS::GroundStation::Config ConfigData  == /.*/ <<  ConfigData is a required property for AWS::GroundStation::Config
 # AWS::GroundStation::Config Name  == /.*/ <<  Name is a required property for AWS::GroundStation::Config
+# AWS::GroundStation::DataflowEndpointGroup EndpointDetails  == /.*/ <<  EndpointDetails is a required property for AWS::GroundStation::DataflowEndpointGroup
 # AWS::GroundStation::MissionProfile ContactPostPassDurationSeconds  == /[0-9].+/ <<  Integer is expected for AWS::GroundStation::MissionProfile of ContactPostPassDurationSeconds 
 # AWS::GroundStation::MissionProfile ContactPrePassDurationSeconds  == /[0-9].+/ <<  Integer is expected for AWS::GroundStation::MissionProfile of ContactPrePassDurationSeconds 
 # AWS::GroundStation::MissionProfile DataflowEdges  == /.*/ <<  DataflowEdges is a required property for AWS::GroundStation::MissionProfile
@@ -4333,11 +4345,6 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::Lambda::EventSourceMapping ParallelizationFactor  <= 10 <<  Integer is expected for AWS::Lambda::EventSourceMapping of ParallelizationFactor 
 # AWS::Lambda::EventSourceMapping ParallelizationFactor  == /[0-9].+/ <<  Integer is expected for AWS::Lambda::EventSourceMapping of ParallelizationFactor 
 # AWS::Lambda::EventSourceMapping ParallelizationFactor  >= 1 <<  Integer is expected for AWS::Lambda::EventSourceMapping of ParallelizationFactor 
-# AWS::Lambda::EventSourceMapping PartialBatchResponse  == /False/ <<  False is an expected value for AWS::Lambda::EventSourceMapping PartialBatchResponse
-# AWS::Lambda::EventSourceMapping PartialBatchResponse  == /True/ <<  True is an expected value for AWS::Lambda::EventSourceMapping PartialBatchResponse
-# AWS::Lambda::EventSourceMapping PartialBatchResponse  == False <<  False is expected  safe default value
-# AWS::Lambda::EventSourceMapping PartialBatchResponse  == True <<  True is expected safe default value
-# AWS::Lambda::EventSourceMapping PartialBatchResponse IN [True,False] << Enforcing Allowed Values only
 # AWS::Lambda::EventSourceMapping SourceAccessConfigurations.Type  == /\S/ <<  AWS::Lambda::EventSourceMapping is an expected but optional String property for SourceAccessConfigurations
 # AWS::Lambda::EventSourceMapping SourceAccessConfigurations.URI  == /\S/ <<  AWS::Lambda::EventSourceMapping is an expected but optional String property for SourceAccessConfigurations
 # AWS::Lambda::EventSourceMapping TumblingWindowInSeconds  <= 900 <<  Integer is expected for AWS::Lambda::EventSourceMapping of TumblingWindowInSeconds 
@@ -5247,8 +5254,6 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::RDS::DBSubnetGroup SubnetIds  == /.*/ <<  SubnetIds is a required property for AWS::RDS::DBSubnetGroup
 # AWS::RDS::EventSubscription Enabled  == /False/ <<  False is an expected value for AWS::RDS::EventSubscription Enabled
 # AWS::RDS::EventSubscription Enabled  == /True/ <<  True is an expected value for AWS::RDS::EventSubscription Enabled
-# AWS::RDS::EventSubscription Enabled  == False <<  False is expected  safe default value
-# AWS::RDS::EventSubscription Enabled  == True <<  True is expected safe default value
 # AWS::RDS::EventSubscription Enabled IN [True,False] << Enforcing Allowed Values only
 # AWS::RDS::EventSubscription SnsTopicArn  == /.*/ <<  SnsTopicArn is a required property for AWS::RDS::EventSubscription
 # AWS::RDS::GlobalCluster DeletionProtection  == /False/ <<  False is an expected value for AWS::RDS::GlobalCluster DeletionProtection
