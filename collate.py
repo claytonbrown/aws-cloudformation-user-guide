@@ -832,9 +832,41 @@ for resource in spec["cfn"]["ResourceTypes"]:
         log.warning("Unmatched resource: %s" % (resource))
 
 
-for property_type, properties in spec["cfn"]["PropertyTypes"].items():
+for property_type, data in spec["cfn"]["PropertyTypes"].items():
     log.debug("Property Type: %s" % (property_type))
     selector = "* %s"
+
+    """
+        "cfn": {
+        "PropertyTypes": {
+             "AWS::ACMPCA::Certificate.EdiPartyName": {
+                "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html",
+                "Properties": {
+                    "NameAssigner": {
+                        "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-nameassigner",
+                        "PrimitiveType": "String",
+                        "Required": true,
+                        "UpdateType": "Immutable"
+                    },
+                    "PartyName": {
+                        "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-partyname",
+                        "PrimitiveType": "String",
+                        "Required": true,
+                        "UpdateType": "Immutable"
+                    }
+                },
+                "RegionSupport": ["
+    """
+    if not "Properties" in data:
+        log.warning("PropertyType has not properties: %s" % (property_type))
+    else:
+        try:
+            resource_name, property_name = property_type.split('.')
+            for sub_property in data["Properties"]:
+                property_docs_index = "%s-%s-%s" % ()
+        except Exception as e:
+            log.warning(e)
+
 
 
 with open("rulesets/all.rules.txt", 'w') as f:

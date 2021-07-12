@@ -1,16 +1,24 @@
 {
   "transfer.server.identityproviderdetails.Url": {
-    "Required": "Yes",
+    "Required": "No",
     "Type": "String",
     "Maximum": "255",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "transfer.server.identityproviderdetails.InvocationRole": {
     "Pattern": "arn:.*role/.*",
-    "Required": "Yes",
+    "Required": "No",
     "Maximum": "2048",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "Minimum": "20",
+    "Type": "String"
+  },
+  "transfer.server.identityproviderdetails.DirectoryId": {
+    "Pattern": "^d-[0-9a-f]{10}$",
+    "Required": "No",
+    "Maximum": "12",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "12",
     "Type": "String"
   }
 }

@@ -1,6 +1,6 @@
 # AWS::Batch::ComputeEnvironment ComputeResources<a name="aws-properties-batch-computeenvironment-computeresources"></a>
 
-Details about the compute resources managed by the compute environment\. This parameter is required for managed compute environments\. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide*\.
+Details about the compute resources managed by the compute environment\. This parameter is required for managed compute environments\. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the * AWS Batch User Guide*\.
 
 ## Syntax<a name="aws-properties-batch-computeenvironment-computeresources-syntax"></a>
 
@@ -60,6 +60,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ## Properties<a name="aws-properties-batch-computeenvironment-computeresources-properties"></a>
 
 `AllocationStrategy`  <a name="cfn-batch-computeenvironment-computeresources-allocationstrategy"></a>
+<<<<<<< HEAD
 The allocation strategy to use for the compute resource if not enough instances of the best fitting instance type can be allocated\. This might be because of availability of the instance type in the Region or [Amazon EC2 service limits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html)\. For more information, see [Allocation Strategies](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) in the *AWS Batch User Guide*\.
 This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified\.
 BEST\_FIT \(default\)
@@ -72,6 +73,20 @@ With both `BEST_FIT_PROGRESSIVE` and `SPOT_CAPACITY_OPTIMIZED` strategies, AWS B
 *Required*: No
 *Type*: String
 *Allowed values*: `BEST_FIT | BEST_FIT_PROGRESSIVE | SPOT_CAPACITY_OPTIMIZED`
+=======
+The allocation strategy to use for the compute resource if not enough instances of the best fitting instance type can be allocated\. This might be because of availability of the instance type in the Region or [Amazon EC2 service limits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html)\. For more information, see [Allocation Strategies](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) in the * AWS Batch User Guide*\.  
+This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified\.  
+BEST\_FIT \(default\)  
+ AWS Batch selects an instance type that best fits the needs of the jobs with a preference for the lowest\-cost instance type\. If additional instances of the selected instance type aren't available, AWS Batch waits for the additional instances to be available\. If there aren't enough instances available, or if the user is reaching [Amazon EC2 service limits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html) then additional jobs aren't run until the currently running jobs have completed\. This allocation strategy keeps costs lower but can limit scaling\. If you are using Spot Fleets with `BEST_FIT` then the Spot Fleet IAM Role must be specified\.  
+BEST\_FIT\_PROGRESSIVE  
+ AWS Batch will select additional instance types that are large enough to meet the requirements of the jobs in the queue, with a preference for instance types with a lower cost per unit vCPU\. If additional instances of the previously selected instance types aren't available, AWS Batch will select new instance types\.  
+SPOT\_CAPACITY\_OPTIMIZED  
+ AWS Batch will select one or more instance types that are large enough to meet the requirements of the jobs in the queue, with a preference for instance types that are less likely to be interrupted\. This allocation strategy is only available for Spot Instance compute resources\.
+With both `BEST_FIT_PROGRESSIVE` and `SPOT_CAPACITY_OPTIMIZED` strategies, AWS Batch might need to go above `maxvCpus` to meet your capacity requirements\. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance\.  
+*Required*: No  
+*Type*: String  
+*Allowed values*: `BEST_FIT | BEST_FIT_PROGRESSIVE | SPOT_CAPACITY_OPTIMIZED`  
+>>>>>>> 5740eefc5577909be41fd8a5a89347ef066abd7e
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `BidPercentage`  <a name="cfn-batch-computeenvironment-computeresources-bidpercentage"></a>
@@ -139,6 +154,7 @@ The AMI that you choose for a compute environment must match the architecture of
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `InstanceRole`  <a name="cfn-batch-computeenvironment-computeresources-instancerole"></a>
+<<<<<<< HEAD
 The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment\. You can specify the short name or full Amazon Resource Name \(ARN\) of an instance profile\. For example, ` ecsInstanceRole ` or `arn:aws:iam::<aws_account_id>:instance-profile/ecsInstanceRole `\. For more information, see [Amazon ECS Instance Role](https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html) in the *AWS Batch User Guide*\.
 <<<<<<< HEAD
 This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified\.
@@ -146,6 +162,9 @@ This parameter isn't applicable to jobs running on Fargate resources, and should
 *Required*: Yes
 =======
 =======
+=======
+The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment\. You can specify the short name or full Amazon Resource Name \(ARN\) of an instance profile\. For example, ` ecsInstanceRole ` or `arn:aws:iam::<aws_account_id>:instance-profile/ecsInstanceRole `\. For more information, see [Amazon ECS Instance Role](https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html) in the * AWS Batch User Guide*\.  
+>>>>>>> 5740eefc5577909be41fd8a5a89347ef066abd7e
 This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified\.
 >>>>>>> 0f3f21b370a567bb44401913dd89f38588c024f6
 *Required*: No
@@ -225,11 +244,19 @@ The Amazon EC2 security groups associated with instances launched in the compute
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `SpotIamFleetRole`  <a name="cfn-batch-computeenvironment-computeresources-spotiamfleetrole"></a>
+<<<<<<< HEAD
 The Amazon Resource Name \(ARN\) of the Amazon EC2 Spot Fleet IAM role applied to a `SPOT` compute environment\. This role is required if the allocation strategy set to `BEST_FIT` or if the allocation strategy isn't specified\. For more information, see [Amazon EC2 Spot Fleet Role](https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html) in the *AWS Batch User Guide*\.
 This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified\.
 To tag your Spot Instances on creation, the Spot Fleet IAM role specified here must use the newer **AmazonEC2SpotFleetTaggingRole** managed policy\. The previously recommended **AmazonEC2SpotFleetRole** managed policy doesn't have the required permissions to tag Spot Instances\. For more information, see [Spot Instances not tagged on creation](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag) in the *AWS Batch User Guide*\.
 *Required*: No
 *Type*: String
+=======
+The Amazon Resource Name \(ARN\) of the Amazon EC2 Spot Fleet IAM role applied to a `SPOT` compute environment\. This role is required if the allocation strategy set to `BEST_FIT` or if the allocation strategy isn't specified\. For more information, see [Amazon EC2 Spot Fleet Role](https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html) in the * AWS Batch User Guide*\.  
+This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified\.
+To tag your Spot Instances on creation, the Spot Fleet IAM role specified here must use the newer **AmazonEC2SpotFleetTaggingRole** managed policy\. The previously recommended **AmazonEC2SpotFleetRole** managed policy doesn't have the required permissions to tag Spot Instances\. For more information, see [Spot Instances not tagged on creation](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag) in the * AWS Batch User Guide*\.
+*Required*: No  
+*Type*: String  
+>>>>>>> 5740eefc5577909be41fd8a5a89347ef066abd7e
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Subnets`  <a name="cfn-batch-computeenvironment-computeresources-subnets"></a>
@@ -249,6 +276,7 @@ The VPC subnets where the compute resources are launched\. These subnets must be
 `Tags`  <a name="cfn-batch-computeenvironment-computeresources-tags"></a>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Key\-value pair tags to be applied to EC2 resources that are launched in the compute environment\. For AWS Batch, these take the form of "String1": "String2", where String1 is the tag key and String2 is the tag value—for example, \{ "Name": "AWS Batch Instance \- C4OnDemand" \}\. This is helpful for recognizing your AWS Batch instances in the Amazon EC2 console\. These tags can't be updated or removed after the compute environment has been created; any changes require creating a new compute environment and removing the old compute environment\. These tags are not seen when using the AWS Batch `ListTagsForResource` API operation\.
 =======
 Key\-value pair tags to be applied to EC2 resources that are launched in the compute environment\. For AWS Batch, these take the form of "String1": "String2", where String1 is the tag key and String2 is the tag value−for example, \{ "Name": "AWS Batch Instance \- C4OnDemand" \}\. This is helpful for recognizing your AWS Batch instances in the Amazon EC2 console\. These tags can't be updated or removed after the compute environment has been created; any changes require creating a new compute environment and removing the old compute environment\. These tags are not seen when using the AWS Batch `ListTagsForResource` API operation\.
@@ -256,6 +284,9 @@ This parameter isn't applicable to jobs running on Fargate resources, and should
 >>>>>>> 1096456c6b2b25f069505b56b407ae9946e80022
 =======
 Key\-value pair tags to be applied to EC2 resources that are launched in the compute environment\. For AWS Batch, these take the form of "String1": "String2", where String1 is the tag key and String2 is the tag value−for example, \{ "Name": "AWS Batch Instance \- C4OnDemand" \}\. This is helpful for recognizing your AWS Batch instances in the Amazon EC2 console\. These tags can't be updated or removed after the compute environment is created\.Aany changes to these tags require that you create a new compute environment and remove the old compute environment\. These tags aren't seen when using the AWS Batch `ListTagsForResource` API operation\.
+=======
+Key\-value pair tags to be applied to EC2 resources that are launched in the compute environment\. For AWS Batch, these take the form of "String1": "String2", where String1 is the tag key and String2 is the tag value−for example, `{ "Name": "Batch Instance - C4OnDemand" }`\. This is helpful for recognizing your AWS Batch instances in the Amazon EC2 console\. These tags can't be updated or removed after the compute environment is created\.Aany changes to these tags require that you create a new compute environment and remove the old compute environment\. These tags aren't seen when using the AWS Batch `ListTagsForResource` API operation\.  
+>>>>>>> 5740eefc5577909be41fd8a5a89347ef066abd7e
 This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified\.
 >>>>>>> 0f3f21b370a567bb44401913dd89f38588c024f6
 *Required*: No
@@ -263,11 +294,19 @@ This parameter isn't applicable to jobs that are running on Fargate resources, a
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Type`  <a name="cfn-batch-computeenvironment-computeresources-type"></a>
+<<<<<<< HEAD
 The type of compute environment: `EC2`, `SPOT`, `FARGATE`, or `FARGATE_SPOT`\. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide*\.
  If you choose `SPOT`, you must also specify an Amazon EC2 Spot Fleet role with the `spotIamFleetRole` parameter\. For more information, see [Amazon EC2 Spot Fleet role](https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html) in the *AWS Batch User Guide*\.
 *Required*: Yes
 *Type*: String
 *Allowed values*: `EC2 | FARGATE | FARGATE_SPOT | SPOT`
+=======
+The type of compute environment: `EC2`, `SPOT`, `FARGATE`, or `FARGATE_SPOT`\. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the * AWS Batch User Guide*\.  
+ If you choose `SPOT`, you must also specify an Amazon EC2 Spot Fleet role with the `spotIamFleetRole` parameter\. For more information, see [Amazon EC2 Spot Fleet role](https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html) in the * AWS Batch User Guide*\.  
+*Required*: Yes  
+*Type*: String  
+*Allowed values*: `EC2 | FARGATE | FARGATE_SPOT | SPOT`  
+>>>>>>> 5740eefc5577909be41fd8a5a89347ef066abd7e
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 ## See also<a name="aws-properties-batch-computeenvironment-computeresources--seealso"></a>

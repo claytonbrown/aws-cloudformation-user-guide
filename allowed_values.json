@@ -587,6 +587,12 @@
         "UniqueKey": "acmpca.certificateauthority.crlconfiguration.s3bucketname",
         "UpdateRequires": "Replacement"
     },
+    "acmpca.certificateauthority.crlconfiguration.s3objectacl": {
+        "Required": "No",
+        "SampleValue": "TODO-S3ObjectAcl",
+        "UniqueKey": "acmpca.certificateauthority.crlconfiguration.s3objectacl",
+        "UpdateRequires": "Replacement"
+    },
     "acmpca.certificateauthority.csrextensions.keyusage": {
         "Required": "No",
         "Type": "KeyUsage",
@@ -2547,9 +2553,10 @@
     },
     "appconfig.environment.monitors.alarmarn": {
         "Maximum": "2048",
-        "Minimum": "20",
-        "Pattern": "arn:(aws[a-zA-Z-]*)?:[a-z]+:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:[a-zA-Z0-9-_/:.]+",
+        "Minimum": "1",
+        "Pattern": "^.{1,2048}$",
         "Required": "No",
+        "SampleValue": "TODO-appconfig.environment.monitors.AlarmArn",
         "Type": "String",
         "UniqueKey": "appconfig.environment.monitors.alarmarn",
         "UpdateRequires": "Replacement"
@@ -4391,7 +4398,7 @@
         "UpdateRequires": "Replacement"
     },
     "applicationinsights.application.componentmonitoringsetting.componentconfigurationmode": {
-        "Required": "No",
+        "Required": "Yes",
         "Type": "String",
         "UniqueKey": "applicationinsights.application.componentmonitoringsetting.componentconfigurationmode",
         "UpdateRequires": "Replacement"
@@ -4415,7 +4422,7 @@
         "UpdateRequires": "Replacement"
     },
     "applicationinsights.application.componentmonitoringsetting.tier": {
-        "Required": "No",
+        "Required": "Yes",
         "Type": "String",
         "UniqueKey": "applicationinsights.application.componentmonitoringsetting.tier",
         "UpdateRequires": "Replacement"
@@ -4606,6 +4613,66 @@
         "UniqueKey": "applicationinsights.application.windowsevent.patternset",
         "UpdateRequires": "Replacement"
     },
+    "appmesh.gatewayroute.gatewayroutehostnamematch.exact": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.gatewayroutehostnamematch.exact",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.gatewayroutehostnamematch.suffix": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.gatewayroutehostnamematch.suffix",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.gatewayroutehostnamerewrite.defaulttargethostname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.gatewayroutehostnamerewrite.defaulttargethostname",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.gatewayroutemetadatamatch.exact": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.gatewayroutemetadatamatch.exact",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.gatewayroutemetadatamatch.prefix": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.gatewayroutemetadatamatch.prefix",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.gatewayroutemetadatamatch.range": {
+        "Required": "No",
+        "Type": "GatewayRouteRangeMatch",
+        "UniqueKey": "appmesh.gatewayroute.gatewayroutemetadatamatch.range",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.gatewayroutemetadatamatch.regex": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.gatewayroutemetadatamatch.regex",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.gatewayroutemetadatamatch.suffix": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.gatewayroutemetadatamatch.suffix",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.gatewayrouterangematch.end": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.gatewayroute.gatewayrouterangematch.end",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.gatewayrouterangematch.start": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "appmesh.gatewayroute.gatewayrouterangematch.start",
+        "UpdateRequires": "Replacement"
+    },
     "appmesh.gatewayroute.gatewayroutespec.grpcroute": {
         "Required": "No",
         "Type": "GrpcGatewayRoute",
@@ -4648,16 +4715,64 @@
         "UniqueKey": "appmesh.gatewayroute.grpcgatewayroute.match",
         "UpdateRequires": "Replacement"
     },
+    "appmesh.gatewayroute.grpcgatewayrouteaction.rewrite": {
+        "Required": "No",
+        "Type": "GrpcGatewayRouteRewrite",
+        "UniqueKey": "appmesh.gatewayroute.grpcgatewayrouteaction.rewrite",
+        "UpdateRequires": "Replacement"
+    },
     "appmesh.gatewayroute.grpcgatewayrouteaction.target": {
         "Required": "Yes",
         "Type": "GatewayRouteTarget",
         "UniqueKey": "appmesh.gatewayroute.grpcgatewayrouteaction.target",
         "UpdateRequires": "Replacement"
     },
+    "appmesh.gatewayroute.grpcgatewayroutematch.hostname": {
+        "Required": "No",
+        "Type": "GatewayRouteHostnameMatch",
+        "UniqueKey": "appmesh.gatewayroute.grpcgatewayroutematch.hostname",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.grpcgatewayroutematch.metadata": {
+        "Required": "No",
+        "Type": "List of [GrpcGatewayRouteMetadata",
+        "UniqueKey": "appmesh.gatewayroute.grpcgatewayroutematch.metadata",
+        "UpdateRequires": "Replacement"
+    },
     "appmesh.gatewayroute.grpcgatewayroutematch.servicename": {
         "Required": "No",
         "Type": "String",
         "UniqueKey": "appmesh.gatewayroute.grpcgatewayroutematch.servicename",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.grpcgatewayroutemetadata.invert": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "appmesh.gatewayroute.grpcgatewayroutemetadata.invert",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.grpcgatewayroutemetadata.match": {
+        "Required": "No",
+        "Type": "GatewayRouteMetadataMatch",
+        "UniqueKey": "appmesh.gatewayroute.grpcgatewayroutemetadata.match",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.grpcgatewayroutemetadata.name": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.grpcgatewayroutemetadata.name",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.grpcgatewayrouterewrite.hostname": {
+        "Required": "No",
+        "Type": "GatewayRouteHostnameRewrite",
+        "UniqueKey": "appmesh.gatewayroute.grpcgatewayrouterewrite.hostname",
         "UpdateRequires": "Replacement"
     },
     "appmesh.gatewayroute.httpgatewayroute.action": {
@@ -4672,16 +4787,172 @@
         "UniqueKey": "appmesh.gatewayroute.httpgatewayroute.match",
         "UpdateRequires": "Replacement"
     },
+    "appmesh.gatewayroute.httpgatewayrouteaction.rewrite": {
+        "Required": "No",
+        "Type": "HttpGatewayRouteRewrite",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouteaction.rewrite",
+        "UpdateRequires": "Replacement"
+    },
     "appmesh.gatewayroute.httpgatewayrouteaction.target": {
         "Required": "Yes",
         "Type": "GatewayRouteTarget",
         "UniqueKey": "appmesh.gatewayroute.httpgatewayrouteaction.target",
         "UpdateRequires": "Replacement"
     },
-    "appmesh.gatewayroute.httpgatewayroutematch.prefix": {
+    "appmesh.gatewayroute.httpgatewayrouteheader.invert": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouteheader.invert",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayrouteheader.match": {
+        "Required": "No",
+        "Type": "HttpGatewayRouteHeaderMatch",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouteheader.match",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayrouteheader.name": {
         "Required": "Yes",
         "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouteheader.name",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayrouteheadermatch.exact": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouteheadermatch.exact",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayrouteheadermatch.prefix": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouteheadermatch.prefix",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayrouteheadermatch.range": {
+        "Required": "No",
+        "Type": "GatewayRouteRangeMatch",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouteheadermatch.range",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayrouteheadermatch.regex": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouteheadermatch.regex",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayrouteheadermatch.suffix": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouteheadermatch.suffix",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayroutematch.headers": {
+        "Required": "No",
+        "Type": "List of [HttpGatewayRouteHeader",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayroutematch.headers",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayroutematch.hostname": {
+        "Required": "No",
+        "Type": "GatewayRouteHostnameMatch",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayroutematch.hostname",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayroutematch.method": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayroutematch.method",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayroutematch.path": {
+        "Required": "No",
+        "Type": "HttpPathMatch",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayroutematch.path",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayroutematch.prefix": {
+        "Required": "No",
+        "Type": "String",
         "UniqueKey": "appmesh.gatewayroute.httpgatewayroutematch.prefix",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayroutematch.queryparameters": {
+        "Required": "No",
+        "Type": "List of [QueryParameter",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayroutematch.queryparameters",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayroutepathrewrite.exact": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayroutepathrewrite.exact",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayrouteprefixrewrite.defaultprefix": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouteprefixrewrite.defaultprefix",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayrouteprefixrewrite.value": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouteprefixrewrite.value",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayrouterewrite.hostname": {
+        "Required": "No",
+        "Type": "GatewayRouteHostnameRewrite",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouterewrite.hostname",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayrouterewrite.path": {
+        "Required": "No",
+        "Type": "HttpGatewayRoutePathRewrite",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouterewrite.path",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpgatewayrouterewrite.prefix": {
+        "Required": "No",
+        "Type": "HttpGatewayRoutePrefixRewrite",
+        "UniqueKey": "appmesh.gatewayroute.httpgatewayrouterewrite.prefix",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httppathmatch.exact": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.httppathmatch.exact",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httppathmatch.regex": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.httppathmatch.regex",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.httpqueryparametermatch.exact": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.httpqueryparametermatch.exact",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.queryparameter.match": {
+        "Required": "No",
+        "Type": "HttpQueryParameterMatch",
+        "UniqueKey": "appmesh.gatewayroute.queryparameter.match",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.gatewayroute.queryparameter.name": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "appmesh.gatewayroute.queryparameter.name",
         "UpdateRequires": "Replacement"
     },
     "appmesh.mesh.egressfilter.type": {
@@ -4894,6 +5165,24 @@
         "UniqueKey": "appmesh.route.headermatchmethod.suffix",
         "UpdateRequires": "Replacement"
     },
+    "appmesh.route.httppathmatch.exact": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.route.httppathmatch.exact",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.route.httppathmatch.regex": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.route.httppathmatch.regex",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.route.httpqueryparametermatch.exact": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.route.httpqueryparametermatch.exact",
+        "UpdateRequires": "Replacement"
+    },
     "appmesh.route.httpretrypolicy.httpretryevents": {
         "Required": "No",
         "SampleValue": "TODO-HttpRetryEvents",
@@ -4984,10 +5273,22 @@
         "UniqueKey": "appmesh.route.httproutematch.method",
         "UpdateRequires": "Replacement"
     },
+    "appmesh.route.httproutematch.path": {
+        "Required": "No",
+        "Type": "HttpPathMatch",
+        "UniqueKey": "appmesh.route.httproutematch.path",
+        "UpdateRequires": "Replacement"
+    },
     "appmesh.route.httproutematch.prefix": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "appmesh.route.httproutematch.prefix",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.route.httproutematch.queryparameters": {
+        "Required": "No",
+        "Type": "List of [QueryParameter",
+        "UniqueKey": "appmesh.route.httproutematch.queryparameters",
         "UpdateRequires": "Replacement"
     },
     "appmesh.route.httproutematch.scheme": {
@@ -5018,6 +5319,18 @@
         "Required": "Yes",
         "Type": "Integer",
         "UniqueKey": "appmesh.route.matchrange.start",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.route.queryparameter.match": {
+        "Required": "No",
+        "Type": "HttpQueryParameterMatch",
+        "UniqueKey": "appmesh.route.queryparameter.match",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.route.queryparameter.name": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "appmesh.route.queryparameter.name",
         "UpdateRequires": "Replacement"
     },
     "appmesh.route.routespec.grpcroute": {
@@ -5552,6 +5865,12 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "appmesh.virtualnode.dnsservicediscovery.hostname",
+        "UpdateRequires": "Replacement"
+    },
+    "appmesh.virtualnode.dnsservicediscovery.responsetype": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "appmesh.virtualnode.dnsservicediscovery.responsetype",
         "UpdateRequires": "Replacement"
     },
     "appmesh.virtualnode.duration.unit": {
@@ -7090,9 +7409,8 @@
         "UpdateRequires": "Replacement"
     },
     "as.launchconfig.blockdev.template.iops": {
-        "Maximum": "20000",
-        "Minimum": "100",
         "Required": "Conditional",
+        "Type": "Integer",
         "UniqueKey": "as.launchconfig.blockdev.template.iops",
         "UpdateRequires": "Replacement"
     },
@@ -7100,6 +7418,12 @@
         "Required": "Conditional",
         "Type": "String",
         "UniqueKey": "as.launchconfig.blockdev.template.snapshotid",
+        "UpdateRequires": "Replacement"
+    },
+    "as.launchconfig.blockdev.template.throughput": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "as.launchconfig.blockdev.template.throughput",
         "UpdateRequires": "Replacement"
     },
     "as.launchconfig.blockdev.template.volumesize": {
@@ -10906,7 +11230,7 @@
         "UpdateRequires": "Replacement"
     },
     "cloudfront.function.functionmetadata.functionarn": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "cloudfront.function.functionmetadata.functionarn",
         "UpdateRequires": "Replacement"
@@ -11482,7 +11806,6 @@
     "codebuild.project.environment.image": {
         "Minimum": "1",
         "Required": "Yes",
-        "Type": "String",
         "UniqueKey": "codebuild.project.environment.image",
         "UpdateRequires": "Replacement"
     },
@@ -11503,9 +11826,8 @@
         "UpdateRequires": "Replacement"
     },
     "codebuild.project.environment.type": {
-        "Allowed values": "ARM_CONTAINER | LINUX_CONTAINER | LINUX_GPU_CONTAINER | WINDOWS_CONTAINER | WINDOWS_SERVER_2019_CONTAINER",
         "Required": "Yes",
-        "Type": "String",
+        "SampleValue": "TODO-Type",
         "UniqueKey": "codebuild.project.environment.type",
         "UpdateRequires": "Replacement"
     },
@@ -14934,7 +15256,7 @@
     },
     "databrew.recipe.action.parameters": {
         "Required": "No",
-        "Type": "",
+        "Type": "ParameterMap",
         "UniqueKey": "databrew.recipe.action.parameters",
         "UpdateRequires": "Replacement"
     },
@@ -20177,6 +20499,30 @@
         "UniqueKey": "ec2.security.group.vpcid",
         "UpdateRequires": "Replacement"
     },
+    "ec2.spotfleet.blockdevicemapping.devicename": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.blockdevicemapping.devicename",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.blockdevicemapping.ebs": {
+        "Required": "Conditional",
+        "Type": "EbsBlockDevice",
+        "UniqueKey": "ec2.spotfleet.blockdevicemapping.ebs",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.blockdevicemapping.nodevice": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.blockdevicemapping.nodevice",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.blockdevicemapping.virtualname": {
+        "Required": "Conditional",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.blockdevicemapping.virtualname",
+        "UpdateRequires": "Replacement"
+    },
     "ec2.spotfleet.classicloadbalancer.name": {
         "Required": "Yes",
         "Type": "String",
@@ -20188,6 +20534,52 @@
         "Required": "Yes",
         "Type": "List of [ClassicLoadBalancer",
         "UniqueKey": "ec2.spotfleet.classicloadbalancersconfig.classicloadbalancers",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.ebsblockdevice.deleteontermination": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "UniqueKey": "ec2.spotfleet.ebsblockdevice.deleteontermination",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.ebsblockdevice.encrypted": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "UniqueKey": "ec2.spotfleet.ebsblockdevice.encrypted",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.ebsblockdevice.iops": {
+        "Required": "Conditional",
+        "Type": "Integer",
+        "UniqueKey": "ec2.spotfleet.ebsblockdevice.iops",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.ebsblockdevice.snapshotid": {
+        "Required": "Conditional",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.ebsblockdevice.snapshotid",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.ebsblockdevice.volumesize": {
+        "Required": "Conditional",
+        "Type": "Integer",
+        "UniqueKey": "ec2.spotfleet.ebsblockdevice.volumesize",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.ebsblockdevice.volumetype": {
+        "Required": "No",
+        "SampleValue": "TODO-VolumeType",
+        "UniqueKey": "ec2.spotfleet.ebsblockdevice.volumetype",
         "UpdateRequires": "Replacement"
     },
     "ec2.spotfleet.fleetlaunchtemplatespecification.launchtemplateid": {
@@ -20211,10 +20603,100 @@
         "UniqueKey": "ec2.spotfleet.fleetlaunchtemplatespecification.version",
         "UpdateRequires": "Replacement"
     },
+    "ec2.spotfleet.groupidentifier.groupid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.groupidentifier.groupid",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.iaminstanceprofilespecification.arn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.iaminstanceprofilespecification.arn",
+        "UpdateRequires": "Replacement"
+    },
     "ec2.spotfleet.instanceipv6address.ipv6address": {
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "ec2.spotfleet.instanceipv6address.ipv6address",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.instancenetworkinterfacespecification.associatepublicipaddress": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "ec2.spotfleet.instancenetworkinterfacespecification.associatepublicipaddress",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.instancenetworkinterfacespecification.deleteontermination": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "ec2.spotfleet.instancenetworkinterfacespecification.deleteontermination",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.instancenetworkinterfacespecification.description": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.instancenetworkinterfacespecification.description",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.instancenetworkinterfacespecification.deviceindex": {
+        "Required": "Conditional",
+        "Type": "Integer",
+        "UniqueKey": "ec2.spotfleet.instancenetworkinterfacespecification.deviceindex",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.instancenetworkinterfacespecification.groups": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "ec2.spotfleet.instancenetworkinterfacespecification.groups",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.instancenetworkinterfacespecification.ipv6addresscount": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "ec2.spotfleet.instancenetworkinterfacespecification.ipv6addresscount",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.instancenetworkinterfacespecification.ipv6addresses": {
+        "Required": "No",
+        "Type": "List of [InstanceIpv6Address",
+        "UniqueKey": "ec2.spotfleet.instancenetworkinterfacespecification.ipv6addresses",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.instancenetworkinterfacespecification.networkinterfaceid": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.instancenetworkinterfacespecification.networkinterfaceid",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.instancenetworkinterfacespecification.privateipaddresses": {
+        "Required": "No",
+        "Type": "List of [PrivateIpAddressSpecification",
+        "UniqueKey": "ec2.spotfleet.instancenetworkinterfacespecification.privateipaddresses",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.instancenetworkinterfacespecification.secondaryprivateipaddresscount": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "ec2.spotfleet.instancenetworkinterfacespecification.secondaryprivateipaddresscount",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.instancenetworkinterfacespecification.subnetid": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.instancenetworkinterfacespecification.subnetid",
         "UpdateRequires": "Replacement"
     },
     "ec2.spotfleet.launchtemplateconfig.launchtemplatespecification": {
@@ -20240,12 +20722,6 @@
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ec2.spotfleet.launchtemplateoverrides.instancetype",
-        "UpdateRequires": "Replacement"
-    },
-    "ec2.spotfleet.launchtemplateoverrides.priority": {
-        "Required": "No",
-        "Type": "Double",
-        "UniqueKey": "ec2.spotfleet.launchtemplateoverrides.priority",
         "UpdateRequires": "Replacement"
     },
     "ec2.spotfleet.launchtemplateoverrides.spotprice": {
@@ -20278,11 +20754,150 @@
         "UniqueKey": "ec2.spotfleet.loadbalancersconfig.targetgroupsconfig",
         "UpdateRequires": "Replacement"
     },
+    "ec2.spotfleet.privateipaddressspecification.primary": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "ec2.spotfleet.privateipaddressspecification.primary",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.privateipaddressspecification.privateipaddress": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.privateipaddressspecification.privateipaddress",
+        "UpdateRequires": "Replacement"
+    },
     "ec2.spotfleet.spotcapacityrebalance.replacementstrategy": {
         "Allowed values": "launch",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ec2.spotfleet.spotcapacityrebalance.replacementstrategy",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.blockdevicemappings": {
+        "Required": "No",
+        "Type": "List of [BlockDeviceMapping",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.blockdevicemappings",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.ebsoptimized": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.ebsoptimized",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.iaminstanceprofile": {
+        "Required": "No",
+        "Type": "IamInstanceProfileSpecification",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.iaminstanceprofile",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.imageid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.imageid",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.instancetype": {
+        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.metal | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | c6gn.12xlarge | c6gn.16xlarge | c6gn.2xlarge | c6gn.4xlarge | c6gn.8xlarge | c6gn.large | c6gn.medium | c6gn.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | d3.2xlarge | d3.4xlarge | d3.8xlarge | d3.xlarge | d3en.12xlarge | d3en.2xlarge | d3en.4xlarge | d3en.6xlarge | d3en.8xlarge | d3en.xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4ad.16xlarge | g4ad.4xlarge | g4ad.8xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.xlarge | m5zn.12xlarge | m5zn.2xlarge | m5zn.3xlarge | m5zn.6xlarge | m5zn.large | m5zn.metal | m5zn.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | mac1.metal | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5b.12xlarge | r5b.16xlarge | r5b.24xlarge | r5b.2xlarge | r5b.4xlarge | r5b.8xlarge | r5b.large | r5b.metal | r5b.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.112xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.112xlarge | u-6tb1.56xlarge | u-6tb1.metal | u-9tb1.112xlarge | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | x2gd.12xlarge | x2gd.16xlarge | x2gd.2xlarge | x2gd.4xlarge | x2gd.8xlarge | x2gd.large | x2gd.medium | x2gd.metal | x2gd.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.instancetype",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.kernelid": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.kernelid",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.keyname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.keyname",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.monitoring": {
+        "Required": "No",
+        "Type": "SpotFleetMonitoring",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.monitoring",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.networkinterfaces": {
+        "Required": "No",
+        "Type": "List of [InstanceNetworkInterfaceSpecification",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.networkinterfaces",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.placement": {
+        "Required": "No",
+        "Type": "SpotPlacement",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.placement",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.ramdiskid": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.ramdiskid",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.securitygroups": {
+        "Required": "No",
+        "Type": "List of [GroupIdentifier",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.securitygroups",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.spotprice": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.spotprice",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.subnetid": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.subnetid",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.tagspecifications": {
+        "Required": "No",
+        "Type": "List of [SpotFleetTagSpecification",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.tagspecifications",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.userdata": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.userdata",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetlaunchspecification.weightedcapacity": {
+        "Required": "No",
+        "Type": "Double",
+        "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.weightedcapacity",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleetmonitoring.enabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "ec2.spotfleet.spotfleetmonitoring.enabled",
         "UpdateRequires": "Replacement"
     },
     "ec2.spotfleet.spotfleetrequestconfigdata.allocationstrategy": {
@@ -20753,10 +21368,42 @@
         "UniqueKey": "ec2.spotfleet.spotfleetrequestconfigdata.validuntil",
         "UpdateRequires": "Replacement"
     },
+    "ec2.spotfleet.spotfleettagspecification.resourcetype": {
+        "Allowed values": "client-vpn-endpoint | customer-gateway | dedicated-host | dhcp-options | egress-only-internet-gateway | elastic-gpu | elastic-ip | export-image-task | export-instance-task | fleet | fpga-image | host-reservation | image | import-image-task | import-snapshot-task | instance | internet-gateway | key-pair | launch-template | local-gateway-route-table-vpc-association | natgateway | network-acl | network-insights-analysis | network-insights-path | network-interface | placement-group | reserved-instances | route-table | security-group | snapshot | spot-fleet-request | spot-instances-request | subnet | traffic-mirror-filter | traffic-mirror-session | traffic-mirror-target | transit-gateway | transit-gateway-attachment | transit-gateway-connect-peer | transit-gateway-multicast-domain | transit-gateway-route-table | volume | vpc | vpc-flow-log | vpc-peering-connection | vpn-connection | vpn-gateway",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.spotfleettagspecification.resourcetype",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotfleettagspecification.tags": {
+        "Required": "No",
+        "Type": "List of [Tag",
+        "UniqueKey": "ec2.spotfleet.spotfleettagspecification.tags",
+        "UpdateRequires": "Replacement"
+    },
     "ec2.spotfleet.spotmaintenancestrategies.capacityrebalance": {
         "Required": "No",
         "Type": "SpotCapacityRebalance",
         "UniqueKey": "ec2.spotfleet.spotmaintenancestrategies.capacityrebalance",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotplacement.availabilityzone": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.spotplacement.availabilityzone",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotplacement.groupname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.spotplacement.groupname",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.spotfleet.spotplacement.tenancy": {
+        "Allowed values": "dedicated | default | host",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.spotfleet.spotplacement.tenancy",
         "UpdateRequires": "Replacement"
     },
     "ec2.spotfleet.targetgroup.arn": {
@@ -20843,6 +21490,34 @@
         "Required": "Yes",
         "Type": "List of [ReplicationDestination",
         "UniqueKey": "ecr.replicationconfiguration.replicationrule.destinations",
+        "UpdateRequires": "Replacement"
+    },
+    "ecr.repository.encryptionconfiguration.encryptiontype": {
+        "Required": "Yes",
+        "SampleValue": "TODO-EncryptionType",
+        "UniqueKey": "ecr.repository.encryptionconfiguration.encryptiontype",
+        "UpdateRequires": "Replacement"
+    },
+    "ecr.repository.encryptionconfiguration.kmskey": {
+        "Maximum": "2048",
+        "Minimum": "1",
+        "Pattern": "^.{1,2048}$",
+        "Required": "No",
+        "SampleValue": "TODO-ecr.repository.encryptionconfiguration.KmsKey",
+        "Type": "String",
+        "UniqueKey": "ecr.repository.encryptionconfiguration.kmskey",
+        "UpdateRequires": "Replacement"
+    },
+    "ecr.repository.imagescanningconfiguration.scanonpush": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "ecr.repository.imagescanningconfiguration.scanonpush",
         "UpdateRequires": "Replacement"
     },
     "ecr.repository.lifecyclepolicy.lifecyclepolicytext": {
@@ -22309,7 +22984,7 @@
         "UpdateRequires": "Replacement"
     },
     "eks.nodegroup.scalingconfig.desiredsize": {
-        "Minimum": "1",
+        "Minimum": "0",
         "Required": "No",
         "Type": "Double",
         "UniqueKey": "eks.nodegroup.scalingconfig.desiredsize",
@@ -22322,7 +22997,7 @@
         "UpdateRequires": "Replacement"
     },
     "eks.nodegroup.scalingconfig.minsize": {
-        "Minimum": "1",
+        "Minimum": "0",
         "Required": "No",
         "Type": "Double",
         "UniqueKey": "eks.nodegroup.scalingconfig.minsize",
@@ -22353,6 +23028,18 @@
         "SampleValue": "TODO-eks.nodegroup.taint.Value",
         "Type": "String",
         "UniqueKey": "eks.nodegroup.taint.value",
+        "UpdateRequires": "Replacement"
+    },
+    "eks.nodegroup.updateconfig.maxunavailable": {
+        "Required": "No",
+        "Type": "Double",
+        "UniqueKey": "eks.nodegroup.updateconfig.maxunavailable",
+        "UpdateRequires": "Replacement"
+    },
+    "eks.nodegroup.updateconfig.maxunavailablepercentage": {
+        "Required": "No",
+        "Type": "Double",
+        "UniqueKey": "eks.nodegroup.updateconfig.maxunavailablepercentage",
         "UpdateRequires": "Replacement"
     },
     "elasticache.cache.cluster.autominorversionupgrade": {
@@ -26212,6 +26899,15 @@
         "UniqueKey": "frauddetector.detector.label.tags",
         "UpdateRequires": "Replacement"
     },
+    "frauddetector.detector.model.arn": {
+        "Maximum": "256",
+        "Minimum": "1",
+        "Pattern": "^arn\\:aws[a-z-]{0,15}\\:frauddetector\\:[a-z0-9-]{3,20}\\:[0-9]{12}\\:[^\\s]{2,128}$",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "frauddetector.detector.model.arn",
+        "UpdateRequires": "Replacement"
+    },
     "frauddetector.detector.outcome.arn": {
         "Maximum": "256",
         "Minimum": "1",
@@ -26586,6 +27282,13 @@
         "UniqueKey": "fsx.filesystem.lustreconfiguration.dailyautomaticbackupstarttime",
         "UpdateRequires": "Replacement"
     },
+    "fsx.filesystem.lustreconfiguration.datacompressiontype": {
+        "Allowed values": "LZ4 | NONE",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "fsx.filesystem.lustreconfiguration.datacompressiontype",
+        "UpdateRequires": "Replacement"
+    },
     "fsx.filesystem.lustreconfiguration.deploymenttype": {
         "Allowed values": "PERSISTENT_1 | SCRATCH_1 | SCRATCH_2",
         "Required": "No",
@@ -26651,6 +27354,13 @@
         "Required": "Conditional",
         "Type": "String",
         "UniqueKey": "fsx.filesystem.windowsconfiguration.activedirectoryid",
+        "UpdateRequires": "Replacement"
+    },
+    "fsx.filesystem.windowsconfiguration.aliases": {
+        "Maximum": "50",
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "fsx.filesystem.windowsconfiguration.aliases",
         "UpdateRequires": "Replacement"
     },
     "fsx.filesystem.windowsconfiguration.automaticbackupretentiondays": {
@@ -30237,7 +30947,11 @@
         "UpdateRequires": "Replacement"
     },
     "imagebuilder.containerrecipe.instanceconfiguration.image": {
+        "Maximum": "1024",
+        "Minimum": "1",
+        "Pattern": "^.{1,1024}$",
         "Required": "No",
+        "SampleValue": "TODO-imagebuilder.containerrecipe.instanceconfiguration.Image",
         "Type": "String",
         "UniqueKey": "imagebuilder.containerrecipe.instanceconfiguration.image",
         "UpdateRequires": "Replacement"
@@ -30272,6 +30986,7 @@
         "UpdateRequires": "Replacement"
     },
     "imagebuilder.distributionconfiguration.distribution.launchtemplateconfigurations": {
+        "Maximum": "100",
         "Required": "No",
         "Type": "List of [LaunchTemplateConfiguration",
         "UniqueKey": "imagebuilder.distributionconfiguration.distribution.launchtemplateconfigurations",
@@ -30295,12 +31010,14 @@
         "UpdateRequires": "Replacement"
     },
     "imagebuilder.distributionconfiguration.launchtemplateconfiguration.accountid": {
+        "Pattern": "^[0-9]{12}$",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "imagebuilder.distributionconfiguration.launchtemplateconfiguration.accountid",
         "UpdateRequires": "Replacement"
     },
     "imagebuilder.distributionconfiguration.launchtemplateconfiguration.launchtemplateid": {
+        "Pattern": "^lt-[a-z0-9-_]{17}$",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "imagebuilder.distributionconfiguration.launchtemplateconfiguration.launchtemplateid",
@@ -36237,6 +36954,12 @@
         "UniqueKey": "kinesisanalyticsv2.application.applicationconfiguration.sqlapplicationconfiguration",
         "UpdateRequires": "Replacement"
     },
+    "kinesisanalyticsv2.application.applicationconfiguration.zeppelinapplicationconfiguration": {
+        "Required": "No",
+        "Type": "ZeppelinApplicationConfiguration",
+        "UniqueKey": "kinesisanalyticsv2.application.applicationconfiguration.zeppelinapplicationconfiguration",
+        "UpdateRequires": "Replacement"
+    },
     "kinesisanalyticsv2.application.applicationsnapshotconfiguration.snapshotsenabled": {
         "AllowedValues": [
             "True",
@@ -36247,6 +36970,12 @@
         "SampleValue": "True|False",
         "Type": "Boolean",
         "UniqueKey": "kinesisanalyticsv2.application.applicationsnapshotconfiguration.snapshotsenabled",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.catalogconfiguration.gluedatacatalogconfiguration": {
+        "Required": "No",
+        "Type": "GlueDataCatalogConfiguration",
+        "UniqueKey": "kinesisanalyticsv2.application.catalogconfiguration.gluedatacatalogconfiguration",
         "UpdateRequires": "Replacement"
     },
     "kinesisanalyticsv2.application.checkpointconfiguration.checkpointingenabled": {
@@ -36318,6 +37047,31 @@
         "UniqueKey": "kinesisanalyticsv2.application.csvmappingparameters.recordrowdelimiter",
         "UpdateRequires": "Replacement"
     },
+    "kinesisanalyticsv2.application.customartifactconfiguration.artifacttype": {
+        "Allowed values": "DEPENDENCY_JAR | UDF",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "kinesisanalyticsv2.application.customartifactconfiguration.artifacttype",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.customartifactconfiguration.mavenreference": {
+        "Required": "No",
+        "Type": "MavenReference",
+        "UniqueKey": "kinesisanalyticsv2.application.customartifactconfiguration.mavenreference",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.customartifactconfiguration.s3contentlocation": {
+        "Required": "No",
+        "Type": "S3ContentLocation",
+        "UniqueKey": "kinesisanalyticsv2.application.customartifactconfiguration.s3contentlocation",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.deployasapplicationconfiguration.s3contentlocation": {
+        "Required": "Yes",
+        "Type": "S3ContentBaseLocation",
+        "UniqueKey": "kinesisanalyticsv2.application.deployasapplicationconfiguration.s3contentlocation",
+        "UpdateRequires": "Replacement"
+    },
     "kinesisanalyticsv2.application.environmentproperties.propertygroups": {
         "Maximum": "50",
         "Required": "No",
@@ -36341,6 +37095,15 @@
         "Required": "No",
         "Type": "ParallelismConfiguration",
         "UniqueKey": "kinesisanalyticsv2.application.flinkapplicationconfiguration.parallelismconfiguration",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.gluedatacatalogconfiguration.databasearn": {
+        "Maximum": "2048",
+        "Minimum": "1",
+        "Pattern": "arn:.*",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "kinesisanalyticsv2.application.gluedatacatalogconfiguration.databasearn",
         "UpdateRequires": "Replacement"
     },
     "kinesisanalyticsv2.application.input.inputparallelism": {
@@ -36468,6 +37231,33 @@
         "UniqueKey": "kinesisanalyticsv2.application.mappingparameters.jsonmappingparameters",
         "UpdateRequires": "Replacement"
     },
+    "kinesisanalyticsv2.application.mavenreference.artifactid": {
+        "Maximum": "256",
+        "Minimum": "1",
+        "Pattern": "[a-zA-Z0-9_.-]+",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "kinesisanalyticsv2.application.mavenreference.artifactid",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.mavenreference.groupid": {
+        "Maximum": "256",
+        "Minimum": "1",
+        "Pattern": "[a-zA-Z0-9_.-]+",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "kinesisanalyticsv2.application.mavenreference.groupid",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.mavenreference.version": {
+        "Maximum": "256",
+        "Minimum": "1",
+        "Pattern": "[a-zA-Z0-9_.-]+",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "kinesisanalyticsv2.application.mavenreference.version",
+        "UpdateRequires": "Replacement"
+    },
     "kinesisanalyticsv2.application.monitoringconfiguration.configurationtype": {
         "Allowed values": "CUSTOM | DEFAULT",
         "Required": "Yes",
@@ -36579,6 +37369,24 @@
         "UniqueKey": "kinesisanalyticsv2.application.recordformat.recordformattype",
         "UpdateRequires": "Replacement"
     },
+    "kinesisanalyticsv2.application.s3contentbaselocation.basepath": {
+        "Maximum": "1024",
+        "Minimum": "1",
+        "Pattern": "[a-zA-Z0-9/!-_.*'()]+",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "kinesisanalyticsv2.application.s3contentbaselocation.basepath",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.s3contentbaselocation.bucketarn": {
+        "Maximum": "2048",
+        "Minimum": "1",
+        "Pattern": "arn:.*",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "kinesisanalyticsv2.application.s3contentbaselocation.bucketarn",
+        "UpdateRequires": "Replacement"
+    },
     "kinesisanalyticsv2.application.s3contentlocation.bucketarn": {
         "Maximum": "2048",
         "Minimum": "1",
@@ -36612,6 +37420,38 @@
         "Required": "No",
         "Type": "List of [Input",
         "UniqueKey": "kinesisanalyticsv2.application.sqlapplicationconfiguration.inputs",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.zeppelinapplicationconfiguration.catalogconfiguration": {
+        "Required": "No",
+        "Type": "CatalogConfiguration",
+        "UniqueKey": "kinesisanalyticsv2.application.zeppelinapplicationconfiguration.catalogconfiguration",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.zeppelinapplicationconfiguration.customartifactsconfiguration": {
+        "Maximum": "50",
+        "Required": "No",
+        "Type": "List",
+        "UniqueKey": "kinesisanalyticsv2.application.zeppelinapplicationconfiguration.customartifactsconfiguration",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.zeppelinapplicationconfiguration.deployasapplicationconfiguration": {
+        "Required": "No",
+        "Type": "DeployAsApplicationConfiguration",
+        "UniqueKey": "kinesisanalyticsv2.application.zeppelinapplicationconfiguration.deployasapplicationconfiguration",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.zeppelinapplicationconfiguration.monitoringconfiguration": {
+        "Required": "No",
+        "Type": "ZeppelinMonitoringConfiguration",
+        "UniqueKey": "kinesisanalyticsv2.application.zeppelinapplicationconfiguration.monitoringconfiguration",
+        "UpdateRequires": "Replacement"
+    },
+    "kinesisanalyticsv2.application.zeppelinmonitoringconfiguration.loglevel": {
+        "Allowed values": "DEBUG | ERROR | INFO | WARN",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "kinesisanalyticsv2.application.zeppelinmonitoringconfiguration.loglevel",
         "UpdateRequires": "Replacement"
     },
     "kinesisanalyticsv2.applicationcloudwatchloggingoption.cloudwatchloggingoption.logstreamarn": {
@@ -37532,7 +38372,7 @@
     "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.clusterjdbcurl": {
         "Maximum": "512",
         "Minimum": "1",
-        "Pattern": "jdbc:(redshift|postgresql)://((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+redshift\\.([a-zA-Z0-9\\.]+):\\d{1,5}/[a-zA-Z0-9_$]+",
+        "Pattern": "jdbc:(redshift|postgresql)://((?!-)[A-Za-z0-9-]{1,63}(?<!-)\\.)+redshift\\.([a-zA-Z0-9\\.]+):\\d{1,5}/[a-zA-Z0-9_$-]+",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.clusterjdbcurl",
@@ -38342,6 +39182,21 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "licensemanager.license.validitydateformat.end",
+        "UpdateRequires": "Replacement"
+    },
+    "location.map.mapconfiguration.style": {
+        "Maximum": "100",
+        "Minimum": "1",
+        "Pattern": "^[-._\\w]+$",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "location.map.mapconfiguration.style",
+        "UpdateRequires": "Replacement"
+    },
+    "location.placeindex.datasourceconfiguration.intendeduse": {
+        "Required": "No",
+        "SampleValue": "TODO-IntendedUse",
+        "UniqueKey": "location.placeindex.datasourceconfiguration.intendeduse",
         "UpdateRequires": "Replacement"
     },
     "logs.metricfilter.metrictransformation.defaultvalue": {
@@ -43121,6 +43976,12 @@
         "UniqueKey": "mediapackage.channel.ingestendpoint.username",
         "UpdateRequires": "Replacement"
     },
+    "mediapackage.channel.logconfiguration.loggroupname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.channel.logconfiguration.loggroupname",
+        "UpdateRequires": "Replacement"
+    },
     "mediapackage.originendpoint.authorization.cdnidentifiersecret": {
         "Required": "Yes",
         "Type": "String",
@@ -43131,6 +43992,12 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "mediapackage.originendpoint.authorization.secretsrolearn",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.cmafencryption.constantinitializationvector": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.cmafencryption.constantinitializationvector",
         "UpdateRequires": "Replacement"
     },
     "mediapackage.originendpoint.cmafencryption.keyrotationintervalseconds": {
@@ -43263,6 +44130,18 @@
         "Required": "No",
         "Type": "Integer",
         "UniqueKey": "mediapackage.originendpoint.dashpackage.suggestedpresentationdelayseconds",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.utctiming": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.utctiming",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.originendpoint.dashpackage.utctiminguri": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.originendpoint.dashpackage.utctiminguri",
         "UpdateRequires": "Replacement"
     },
     "mediapackage.originendpoint.hlsencryption.constantinitializationvector": {
@@ -43519,7 +44398,7 @@
     },
     "mediapackage.originendpoint.streamselection.streamorder": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-StreamOrder",
         "UniqueKey": "mediapackage.originendpoint.streamselection.streamorder",
         "UpdateRequires": "Replacement"
     },
@@ -43539,6 +44418,18 @@
         "Required": "Yes",
         "Type": "List of [HlsManifest",
         "UniqueKey": "mediapackage.packagingconfiguration.cmafpackage.hlsmanifests",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.cmafpackage.includeencoderconfigurationinsegments": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "mediapackage.packagingconfiguration.cmafpackage.includeencoderconfigurationinsegments",
         "UpdateRequires": "Replacement"
     },
     "mediapackage.packagingconfiguration.cmafpackage.segmentdurationseconds": {
@@ -43593,6 +44484,18 @@
         "Required": "No",
         "Type": "DashEncryption",
         "UniqueKey": "mediapackage.packagingconfiguration.dashpackage.encryption",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packagingconfiguration.dashpackage.includeencoderconfigurationinsegments": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "mediapackage.packagingconfiguration.dashpackage.includeencoderconfigurationinsegments",
         "UpdateRequires": "Replacement"
     },
     "mediapackage.packagingconfiguration.dashpackage.periodtriggers": {
@@ -43777,7 +44680,7 @@
     },
     "mediapackage.packagingconfiguration.streamselection.streamorder": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-StreamOrder",
         "UniqueKey": "mediapackage.packagingconfiguration.streamselection.streamorder",
         "UpdateRequires": "Replacement"
     },
@@ -43791,6 +44694,12 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "mediapackage.packaginggroup.authorization.secretsrolearn",
+        "UpdateRequires": "Replacement"
+    },
+    "mediapackage.packaginggroup.logconfiguration.loggroupname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "mediapackage.packaginggroup.logconfiguration.loggroupname",
         "UpdateRequires": "Replacement"
     },
     "mediastore.container.corsrule.allowedheaders": {
@@ -50338,11 +51247,11 @@
         "UpdateRequires": "Replacement"
     },
     "s3.bucket.inventoryconfiguration.optionalfields": {
-        "Allowed values": "Size | LastModifiedDate | StorageClass | ETag | IsMultipartUploaded | ReplicationStatus | EncryptionStatus | ObjectLockRetainUntilDate | ObjectLockMode | ObjectLockLegalHoldStatus | IntelligentTieringAccessTier",
         "Required": "No",
         "Type": "List of String",
         "UniqueKey": "s3.bucket.inventoryconfiguration.optionalfields",
-        "UpdateRequires": "Replacement"
+        "UpdateRequires": "Replacement",
+        "Valid values": " Size | LastModifiedDate | StorageClass | ETag | IsMultipartUploaded | ReplicationStatus | EncryptionStatus | ObjectLockRetainUntilDate | ObjectLockMode | ObjectLockLegalHoldStatus | IntelligentTieringAccessTier | BucketKeyStatus "
     },
     "s3.bucket.inventoryconfiguration.prefix": {
         "Required": "No",
@@ -53805,11 +54714,11 @@
         "UpdateRequires": "Replacement"
     },
     "servicediscovery.service.healthcheckconfig.type": {
-        "*Important**  \nIf you specify HTTPS for the value of `Type`, the endpoint must support TLS v1\\.0 or later\\.\n+  **TCP*": "Route\u00a053 tries to establish a TCP connection\\.\n\n  If you specify `TCP` for `Type`, don't specify a value for `ResourcePath`\\.\nFor more information, see [How Route\u00a053 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route\u00a053 Developer Guide*\\.",
+        "*Important**  \nIf you specify HTTPS for the value of `Type`, the endpoint must support TLS v1\\.0 or later\\.\n+  **TCP*": "Route 53 tries to establish a TCP connection\\.\n\n  If you specify `TCP` for `Type`, don't specify a value for `ResourcePath`\\.\nFor more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Route 53 Developer Guide*\\.",
         "Allowed values": "HTTP | HTTPS | TCP",
         "Required": "Yes",
         "Type": "String",
-        "Type`  <a name=\"cfn-servicediscovery-service-healthcheckconfig-type\"></a>\nThe type of health check that you want to create, which indicates how Route\u00a053 determines whether an endpoint is healthy\\.  \nYou can't change the value of `Type` after you create a health check\\.\nYou can create the following types of health checks:  \n+  **HTTP*": "Route\u00a053 tries to establish a TCP connection\\. If successful, Route\u00a053 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400\\.\n+  **HTTPS*",
+        "Type`  <a name=\"cfn-servicediscovery-service-healthcheckconfig-type\"></a>\nThe type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy\\.  \nYou can't change the value of `Type` after you create a health check\\.\nYou can create the following types of health checks:  \n+  **HTTP*": "Route 53 tries to establish a TCP connection\\. If successful, Route 53 submits an HTTP request and waits for an HTTP status code of 200 or greater and less than 400\\.\n+  **HTTPS*",
         "UniqueKey": "servicediscovery.service.healthcheckconfig.type",
         "UpdateRequires": "Replacement"
     },
@@ -54300,6 +55209,12 @@
         "UniqueKey": "sqs.queues.contentbaseddeduplication",
         "UpdateRequires": "Replacement"
     },
+    "sqs.queues.deduplicationscope": {
+        "Required": "No",
+        "SampleValue": "TODO-DeduplicationScope",
+        "UniqueKey": "sqs.queues.deduplicationscope",
+        "UpdateRequires": "Replacement"
+    },
     "sqs.queues.delayseconds": {
         "Required": "No",
         "Type": "Integer",
@@ -54315,6 +55230,12 @@
         "Required": "No",
         "SampleValue": "True|False",
         "UniqueKey": "sqs.queues.fifoqueue",
+        "UpdateRequires": "Replacement"
+    },
+    "sqs.queues.fifothroughputlimit": {
+        "Required": "No",
+        "SampleValue": "TODO-FifoThroughputLimit",
+        "UniqueKey": "sqs.queues.fifothroughputlimit",
         "UpdateRequires": "Replacement"
     },
     "sqs.queues.kmsdatakeyreuseperiodseconds": {
@@ -54349,7 +55270,7 @@
     },
     "sqs.queues.receivemessagewaittimeseconds": {
         "Required": "No",
-        "Type": "Integer",
+        "SampleValue": "TODO-ReceiveMessageWaitTimeSeconds",
         "UniqueKey": "sqs.queues.receivemessagewaittimeseconds",
         "UpdateRequires": "Replacement"
     },
@@ -54871,6 +55792,43 @@
         "UniqueKey": "ssm.resourcedatasync.syncsource.sourcetype",
         "UpdateRequires": "Replacement"
     },
+    "ssmcontacts.contact.channeltargetinfo.channelid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "ssmcontacts.contact.channeltargetinfo.channelid",
+        "UpdateRequires": "Replacement"
+    },
+    "ssmcontacts.contact.channeltargetinfo.retryintervalinminutes": {
+        "Maximum": "60",
+        "Minimum": "0",
+        "Pattern": "^[0,60]}$",
+        "Required": "Yes",
+        "SampleValue": "0...60",
+        "Type": "Integer",
+        "UniqueKey": "ssmcontacts.contact.channeltargetinfo.retryintervalinminutes",
+        "UpdateRequires": "Replacement"
+    },
+    "ssmcontacts.contact.contacttargetinfo.contactid": {
+        "Maximum": "2048",
+        "Minimum": "1",
+        "Pattern": "arn:(aws|aws-cn|aws-us-gov):ssm-contacts:[-\\w+=\\/,.@]*:[0-9]+:([\\w+=\\/,.@:-]+)*",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "ssmcontacts.contact.contacttargetinfo.contactid",
+        "UpdateRequires": "Replacement"
+    },
+    "ssmcontacts.contact.contacttargetinfo.isessential": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "Yes",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "ssmcontacts.contact.contacttargetinfo.isessential",
+        "UpdateRequires": "Replacement"
+    },
     "ssmcontacts.contact.stage.durationinminutes": {
         "Maximum": "30",
         "Minimum": "0",
@@ -54889,13 +55847,13 @@
     },
     "ssmcontacts.contact.targets.channeltargetinfo": {
         "Required": "No",
-        "Type": "Json",
+        "Type": "ChannelTargetInfo",
         "UniqueKey": "ssmcontacts.contact.targets.channeltargetinfo",
         "UpdateRequires": "Replacement"
     },
     "ssmcontacts.contact.targets.contacttargetinfo": {
         "Required": "No",
-        "Type": "Json",
+        "Type": "ContactTargetInfo",
         "UniqueKey": "ssmcontacts.contact.targets.contacttargetinfo",
         "UpdateRequires": "Replacement"
     },
@@ -55348,20 +56306,35 @@
         "UniqueKey": "transfer.server.endpointdetails.vpcid",
         "UpdateRequires": "Replacement"
     },
+    "transfer.server.identityproviderdetails.directoryid": {
+        "Maximum": "12",
+        "Minimum": "12",
+        "Pattern": "^d-[0-9a-f]{10}$",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "transfer.server.identityproviderdetails.directoryid",
+        "UpdateRequires": "Replacement"
+    },
     "transfer.server.identityproviderdetails.invocationrole": {
         "Maximum": "2048",
         "Minimum": "20",
         "Pattern": "arn:.*role/.*",
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "transfer.server.identityproviderdetails.invocationrole",
         "UpdateRequires": "Replacement"
     },
     "transfer.server.identityproviderdetails.url": {
         "Maximum": "255",
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "transfer.server.identityproviderdetails.url",
+        "UpdateRequires": "Replacement"
+    },
+    "transfer.server.protocoldetails.passiveip": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "transfer.server.protocoldetails.passiveip",
         "UpdateRequires": "Replacement"
     },
     "transfer.user.homedirectorymapentry.entry": {
@@ -55399,39 +56372,39 @@
         "UniqueKey": "transfer.user.posixprofile.uid",
         "UpdateRequires": "Replacement"
     },
-    "w9005ab1c27c15c15c27c19b7.default": {
+    "w9219ab1c27c15c15c27c19b7.default": {
         "Required": "No",
         "SampleValue": "TODO-default",
         "Type": "String",
-        "UniqueKey": "w9005ab1c27c15c15c27c19b7.default"
+        "UniqueKey": "w9219ab1c27c15c15c27c19b7.default"
     },
-    "w9005ab1c27c15c15c27c23b7.label": {
+    "w9219ab1c27c15c15c27c23b7.label": {
         "Required": "No",
         "SampleValue": "TODO-Label",
         "Type": "`AWS::CloudFormation::Interface Label`",
-        "UniqueKey": "w9005ab1c27c15c15c27c23b7.label"
+        "UniqueKey": "w9219ab1c27c15c15c27c23b7.label"
     },
-    "w9005ab1c27c15c15c27c23b7.parameters": {
+    "w9219ab1c27c15c15c27c23b7.parameters": {
         "Required": "No",
         "SampleValue": "TODO-Parameters",
         "Type": "List of String values",
-        "UniqueKey": "w9005ab1c27c15c15c27c23b7.parameters"
+        "UniqueKey": "w9219ab1c27c15c15c27c23b7.parameters"
     },
-    "w9005ab1c27c15c15c27c27b7.parameterlogicalid": {
+    "w9219ab1c27c15c15c27c27b7.parameterlogicalid": {
         "Required": "No",
-        "UniqueKey": "w9005ab1c27c15c15c27c27b7.parameterlogicalid"
+        "UniqueKey": "w9219ab1c27c15c15c27c27b7.parameterlogicalid"
     },
-    "w9005ab1c33c10d334c13c17.key": {
+    "w9219ab1c33c10d338c13c17.key": {
         "Required": "Yes",
         "SampleValue": "TODO-Key",
         "Type": "String",
-        "UniqueKey": "w9005ab1c33c10d334c13c17.key"
+        "UniqueKey": "w9219ab1c33c10d338c13c17.key"
     },
-    "w9005ab1c33c10d334c13c17.value": {
+    "w9219ab1c33c10d338c13c17.value": {
         "Required": "Yes",
         "SampleValue": "TODO-Value",
         "Type": "String\n\n#",
-        "UniqueKey": "w9005ab1c33c10d334c13c17.value"
+        "UniqueKey": "w9219ab1c33c10d338c13c17.value"
     },
     "waf.bytematchset.bytematchtuples.fieldtomatch": {
         "Required": "Yes",

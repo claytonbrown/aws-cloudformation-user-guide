@@ -1,6 +1,6 @@
 # #AWS::Transfer::Server Domain  == EFS |OR| AWS::Transfer::Server Domain  == S3 << Enforce allowed values [EFS | S3]
 # #AWS::Transfer::Server EndpointType  == PUBLIC |OR| AWS::Transfer::Server EndpointType  == VPC |OR| AWS::Transfer::Server EndpointType  == VPC_ENDPOINT << Enforce allowed values [PUBLIC | VPC | VPC_ENDPOINT]
-# #AWS::Transfer::Server IdentityProviderType  == API_GATEWAY |OR| AWS::Transfer::Server IdentityProviderType  == SERVICE_MANAGED << Enforce allowed values [API_GATEWAY | SERVICE_MANAGED]
+# #AWS::Transfer::Server IdentityProviderType  == API_GATEWAY |OR| AWS::Transfer::Server IdentityProviderType  == AWS_DIRECTORY_SERVICE |OR| AWS::Transfer::Server IdentityProviderType  == SERVICE_MANAGED << Enforce allowed values [API_GATEWAY | AWS_DIRECTORY_SERVICE | SERVICE_MANAGED]
 # AWS::Transfer::Server Domain  == /EFS/ <<  EFS is an expected value for AWS::Transfer::Server Domain
 # AWS::Transfer::Server Domain  == /S3/ <<  S3 is an expected value for AWS::Transfer::Server Domain
 # AWS::Transfer::Server Domain IN [EFS,S3] << Enforcing Allowed Values only
@@ -12,11 +12,10 @@
 # AWS::Transfer::Server EndpointType IN [PUBLIC,VPC,VPC_ENDPOINT] << Enforcing Allowed Values only
 # AWS::Transfer::Server IdentityProviderDetails.InvocationRole  == /\S/ <<  AWS::Transfer::Server is an expected but optional String property for IdentityProviderDetails
 # AWS::Transfer::Server IdentityProviderDetails.Url  == /\S/ <<  AWS::Transfer::Server is an expected but optional String property for IdentityProviderDetails
-# AWS::Transfer::Server IdentityProviderDetails.transfer.server.identityproviderdetails.InvocationRole  == /.*/ <<  transfer.server.identityproviderdetails.InvocationRole is a required property for AWS::Transfer::Server IdentityProviderDetails
-# AWS::Transfer::Server IdentityProviderDetails.transfer.server.identityproviderdetails.Url  == /.*/ <<  transfer.server.identityproviderdetails.Url is a required property for AWS::Transfer::Server IdentityProviderDetails
 # AWS::Transfer::Server IdentityProviderType  == /API_GATEWAY/ <<  API_GATEWAY is an expected value for AWS::Transfer::Server IdentityProviderType
+# AWS::Transfer::Server IdentityProviderType  == /AWS_DIRECTORY_SERVICE/ <<  AWS_DIRECTORY_SERVICE is an expected value for AWS::Transfer::Server IdentityProviderType
 # AWS::Transfer::Server IdentityProviderType  == /SERVICE_MANAGED/ <<  SERVICE_MANAGED is an expected value for AWS::Transfer::Server IdentityProviderType
-# AWS::Transfer::Server IdentityProviderType IN [API_GATEWAY,SERVICE_MANAGED] << Enforcing Allowed Values only
+# AWS::Transfer::Server IdentityProviderType IN [API_GATEWAY,AWS_DIRECTORY_SERVICE,SERVICE_MANAGED] << Enforcing Allowed Values only
 # AWS::Transfer::Server LoggingRole  == /arn:.*role/.*/ <<  LoggingRole is a required pattern for AWS::Transfer::Server
 # AWS::Transfer::Server SecurityPolicyName  == /TransferSecurityPolicy-.+/ <<  SecurityPolicyName is a required pattern for AWS::Transfer::Server
 # AWS::Transfer::Server SecurityPolicyName  == /arn.*{0,100}/ <<  SecurityPolicyName is a required property for AWS::Transfer::Server
