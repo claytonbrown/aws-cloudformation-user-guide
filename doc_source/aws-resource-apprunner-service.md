@@ -54,7 +54,7 @@ The Amazon Resource Name \(ARN\) of an App Runner automatic scaling configuratio
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `EncryptionConfiguration`  <a name="cfn-apprunner-service-encryptionconfiguration"></a>
-An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs\. By default, App Runner uses an AWS managed CMK\.  
+An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs\. By default, App Runner uses an AWS managed key\.  
 *Required*: No  
 *Type*: [EncryptionConfiguration](aws-properties-apprunner-service-encryptionconfiguration.md)  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -112,15 +112,17 @@ For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::G
 The Amazon Resource Name \(ARN\) of this service\.
 
 `ServiceId`  <a name="ServiceId-fn::getatt"></a>
-An alphanumeric ID that App Runner generated for this service\. Unique within the AWS Region\.
+An ID that App Runner generated for this service\. It's unique within the AWS Region\.
 
 `ServiceUrl`  <a name="ServiceUrl-fn::getatt"></a>
 A subdomain URL that App Runner generated for this service\. You can use this URL to access your service web application\.
 
 `Status`  <a name="Status-fn::getatt"></a>
-The current state of the App Runner service\. The following values need specific explanations:  
-+  `CREATE_FAILED` – Service creation failed\. Read the failure events, change any parameters that need to be fixed, and retry the service creation call\.
-+  `DELETE_FAILED` – Service deletion failed\. The service can't be successfully recovered\. Retry the service deletion call to ensure that all related resources are removed\.
+The current state of the App Runner service\. These particular values mean the following\.  
++  `CREATE_FAILED` – The service failed to create\. To troubleshoot this failure, read the failure events and logs, change any parameters that need to be fixed, and retry the call to create the service\.
+
+  The failed service isn't usable, and still counts towards your service quota\. When you're done analyzing the failure, delete the service\.
++  `DELETE_FAILED` – The service failed to delete and can't be successfully recovered\. Retry the service deletion call to ensure that all related resources are removed\.
 
 ## Examples<a name="aws-resource-apprunner-service--examples"></a>
 
@@ -164,8 +166,8 @@ This example illustrates creating a service based on a Python source code reposi
       }
     },
     "InstanceConfiguration": {
-      "Cpu": "256",
-      "Memory": "1024"
+      "Cpu": "1 vCPU",
+      "Memory": "3 GB"
     }
   }
 }
@@ -198,8 +200,8 @@ Properties:
               Name: NAME
               Value: Jane
   InstanceConfiguration:
-    Cpu: 256
-    Memory: 1024
+    Cpu: 1 vCPU
+    Memory: 3 GB
 ```
 
 ### Service based on source image<a name="aws-resource-apprunner-service--examples--Service_based_on_source_image"></a>
@@ -220,6 +222,7 @@ This example illustrates creating a service based on an image stored in Amazon E
       "AutoDeploymentsEnabled": true,
       "ImageRepository": {
         "ImageIdentifier": "123456789012.dkr.ecr.us-east-1.amazonaws.com/golang-app:latest",
+        "ImageRepositoryType": "ECR",
         "ImageConfiguration": {
           "Port": "8080",
           "RuntimeEnvironmentVariables": [
@@ -232,8 +235,8 @@ This example illustrates creating a service based on an image stored in Amazon E
       }
     },
     "InstanceConfiguration": {
-      "Cpu": "256",
-      "Memory": "1024"
+      "Cpu": "1 vCPU",
+      "Memory": "3 GB"
     }
   }
 }
@@ -251,6 +254,7 @@ Properties:
     AutoDeploymentsEnabled: true
     ImageRepository:
       ImageIdentifier: "123456789012.dkr.ecr.us-east-1.amazonaws.com/golang-app:latest"
+      ImageRepositoryType: ECR
       ImageConfiguration:
         Port: 8080
         RuntimeEnvironmentVariables:
@@ -258,8 +262,8 @@ Properties:
             Name: NAME
             Value: Jane
   InstanceConfiguration:
-    Cpu: 256
-    Memory: 1024
+    Cpu: 1 vCPU
+    Memory: 3 GB
 ```
 
 ## See also<a name="aws-resource-apprunner-service--seealso"></a>

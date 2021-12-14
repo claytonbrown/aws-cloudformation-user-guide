@@ -1,6 +1,6 @@
 # AWS::DynamoDB::GlobalTable LocalSecondaryIndex<a name="aws-properties-dynamodb-globaltable-localsecondaryindex"></a>
 
-Represents the properties of a local secondary index\.
+Represents the properties of a local secondary index\. A local secondary index can only be created when its parent table is created\.
 
 ## Syntax<a name="aws-properties-dynamodb-globaltable-localsecondaryindex-syntax"></a>
 
@@ -35,7 +35,7 @@ The name of the local secondary index\. The name must be unique among all other 
 *Minimum*: `3`  
 *Maximum*: `255`  
 *Pattern*: `[a-zA-Z0-9_.-]+`  
-*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+*Update requires*: Updates are not supported\.
 
 `KeySchema`  <a name="cfn-dynamodb-globaltable-localsecondaryindex-keyschema"></a>
 The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:  
@@ -46,10 +46,10 @@ The sort key of an item is also known as its *range attribute*\. The term "range
 *Required*: Yes  
 *Type*: [List](aws-properties-dynamodb-globaltable-keyschema.md) of [KeySchema](aws-properties-dynamodb-globaltable-keyschema.md)  
 *Maximum*: `2`  
-*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+*Update requires*: Updates are not supported\.
 
 `Projection`  <a name="cfn-dynamodb-globaltable-localsecondaryindex-projection"></a>
 Represents attributes that are copied \(projected\) from the table into the local secondary index\. These are in addition to the primary key attributes and index key attributes, which are automatically projected\.   
 *Required*: Yes  
 *Type*: [Projection](aws-properties-dynamodb-globaltable-projection.md)  
-*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+*Update requires*: Updates are not supported\.

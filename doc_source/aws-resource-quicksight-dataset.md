@@ -70,7 +70,7 @@ The AWS account ID\.
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `ColumnGroups`  <a name="cfn-quicksight-dataset-columngroups"></a>
-Groupings of columns that work together in certain QuickSight features\. Currently, only geospatial hierarchy is supported\.  
+Groupings of columns that work together in certain Amazon QuickSight features\. Currently, only geospatial hierarchy is supported\.  
 *Required*: No  
 *Type*: List of [ColumnGroup](aws-properties-quicksight-dataset-columngroup.md)  
 *Maximum*: `8`  

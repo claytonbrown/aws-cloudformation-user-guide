@@ -1,6 +1,6 @@
 # AWS::DataBrew::Job OutputLocation<a name="aws-properties-databrew-job-outputlocation"></a>
 
-The location in Amazon S3 where the job writes its output\.
+The location in Amazon S3 or AWS Glue Data Catalog where the job writes its output\.
 
 ## Syntax<a name="aws-properties-databrew-job-outputlocation-syntax"></a>
 
@@ -25,7 +25,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ## Properties<a name="aws-properties-databrew-job-outputlocation-properties"></a>
 
 `Bucket`  <a name="cfn-databrew-job-outputlocation-bucket"></a>
-The S3 bucket name\.  
+The Amazon S3 bucket name\.  
 *Required*: Yes  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

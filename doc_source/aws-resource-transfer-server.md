@@ -1,6 +1,6 @@
 # AWS::Transfer::Server<a name="aws-resource-transfer-server"></a>
 
-The `AWS::Transfer::Server` resource instantiates an autoscaling virtual server based on a file transfer protocol in AWS\. When you make updates to your server or when you work with users, use the service\-generated `ServerId` property that is assigned to the newly created server\.
+Instantiates an auto\-scaling virtual server based on the selected file transfer protocol in AWS\. When you make updates to your file transfer protocol\-enabled server or when you work with users, use the service\-generated `ServerId` property that is assigned to the newly created server\.
 
 ## Syntax<a name="aws-resource-transfer-server-syntax"></a>
 
@@ -22,7 +22,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[ProtocolDetails](#cfn-transfer-server-protocoldetails)" : ProtocolDetails,
       "[Protocols](#cfn-transfer-server-protocols)" : [ Protocol, ... ],
       "[SecurityPolicyName](#cfn-transfer-server-securitypolicyname)" : String,
-      "[Tags](#cfn-transfer-server-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ]
+      "[Tags](#cfn-transfer-server-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ],
+      "[WorkflowDetails](#cfn-transfer-server-workflowdetails)" : WorkflowDetails
     }
 }
 ```
@@ -48,6 +49,8 @@ Properties:
   [SecurityPolicyName](#cfn-transfer-server-securitypolicyname): String
   [Tags](#cfn-transfer-server-tags): 
     - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
+  [WorkflowDetails](#cfn-transfer-server-workflowdetails): 
+    WorkflowDetails
 ```
 
 ## Properties<a name="aws-resource-transfer-server-properties"></a>
@@ -56,7 +59,7 @@ Properties:
 The Amazon Resource Name \(ARN\) of the AWS Certificate Manager \(ACM\) certificate\. Required when `Protocols` is set to `FTPS`\.  
 To request a new public certificate, see [Request a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) in the * AWS Certificate Manager User Guide*\.  
 To import an existing certificate into ACM, see [Importing certificates into ACM](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the * AWS Certificate Manager User Guide*\.  
-To request a private certificate to use FTPS through private IP addresses, see [Creating and managing a Private CA](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the * AWS Certificate Manager User Guide*\.  
+To request a private certificate to use FTPS through private IP addresses, see [Request a private certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html) in the * AWS Certificate Manager User Guide*\.  
 Certificates with the following cryptographic algorithms and key sizes are supported:  
 + 2048\-bit RSA \(RSA\_2048\)
 + 4096\-bit RSA \(RSA\_4096\)
@@ -100,9 +103,10 @@ Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` or `API_G
 Specifies the mode of authentication for a server\. The default value is `SERVICE_MANAGED`, which allows you to store and access user credentials within the AWS Transfer Family service\.  
 Use `AWS_DIRECTORY_SERVICE` to provide access to Active Directory groups in AWS Managed Active Directory or Microsoft Active Directory in your on\-premises environment or in AWS using AD Connectors\. This option also requires you to provide a Directory ID using the `IdentityProviderDetails` parameter\.  
 Use the `API_GATEWAY` value to integrate with an identity provider of your choosing\. The `API_GATEWAY` setting requires you to provide an API Gateway endpoint URL to call for authentication using the `IdentityProviderDetails` parameter\.  
+Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider\. If you choose this value, you must specify the ARN for the lambda function in the `Function` parameter for the `IdentityProviderDetails` data type\.  
 *Required*: No  
 *Type*: String  
-*Allowed values*: `API_GATEWAY | AWS_DIRECTORY_SERVICE | SERVICE_MANAGED`  
+*Allowed values*: `API_GATEWAY | AWS_DIRECTORY_SERVICE | AWS_LAMBDA | SERVICE_MANAGED`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `LoggingRole`  <a name="cfn-transfer-server-loggingrole"></a>
@@ -115,7 +119,8 @@ Specifies the Amazon Resource Name \(ARN\) of the AWS Identity and Access Manage
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `ProtocolDetails`  <a name="cfn-transfer-server-protocoldetails"></a>
-Not currently supported by AWS CloudFormation\.  
+Protocol settings that are configured for your server\.  
+ Only valid in the `UpdateServer` API\. 
 *Required*: No  
 *Type*: [ProtocolDetails](aws-properties-transfer-server-protocoldetails.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -142,11 +147,17 @@ Key\-value pairs that can be used to group and search for servers\.
 *Maximum*: `50`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`WorkflowDetails`  <a name="cfn-transfer-server-workflowdetails"></a>
+Specifies the workflow ID for the workflow to assign and the execution role used for executing the workflow\.  
+*Required*: No  
+*Type*: [WorkflowDetails](aws-properties-transfer-server-workflowdetails.md)  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 ## Return values<a name="aws-resource-transfer-server-return-values"></a>
 
 ### Ref<a name="aws-resource-transfer-server-return-values-ref"></a>
 
- When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the ServerId, such as `s-01234567890abcdef`, and the server ARN, such as `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef`\.
+ When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the server ARN, such as `arn:aws:transfer:us-east-1:123456789012:server/s-01234567890abcdef`\.
 
 For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 

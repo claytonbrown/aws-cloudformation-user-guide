@@ -13,6 +13,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ```
 {
   "[HttpEndpoint](#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpendpoint)" : String,
+  "[HttpProtocolIpv6](#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpprotocolipv6)" : String,
   "[HttpPutResponseHopLimit](#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpputresponsehoplimit)" : Integer,
   "[HttpTokens](#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httptokens)" : String
 }
@@ -22,6 +23,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 ```
   [HttpEndpoint](#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpendpoint): String
+  [HttpProtocolIpv6](#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpprotocolipv6): String
   [HttpPutResponseHopLimit](#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpputresponsehoplimit): Integer
   [HttpTokens](#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httptokens): String
 ```
@@ -29,8 +31,16 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ## Properties<a name="aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions-properties"></a>
 
 `HttpEndpoint`  <a name="cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpendpoint"></a>
-This parameter enables or disables the HTTP metadata endpoint on your instances\. If the parameter is not specified, the default state is `enabled`\.  
+Enables or disables the HTTP metadata endpoint on your instances\. If the parameter is not specified, the default state is `enabled`\.  
 If you specify a value of `disabled`, you will not be able to access your instance metadata\. 
+*Required*: No  
+*Type*: String  
+*Allowed values*: `disabled | enabled`  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`HttpProtocolIpv6`  <a name="cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions-httpprotocolipv6"></a>
+Enables or disables the IPv6 endpoint for the instance metadata service\.  
+Default: `disabled`   
 *Required*: No  
 *Type*: String  
 *Allowed values*: `disabled | enabled`  

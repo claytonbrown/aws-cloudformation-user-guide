@@ -30,6 +30,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 `FromPort`  <a name="cfn-gamelift-fleet-ippermission-fromport"></a>
 A starting value for a range of allowed port numbers\.  
+For fleets using Linux builds, only port 22, 443, 1026\-60000 are valid\. For fleets using Windows builds, only port 443, 1026\-60000 are valid\.  
 *Required*: Yes  
 *Type*: Integer  
 *Minimum*: `1`  
@@ -52,6 +53,7 @@ The network communication protocol used by the fleet\.
 
 `ToPort`  <a name="cfn-gamelift-fleet-ippermission-toport"></a>
 An ending value for a range of allowed port numbers\. Port numbers are end\-inclusive\. This value must be higher than `FromPort`\.  
+For fleets using Linux builds, only port 22, 443, 1026\-60000 are valid\. For fleets using Windows builds, only port 443, 1026\-60000 are valid\.  
 *Required*: Yes  
 *Type*: Integer  
 *Minimum*: `1`  
@@ -59,6 +61,7 @@ An ending value for a range of allowed port numbers\. Port numbers are end\-incl
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 ## See also<a name="aws-properties-gamelift-fleet-ippermission--seealso"></a>
-+ [ Create GameLift resources using AWS CloudFormation](https://docs.aws.amazon.com/gamelift/latest/developerguide/resources-cloudformation.html) in the *Amazon GameLift Developer Guide*
++ [ Create GameLift resources using Amazon CloudFront](https://docs.aws.amazon.com/gamelift/latest/developerguide/resources-cloudformation.html) in the *Amazon GameLift Developer Guide*
 +  [Deploy a GameLift fleet for a custom game build](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating.html) in the *Amazon GameLift Developer Guide* 
 +  [IpPermission](https://docs.aws.amazon.com/gamelift/latest/apireference/API_IpPermission.html) in the *Amazon GameLift API Reference* 
+

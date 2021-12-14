@@ -86,7 +86,7 @@ To modify tags on existing resources, use the AWS WAF APIs or command line inter
 
 The `Ref` for the resource, containing the resource name, physical ID, and scope, formatted as follows: `name|id|scope`\.
 
-For example: `my-webacl-name|1234a1a-a1b1-12a1-abcd-a123b123456|REGIONAL`
+For example: `my-webacl-name|1234a1a-a1b1-12a1-abcd-a123b123456|REGIONAL`\.
 
 ### Fn::GetAtt<a name="aws-resource-wafv2-regexpatternset-return-values-fn--getatt"></a>
 
@@ -109,9 +109,7 @@ The following shows an example regex pattern set specification\.
 #### JSON<a name="aws-resource-wafv2-regexpatternset--examples--Create_a_regex_pattern_set--json"></a>
 
 ```
-"Description": "Create RegexPatternSet example",
-  "Resources": {
-    "ExampleRegexPatternSet": {
+ "ExampleRegexPatternSet": {
       "Type": "AWS::WAFv2::RegexPatternSet",
       "Properties": {
         "Name": "ExampleRegexPatternSet1",
@@ -123,15 +121,12 @@ The following shows an example regex pattern set specification\.
         ]
       }
     }
-  }
 ```
 
 #### YAML<a name="aws-resource-wafv2-regexpatternset--examples--Create_a_regex_pattern_set--yaml"></a>
 
 ```
-Description: Create RegexPatternSet example
-Resources:
-  ExampleRegexPatternSet:
+ ExampleRegexPatternSet:
     Type: AWS::WAFv2::RegexPatternSet
     Properties:
       Name: ExampleRegexPatternSet

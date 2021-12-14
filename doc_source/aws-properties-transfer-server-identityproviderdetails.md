@@ -11,6 +11,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ```
 {
   "[DirectoryId](#cfn-transfer-server-identityproviderdetails-directoryid)" : String,
+  "[Function](#cfn-transfer-server-identityproviderdetails-function)" : String,
   "[InvocationRole](#cfn-transfer-server-identityproviderdetails-invocationrole)" : String,
   "[Url](#cfn-transfer-server-identityproviderdetails-url)" : String
 }
@@ -20,6 +21,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 
 ```
   [DirectoryId](#cfn-transfer-server-identityproviderdetails-directoryid): String
+  [Function](#cfn-transfer-server-identityproviderdetails-function): String
   [InvocationRole](#cfn-transfer-server-identityproviderdetails-invocationrole): String
   [Url](#cfn-transfer-server-identityproviderdetails-url): String
 ```
@@ -27,12 +29,21 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ## Properties<a name="aws-properties-transfer-server-identityproviderdetails-properties"></a>
 
 `DirectoryId`  <a name="cfn-transfer-server-identityproviderdetails-directoryid"></a>
-The identifier of the AWSDirectory Service directory that you want to stop sharing\.  
+The identifier of the AWS Directory Service directory that you want to stop sharing\.  
 *Required*: No  
 *Type*: String  
 *Minimum*: `12`  
 *Maximum*: `12`  
 *Pattern*: `^d-[0-9a-f]{10}$`  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`Function`  <a name="cfn-transfer-server-identityproviderdetails-function"></a>
+The ARN for a lambda function to use for the Identity provider\.  
+*Required*: No  
+*Type*: String  
+*Minimum*: `1`  
+*Maximum*: `170`  
+*Pattern*: `^arn:[a-z-]+:lambda:.*$`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `InvocationRole`  <a name="cfn-transfer-server-identityproviderdetails-invocationrole"></a>

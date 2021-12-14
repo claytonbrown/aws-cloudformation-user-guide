@@ -71,7 +71,7 @@ The state of the workgroup: ENABLED or DISABLED\.
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Tags`  <a name="cfn-athena-workgroup-tags"></a>
-An array of key\-value pairs to apply to this resource\.  
+The tags \(key\-value pairs\) to associate with this resource\.  
 *Required*: No  
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -110,6 +110,9 @@ For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::G
 The date and time the workgroup was created, as a UNIX timestamp in seconds\. For example: `1582761016`\.
 
 `WorkGroupConfiguration.EngineVersion.EffectiveEngineVersion`  <a name="WorkGroupConfiguration.EngineVersion.EffectiveEngineVersion-fn::getatt"></a>
+Not currently supported by AWS CloudFormation\.
+
+`WorkGroupConfigurationUpdates.EngineVersion.EffectiveEngineVersion`  <a name="WorkGroupConfigurationUpdates.EngineVersion.EffectiveEngineVersion-fn::getatt"></a>
 Not currently supported by AWS CloudFormation\.
 
 ## Examples<a name="aws-resource-athena-workgroup--examples"></a>

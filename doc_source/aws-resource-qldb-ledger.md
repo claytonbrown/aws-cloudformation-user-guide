@@ -15,6 +15,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "Type" : "AWS::QLDB::Ledger",
   "Properties" : {
       "[DeletionProtection](#cfn-qldb-ledger-deletionprotection)" : Boolean,
+      "[KmsKey](#cfn-qldb-ledger-kmskey)" : String,
       "[Name](#cfn-qldb-ledger-name)" : String,
       "[PermissionsMode](#cfn-qldb-ledger-permissionsmode)" : String,
       "[Tags](#cfn-qldb-ledger-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ]
@@ -28,6 +29,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 Type: AWS::QLDB::Ledger
 Properties: 
   [DeletionProtection](#cfn-qldb-ledger-deletionprotection): Boolean
+  [KmsKey](#cfn-qldb-ledger-kmskey): String
   [Name](#cfn-qldb-ledger-name): String
   [PermissionsMode](#cfn-qldb-ledger-permissionsmode): String
   [Tags](#cfn-qldb-ledger-tags): 
@@ -41,6 +43,26 @@ The flag that prevents a ledger from being deleted by any user\. If not provided
 If deletion protection is enabled, you must first disable it before you can delete the ledger\. You can disable it by calling the `UpdateLedger` operation to set the flag to `false`\.  
 *Required*: No  
 *Type*: Boolean  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`KmsKey`  <a name="cfn-qldb-ledger-kmskey"></a>
+The key in AWS Key Management Service \(AWS KMS\) to use for encryption of data at rest in the ledger\. For more information, see [Encryption at rest](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html) in the *Amazon QLDB Developer Guide*\.  
+Use one of the following options to specify this parameter:  
++  `AWS_OWNED_KMS_KEY`: Use an AWS KMS key that is owned and managed by AWS on your behalf\.
++  **Undefined**: By default, use an AWS owned KMS key\.
++  **A valid symmetric customer managed KMS key**: Use the specified KMS key in your account that you create, own, and manage\.
+
+  Amazon QLDB does not support asymmetric keys\. For more information, see [Using symmetric and asymmetric keys](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html) in the * AWS Key Management Service Developer Guide*\.
+To specify a customer managed KMS key, you can use its key ID, Amazon Resource Name \(ARN\), alias name, or alias ARN\. When using an alias name, prefix it with `"alias/"`\. To specify a key in a different AWS account, you must use the key ARN or alias ARN\.  
+For example:  
++ Key ID: `1234abcd-12ab-34cd-56ef-1234567890ab` 
++ Key ARN: `arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` 
++ Alias name: `alias/ExampleAlias` 
++ Alias ARN: `arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias` 
+For more information, see [Key identifiers \(KeyId\)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the * AWS Key Management Service Developer Guide*\.  
+*Required*: No  
+*Type*: String  
+*Maximum*: `1600`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Name`  <a name="cfn-qldb-ledger-name"></a>
@@ -92,7 +114,7 @@ For more information about using the `Ref` function, see [Ref](https://docs.aws.
 
 ### Amazon QLDB Ledger<a name="aws-resource-qldb-ledger--examples--Amazon_QLDB_Ledger"></a>
 
-The following example describes an Amazon QLDB ledger with a `PermissionsMode` of `STANDARD`\.
+The following example describes an Amazon QLDB ledger with a `PermissionsMode` of `STANDARD` and a specified customer managed KMS key for encryption at rest\.
 
 #### JSON<a name="aws-resource-qldb-ledger--examples--Amazon_QLDB_Ledger--json"></a>
 
@@ -104,6 +126,7 @@ The following example describes an Amazon QLDB ledger with a `PermissionsMode` o
       "Type": "AWS::QLDB::Ledger",
       "Properties": {
         "DeletionProtection": true,
+        "KmsKey": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
         "Name": "exampleLedger",
         "PermissionsMode": "STANDARD",
         "Tags": [
@@ -127,6 +150,7 @@ Resources:
     Type: "AWS::QLDB::Ledger"
     Properties:
       DeletionProtection: true
+      KmsKey: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
       Name: "exampleLedger"
       PermissionsMode: "STANDARD"
       Tags:

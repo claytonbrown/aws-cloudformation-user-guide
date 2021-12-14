@@ -41,6 +41,7 @@ The location of a game build executable or the Realtime script file that contain
 *Type*: String  
 *Minimum*: `1`  
 *Maximum*: `1024`  
+*Pattern*: `[A-Za-z0-9_:.+\/\\\- ]+`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Parameters`  <a name="cfn-gamelift-fleet-serverprocess-parameters"></a>
@@ -49,11 +50,13 @@ An optional list of parameters to pass to the server executable or Realtime scri
 *Type*: String  
 *Minimum*: `1`  
 *Maximum*: `1024`  
+*Pattern*: `[A-Za-z0-9_:.+\/\\\- =@;{},?'\[\]"]+`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 ## See also<a name="aws-properties-gamelift-fleet-serverprocess--seealso"></a>
-+ [ Create GameLift resources using AWS CloudFormation](https://docs.aws.amazon.com/gamelift/latest/developerguide/resources-cloudformation.html) in the *Amazon GameLift Developer Guide*
++ [ Create GameLift resources using Amazon CloudFront](https://docs.aws.amazon.com/gamelift/latest/developerguide/resources-cloudformation.html) in the *Amazon GameLift Developer Guide*
 +  [Deploy a GameLift fleet for a custom game build](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating.html) in the *Amazon GameLift Developer Guide* 
 +  [Deploy a Realtime Servers fleet](https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-fleets-creating.html) in the *Amazon GameLift Developer Guide* 
 +  [Run multiple processes on a fleet](https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html) in the *Amazon GameLift Developer Guide* 
 +  [ServerProcess](https://docs.aws.amazon.com/gamelift/latest/apireference/API_ServerProcess.html) in the *Amazon GameLift API Reference* 
+

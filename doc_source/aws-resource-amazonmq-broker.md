@@ -102,6 +102,7 @@ Enables automatic upgrades to new minor versions for brokers, as new broker engi
 
 `BrokerName`  <a name="cfn-amazonmq-broker-brokername"></a>
 The name of the broker\. This value must be unique in your AWS account, 1\-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters\.  
+ Do not add personally identifiable information \(PII\) or other confidential or sensitive information in broker names\. Broker names are accessible to other AWS services, including CCloudWatch Logs\. Broker names are not intended to be used for private or sensitive data\. 
 *Required*: Yes  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -161,7 +162,7 @@ Enables Amazon CloudWatch logging for brokers\.
 The scheduled time period relative to UTC during which Amazon MQ begins to apply pending updates or patches to the broker\.  
 *Required*: No  
 *Type*: [MaintenanceWindow](aws-properties-amazonmq-broker-maintenancewindow.md)  
-*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `PubliclyAccessible`  <a name="cfn-amazonmq-broker-publiclyaccessible"></a>
 Enables connections from applications outside of the VPC that hosts the broker's subnets\.  
@@ -189,13 +190,13 @@ The list of groups that define which subnets and IP ranges the broker can use fr
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Tags`  <a name="cfn-amazonmq-broker-tags"></a>
-An array of key\-value pairs\. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing and Cost Management User Guide*\.   
+An array of key\-value pairs\. For more information, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *Billing and Cost Management User Guide*\.   
 *Required*: No  
 *Type*: List of [TagsEntry](aws-properties-amazonmq-broker-tagsentry.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Users`  <a name="cfn-amazonmq-broker-users"></a>
-The list of ActiveMQ users \(persons or applications\) who can access queues and topics\. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned\. All subsequent RabbitMQ users are created by via the RabbitMQ web console or by using the RabbitMQ management API\. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes \(\- \. \_ \~\)\. This value must be 2\-100 characters long\.  
+The list of broker users \(persons or applications\) who can access queues and topics\. For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned\. All subsequent RabbitMQ users are created by via the RabbitMQ web console or by using the RabbitMQ management API\.   
 *Required*: Yes  
 *Type*: List of [User](aws-properties-amazonmq-broker-user.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

@@ -82,7 +82,7 @@ Defines the compliance level for approved patches\. When an approved patch is re
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `ApprovedPatchesEnableNonSecurity`  <a name="cfn-ssm-patchbaseline-approvedpatchesenablenonsecurity"></a>
-Indicates whether the list of approved patches includes non\-security updates that should be applied to the instances\. The default value is `false`\. Applies to Linux instances only\.  
+Indicates whether the list of approved patches includes non\-security updates that should be applied to the managed nodes\. The default value is `false`\. Applies to Linux managed nodes only\.  
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -114,7 +114,7 @@ The name of the patch baseline\.
 Defines the operating system the patch baseline applies to\. The default value is `WINDOWS`\.   
 *Required*: No  
 *Type*: String  
-*Allowed values*: `AMAZON_LINUX | AMAZON_LINUX_2 | CENTOS | DEBIAN | MACOS | ORACLE_LINUX | REDHAT_ENTERPRISE_LINUX | SUSE | UBUNTU | WINDOWS`  
+*Allowed values*: `AMAZON_LINUX | AMAZON_LINUX_2 | CENTOS | DEBIAN | MACOS | ORACLE_LINUX | RASPBIAN | REDHAT_ENTERPRISE_LINUX | SUSE | UBUNTU | WINDOWS`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `PatchGroups`  <a name="cfn-ssm-patchbaseline-patchgroups"></a>
@@ -144,7 +144,7 @@ The action for Patch Manager to take on patches included in the `RejectedPackage
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Sources`  <a name="cfn-ssm-patchbaseline-sources"></a>
-Information about the patches to use to update the instances, including target operating systems and source repositories\. Applies to Linux instances only\.  
+Information about the patches to use to update the managed nodes, including target operating systems and source repositories\. Applies to Linux managed nodes only\.  
 *Required*: No  
 *Type*: List of [PatchSource](aws-properties-ssm-patchbaseline-patchsource.md)  
 *Maximum*: `20`  

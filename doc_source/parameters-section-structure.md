@@ -136,6 +136,7 @@ A numeric value that determines the smallest numeric value you want to allow for
 
 `NoEcho`  
 Whether to mask the parameter value to prevent it from being displayed in the console, command line tools, or API\. If you set the `NoEcho` attribute to `true`, CloudFormation returns the parameter value masked as asterisks \(\*\*\*\*\*\) for any calls that describe the stack or stack events, except for information stored in the locations specified below\.  
+*Required*: No  
 Using the `NoEcho` attribute does not mask any information stored in the following:  
 + The `Metadata` template section\. CloudFormation does not transform, modify, or redact any information you include in the `Metadata` section\. For more information, see [Metadata](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html)\.
 + The `Outputs` template section\. For more information, see [Outputs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html)\.
@@ -143,7 +144,9 @@ Using the `NoEcho` attribute does not mask any information stored in the followi
 We strongly recommend you do not use these mechanisms to include sensitive information, such as passwords or secrets\.
 Rather than embedding sensitive information directly in your CloudFormation templates, we recommend you use dynamic parameters in the stack template to reference sensitive information that is stored and managed outside of CloudFormation, such as in the AWS Systems Manager Parameter Store or AWS Secrets Manager\.  
 For more information, see the [Do not embed credentials in your templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) best practice\.
-*Required*: No
+We strongly recommend against including `NoEcho` parameters, or any sensitive data, in resource properties that are part of a resource's primary identifier\.  
+When a `NoEcho` parameter is included in a property that forms a primary resource identifier, CloudFormation may use the *actual plaintext value* in the primary resource identifier\. This resource ID may appear in any derived outputs or destinations\.  
+To determine which resource properties comprise a resource type's primary identifier, refer to the [resource reference documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) for that resource\. In the **Return values** section, the `Ref` function return value represents the resource properties that comprise the resource type's primary identifier\.
 
 `Type`  <a name="parameters-section-structure-properties-type"></a>
 The data type for the parameter \(`DataType`\)\.  
@@ -204,7 +207,7 @@ An Amazon EBS volume ID, such as `vol-3cdd3f56`\.
 A VPC ID, such as `vpc-a123baa3`\.
 
 `AWS::Route53::HostedZone::Id`  
-An Amazon Route 53 hosted zone ID, such as `Z23YXV4OVPL04A`\.
+An Amazon Route 53 hosted zone ID, such as `Z23YXV4OVPL04A`\.
 
 `List<AWS::EC2::AvailabilityZone::Name>`  
 An array of Availability Zones for a region, such as `us-west-2a, us-west-2b`\.
@@ -231,7 +234,7 @@ An array of Amazon EBS volume IDs, such as `vol-3cdd3f56, vol-4cdd3f56`\.
 An array of VPC IDs, such as `vpc-a123baa3, vpc-b456baa3`\.
 
 `List<AWS::Route53::HostedZone::Id>`  
-An array of Amazon Route 53 hosted zone IDs, such as `Z23YXV4OVPL04A, Z23YXV4OVPL04B`\.
+An array of Amazon Route 53 hosted zone IDs, such as `Z23YXV4OVPL04A, Z23YXV4OVPL04B`\.
 
 ## SSM parameter types<a name="aws-ssm-parameter-types"></a>
 
@@ -515,7 +518,7 @@ The following command creates a stack based on the example template\. It provide
 aws cloudformation create-stack --stack-name S1 --template-body example template --parameters ParameterKey=InstanceType,ParameterValue=myInstanceType
 ```
 
- 
+ 
 
 #### `AWS::SSM::Parameter::Value`<`AWS::EC2::Image::Id`> type<a name="parameters-section-ssm-examples-example2"></a>
 

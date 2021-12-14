@@ -6,7 +6,7 @@ A Redis \(cluster mode enabled\) cluster is comprised of from 1 to 90 shards \(A
 
 The node or shard limit can be increased to a maximum of 500 per cluster if the Redis engine version is 5\.0\.6 or higher\. For example, you can choose to configure a 500 node cluster that ranges between 83 shards \(one primary and 5 replicas per shard\) and 500 shards \(single primary and no replicas\)\. Make sure there are enough available IP addresses to accommodate the increase\. Common pitfalls include the subnets in the subnet group have too small a CIDR range or the subnets are shared and heavily used by other clusters\. For more information, see [Creating a Subnet Group](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html)\. For versions below 5\.0\.6, the limit is 250 per cluster\.
 
-To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
+To request a limit increase, see [Amazon Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**\. 
 
 ## Syntax<a name="aws-resource-elasticache-replicationgroup-syntax"></a>
 
@@ -26,6 +26,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[CacheParameterGroupName](#cfn-elasticache-replicationgroup-cacheparametergroupname)" : String,
       "[CacheSecurityGroupNames](#cfn-elasticache-replicationgroup-cachesecuritygroupnames)" : [ String, ... ],
       "[CacheSubnetGroupName](#cfn-elasticache-replicationgroup-cachesubnetgroupname)" : String,
+      "[DataTieringEnabled](#cfn-elasticache-replicationgroup-datatieringenabled)" : Boolean,
       "[Engine](#cfn-elasticache-replicationgroup-engine)" : String,
       "[EngineVersion](#cfn-elasticache-replicationgroup-engineversion)" : String,
       "[GlobalReplicationGroupId](#cfn-elasticache-replicationgroup-globalreplicationgroupid)" : String,
@@ -70,6 +71,7 @@ Properties:
   [CacheSecurityGroupNames](#cfn-elasticache-replicationgroup-cachesecuritygroupnames): 
     - String
   [CacheSubnetGroupName](#cfn-elasticache-replicationgroup-cachesubnetgroupname): String
+  [DataTieringEnabled](#cfn-elasticache-replicationgroup-datatieringenabled): Boolean
   [Engine](#cfn-elasticache-replicationgroup-engine): String
   [EngineVersion](#cfn-elasticache-replicationgroup-engineversion): String
   [GlobalReplicationGroupId](#cfn-elasticache-replicationgroup-globalreplicationgroupid): String
@@ -138,7 +140,7 @@ Default: false
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `AutoMinorVersionUpgrade`  <a name="cfn-elasticache-replicationgroup-autominorversionupgrade"></a>
-This parameter is currently disabled\.  
+If you are running Redis engine version 6\.0 or later, set this parameter to yes if you want to opt\-in to the next minor version upgrade campaign\. This parameter is disabled for previous versions\.   
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -154,6 +156,8 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
     **M5 node types:** `cache.m5.large`, `cache.m5.xlarge`, `cache.m5.2xlarge`, `cache.m5.4xlarge`, `cache.m5.12xlarge`, `cache.m5.24xlarge` 
 
     **M4 node types:** `cache.m4.large`, `cache.m4.xlarge`, `cache.m4.2xlarge`, `cache.m4.4xlarge`, `cache.m4.10xlarge`
+
+    **T4g node types:** `cache.t4g.micro`, `cache.t4g.small`, `cache.t4g.medium` 
 
     **T3 node types:** `cache.t3.micro`, `cache.t3.small`, `cache.t3.medium`
 
@@ -172,6 +176,10 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 + Memory optimized:
   + Current generation: 
 
+    **R6gd node types:** `cache.r6gd.xlarge`, `cache.r6gd.2xlarge`, `cache.r6gd.4xlarge`, `cache.r6gd.8xlarge`, `cache.r6gd.12xlarge`, `cache.r6gd.16xlarge`
+**Note**  
+The `r6gd` family is available in the following regions: `us-east-2`, `us-east-1`, `us-west-2`, `us-west-1`, `eu-west-1`, `eu-central-1`, `ap-northeast-1`, `ap-southeast-1`, `ap-southeast-2`\.
+
     **R6g node types:** `cache.r6g.large`, `cache.r6g.xlarge`, `cache.r6g.2xlarge`, `cache.r6g.4xlarge`, `cache.r6g.12xlarge`, `cache.r6g.24xlarge`
 
     **R5 node types:** `cache.r5.large`, `cache.r5.xlarge`, `cache.r5.2xlarge`, `cache.r5.4xlarge`, `cache.r5.12xlarge`, `cache.r5.24xlarge`
@@ -182,7 +190,7 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
     **M2 node types:** `cache.m2.xlarge`, `cache.m2.2xlarge`, `cache.m2.4xlarge`
 
     **R3 node types:** `cache.r3.large`, `cache.r3.xlarge`, `cache.r3.2xlarge`, `cache.r3.4xlarge`, `cache.r3.8xlarge`
-For region availability, see [Supported Node Types by AWS Region](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion)  
+For region availability, see [Supported Node Types by Amazon Region](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion)  
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -207,6 +215,12 @@ The name of the cache subnet group to be used for the replication group\.
 If you're going to launch your cluster in an Amazon VPC, you need to create a subnet group before you start creating a cluster\. For more information, see [AWS::ElastiCache::SubnetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html)\.
 *Required*: No  
 *Type*: String  
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+
+`DataTieringEnabled`  <a name="cfn-elasticache-replicationgroup-datatieringenabled"></a>
+Enables data tiering\. Data tiering is only supported for replication groups using the r6gd node type\. This parameter must be set to true when using r6gd nodes\. For more information, see [Data tiering](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html)\.  
+*Required*: No  
+*Type*: Boolean  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Engine`  <a name="cfn-elasticache-replicationgroup-engine"></a>

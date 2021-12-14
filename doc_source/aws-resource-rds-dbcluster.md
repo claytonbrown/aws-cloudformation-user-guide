@@ -17,6 +17,8 @@ If you want to restore your DB cluster using a DB cluster snapshot, modify the u
 After you restore a DB cluster with a `SnapshotIdentifier` property, you must specify the same `SnapshotIdentifier` property for any future updates to the DB cluster\. When you specify this property for an update, the DB cluster is not restored from the DB cluster snapshot again, and the data in the database is not changed\. However, if you don't specify the `SnapshotIdentifier` property, an empty DB cluster is created, and the original DB cluster is deleted\. If you specify a property that is different from the previous snapshot restore property, a new DB cluster is restored from the specified `SnapshotIdentifier` property, and the original DB cluster is deleted\.
 Update the stack\.
 
+Currently, when you are updating the stack for an Aurora Serverless DB cluster, you can't include changes to any other properties when you specify one of the following properties: `PreferredBackupWindow`, `PreferredMaintenanceWindow`, and `Port`\. This limitation doesn't apply to provisioned DB clusters\.
+
 For more information about updating other properties of this resource, see ` [ModifyDBCluster](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBCluster.html)`\. For more information about updating stacks, see [AWS CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html)\.
 
 **Deleting DB clusters**
@@ -37,6 +39,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[AvailabilityZones](#cfn-rds-dbcluster-availabilityzones)" : [ String, ... ],
       "[BacktrackWindow](#cfn-rds-dbcluster-backtrackwindow)" : Long,
       "[BackupRetentionPeriod](#cfn-rds-dbcluster-backuprententionperiod)" : Integer,
+      "[CopyTagsToSnapshot](#cfn-rds-dbcluster-copytagstosnapshot)" : Boolean,
       "[DatabaseName](#cfn-rds-dbcluster-databasename)" : String,
       "[DBClusterIdentifier](#cfn-rds-dbcluster-dbclusteridentifier)" : String,
       "[DBClusterParameterGroupName](#cfn-rds-dbcluster-dbclusterparametergroupname)" : String,
@@ -80,6 +83,7 @@ Properties:
     - String
   [BacktrackWindow](#cfn-rds-dbcluster-backtrackwindow): Long
   [BackupRetentionPeriod](#cfn-rds-dbcluster-backuprententionperiod): Integer
+  [CopyTagsToSnapshot](#cfn-rds-dbcluster-copytagstosnapshot): Boolean
   [DatabaseName](#cfn-rds-dbcluster-databasename): String
   [DBClusterIdentifier](#cfn-rds-dbcluster-dbclusteridentifier): String
   [DBClusterParameterGroupName](#cfn-rds-dbcluster-dbclusterparametergroupname): String
@@ -123,17 +127,19 @@ Provides a list of the AWS Identity and Access Management \(IAM\) roles that are
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `AvailabilityZones`  <a name="cfn-rds-dbcluster-availabilityzones"></a>
-A list of Availability Zones \(AZs\) where instances in the DB cluster can be created\. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*\.   
+A list of Availability Zones \(AZs\) where DB instances in the DB cluster can be created\.   
+For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*\.  
+Valid for: Aurora DB clusters only  
 *Required*: No  
 *Type*: List of String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `BacktrackWindow`  <a name="cfn-rds-dbcluster-backtrackwindow"></a>
 The target backtrack window, in seconds\. To disable backtracking, set this value to 0\.   
-Currently, Backtrack is only supported for Aurora MySQL DB clusters\.
 Default: 0  
 Constraints:  
 + If specified, this value must be set to a number from 0 to 259,200 \(72 hours\)\.
+Valid for: Aurora MySQL DB clusters only  
 *Required*: No  
 *Type*: Long  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -143,8 +149,16 @@ The number of days for which automated backups are retained\.
 Default: 1  
 Constraints:  
 + Must be a value from 1 to 35
+Valid for: Aurora DB clusters and Multi\-AZ DB clusters  
 *Required*: No  
 *Type*: Integer  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`CopyTagsToSnapshot`  <a name="cfn-rds-dbcluster-copytagstosnapshot"></a>
+A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster\. The default is not to copy them\.  
+Valid for: Aurora DB clusters only  
+*Required*: No  
+*Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `DatabaseName`  <a name="cfn-rds-dbcluster-databasename"></a>
@@ -160,6 +174,7 @@ Constraints:
 + First character must be a letter\.
 + Can't end with a hyphen or contain two consecutive hyphens\.
 Example: `my-cluster1`   
+Valid for: Aurora DB clusters and Multi\-AZ DB clusters  
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -176,12 +191,14 @@ To list all of the available DB cluster parameter group names, use the following
 
 `DBSubnetGroupName`  <a name="cfn-rds-dbcluster-dbsubnetgroupname"></a>
 A DB subnet group that you want to associate with this DB cluster\.   
+If you are restoring a DB cluster to a point in time with `RestoreType` set to `copy-on-write`, and don't specify a DB subnet group name, then the DB cluster is restored with a default DB subnet group\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `DeletionProtection`  <a name="cfn-rds-dbcluster-deletionprotection"></a>
-A value that indicates whether the DB cluster has deletion protection enabled\. The database can't be deleted when deletion protection is enabled\. By default, deletion protection is disabled\.  
+A value that indicates whether the DB cluster has deletion protection enabled\. The database can't be deleted when deletion protection is enabled\. By default, deletion protection isn't enabled\.  
+Valid for: Aurora DB clusters and Multi\-AZ DB clusters  
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -189,9 +206,9 @@ A value that indicates whether the DB cluster has deletion protection enabled\. 
 `EnableCloudwatchLogsExports`  <a name="cfn-rds-dbcluster-enablecloudwatchlogsexports"></a>
 The list of log types that need to be enabled for exporting to CloudWatch Logs\. The values in the list depend on the DB engine being used\. For more information, see [Publishing Database Logs to Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch) in the *Amazon Aurora User Guide*\.  
  **Aurora MySQL**   
-Possible values are `audit`, `error`, `general`, and `slowquery`\.   
+Valid values: `audit`, `error`, `general`, `slowquery`   
  **Aurora PostgreSQL**   
-Possible values are `postgresql` and `upgrade`\.   
+Valid values: `postgresql`   
 *Required*: No  
 *Type*: List of String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -200,20 +217,28 @@ Possible values are `postgresql` and `upgrade`\.
 A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster\. By default, the HTTP endpoint is disabled\.  
 When enabled, the HTTP endpoint provides a connectionless web service API for running SQL queries on the Aurora Serverless DB cluster\. You can also query your database from inside the RDS console with the query editor\.  
 For more information, see [Using the Data API for Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide*\.  
+Valid for: Aurora DB clusters only  
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `EnableIAMDatabaseAuthentication`  <a name="cfn-rds-dbcluster-enableiamdatabaseauthentication"></a>
-A value that indicates whether to enable mapping of AWS Identity and Access Management \(IAM\) accounts to database accounts\. By default, mapping is disabled\.  
+A value that indicates whether to enable mapping of AWS Identity and Access Management \(IAM\) accounts to database accounts\. By default, mapping isn't enabled\.  
 For more information, see [ IAM Database Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) in the *Amazon Aurora User Guide\.*   
+Valid for: Aurora DB clusters only  
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Engine`  <a name="cfn-rds-dbcluster-engine"></a>
 The name of the database engine to be used for this DB cluster\.  
-Valid Values: `aurora` \(for MySQL 5\.6\-compatible Aurora\), `aurora-mysql` \(for MySQL 5\.7\-compatible Aurora\), and `aurora-postgresql`   
+Valid Values:  
++  `aurora` \(for MySQL 5\.6\-compatible Aurora\)
++  `aurora-mysql` \(for MySQL 5\.7\-compatible Aurora\)
++  `aurora-postgresql` 
++  `mysql` 
++  `postgres` 
+Valid for: Aurora DB clusters and Multi\-AZ DB clusters  
 *Required*: Yes  
 *Type*: String  
 *Update requires*: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)
@@ -229,6 +254,7 @@ Limitations and requirements apply to some DB engine modes\. For more informatio
 +  [ Limitations of Parallel Query](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations) 
 +  [ Limitations of Aurora Global Databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations) 
 +  [ Limitations of Multi\-Master Clusters](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations) 
+Valid for: Aurora DB clusters only  
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -256,6 +282,7 @@ For information about Aurora global databases, see [ Working with Amazon Aurora 
 
 `KmsKeyId`  <a name="cfn-rds-dbcluster-kmskeyid"></a>
 The Amazon Resource Name \(ARN\) of the AWS Key Management Service master key that is used to encrypt the database instances in the DB cluster, such as `arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef`\. If you enable the `StorageEncrypted` property but don't specify this property, the default master key is used\. If you specify this property, you must set the `StorageEncrypted` property to `true`\.  
+If you specify the `SnapshotIdentifier` property, the `StorageEncrypted` property value is inherited from the snapshot, and if the DB cluster is encrypted, the specified `KmsKeyId` property is used\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -302,12 +329,14 @@ Format: `ddd:hh24:mi-ddd:hh24:mi`
 The default is a 30\-minute window selected at random from an 8\-hour block of time for each AWS Region, occurring on a random day of the week\. To see the time blocks available, see [ Adjusting the Preferred DB Cluster Maintenance Window](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora) in the *Amazon Aurora User Guide\.*   
 Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun\.  
 Constraints: Minimum 30\-minute window\.  
+Valid for: Aurora DB clusters and Multi\-AZ DB clusters  
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `ReplicationSourceIdentifier`  <a name="cfn-rds-dbcluster-replicationsourceidentifier"></a>
 The Amazon Resource Name \(ARN\) of the source DB instance or DB cluster if this DB cluster is created as a read replica\.  
+Valid for: Aurora DB clusters only  
 *Required*: No  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -318,6 +347,7 @@ The type of restore to be performed\. You can specify one of the following value
 +  `copy-on-write` \- The new DB cluster is restored as a clone of the source DB cluster\.
 Constraints: You can't specify `copy-on-write` if the engine version of the source DB cluster is earlier than 1\.11\.  
 If you don't specify a `RestoreType` value, then the new DB cluster is restored as a full copy of the source DB cluster\.  
+Valid for: Aurora DB clusters and Multi\-AZ DB clusters  
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -333,13 +363,8 @@ The identifier for the DB snapshot or DB cluster snapshot to restore from\.
 You can use either the name or the Amazon Resource Name \(ARN\) to specify a DB cluster snapshot\. However, you can use only the ARN to specify a DB snapshot\.  
 After you restore a DB cluster with a `SnapshotIdentifier` property, you must specify the same `SnapshotIdentifier` property for any future updates to the DB cluster\. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed\. However, if you don't specify the `SnapshotIdentifier` property, an empty DB cluster is created, and the original DB cluster is deleted\. If you specify a property that is different from the previous snapshot restore property, a new DB cluster is restored from the specified `SnapshotIdentifier` property, and the original DB cluster is deleted\.  
 If you specify the `SnapshotIdentifier` property to restore a DB cluster \(as opposed to specifying it for DB cluster updates\), then don't specify the following properties:  
-+ `BackupRetentionPeriod`
-+ `EnableHttpEndpoint`
 + `GlobalClusterIdentifier`
 + `MasterUsername`
-+ `MasterUserPassword`
-+ `PreferredBackupWindow`
-+ `PreferredMaintenanceWindow`
 + `ReplicationSourceIdentifier`
 + `RestoreType`
 + `SourceDBClusterIdentifier`
@@ -368,8 +393,8 @@ The AWS Region which contains the source DB cluster when replicating a DB cluste
 
 `StorageEncrypted`  <a name="cfn-rds-dbcluster-storageencrypted"></a>
 Indicates whether the DB cluster is encrypted\.  
-If you specify the `SnapshotIdentifier` or `SourceDBClusterIdentifier` property, don't specify this property\. The value is inherited from the snapshot or source DB instance\.   
-If you specify the `KmsKeyId` property, then you must enable encryption\.
+If you specify the `KmsKeyId` property, then you must enable encryption\.  
+If you specify the `SnapshotIdentifier` or `SourceDBClusterIdentifier` property, don't specify this property\. The value is inherited from the snapshot or source DB cluster, and if the DB cluster is encrypted, the specified `KmsKeyId` property is used\.  
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -397,7 +422,7 @@ If you plan to update the resource, don't specify VPC security groups in a share
 
 ### Ref<a name="aws-resource-rds-dbcluster-return-values-ref"></a>
 
- When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the name of the DB cluster as an uppercase string\.
+ When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the name of the DB cluster\.
 
 For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 

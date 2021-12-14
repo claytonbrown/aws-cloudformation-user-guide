@@ -76,7 +76,7 @@ Properties:
 ## Properties<a name="aws-properties-elasticache-cache-cluster-properties"></a>
 
 `AutoMinorVersionUpgrade`  <a name="cfn-elasticache-cachecluster-autominorversionupgrade"></a>
-This parameter is currently disabled\.  
+If you are running Redis engine version 6\.0 or later, set this parameter to yes if you want to opt\-in to the next minor version upgrade campaign\. This parameter is disabled for previous versions\.   
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -102,6 +102,8 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 
     **M4 node types:** `cache.m4.large`, `cache.m4.xlarge`, `cache.m4.2xlarge`, `cache.m4.4xlarge`, `cache.m4.10xlarge`
 
+    **T4g node types:** `cache.t4g.micro`, `cache.t4g.small`, `cache.t4g.medium` 
+
     **T3 node types:** `cache.t3.micro`, `cache.t3.small`, `cache.t3.medium`
 
     **T2 node types:** `cache.t2.micro`, `cache.t2.small`, `cache.t2.medium`
@@ -119,6 +121,10 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
 + Memory optimized:
   + Current generation: 
 
+    **R6gd node types:** `cache.r6gd.xlarge`, `cache.r6gd.2xlarge`, `cache.r6gd.4xlarge`, `cache.r6gd.8xlarge`, `cache.r6gd.12xlarge`, `cache.r6gd.16xlarge`
+**Note**  
+The `r6gd` family is available in the following regions: `us-east-2`, `us-east-1`, `us-west-2`, `us-west-1`, `eu-west-1`, `eu-central-1`, `ap-northeast-1`, `ap-southeast-1`, `ap-southeast-2`\.
+
     **R6g node types:** `cache.r6g.large`, `cache.r6g.xlarge`, `cache.r6g.2xlarge`, `cache.r6g.4xlarge`, `cache.r6g.12xlarge`, `cache.r6g.24xlarge`
 
     **R5 node types:** `cache.r5.large`, `cache.r5.xlarge`, `cache.r5.2xlarge`, `cache.r5.4xlarge`, `cache.r5.12xlarge`, `cache.r5.24xlarge`
@@ -129,7 +135,7 @@ The following node types are supported by ElastiCache\. Generally speaking, the 
     **M2 node types:** `cache.m2.xlarge`, `cache.m2.2xlarge`, `cache.m2.4xlarge`
 
     **R3 node types:** `cache.r3.large`, `cache.r3.xlarge`, `cache.r3.2xlarge`, `cache.r3.4xlarge`, `cache.r3.8xlarge`
-For region availability, see [Supported Node Types by AWS Region](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion)  
+For region availability, see [Supported Node Types by Amazon Region](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion)  
 **Additional node type info**  
 + All current generation instance types are created in Amazon VPC by default\.
 + Redis append\-only files \(AOF\) are not supported for T1 or T2 instances\.
@@ -342,8 +348,8 @@ For the cache cluster, the `VpcSecurityGroupIds` property is used to associate t
             "SecurityGroupIngress": [
                 {
                     "IpProtocol": "tcp",
-                    "FromPort": "11211",
-                    "ToPort": "11211",
+                    "FromPort": 11211,
+                    "ToPort": 11211,
                     "SourceSecurityGroupName": {
                         "Ref": "InstanceSecurityGroup"
                     }
@@ -379,8 +385,8 @@ ElasticacheSecurityGroup:
     GroupDescription: Elasticache Security Group
     SecurityGroupIngress:
       - IpProtocol: tcp
-        FromPort: '11211'
-        ToPort: '11211'
+        FromPort: 11211
+        ToPort: 11211
         SourceSecurityGroupName: !Ref InstanceSecurityGroup
 ElasticacheCluster:
   Type: 'AWS::ElastiCache::CacheCluster'

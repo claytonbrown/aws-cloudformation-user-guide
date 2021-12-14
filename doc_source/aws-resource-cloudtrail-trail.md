@@ -17,8 +17,10 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[EnableLogFileValidation](#cfn-cloudtrail-trail-enablelogfilevalidation)" : Boolean,
       "[EventSelectors](#cfn-cloudtrail-trail-eventselectors)" : [ EventSelector, ... ],
       "[IncludeGlobalServiceEvents](#cfn-cloudtrail-trail-includeglobalserviceevents)" : Boolean,
+      "[InsightSelectors](#cfn-cloudtrail-trail-insightselectors)" : [ InsightSelector, ... ],
       "[IsLogging](#cfn-cloudtrail-trail-islogging)" : Boolean,
       "[IsMultiRegionTrail](#cfn-cloudtrail-trail-ismultiregiontrail)" : Boolean,
+      "[IsOrganizationTrail](#cfn-cloudtrail-trail-isorganizationtrail)" : Boolean,
       "[KMSKeyId](#cfn-cloudtrail-trail-kmskeyid)" : String,
       "[S3BucketName](#cfn-cloudtrail-trail-s3bucketname)" : String,
       "[S3KeyPrefix](#cfn-cloudtrail-trail-s3keyprefix)" : String,
@@ -40,8 +42,11 @@ Properties:
   [EventSelectors](#cfn-cloudtrail-trail-eventselectors): 
     - EventSelector
   [IncludeGlobalServiceEvents](#cfn-cloudtrail-trail-includeglobalserviceevents): Boolean
+  [InsightSelectors](#cfn-cloudtrail-trail-insightselectors): 
+    - InsightSelector
   [IsLogging](#cfn-cloudtrail-trail-islogging): Boolean
   [IsMultiRegionTrail](#cfn-cloudtrail-trail-ismultiregiontrail): Boolean
+  [IsOrganizationTrail](#cfn-cloudtrail-trail-isorganizationtrail): Boolean
   [KMSKeyId](#cfn-cloudtrail-trail-kmskeyid): String
   [S3BucketName](#cfn-cloudtrail-trail-s3bucketname): String
   [S3KeyPrefix](#cfn-cloudtrail-trail-s3keyprefix): String
@@ -86,6 +91,12 @@ Specifies whether the trail is publishing events from global services such as IA
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`InsightSelectors`  <a name="cfn-cloudtrail-trail-insightselectors"></a>
+Specifies whether a trail has insight types specified in an `InsightSelector` list\.  
+*Required*: No  
+*Type*: List of [InsightSelector](aws-properties-cloudtrail-trail-insightselector.md)  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `IsLogging`  <a name="cfn-cloudtrail-trail-islogging"></a>
 Whether the CloudTrail trail is currently logging AWS API calls\.  
 *Required*: Yes  
@@ -98,8 +109,15 @@ Specifies whether the trail applies only to the current region or to all regions
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`IsOrganizationTrail`  <a name="cfn-cloudtrail-trail-isorganizationtrail"></a>
+Specifies whether the trail is created for all accounts in an organization in AWS Organizations, or only for the current AWS account\. The default is false, and cannot be true unless the call is made on behalf of an AWS account that is the management account for an organization in AWS Organizations\.  
+*Required*: No  
+*Type*: Boolean  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `KMSKeyId`  <a name="cfn-cloudtrail-trail-kmskeyid"></a>
 Specifies the AWS KMS key ID to use to encrypt the logs delivered by CloudTrail\. The value can be an alias name prefixed by "alias/", a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier\.  
+CloudTrail also supports AWS KMS multi\-Region keys\. For more information about multi\-Region keys, see [Using multi\-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the * AWS Key Management Service Developer Guide*\.  
 Examples:  
 + alias/MyAliasName
 + arn:aws:kms:us\-east\-2:123456789012:alias/MyAliasName
@@ -128,7 +146,7 @@ Specifies the name of the Amazon SNS topic defined for notification of log file 
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Tags`  <a name="cfn-cloudtrail-trail-tags"></a>
-An arbitrary set of tags \(key–value pairs\) for this trail\.  
+A custom set of tags \(key\-value pairs\) for this trail\.  
 *Required*: No  
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -172,7 +190,7 @@ For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::G
 
 ### Example<a name="aws-resource-cloudtrail-trail--examples--Example"></a>
 
-The following example creates a trail that logs events in all regions, an Amazon S3 bucket where logs are published, and an Amazon SNS topic where notifications are sent\. The template creates an AWS Organizations trail if AWS Organizations is enabled in the account\. The bucket and topic policies allow CloudTrail \(from the specified regions\) to publish logs to the S3 bucket and to send notifications to an email that you specify\. This trail is configured to log CloudTrail Insights events, and to exclude AWS KMS events\. For information about CloudTrail bucket policies, see [ Amazon S3 Bucket Policy](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_bucket_policy.html) in the *AWS CloudTrail User Guide*\.
+The following example creates a trail that logs events in all regions, an Amazon S3 bucket where logs are published, and an Amazon SNS topic where notifications are sent\. The bucket and topic policies allow CloudTrail \(from the specified regions\) to publish logs to the S3 bucket and to send notifications to an email that you specify\. For information about CloudTrail bucket policies, see [Amazon S3 Bucket Policy](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_bucket_policy.html) in the *AWS CloudTrail User Guide*\.
 
 #### JSON<a name="aws-resource-cloudtrail-trail--examples--Example--json"></a>
 
@@ -204,7 +222,7 @@ The following example creates a trail that logs events in all regions, an Amazon
                 "S3BucketName": {
                     "Ref": "BucketName"
                 },
-                "S3KeyPrefix": "EventBucket",
+                "S3KeyPrefix": "Uluru",
                 "IsLogging": true,
                 "TrailName": {
                     "Ref": "TrailName"
@@ -212,13 +230,6 @@ The following example creates a trail that logs events in all regions, an Amazon
                 "EnableLogFileValidation": true,
                 "IncludeGlobalServiceEvents": true,
                 "IsMultiRegionTrail": true,
-                "IsOrganizationTrail": {
-                    "Fn::If": [
-                        "IsOrganizationsSupported",
-                        true,
-                        ""
-                    ]
-                },
                 "CloudWatchLogsLogGroupArn": {
                     "Fn::ImportValue": "TrailLogGroupTestArn"
                 },
@@ -255,14 +266,6 @@ The following example creates a trail that logs events in all regions, an Amazon
                         ],
                         "IncludeManagementEvents": true,
                         "ReadWriteType": "All",
-                        "ExcludeManagementEventSources": [
-                            "kms.amazonaws.com"
-                        ]
-                    }
-                ],
-                "InsightSelectors": [
-                    {
-                        "InsightType": "ApiCallRateInsight"
                     }
                 ]
             }
@@ -294,7 +297,6 @@ The following example creates a trail that logs events in all regions, an Amazon
 #### YAML<a name="aws-resource-cloudtrail-trail--examples--Example--yaml"></a>
 
 ```
-AWSTemplateFormatVersion: "2010-09-09"
 Parameters:
   TrailName:
     Type: String
@@ -310,17 +312,12 @@ Resources:
     Type: AWS::CloudTrail::Trail
     Properties:
       S3BucketName: !Ref BucketName
-      S3KeyPrefix: "EventBucket"
+      S3KeyPrefix: "Uluru"
       IsLogging: true
       TrailName: !Ref TrailName
       EnableLogFileValidation: true
       IncludeGlobalServiceEvents: true
       IsMultiRegionTrail: true
-      IsOrganizationTrail:
-        Fn::If:
-          - IsOrganizationsSupported
-          - true
-          - ""
       CloudWatchLogsLogGroupArn:
         Fn::ImportValue: "TrailLogGroupTestArn"
       CloudWatchLogsRoleArn:
@@ -341,10 +338,6 @@ Resources:
                 - !Sub "arn:${AWS::Partition}:s3:::"
           IncludeManagementEvents: true
           ReadWriteType: All
-          ExcludeManagementEventSources:
-            - kms.amazonaws.com
-      InsightSelectors:
-        - InsightType: "ApiCallRateInsight"
 Outputs:
   ARN:
     Description: The trail ARN

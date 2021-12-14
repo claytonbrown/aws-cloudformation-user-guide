@@ -38,7 +38,7 @@ The name of the global secondary index\. The name must be unique among all other
 *Minimum*: `3`  
 *Maximum*: `255`  
 *Pattern*: `[a-zA-Z0-9_.-]+`  
-*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+*Update requires*: Updates are not supported\.
 
 `KeySchema`  <a name="cfn-dynamodb-globaltable-globalsecondaryindex-keyschema"></a>
 The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:  
@@ -49,13 +49,13 @@ The sort key of an item is also known as its *range attribute*\. The term "range
 *Required*: Yes  
 *Type*: [List](aws-properties-dynamodb-globaltable-keyschema.md) of [KeySchema](aws-properties-dynamodb-globaltable-keyschema.md)  
 *Maximum*: `2`  
-*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+*Update requires*: Updates are not supported\.
 
 `Projection`  <a name="cfn-dynamodb-globaltable-globalsecondaryindex-projection"></a>
 Represents attributes that are copied \(projected\) from the table into the global secondary index\. These are in addition to the primary key attributes and index key attributes, which are automatically projected\.  
 *Required*: Yes  
 *Type*: [Projection](aws-properties-dynamodb-globaltable-projection.md)  
-*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+*Update requires*: Updates are not supported\.
 
 `WriteProvisionedThroughputSettings`  <a name="cfn-dynamodb-globaltable-globalsecondaryindex-writeprovisionedthroughputsettings"></a>
 Defines write capacity settings for the global secondary index\. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED`\. All replicas will have the same write capacity settings for this global secondary index\.  

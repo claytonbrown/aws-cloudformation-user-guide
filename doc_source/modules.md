@@ -144,7 +144,7 @@ Next, the previous module is nested within a parent module, `My::S3::SampleBucke
 
 ### Specifying constraints for module parameters<a name="modules-using-parameters-constraints"></a>
 
-Module parameters don't support [Type or Constraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#parameters-section-structure-properties) enforcement\. To perform type or constraint checking on a module parameter, create a template parameter with the desired constraints, then reference that template parameter in your module parameter\.
+Module parameters don't support [Constraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#parameters-section-structure-properties) enforcement\. To perform constraint checking on a module parameter, create a template parameter with the desired constraints, then reference that template parameter in your module parameter\.
 
 ## Referencing resources in a module<a name="module-ref-resources"></a>
 
@@ -152,7 +152,7 @@ Resources in a module can be referenced by logical name\. The fully\-qualified l
 + The logical name specified for the module in the containing template \(or containing module\)\.
 + The logical name for the resource, specified in the module\.
 
-The fully\-qualified logical name for the resource can be specified with or without using a period as a delimiter\. For example, both of the logical names below are valid, and functionaly equivalent:
+The fully\-qualified logical name for the resource can be specified with or without using a period as a delimiter\. For example, both of the logical names below are valid, and functionally equivalent:
 + `ModuleLogicalName.ResourceLogicalName`
 + `ModuleLogicalNameResourceLogicalName`
 

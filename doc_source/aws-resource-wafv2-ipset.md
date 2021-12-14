@@ -101,7 +101,7 @@ To modify tags on existing resources, use the AWS WAF APIs or command line inter
 
 The `Ref` for the resource, containing the resource name, physical ID, and scope, formatted as follows: `name|id|scope`\.
 
-For example: `my-webacl-name|1234a1a-a1b1-12a1-abcd-a123b123456|REGIONAL`
+For example: `my-webacl-name|1234a1a-a1b1-12a1-abcd-a123b123456|REGIONAL`\.
 
 ### Fn::GetAtt<a name="aws-resource-wafv2-ipset-return-values-fn--getatt"></a>
 
@@ -124,9 +124,7 @@ The following shows an example IP set specification\.
 #### JSON<a name="aws-resource-wafv2-ipset--examples--Create_an_IP_set--json"></a>
 
 ```
-"Description": "Sample IPSet",
-  "Resources": {
-    "SampleIPSet": {
+ "SampleIPSet": {
       "Type": "AWS::WAFv2::IPSet",
       "Properties": {
         "Description": "SampleIPSet",
@@ -138,15 +136,12 @@ The following shows an example IP set specification\.
         ]
       }
     }
-  }
 ```
 
 #### YAML<a name="aws-resource-wafv2-ipset--examples--Create_an_IP_set--yaml"></a>
 
 ```
-Description: Sample IPSet
-  Resources:
-    SampleIPSet:
+ SampleIPSet:
       Type: 'AWS::WAFv2::IPSet'
       Properties:
         Description: SampleIPSet

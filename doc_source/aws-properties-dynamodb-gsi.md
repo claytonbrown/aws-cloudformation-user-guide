@@ -47,7 +47,7 @@ The name of the global secondary index\. The name must be unique among all other
 *Minimum*: `3`  
 *Maximum*: `255`  
 *Pattern*: `[a-zA-Z0-9_.-]+`  
-*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+*Update requires*: Updates are not supported\.
 
 `KeySchema`  <a name="cfn-dynamodb-gsi-keyschema"></a>
 The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:  
@@ -58,13 +58,13 @@ The sort key of an item is also known as its *range attribute*\. The term "range
 *Required*: Yes  
 *Type*: [List](aws-properties-dynamodb-keyschema.md) of [KeySchema](aws-properties-dynamodb-keyschema.md)  
 *Maximum*: `2`  
-*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+*Update requires*: Updates are not supported\.
 
 `Projection`  <a name="cfn-dynamodb-gsi-projection"></a>
 Represents attributes that are copied \(projected\) from the table into the global secondary index\. These are in addition to the primary key attributes and index key attributes, which are automatically projected\.   
 *Required*: Yes  
 *Type*: [Projection](aws-properties-dynamodb-projectionobject.md)  
-*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+*Update requires*: Updates are not supported\.
 
 `ProvisionedThroughput`  <a name="cfn-dynamodb-gsi-provisionedthroughput"></a>
 Represents the provisioned throughput settings for the specified global secondary index\.  

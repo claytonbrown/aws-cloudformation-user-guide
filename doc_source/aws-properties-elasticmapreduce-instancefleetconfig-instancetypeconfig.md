@@ -1,6 +1,6 @@
 # AWS::EMR::InstanceFleetConfig InstanceTypeConfig<a name="aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig"></a>
 
-`InstanceType` config is a subproperty of `InstanceFleetConfig`\. An instance type configuration specifies each instance type in an instance fleet\. The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On\-Demand and Spot target capacities\. There can be a maximum of 5 instance type configurations in a fleet\.
+`InstanceType` config is a subproperty of `InstanceFleetConfig`\. An instance type configuration specifies each instance type in an instance fleet\. The configuration determines the EC2 instances Amazon EMR attempts to provision to fulfill On\-Demand and Spot target capacities\.
 
 **Note**  
 The instance fleet configuration is available only in Amazon EMR versions 4\.8\.0 and later, excluding 5\.0\.x versions\.
@@ -16,6 +16,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "[BidPrice](#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-bidprice)" : String,
   "[BidPriceAsPercentageOfOnDemandPrice](#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-bidpriceaspercentageofondemandprice)" : Double,
   "[Configurations](#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-configurations)" : [ Configuration, ... ],
+  "[CustomAmiId](#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-customamiid)" : String,
   "[EbsConfiguration](#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-ebsconfiguration)" : EbsConfiguration,
   "[InstanceType](#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-instancetype)" : String,
   "[WeightedCapacity](#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-weightedcapacity)" : Integer
@@ -29,6 +30,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   [BidPriceAsPercentageOfOnDemandPrice](#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-bidpriceaspercentageofondemandprice): Double
   [Configurations](#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-configurations): 
     - Configuration
+  [CustomAmiId](#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-customamiid): String
   [EbsConfiguration](#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-ebsconfiguration): 
     EbsConfiguration
   [InstanceType](#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-instancetype): String
@@ -57,6 +59,15 @@ Amazon EMR releases 4\.x or later\.
 An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR\. A configuration consists of a classification, properties, and optional nested configurations\. A classification refers to an application\-specific configuration file\. Properties are the settings you want to change in that file\. For more information, see [Configuring Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html)\.  
 *Required*: No  
 *Type*: List of [Configuration](aws-properties-elasticmapreduce-instancefleetconfig-configuration.md)  
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+
+`CustomAmiId`  <a name="cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-customamiid"></a>
+The custom AMI ID to use for the instance type\.  
+*Required*: No  
+*Type*: String  
+*Minimum*: `0`  
+*Maximum*: `256`  
+*Pattern*: `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `EbsConfiguration`  <a name="cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-ebsconfiguration"></a>
