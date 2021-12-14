@@ -13,10 +13,9 @@
     "Type": "List of [Column",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "cassandra.table.ClusteringKeyColumns": {
+  "cassandra.table.EncryptionSpecification": {
     "Required": "No",
-    "Type": "List of [ClusteringKeyColumn",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "No interruption"
   },
   "cassandra.table.PointInTimeRecoveryEnabled": {
     "Required": "No",
@@ -27,6 +26,19 @@
       "False"
     ]
   },
+  "cassandra.table.BillingMode": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "cassandra.table.ClusteringKeyColumns": {
+    "Required": "No",
+    "Type": "List of [ClusteringKeyColumn",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cassandra.table.DefaultTimeToLive": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
   "cassandra.table.Tags": {
     "Required": "No",
     "Type": "List of [Tag",
@@ -35,9 +47,5 @@
   "cassandra.table.TableName": {
     "Required": "No",
     "UpdateRequires": "Replacement"
-  },
-  "cassandra.table.BillingMode": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
   }
 }

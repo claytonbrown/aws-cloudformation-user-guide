@@ -1,4 +1,12 @@
+# #AWS::IoTWireless::Destination ExpressionType  == MqttTopic |OR| AWS::IoTWireless::Destination ExpressionType  == RuleName << Enforce allowed values [MqttTopic | RuleName]
 # AWS::IoTWireless::Destination Expression  == /.*/ <<  Expression is a required property for AWS::IoTWireless::Destination
+# AWS::IoTWireless::Destination Expression  == /\S{0,2048}/ <<  AWS::IoTWireless::Destination is an expected length of String property for Expression
 # AWS::IoTWireless::Destination ExpressionType  == /.*/ <<  ExpressionType is a required property for AWS::IoTWireless::Destination
+# AWS::IoTWireless::Destination ExpressionType  == /MqttTopic/ <<  MqttTopic is an expected value for AWS::IoTWireless::Destination ExpressionType
+# AWS::IoTWireless::Destination ExpressionType  == /RuleName/ <<  RuleName is an expected value for AWS::IoTWireless::Destination ExpressionType
+# AWS::IoTWireless::Destination ExpressionType IN [MqttTopic,RuleName] << Enforcing Allowed Values only
 # AWS::IoTWireless::Destination Name  == /.*/ <<  Name is a required property for AWS::IoTWireless::Destination
+# AWS::IoTWireless::Destination Name  == /[a-zA-Z0-9-_]+/ <<  Name is a required pattern for AWS::IoTWireless::Destination
+# AWS::IoTWireless::Destination Name  == /arn.*{0,128}/ <<  Name is a required property for AWS::IoTWireless::Destination
 # AWS::IoTWireless::Destination RoleArn  == /.*/ <<  RoleArn is a required property for AWS::IoTWireless::Destination
+# AWS::IoTWireless::Destination RoleArn  == /arn.*{20,2048}/ <<  RoleArn is a required property for AWS::IoTWireless::Destination

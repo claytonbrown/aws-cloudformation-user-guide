@@ -1,6 +1,6 @@
 {
   "applicationautoscaling.scalingpolicy.ServiceNamespace": {
-    "Allowed values": "appstream | cassandra | comprehend | custom-resource | dynamodb | ec2 | ecs | elasticmapreduce | kafka | lambda | rds | sagemaker",
+    "Allowed values": "appstream | cassandra | comprehend | custom-resource | dynamodb | ec2 | ecs | elasticache | elasticmapreduce | kafka | lambda | neptune | rds | sagemaker",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -23,17 +23,16 @@
     "Minimum": "1",
     "Type": "String"
   },
-  "applicationautoscaling.scalingpolicy.PolicyType": {},
+  "applicationautoscaling.scalingpolicy.PolicyType": {
+    "Allowed values": "StepScaling | TargetTrackingScaling",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "applicationautoscaling.scalingpolicy.TargetTrackingScalingPolicyConfiguration": {
     "Required": "No",
     "Type": "TargetTrackingScalingPolicyConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "applicationautoscaling.scalingpolicy.TargetTrackingScaling": {},
-  "applicationautoscaling.scalingpolicy.StepScaling": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "applicationautoscaling.scalingpolicy.PolicyName": {
     "Pattern": "\\p{Print}+",
@@ -44,7 +43,7 @@
     "Type": "String"
   },
   "applicationautoscaling.scalingpolicy.ScalableDimension": {
-    "Allowed values": "appstream:fleet:DesiredCapacity | cassandra:table:ReadCapacityUnits | cassandra:table:WriteCapacityUnits | comprehend:document-classifier-endpoint:DesiredInferenceUnits | comprehend:entity-recognizer-endpoint:DesiredInferenceUnits | custom-resource:ResourceType:Property | dynamodb:index:ReadCapacityUnits | dynamodb:index:WriteCapacityUnits | dynamodb:table:ReadCapacityUnits | dynamodb:table:WriteCapacityUnits | ec2:spot-fleet-request:TargetCapacity | ecs:service:DesiredCount | elasticmapreduce:instancegroup:InstanceCount | kafka:broker-storage:VolumeSize | lambda:function:ProvisionedConcurrency | rds:cluster:ReadReplicaCount | sagemaker:variant:DesiredInstanceCount",
+    "Allowed values": "appstream:fleet:DesiredCapacity | cassandra:table:ReadCapacityUnits | cassandra:table:WriteCapacityUnits | comprehend:document-classifier-endpoint:DesiredInferenceUnits | comprehend:entity-recognizer-endpoint:DesiredInferenceUnits | custom-resource:ResourceType:Property | dynamodb:index:ReadCapacityUnits | dynamodb:index:WriteCapacityUnits | dynamodb:table:ReadCapacityUnits | dynamodb:table:WriteCapacityUnits | ec2:spot-fleet-request:TargetCapacity | ecs:service:DesiredCount | elasticache:replication-group:NodeGroups | elasticache:replication-group:Replicas | elasticmapreduce:instancegroup:InstanceCount | kafka:broker-storage:VolumeSize | lambda:function:ProvisionedConcurrency | neptune:cluster:ReadReplicaCount | rds:cluster:ReadReplicaCount | sagemaker:variant:DesiredInstanceCount",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"

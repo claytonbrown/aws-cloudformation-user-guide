@@ -1,4 +1,21 @@
+# #AWS::Events::ApiDestination HttpMethod  == DELETE |OR| AWS::Events::ApiDestination HttpMethod  == GET |OR| AWS::Events::ApiDestination HttpMethod  == HEAD |OR| AWS::Events::ApiDestination HttpMethod  == OPTIONS |OR| AWS::Events::ApiDestination HttpMethod  == PATCH |OR| AWS::Events::ApiDestination HttpMethod  == POST |OR| AWS::Events::ApiDestination HttpMethod  == PUT << Enforce allowed values [DELETE | GET | HEAD | OPTIONS | PATCH | POST | PUT]
 # AWS::Events::ApiDestination ConnectionArn  == /.*/ <<  ConnectionArn is a required property for AWS::Events::ApiDestination
+# AWS::Events::ApiDestination ConnectionArn  == /^arn:aws([a-z]|\-)*:events:([a-z]|\d|\-)*:([0-9]{12})?:connection\/[\.\-_A-Za-z0-9]+\/[\-A-Za-z0-9]+$/ <<  ConnectionArn is a required pattern for AWS::Events::ApiDestination
+# AWS::Events::ApiDestination ConnectionArn  == /arn.*{1,1600}/ <<  ConnectionArn is a required property for AWS::Events::ApiDestination
+# AWS::Events::ApiDestination Description  == /.*/ <<  Description is a required pattern for AWS::Events::ApiDestination
+# AWS::Events::ApiDestination Description  == /arn.*{0,512}/ <<  Description is a required property for AWS::Events::ApiDestination
 # AWS::Events::ApiDestination HttpMethod  == /.*/ <<  HttpMethod is a required property for AWS::Events::ApiDestination
+# AWS::Events::ApiDestination HttpMethod  == /DELETE/ <<  DELETE is an expected value for AWS::Events::ApiDestination HttpMethod
+# AWS::Events::ApiDestination HttpMethod  == /GET/ <<  GET is an expected value for AWS::Events::ApiDestination HttpMethod
+# AWS::Events::ApiDestination HttpMethod  == /HEAD/ <<  HEAD is an expected value for AWS::Events::ApiDestination HttpMethod
+# AWS::Events::ApiDestination HttpMethod  == /OPTIONS/ <<  OPTIONS is an expected value for AWS::Events::ApiDestination HttpMethod
+# AWS::Events::ApiDestination HttpMethod  == /PATCH/ <<  PATCH is an expected value for AWS::Events::ApiDestination HttpMethod
+# AWS::Events::ApiDestination HttpMethod  == /POST/ <<  POST is an expected value for AWS::Events::ApiDestination HttpMethod
+# AWS::Events::ApiDestination HttpMethod  == /PUT/ <<  PUT is an expected value for AWS::Events::ApiDestination HttpMethod
+# AWS::Events::ApiDestination HttpMethod IN [DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT] << Enforcing Allowed Values only
 # AWS::Events::ApiDestination InvocationEndpoint  == /.*/ <<  InvocationEndpoint is a required property for AWS::Events::ApiDestination
+# AWS::Events::ApiDestination InvocationEndpoint  == /^((%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@\x26=+$,A-Za-z0-9])+)([).!';/?:,])?$/ <<  InvocationEndpoint is a required pattern for AWS::Events::ApiDestination
 # AWS::Events::ApiDestination InvocationRateLimitPerSecond  == /[0-9].+/ <<  Integer is expected for AWS::Events::ApiDestination of InvocationRateLimitPerSecond 
+# AWS::Events::ApiDestination InvocationRateLimitPerSecond  >= 1 <<  Integer is expected for AWS::Events::ApiDestination of InvocationRateLimitPerSecond 
+# AWS::Events::ApiDestination Name  == /[\.\-_A-Za-z0-9]+/ <<  Name is a required pattern for AWS::Events::ApiDestination
+# AWS::Events::ApiDestination Name  == /\S{1,64}/ <<  Name is a required property for AWS::Events::ApiDestination

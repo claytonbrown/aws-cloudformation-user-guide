@@ -9,7 +9,10 @@
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "events.rule.EventPattern": {},
+  "events.rule.EventPattern": {
+    "Required": "Conditional",
+    "UpdateRequires": "No interruption"
+  },
   "events.rule.Name": {
     "Pattern": "[\\.\\-_A-Za-z0-9]+",
     "Required": "No",
@@ -26,14 +29,8 @@
   },
   "events.rule.ScheduleExpression": {
     "Required": "Conditional",
-    "Type": "String",
     "Maximum": "256",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "events.rule.\"EventPattern\": { \"source\": [ \"aws.ec2\" ], \"detail-type\": [ \"EC2 Instance State-change Notification\" ] }": {
-    "Required": "Conditional",
-    "Type": "Json",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "events.rule.EventBusName": {
     "Pattern": "[/\\.\\-_A-Za-z0-9]+",

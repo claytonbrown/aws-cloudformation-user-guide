@@ -24,13 +24,11 @@
     "Maximum": "128",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.maintenancewindowtask.MaxConcurrency": {
-    "Pattern": "^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$",
+  "ssm.maintenancewindowtask.CutoffBehavior": {
+    "Allowed values": "CANCEL_TASK | CONTINUE_TASK",
     "Required": "No",
-    "Maximum": "7",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssm.maintenancewindowtask.TaskParameters": {
     "Required": "No",
@@ -68,6 +66,14 @@
     "Required": "No",
     "Type": "LoggingInfo",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.maintenancewindowtask.MaxConcurrency": {
+    "Pattern": "^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$",
+    "Required": "No",
+    "Maximum": "7",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "ssm.maintenancewindowtask.MaxErrors": {
     "Pattern": "^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$",

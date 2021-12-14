@@ -1,0 +1,18 @@
+# #AWS::SSMContacts::ContactChannel ChannelType  == EMAIL |OR| AWS::SSMContacts::ContactChannel ChannelType  == SMS |OR| AWS::SSMContacts::ContactChannel ChannelType  == VOICE << Enforce allowed values [EMAIL | SMS | VOICE]
+# #AWS::SSMContacts::ContactChannel DeferActivation  == True |OR| AWS::SSMContacts::ContactChannel DeferActivation  == False << Enforce allowed values [True | False]
+# AWS::SSMContacts::ContactChannel ChannelAddress  == /.*/ <<  ChannelAddress is a required property for AWS::SSMContacts::ContactChannel
+# AWS::SSMContacts::ContactChannel ChannelName  == /.*/ <<  ChannelName is a required property for AWS::SSMContacts::ContactChannel
+# AWS::SSMContacts::ContactChannel ChannelName  == /\S{1,255}/ <<  ChannelName is a required property for AWS::SSMContacts::ContactChannel
+# AWS::SSMContacts::ContactChannel ChannelName  == /^[\p{L}\p{Z}\p{N}_.\-]*$/ <<  ChannelName is a required pattern for AWS::SSMContacts::ContactChannel
+# AWS::SSMContacts::ContactChannel ChannelType  == /.*/ <<  ChannelType is a required property for AWS::SSMContacts::ContactChannel
+# AWS::SSMContacts::ContactChannel ChannelType  == /EMAIL/ <<  EMAIL is an expected value for AWS::SSMContacts::ContactChannel ChannelType
+# AWS::SSMContacts::ContactChannel ChannelType  == /SMS/ <<  SMS is an expected value for AWS::SSMContacts::ContactChannel ChannelType
+# AWS::SSMContacts::ContactChannel ChannelType  == /VOICE/ <<  VOICE is an expected value for AWS::SSMContacts::ContactChannel ChannelType
+# AWS::SSMContacts::ContactChannel ChannelType IN [EMAIL,SMS,VOICE] << Enforcing Allowed Values only
+# AWS::SSMContacts::ContactChannel ContactId  == /.*/ <<  ContactId is a required property for AWS::SSMContacts::ContactChannel
+# AWS::SSMContacts::ContactChannel ContactId  == /arn:(aws|aws-cn|aws-us-gov):ssm-contacts:[-\w+=\/,.@]*:[0-9]+:([\w+=\/,.@:-]+)*/ <<  ContactId is a required pattern for AWS::SSMContacts::ContactChannel
+# AWS::SSMContacts::ContactChannel DeferActivation  == /False/ <<  False is an expected value for AWS::SSMContacts::ContactChannel DeferActivation
+# AWS::SSMContacts::ContactChannel DeferActivation  == /True/ <<  True is an expected value for AWS::SSMContacts::ContactChannel DeferActivation
+# AWS::SSMContacts::ContactChannel DeferActivation  == False <<  False is expected  safe default value
+# AWS::SSMContacts::ContactChannel DeferActivation  == True <<  True is expected safe default value
+# AWS::SSMContacts::ContactChannel DeferActivation IN [True,False] << Enforcing Allowed Values only

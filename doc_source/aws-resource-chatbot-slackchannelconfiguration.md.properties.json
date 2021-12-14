@@ -8,6 +8,11 @@
     "Required": "Yes",
     "UpdateRequires": "Replacement"
   },
+  "chatbot.slackchannelconfiguration.SlackChannelId": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "chatbot.slackchannelconfiguration.ConfigurationName": {
     "Required": "Yes",
     "Type": "String",
@@ -16,12 +21,21 @@
   "chatbot.slackchannelconfiguration.SnsTopicArns": {
     "Required": "No",
     "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "chatbot.slackchannelconfiguration.SlackChannelId": {
-    "Required": "Yes",
-    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "chatbot.slackchannelconfiguration.GuardrailPolicies": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "chatbot.slackchannelconfiguration.UserRoleRequired": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   },
   "chatbot.slackchannelconfiguration.LoggingLevel": {
     "Required": "No",

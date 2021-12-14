@@ -1,4 +1,9 @@
 {
+  "fsx.filesystem.OpenZFSConfiguration": {
+    "Required": "No",
+    "Type": "OpenZFSConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "fsx.filesystem.WindowsConfiguration": {
     "Required": "Conditional",
     "Type": "WindowsConfiguration",
@@ -26,18 +31,28 @@
   },
   "fsx.filesystem.Tags": {
     "Required": "No",
-    "Type": "List of [Tag",
     "Maximum": "50",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "fsx.filesystem.SubnetIds": {
     "Required": "Yes",
-    "Type": "List of String",
     "Maximum": "50",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "Replacement"
+  },
+  "fsx.filesystem.OntapConfiguration": {
+    "Required": "No",
+    "Type": "OntapConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.filesystem.FileSystemTypeVersion": {
+    "Pattern": "^[0-9](.[0-9]*)*$",
+    "Required": "No",
+    "Maximum": "20",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "fsx.filesystem.FileSystemType": {
-    "Allowed values": "LUSTRE | WINDOWS",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"

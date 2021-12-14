@@ -1,7 +1,8 @@
 # #AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled  == True |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled  == False << Enforce allowed values [True | False]
 # #AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == GENEVE |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == HTTP |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == HTTPS |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == TCP |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == TCP_UDP |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == TLS |OR| AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckProtocol  == UDP << Enforce allowed values [GENEVE | HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP]
+# #AWS::ElasticLoadBalancingV2::TargetGroup IpAddressType  == ipv4 |OR| AWS::ElasticLoadBalancingV2::TargetGroup IpAddressType  == ipv6 << Enforce allowed values [ipv4 | ipv6]
 # #AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == GENEVE |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == HTTP |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == HTTPS |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == TCP |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == TCP_UDP |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == TLS |OR| AWS::ElasticLoadBalancingV2::TargetGroup Protocol  == UDP << Enforce allowed values [GENEVE | HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP]
-# #AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == instance |OR| AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == ip |OR| AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == lambda << Enforce allowed values [instance | ip | lambda]
+# #AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == alb |OR| AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == instance |OR| AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == ip |OR| AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == lambda << Enforce allowed values [alb | instance | ip | lambda]
 # AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled  == /False/ <<  False is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled
 # AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled  == /True/ <<  True is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled
 # AWS::ElasticLoadBalancingV2::TargetGroup HealthCheckEnabled  == False <<  False is expected  safe default value
@@ -25,6 +26,9 @@
 # AWS::ElasticLoadBalancingV2::TargetGroup HealthyThresholdCount  <= 10 <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of HealthyThresholdCount 
 # AWS::ElasticLoadBalancingV2::TargetGroup HealthyThresholdCount  == /[0-9].+/ <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of HealthyThresholdCount 
 # AWS::ElasticLoadBalancingV2::TargetGroup HealthyThresholdCount  >= 2 <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of HealthyThresholdCount 
+# AWS::ElasticLoadBalancingV2::TargetGroup IpAddressType  == /ipv4/ <<  ipv4 is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup IpAddressType
+# AWS::ElasticLoadBalancingV2::TargetGroup IpAddressType  == /ipv6/ <<  ipv6 is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup IpAddressType
+# AWS::ElasticLoadBalancingV2::TargetGroup IpAddressType IN [ipv4,ipv6] << Enforcing Allowed Values only
 # AWS::ElasticLoadBalancingV2::TargetGroup Matcher.GrpcCode  == /\S/ <<  AWS::ElasticLoadBalancingV2::TargetGroup is an expected but optional String property for Matcher
 # AWS::ElasticLoadBalancingV2::TargetGroup Matcher.HttpCode  == /\S/ <<  AWS::ElasticLoadBalancingV2::TargetGroup is an expected but optional String property for Matcher
 # AWS::ElasticLoadBalancingV2::TargetGroup Port  <= 65535 <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of Port 
@@ -40,10 +44,11 @@
 # AWS::ElasticLoadBalancingV2::TargetGroup Protocol IN [GENEVE,HTTP,HTTPS,TCP,TCP_UDP,TLS,UDP] << Enforcing Allowed Values only
 # AWS::ElasticLoadBalancingV2::TargetGroup TargetGroupAttributes.Key  == /\S/ <<  AWS::ElasticLoadBalancingV2::TargetGroup is an expected but optional String property for TargetGroupAttributes
 # AWS::ElasticLoadBalancingV2::TargetGroup TargetGroupAttributes.Value  == /\S/ <<  AWS::ElasticLoadBalancingV2::TargetGroup is an expected but optional String property for TargetGroupAttributes
+# AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == /alb/ <<  alb is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup TargetType
 # AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == /instance/ <<  instance is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup TargetType
 # AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == /ip/ <<  ip is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup TargetType
 # AWS::ElasticLoadBalancingV2::TargetGroup TargetType  == /lambda/ <<  lambda is an expected value for AWS::ElasticLoadBalancingV2::TargetGroup TargetType
-# AWS::ElasticLoadBalancingV2::TargetGroup TargetType IN [instance,ip,lambda] << Enforcing Allowed Values only
+# AWS::ElasticLoadBalancingV2::TargetGroup TargetType IN [alb,instance,ip,lambda] << Enforcing Allowed Values only
 # AWS::ElasticLoadBalancingV2::TargetGroup UnhealthyThresholdCount  <= 10 <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of UnhealthyThresholdCount 
 # AWS::ElasticLoadBalancingV2::TargetGroup UnhealthyThresholdCount  == /[0-9].+/ <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of UnhealthyThresholdCount 
 # AWS::ElasticLoadBalancingV2::TargetGroup UnhealthyThresholdCount  >= 2 <<  Integer is expected for AWS::ElasticLoadBalancingV2::TargetGroup of UnhealthyThresholdCount 

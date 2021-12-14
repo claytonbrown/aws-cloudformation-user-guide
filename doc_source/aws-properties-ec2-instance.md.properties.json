@@ -19,8 +19,7 @@
   },
   "ec2.instance.CpuOptions": {
     "Required": "No",
-    "Type": "CpuOptions",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "Replacement"
   },
   "ec2.instance.DisableApiTermination": {
     "Required": "No",
@@ -81,6 +80,15 @@
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.instance.PropagateTagsToVolumeOnCreation": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   },
   "ec2.instance.Affinity": {
     "Required": "No",

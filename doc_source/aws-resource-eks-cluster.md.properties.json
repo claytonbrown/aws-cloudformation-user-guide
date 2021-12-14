@@ -1,4 +1,9 @@
 {
+  "eks.cluster.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "eks.cluster.Name": {
     "Pattern": "^[0-9A-Za-z][A-Za-z0-9\\-_]*",
     "Required": "No",
@@ -11,6 +16,11 @@
     "Required": "Yes",
     "UpdateRequires": "Replacement"
   },
+  "eks.cluster.Logging": {
+    "Required": "No",
+    "Type": "Logging",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "eks.cluster.EncryptionConfig": {
     "Required": "No",
     "Type": "List",
@@ -19,7 +29,7 @@
   },
   "eks.cluster.ResourcesVpcConfig": {
     "Required": "Yes",
-    "UpdateRequires": "Replacement"
+    "UpdateRequires": "No interruption"
   },
   "eks.cluster.KubernetesNetworkConfig": {
     "Required": "No",

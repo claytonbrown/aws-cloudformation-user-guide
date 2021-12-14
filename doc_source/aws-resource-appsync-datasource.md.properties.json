@@ -5,10 +5,15 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "appsync.datasource.Type": {
-    "Type": "String",
     "Required": "Yes",
-    "Type`  <a name=\"cfn-appsync-datasource-type\"></a>\nThe type of the data source\\.  \n+  **AMAZON\\_DYNAMODB*": "The data source is an Amazon DynamoDB table\\.\n+  **AMAZON\\_ELASTICSEARCH*",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
+    "Type`  <a name=\"cfn-appsync-datasource-type\"></a>\nThe type of the data source\\.  \n+  **AWS\\_LAMBDA*": "The data source is an AWS Lambda function\\.\n+  **AMAZON\\_DYNAMODB*"
+  },
+  "appsync.datasource.HttpConfig": {
+    "Required": "No",
+    "Type": "HttpConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appsync.datasource.DynamoDBConfig": {
     "Required": "No",
@@ -20,9 +25,9 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "appsync.datasource.HttpConfig": {
+  "appsync.datasource.OpenSearchServiceConfig": {
     "Required": "No",
-    "Type": "HttpConfig",
+    "Type": "OpenSearchServiceConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appsync.datasource.Name": {
@@ -42,8 +47,7 @@
   },
   "appsync.datasource.ElasticsearchConfig": {
     "Required": "No",
-    "Type": "ElasticsearchConfig",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "appsync.datasource.LambdaConfig": {
     "Required": "No",

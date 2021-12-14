@@ -7,6 +7,7 @@
 # AWS::S3::Bucket LoggingConfiguration.DestinationBucketName  == /\S/ <<  AWS::S3::Bucket is an expected but optional String property for LoggingConfiguration
 # AWS::S3::Bucket LoggingConfiguration.LogFilePrefix  == /\S/ <<  AWS::S3::Bucket is an expected but optional String property for LoggingConfiguration
 # AWS::S3::Bucket ObjectLockConfiguration.ObjectLockEnabled  == /\S/ <<  AWS::S3::Bucket is an expected but optional String property for ObjectLockConfiguration
+# AWS::S3::Bucket ObjectLockConfiguration.s3.bucket.objectlockconfiguration.Rule  == /.*/ <<  s3.bucket.objectlockconfiguration.Rule is a Conditional property for AWS::S3::Bucket ObjectLockConfiguration
 # AWS::S3::Bucket ObjectLockEnabled  == /False/ <<  False is an expected value for AWS::S3::Bucket ObjectLockEnabled
 # AWS::S3::Bucket ObjectLockEnabled  == /True/ <<  True is an expected value for AWS::S3::Bucket ObjectLockEnabled
 # AWS::S3::Bucket ObjectLockEnabled  == False <<  False is expected  safe default value
@@ -17,6 +18,7 @@
 # AWS::S3::Bucket ReplicationConfiguration.s3.bucket.replicationconfiguration.Role  == /.*/ <<  s3.bucket.replicationconfiguration.Role is a required property for AWS::S3::Bucket ReplicationConfiguration
 # AWS::S3::Bucket ReplicationConfiguration.s3.bucket.replicationconfiguration.Rules  == /.*/ <<  s3.bucket.replicationconfiguration.Rules is a required property for AWS::S3::Bucket ReplicationConfiguration
 # AWS::S3::Bucket VersioningConfiguration.Status  == /\S/ <<  AWS::S3::Bucket is an expected but optional String property for VersioningConfiguration
+# AWS::S3::Bucket VersioningConfiguration.s3.bucket.versioningconfiguration.Status  == /.*/ <<  s3.bucket.versioningconfiguration.Status is a required property for AWS::S3::Bucket VersioningConfiguration
 # AWS::S3::Bucket WebsiteConfiguration.ErrorDocument  == /\S/ <<  AWS::S3::Bucket is an expected but optional String property for WebsiteConfiguration
 # AWS::S3::Bucket WebsiteConfiguration.IndexDocument  == /\S/ <<  AWS::S3::Bucket is an expected but optional String property for WebsiteConfiguration
 # ObjectLockConfiguration.ObjectLockEnabled == Enabled << Enforce Expected Value for s3.bucket.objectlockconfiguration.ObjectLockEnabled
@@ -33,3 +35,6 @@
 # PublicAccessBlockConfiguration.RestrictPublicBuckets == False << Enforce Expected Value for s3.bucket.publicaccessblockconfiguration.RestrictPublicBuckets
 # PublicAccessBlockConfiguration.RestrictPublicBuckets == True << Enforce Expected Value for s3.bucket.publicaccessblockconfiguration.RestrictPublicBuckets
 # PublicAccessBlockConfiguration.RestrictPublicBuckets IN [True,False] << Enforce Allowed Values
+# VersioningConfiguration.Status == Enabled << Enforce Expected Value for s3.bucket.versioningconfiguration.Status
+# VersioningConfiguration.Status == Suspended << Enforce Expected Value for s3.bucket.versioningconfiguration.Status
+# VersioningConfiguration.Status IN [Enabled,Suspended] << Enforce Allowed Values

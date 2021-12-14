@@ -1,4 +1,9 @@
 {
+  "kendra.datasource.sharepointconfiguration.SslCertificateS3Path": {
+    "Required": "No",
+    "Type": "S3Path",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "kendra.datasource.sharepointconfiguration.VpcConfiguration": {
     "Required": "No",
     "Type": "DataSourceVpcConfiguration",
@@ -25,10 +30,10 @@
       "False"
     ]
   },
-  "kendra.datasource.sharepointconfiguration.SharePointVersion": {
-    "Allowed values": "SHAREPOINT_ONLINE",
-    "Required": "Yes",
-    "Type": "String",
+  "kendra.datasource.sharepointconfiguration.InclusionPatterns": {
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.sharepointconfiguration.DisableLocalGroups": {
@@ -64,10 +69,10 @@
     "Minimum": "1",
     "Type": "String"
   },
-  "kendra.datasource.sharepointconfiguration.InclusionPatterns": {
-    "Required": "No",
-    "Type": "List of String",
-    "Maximum": "100",
+  "kendra.datasource.sharepointconfiguration.SharePointVersion": {
+    "Allowed values": "SHAREPOINT_2013 | SHAREPOINT_2016 | SHAREPOINT_ONLINE",
+    "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.sharepointconfiguration.FieldMappings": {

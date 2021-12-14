@@ -26,15 +26,16 @@
   },
   "ec2.ec2fleet.spotoptionsrequest.InstancePoolsToUseCount": {
     "Required": "No",
-    "UpdateRequires": "Replacement"
+    "Type": "Integer",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.ec2fleet.spotoptionsrequest.AllocationStrategy": {
     "Type": "String",
     "Required": "No",
-    "Allowed Values": "lowestPrice` \\| `diversified` \\| `capacityOptimized",
+    "Allowed Values": "lowestPrice` \\| `diversified` \\| `capacityOptimized` \\| `capacityOptimizedPrioritized",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
-      "lowestPrice` \\| `diversified` \\| `capacityOptimized"
+      "lowestPrice` \\| `diversified` \\| `capacityOptimized` \\| `capacityOptimizedPrioritized"
     ]
   },
   "ec2.ec2fleet.spotoptionsrequest.SingleInstanceType": {
@@ -45,5 +46,10 @@
       "True",
       "False"
     ]
+  },
+  "ec2.ec2fleet.spotoptionsrequest.MaintenanceStrategies": {
+    "Required": "No",
+    "Type": "MaintenanceStrategies",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

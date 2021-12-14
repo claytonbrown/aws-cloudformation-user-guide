@@ -6,6 +6,10 @@
     "Maximum": "32",
     "UpdateRequires": "Replacement"
   },
+  "qldb.ledger.PermissionsMode": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
+  },
   "qldb.ledger.Tags": {
     "Required": "No",
     "Type": "List of [Tag",
@@ -20,8 +24,11 @@
       "False"
     ]
   },
-  "qldb.ledger.PermissionsMode": {
-    "Required": "Yes",
-    "UpdateRequires": "No interruption"
+  "qldb.ledger.KmsKey": {
+    "KmsKey`  <a name=\"cfn-qldb-ledger-kmskey\"></a>\nThe key in AWS Key Management Service \\(AWS KMS\\) to use for encryption of data at rest in the ledger\\. For more information, see [Encryption at rest](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html) in the *Amazon QLDB Developer Guide*\\.  \nUse one of the following options to specify this parameter:  \n+  `AWS_OWNED_KMS_KEY`: Use an AWS KMS key that is owned and managed by AWS on your behalf\\.\n+  **Undefined*": "By default, use an AWS owned KMS key\\.\n+  **A valid symmetric customer managed KMS key*",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1600",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

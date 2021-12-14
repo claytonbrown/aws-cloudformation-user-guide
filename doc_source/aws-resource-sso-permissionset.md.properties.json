@@ -1,6 +1,6 @@
 {
   "sso.permissionset.Description": {
-    "Pattern": "[\\p{L}\\p{M}\\p{Z}\\p{S}\\p{N}\\p{P}]*",
+    "Pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u00A0-\\u00FF]*",
     "Required": "No",
     "Maximum": "700",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
@@ -22,7 +22,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "sso.permissionset.InstanceArn": {
-    "Pattern": "arn:aws:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
+    "Pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
     "Minimum": "10",
     "Required": "Yes",
     "Maximum": "1224",

@@ -1,8 +1,22 @@
 {
+  "cloudtrail.trail.SnsTopicName": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "cloudtrail.trail.S3BucketName": {
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudtrail.trail.IsOrganizationTrail": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   },
   "cloudtrail.trail.IsLogging": {
     "Required": "Yes",
@@ -33,9 +47,9 @@
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cloudtrail.trail.SnsTopicName": {
+  "cloudtrail.trail.InsightSelectors": {
     "Required": "No",
-    "Type": "String",
+    "Type": "List of [InsightSelector",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudtrail.trail.EventSelectors": {
@@ -45,8 +59,7 @@
   },
   "cloudtrail.trail.KMSKeyId": {
     "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "cloudtrail.trail.EnableLogFileValidation": {
     "Required": "No",

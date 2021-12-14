@@ -1,4 +1,5 @@
 # #AWS::Cognito::UserPoolClient AllowedOAuthFlowsUserPoolClient  == True |OR| AWS::Cognito::UserPoolClient AllowedOAuthFlowsUserPoolClient  == False << Enforce allowed values [True | False]
+# #AWS::Cognito::UserPoolClient EnableTokenRevocation  == True |OR| AWS::Cognito::UserPoolClient EnableTokenRevocation  == False << Enforce allowed values [True | False]
 # #AWS::Cognito::UserPoolClient GenerateSecret  == True |OR| AWS::Cognito::UserPoolClient GenerateSecret  == False << Enforce allowed values [True | False]
 # #AWS::Cognito::UserPoolClient PreventUserExistenceErrors  == ENABLED |OR| AWS::Cognito::UserPoolClient PreventUserExistenceErrors  == LEGACY << Enforce allowed values [ENABLED | LEGACY]
 # AWS::Cognito::UserPoolClient AccessTokenValidity  == /[0-9].+/ <<  Integer is expected for AWS::Cognito::UserPoolClient of AccessTokenValidity 
@@ -14,6 +15,11 @@
 # AWS::Cognito::UserPoolClient ClientName  == /[\w\s+=,.@-]+/ <<  ClientName is a required pattern for AWS::Cognito::UserPoolClient
 # AWS::Cognito::UserPoolClient ClientName  == /\S{1,128}/ <<  ClientName is a required property for AWS::Cognito::UserPoolClient
 # AWS::Cognito::UserPoolClient DefaultRedirectURI  == /[\p{L}\p{M}\p{S}\p{N}\p{P}]+/ <<  DefaultRedirectURI is a required pattern for AWS::Cognito::UserPoolClient
+# AWS::Cognito::UserPoolClient EnableTokenRevocation  == /False/ <<  False is an expected value for AWS::Cognito::UserPoolClient EnableTokenRevocation
+# AWS::Cognito::UserPoolClient EnableTokenRevocation  == /True/ <<  True is an expected value for AWS::Cognito::UserPoolClient EnableTokenRevocation
+# AWS::Cognito::UserPoolClient EnableTokenRevocation  == False <<  False is expected  safe default value
+# AWS::Cognito::UserPoolClient EnableTokenRevocation  == True <<  True is expected safe default value
+# AWS::Cognito::UserPoolClient EnableTokenRevocation IN [True,False] << Enforcing Allowed Values only
 # AWS::Cognito::UserPoolClient GenerateSecret  == /False/ <<  False is an expected value for AWS::Cognito::UserPoolClient GenerateSecret
 # AWS::Cognito::UserPoolClient GenerateSecret  == /True/ <<  True is an expected value for AWS::Cognito::UserPoolClient GenerateSecret
 # AWS::Cognito::UserPoolClient GenerateSecret  == False <<  False is expected  safe default value

@@ -3,9 +3,10 @@
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "as.policy.PolicyType": {
-    "Required": "Conditional",
-    "UpdateRequires": "No interruption"
+  "as.policy.EstimatedInstanceWarmup": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "as.policy.StepAdjustments": {
     "Required": "Conditional",
@@ -31,14 +32,21 @@
     "Type": "TargetTrackingConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
+  "as.policy.PredictiveScalingConfiguration": {
+    "Required": "Conditional",
+    "Type": "PredictiveScalingConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "as.policy.Cooldown": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "as.policy.EstimatedInstanceWarmup": {
+  "as.policy.PolicyType": {
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "Minimum": "1",
     "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Maximum": "64",
+    "UpdateRequires": "No interruption"
   },
   "as.policy.ScalingAdjustment": {
     "Required": "Conditional",

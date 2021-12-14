@@ -12,6 +12,11 @@
     "Minimum": "0",
     "Type": "String"
   },
+  "elasticmapreduce.cluster.jobflowinstancesconfig.TaskInstanceFleets": {
+    "Required": "No",
+    "Type": "List of [InstanceFleetConfig",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
   "elasticmapreduce.cluster.jobflowinstancesconfig.CoreInstanceFleet": {
     "Required": "No",
     "Type": "InstanceFleetConfig",
@@ -22,10 +27,10 @@
     "Type": "InstanceFleetConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "elasticmapreduce.cluster.jobflowinstancesconfig.CoreInstanceGroup": {
+  "elasticmapreduce.cluster.jobflowinstancesconfig.TaskInstanceGroups": {
     "Required": "No",
-    "Type": "InstanceGroupConfig",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "List of [InstanceGroupConfig",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
   "elasticmapreduce.cluster.jobflowinstancesconfig.EmrManagedSlaveSecurityGroup": {
     "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
@@ -56,6 +61,11 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "Minimum": "0",
     "Type": "String"
+  },
+  "elasticmapreduce.cluster.jobflowinstancesconfig.CoreInstanceGroup": {
+    "Required": "No",
+    "Type": "InstanceGroupConfig",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticmapreduce.cluster.jobflowinstancesconfig.ServiceAccessSecurityGroup": {
     "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",

@@ -1,4 +1,12 @@
 {
+  "iotanalytics.datastore.DatastoreName": {
+    "Pattern": "(^(?!_{2}))(^[a-zA-Z0-9_]+$)",
+    "Required": "No",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
   "iotanalytics.datastore.DatastoreStorage": {
     "Required": "No",
     "Type": "DatastoreStorage",
@@ -14,18 +22,15 @@
     "Type": "RetentionPeriod",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "iotanalytics.datastore.DatastoreName": {
-    "Pattern": "^[a-zA-Z0-9_]+$",
-    "Required": "No",
-    "Maximum": "128",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
   "iotanalytics.datastore.Tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "iotanalytics.datastore.DatastorePartitions": {
+    "Required": "No",
+    "Type": "DatastorePartitions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

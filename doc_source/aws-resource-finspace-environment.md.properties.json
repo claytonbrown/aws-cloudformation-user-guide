@@ -1,11 +1,21 @@
 {
-  "finspace.environment.Name": {
-    "Pattern": "^[a-zA-Z0-9]+[a-zA-Z0-9-]*[a-zA-Z0-9]$",
-    "Required": "Yes",
-    "Maximum": "255",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
+  "finspace.environment.FederationParameters": {
+    "Required": "No",
+    "Type": "FederationParameters",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "finspace.environment.KmsKeyId": {
+    "Pattern": "^[a-zA-Z-0-9-:\\/]*$",
+    "Required": "No",
+    "Maximum": "1000",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "Minimum": "1",
     "Type": "String"
+  },
+  "finspace.environment.SuperuserParameters": {
+    "Required": "No",
+    "Type": "SuperuserParameters",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   },
   "finspace.environment.Description": {
     "Pattern": "^[a-zA-Z0-9. ]{1,1000}$",
@@ -15,23 +25,23 @@
     "Minimum": "1",
     "Type": "String"
   },
-  "finspace.environment.FederationParameters": {
+  "finspace.environment.DataBundles": {
     "Required": "No",
-    "Type": "FederationParameters",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "finspace.environment.Name": {
+    "Pattern": "^[a-zA-Z0-9]+[a-zA-Z0-9-]*[a-zA-Z0-9]$",
+    "Required": "Yes",
+    "Maximum": "255",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
   },
   "finspace.environment.FederationMode": {
     "Allowed values": "FEDERATED | LOCAL",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "finspace.environment.KmsKeyId": {
-    "Pattern": "^[a-zA-Z-0-9-:\\/]*$",
-    "Required": "No",
-    "Maximum": "1000",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
   }
 }

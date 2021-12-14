@@ -1,0 +1,65 @@
+{
+  "fsx.volume.openzfsconfiguration.DataCompressionType": {
+    "Allowed values": "NONE | ZSTD",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.volume.openzfsconfiguration.CopyTagsToSnapshots": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "fsx.volume.openzfsconfiguration.ReadOnly": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "fsx.volume.openzfsconfiguration.StorageCapacityReservationGiB": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "2147483647",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.volume.openzfsconfiguration.NfsExports": {
+    "Required": "No",
+    "Type": "List",
+    "Maximum": "1",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.volume.openzfsconfiguration.ParentVolumeId": {
+    "Pattern": "^(fsvol-[0-9a-f]{17,})$",
+    "Required": "Yes",
+    "Maximum": "23",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "23",
+    "Type": "String"
+  },
+  "fsx.volume.openzfsconfiguration.UserAndGroupQuotas": {
+    "Required": "No",
+    "Type": "List",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.volume.openzfsconfiguration.OriginSnapshot": {
+    "Required": "No",
+    "Type": "OriginSnapshot",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "fsx.volume.openzfsconfiguration.StorageCapacityQuotaGiB": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "2147483647",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

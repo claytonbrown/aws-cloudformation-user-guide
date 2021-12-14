@@ -30,11 +30,9 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "fsx.filesystem.windowsconfiguration.AutomaticBackupRetentionDays": {
-    "Minimum": "0",
+  "fsx.filesystem.windowsconfiguration.AuditLogConfiguration": {
     "Required": "No",
-    "Type": "Integer",
-    "Maximum": "90",
+    "Type": "AuditLogConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "fsx.filesystem.windowsconfiguration.PreferredSubnetId": {
@@ -53,12 +51,19 @@
   "fsx.filesystem.windowsconfiguration.ThroughputCapacity": {
     "Minimum": "8",
     "Required": "Conditional",
-    "Maximum": "2048",
+    "Maximum": "4096",
     "UpdateRequires": "No interruption"
   },
   "fsx.filesystem.windowsconfiguration.SelfManagedActiveDirectoryConfiguration": {
     "Required": "No",
     "Type": "SelfManagedActiveDirectoryConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.filesystem.windowsconfiguration.AutomaticBackupRetentionDays": {
+    "Minimum": "0",
+    "Required": "No",
+    "Type": "Integer",
+    "Maximum": "90",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

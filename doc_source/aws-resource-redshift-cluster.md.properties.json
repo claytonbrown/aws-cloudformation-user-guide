@@ -1,9 +1,33 @@
 {
+  "redshift.cluster.EnhancedVpcRouting": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "redshift.cluster.AvailabilityZoneRelocation": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "redshift.cluster.AquaConfigurationStatus": {
+    "Allowed values": "auto | disabled | enabled",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "redshift.cluster.KmsKeyId": {
     "Required": "No",
     "Type": "String",
     "Maximum": "2147483647",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.MasterUsername": {
     "Required": "Yes",
@@ -11,17 +35,32 @@
     "Maximum": "2147483647",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "redshift.cluster.AvailabilityZone": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2147483647",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "redshift.cluster.Classic": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
   "redshift.cluster.ClusterVersion": {
     "Required": "No",
     "Type": "String",
     "Maximum": "2147483647",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "redshift.cluster.HsmClientCertificateIdentifier": {
+  "redshift.cluster.ClusterSubnetGroupName": {
     "Required": "No",
     "Type": "String",
     "Maximum": "2147483647",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "redshift.cluster.SnapshotIdentifier": {
     "Required": "No",
@@ -35,11 +74,17 @@
     "Maximum": "2147483647",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "redshift.cluster.MasterUserPassword": {
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "2147483647",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "redshift.cluster.ElasticIp": {
     "Required": "No",
     "Type": "String",
     "Maximum": "2147483647",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.AllowVersionUpgrade": {
     "Required": "No",
@@ -50,17 +95,49 @@
       "False"
     ]
   },
+  "redshift.cluster.DestinationRegion": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2147483647",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "redshift.cluster.DeferMaintenanceStartTime": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "redshift.cluster.SnapshotCopyGrantName": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2147483647",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "redshift.cluster.ClusterParameterGroupName": {
     "Required": "No",
     "Type": "String",
     "Maximum": "2147483647",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "redshift.cluster.ClusterSubnetGroupName": {
+  "redshift.cluster.HsmClientCertificateIdentifier": {
     "Required": "No",
     "Type": "String",
     "Maximum": "2147483647",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "redshift.cluster.AvailabilityZoneRelocationStatus": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2147483647",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "redshift.cluster.RotateEncryptionKey": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
   },
   "redshift.cluster.PreferredMaintenanceWindow": {
     "Required": "No",
@@ -68,21 +145,25 @@
     "Maximum": "2147483647",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "redshift.cluster.MasterUserPassword": {
-    "Required": "Yes",
+  "redshift.cluster.SnapshotCopyRetentionPeriod": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "redshift.cluster.RevisionTarget": {
+    "Required": "No",
     "Type": "String",
-    "Maximum": "2147483647",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.Port": {
     "Required": "No",
     "Type": "Integer",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.Encrypted": {
     "Required": "No",
     "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
@@ -98,21 +179,59 @@
     "Maximum": "2147483647",
     "UpdateRequires": "No interruption"
   },
-  "redshift.cluster.AvailabilityZone": {
+  "redshift.cluster.IamRoles": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "2147483647",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.LoggingProperties": {
     "Required": "No",
     "Type": "LoggingProperties",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "redshift.cluster.SnapshotCopyManual": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
   "redshift.cluster.SnapshotClusterIdentifier": {
     "Required": "No",
     "Maximum": "2147483647",
     "UpdateRequires": "Replacement"
+  },
+  "redshift.cluster.DeferMaintenanceEndTime": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "redshift.cluster.DeferMaintenanceDuration": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "redshift.cluster.DeferMaintenance": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "redshift.cluster.MaintenanceTrackName": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2147483647",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "redshift.cluster.ResourceAction": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.HsmConfigurationIdentifier": {
     "Required": "No",
@@ -155,9 +274,9 @@
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "redshift.cluster.IamRoles": {
+  "redshift.cluster.ManualSnapshotRetentionPeriod": {
     "Required": "No",
-    "Type": "List of String",
+    "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.AutomatedSnapshotRetentionPeriod": {
@@ -168,10 +287,5 @@
     "Required": "Yes",
     "Maximum": "2147483647",
     "UpdateRequires": "No interruption"
-  },
-  "redshift.cluster.Endpoint": {
-    "Required": "No",
-    "Type": "Json",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

@@ -11,6 +11,7 @@
 # AWS::DataSync::Task Options.PosixPermissions  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
 # AWS::DataSync::Task Options.PreserveDeletedFiles  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
 # AWS::DataSync::Task Options.PreserveDevices  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
+# AWS::DataSync::Task Options.SecurityDescriptorCopyFlags  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
 # AWS::DataSync::Task Options.TaskQueueing  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
 # AWS::DataSync::Task Options.TransferMode  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
 # AWS::DataSync::Task Options.Uid  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
@@ -18,39 +19,23 @@
 # AWS::DataSync::Task SourceLocationArn  == /.*/ <<  SourceLocationArn is a required property for AWS::DataSync::Task
 # AWS::DataSync::Task SourceLocationArn  == /^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$/ <<  SourceLocationArn is a required pattern for AWS::DataSync::Task
 # AWS::DataSync::Task SourceLocationArn  == /arn.*{0,128}/ <<  SourceLocationArn is a required property for AWS::DataSync::Task
-# Options.Atime == BEST_EFFORT << Enforce Expected Value for datasync.task.options.Atime
-# Options.Atime == NONE << Enforce Expected Value for datasync.task.options.Atime
-# Options.Atime IN [BEST_EFFORT,NONE] << Enforce Allowed Values
-# Options.Gid == BOTH << Enforce Expected Value for datasync.task.options.Gid
-# Options.Gid == INT_VALUE << Enforce Expected Value for datasync.task.options.Gid
-# Options.Gid == NAME << Enforce Expected Value for datasync.task.options.Gid
-# Options.Gid == NONE << Enforce Expected Value for datasync.task.options.Gid
-# Options.Gid IN [BOTH,INT_VALUE,NAME,NONE] << Enforce Allowed Values
+# Options.ALL == ALL << Enforce Expected Value for datasync.task.options.ALL
+# Options.ALL == CHANGED << Enforce Expected Value for datasync.task.options.ALL
+# Options.ALL IN [ALL,CHANGED] << Enforce Allowed Values
 # Options.LogLevel == BASIC << Enforce Expected Value for datasync.task.options.LogLevel
 # Options.LogLevel == OFF << Enforce Expected Value for datasync.task.options.LogLevel
 # Options.LogLevel == TRANSFER << Enforce Expected Value for datasync.task.options.LogLevel
 # Options.LogLevel IN [BASIC,OFF,TRANSFER] << Enforce Allowed Values
-# Options.Mtime == NONE << Enforce Expected Value for datasync.task.options.Mtime
-# Options.Mtime == PRESERVE << Enforce Expected Value for datasync.task.options.Mtime
-# Options.Mtime IN [NONE,PRESERVE] << Enforce Allowed Values
-# Options.PosixPermissions == NONE << Enforce Expected Value for datasync.task.options.PosixPermissions
-# Options.PosixPermissions == PRESERVE << Enforce Expected Value for datasync.task.options.PosixPermissions
-# Options.PosixPermissions IN [NONE,PRESERVE] << Enforce Allowed Values
-# Options.PreserveDevices == NONE << Enforce Expected Value for datasync.task.options.PreserveDevices
-# Options.PreserveDevices == PRESERVE << Enforce Expected Value for datasync.task.options.PreserveDevices
-# Options.PreserveDevices IN [NONE,PRESERVE] << Enforce Allowed Values
+# Options.NONE == NONE << Enforce Expected Value for datasync.task.options.NONE
+# Options.NONE == ONLY_FILES_TRANSFERRED << Enforce Expected Value for datasync.task.options.NONE
+# Options.NONE == POINT_IN_TIME_CONSISTENT << Enforce Expected Value for datasync.task.options.NONE
+# Options.NONE IN [NONE,ONLY_FILES_TRANSFERRED,POINT_IN_TIME_CONSISTENT] << Enforce Allowed Values
+# Options.PRESERVE == NONE << Enforce Expected Value for datasync.task.options.PRESERVE
+# Options.PRESERVE == PRESERVE << Enforce Expected Value for datasync.task.options.PRESERVE
+# Options.PRESERVE IN [NONE,PRESERVE] << Enforce Allowed Values
+# Options.REMOVE == PRESERVE << Enforce Expected Value for datasync.task.options.REMOVE
+# Options.REMOVE == REMOVE << Enforce Expected Value for datasync.task.options.REMOVE
+# Options.REMOVE IN [PRESERVE,REMOVE] << Enforce Allowed Values
 # Options.TaskQueueing == DISABLED << Enforce Expected Value for datasync.task.options.TaskQueueing
 # Options.TaskQueueing == ENABLED << Enforce Expected Value for datasync.task.options.TaskQueueing
 # Options.TaskQueueing IN [DISABLED,ENABLED] << Enforce Allowed Values
-# Options.TransferMode == ALL << Enforce Expected Value for datasync.task.options.TransferMode
-# Options.TransferMode == CHANGED << Enforce Expected Value for datasync.task.options.TransferMode
-# Options.TransferMode IN [ALL,CHANGED] << Enforce Allowed Values
-# Options.Uid == BOTH << Enforce Expected Value for datasync.task.options.Uid
-# Options.Uid == INT_VALUE << Enforce Expected Value for datasync.task.options.Uid
-# Options.Uid == NAME << Enforce Expected Value for datasync.task.options.Uid
-# Options.Uid == NONE << Enforce Expected Value for datasync.task.options.Uid
-# Options.Uid IN [BOTH,INT_VALUE,NAME,NONE] << Enforce Allowed Values
-# Options.VerifyMode == NONE << Enforce Expected Value for datasync.task.options.VerifyMode
-# Options.VerifyMode == ONLY_FILES_TRANSFERRED << Enforce Expected Value for datasync.task.options.VerifyMode
-# Options.VerifyMode == POINT_IN_TIME_CONSISTENT << Enforce Expected Value for datasync.task.options.VerifyMode
-# Options.VerifyMode IN [NONE,ONLY_FILES_TRANSFERRED,POINT_IN_TIME_CONSISTENT] << Enforce Allowed Values

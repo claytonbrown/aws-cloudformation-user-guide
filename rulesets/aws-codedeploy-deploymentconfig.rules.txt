@@ -1,4 +1,15 @@
+# #AWS::CodeDeploy::DeploymentConfig ComputePlatform  == ECS |OR| AWS::CodeDeploy::DeploymentConfig ComputePlatform  == Lambda |OR| AWS::CodeDeploy::DeploymentConfig ComputePlatform  == Server << Enforce allowed values [ECS | Lambda | Server]
+# AWS::CodeDeploy::DeploymentConfig ComputePlatform  == /ECS/ <<  ECS is an expected value for AWS::CodeDeploy::DeploymentConfig ComputePlatform
+# AWS::CodeDeploy::DeploymentConfig ComputePlatform  == /Lambda/ <<  Lambda is an expected value for AWS::CodeDeploy::DeploymentConfig ComputePlatform
+# AWS::CodeDeploy::DeploymentConfig ComputePlatform  == /Server/ <<  Server is an expected value for AWS::CodeDeploy::DeploymentConfig ComputePlatform
+# AWS::CodeDeploy::DeploymentConfig ComputePlatform IN [ECS,Lambda,Server] << Enforcing Allowed Values only
 # AWS::CodeDeploy::DeploymentConfig DeploymentConfigName  == /\S{1,100}/ <<  DeploymentConfigName is a required property for AWS::CodeDeploy::DeploymentConfig
 # AWS::CodeDeploy::DeploymentConfig MinimumHealthyHosts.Type  == /\S/ <<  AWS::CodeDeploy::DeploymentConfig is an expected but optional String property for MinimumHealthyHosts
 # AWS::CodeDeploy::DeploymentConfig MinimumHealthyHosts.codedeploy.deploymentconfig.minimumhealthyhosts.Type  == /.*/ <<  codedeploy.deploymentconfig.minimumhealthyhosts.Type is a required property for AWS::CodeDeploy::DeploymentConfig MinimumHealthyHosts
 # AWS::CodeDeploy::DeploymentConfig MinimumHealthyHosts.codedeploy.deploymentconfig.minimumhealthyhosts.Value  == /.*/ <<  codedeploy.deploymentconfig.minimumhealthyhosts.Value is a required property for AWS::CodeDeploy::DeploymentConfig MinimumHealthyHosts
+# AWS::CodeDeploy::DeploymentConfig TrafficRoutingConfig.Type  == /\S/ <<  AWS::CodeDeploy::DeploymentConfig is an expected but optional String property for TrafficRoutingConfig
+# AWS::CodeDeploy::DeploymentConfig TrafficRoutingConfig.codedeploy.deploymentconfig.trafficroutingconfig.Type  == /.*/ <<  codedeploy.deploymentconfig.trafficroutingconfig.Type is a required property for AWS::CodeDeploy::DeploymentConfig TrafficRoutingConfig
+# TrafficRoutingConfig.Type == AllAtOnce << Enforce Expected Value for codedeploy.deploymentconfig.trafficroutingconfig.Type
+# TrafficRoutingConfig.Type == TimeBasedCanary << Enforce Expected Value for codedeploy.deploymentconfig.trafficroutingconfig.Type
+# TrafficRoutingConfig.Type == TimeBasedLinear << Enforce Expected Value for codedeploy.deploymentconfig.trafficroutingconfig.Type
+# TrafficRoutingConfig.Type IN [AllAtOnce,TimeBasedCanary,TimeBasedLinear] << Enforce Allowed Values

@@ -1,9 +1,12 @@
 {
   "appstream.fleet.FleetType": {
-    "Allowed values": "ALWAYS_ON | ON_DEMAND",
-    "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Required": "No",
+    "Allowed Values": "ALWAYS_ON` \\| `ELASTIC` \\| `ON_DEMAND",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "AllowedValues": [
+      "ALWAYS_ON` \\| `ELASTIC` \\| `ON_DEMAND"
+    ]
   },
   "appstream.fleet.MaxUserDurationInSeconds": {
     "Required": "No",
@@ -27,6 +30,11 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "appstream.fleet.UsbDeviceFilterStrings": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "appstream.fleet.StreamView": {
     "Allowed values": "APP | DESKTOP",
     "Required": "No",
@@ -44,7 +52,18 @@
   },
   "appstream.fleet.Tags": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.fleet.Platform": {
+    "Allowed values": "AMAZON_LINUX2 | WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019",
+    "Required": "No",
+    "Allowed Values": "WINDOWS_SERVER_2019` \\| `AMAZON_LINUX2",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "WINDOWS_SERVER_2019` \\| `AMAZON_LINUX2"
+    ],
+    "Type": "String"
   },
   "appstream.fleet.Name": {
     "Pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$",
@@ -79,8 +98,13 @@
     "Type": "VpcConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
+  "appstream.fleet.MaxConcurrentSessions": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "appstream.fleet.ComputeCapacity": {
-    "Required": "Yes",
+    "Required": "No",
     "Type": "ComputeCapacity",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },

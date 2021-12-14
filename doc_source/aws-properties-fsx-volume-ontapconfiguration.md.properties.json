@@ -1,0 +1,41 @@
+{
+  "fsx.volume.ontapconfiguration.StorageVirtualMachineId": {
+    "Pattern": "^(svm-[0-9a-f]{17,})$",
+    "Required": "Yes",
+    "Maximum": "21",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "21",
+    "Type": "String"
+  },
+  "fsx.volume.ontapconfiguration.SizeInMegabytes": {
+    "Minimum": "0",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "2147483647",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.volume.ontapconfiguration.JunctionPath": {
+    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,255}$",
+    "Required": "Yes",
+    "Maximum": "255",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "fsx.volume.ontapconfiguration.StorageEfficiencyEnabled": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.volume.ontapconfiguration.SecurityStyle": {
+    "Allowed values": "MIXED | NTFS | UNIX",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.volume.ontapconfiguration.TieringPolicy": {
+    "Required": "No",
+    "Type": "TieringPolicy",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

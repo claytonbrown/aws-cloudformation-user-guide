@@ -1,0 +1,32 @@
+{
+  "acmpca.permission.Actions": {
+    "Required": "Yes",
+    "Type": "List of String",
+    "Maximum": "3",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "acmpca.permission.CertificateAuthorityArn": {
+    "Pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:[\\w+=/,.@-]*:[0-9]*:[\\w+=,.@-]+(/[\\w+=,.@-]+)*",
+    "Required": "Yes",
+    "Maximum": "200",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "5",
+    "Type": "String"
+  },
+  "acmpca.permission.Principal": {
+    "Pattern": "^[^*]+$",
+    "Required": "Yes",
+    "Maximum": "128",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "0",
+    "Type": "String"
+  },
+  "acmpca.permission.SourceAccount": {
+    "Pattern": "[0-9]+",
+    "Required": "No",
+    "Maximum": "12",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "12",
+    "Type": "String"
+  }
+}

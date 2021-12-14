@@ -4,14 +4,14 @@
     "Type": "TimestreamTimestamp",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "iot.topicrule.timestreamaction.TableName": {
+  "iot.topicrule.timestreamaction.DatabaseName": {
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "iot.topicrule.timestreamaction.Dimensions": {
+  "iot.topicrule.timestreamaction.TableName": {
     "Required": "Yes",
-    "Type": "List of [TimestreamDimension",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iot.topicrule.timestreamaction.RoleArn": {
@@ -19,9 +19,18 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "iot.topicrule.timestreamaction.DatabaseName": {
+  "iot.topicrule.timestreamaction.BatchMode": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "iot.topicrule.timestreamaction.Dimensions": {
     "Required": "Yes",
-    "Type": "String",
+    "Type": "List of [TimestreamDimension",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }
