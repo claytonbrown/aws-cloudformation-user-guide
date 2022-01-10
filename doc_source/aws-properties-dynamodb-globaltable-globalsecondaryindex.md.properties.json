@@ -6,6 +6,7 @@
   },
   "dynamodb.globaltable.globalsecondaryindex.KeySchema": {
     "Required": "Yes",
+    "Maximum": "2",
     "UpdateRequires": "Updates are not supported\\."
   },
   "dynamodb.globaltable.globalsecondaryindex.WriteProvisionedThroughputSettings": {
@@ -14,8 +15,11 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dynamodb.globaltable.globalsecondaryindex.IndexName": {
+    "Pattern": "[a-zA-Z0-9_.-]+",
     "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "Updates are not supported\\."
+    "Maximum": "255",
+    "UpdateRequires": "Updates are not supported\\.",
+    "Minimum": "3",
+    "Type": "String"
   }
 }

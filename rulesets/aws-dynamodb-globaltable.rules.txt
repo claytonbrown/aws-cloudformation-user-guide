@@ -1,6 +1,10 @@
+# #AWS::DynamoDB::GlobalTable BillingMode  == PAY_PER_REQUEST |OR| AWS::DynamoDB::GlobalTable BillingMode  == PROVISIONED << Enforce allowed values [PAY_PER_REQUEST | PROVISIONED]
 # AWS::DynamoDB::GlobalTable AttributeDefinitions  == /.*/ <<  AttributeDefinitions is a required property for AWS::DynamoDB::GlobalTable
 # AWS::DynamoDB::GlobalTable AttributeDefinitions.AttributeName  == /\S/ <<  AWS::DynamoDB::GlobalTable is an expected but optional String property for AttributeDefinitions
 # AWS::DynamoDB::GlobalTable AttributeDefinitions.AttributeType  == /\S/ <<  AWS::DynamoDB::GlobalTable is an expected but optional String property for AttributeDefinitions
+# AWS::DynamoDB::GlobalTable BillingMode  == /PAY_PER_REQUEST/ <<  PAY_PER_REQUEST is an expected value for AWS::DynamoDB::GlobalTable BillingMode
+# AWS::DynamoDB::GlobalTable BillingMode  == /PROVISIONED/ <<  PROVISIONED is an expected value for AWS::DynamoDB::GlobalTable BillingMode
+# AWS::DynamoDB::GlobalTable BillingMode IN [PAY_PER_REQUEST,PROVISIONED] << Enforcing Allowed Values only
 # AWS::DynamoDB::GlobalTable KeySchema  == /.*/ <<  KeySchema is a required property for AWS::DynamoDB::GlobalTable
 # AWS::DynamoDB::GlobalTable KeySchema.AttributeName  == /\S/ <<  AWS::DynamoDB::GlobalTable is an expected but optional String property for KeySchema
 # AWS::DynamoDB::GlobalTable KeySchema.KeyType  == /\S/ <<  AWS::DynamoDB::GlobalTable is an expected but optional String property for KeySchema
@@ -11,11 +15,21 @@
 # AWS::DynamoDB::GlobalTable SSESpecification.dynamodb.globaltable.ssespecification.SSEEnabled  == /.*/ <<  dynamodb.globaltable.ssespecification.SSEEnabled is a required property for AWS::DynamoDB::GlobalTable SSESpecification
 # AWS::DynamoDB::GlobalTable StreamSpecification.StreamViewType  == /\S/ <<  AWS::DynamoDB::GlobalTable is an expected but optional String property for StreamSpecification
 # AWS::DynamoDB::GlobalTable StreamSpecification.dynamodb.globaltable.streamspecification.StreamViewType  == /.*/ <<  dynamodb.globaltable.streamspecification.StreamViewType is a required property for AWS::DynamoDB::GlobalTable StreamSpecification
+# AWS::DynamoDB::GlobalTable TableName  == /[a-zA-Z0-9_.-]+/ <<  TableName is a required pattern for AWS::DynamoDB::GlobalTable
+# AWS::DynamoDB::GlobalTable TableName  == /\S{3,255}/ <<  TableName is a required property for AWS::DynamoDB::GlobalTable
 # AWS::DynamoDB::GlobalTable TimeToLiveSpecification.AttributeName  == /\S/ <<  AWS::DynamoDB::GlobalTable is an expected but optional String property for TimeToLiveSpecification
 # AWS::DynamoDB::GlobalTable TimeToLiveSpecification.dynamodb.globaltable.timetolivespecification.Enabled  == /.*/ <<  dynamodb.globaltable.timetolivespecification.Enabled is a required property for AWS::DynamoDB::GlobalTable TimeToLiveSpecification
 # SSESpecification.SSEEnabled == False << Enforce Expected Value for dynamodb.globaltable.ssespecification.SSEEnabled
 # SSESpecification.SSEEnabled == True << Enforce Expected Value for dynamodb.globaltable.ssespecification.SSEEnabled
 # SSESpecification.SSEEnabled IN [True,False] << Enforce Allowed Values
+# SSESpecification.SSEType == AES256 << Enforce Expected Value for dynamodb.globaltable.ssespecification.SSEType
+# SSESpecification.SSEType == KMS << Enforce Expected Value for dynamodb.globaltable.ssespecification.SSEType
+# SSESpecification.SSEType IN [AES256,KMS] << Enforce Allowed Values
+# StreamSpecification.StreamViewType == KEYS_ONLY << Enforce Expected Value for dynamodb.globaltable.streamspecification.StreamViewType
+# StreamSpecification.StreamViewType == NEW_AND_OLD_IMAGES << Enforce Expected Value for dynamodb.globaltable.streamspecification.StreamViewType
+# StreamSpecification.StreamViewType == NEW_IMAGE << Enforce Expected Value for dynamodb.globaltable.streamspecification.StreamViewType
+# StreamSpecification.StreamViewType == OLD_IMAGE << Enforce Expected Value for dynamodb.globaltable.streamspecification.StreamViewType
+# StreamSpecification.StreamViewType IN [KEYS_ONLY,NEW_AND_OLD_IMAGES,NEW_IMAGE,OLD_IMAGE] << Enforce Allowed Values
 # TimeToLiveSpecification.Enabled == False << Enforce Expected Value for dynamodb.globaltable.timetolivespecification.Enabled
 # TimeToLiveSpecification.Enabled == True << Enforce Expected Value for dynamodb.globaltable.timetolivespecification.Enabled
 # TimeToLiveSpecification.Enabled IN [True,False] << Enforce Allowed Values

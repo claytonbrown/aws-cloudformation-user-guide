@@ -156,6 +156,9 @@ The `PermissionModel` property is required\.]
 # #AWS::DocDB::DBCluster DeletionProtection  == True |OR| AWS::DocDB::DBCluster DeletionProtection  == False << Enforce allowed values [True | False]
 # #AWS::DocDB::DBCluster StorageEncrypted  == True |OR| AWS::DocDB::DBCluster StorageEncrypted  == False << Enforce allowed values [True | False]
 # #AWS::DocDB::DBInstance AutoMinorVersionUpgrade  == True |OR| AWS::DocDB::DBInstance AutoMinorVersionUpgrade  == False << Enforce allowed values [True | False]
+# #AWS::DynamoDB::GlobalTable BillingMode  == PAY_PER_REQUEST |OR| AWS::DynamoDB::GlobalTable BillingMode  == PROVISIONED << Enforce allowed values [PAY_PER_REQUEST | PROVISIONED]
+# #AWS::DynamoDB::Table BillingMode  == PAY_PER_REQUEST |OR| AWS::DynamoDB::Table BillingMode  == PROVISIONED << Enforce allowed values [PAY_PER_REQUEST | PROVISIONED]
+# #AWS::DynamoDB::Table TableClass  == STANDARD |OR| AWS::DynamoDB::Table TableClass  == STANDARD_INFREQUENT_ACCESS << Enforce allowed values [STANDARD | STANDARD_INFREQUENT_ACCESS]
 # #AWS::EC2::CapacityReservation EbsOptimized  == True |OR| AWS::EC2::CapacityReservation EbsOptimized  == False << Enforce allowed values [True | False]
 # #AWS::EC2::CapacityReservation EndDateType  == limited |OR| AWS::EC2::CapacityReservation EndDateType  == unlimited << Enforce allowed values [limited | unlimited]
 # #AWS::EC2::CapacityReservation EphemeralStorage  == True |OR| AWS::EC2::CapacityReservation EphemeralStorage  == False << Enforce allowed values [True | False]
@@ -181,7 +184,6 @@ The `PermissionModel` property is required\.]
 # #AWS::EC2::IPAMPool AddressFamily  == ipv4 |OR| AWS::EC2::IPAMPool AddressFamily  == ipv6 << Enforce allowed values [ipv4 | ipv6]
 # #AWS::EC2::IPAMPool AutoImport  == True |OR| AWS::EC2::IPAMPool AutoImport  == False << Enforce allowed values [True | False]
 # #AWS::EC2::IPAMPool PubliclyAdvertisable  == True |OR| AWS::EC2::IPAMPool PubliclyAdvertisable  == False << Enforce allowed values [True | False]
-# #AWS::EC2::IPAMScope IpamScopeType  == private |OR| AWS::EC2::IPAMScope IpamScopeType  == public << Enforce allowed values [private | public]
 # #AWS::EC2::Instance DisableApiTermination  == True |OR| AWS::EC2::Instance DisableApiTermination  == False << Enforce allowed values [True | False]
 # #AWS::EC2::Instance EbsOptimized  == True |OR| AWS::EC2::Instance EbsOptimized  == False << Enforce allowed values [True | False]
 # #AWS::EC2::Instance InstanceInitiatedShutdownBehavior  == stop |OR| AWS::EC2::Instance InstanceInitiatedShutdownBehavior  == terminate << Enforce allowed values [stop | terminate]
@@ -229,7 +231,6 @@ The `PermissionModel` property is required\.]
 # #AWS::EFS::FileSystem Encrypted  == True |OR| AWS::EFS::FileSystem Encrypted  == False << Enforce allowed values [True | False]
 # #AWS::EFS::FileSystem PerformanceMode  == generalPurpose |OR| AWS::EFS::FileSystem PerformanceMode  == maxIO << Enforce allowed values [generalPurpose | maxIO]
 # #AWS::EKS::Addon ResolveConflicts  == NONE |OR| AWS::EKS::Addon ResolveConflicts  == OVERWRITE << Enforce allowed values [NONE | OVERWRITE]
-# #AWS::EKS::Nodegroup AmiType  == AL2_ARM_64 |OR| AWS::EKS::Nodegroup AmiType  == AL2_x86_64 |OR| AWS::EKS::Nodegroup AmiType  == AL2_x86_64_GPU |OR| AWS::EKS::Nodegroup AmiType  == BOTTLEROCKET_ARM_64 |OR| AWS::EKS::Nodegroup AmiType  == BOTTLEROCKET_x86_64 |OR| AWS::EKS::Nodegroup AmiType  == CUSTOM << Enforce allowed values [AL2_ARM_64 | AL2_x86_64 | AL2_x86_64_GPU | BOTTLEROCKET_ARM_64 | BOTTLEROCKET_x86_64 | CUSTOM]
 # #AWS::EKS::Nodegroup CapacityType  == ON_DEMAND |OR| AWS::EKS::Nodegroup CapacityType  == SPOT << Enforce allowed values [ON_DEMAND | SPOT]
 # #AWS::EKS::Nodegroup ForceUpdateEnabled  == True |OR| AWS::EKS::Nodegroup ForceUpdateEnabled  == False << Enforce allowed values [True | False]
 # #AWS::EMR::Cluster ScaleDownBehavior  == TERMINATE_AT_INSTANCE_HOUR |OR| AWS::EMR::Cluster ScaleDownBehavior  == TERMINATE_AT_TASK_COMPLETION << Enforce allowed values [TERMINATE_AT_INSTANCE_HOUR | TERMINATE_AT_TASK_COMPLETION]
@@ -2699,6 +2700,9 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::DynamoDB::GlobalTable AttributeDefinitions  == /.*/ <<  AttributeDefinitions is a required property for AWS::DynamoDB::GlobalTable
 # AWS::DynamoDB::GlobalTable AttributeDefinitions.AttributeName  == /\S/ <<  AWS::DynamoDB::GlobalTable is an expected but optional String property for AttributeDefinitions
 # AWS::DynamoDB::GlobalTable AttributeDefinitions.AttributeType  == /\S/ <<  AWS::DynamoDB::GlobalTable is an expected but optional String property for AttributeDefinitions
+# AWS::DynamoDB::GlobalTable BillingMode  == /PAY_PER_REQUEST/ <<  PAY_PER_REQUEST is an expected value for AWS::DynamoDB::GlobalTable BillingMode
+# AWS::DynamoDB::GlobalTable BillingMode  == /PROVISIONED/ <<  PROVISIONED is an expected value for AWS::DynamoDB::GlobalTable BillingMode
+# AWS::DynamoDB::GlobalTable BillingMode IN [PAY_PER_REQUEST,PROVISIONED] << Enforcing Allowed Values only
 # AWS::DynamoDB::GlobalTable KeySchema  == /.*/ <<  KeySchema is a required property for AWS::DynamoDB::GlobalTable
 # AWS::DynamoDB::GlobalTable KeySchema.AttributeName  == /\S/ <<  AWS::DynamoDB::GlobalTable is an expected but optional String property for KeySchema
 # AWS::DynamoDB::GlobalTable KeySchema.KeyType  == /\S/ <<  AWS::DynamoDB::GlobalTable is an expected but optional String property for KeySchema
@@ -2709,10 +2713,15 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::DynamoDB::GlobalTable SSESpecification.dynamodb.globaltable.ssespecification.SSEEnabled  == /.*/ <<  dynamodb.globaltable.ssespecification.SSEEnabled is a required property for AWS::DynamoDB::GlobalTable SSESpecification
 # AWS::DynamoDB::GlobalTable StreamSpecification.StreamViewType  == /\S/ <<  AWS::DynamoDB::GlobalTable is an expected but optional String property for StreamSpecification
 # AWS::DynamoDB::GlobalTable StreamSpecification.dynamodb.globaltable.streamspecification.StreamViewType  == /.*/ <<  dynamodb.globaltable.streamspecification.StreamViewType is a required property for AWS::DynamoDB::GlobalTable StreamSpecification
+# AWS::DynamoDB::GlobalTable TableName  == /[a-zA-Z0-9_.-]+/ <<  TableName is a required pattern for AWS::DynamoDB::GlobalTable
+# AWS::DynamoDB::GlobalTable TableName  == /\S{3,255}/ <<  TableName is a required property for AWS::DynamoDB::GlobalTable
 # AWS::DynamoDB::GlobalTable TimeToLiveSpecification.AttributeName  == /\S/ <<  AWS::DynamoDB::GlobalTable is an expected but optional String property for TimeToLiveSpecification
 # AWS::DynamoDB::GlobalTable TimeToLiveSpecification.dynamodb.globaltable.timetolivespecification.Enabled  == /.*/ <<  dynamodb.globaltable.timetolivespecification.Enabled is a required property for AWS::DynamoDB::GlobalTable TimeToLiveSpecification
 # AWS::DynamoDB::Table AttributeDefinitions.AttributeName  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for AttributeDefinitions
 # AWS::DynamoDB::Table AttributeDefinitions.AttributeType  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for AttributeDefinitions
+# AWS::DynamoDB::Table BillingMode  == /PAY_PER_REQUEST/ <<  PAY_PER_REQUEST is an expected value for AWS::DynamoDB::Table BillingMode
+# AWS::DynamoDB::Table BillingMode  == /PROVISIONED/ <<  PROVISIONED is an expected value for AWS::DynamoDB::Table BillingMode
+# AWS::DynamoDB::Table BillingMode IN [PAY_PER_REQUEST,PROVISIONED] << Enforcing Allowed Values only
 # AWS::DynamoDB::Table KeySchema  == /.*/ <<  KeySchema is a required property for AWS::DynamoDB::Table
 # AWS::DynamoDB::Table KeySchema.AttributeName  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for KeySchema
 # AWS::DynamoDB::Table KeySchema.KeyType  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for KeySchema
@@ -2726,6 +2735,9 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::DynamoDB::Table SSESpecification.dynamodb.table.ssespecification.SSEEnabled  == /.*/ <<  dynamodb.table.ssespecification.SSEEnabled is a required property for AWS::DynamoDB::Table SSESpecification
 # AWS::DynamoDB::Table StreamSpecification.StreamViewType  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for StreamSpecification
 # AWS::DynamoDB::Table StreamSpecification.dynamodb.table.streamspecification.StreamViewType  == /.*/ <<  dynamodb.table.streamspecification.StreamViewType is a required property for AWS::DynamoDB::Table StreamSpecification
+# AWS::DynamoDB::Table TableClass  == /STANDARD/ <<  STANDARD is an expected value for AWS::DynamoDB::Table TableClass
+# AWS::DynamoDB::Table TableClass  == /STANDARD_INFREQUENT_ACCESS/ <<  STANDARD_INFREQUENT_ACCESS is an expected value for AWS::DynamoDB::Table TableClass
+# AWS::DynamoDB::Table TableClass IN [STANDARD,STANDARD_INFREQUENT_ACCESS] << Enforcing Allowed Values only
 # AWS::DynamoDB::Table TableName  == /[a-zA-Z0-9_.-]+/ <<  TableName is a required pattern for AWS::DynamoDB::Table
 # AWS::DynamoDB::Table TableName  == /\S{3,255}/ <<  TableName is a required property for AWS::DynamoDB::Table
 # AWS::DynamoDB::Table TimeToLiveSpecification.AttributeName  == /\S/ <<  AWS::DynamoDB::Table is an expected but optional String property for TimeToLiveSpecification
@@ -2898,9 +2910,6 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::EC2::IPAMPool PubliclyAdvertisable  == True <<  True is expected safe default value
 # AWS::EC2::IPAMPool PubliclyAdvertisable IN [True,False] << Enforcing Allowed Values only
 # AWS::EC2::IPAMScope IpamId  == /.*/ <<  IpamId is a required property for AWS::EC2::IPAMScope
-# AWS::EC2::IPAMScope IpamScopeType  == /private/ <<  private is an expected value for AWS::EC2::IPAMScope IpamScopeType
-# AWS::EC2::IPAMScope IpamScopeType  == /public/ <<  public is an expected value for AWS::EC2::IPAMScope IpamScopeType
-# AWS::EC2::IPAMScope IpamScopeType IN [private,public] << Enforcing Allowed Values only
 # AWS::EC2::Instance BlockDeviceMappings.DeviceName  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for BlockDeviceMappings
 # AWS::EC2::Instance BlockDeviceMappings.VirtualName  == /\S/ <<  AWS::EC2::Instance is an expected but optional String property for BlockDeviceMappings
 # AWS::EC2::Instance DisableApiTermination  == /False/ <<  False is an expected value for AWS::EC2::Instance DisableApiTermination
@@ -2979,6 +2988,7 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::EC2::NetworkAclEntry RuleAction IN [allow,deny] << Enforcing Allowed Values only
 # AWS::EC2::NetworkAclEntry RuleNumber  == /.*/ <<  RuleNumber is a required property for AWS::EC2::NetworkAclEntry
 # AWS::EC2::NetworkAclEntry RuleNumber  == /[0-9].+/ <<  Integer is expected for AWS::EC2::NetworkAclEntry of RuleNumber 
+# AWS::EC2::NetworkInsightsAccessScopeAnalysis NetworkInsightsAccessScopeId  == /.*/ <<  NetworkInsightsAccessScopeId is a required property for AWS::EC2::NetworkInsightsAccessScopeAnalysis
 # AWS::EC2::NetworkInsightsAnalysis NetworkInsightsPathId  == /.*/ <<  NetworkInsightsPathId is a required property for AWS::EC2::NetworkInsightsAnalysis
 # AWS::EC2::NetworkInsightsPath Destination  == /.*/ <<  Destination is a required property for AWS::EC2::NetworkInsightsPath
 # AWS::EC2::NetworkInsightsPath DestinationIp  == /^([0-9]{1,3}.){3}[0-9]{1,3}$/ <<  DestinationIp is a required pattern for AWS::EC2::NetworkInsightsPath
@@ -3325,13 +3335,6 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::EKS::FargateProfile PodExecutionRoleArn  == /.*/ <<  PodExecutionRoleArn is a required property for AWS::EKS::FargateProfile
 # AWS::EKS::FargateProfile Selectors  == /.*/ <<  Selectors is a required property for AWS::EKS::FargateProfile
 # AWS::EKS::FargateProfile Selectors.Namespace  == /\S/ <<  AWS::EKS::FargateProfile is an expected but optional String property for Selectors
-# AWS::EKS::Nodegroup AmiType  == /AL2_ARM_64/ <<  AL2_ARM_64 is an expected value for AWS::EKS::Nodegroup AmiType
-# AWS::EKS::Nodegroup AmiType  == /AL2_x86_64/ <<  AL2_x86_64 is an expected value for AWS::EKS::Nodegroup AmiType
-# AWS::EKS::Nodegroup AmiType  == /AL2_x86_64_GPU/ <<  AL2_x86_64_GPU is an expected value for AWS::EKS::Nodegroup AmiType
-# AWS::EKS::Nodegroup AmiType  == /BOTTLEROCKET_ARM_64/ <<  BOTTLEROCKET_ARM_64 is an expected value for AWS::EKS::Nodegroup AmiType
-# AWS::EKS::Nodegroup AmiType  == /BOTTLEROCKET_x86_64/ <<  BOTTLEROCKET_x86_64 is an expected value for AWS::EKS::Nodegroup AmiType
-# AWS::EKS::Nodegroup AmiType  == /CUSTOM/ <<  CUSTOM is an expected value for AWS::EKS::Nodegroup AmiType
-# AWS::EKS::Nodegroup AmiType IN [AL2_ARM_64,AL2_x86_64,AL2_x86_64_GPU,BOTTLEROCKET_ARM_64,BOTTLEROCKET_x86_64,CUSTOM] << Enforcing Allowed Values only
 # AWS::EKS::Nodegroup CapacityType  == /ON_DEMAND/ <<  ON_DEMAND is an expected value for AWS::EKS::Nodegroup CapacityType
 # AWS::EKS::Nodegroup CapacityType  == /SPOT/ <<  SPOT is an expected value for AWS::EKS::Nodegroup CapacityType
 # AWS::EKS::Nodegroup CapacityType IN [ON_DEMAND,SPOT] << Enforcing Allowed Values only
@@ -3342,8 +3345,6 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::EKS::Nodegroup ForceUpdateEnabled  == True <<  True is expected safe default value
 # AWS::EKS::Nodegroup ForceUpdateEnabled IN [True,False] << Enforcing Allowed Values only
 # AWS::EKS::Nodegroup NodeRole  == /.*/ <<  NodeRole is a required property for AWS::EKS::Nodegroup
-# AWS::EKS::Nodegroup RemoteAccess.Ec2SshKey  == /\S/ <<  AWS::EKS::Nodegroup is an expected but optional String property for RemoteAccess
-# AWS::EKS::Nodegroup RemoteAccess.eks.nodegroup.remoteaccess.Ec2SshKey  == /.*/ <<  eks.nodegroup.remoteaccess.Ec2SshKey is a required property for AWS::EKS::Nodegroup RemoteAccess
 # AWS::EKS::Nodegroup Subnets  == /.*/ <<  Subnets is a required property for AWS::EKS::Nodegroup
 # AWS::EKS::Nodegroup Taints.Effect  == /\S/ <<  AWS::EKS::Nodegroup is an expected but optional String property for Taints
 # AWS::EKS::Nodegroup Taints.Key  == /\S/ <<  AWS::EKS::Nodegroup is an expected but optional String property for Taints
@@ -6129,8 +6130,6 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::RDS::DBSubnetGroup SubnetIds  == /.*/ <<  SubnetIds is a required property for AWS::RDS::DBSubnetGroup
 # AWS::RDS::EventSubscription Enabled  == /False/ <<  False is an expected value for AWS::RDS::EventSubscription Enabled
 # AWS::RDS::EventSubscription Enabled  == /True/ <<  True is an expected value for AWS::RDS::EventSubscription Enabled
-# AWS::RDS::EventSubscription Enabled  == False <<  False is expected  safe default value
-# AWS::RDS::EventSubscription Enabled  == True <<  True is expected safe default value
 # AWS::RDS::EventSubscription Enabled IN [True,False] << Enforcing Allowed Values only
 # AWS::RDS::EventSubscription SnsTopicArn  == /.*/ <<  SnsTopicArn is a required property for AWS::RDS::EventSubscription
 # AWS::RDS::GlobalCluster DeletionProtection  == /False/ <<  False is an expected value for AWS::RDS::GlobalCluster DeletionProtection
@@ -7376,6 +7375,7 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::Transfer::Server IdentityProviderType IN [API_GATEWAY,AWS_DIRECTORY_SERVICE,AWS_LAMBDA,SERVICE_MANAGED] << Enforcing Allowed Values only
 # AWS::Transfer::Server LoggingRole  == /arn:.*role/.*/ <<  LoggingRole is a required pattern for AWS::Transfer::Server
 # AWS::Transfer::Server ProtocolDetails.PassiveIp  == /\S/ <<  AWS::Transfer::Server is an expected but optional String property for ProtocolDetails
+# AWS::Transfer::Server ProtocolDetails.TlsSessionResumptionMode  == /\S/ <<  AWS::Transfer::Server is an expected but optional String property for ProtocolDetails
 # AWS::Transfer::Server SecurityPolicyName  == /TransferSecurityPolicy-.+/ <<  SecurityPolicyName is a required pattern for AWS::Transfer::Server
 # AWS::Transfer::Server SecurityPolicyName  == /arn.*{0,100}/ <<  SecurityPolicyName is a required property for AWS::Transfer::Server
 # AWS::Transfer::Server WorkflowDetails.ExecutionRole  == /\S/ <<  AWS::Transfer::Server is an expected but optional String property for WorkflowDetails
@@ -8290,6 +8290,9 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # SSESpecification.SSEEnabled == True << Enforce Expected Value for dynamodb.globaltable.ssespecification.SSEEnabled
 # SSESpecification.SSEEnabled == True << Enforce Expected Value for dynamodb.table.ssespecification.SSEEnabled
 # SSESpecification.SSEEnabled IN [True,False] << Enforce Allowed Values
+# SSESpecification.SSEType == AES256 << Enforce Expected Value for dynamodb.globaltable.ssespecification.SSEType
+# SSESpecification.SSEType == KMS << Enforce Expected Value for dynamodb.globaltable.ssespecification.SSEType
+# SSESpecification.SSEType IN [AES256,KMS] << Enforce Allowed Values
 # Sample.Type == FIRST_N << Enforce Expected Value for databrew.project.sample.Type
 # Sample.Type == LAST_N << Enforce Expected Value for databrew.project.sample.Type
 # Sample.Type == RANDOM << Enforce Expected Value for databrew.project.sample.Type
@@ -8398,9 +8401,13 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # StorageLensConfiguration.IsEnabled == False << Enforce Expected Value for s3.storagelens.storagelensconfiguration.IsEnabled
 # StorageLensConfiguration.IsEnabled == True << Enforce Expected Value for s3.storagelens.storagelensconfiguration.IsEnabled
 # StorageLensConfiguration.IsEnabled IN [True,False] << Enforce Allowed Values
+# StreamSpecification.StreamViewType == KEYS_ONLY << Enforce Expected Value for dynamodb.globaltable.streamspecification.StreamViewType
 # StreamSpecification.StreamViewType == KEYS_ONLY << Enforce Expected Value for dynamodb.table.streamspecification.StreamViewType
+# StreamSpecification.StreamViewType == NEW_AND_OLD_IMAGES << Enforce Expected Value for dynamodb.globaltable.streamspecification.StreamViewType
 # StreamSpecification.StreamViewType == NEW_AND_OLD_IMAGES << Enforce Expected Value for dynamodb.table.streamspecification.StreamViewType
+# StreamSpecification.StreamViewType == NEW_IMAGE << Enforce Expected Value for dynamodb.globaltable.streamspecification.StreamViewType
 # StreamSpecification.StreamViewType == NEW_IMAGE << Enforce Expected Value for dynamodb.table.streamspecification.StreamViewType
+# StreamSpecification.StreamViewType == OLD_IMAGE << Enforce Expected Value for dynamodb.globaltable.streamspecification.StreamViewType
 # StreamSpecification.StreamViewType == OLD_IMAGE << Enforce Expected Value for dynamodb.table.streamspecification.StreamViewType
 # StreamSpecification.StreamViewType IN [KEYS_ONLY,NEW_AND_OLD_IMAGES,NEW_IMAGE,OLD_IMAGE] << Enforce Allowed Values
 # StreamingDistributionConfig.Enabled == False << Enforce Expected Value for cloudfront.streamingdistribution.streamingdistributionconfig.Enabled
