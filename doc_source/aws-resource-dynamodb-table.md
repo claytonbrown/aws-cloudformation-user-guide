@@ -173,7 +173,7 @@ For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/la
 
 `TimeToLiveSpecification`  <a name="cfn-dynamodb-table-timetolivespecification"></a>
 Specifies the Time to Live \(TTL\) settings for the table\.  
-For detailed information about the TTL feature of DynamoDB, see [Expiring Items with Time to Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html) in the Amazon DynamoDB Developer Guide\. 
+For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide\. 
 *Required*: No  
 *Type*: [TimeToLiveSpecification](aws-properties-dynamodb-timetolivespecification.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

@@ -5,6 +5,8 @@ The `AWS::RDS::DBCluster` resource creates an Amazon Aurora DB cluster\. For mor
 **Note**  
 You can only create this resource in AWS Regions where Amazon Aurora is supported\.
 
+This topic covers the resource for Amazon Aurora DB clusters\. For the documentation on the resource for Amazon RDS DB instances, see [AWS::RDS::DBInstance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html)\.
+
 **Updating DB clusters**
 
 When properties labeled "*Update requires:* [ Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB cluster, then changes references from other dependent resources to point to the replacement DB cluster, and finally deletes the old DB cluster\.
@@ -266,7 +268,7 @@ For information about Aurora global databases, see [ Working with Amazon Aurora 
 *Update requires*: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)
 
 `KmsKeyId`  <a name="cfn-rds-dbcluster-kmskeyid"></a>
-The Amazon Resource Name \(ARN\) of the AWS Key Management Service master key that is used to encrypt the database instances in the DB cluster, such as `arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef`\. If you enable the `StorageEncrypted` property but don't specify this property, the default master key is used\. If you specify this property, you must set the `StorageEncrypted` property to `true`\.  
+The Amazon Resource Name \(ARN\) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as `arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef`\. If you enable the `StorageEncrypted` property but don't specify this property, the default KMS key is used\. If you specify this property, you must set the `StorageEncrypted` property to `true`\.  
 If you specify the `SnapshotIdentifier` property, the `StorageEncrypted` property value is inherited from the snapshot, and if the DB cluster is encrypted, the specified `KmsKeyId` property is used\.  
 *Required*: No  
 *Type*: String  
@@ -293,6 +295,7 @@ Default:
 + When `EngineMode` is `serverless`:
   + `3306` when `Engine` is `aurora` or `aurora-mysql`
   + `5432` when `Engine` is `aurora-postgresql`
+The `No interruption` on update behavior only applies to DB clusters\. If you are updating a DB instance, see [Port](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port) for the AWS::RDS::DBInstance resource\.
 *Required*: No  
 *Type*: Integer  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

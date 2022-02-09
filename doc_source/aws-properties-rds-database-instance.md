@@ -7,6 +7,8 @@ If you import an existing DB instance, and the template configuration doesn't ma
 **Important**  
 If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes all automated snapshots\. However, it retains manual DB snapshots\. During an update that requires replacement, you can apply a stack policy to prevent DB instances from being replaced\. For more information, see [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html)\.
 
+This topic covers the resource for Amazon RDS DB instances\. For the documentation on the resource for Amazon Aurora DB clusters, see [AWS::RDS::DBCluster](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html)\.
+
 **Updating DB instances**
 
 When properties labeled "*Update requires:* [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB instance, then changes references from other dependent resources to point to the replacement DB instance, and finally deletes the old DB instance\.
@@ -224,10 +226,14 @@ A value that indicates whether minor engine upgrades are applied automatically t
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `AvailabilityZone`  <a name="cfn-rds-dbinstance-availabilityzone"></a>
-The Availability Zone that the database instance will be created in\.  
-Default: A random, system\-chosen Availability Zone in the endpoint's region\.  
+ The Availability Zone \(AZ\) where the database will be created\. For information on AWS Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html)\.   
+ **Amazon Aurora**   
+Not applicable\. Availability Zones are managed by the DB cluster\.   
+Default: A random, system\-chosen Availability Zone in the endpoint's AWS Region\.  
  Example: `us-east-1d`   
- Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter is set to `true`\. The specified Availability Zone must be in the same region as the current endpoint\.   
+ Constraint: The `AvailabilityZone` parameter can't be specified if the DB instance is a Multi\-AZ deployment\. The specified Availability Zone must be in the same AWS Region as the current endpoint\.   
+If you're creating a DB instance in an RDS on VMware environment, specify the identifier of the custom Availability Zone to create the DB instance in\.  
+For more information about RDS on VMware, see the [ RDS on VMware User Guide\.](https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html) 
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -519,7 +525,7 @@ If you specify `io1` for the `StorageType` property, then you must also specify 
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `KmsKeyId`  <a name="cfn-rds-dbinstance-kmskeyid"></a>
-The ARN of the AWS Key Management Service \(AWS KMS\) master key that's used to encrypt the DB instance, such as `arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef`\. If you enable the StorageEncrypted property but don't specify this property, AWS CloudFormation uses the default master key\. If you specify this property, you must set the StorageEncrypted property to true\.   
+The ARN of the AWS KMS key that's used to encrypt the DB instance, such as `arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef`\. If you enable the StorageEncrypted property but don't specify this property, AWS CloudFormation uses the default KMS key\. If you specify this property, you must set the StorageEncrypted property to true\.   
 If you specify the `SourceDBInstanceIdentifier` property, the value is inherited from the source DB instance if the read replica is created in the same region\.  
 If you create an encrypted read replica in a different AWS Region, then you must specify a KMS key for the destination AWS Region\. KMS encryption keys are specific to the region that they're created in, and you can't use encryption keys from one region in another region\.  
 If you specify the `SnapshotIdentifier` property, the `StorageEncrypted` property value is inherited from the snapshot, and if the DB instance is encrypted, the specified `KmsKeyId` property is used\.  
@@ -532,7 +538,14 @@ Not applicable\. The KMS key identifier is managed by the DB cluster\.
 
 `LicenseModel`  <a name="cfn-rds-dbinstance-licensemodel"></a>
 License model information for this DB instance\.  
- Valid values: `license-included` \| `bring-your-own-license` \| `general-public-license`   
+ Valid values:  
++ Aurora MySQL \- `general-public-license`
++ Aurora PostgreSQL \- `postgresql-license`
++ MariaDB \- `general-public-license`
++ Microsoft SQL Server \- `license-included`
++ MySQL \- `general-public-license`
++ Oracle \- `bring-your-own-license` or `license-included`
++ PostgreSQL \- `postgresql-license`
 If you've specified `DBSecurityGroups` and then you update the license model, AWS CloudFormation replaces the underlying DB instance\. This will incur some interruptions to database availability\. 
 *Required*: No  
 *Type*: String  
@@ -636,8 +649,8 @@ Permanent options, such as the TDE option for Oracle Advanced Security TDE, can'
 
 `PerformanceInsightsKMSKeyId`  <a name="cfn-rds-dbinstance-performanceinsightskmskeyid"></a>
 The AWS KMS key identifier for encryption of Performance Insights data\.  
-The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the AWS KMS customer master key \(CMK\)\.  
-If you do not specify a value for `PerformanceInsightsKMSKeyId`, then Amazon RDS uses your default CMK\. There is a default CMK for your AWS account\. Your AWS account has a different default CMK for each AWS Region\.  
+The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key\.  
+If you do not specify a value for `PerformanceInsightsKMSKeyId`, then Amazon RDS uses your default KMS key\. There is a default KMS key for your AWS account\. Your AWS account has a different default KMS key for each AWS Region\.  
 For information about enabling Performance Insights, see [ EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights)\.  
 *Required*: No  
 *Type*: String  
@@ -772,7 +785,7 @@ If you plan to update the resource, don't specify VPC security groups in a share
 You can migrate a DB instance in your stack from an RDS DB security group to a VPC security group, but keep the following in mind:  
 + You can't revert to using an RDS security group after you establish a VPC security group membership\.
 + When you migrate your DB instance to VPC security groups, if your stack update rolls back because the DB instance update fails or because an update fails in another AWS CloudFormation resource, the rollback fails because it can't revert to an RDS security group\.
-+ To use the properties that are available when you use a VPC security group, you must recreate the DB instance\. If you don't, AWS CloudFormation submits only the property values that are listed in the [ `DBSecurityGroups`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsecuritygroups) property\.
++ To use the properties that are available when you use a VPC security group, you must recreate the DB instance\. If you don't, AWS CloudFormation submits only the property values that are listed in the [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsecuritygroups](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsecuritygroups) property\.
 To avoid this situation, migrate your DB instance to using VPC security groups only when that is the only change in your stack template\.   
  **Amazon Aurora**   
 Not applicable\. The associated list of EC2 VPC security groups is managed by the DB cluster\. If specified, the setting must match the DB cluster setting\.  

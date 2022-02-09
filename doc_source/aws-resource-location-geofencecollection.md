@@ -61,19 +61,14 @@ A key identifier for an [AWS KMS customer managed key](https://docs.aws.amazon.c
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `PricingPlan`  <a name="cfn-location-geofencecollection-pricingplan"></a>
-Specifies the pricing plan for the geofence collection\.  
-For additional details and restrictions on each pricing plan option, see the [Amazon Location Service pricing page](https://docs.aws.amazon.com/location/pricing/)\.  
-*Required*: Yes  
+No longer used\. If included, the only allowed value is `RequestBasedUsage`\.  
+*Allowed Values*: `RequestBasedUsage`  
+*Required*: No  
 *Type*: String  
-*Allowed values*: `MobileAssetManagement | MobileAssetTracking | RequestBasedUsage`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `PricingPlanDataSource`  <a name="cfn-location-geofencecollection-pricingplandatasource"></a>
-Specifies the data provider for the geofence collection\.  
-+ Required value for the following pricing plans: `MobileAssetTracking` \| `MobileAssetManagement`
-For more information about [Data Providers](https://docs.aws.amazon.com/location/data-providers/), and [Pricing plans](https://docs.aws.amazon.com/location/pricing/), see the Amazon Location Service product page\.  
-Amazon Location Service only uses `PricingPlanDataSource` to calculate billing for your geofence collection\. Your data will not be shared with the data provider, and will remain in your AWS account or region unless you move it\.
-Valid Values: `Esri` \| `Here`  
+This parameter is no longer used\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -82,16 +77,28 @@ Valid Values: `Esri` \| `Here`
 
 ### Ref<a name="aws-resource-location-geofencecollection-return-values-ref"></a>
 
-### Fn::GetAtt<a name="aws-resource-location-geofencecollection-return-values-fn--getatt"></a>
-
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the `GeofenceCollectionName`
+When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the `GeofenceCollection` ARN\.
 
 For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+
+### Fn::GetAtt<a name="aws-resource-location-geofencecollection-return-values-fn--getatt"></a>
+
+The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+
+For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
 
 #### <a name="aws-resource-location-geofencecollection-return-values-fn--getatt-fn--getatt"></a>
 
 `Arn`  <a name="Arn-fn::getatt"></a>
-Not currently supported by AWS CloudFormation\.
+The Amazon Resource Name \(ARN\) for the geofence collection resource\. Used when you need to specify a resource across all AWS\.  
++ Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
+
+`CollectionArn`  <a name="CollectionArn-fn::getatt"></a>
+Synonym for `Arn`\. The Amazon Resource Name \(ARN\) for the geofence collection resource\. Used when you need to specify a resource across all AWS\.  
++ Format example: `arn:aws:geo:region:account-id:geofence-collection/ExampleGeofenceCollection`
 
 `CreateTime`  <a name="CreateTime-fn::getatt"></a>
-Not currently supported by AWS CloudFormation\.
+The timestamp for when the geofence collection resource was created in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ`\.
+
+`UpdateTime`  <a name="UpdateTime-fn::getatt"></a>
+The timestamp for when the geofence collection resource was last updated in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ`\.
