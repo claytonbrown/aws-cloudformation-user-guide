@@ -1,0 +1,45 @@
+{
+  "forecast.dataset.EncryptionConfig": {
+    "Required": "No",
+    "Type": "Json",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "forecast.dataset.DatasetName": {
+    "Pattern": "^[a-zA-Z][a-zA-Z0-9_]*",
+    "Required": "Yes",
+    "Maximum": "63",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "forecast.dataset.Schema": {
+    "Required": "Yes",
+    "Type": "Json",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "forecast.dataset.DataFrequency": {
+    "Pattern": "^Y|M|W|D|H|30min|15min|10min|5min|1min$",
+    "Required": "No",
+    "Maximum": "5",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "1",
+    "Type": "String"
+  },
+  "forecast.dataset.Tags": {
+    "Required": "No",
+    "Type": "List of Json",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  },
+  "forecast.dataset.Domain": {
+    "Allowed values": "CUSTOM | EC2_CAPACITY | INVENTORY_PLANNING | METRICS | RETAIL | WEB_TRAFFIC | WORK_FORCE",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "forecast.dataset.DatasetType": {
+    "Allowed values": "ITEM_METADATA | RELATED_TIME_SERIES | TARGET_TIME_SERIES",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

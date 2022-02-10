@@ -1,0 +1,57 @@
+{
+  "lightsail.distribution.BundleId": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.distribution.IsEnabled": {
+    "Required": "No",
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ]
+  },
+  "lightsail.distribution.CertificateName": {
+    "Pattern": "\\w[\\w\\-]*\\w",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.distribution.DistributionName": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "lightsail.distribution.CacheBehaviors": {
+    "Required": "No",
+    "Type": "List of [CacheBehaviorPerPath",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.distribution.CacheBehaviorSettings": {
+    "Required": "No",
+    "Type": "CacheSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.distribution.Origin": {
+    "Required": "Yes",
+    "Type": "InputOrigin",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.distribution.DefaultCacheBehavior": {
+    "Required": "Yes",
+    "Type": "CacheBehavior",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.distribution.Tags": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "lightsail.distribution.IpAddressType": {
+    "Allowed values": "dualstack | ipv4",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "Updates are not supported\\."
+  }
+}

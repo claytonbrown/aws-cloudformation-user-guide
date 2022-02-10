@@ -707,6 +707,18 @@
             },
             "Type:": "AWS::AppFlow::Flow"
         },
+        "aws-appintegrations-dataintegration": {
+            "Metadata": {},
+            "Properties": {
+                "Description": "",
+                "KmsKey": "",
+                "Name": "",
+                "ScheduleConfig": "",
+                "SourceURI": "",
+                "Tags": ""
+            },
+            "Type:": "AWS::AppIntegrations::DataIntegration"
+        },
         "aws-appintegrations-eventintegration": {
             "Metadata": {},
             "Properties": {
@@ -883,7 +895,11 @@
         },
         "aws-appstream-applicationentitlementassociation": {
             "Metadata": {},
-            "Properties": {},
+            "Properties": {
+                "ApplicationIdentifier": "",
+                "EntitlementName": "",
+                "StackName": ""
+            },
             "Type:": "AWS::AppStream::ApplicationEntitlementAssociation"
         },
         "aws-appstream-applicationfleetassociation": {
@@ -905,7 +921,13 @@
         },
         "aws-appstream-entitlement": {
             "Metadata": {},
-            "Properties": {},
+            "Properties": {
+                "AppVisibility": "",
+                "Attributes": "",
+                "Description": "",
+                "Name": "",
+                "StackName": ""
+            },
             "Type:": "AWS::AppStream::Entitlement"
         },
         "aws-appstream-fleet": {
@@ -1064,6 +1086,7 @@
                 "DataSourceName": "",
                 "Description": "",
                 "FunctionVersion": "",
+                "MaxBatchSize": "",
                 "Name": "",
                 "RequestMappingTemplate": "",
                 "RequestMappingTemplateS3Location": "",
@@ -1105,6 +1128,7 @@
                 "DataSourceName": "",
                 "FieldName": "",
                 "Kind": "",
+                "MaxBatchSize": "",
                 "PipelineConfig": "",
                 "RequestMappingTemplate": "",
                 "RequestMappingTemplateS3Location": "",
@@ -1301,6 +1325,7 @@
             "Metadata": {},
             "Properties": {
                 "AutoScalingGroupName": "",
+                "InstanceReusePolicy": "",
                 "MaxGroupPreparedCapacity": "",
                 "MinSize": "",
                 "PoolState": ""
@@ -2845,6 +2870,7 @@
                 "EndpointType": "",
                 "EngineName": "",
                 "ExtraConnectionAttributes": "",
+                "GcpMySQLSettings": "",
                 "IbmDb2Settings": "",
                 "KafkaSettings": "",
                 "KinesisSettings": "",
@@ -3087,12 +3113,14 @@
                 "AuthenticationOptions": "",
                 "ClientCidrBlock": "",
                 "ClientConnectOptions": "",
+                "ClientLoginBannerOptions": "",
                 "ConnectionLogOptions": "",
                 "Description": "",
                 "DnsServers": "",
                 "SecurityGroupIds": "",
                 "SelfServicePortal": "",
                 "ServerCertificateArn": "",
+                "SessionTimeoutHours": "",
                 "SplitTunnel": "",
                 "TagSpecifications": "",
                 "TransportProtocol": "",
@@ -4811,6 +4839,29 @@
             },
             "Type:": "AWS::FMS::Policy"
         },
+        "aws-forecast-dataset": {
+            "Metadata": {},
+            "Properties": {
+                "DataFrequency": "",
+                "DatasetName": "",
+                "DatasetType": "",
+                "Domain": "",
+                "EncryptionConfig": "",
+                "Schema": "",
+                "Tags": ""
+            },
+            "Type:": "AWS::Forecast::Dataset"
+        },
+        "aws-forecast-datasetgroup": {
+            "Metadata": {},
+            "Properties": {
+                "DatasetArns": "",
+                "DatasetGroupName": "",
+                "Domain": "",
+                "Tags": ""
+            },
+            "Type:": "AWS::Forecast::DatasetGroup"
+        },
         "aws-frauddetector-detector": {
             "Metadata": {},
             "Properties": {
@@ -5795,7 +5846,12 @@
         },
         "aws-inspectorv2-filter": {
             "Metadata": {},
-            "Properties": {},
+            "Properties": {
+                "Description": "",
+                "FilterAction": "",
+                "FilterCriteria": "",
+                "Name": ""
+            },
             "Type:": "AWS::InspectorV2::Filter"
         },
         "aws-iot-accountauditconfiguration": {
@@ -6349,7 +6405,8 @@
             "Properties": {
                 "DestinationConfiguration": "",
                 "Name": "",
-                "Tags": ""
+                "Tags": "",
+                "ThumbnailConfiguration": ""
             },
             "Type:": "AWS::IVS::RecordingConfiguration"
         },
@@ -6360,6 +6417,24 @@
                 "Tags": ""
             },
             "Type:": "AWS::IVS::StreamKey"
+        },
+        "aws-kafkaconnect-connector": {
+            "Metadata": {},
+            "Properties": {
+                "Capacity": "",
+                "ConnectorConfiguration": "",
+                "ConnectorDescription": "",
+                "ConnectorName": "",
+                "KafkaCluster": "",
+                "KafkaClusterClientAuthentication": "",
+                "KafkaClusterEncryptionInTransit": "",
+                "KafkaConnectVersion": "",
+                "LogDelivery": "",
+                "Plugins": "",
+                "ServiceExecutionRoleArn": "",
+                "WorkerConfiguration": ""
+            },
+            "Type:": "AWS::KafkaConnect::Connector"
         },
         "aws-kendra-datasource": {
             "Metadata": {},
@@ -6507,12 +6582,24 @@
         },
         "aws-kinesisvideo-signalingchannel": {
             "Metadata": {},
-            "Properties": {},
+            "Properties": {
+                "MessageTtlSeconds": "",
+                "Name": "",
+                "Tags": "",
+                "Type": ""
+            },
             "Type:": "AWS::KinesisVideo::SignalingChannel"
         },
         "aws-kinesisvideo-stream": {
             "Metadata": {},
-            "Properties": {},
+            "Properties": {
+                "DataRetentionInHours": "",
+                "DeviceName": "",
+                "KmsKeyId": "",
+                "MediaType": "",
+                "Name": "",
+                "Tags": ""
+            },
             "Type:": "AWS::KinesisVideo::Stream"
         },
         "aws-kms-alias": {
@@ -6783,13 +6870,56 @@
         },
         "aws-lightsail-alarm": {
             "Metadata": {},
-            "Properties": {},
+            "Properties": {
+                "AlarmName": "",
+                "ComparisonOperator": "",
+                "ContactProtocols": "",
+                "DatapointsToAlarm": "",
+                "EvaluationPeriods": "",
+                "MetricName": "",
+                "MonitoredResourceName": "",
+                "NotificationEnabled": "",
+                "NotificationTriggers": "",
+                "Threshold": "",
+                "TreatMissingData": ""
+            },
             "Type:": "AWS::Lightsail::Alarm"
         },
         "aws-lightsail-bucket": {
             "Metadata": {},
-            "Properties": {},
+            "Properties": {
+                "AccessRules": "",
+                "BucketName": "",
+                "BundleId": "",
+                "ObjectVersioning": "",
+                "ReadOnlyAccessAccounts": "",
+                "ResourcesReceivingAccess": "",
+                "Tags": ""
+            },
             "Type:": "AWS::Lightsail::Bucket"
+        },
+        "aws-lightsail-certificate": {
+            "Metadata": {},
+            "Properties": {
+                "CertificateName": "",
+                "DomainName": "",
+                "SubjectAlternativeNames": "",
+                "Tags": ""
+            },
+            "Type:": "AWS::Lightsail::Certificate"
+        },
+        "aws-lightsail-container": {
+            "Metadata": {},
+            "Properties": {
+                "ContainerServiceDeployment": "",
+                "IsDisabled": "",
+                "Power": "",
+                "PublicDomainNames": "",
+                "Scale": "",
+                "ServiceName": "",
+                "Tags": ""
+            },
+            "Type:": "AWS::Lightsail::Container"
         },
         "aws-lightsail-database": {
             "Metadata": {},
@@ -6823,6 +6953,22 @@
             },
             "Type:": "AWS::Lightsail::Disk"
         },
+        "aws-lightsail-distribution": {
+            "Metadata": {},
+            "Properties": {
+                "BundleId": "",
+                "CacheBehaviorSettings": "",
+                "CacheBehaviors": "",
+                "CertificateName": "",
+                "DefaultCacheBehavior": "",
+                "DistributionName": "",
+                "IpAddressType": "",
+                "IsEnabled": "",
+                "Origin": "",
+                "Tags": ""
+            },
+            "Type:": "AWS::Lightsail::Distribution"
+        },
         "aws-lightsail-instance": {
             "Metadata": {},
             "Properties": {
@@ -6841,12 +6987,27 @@
         },
         "aws-lightsail-loadbalancer": {
             "Metadata": {},
-            "Properties": {},
+            "Properties": {
+                "AttachedInstances": "",
+                "HealthCheckPath": "",
+                "InstancePort": "",
+                "IpAddressType": "",
+                "LoadBalancerName": "",
+                "SessionStickinessEnabled": "",
+                "SessionStickinessLBCookieDurationSeconds": "",
+                "Tags": ""
+            },
             "Type:": "AWS::Lightsail::LoadBalancer"
         },
         "aws-lightsail-loadbalancertlscertificate": {
             "Metadata": {},
-            "Properties": {},
+            "Properties": {
+                "CertificateAlternativeNames": "",
+                "CertificateDomainName": "",
+                "CertificateName": "",
+                "IsAttached": "",
+                "LoadBalancerName": ""
+            },
             "Type:": "AWS::Lightsail::LoadBalancerTlsCertificate"
         },
         "aws-lightsail-staticip": {
@@ -8692,6 +8853,14 @@
             },
             "Type:": "AWS::RefactorSpaces::Service"
         },
+        "aws-rekognition-collection": {
+            "Metadata": {},
+            "Properties": {
+                "CollectionId": "",
+                "Tags": ""
+            },
+            "Type:": "AWS::Rekognition::Collection"
+        },
         "aws-rekognition-project": {
             "Metadata": {},
             "Properties": {
@@ -8758,6 +8927,7 @@
             "Metadata": {},
             "Properties": {
                 "CurrentRevisionId": "",
+                "Environment": "",
                 "Name": "",
                 "RobotSoftwareSuite": "",
                 "Sources": "",
@@ -9425,6 +9595,7 @@
         "aws-sagemaker-pipeline": {
             "Metadata": {},
             "Properties": {
+                "ParallelismConfiguration": "",
                 "PipelineDefinition": "",
                 "PipelineDescription": "",
                 "PipelineDisplayName": "",
@@ -9487,6 +9658,7 @@
             "Metadata": {},
             "Properties": {
                 "HostedRotationLambda": "",
+                "RotateImmediatelyOnUpdate": "",
                 "RotationLambdaARN": "",
                 "RotationRules": "",
                 "SecretId": ""
@@ -10216,6 +10388,7 @@
             "Metadata": {},
             "Properties": {
                 "DatabaseName": "",
+                "MagneticStoreWriteProperties": "",
                 "RetentionProperties": "",
                 "TableName": "",
                 "Tags": ""

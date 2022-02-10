@@ -1,4 +1,9 @@
 {
+  "s3.bucket.lifecycleconfig.rule.NoncurrentVersionExpiration": {
+    "Required": "No",
+    "Type": "NoncurrentVersionExpiration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "s3.bucket.lifecycleconfig.rule.NoncurrentVersionExpirationInDays": {
     "Required": "Conditional",
     "Type": "Integer",
@@ -8,6 +13,10 @@
     "Required": "No",
     "Type": "List of [TagFilter",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "s3.bucket.lifecycleconfig.rule.ObjectSizeLessThan": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   },
   "s3.bucket.lifecycleconfig.rule.ExpiredObjectDeleteMarker": {
     "Required": "No",
@@ -23,10 +32,9 @@
     "Type": "Transition",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "s3.bucket.lifecycleconfig.rule.Id": {
+  "s3.bucket.lifecycleconfig.rule.ObjectSizeGreaterThan": {
     "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "s3.bucket.lifecycleconfig.rule.NoncurrentVersionTransition": {
     "Required": "Conditional",
@@ -61,6 +69,11 @@
   "s3.bucket.lifecycleconfig.rule.ExpirationInDays": {
     "Required": "Conditional",
     "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "s3.bucket.lifecycleconfig.rule.Id": {
+    "Required": "No",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "s3.bucket.lifecycleconfig.rule.Status": {

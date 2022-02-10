@@ -1842,6 +1842,89 @@
         "UniqueKey": "apigateway.deployment.deploymentcanarysettings.usestagecache",
         "UpdateRequires": "Replacement"
     },
+    "apigateway.deployment.methodsetting.cachedataencrypted": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "apigateway.deployment.methodsetting.cachedataencrypted",
+        "UpdateRequires": "Replacement"
+    },
+    "apigateway.deployment.methodsetting.cachettlinseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "apigateway.deployment.methodsetting.cachettlinseconds",
+        "UpdateRequires": "Replacement"
+    },
+    "apigateway.deployment.methodsetting.cachingenabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "UniqueKey": "apigateway.deployment.methodsetting.cachingenabled",
+        "UpdateRequires": "Replacement"
+    },
+    "apigateway.deployment.methodsetting.datatraceenabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "apigateway.deployment.methodsetting.datatraceenabled",
+        "UpdateRequires": "Replacement"
+    },
+    "apigateway.deployment.methodsetting.httpmethod": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apigateway.deployment.methodsetting.httpmethod",
+        "UpdateRequires": "Replacement"
+    },
+    "apigateway.deployment.methodsetting.logginglevel": {
+        "Required": "No",
+        "SampleValue": "TODO-LoggingLevel",
+        "UniqueKey": "apigateway.deployment.methodsetting.logginglevel",
+        "UpdateRequires": "Replacement"
+    },
+    "apigateway.deployment.methodsetting.metricsenabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "apigateway.deployment.methodsetting.metricsenabled",
+        "UpdateRequires": "Replacement"
+    },
+    "apigateway.deployment.methodsetting.resourcepath": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "apigateway.deployment.methodsetting.resourcepath",
+        "UpdateRequires": "Replacement"
+    },
+    "apigateway.deployment.methodsetting.throttlingburstlimit": {
+        "Required": "No",
+        "SampleValue": "TODO-ThrottlingBurstLimit",
+        "UniqueKey": "apigateway.deployment.methodsetting.throttlingburstlimit",
+        "UpdateRequires": "Replacement"
+    },
+    "apigateway.deployment.methodsetting.throttlingratelimit": {
+        "Required": "No",
+        "SampleValue": "TODO-ThrottlingRateLimit",
+        "UniqueKey": "apigateway.deployment.methodsetting.throttlingratelimit",
+        "UpdateRequires": "Replacement"
+    },
     "apigateway.deployment.stagedescription.accesslogsetting": {
         "Required": "No",
         "Type": "AccessLogSetting",
@@ -3271,7 +3354,7 @@
         "UpdateRequires": "Replacement"
     },
     "appflow.connectorprofile.googleanalyticsconnectorprofilecredentials.accesstoken": {
-        "Maximum": "512",
+        "Maximum": "2048",
         "Pattern": "\\S+",
         "Required": "No",
         "Type": "String",
@@ -3301,7 +3384,7 @@
         "UpdateRequires": "Replacement"
     },
     "appflow.connectorprofile.googleanalyticsconnectorprofilecredentials.refreshtoken": {
-        "Maximum": "512",
+        "Maximum": "1024",
         "Pattern": "\\S+",
         "Required": "No",
         "Type": "String",
@@ -3349,7 +3432,7 @@
         "UpdateRequires": "Replacement"
     },
     "appflow.connectorprofile.marketoconnectorprofilecredentials.accesstoken": {
-        "Maximum": "512",
+        "Maximum": "2048",
         "Pattern": "\\S+",
         "Required": "No",
         "Type": "String",
@@ -3454,7 +3537,7 @@
         "UpdateRequires": "Replacement"
     },
     "appflow.connectorprofile.salesforceconnectorprofilecredentials.accesstoken": {
-        "Maximum": "512",
+        "Maximum": "2048",
         "Pattern": "\\S+",
         "Required": "No",
         "Type": "String",
@@ -3477,7 +3560,7 @@
         "UpdateRequires": "Replacement"
     },
     "appflow.connectorprofile.salesforceconnectorprofilecredentials.refreshtoken": {
-        "Maximum": "512",
+        "Maximum": "1024",
         "Pattern": "\\S+",
         "Required": "No",
         "Type": "String",
@@ -3591,7 +3674,7 @@
         "UpdateRequires": "Replacement"
     },
     "appflow.connectorprofile.slackconnectorprofilecredentials.accesstoken": {
-        "Maximum": "512",
+        "Maximum": "2048",
         "Pattern": "\\S+",
         "Required": "No",
         "Type": "String",
@@ -3671,7 +3754,7 @@
     },
     "appflow.connectorprofile.snowflakeconnectorprofileproperties.privatelinkservicename": {
         "Maximum": "512",
-        "Pattern": "\\S+",
+        "Pattern": "^$|com.amazonaws.vpce.[\\w/!:@#.\\-]+",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "appflow.connectorprofile.snowflakeconnectorprofileproperties.privatelinkservicename",
@@ -3734,7 +3817,7 @@
         "UpdateRequires": "Replacement"
     },
     "appflow.connectorprofile.zendeskconnectorprofilecredentials.accesstoken": {
-        "Maximum": "512",
+        "Maximum": "2048",
         "Pattern": "\\S+",
         "Required": "No",
         "Type": "String",
@@ -4190,7 +4273,6 @@
         "UpdateRequires": "Replacement"
     },
     "appflow.flow.salesforcedestinationproperties.idfieldnames": {
-        "Maximum": "1",
         "Required": "No",
         "Type": "List of String",
         "UniqueKey": "appflow.flow.salesforcedestinationproperties.idfieldnames",
@@ -4205,7 +4287,7 @@
         "UpdateRequires": "Replacement"
     },
     "appflow.flow.salesforcedestinationproperties.writeoperationtype": {
-        "Allowed values": "INSERT | UPDATE | UPSERT",
+        "Allowed values": "DELETE | INSERT | UPDATE | UPSERT",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "appflow.flow.salesforcedestinationproperties.writeoperationtype",
@@ -4494,7 +4576,7 @@
         "UpdateRequires": "Replacement"
     },
     "appflow.flow.task.tasktype": {
-        "Allowed values": "Arithmetic | Filter | Map | Mask | Merge | Truncate | Validate",
+        "Allowed values": "Arithmetic` \\| `Filter` \\| `Map` \\| `Map_all` \\| `Mask` \\| `Merge` \\| `Truncate` \\| `Validate",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "appflow.flow.task.tasktype",
@@ -4676,6 +4758,24 @@
         "UniqueKey": "appflow.flow.zendesksourceproperties.object",
         "UpdateRequires": "Replacement"
     },
+    "appintegrations.dataintegration.scheduleconfig.firstexecutionfrom": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "appintegrations.dataintegration.scheduleconfig.firstexecutionfrom",
+        "UpdateRequires": "Replacement"
+    },
+    "appintegrations.dataintegration.scheduleconfig.object": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "appintegrations.dataintegration.scheduleconfig.object",
+        "UpdateRequires": "Replacement"
+    },
+    "appintegrations.dataintegration.scheduleconfig.scheduleexpression": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "appintegrations.dataintegration.scheduleconfig.scheduleexpression",
+        "UpdateRequires": "Replacement"
+    },
     "appintegrations.eventintegration.eventfilter.source": {
         "Required": "Yes",
         "Type": "String",
@@ -4843,7 +4943,7 @@
     },
     "applicationautoscaling.scalingpolicy.customizedmetricspecification.unit": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-Unit",
         "UniqueKey": "applicationautoscaling.scalingpolicy.customizedmetricspecification.unit",
         "UpdateRequires": "Replacement"
     },
@@ -5046,6 +5146,18 @@
         "UniqueKey": "applicationinsights.application.configurationdetails.alarms",
         "UpdateRequires": "Replacement"
     },
+    "applicationinsights.application.configurationdetails.haclusterprometheusexporter": {
+        "Required": "No",
+        "Type": "HAClusterPrometheusExporter",
+        "UniqueKey": "applicationinsights.application.configurationdetails.haclusterprometheusexporter",
+        "UpdateRequires": "Replacement"
+    },
+    "applicationinsights.application.configurationdetails.hanaprometheusexporter": {
+        "Required": "No",
+        "Type": "HANAPrometheusExporter",
+        "UniqueKey": "applicationinsights.application.configurationdetails.hanaprometheusexporter",
+        "UpdateRequires": "Replacement"
+    },
     "applicationinsights.application.configurationdetails.jmxprometheusexporter": {
         "Required": "No",
         "Type": "JMXPrometheusExporter",
@@ -5077,6 +5189,48 @@
         "Required": "Yes",
         "Type": "List of String",
         "UniqueKey": "applicationinsights.application.customcomponent.resourcelist",
+        "UpdateRequires": "Replacement"
+    },
+    "applicationinsights.application.haclusterprometheusexporter.prometheusport": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "applicationinsights.application.haclusterprometheusexporter.prometheusport",
+        "UpdateRequires": "Replacement"
+    },
+    "applicationinsights.application.hanaprometheusexporter.agreetoinstallhanadbclient": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "Yes",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "applicationinsights.application.hanaprometheusexporter.agreetoinstallhanadbclient",
+        "UpdateRequires": "Replacement"
+    },
+    "applicationinsights.application.hanaprometheusexporter.hanaport": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "applicationinsights.application.hanaprometheusexporter.hanaport",
+        "UpdateRequires": "Replacement"
+    },
+    "applicationinsights.application.hanaprometheusexporter.hanasecretname": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "applicationinsights.application.hanaprometheusexporter.hanasecretname",
+        "UpdateRequires": "Replacement"
+    },
+    "applicationinsights.application.hanaprometheusexporter.hanasid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "applicationinsights.application.hanaprometheusexporter.hanasid",
+        "UpdateRequires": "Replacement"
+    },
+    "applicationinsights.application.hanaprometheusexporter.prometheusport": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "applicationinsights.application.hanaprometheusexporter.prometheusport",
         "UpdateRequires": "Replacement"
     },
     "applicationinsights.application.jmxprometheusexporter.hostport": {
@@ -7633,6 +7787,18 @@
         "UniqueKey": "appstream.directoryconfig.serviceaccountcredentials.accountpassword",
         "UpdateRequires": "Replacement"
     },
+    "appstream.entitlement.attribute.name": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "appstream.entitlement.attribute.name",
+        "UpdateRequires": "Replacement"
+    },
+    "appstream.entitlement.attribute.value": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "appstream.entitlement.attribute.value",
+        "UpdateRequires": "Replacement"
+    },
     "appstream.fleet.computecapacity.desiredinstances": {
         "Required": "Yes",
         "Type": "Integer",
@@ -8111,8 +8277,8 @@
         "UpdateRequires": "Replacement"
     },
     "appsync.resolver.cachingconfig.ttl": {
-        "Required": "No",
-        "Type": "Double",
+        "Required": "Yes",
+        "Type": "Integer",
         "UniqueKey": "appsync.resolver.cachingconfig.ttl",
         "UpdateRequires": "Replacement"
     },
@@ -9768,6 +9934,18 @@
         "Required": "Yes",
         "Type": "Double",
         "UniqueKey": "autoscaling.scalingpolicy.targettrackingconfiguration.targetvalue",
+        "UpdateRequires": "Replacement"
+    },
+    "autoscaling.warmpool.instancereusepolicy.reuseonscalein": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "autoscaling.warmpool.instancereusepolicy.reuseonscalein",
         "UpdateRequires": "Replacement"
     },
     "autoscalingplans.scalingplan.applicationsource.cloudformationstackarn": {
@@ -15640,7 +15818,7 @@
             "True",
             "False"
         ],
-        "CaseSensitive`  <a name=\"cfn-cognito-userpool-usernameconfiguration-casesensitive\"></a>\nSpecifies whether username case sensitivity will be applied for all users in the user pool through Cognito APIs\\.  \nValid values include:  \n+  ** `True` *": "Enables case sensitivity for all username input\\. When this option is set to `True`, users must sign in using the exact capitalization of their given username\\. For example, \u201cUserName\u201d\\. This is the default value\\.\n+  ** `False` *",
+        "CaseSensitive`  <a name=\"cfn-cognito-userpool-usernameconfiguration-casesensitive\"></a>\nSpecifies whether username case sensitivity will be applied for all users in the user pool through Amazon Cognito APIs\\.  \nValid values include:  \n+  ** `True` *": "Enables case sensitivity for all username input\\. When this option is set to `True`, users must sign in using the exact capitalization of their given username, such as \u201cUserName\u201d\\. This is the default value\\.\n+  ** `False` *",
         "Pattern": "^[True|False]",
         "Required": "No",
         "SampleValue": "True|False",
@@ -16142,6 +16320,72 @@
         "Required": "No",
         "Type": "String",
         "UniqueKey": "config.deliverychannel.configsnapshotdeliveryproperties.deliveryfrequency",
+        "UpdateRequires": "Replacement"
+    },
+    "config.organizationconfigrule.organizationcustomcoderulemetadata.codetext": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "config.organizationconfigrule.organizationcustomcoderulemetadata.codetext",
+        "UpdateRequires": "Replacement"
+    },
+    "config.organizationconfigrule.organizationcustomcoderulemetadata.debuglogdeliveryaccounts": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "config.organizationconfigrule.organizationcustomcoderulemetadata.debuglogdeliveryaccounts",
+        "UpdateRequires": "Replacement"
+    },
+    "config.organizationconfigrule.organizationcustomcoderulemetadata.description": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "config.organizationconfigrule.organizationcustomcoderulemetadata.description",
+        "UpdateRequires": "Replacement"
+    },
+    "config.organizationconfigrule.organizationcustomcoderulemetadata.inputparameters": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "config.organizationconfigrule.organizationcustomcoderulemetadata.inputparameters",
+        "UpdateRequires": "Replacement"
+    },
+    "config.organizationconfigrule.organizationcustomcoderulemetadata.maximumexecutionfrequency": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "config.organizationconfigrule.organizationcustomcoderulemetadata.maximumexecutionfrequency",
+        "UpdateRequires": "Replacement"
+    },
+    "config.organizationconfigrule.organizationcustomcoderulemetadata.organizationconfigruletriggertypes": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "config.organizationconfigrule.organizationcustomcoderulemetadata.organizationconfigruletriggertypes",
+        "UpdateRequires": "Replacement"
+    },
+    "config.organizationconfigrule.organizationcustomcoderulemetadata.resourceidscope": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "config.organizationconfigrule.organizationcustomcoderulemetadata.resourceidscope",
+        "UpdateRequires": "Replacement"
+    },
+    "config.organizationconfigrule.organizationcustomcoderulemetadata.resourcetypesscope": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "config.organizationconfigrule.organizationcustomcoderulemetadata.resourcetypesscope",
+        "UpdateRequires": "Replacement"
+    },
+    "config.organizationconfigrule.organizationcustomcoderulemetadata.runtime": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "config.organizationconfigrule.organizationcustomcoderulemetadata.runtime",
+        "UpdateRequires": "Replacement"
+    },
+    "config.organizationconfigrule.organizationcustomcoderulemetadata.tagkeyscope": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "config.organizationconfigrule.organizationcustomcoderulemetadata.tagkeyscope",
+        "UpdateRequires": "Replacement"
+    },
+    "config.organizationconfigrule.organizationcustomcoderulemetadata.tagvaluescope": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "config.organizationconfigrule.organizationcustomcoderulemetadata.tagvaluescope",
         "UpdateRequires": "Replacement"
     },
     "config.organizationconfigrule.organizationcustomrulemetadata.description": {
@@ -17590,6 +17834,12 @@
         "UniqueKey": "databrew.job.outputlocation.bucket",
         "UpdateRequires": "Replacement"
     },
+    "databrew.job.outputlocation.bucketowner": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.job.outputlocation.bucketowner",
+        "UpdateRequires": "Replacement"
+    },
     "databrew.job.outputlocation.key": {
         "Required": "No",
         "Type": "String",
@@ -17644,6 +17894,15 @@
         "SampleValue": "TODO-databrew.job.s3location.Bucket",
         "Type": "String",
         "UniqueKey": "databrew.job.s3location.bucket",
+        "UpdateRequires": "Replacement"
+    },
+    "databrew.job.s3location.bucketowner": {
+        "Maximum": "12",
+        "Minimum": "12",
+        "Pattern": "^[0-9]{12}$",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "databrew.job.s3location.bucketowner",
         "UpdateRequires": "Replacement"
     },
     "databrew.job.s3location.key": {
@@ -19239,6 +19498,90 @@
         "UniqueKey": "dms.endpoint.elasticsearchsettings.serviceaccessrolearn",
         "UpdateRequires": "Replacement"
     },
+    "dms.endpoint.gcpmysqlsettings.afterconnectscript": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.afterconnectscript",
+        "UpdateRequires": "Replacement"
+    },
+    "dms.endpoint.gcpmysqlsettings.cleansourcemetadataonmismatch": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.cleansourcemetadataonmismatch",
+        "UpdateRequires": "Replacement"
+    },
+    "dms.endpoint.gcpmysqlsettings.databasename": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.databasename",
+        "UpdateRequires": "Replacement"
+    },
+    "dms.endpoint.gcpmysqlsettings.eventspollinterval": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.eventspollinterval",
+        "UpdateRequires": "Replacement"
+    },
+    "dms.endpoint.gcpmysqlsettings.maxfilesize": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.maxfilesize",
+        "UpdateRequires": "Replacement"
+    },
+    "dms.endpoint.gcpmysqlsettings.parallelloadthreads": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.parallelloadthreads",
+        "UpdateRequires": "Replacement"
+    },
+    "dms.endpoint.gcpmysqlsettings.password": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.password",
+        "UpdateRequires": "Replacement"
+    },
+    "dms.endpoint.gcpmysqlsettings.port": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.port",
+        "UpdateRequires": "Replacement"
+    },
+    "dms.endpoint.gcpmysqlsettings.secretsmanageraccessrolearn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.secretsmanageraccessrolearn",
+        "UpdateRequires": "Replacement"
+    },
+    "dms.endpoint.gcpmysqlsettings.secretsmanagersecretid": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.secretsmanagersecretid",
+        "UpdateRequires": "Replacement"
+    },
+    "dms.endpoint.gcpmysqlsettings.servername": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.servername",
+        "UpdateRequires": "Replacement"
+    },
+    "dms.endpoint.gcpmysqlsettings.servertimezone": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.servertimezone",
+        "UpdateRequires": "Replacement"
+    },
+    "dms.endpoint.gcpmysqlsettings.username": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "dms.endpoint.gcpmysqlsettings.username",
+        "UpdateRequires": "Replacement"
+    },
     "dms.endpoint.ibmdb2settings.secretsmanageraccessrolearn": {
         "Required": "No",
         "Type": "String",
@@ -19770,24 +20113,18 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.attributedef.attributename": {
-        "Maximum": "255",
-        "Minimum": "1",
-        "Pattern": "^.{1,255}$",
         "Required": "Yes",
-        "SampleValue": "TODO-dynamodb.attributedef.AttributeName",
         "Type": "String",
         "UniqueKey": "dynamodb.attributedef.attributename",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.attributedef.attributetype": {
-        "Allowed values": "B | N | S",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.attributedef.attributetype",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.contributorinsightsspecification.enabled": {
-        "Allowed values": "DISABLE | ENABLE",
         "AllowedValues": [
             "True",
             "False"
@@ -19800,17 +20137,12 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.attributedefinition.attributename": {
-        "Maximum": "255",
-        "Minimum": "1",
-        "Pattern": "^.{1,255}$",
         "Required": "Yes",
-        "SampleValue": "TODO-dynamodb.globaltable.attributedefinition.AttributeName",
         "Type": "String",
         "UniqueKey": "dynamodb.globaltable.attributedefinition.attributename",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.attributedefinition.attributetype": {
-        "Allowed values": "B | N | S",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.globaltable.attributedefinition.attributetype",
@@ -19841,7 +20173,6 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.contributorinsightsspecification.enabled": {
-        "Allowed values": "DISABLE | ENABLE",
         "AllowedValues": [
             "True",
             "False"
@@ -19854,17 +20185,14 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.globalsecondaryindex.indexname": {
-        "Maximum": "255",
-        "Minimum": "3",
-        "Pattern": "[a-zA-Z0-9_.-]+",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.globaltable.globalsecondaryindex.indexname",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.globalsecondaryindex.keyschema": {
-        "Maximum": "2",
         "Required": "Yes",
+        "SampleValue": "TODO-KeySchema",
         "UniqueKey": "dynamodb.globaltable.globalsecondaryindex.keyschema",
         "UpdateRequires": "Replacement"
     },
@@ -19897,17 +20225,14 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.localsecondaryindex.indexname": {
-        "Maximum": "255",
-        "Minimum": "3",
-        "Pattern": "[a-zA-Z0-9_.-]+",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.globaltable.localsecondaryindex.indexname",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.localsecondaryindex.keyschema": {
-        "Maximum": "2",
         "Required": "Yes",
+        "SampleValue": "TODO-KeySchema",
         "UniqueKey": "dynamodb.globaltable.localsecondaryindex.keyschema",
         "UpdateRequires": "Replacement"
     },
@@ -19930,14 +20255,12 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.projection.nonkeyattributes": {
-        "Maximum": "20",
         "Required": "No",
         "Type": "List of String",
         "UniqueKey": "dynamodb.globaltable.projection.nonkeyattributes",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.projection.projectiontype": {
-        "Allowed values": "ALL | INCLUDE | KEYS_ONLY",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "dynamodb.globaltable.projection.projectiontype",
@@ -19962,9 +20285,6 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.replicaglobalsecondaryindexspecification.indexname": {
-        "Maximum": "255",
-        "Minimum": "3",
-        "Pattern": "[a-zA-Z0-9_.-]+",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.globaltable.replicaglobalsecondaryindexspecification.indexname",
@@ -20037,14 +20357,12 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.ssespecification.ssetype": {
-        "Allowed values": "AES256 | KMS",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "dynamodb.globaltable.ssespecification.ssetype",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.streamspecification.streamviewtype": {
-        "Allowed values": "KEYS_ONLY | NEW_AND_OLD_IMAGES | NEW_IMAGE | OLD_IMAGE",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.globaltable.streamspecification.streamviewtype",
@@ -20081,11 +20399,7 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.globaltable.timetolivespecification.attributename": {
-        "Maximum": "255",
-        "Minimum": "1",
-        "Pattern": "^.{1,255}$",
         "Required": "No",
-        "SampleValue": "TODO-dynamodb.globaltable.timetolivespecification.AttributeName",
         "Type": "String",
         "UniqueKey": "dynamodb.globaltable.timetolivespecification.attributename",
         "UpdateRequires": "Replacement"
@@ -20115,17 +20429,14 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.gsi.indexname": {
-        "Maximum": "255",
-        "Minimum": "3",
-        "Pattern": "[a-zA-Z0-9_.-]+",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.gsi.indexname",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.gsi.keyschema": {
-        "Maximum": "2",
         "Required": "Yes",
+        "SampleValue": "TODO-KeySchema",
         "UniqueKey": "dynamodb.gsi.keyschema",
         "UpdateRequires": "Replacement"
     },
@@ -20158,27 +20469,20 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.kinesisstreamspecification.streamarn": {
-        "Maximum": "1024",
-        "Minimum": "37",
-        "Pattern": "^.{37,1024}$",
         "Required": "Yes",
-        "SampleValue": "TODO-dynamodb.kinesisstreamspecification.StreamArn",
         "Type": "String",
         "UniqueKey": "dynamodb.kinesisstreamspecification.streamarn",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.lsi.indexname": {
-        "Maximum": "255",
-        "Minimum": "3",
-        "Pattern": "[a-zA-Z0-9_.-]+",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.lsi.indexname",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.lsi.keyschema": {
-        "Maximum": "2",
         "Required": "Yes",
+        "SampleValue": "TODO-KeySchema",
         "UniqueKey": "dynamodb.lsi.keyschema",
         "UpdateRequires": "Replacement"
     },
@@ -20189,14 +20493,12 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.projectionobject.nonkeyattributes": {
-        "Maximum": "20",
         "Required": "No",
         "Type": "List of String",
         "UniqueKey": "dynamodb.projectionobject.nonkeyattributes",
         "UpdateRequires": "Replacement"
     },
     "dynamodb.projectionobject.projectiontype": {
-        "Allowed values": "ALL | INCLUDE | KEYS_ONLY",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "dynamodb.projectionobject.projectiontype",
@@ -20215,7 +20517,6 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.streamspecification.streamviewtype": {
-        "Allowed values": "KEYS_ONLY | NEW_AND_OLD_IMAGES | NEW_IMAGE | OLD_IMAGE",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "dynamodb.streamspecification.streamviewtype",
@@ -20412,11 +20713,7 @@
         "UpdateRequires": "Replacement"
     },
     "dynamodb.timetolivespecification.attributename": {
-        "Maximum": "255",
-        "Minimum": "1",
-        "Pattern": "^.{1,255}$",
         "Required": "Yes",
-        "SampleValue": "TODO-dynamodb.timetolivespecification.AttributeName",
         "Type": "String",
         "UniqueKey": "dynamodb.timetolivespecification.attributename",
         "UpdateRequires": "Replacement"
@@ -20560,14 +20857,14 @@
         "UpdateRequires": "Replacement"
     },
     "ec2.capacityreservationfleet.instancetypespecification.instanceplatform": {
-        "Allowed values": "Linux with SQL Server Enterprise | Linux with SQL Server Standard | Linux with SQL Server Web | Linux/UNIX | Red Hat Enterprise Linux | SUSE Linux | Windows | Windows with SQL Server | Windows with SQL Server Enterprise | Windows with SQL Server Standard | Windows with SQL Server Web",
+        "Allowed values": "Linux with SQL Server Enterprise | Linux with SQL Server Standard | Linux with SQL Server Web | Linux/UNIX | Red Hat Enterprise Linux | RHEL with HA | RHEL with HA and SQL Server Enterprise | RHEL with HA and SQL Server Standard | RHEL with SQL Server Enterprise | RHEL with SQL Server Standard | RHEL with SQL Server Web | SUSE Linux | Windows | Windows with SQL Server | Windows with SQL Server Enterprise | Windows with SQL Server Standard | Windows with SQL Server Web",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ec2.capacityreservationfleet.instancetypespecification.instanceplatform",
         "UpdateRequires": "Replacement"
     },
     "ec2.capacityreservationfleet.instancetypespecification.instancetype": {
-        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.metal | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | c6gn.12xlarge | c6gn.16xlarge | c6gn.2xlarge | c6gn.4xlarge | c6gn.8xlarge | c6gn.large | c6gn.medium | c6gn.xlarge | c6i.12xlarge | c6i.16xlarge | c6i.24xlarge | c6i.2xlarge | c6i.32xlarge | c6i.4xlarge | c6i.8xlarge | c6i.large | c6i.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | d3.2xlarge | d3.4xlarge | d3.8xlarge | d3.xlarge | d3en.12xlarge | d3en.2xlarge | d3en.4xlarge | d3en.6xlarge | d3en.8xlarge | d3en.xlarge | dl1.24xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4ad.16xlarge | g4ad.2xlarge | g4ad.4xlarge | g4ad.8xlarge | g4ad.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | g5.12xlarge | g5.16xlarge | g5.24xlarge | g5.2xlarge | g5.48xlarge | g5.4xlarge | g5.8xlarge | g5.xlarge | g5g.16xlarge | g5g.2xlarge | g5g.4xlarge | g5g.8xlarge | g5g.metal | g5g.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | im4gn.16xlarge | im4gn.2xlarge | im4gn.4xlarge | im4gn.8xlarge | im4gn.large | im4gn.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | is4gen.2xlarge | is4gen.4xlarge | is4gen.8xlarge | is4gen.large | is4gen.medium | is4gen.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.metal | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.metal | m5n.xlarge | m5zn.12xlarge | m5zn.2xlarge | m5zn.3xlarge | m5zn.6xlarge | m5zn.large | m5zn.metal | m5zn.xlarge | m6a.12xlarge | m6a.16xlarge | m6a.24xlarge | m6a.2xlarge | m6a.32xlarge | m6a.48xlarge | m6a.4xlarge | m6a.8xlarge | m6a.large | m6a.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | m6i.12xlarge | m6i.16xlarge | m6i.24xlarge | m6i.2xlarge | m6i.32xlarge | m6i.4xlarge | m6i.8xlarge | m6i.large | m6i.metal | m6i.xlarge | mac1.metal | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5b.12xlarge | r5b.16xlarge | r5b.24xlarge | r5b.2xlarge | r5b.4xlarge | r5b.8xlarge | r5b.large | r5b.metal | r5b.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.metal | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.metal | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | r6i.12xlarge | r6i.16xlarge | r6i.24xlarge | r6i.2xlarge | r6i.32xlarge | r6i.4xlarge | r6i.8xlarge | r6i.large | r6i.metal | r6i.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.112xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.112xlarge | u-6tb1.56xlarge | u-6tb1.metal | u-9tb1.112xlarge | u-9tb1.metal | vt1.24xlarge | vt1.3xlarge | vt1.6xlarge | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | x2gd.12xlarge | x2gd.16xlarge | x2gd.2xlarge | x2gd.4xlarge | x2gd.8xlarge | x2gd.large | x2gd.medium | x2gd.metal | x2gd.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.metal | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | c6gn.12xlarge | c6gn.16xlarge | c6gn.2xlarge | c6gn.4xlarge | c6gn.8xlarge | c6gn.large | c6gn.medium | c6gn.xlarge | c6i.12xlarge | c6i.16xlarge | c6i.24xlarge | c6i.2xlarge | c6i.32xlarge | c6i.4xlarge | c6i.8xlarge | c6i.large | c6i.metal | c6i.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | d3.2xlarge | d3.4xlarge | d3.8xlarge | d3.xlarge | d3en.12xlarge | d3en.2xlarge | d3en.4xlarge | d3en.6xlarge | d3en.8xlarge | d3en.xlarge | dl1.24xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4ad.16xlarge | g4ad.2xlarge | g4ad.4xlarge | g4ad.8xlarge | g4ad.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | g5.12xlarge | g5.16xlarge | g5.24xlarge | g5.2xlarge | g5.48xlarge | g5.4xlarge | g5.8xlarge | g5.xlarge | g5g.16xlarge | g5g.2xlarge | g5g.4xlarge | g5g.8xlarge | g5g.metal | g5g.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hpc6a.48xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | im4gn.16xlarge | im4gn.2xlarge | im4gn.4xlarge | im4gn.8xlarge | im4gn.large | im4gn.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | is4gen.2xlarge | is4gen.4xlarge | is4gen.8xlarge | is4gen.large | is4gen.medium | is4gen.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.metal | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.metal | m5n.xlarge | m5zn.12xlarge | m5zn.2xlarge | m5zn.3xlarge | m5zn.6xlarge | m5zn.large | m5zn.metal | m5zn.xlarge | m6a.12xlarge | m6a.16xlarge | m6a.24xlarge | m6a.2xlarge | m6a.32xlarge | m6a.48xlarge | m6a.4xlarge | m6a.8xlarge | m6a.large | m6a.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | m6i.12xlarge | m6i.16xlarge | m6i.24xlarge | m6i.2xlarge | m6i.32xlarge | m6i.4xlarge | m6i.8xlarge | m6i.large | m6i.metal | m6i.xlarge | mac1.metal | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5b.12xlarge | r5b.16xlarge | r5b.24xlarge | r5b.2xlarge | r5b.4xlarge | r5b.8xlarge | r5b.large | r5b.metal | r5b.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.metal | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.metal | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | r6i.12xlarge | r6i.16xlarge | r6i.24xlarge | r6i.2xlarge | r6i.32xlarge | r6i.4xlarge | r6i.8xlarge | r6i.large | r6i.metal | r6i.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.112xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.112xlarge | u-6tb1.56xlarge | u-6tb1.metal | u-9tb1.112xlarge | u-9tb1.metal | vt1.24xlarge | vt1.3xlarge | vt1.6xlarge | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | x2gd.12xlarge | x2gd.16xlarge | x2gd.2xlarge | x2gd.4xlarge | x2gd.8xlarge | x2gd.large | x2gd.medium | x2gd.metal | x2gd.xlarge | x2iezn.12xlarge | x2iezn.2xlarge | x2iezn.4xlarge | x2iezn.6xlarge | x2iezn.8xlarge | x2iezn.metal | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ec2.capacityreservationfleet.instancetypespecification.instancetype",
@@ -20651,6 +20948,24 @@
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ec2.clientvpnendpoint.clientconnectoptions.lambdafunctionarn",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.clientvpnendpoint.clientloginbanneroptions.bannertext": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.clientvpnendpoint.clientloginbanneroptions.bannertext",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.clientvpnendpoint.clientloginbanneroptions.enabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "Yes",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "ec2.clientvpnendpoint.clientloginbanneroptions.enabled",
         "UpdateRequires": "Replacement"
     },
     "ec2.clientvpnendpoint.connectionlogoptions.cloudwatchloggroup": {
@@ -20896,7 +21211,7 @@
         "UpdateRequires": "Replacement"
     },
     "ec2.ec2fleet.fleetlaunchtemplateoverridesrequest.instancetype": {
-        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.metal | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | c6gn.12xlarge | c6gn.16xlarge | c6gn.2xlarge | c6gn.4xlarge | c6gn.8xlarge | c6gn.large | c6gn.medium | c6gn.xlarge | c6i.12xlarge | c6i.16xlarge | c6i.24xlarge | c6i.2xlarge | c6i.32xlarge | c6i.4xlarge | c6i.8xlarge | c6i.large | c6i.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | d3.2xlarge | d3.4xlarge | d3.8xlarge | d3.xlarge | d3en.12xlarge | d3en.2xlarge | d3en.4xlarge | d3en.6xlarge | d3en.8xlarge | d3en.xlarge | dl1.24xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4ad.16xlarge | g4ad.2xlarge | g4ad.4xlarge | g4ad.8xlarge | g4ad.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | g5.12xlarge | g5.16xlarge | g5.24xlarge | g5.2xlarge | g5.48xlarge | g5.4xlarge | g5.8xlarge | g5.xlarge | g5g.16xlarge | g5g.2xlarge | g5g.4xlarge | g5g.8xlarge | g5g.metal | g5g.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | im4gn.16xlarge | im4gn.2xlarge | im4gn.4xlarge | im4gn.8xlarge | im4gn.large | im4gn.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | is4gen.2xlarge | is4gen.4xlarge | is4gen.8xlarge | is4gen.large | is4gen.medium | is4gen.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.metal | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.metal | m5n.xlarge | m5zn.12xlarge | m5zn.2xlarge | m5zn.3xlarge | m5zn.6xlarge | m5zn.large | m5zn.metal | m5zn.xlarge | m6a.12xlarge | m6a.16xlarge | m6a.24xlarge | m6a.2xlarge | m6a.32xlarge | m6a.48xlarge | m6a.4xlarge | m6a.8xlarge | m6a.large | m6a.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | m6i.12xlarge | m6i.16xlarge | m6i.24xlarge | m6i.2xlarge | m6i.32xlarge | m6i.4xlarge | m6i.8xlarge | m6i.large | m6i.metal | m6i.xlarge | mac1.metal | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5b.12xlarge | r5b.16xlarge | r5b.24xlarge | r5b.2xlarge | r5b.4xlarge | r5b.8xlarge | r5b.large | r5b.metal | r5b.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.metal | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.metal | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | r6i.12xlarge | r6i.16xlarge | r6i.24xlarge | r6i.2xlarge | r6i.32xlarge | r6i.4xlarge | r6i.8xlarge | r6i.large | r6i.metal | r6i.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.112xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.112xlarge | u-6tb1.56xlarge | u-6tb1.metal | u-9tb1.112xlarge | u-9tb1.metal | vt1.24xlarge | vt1.3xlarge | vt1.6xlarge | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | x2gd.12xlarge | x2gd.16xlarge | x2gd.2xlarge | x2gd.4xlarge | x2gd.8xlarge | x2gd.large | x2gd.medium | x2gd.metal | x2gd.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.metal | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | c6gn.12xlarge | c6gn.16xlarge | c6gn.2xlarge | c6gn.4xlarge | c6gn.8xlarge | c6gn.large | c6gn.medium | c6gn.xlarge | c6i.12xlarge | c6i.16xlarge | c6i.24xlarge | c6i.2xlarge | c6i.32xlarge | c6i.4xlarge | c6i.8xlarge | c6i.large | c6i.metal | c6i.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | d3.2xlarge | d3.4xlarge | d3.8xlarge | d3.xlarge | d3en.12xlarge | d3en.2xlarge | d3en.4xlarge | d3en.6xlarge | d3en.8xlarge | d3en.xlarge | dl1.24xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4ad.16xlarge | g4ad.2xlarge | g4ad.4xlarge | g4ad.8xlarge | g4ad.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | g5.12xlarge | g5.16xlarge | g5.24xlarge | g5.2xlarge | g5.48xlarge | g5.4xlarge | g5.8xlarge | g5.xlarge | g5g.16xlarge | g5g.2xlarge | g5g.4xlarge | g5g.8xlarge | g5g.metal | g5g.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hpc6a.48xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | im4gn.16xlarge | im4gn.2xlarge | im4gn.4xlarge | im4gn.8xlarge | im4gn.large | im4gn.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | is4gen.2xlarge | is4gen.4xlarge | is4gen.8xlarge | is4gen.large | is4gen.medium | is4gen.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.metal | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.metal | m5n.xlarge | m5zn.12xlarge | m5zn.2xlarge | m5zn.3xlarge | m5zn.6xlarge | m5zn.large | m5zn.metal | m5zn.xlarge | m6a.12xlarge | m6a.16xlarge | m6a.24xlarge | m6a.2xlarge | m6a.32xlarge | m6a.48xlarge | m6a.4xlarge | m6a.8xlarge | m6a.large | m6a.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | m6i.12xlarge | m6i.16xlarge | m6i.24xlarge | m6i.2xlarge | m6i.32xlarge | m6i.4xlarge | m6i.8xlarge | m6i.large | m6i.metal | m6i.xlarge | mac1.metal | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5b.12xlarge | r5b.16xlarge | r5b.24xlarge | r5b.2xlarge | r5b.4xlarge | r5b.8xlarge | r5b.large | r5b.metal | r5b.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.metal | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.metal | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | r6i.12xlarge | r6i.16xlarge | r6i.24xlarge | r6i.2xlarge | r6i.32xlarge | r6i.4xlarge | r6i.8xlarge | r6i.large | r6i.metal | r6i.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.112xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.112xlarge | u-6tb1.56xlarge | u-6tb1.metal | u-9tb1.112xlarge | u-9tb1.metal | vt1.24xlarge | vt1.3xlarge | vt1.6xlarge | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | x2gd.12xlarge | x2gd.16xlarge | x2gd.2xlarge | x2gd.4xlarge | x2gd.8xlarge | x2gd.large | x2gd.medium | x2gd.metal | x2gd.xlarge | x2iezn.12xlarge | x2iezn.2xlarge | x2iezn.4xlarge | x2iezn.6xlarge | x2iezn.8xlarge | x2iezn.metal | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ec2.ec2fleet.fleetlaunchtemplateoverridesrequest.instancetype",
@@ -22480,6 +22795,146 @@
         "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancemarketoptions.spotoptions.validuntil",
         "UpdateRequires": "Replacement"
     },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements": {
+        "Required": "No",
+        "Type": "InstanceRequirements",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.acceleratorcount": {
+        "Required": "No",
+        "Type": "AcceleratorCount",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.acceleratorcount",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.acceleratormanufacturers": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.acceleratormanufacturers",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.acceleratornames": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.acceleratornames",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.acceleratortotalmemorymib": {
+        "Required": "No",
+        "Type": "AcceleratorTotalMemoryMiB",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.acceleratortotalmemorymib",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.acceleratortypes": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.acceleratortypes",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.baremetal": {
+        "Allowed values": "excluded | included | required",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.baremetal",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.baselineebsbandwidthmbps": {
+        "Required": "No",
+        "SampleValue": "TODO-BaselineEbsBandwidthMbps",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.baselineebsbandwidthmbps",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.burstableperformance": {
+        "Allowed values": "excluded | included | required",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.burstableperformance",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.cpumanufacturers": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.cpumanufacturers",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.excludedinstancetypes": {
+        "Maximum": "400",
+        "Required": "No",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.excludedinstancetypes",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.instancegenerations": {
+        "Required": "No",
+        "SampleValue": "TODO-InstanceGenerations",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.instancegenerations",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.localstorage": {
+        "Required": "No",
+        "SampleValue": "TODO-LocalStorage",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.localstorage",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.localstoragetypes": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.localstoragetypes",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.memorygibpervcpu": {
+        "Required": "No",
+        "Type": "MemoryGiBPerVCpu",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.memorygibpervcpu",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.memorymib": {
+        "Required": "No",
+        "Type": "MemoryMiB",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.memorymib",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.networkinterfacecount": {
+        "Required": "No",
+        "Type": "NetworkInterfaceCount",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.networkinterfacecount",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.ondemandmaxpricepercentageoverlowestprice": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.ondemandmaxpricepercentageoverlowestprice",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.requirehibernatesupport": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.requirehibernatesupport",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.spotmaxpricepercentageoverlowestprice": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.spotmaxpricepercentageoverlowestprice",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.totallocalstoragegb": {
+        "Required": "No",
+        "Type": "TotalLocalStorageGB",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.totallocalstoragegb",
+        "UpdateRequires": "Replacement"
+    },
+    "ec2.launchtemplate.launchtemplatedata.instancerequirements.vcpucount": {
+        "Required": "No",
+        "Type": "VCpuCount",
+        "UniqueKey": "ec2.launchtemplate.launchtemplatedata.instancerequirements.vcpucount",
+        "UpdateRequires": "Replacement"
+    },
     "ec2.launchtemplate.launchtemplatedata.instancetype": {
         "Required": "No",
         "SampleValue": "TODO-InstanceType",
@@ -22893,18 +23348,6 @@
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "ec2.mount.point.volumeid",
-        "UpdateRequires": "Replacement"
-    },
-    "ec2.network.iface.embedded.associatecarrieripaddress": {
-        "AllowedValues": [
-            "True",
-            "False"
-        ],
-        "Pattern": "^[True|False]",
-        "Required": "No",
-        "SampleValue": "True|False",
-        "Type": "Boolean",
-        "UniqueKey": "ec2.network.iface.embedded.associatecarrieripaddress",
         "UpdateRequires": "Replacement"
     },
     "ec2.network.iface.embedded.associatepublicipaddress": {
@@ -24398,7 +24841,7 @@
         "UpdateRequires": "Replacement"
     },
     "ec2.spotfleet.launchtemplateoverrides.instancetype": {
-        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.metal | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | c6gn.12xlarge | c6gn.16xlarge | c6gn.2xlarge | c6gn.4xlarge | c6gn.8xlarge | c6gn.large | c6gn.medium | c6gn.xlarge | c6i.12xlarge | c6i.16xlarge | c6i.24xlarge | c6i.2xlarge | c6i.32xlarge | c6i.4xlarge | c6i.8xlarge | c6i.large | c6i.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | d3.2xlarge | d3.4xlarge | d3.8xlarge | d3.xlarge | d3en.12xlarge | d3en.2xlarge | d3en.4xlarge | d3en.6xlarge | d3en.8xlarge | d3en.xlarge | dl1.24xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4ad.16xlarge | g4ad.2xlarge | g4ad.4xlarge | g4ad.8xlarge | g4ad.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | g5.12xlarge | g5.16xlarge | g5.24xlarge | g5.2xlarge | g5.48xlarge | g5.4xlarge | g5.8xlarge | g5.xlarge | g5g.16xlarge | g5g.2xlarge | g5g.4xlarge | g5g.8xlarge | g5g.metal | g5g.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | im4gn.16xlarge | im4gn.2xlarge | im4gn.4xlarge | im4gn.8xlarge | im4gn.large | im4gn.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | is4gen.2xlarge | is4gen.4xlarge | is4gen.8xlarge | is4gen.large | is4gen.medium | is4gen.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.metal | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.metal | m5n.xlarge | m5zn.12xlarge | m5zn.2xlarge | m5zn.3xlarge | m5zn.6xlarge | m5zn.large | m5zn.metal | m5zn.xlarge | m6a.12xlarge | m6a.16xlarge | m6a.24xlarge | m6a.2xlarge | m6a.32xlarge | m6a.48xlarge | m6a.4xlarge | m6a.8xlarge | m6a.large | m6a.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | m6i.12xlarge | m6i.16xlarge | m6i.24xlarge | m6i.2xlarge | m6i.32xlarge | m6i.4xlarge | m6i.8xlarge | m6i.large | m6i.metal | m6i.xlarge | mac1.metal | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5b.12xlarge | r5b.16xlarge | r5b.24xlarge | r5b.2xlarge | r5b.4xlarge | r5b.8xlarge | r5b.large | r5b.metal | r5b.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.metal | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.metal | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | r6i.12xlarge | r6i.16xlarge | r6i.24xlarge | r6i.2xlarge | r6i.32xlarge | r6i.4xlarge | r6i.8xlarge | r6i.large | r6i.metal | r6i.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.112xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.112xlarge | u-6tb1.56xlarge | u-6tb1.metal | u-9tb1.112xlarge | u-9tb1.metal | vt1.24xlarge | vt1.3xlarge | vt1.6xlarge | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | x2gd.12xlarge | x2gd.16xlarge | x2gd.2xlarge | x2gd.4xlarge | x2gd.8xlarge | x2gd.large | x2gd.medium | x2gd.metal | x2gd.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.metal | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | c6gn.12xlarge | c6gn.16xlarge | c6gn.2xlarge | c6gn.4xlarge | c6gn.8xlarge | c6gn.large | c6gn.medium | c6gn.xlarge | c6i.12xlarge | c6i.16xlarge | c6i.24xlarge | c6i.2xlarge | c6i.32xlarge | c6i.4xlarge | c6i.8xlarge | c6i.large | c6i.metal | c6i.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | d3.2xlarge | d3.4xlarge | d3.8xlarge | d3.xlarge | d3en.12xlarge | d3en.2xlarge | d3en.4xlarge | d3en.6xlarge | d3en.8xlarge | d3en.xlarge | dl1.24xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4ad.16xlarge | g4ad.2xlarge | g4ad.4xlarge | g4ad.8xlarge | g4ad.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | g5.12xlarge | g5.16xlarge | g5.24xlarge | g5.2xlarge | g5.48xlarge | g5.4xlarge | g5.8xlarge | g5.xlarge | g5g.16xlarge | g5g.2xlarge | g5g.4xlarge | g5g.8xlarge | g5g.metal | g5g.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hpc6a.48xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | im4gn.16xlarge | im4gn.2xlarge | im4gn.4xlarge | im4gn.8xlarge | im4gn.large | im4gn.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | is4gen.2xlarge | is4gen.4xlarge | is4gen.8xlarge | is4gen.large | is4gen.medium | is4gen.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.metal | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.metal | m5n.xlarge | m5zn.12xlarge | m5zn.2xlarge | m5zn.3xlarge | m5zn.6xlarge | m5zn.large | m5zn.metal | m5zn.xlarge | m6a.12xlarge | m6a.16xlarge | m6a.24xlarge | m6a.2xlarge | m6a.32xlarge | m6a.48xlarge | m6a.4xlarge | m6a.8xlarge | m6a.large | m6a.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | m6i.12xlarge | m6i.16xlarge | m6i.24xlarge | m6i.2xlarge | m6i.32xlarge | m6i.4xlarge | m6i.8xlarge | m6i.large | m6i.metal | m6i.xlarge | mac1.metal | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5b.12xlarge | r5b.16xlarge | r5b.24xlarge | r5b.2xlarge | r5b.4xlarge | r5b.8xlarge | r5b.large | r5b.metal | r5b.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.metal | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.metal | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | r6i.12xlarge | r6i.16xlarge | r6i.24xlarge | r6i.2xlarge | r6i.32xlarge | r6i.4xlarge | r6i.8xlarge | r6i.large | r6i.metal | r6i.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.112xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.112xlarge | u-6tb1.56xlarge | u-6tb1.metal | u-9tb1.112xlarge | u-9tb1.metal | vt1.24xlarge | vt1.3xlarge | vt1.6xlarge | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | x2gd.12xlarge | x2gd.16xlarge | x2gd.2xlarge | x2gd.4xlarge | x2gd.8xlarge | x2gd.large | x2gd.medium | x2gd.metal | x2gd.xlarge | x2iezn.12xlarge | x2iezn.2xlarge | x2iezn.4xlarge | x2iezn.6xlarge | x2iezn.8xlarge | x2iezn.metal | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ec2.spotfleet.launchtemplateoverrides.instancetype",
@@ -24538,7 +24981,7 @@
         "UpdateRequires": "Replacement"
     },
     "ec2.spotfleet.spotfleetlaunchspecification.instancetype": {
-        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.metal | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | c6gn.12xlarge | c6gn.16xlarge | c6gn.2xlarge | c6gn.4xlarge | c6gn.8xlarge | c6gn.large | c6gn.medium | c6gn.xlarge | c6i.12xlarge | c6i.16xlarge | c6i.24xlarge | c6i.2xlarge | c6i.32xlarge | c6i.4xlarge | c6i.8xlarge | c6i.large | c6i.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | d3.2xlarge | d3.4xlarge | d3.8xlarge | d3.xlarge | d3en.12xlarge | d3en.2xlarge | d3en.4xlarge | d3en.6xlarge | d3en.8xlarge | d3en.xlarge | dl1.24xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4ad.16xlarge | g4ad.2xlarge | g4ad.4xlarge | g4ad.8xlarge | g4ad.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | g5.12xlarge | g5.16xlarge | g5.24xlarge | g5.2xlarge | g5.48xlarge | g5.4xlarge | g5.8xlarge | g5.xlarge | g5g.16xlarge | g5g.2xlarge | g5g.4xlarge | g5g.8xlarge | g5g.metal | g5g.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | im4gn.16xlarge | im4gn.2xlarge | im4gn.4xlarge | im4gn.8xlarge | im4gn.large | im4gn.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | is4gen.2xlarge | is4gen.4xlarge | is4gen.8xlarge | is4gen.large | is4gen.medium | is4gen.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.metal | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.metal | m5n.xlarge | m5zn.12xlarge | m5zn.2xlarge | m5zn.3xlarge | m5zn.6xlarge | m5zn.large | m5zn.metal | m5zn.xlarge | m6a.12xlarge | m6a.16xlarge | m6a.24xlarge | m6a.2xlarge | m6a.32xlarge | m6a.48xlarge | m6a.4xlarge | m6a.8xlarge | m6a.large | m6a.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | m6i.12xlarge | m6i.16xlarge | m6i.24xlarge | m6i.2xlarge | m6i.32xlarge | m6i.4xlarge | m6i.8xlarge | m6i.large | m6i.metal | m6i.xlarge | mac1.metal | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5b.12xlarge | r5b.16xlarge | r5b.24xlarge | r5b.2xlarge | r5b.4xlarge | r5b.8xlarge | r5b.large | r5b.metal | r5b.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.metal | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.metal | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | r6i.12xlarge | r6i.16xlarge | r6i.24xlarge | r6i.2xlarge | r6i.32xlarge | r6i.4xlarge | r6i.8xlarge | r6i.large | r6i.metal | r6i.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.112xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.112xlarge | u-6tb1.56xlarge | u-6tb1.metal | u-9tb1.112xlarge | u-9tb1.metal | vt1.24xlarge | vt1.3xlarge | vt1.6xlarge | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | x2gd.12xlarge | x2gd.16xlarge | x2gd.2xlarge | x2gd.4xlarge | x2gd.8xlarge | x2gd.large | x2gd.medium | x2gd.metal | x2gd.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
+        "Allowed values": "a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.metal | a1.xlarge | c1.medium | c1.xlarge | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5a.12xlarge | c5a.16xlarge | c5a.24xlarge | c5a.2xlarge | c5a.4xlarge | c5a.8xlarge | c5a.large | c5a.xlarge | c5ad.12xlarge | c5ad.16xlarge | c5ad.24xlarge | c5ad.2xlarge | c5ad.4xlarge | c5ad.8xlarge | c5ad.large | c5ad.xlarge | c5d.12xlarge | c5d.18xlarge | c5d.24xlarge | c5d.2xlarge | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.metal | c5d.xlarge | c5n.18xlarge | c5n.2xlarge | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.metal | c5n.xlarge | c6g.12xlarge | c6g.16xlarge | c6g.2xlarge | c6g.4xlarge | c6g.8xlarge | c6g.large | c6g.medium | c6g.metal | c6g.xlarge | c6gd.12xlarge | c6gd.16xlarge | c6gd.2xlarge | c6gd.4xlarge | c6gd.8xlarge | c6gd.large | c6gd.medium | c6gd.metal | c6gd.xlarge | c6gn.12xlarge | c6gn.16xlarge | c6gn.2xlarge | c6gn.4xlarge | c6gn.8xlarge | c6gn.large | c6gn.medium | c6gn.xlarge | c6i.12xlarge | c6i.16xlarge | c6i.24xlarge | c6i.2xlarge | c6i.32xlarge | c6i.4xlarge | c6i.8xlarge | c6i.large | c6i.metal | c6i.xlarge | cc1.4xlarge | cc2.8xlarge | cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | d3.2xlarge | d3.4xlarge | d3.8xlarge | d3.xlarge | d3en.12xlarge | d3en.2xlarge | d3en.4xlarge | d3en.6xlarge | d3en.8xlarge | d3en.xlarge | dl1.24xlarge | f1.16xlarge | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge | g3s.xlarge | g4ad.16xlarge | g4ad.2xlarge | g4ad.4xlarge | g4ad.8xlarge | g4ad.xlarge | g4dn.12xlarge | g4dn.16xlarge | g4dn.2xlarge | g4dn.4xlarge | g4dn.8xlarge | g4dn.metal | g4dn.xlarge | g5.12xlarge | g5.16xlarge | g5.24xlarge | g5.2xlarge | g5.48xlarge | g5.4xlarge | g5.8xlarge | g5.xlarge | g5g.16xlarge | g5g.2xlarge | g5g.4xlarge | g5g.8xlarge | g5g.metal | g5g.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge | hpc6a.48xlarge | hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.metal | i3en.xlarge | im4gn.16xlarge | im4gn.2xlarge | im4gn.4xlarge | im4gn.8xlarge | im4gn.large | im4gn.xlarge | inf1.24xlarge | inf1.2xlarge | inf1.6xlarge | inf1.xlarge | is4gen.2xlarge | is4gen.4xlarge | is4gen.8xlarge | is4gen.large | is4gen.medium | is4gen.xlarge | m1.large | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | m5dn.12xlarge | m5dn.16xlarge | m5dn.24xlarge | m5dn.2xlarge | m5dn.4xlarge | m5dn.8xlarge | m5dn.large | m5dn.metal | m5dn.xlarge | m5n.12xlarge | m5n.16xlarge | m5n.24xlarge | m5n.2xlarge | m5n.4xlarge | m5n.8xlarge | m5n.large | m5n.metal | m5n.xlarge | m5zn.12xlarge | m5zn.2xlarge | m5zn.3xlarge | m5zn.6xlarge | m5zn.large | m5zn.metal | m5zn.xlarge | m6a.12xlarge | m6a.16xlarge | m6a.24xlarge | m6a.2xlarge | m6a.32xlarge | m6a.48xlarge | m6a.4xlarge | m6a.8xlarge | m6a.large | m6a.xlarge | m6g.12xlarge | m6g.16xlarge | m6g.2xlarge | m6g.4xlarge | m6g.8xlarge | m6g.large | m6g.medium | m6g.metal | m6g.xlarge | m6gd.12xlarge | m6gd.16xlarge | m6gd.2xlarge | m6gd.4xlarge | m6gd.8xlarge | m6gd.large | m6gd.medium | m6gd.metal | m6gd.xlarge | m6i.12xlarge | m6i.16xlarge | m6i.24xlarge | m6i.2xlarge | m6i.32xlarge | m6i.4xlarge | m6i.8xlarge | m6i.large | m6i.metal | m6i.xlarge | mac1.metal | p2.16xlarge | p2.8xlarge | p2.xlarge | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | p4d.24xlarge | r3.2xlarge | r3.4xlarge | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large | r5ad.xlarge | r5b.12xlarge | r5b.16xlarge | r5b.24xlarge | r5b.2xlarge | r5b.4xlarge | r5b.8xlarge | r5b.large | r5b.metal | r5b.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | r5dn.12xlarge | r5dn.16xlarge | r5dn.24xlarge | r5dn.2xlarge | r5dn.4xlarge | r5dn.8xlarge | r5dn.large | r5dn.metal | r5dn.xlarge | r5n.12xlarge | r5n.16xlarge | r5n.24xlarge | r5n.2xlarge | r5n.4xlarge | r5n.8xlarge | r5n.large | r5n.metal | r5n.xlarge | r6g.12xlarge | r6g.16xlarge | r6g.2xlarge | r6g.4xlarge | r6g.8xlarge | r6g.large | r6g.medium | r6g.metal | r6g.xlarge | r6gd.12xlarge | r6gd.16xlarge | r6gd.2xlarge | r6gd.4xlarge | r6gd.8xlarge | r6gd.large | r6gd.medium | r6gd.metal | r6gd.xlarge | r6i.12xlarge | r6i.16xlarge | r6i.24xlarge | r6i.2xlarge | r6i.32xlarge | r6i.4xlarge | r6i.8xlarge | r6i.large | r6i.metal | r6i.xlarge | t1.micro | t2.2xlarge | t2.large | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large | t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large | t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | t4g.2xlarge | t4g.large | t4g.medium | t4g.micro | t4g.nano | t4g.small | t4g.xlarge | u-12tb1.112xlarge | u-12tb1.metal | u-18tb1.metal | u-24tb1.metal | u-6tb1.112xlarge | u-6tb1.56xlarge | u-6tb1.metal | u-9tb1.112xlarge | u-9tb1.metal | vt1.24xlarge | vt1.3xlarge | vt1.6xlarge | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | x2gd.12xlarge | x2gd.16xlarge | x2gd.2xlarge | x2gd.4xlarge | x2gd.8xlarge | x2gd.large | x2gd.medium | x2gd.metal | x2gd.xlarge | x2iezn.12xlarge | x2iezn.2xlarge | x2iezn.4xlarge | x2iezn.6xlarge | x2iezn.8xlarge | x2iezn.metal | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ec2.spotfleet.spotfleetlaunchspecification.instancetype",
@@ -26398,14 +26841,12 @@
         "UpdateRequires": "Replacement"
     },
     "ecs.taskdefinition.runtimeplatform.cpuarchitecture": {
-        "Allowed values": "ARM64 | X86_64",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ecs.taskdefinition.runtimeplatform.cpuarchitecture",
         "UpdateRequires": "Replacement"
     },
     "ecs.taskdefinition.runtimeplatform.operatingsystemfamily": {
-        "Allowed values": "LINUX | WINDOWS_SERVER_2004_CORE | WINDOWS_SERVER_2016_FULL | WINDOWS_SERVER_2019_CORE | WINDOWS_SERVER_2019_FULL | WINDOWS_SERVER_2022_CORE | WINDOWS_SERVER_2022_FULL | WINDOWS_SERVER_20H2_CORE",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ecs.taskdefinition.runtimeplatform.operatingsystemfamily",
@@ -26727,6 +27168,7 @@
         "UpdateRequires": "Replacement"
     },
     "eks.cluster.kubernetesnetworkconfig.ipfamily": {
+        "Allowed values": "ipv4 | ipv6",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "eks.cluster.kubernetesnetworkconfig.ipfamily",
@@ -26734,13 +27176,13 @@
     },
     "eks.cluster.kubernetesnetworkconfig.serviceipv4cidr": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-ServiceIpv4Cidr",
         "UniqueKey": "eks.cluster.kubernetesnetworkconfig.serviceipv4cidr",
         "UpdateRequires": "Replacement"
     },
     "eks.cluster.kubernetesnetworkconfig.serviceipv6cidr": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-ServiceIpv6Cidr",
         "UniqueKey": "eks.cluster.kubernetesnetworkconfig.serviceipv6cidr",
         "UpdateRequires": "Replacement"
     },
@@ -29979,6 +30421,18 @@
         "UniqueKey": "emrcontainers.virtualcluster.eksinfo.namespace",
         "UpdateRequires": "Replacement"
     },
+    "events.eventbus.tagentry.key": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "events.eventbus.tagentry.key",
+        "UpdateRequires": "Replacement"
+    },
+    "events.eventbus.tagentry.value": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "events.eventbus.tagentry.value",
+        "UpdateRequires": "Replacement"
+    },
     "events.eventbuspolicy.condition.key": {
         "Required": "No",
         "Type": "String",
@@ -30924,7 +31378,7 @@
         "UpdateRequires": "Replacement"
     },
     "fis.experimenttemplate.experimenttemplatetarget.resourcetype": {
-        "Maximum": "64",
+        "Maximum": "128",
         "Pattern": "[\\S]+",
         "Required": "Yes",
         "Type": "String",
@@ -33045,6 +33499,18 @@
         "UniqueKey": "glue.crawler.jdbctarget.path",
         "UpdateRequires": "Replacement"
     },
+    "glue.crawler.mongodbtarget.connectionname": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.crawler.mongodbtarget.connectionname",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.crawler.mongodbtarget.path": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.crawler.mongodbtarget.path",
+        "UpdateRequires": "Replacement"
+    },
     "glue.crawler.recrawlpolicy.recrawlbehavior": {
         "Required": "No",
         "Type": "String",
@@ -33057,6 +33523,18 @@
         "UniqueKey": "glue.crawler.s3target.connectionname",
         "UpdateRequires": "Replacement"
     },
+    "glue.crawler.s3target.dlqeventqueuearn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.crawler.s3target.dlqeventqueuearn",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.crawler.s3target.eventqueuearn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "glue.crawler.s3target.eventqueuearn",
+        "UpdateRequires": "Replacement"
+    },
     "glue.crawler.s3target.exclusions": {
         "Required": "No",
         "Type": "List of String",
@@ -33067,6 +33545,12 @@
         "Required": "No",
         "Type": "String",
         "UniqueKey": "glue.crawler.s3target.path",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.crawler.s3target.samplesize": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "glue.crawler.s3target.samplesize",
         "UpdateRequires": "Replacement"
     },
     "glue.crawler.schedule.scheduleexpression": {
@@ -33103,6 +33587,12 @@
         "Required": "No",
         "Type": "List of [JdbcTarget",
         "UniqueKey": "glue.crawler.targets.jdbctargets",
+        "UpdateRequires": "Replacement"
+    },
+    "glue.crawler.targets.mongodbtargets": {
+        "Required": "No",
+        "Type": "List of [MongoDBTarget",
+        "UniqueKey": "glue.crawler.targets.mongodbtargets",
         "UpdateRequires": "Replacement"
     },
     "glue.crawler.targets.s3targets": {
@@ -35510,10 +36000,34 @@
         "UniqueKey": "groundstation.missionprofile.dataflowedge.source",
         "UpdateRequires": "Replacement"
     },
+    "guardduty.detector.cfndatasourceconfigurations.kubernetes": {
+        "Required": "No",
+        "Type": "CFNKubernetesConfiguration",
+        "UniqueKey": "guardduty.detector.cfndatasourceconfigurations.kubernetes",
+        "UpdateRequires": "Replacement"
+    },
     "guardduty.detector.cfndatasourceconfigurations.s3logs": {
         "Required": "No",
         "Type": "CFNS3LogsConfiguration",
         "UniqueKey": "guardduty.detector.cfndatasourceconfigurations.s3logs",
+        "UpdateRequires": "Replacement"
+    },
+    "guardduty.detector.cfnkubernetesauditlogsconfiguration.enable": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "guardduty.detector.cfnkubernetesauditlogsconfiguration.enable",
+        "UpdateRequires": "Replacement"
+    },
+    "guardduty.detector.cfnkubernetesconfiguration.auditlogs": {
+        "Required": "No",
+        "Type": "CFNKubernetesAuditLogsConfiguration",
+        "UniqueKey": "guardduty.detector.cfnkubernetesconfiguration.auditlogs",
         "UpdateRequires": "Replacement"
     },
     "guardduty.detector.cfns3logsconfiguration.enable": {
@@ -36267,6 +36781,294 @@
         "SampleValue": "TODO-imagebuilder.infrastructureconfiguration.s3logs.S3KeyPrefix",
         "Type": "String",
         "UniqueKey": "imagebuilder.infrastructureconfiguration.s3logs.s3keyprefix",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.datefilter.endinclusive": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "inspectorv2.filter.datefilter.endinclusive",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.datefilter.startinclusive": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "inspectorv2.filter.datefilter.startinclusive",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.awsaccountid": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.awsaccountid",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.componentid": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.componentid",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.componenttype": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.componenttype",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.ec2instanceimageid": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.ec2instanceimageid",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.ec2instancesubnetid": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.ec2instancesubnetid",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.ec2instancevpcid": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.ec2instancevpcid",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.ecrimagearchitecture": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.ecrimagearchitecture",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.ecrimagehash": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.ecrimagehash",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.ecrimagepushedat": {
+        "Required": "No",
+        "Type": "List of [DateFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.ecrimagepushedat",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.ecrimageregistry": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.ecrimageregistry",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.ecrimagerepositoryname": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.ecrimagerepositoryname",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.ecrimagetags": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.ecrimagetags",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.findingarn": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.findingarn",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.findingstatus": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.findingstatus",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.findingtype": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.findingtype",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.firstobservedat": {
+        "Required": "No",
+        "Type": "List of [DateFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.firstobservedat",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.inspectorscore": {
+        "Required": "No",
+        "Type": "List of [NumberFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.inspectorscore",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.lastobservedat": {
+        "Required": "No",
+        "Type": "List of [DateFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.lastobservedat",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.networkprotocol": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.networkprotocol",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.portrange": {
+        "Required": "No",
+        "Type": "List of [PortRangeFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.portrange",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.relatedvulnerabilities": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.relatedvulnerabilities",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.resourceid": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.resourceid",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.resourcetags": {
+        "Required": "No",
+        "Type": "List of [MapFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.resourcetags",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.resourcetype": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.resourcetype",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.severity": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.severity",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.title": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.title",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.updatedat": {
+        "Required": "No",
+        "Type": "List of [DateFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.updatedat",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.vendorseverity": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.vendorseverity",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.vulnerabilityid": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.vulnerabilityid",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.vulnerabilitysource": {
+        "Required": "No",
+        "Type": "List of [StringFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.vulnerabilitysource",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.filtercriteria.vulnerablepackages": {
+        "Required": "No",
+        "Type": "List of [PackageFilter",
+        "UniqueKey": "inspectorv2.filter.filtercriteria.vulnerablepackages",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.mapfilter.comparison": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "inspectorv2.filter.mapfilter.comparison",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.mapfilter.key": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "inspectorv2.filter.mapfilter.key",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.mapfilter.value": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "inspectorv2.filter.mapfilter.value",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.numberfilter.lowerinclusive": {
+        "Required": "No",
+        "Type": "Double",
+        "UniqueKey": "inspectorv2.filter.numberfilter.lowerinclusive",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.numberfilter.upperinclusive": {
+        "Required": "No",
+        "Type": "Double",
+        "UniqueKey": "inspectorv2.filter.numberfilter.upperinclusive",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.packagefilter.architecture": {
+        "Required": "No",
+        "Type": "StringFilter",
+        "UniqueKey": "inspectorv2.filter.packagefilter.architecture",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.packagefilter.epoch": {
+        "Required": "No",
+        "Type": "NumberFilter",
+        "UniqueKey": "inspectorv2.filter.packagefilter.epoch",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.packagefilter.name": {
+        "Required": "No",
+        "Type": "StringFilter",
+        "UniqueKey": "inspectorv2.filter.packagefilter.name",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.packagefilter.release": {
+        "Required": "No",
+        "Type": "StringFilter",
+        "UniqueKey": "inspectorv2.filter.packagefilter.release",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.packagefilter.sourcelayerhash": {
+        "Required": "No",
+        "Type": "StringFilter",
+        "UniqueKey": "inspectorv2.filter.packagefilter.sourcelayerhash",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.packagefilter.version": {
+        "Required": "No",
+        "Type": "StringFilter",
+        "UniqueKey": "inspectorv2.filter.packagefilter.version",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.portrangefilter.begininclusive": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "inspectorv2.filter.portrangefilter.begininclusive",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.portrangefilter.endinclusive": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "inspectorv2.filter.portrangefilter.endinclusive",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.stringfilter.comparison": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "inspectorv2.filter.stringfilter.comparison",
+        "UpdateRequires": "Replacement"
+    },
+    "inspectorv2.filter.stringfilter.value": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "inspectorv2.filter.stringfilter.value",
         "UpdateRequires": "Replacement"
     },
     "iot.accountauditconfiguration.auditcheckconfiguration.enabled": {
@@ -37753,6 +38555,15 @@
         "UniqueKey": "iotanalytics.dataset.datasetcontentdeliveryruledestination.s3destinationconfiguration",
         "UpdateRequires": "Replacement"
     },
+    "iotanalytics.dataset.datasetcontentversionvalue.datasetname": {
+        "Maximum": "128",
+        "Minimum": "1",
+        "Pattern": "(^(?!_{2}))(^[a-zA-Z0-9_]+$)",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotanalytics.dataset.datasetcontentversionvalue.datasetname",
+        "UpdateRequires": "Replacement"
+    },
     "iotanalytics.dataset.deltatime.offsetseconds": {
         "Required": "Yes",
         "Type": "Integer",
@@ -37836,6 +38647,13 @@
         "UniqueKey": "iotanalytics.dataset.latedataruleconfiguration.deltatimesessionwindowconfiguration",
         "UpdateRequires": "Replacement"
     },
+    "iotanalytics.dataset.outputfileurivalue.filename": {
+        "Pattern": "[\\w\\.-]{1,255}",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotanalytics.dataset.outputfileurivalue.filename",
+        "UpdateRequires": "Replacement"
+    },
     "iotanalytics.dataset.queryaction.filters": {
         "Maximum": "1",
         "Required": "No",
@@ -37917,6 +38735,12 @@
         "SampleValue": "TODO-iotanalytics.dataset.s3destinationconfiguration.RoleArn",
         "Type": "String",
         "UniqueKey": "iotanalytics.dataset.s3destinationconfiguration.rolearn",
+        "UpdateRequires": "Replacement"
+    },
+    "iotanalytics.dataset.schedule.scheduleexpression": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotanalytics.dataset.schedule.scheduleexpression",
         "UpdateRequires": "Replacement"
     },
     "iotanalytics.dataset.trigger.schedule": {
@@ -38123,7 +38947,7 @@
         "UpdateRequires": "Replacement"
     },
     "iotanalytics.datastore.iotsitewisemultilayerstorage.customermanageds3storage": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "CustomerManagedS3Storage",
         "UniqueKey": "iotanalytics.datastore.iotsitewisemultilayerstorage.customermanageds3storage",
         "UpdateRequires": "Replacement"
@@ -38238,8 +39062,8 @@
         "UpdateRequires": "Replacement"
     },
     "iotanalytics.pipeline.addattributes.attributes": {
-        "Required": "No",
-        "Type": "Json",
+        "Required": "Yes",
+        "Type": "Map of String",
         "UniqueKey": "iotanalytics.pipeline.addattributes.attributes",
         "UpdateRequires": "Replacement"
     },
@@ -38247,7 +39071,7 @@
         "Maximum": "128",
         "Minimum": "1",
         "Pattern": "^.{1,128}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.addattributes.Name",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.addattributes.name",
@@ -38267,7 +39091,7 @@
         "Maximum": "128",
         "Minimum": "1",
         "Pattern": "(^(?!_{2}))(^[a-zA-Z0-9_]+$)",
-        "Required": "No",
+        "Required": "Yes",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.channel.channelname",
         "UpdateRequires": "Replacement"
@@ -38276,7 +39100,7 @@
         "Maximum": "128",
         "Minimum": "1",
         "Pattern": "^.{1,128}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.channel.Name",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.channel.name",
@@ -38296,7 +39120,7 @@
         "Maximum": "128",
         "Minimum": "1",
         "Pattern": "(^(?!_{2}))(^[a-zA-Z0-9_]+$)",
-        "Required": "No",
+        "Required": "Yes",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.datastore.datastorename",
         "UpdateRequires": "Replacement"
@@ -38305,7 +39129,7 @@
         "Maximum": "128",
         "Minimum": "1",
         "Pattern": "^.{1,128}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.datastore.Name",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.datastore.name",
@@ -38315,7 +39139,7 @@
         "Maximum": "256",
         "Minimum": "1",
         "Pattern": "^.{1,256}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.deviceregistryenrich.Attribute",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.deviceregistryenrich.attribute",
@@ -38325,7 +39149,7 @@
         "Maximum": "128",
         "Minimum": "1",
         "Pattern": "^.{1,128}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.deviceregistryenrich.Name",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.deviceregistryenrich.name",
@@ -38345,7 +39169,7 @@
         "Maximum": "2048",
         "Minimum": "20",
         "Pattern": "^.{20,2048}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.deviceregistryenrich.RoleArn",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.deviceregistryenrich.rolearn",
@@ -38355,7 +39179,7 @@
         "Maximum": "256",
         "Minimum": "1",
         "Pattern": "^.{1,256}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.deviceregistryenrich.ThingName",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.deviceregistryenrich.thingname",
@@ -38365,7 +39189,7 @@
         "Maximum": "256",
         "Minimum": "1",
         "Pattern": "^.{1,256}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.deviceshadowenrich.Attribute",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.deviceshadowenrich.attribute",
@@ -38375,7 +39199,7 @@
         "Maximum": "128",
         "Minimum": "1",
         "Pattern": "^.{1,128}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.deviceshadowenrich.Name",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.deviceshadowenrich.name",
@@ -38395,7 +39219,7 @@
         "Maximum": "2048",
         "Minimum": "20",
         "Pattern": "^.{20,2048}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.deviceshadowenrich.RoleArn",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.deviceshadowenrich.rolearn",
@@ -38405,7 +39229,7 @@
         "Maximum": "256",
         "Minimum": "1",
         "Pattern": "^.{1,256}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.deviceshadowenrich.ThingName",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.deviceshadowenrich.thingname",
@@ -38415,7 +39239,7 @@
         "Maximum": "256",
         "Minimum": "1",
         "Pattern": "^.{1,256}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.filter.Filter",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.filter.filter",
@@ -38425,7 +39249,7 @@
         "Maximum": "128",
         "Minimum": "1",
         "Pattern": "^.{1,128}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.filter.Name",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.filter.name",
@@ -38445,7 +39269,7 @@
         "Maximum": "1000",
         "Minimum": "1",
         "Pattern": "^[1,1000]}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "1...1000",
         "Type": "Integer",
         "UniqueKey": "iotanalytics.pipeline.lambda.batchsize",
@@ -38455,7 +39279,7 @@
         "Maximum": "64",
         "Minimum": "1",
         "Pattern": "^[a-zA-Z0-9_-]+$",
-        "Required": "No",
+        "Required": "Yes",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.lambda.lambdaname",
         "UpdateRequires": "Replacement"
@@ -38464,7 +39288,7 @@
         "Maximum": "128",
         "Minimum": "1",
         "Pattern": "^.{1,128}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.lambda.Name",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.lambda.name",
@@ -38484,7 +39308,7 @@
         "Maximum": "256",
         "Minimum": "1",
         "Pattern": "^.{1,256}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.math.Attribute",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.math.attribute",
@@ -38494,7 +39318,7 @@
         "Maximum": "256",
         "Minimum": "1",
         "Pattern": "^.{1,256}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.math.Math",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.math.math",
@@ -38504,7 +39328,7 @@
         "Maximum": "128",
         "Minimum": "1",
         "Pattern": "^.{1,128}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.math.Name",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.math.name",
@@ -38522,7 +39346,7 @@
     },
     "iotanalytics.pipeline.removeattributes.attributes": {
         "Maximum": "50",
-        "Required": "No",
+        "Required": "Yes",
         "Type": "List of String",
         "UniqueKey": "iotanalytics.pipeline.removeattributes.attributes",
         "UpdateRequires": "Replacement"
@@ -38531,7 +39355,7 @@
         "Maximum": "128",
         "Minimum": "1",
         "Pattern": "^.{1,128}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.removeattributes.Name",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.removeattributes.name",
@@ -38549,7 +39373,7 @@
     },
     "iotanalytics.pipeline.selectattributes.attributes": {
         "Maximum": "50",
-        "Required": "No",
+        "Required": "Yes",
         "Type": "List of String",
         "UniqueKey": "iotanalytics.pipeline.selectattributes.attributes",
         "UpdateRequires": "Replacement"
@@ -38558,7 +39382,7 @@
         "Maximum": "128",
         "Minimum": "1",
         "Pattern": "^.{1,128}$",
-        "Required": "No",
+        "Required": "Yes",
         "SampleValue": "TODO-iotanalytics.pipeline.selectattributes.Name",
         "Type": "String",
         "UniqueKey": "iotanalytics.pipeline.selectattributes.name",
@@ -39414,15 +40238,27 @@
         "UpdateRequires": "Replacement"
     },
     "iotsitewise.gateway.gatewayplatform.greengrass": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "Greengrass",
         "UniqueKey": "iotsitewise.gateway.gatewayplatform.greengrass",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.gateway.gatewayplatform.greengrassv2": {
+        "Required": "No",
+        "Type": "GreengrassV2",
+        "UniqueKey": "iotsitewise.gateway.gatewayplatform.greengrassv2",
         "UpdateRequires": "Replacement"
     },
     "iotsitewise.gateway.greengrass.grouparn": {
         "Required": "Yes",
         "SampleValue": "TODO-GroupArn",
         "UniqueKey": "iotsitewise.gateway.greengrass.grouparn",
+        "UpdateRequires": "Replacement"
+    },
+    "iotsitewise.gateway.greengrassv2.coredevicethingname": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "iotsitewise.gateway.greengrassv2.coredevicethingname",
         "UpdateRequires": "Replacement"
     },
     "iotsitewise.portal.monitorerrordetails.code": {
@@ -40276,6 +41112,244 @@
         "UniqueKey": "ivs.recordingconfiguration.s3destinationconfiguration.bucketname",
         "UpdateRequires": "Replacement"
     },
+    "ivs.recordingconfiguration.thumbnailconfiguration.recordingmode": {
+        "Allowed values": "DISABLED | INTERVAL",
+        "Default": "INTERVAL",
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "ivs.recordingconfiguration.thumbnailconfiguration.recordingmode",
+        "UpdateRequires": "Replacement"
+    },
+    "ivs.recordingconfiguration.thumbnailconfiguration.targetintervalseconds": {
+        "Default": "60",
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "ivs.recordingconfiguration.thumbnailconfiguration.targetintervalseconds",
+        "UpdateRequires": "Replacement",
+        "Valid Range": "Minumum value of 5\\. Maximum value of 60\\."
+    },
+    "kafkaconnect.connector.apachekafkacluster.bootstrapservers": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "kafkaconnect.connector.apachekafkacluster.bootstrapservers",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.apachekafkacluster.vpc": {
+        "Required": "Yes",
+        "Type": "Vpc",
+        "UniqueKey": "kafkaconnect.connector.apachekafkacluster.vpc",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.autoscaling.maxworkercount": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "kafkaconnect.connector.autoscaling.maxworkercount",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.autoscaling.mcucount": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "kafkaconnect.connector.autoscaling.mcucount",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.autoscaling.minworkercount": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "kafkaconnect.connector.autoscaling.minworkercount",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.autoscaling.scaleinpolicy": {
+        "Required": "Yes",
+        "Type": "ScaleInPolicy",
+        "UniqueKey": "kafkaconnect.connector.autoscaling.scaleinpolicy",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.autoscaling.scaleoutpolicy": {
+        "Required": "Yes",
+        "Type": "ScaleOutPolicy",
+        "UniqueKey": "kafkaconnect.connector.autoscaling.scaleoutpolicy",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.capacity.autoscaling": {
+        "Required": "No",
+        "Type": "AutoScaling",
+        "UniqueKey": "kafkaconnect.connector.capacity.autoscaling",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.capacity.provisionedcapacity": {
+        "Required": "No",
+        "Type": "ProvisionedCapacity",
+        "UniqueKey": "kafkaconnect.connector.capacity.provisionedcapacity",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.cloudwatchlogslogdelivery.enabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "Yes",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "kafkaconnect.connector.cloudwatchlogslogdelivery.enabled",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.cloudwatchlogslogdelivery.loggroup": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "kafkaconnect.connector.cloudwatchlogslogdelivery.loggroup",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.customplugin.custompluginarn": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "kafkaconnect.connector.customplugin.custompluginarn",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.customplugin.revision": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "kafkaconnect.connector.customplugin.revision",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.firehoselogdelivery.deliverystream": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "kafkaconnect.connector.firehoselogdelivery.deliverystream",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.firehoselogdelivery.enabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "Yes",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "kafkaconnect.connector.firehoselogdelivery.enabled",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.kafkacluster.apachekafkacluster": {
+        "Required": "Yes",
+        "Type": "ApacheKafkaCluster",
+        "UniqueKey": "kafkaconnect.connector.kafkacluster.apachekafkacluster",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.kafkaclusterclientauthentication.authenticationtype": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "kafkaconnect.connector.kafkaclusterclientauthentication.authenticationtype",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.kafkaclusterencryptionintransit.encryptiontype": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "kafkaconnect.connector.kafkaclusterencryptionintransit.encryptiontype",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.logdelivery.workerlogdelivery": {
+        "Required": "Yes",
+        "Type": "WorkerLogDelivery",
+        "UniqueKey": "kafkaconnect.connector.logdelivery.workerlogdelivery",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.plugin.customplugin": {
+        "Required": "Yes",
+        "Type": "CustomPlugin",
+        "UniqueKey": "kafkaconnect.connector.plugin.customplugin",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.provisionedcapacity.mcucount": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "kafkaconnect.connector.provisionedcapacity.mcucount",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.provisionedcapacity.workercount": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "kafkaconnect.connector.provisionedcapacity.workercount",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.s3logdelivery.bucket": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "kafkaconnect.connector.s3logdelivery.bucket",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.s3logdelivery.enabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "Yes",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "kafkaconnect.connector.s3logdelivery.enabled",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.s3logdelivery.prefix": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "kafkaconnect.connector.s3logdelivery.prefix",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.scaleinpolicy.cpuutilizationpercentage": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "kafkaconnect.connector.scaleinpolicy.cpuutilizationpercentage",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.scaleoutpolicy.cpuutilizationpercentage": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "kafkaconnect.connector.scaleoutpolicy.cpuutilizationpercentage",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.vpc.securitygroups": {
+        "Required": "Yes",
+        "Type": "List of String",
+        "UniqueKey": "kafkaconnect.connector.vpc.securitygroups",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.vpc.subnets": {
+        "Required": "Yes",
+        "Type": "List of String",
+        "UniqueKey": "kafkaconnect.connector.vpc.subnets",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.workerconfiguration.revision": {
+        "Required": "Yes",
+        "Type": "Integer",
+        "UniqueKey": "kafkaconnect.connector.workerconfiguration.revision",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.workerconfiguration.workerconfigurationarn": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "kafkaconnect.connector.workerconfiguration.workerconfigurationarn",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.workerlogdelivery.cloudwatchlogs": {
+        "Required": "No",
+        "Type": "CloudWatchLogsLogDelivery",
+        "UniqueKey": "kafkaconnect.connector.workerlogdelivery.cloudwatchlogs",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.workerlogdelivery.firehose": {
+        "Required": "No",
+        "Type": "FirehoseLogDelivery",
+        "UniqueKey": "kafkaconnect.connector.workerlogdelivery.firehose",
+        "UpdateRequires": "Replacement"
+    },
+    "kafkaconnect.connector.workerlogdelivery.s3": {
+        "Required": "No",
+        "Type": "S3LogDelivery",
+        "UniqueKey": "kafkaconnect.connector.workerlogdelivery.s3",
+        "UpdateRequires": "Replacement"
+    },
     "kendra.datasource.accesscontrollistconfiguration.keypath": {
         "Maximum": "1024",
         "Minimum": "1",
@@ -40969,19 +42043,29 @@
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.proxyconfiguration.credentials": {
+        "Maximum": "1284",
+        "Minimum": "1",
+        "Pattern": "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "kendra.datasource.proxyconfiguration.credentials",
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.proxyconfiguration.host": {
+        "Maximum": "253",
+        "Minimum": "1",
+        "Pattern": "([^\\s]*)",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "kendra.datasource.proxyconfiguration.host",
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.proxyconfiguration.port": {
+        "Maximum": "65535",
+        "Minimum": "1",
+        "Pattern": "^[1,65535]}$",
         "Required": "Yes",
+        "SampleValue": "1...65535",
         "Type": "Integer",
         "UniqueKey": "kendra.datasource.proxyconfiguration.port",
         "UpdateRequires": "Replacement"
@@ -41606,7 +42690,11 @@
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.webcrawlerconfiguration.crawldepth": {
+        "Maximum": "10",
+        "Minimum": "0",
+        "Pattern": "^[0,10]}$",
         "Required": "No",
+        "SampleValue": "0...10",
         "Type": "Integer",
         "UniqueKey": "kendra.datasource.webcrawlerconfiguration.crawldepth",
         "UpdateRequires": "Replacement"
@@ -41618,13 +42706,21 @@
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.webcrawlerconfiguration.maxlinksperpage": {
+        "Maximum": "1000",
+        "Minimum": "1",
+        "Pattern": "^[1,1000]}$",
         "Required": "No",
+        "SampleValue": "1...1000",
         "Type": "Integer",
         "UniqueKey": "kendra.datasource.webcrawlerconfiguration.maxlinksperpage",
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.webcrawlerconfiguration.maxurlsperminutecrawlrate": {
+        "Maximum": "300",
+        "Minimum": "1",
+        "Pattern": "^[1,300]}$",
         "Required": "No",
+        "SampleValue": "1...300",
         "Type": "Integer",
         "UniqueKey": "kendra.datasource.webcrawlerconfiguration.maxurlsperminutecrawlrate",
         "UpdateRequires": "Replacement"
@@ -41636,12 +42732,14 @@
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.webcrawlerconfiguration.urlexclusionpatterns": {
+        "Maximum": "100",
         "Required": "No",
         "Type": "List of String",
         "UniqueKey": "kendra.datasource.webcrawlerconfiguration.urlexclusionpatterns",
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.webcrawlerconfiguration.urlinclusionpatterns": {
+        "Maximum": "100",
         "Required": "No",
         "Type": "List of String",
         "UniqueKey": "kendra.datasource.webcrawlerconfiguration.urlinclusionpatterns",
@@ -41668,6 +42766,7 @@
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.webcrawlersitemapsconfiguration.sitemaps": {
+        "Maximum": "3",
         "Required": "Yes",
         "Type": "List of String",
         "UniqueKey": "kendra.datasource.webcrawlersitemapsconfiguration.sitemaps",
@@ -41698,26 +42797,31 @@
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.workdocsconfiguration.exclusionpatterns": {
+        "Maximum": "100",
         "Required": "No",
         "Type": "List of String",
         "UniqueKey": "kendra.datasource.workdocsconfiguration.exclusionpatterns",
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.workdocsconfiguration.fieldmappings": {
+        "Maximum": "100",
         "Required": "No",
         "Type": "List of [DataSourceToIndexFieldMapping",
         "UniqueKey": "kendra.datasource.workdocsconfiguration.fieldmappings",
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.workdocsconfiguration.inclusionpatterns": {
+        "Maximum": "100",
         "Required": "No",
         "Type": "List of String",
         "UniqueKey": "kendra.datasource.workdocsconfiguration.inclusionpatterns",
         "UpdateRequires": "Replacement"
     },
     "kendra.datasource.workdocsconfiguration.organizationid": {
+        "Maximum": "12",
+        "Minimum": "12",
+        "Pattern": "d-[0-9a-fA-F]{10}",
         "Required": "Yes",
-        "Type": "String",
         "UniqueKey": "kendra.datasource.workdocsconfiguration.organizationid",
         "UpdateRequires": "Replacement"
     },
@@ -42989,7 +44093,7 @@
     "kinesisanalyticsv2.application.zeppelinapplicationconfiguration.customartifactsconfiguration": {
         "Maximum": "50",
         "Required": "No",
-        "Type": "CustomArtifactsConfiguration",
+        "Type": "List of [CustomArtifactConfiguration",
         "UniqueKey": "kinesisanalyticsv2.application.zeppelinapplicationconfiguration.customartifactsconfiguration",
         "UpdateRequires": "Replacement"
     },
@@ -44831,6 +45935,12 @@
         "UniqueKey": "lex.bot.dialogcodehooksetting.enabled",
         "UpdateRequires": "Replacement"
     },
+    "lex.bot.externalsourcesetting.grammarslottypesetting": {
+        "Required": "No",
+        "Type": "GrammarSlotTypeSetting",
+        "UniqueKey": "lex.bot.externalsourcesetting.grammarslottypesetting",
+        "UpdateRequires": "Replacement"
+    },
     "lex.bot.fulfillmentcodehooksetting.enabled": {
         "AllowedValues": [
             "True",
@@ -44931,6 +46041,30 @@
         "Required": "No",
         "Type": "FulfillmentUpdateResponseSpecification",
         "UniqueKey": "lex.bot.fulfillmentupdatesspecification.updateresponse",
+        "UpdateRequires": "Replacement"
+    },
+    "lex.bot.grammarslottypesetting.source": {
+        "Required": "No",
+        "Type": "GrammarSlotTypeSource",
+        "UniqueKey": "lex.bot.grammarslottypesetting.source",
+        "UpdateRequires": "Replacement"
+    },
+    "lex.bot.grammarslottypesource.kmskeyarn": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lex.bot.grammarslottypesource.kmskeyarn",
+        "UpdateRequires": "Replacement"
+    },
+    "lex.bot.grammarslottypesource.s3bucketname": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "lex.bot.grammarslottypesource.s3bucketname",
+        "UpdateRequires": "Replacement"
+    },
+    "lex.bot.grammarslottypesource.s3objectkey": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "lex.bot.grammarslottypesource.s3objectkey",
         "UpdateRequires": "Replacement"
     },
     "lex.bot.imageresponsecard.buttons": {
@@ -45341,6 +46475,12 @@
         "UniqueKey": "lex.bot.slottype.description",
         "UpdateRequires": "Replacement"
     },
+    "lex.bot.slottype.externalsourcesetting": {
+        "Required": "No",
+        "Type": "ExternalSourceSetting",
+        "UniqueKey": "lex.bot.slottype.externalsourcesetting",
+        "UpdateRequires": "Replacement"
+    },
     "lex.bot.slottype.name": {
         "Required": "Yes",
         "Type": "String",
@@ -45360,7 +46500,7 @@
         "UpdateRequires": "Replacement"
     },
     "lex.bot.slottype.valueselectionsetting": {
-        "Required": "Yes",
+        "Required": "No",
         "Type": "SlotValueSelectionSetting",
         "UniqueKey": "lex.bot.slottype.valueselectionsetting",
         "UpdateRequires": "Replacement"
@@ -45641,6 +46781,18 @@
         "UniqueKey": "lex.botversion.botversionlocaledetails.sourcebotversion",
         "UpdateRequires": "Replacement"
     },
+    "lex.botversion.botversionlocalespecification.botversionlocaledetails": {
+        "Required": "Yes",
+        "Type": "BotVersionLocaleDetails",
+        "UniqueKey": "lex.botversion.botversionlocalespecification.botversionlocaledetails",
+        "UpdateRequires": "Replacement"
+    },
+    "lex.botversion.botversionlocalespecification.localeid": {
+        "Required": "Yes",
+        "Type": "String",
+        "UniqueKey": "lex.botversion.botversionlocalespecification.localeid",
+        "UpdateRequires": "Replacement"
+    },
     "lex.botversion.botversionlocalespecificationitem.botversionlocaledetails": {
         "Required": "Yes",
         "Type": "BotVersionLocaleDetails",
@@ -45779,6 +46931,158 @@
         "UniqueKey": "licensemanager.license.validitydateformat.end",
         "UpdateRequires": "Replacement"
     },
+    "lightsail.bucket.accessrules.allowpublicoverrides": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "lightsail.bucket.accessrules.allowpublicoverrides",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.bucket.accessrules.getobject": {
+        "Allowed values": "private | public",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.bucket.accessrules.getobject",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.container.command": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "lightsail.container.container.command",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.container.containername": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.container.container.containername",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.container.environment": {
+        "Required": "No",
+        "Type": "List of [EnvironmentVariable",
+        "UniqueKey": "lightsail.container.container.environment",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.container.image": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.container.container.image",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.container.ports": {
+        "Required": "No",
+        "Type": "List of [PortInfo",
+        "UniqueKey": "lightsail.container.container.ports",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.containerservicedeployment.containers": {
+        "Required": "No",
+        "Type": "List of [Container",
+        "UniqueKey": "lightsail.container.containerservicedeployment.containers",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.containerservicedeployment.publicendpoint": {
+        "Required": "No",
+        "Type": "PublicEndpoint",
+        "UniqueKey": "lightsail.container.containerservicedeployment.publicendpoint",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.environmentvariable.value": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.container.environmentvariable.value",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.environmentvariable.variable": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.container.environmentvariable.variable",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.healthcheckconfig.healthythreshold": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "lightsail.container.healthcheckconfig.healthythreshold",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.healthcheckconfig.intervalseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "lightsail.container.healthcheckconfig.intervalseconds",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.healthcheckconfig.path": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.container.healthcheckconfig.path",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.healthcheckconfig.successcodes": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.container.healthcheckconfig.successcodes",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.healthcheckconfig.timeoutseconds": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "lightsail.container.healthcheckconfig.timeoutseconds",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.healthcheckconfig.unhealthythreshold": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "lightsail.container.healthcheckconfig.unhealthythreshold",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.portinfo.port": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.container.portinfo.port",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.portinfo.protocol": {
+        "Allowed values": "HTTP` \\| `HTTPS` \\| `TCP` \\| `UDP",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.container.portinfo.protocol",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.publicdomainname.certificatename": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.container.publicdomainname.certificatename",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.publicdomainname.domainnames": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "lightsail.container.publicdomainname.domainnames",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.publicendpoint.containername": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.container.publicendpoint.containername",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.publicendpoint.containerport": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "lightsail.container.publicendpoint.containerport",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.container.publicendpoint.healthcheckconfig": {
+        "Required": "No",
+        "Type": "HealthCheckConfig",
+        "UniqueKey": "lightsail.container.publicendpoint.healthcheckconfig",
+        "UpdateRequires": "Replacement"
+    },
     "lightsail.database.relationaldatabaseparameter.allowedvalues": {
         "Required": "No",
         "Type": "String",
@@ -45859,6 +47163,137 @@
         "Required": "No",
         "Type": "String",
         "UniqueKey": "lightsail.disk.autosnapshotaddon.snapshottimeofday",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cachebehavior.behavior": {
+        "Required": "No",
+        "SampleValue": "TODO-Behavior",
+        "UniqueKey": "lightsail.distribution.cachebehavior.behavior",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cachebehaviorperpath.behavior": {
+        "Required": "No",
+        "SampleValue": "TODO-Behavior",
+        "UniqueKey": "lightsail.distribution.cachebehaviorperpath.behavior",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cachebehaviorperpath.path": {
+        "Required": "No",
+        "SampleValue": "TODO-Path",
+        "UniqueKey": "lightsail.distribution.cachebehaviorperpath.path",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cachesettings.allowedhttpmethods": {
+        "Pattern": ".*\\S.*",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.distribution.cachesettings.allowedhttpmethods",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cachesettings.cachedhttpmethods": {
+        "Pattern": ".*\\S.*",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.distribution.cachesettings.cachedhttpmethods",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cachesettings.defaultttl": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "lightsail.distribution.cachesettings.defaultttl",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cachesettings.forwardedcookies": {
+        "Required": "No",
+        "Type": "CookieObject",
+        "UniqueKey": "lightsail.distribution.cachesettings.forwardedcookies",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cachesettings.forwardedheaders": {
+        "Required": "No",
+        "Type": "HeaderObject",
+        "UniqueKey": "lightsail.distribution.cachesettings.forwardedheaders",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cachesettings.forwardedquerystrings": {
+        "Required": "No",
+        "Type": "QueryStringObject",
+        "UniqueKey": "lightsail.distribution.cachesettings.forwardedquerystrings",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cachesettings.maximumttl": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "lightsail.distribution.cachesettings.maximumttl",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cachesettings.minimumttl": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "lightsail.distribution.cachesettings.minimumttl",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cookieobject.cookiesallowlist": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "lightsail.distribution.cookieobject.cookiesallowlist",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.cookieobject.option": {
+        "Required": "No",
+        "SampleValue": "TODO-Option",
+        "UniqueKey": "lightsail.distribution.cookieobject.option",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.headerobject.headersallowlist": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "lightsail.distribution.headerobject.headersallowlist",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.headerobject.option": {
+        "Required": "No",
+        "SampleValue": "TODO-Option",
+        "UniqueKey": "lightsail.distribution.headerobject.option",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.inputorigin.name": {
+        "Pattern": "\\w[\\w\\-]*\\w",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.distribution.inputorigin.name",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.inputorigin.protocolpolicy": {
+        "Allowed values": "http-only | https-only",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.distribution.inputorigin.protocolpolicy",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.inputorigin.regionname": {
+        "Allowed values": "ap-northeast-1 | ap-northeast-2 | ap-south-1 | ap-southeast-1 | ap-southeast-2 | ca-central-1 | eu-central-1 | eu-north-1 | eu-west-1 | eu-west-2 | eu-west-3 | us-east-1 | us-east-2 | us-west-1 | us-west-2",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "lightsail.distribution.inputorigin.regionname",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.querystringobject.option": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "lightsail.distribution.querystringobject.option",
+        "UpdateRequires": "Replacement"
+    },
+    "lightsail.distribution.querystringobject.querystringsallowlist": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "lightsail.distribution.querystringobject.querystringsallowlist",
         "UpdateRequires": "Replacement"
     },
     "lightsail.instance.addon.addontype": {
@@ -49103,6 +50538,12 @@
         "UniqueKey": "medialive.channel.hlsgroupsettings.programdatetime",
         "UpdateRequires": "Replacement"
     },
+    "medialive.channel.hlsgroupsettings.programdatetimeclock": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "medialive.channel.hlsgroupsettings.programdatetimeclock",
+        "UpdateRequires": "Replacement"
+    },
     "medialive.channel.hlsgroupsettings.programdatetimeperiod": {
         "Required": "No",
         "Type": "Integer",
@@ -49437,6 +50878,12 @@
         "Required": "No",
         "Type": "NetworkInputSettings",
         "UniqueKey": "medialive.channel.inputsettings.networkinputsettings",
+        "UpdateRequires": "Replacement"
+    },
+    "medialive.channel.inputsettings.scte35pid": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "medialive.channel.inputsettings.scte35pid",
         "UpdateRequires": "Replacement"
     },
     "medialive.channel.inputsettings.smpte2038datapreference": {
@@ -51876,6 +53323,12 @@
         "UniqueKey": "msk.cluster.connectivityinfo.publicaccess",
         "UpdateRequires": "Replacement"
     },
+    "msk.cluster.ebsstorageinfo.provisionedthroughput": {
+        "Required": "No",
+        "Type": "ProvisionedThroughput",
+        "UniqueKey": "msk.cluster.ebsstorageinfo.provisionedthroughput",
+        "UpdateRequires": "Replacement"
+    },
     "msk.cluster.ebsstorageinfo.volumesize": {
         "Required": "No",
         "Type": "Integer",
@@ -51994,6 +53447,24 @@
         "Required": "No",
         "Type": "NodeExporter",
         "UniqueKey": "msk.cluster.prometheus.nodeexporter",
+        "UpdateRequires": "Replacement"
+    },
+    "msk.cluster.provisionedthroughput.enabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "msk.cluster.provisionedthroughput.enabled",
+        "UpdateRequires": "Replacement"
+    },
+    "msk.cluster.provisionedthroughput.volumethroughput": {
+        "Required": "No",
+        "Type": "Integer",
+        "UniqueKey": "msk.cluster.provisionedthroughput.volumethroughput",
         "UpdateRequires": "Replacement"
     },
     "msk.cluster.publicaccess.type": {
@@ -52822,9 +54293,8 @@
     "networkmanager.device.location.address": {
         "Maximum": "256",
         "Minimum": "0",
-        "Pattern": "^.{0,256}$",
+        "Pattern": "[\\s\\S]*",
         "Required": "No",
-        "SampleValue": "TODO-networkmanager.device.location.Address",
         "Type": "String",
         "UniqueKey": "networkmanager.device.location.address",
         "UpdateRequires": "Replacement"
@@ -52832,9 +54302,8 @@
     "networkmanager.device.location.latitude": {
         "Maximum": "256",
         "Minimum": "0",
-        "Pattern": "^.{0,256}$",
+        "Pattern": "[\\s\\S]*",
         "Required": "No",
-        "SampleValue": "TODO-networkmanager.device.location.Latitude",
         "Type": "String",
         "UniqueKey": "networkmanager.device.location.latitude",
         "UpdateRequires": "Replacement"
@@ -52842,9 +54311,8 @@
     "networkmanager.device.location.longitude": {
         "Maximum": "256",
         "Minimum": "0",
-        "Pattern": "^.{0,256}$",
+        "Pattern": "[\\s\\S]*",
         "Required": "No",
-        "SampleValue": "TODO-networkmanager.device.location.Longitude",
         "Type": "String",
         "UniqueKey": "networkmanager.device.location.longitude",
         "UpdateRequires": "Replacement"
@@ -52864,9 +54332,8 @@
     "networkmanager.site.location.address": {
         "Maximum": "256",
         "Minimum": "0",
-        "Pattern": "^.{0,256}$",
+        "Pattern": "[\\s\\S]*",
         "Required": "No",
-        "SampleValue": "TODO-networkmanager.site.location.Address",
         "Type": "String",
         "UniqueKey": "networkmanager.site.location.address",
         "UpdateRequires": "Replacement"
@@ -52874,9 +54341,8 @@
     "networkmanager.site.location.latitude": {
         "Maximum": "256",
         "Minimum": "0",
-        "Pattern": "^.{0,256}$",
+        "Pattern": "[\\s\\S]*",
         "Required": "No",
-        "SampleValue": "TODO-networkmanager.site.location.Latitude",
         "Type": "String",
         "UniqueKey": "networkmanager.site.location.latitude",
         "UpdateRequires": "Replacement"
@@ -52884,9 +54350,8 @@
     "networkmanager.site.location.longitude": {
         "Maximum": "256",
         "Minimum": "0",
-        "Pattern": "^.{0,256}$",
+        "Pattern": "[\\s\\S]*",
         "Required": "No",
-        "SampleValue": "TODO-networkmanager.site.location.Longitude",
         "Type": "String",
         "UniqueKey": "networkmanager.site.location.longitude",
         "UpdateRequires": "Replacement"
@@ -52909,10 +54374,46 @@
         "UniqueKey": "nimblestudio.launchprofile.streamconfiguration.maxsessionlengthinminutes",
         "UpdateRequires": "Replacement"
     },
+    "nimblestudio.launchprofile.streamconfiguration.maxstoppedsessionlengthinminutes": {
+        "Required": "No",
+        "Type": "Double",
+        "UniqueKey": "nimblestudio.launchprofile.streamconfiguration.maxstoppedsessionlengthinminutes",
+        "UpdateRequires": "Replacement"
+    },
+    "nimblestudio.launchprofile.streamconfiguration.sessionstorage": {
+        "Required": "No",
+        "Type": "StreamConfigurationSessionStorage",
+        "UniqueKey": "nimblestudio.launchprofile.streamconfiguration.sessionstorage",
+        "UpdateRequires": "Replacement"
+    },
     "nimblestudio.launchprofile.streamconfiguration.streamingimageids": {
         "Required": "Yes",
         "Type": "List of String",
         "UniqueKey": "nimblestudio.launchprofile.streamconfiguration.streamingimageids",
+        "UpdateRequires": "Replacement"
+    },
+    "nimblestudio.launchprofile.streamconfigurationsessionstorage.mode": {
+        "Required": "No",
+        "Type": "List of String",
+        "UniqueKey": "nimblestudio.launchprofile.streamconfigurationsessionstorage.mode",
+        "UpdateRequires": "Replacement"
+    },
+    "nimblestudio.launchprofile.streamconfigurationsessionstorage.root": {
+        "Required": "No",
+        "Type": "StreamingSessionStorageRoot",
+        "UniqueKey": "nimblestudio.launchprofile.streamconfigurationsessionstorage.root",
+        "UpdateRequires": "Replacement"
+    },
+    "nimblestudio.launchprofile.streamingsessionstorageroot.linux": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "nimblestudio.launchprofile.streamingsessionstorageroot.linux",
+        "UpdateRequires": "Replacement"
+    },
+    "nimblestudio.launchprofile.streamingsessionstorageroot.windows": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "nimblestudio.launchprofile.streamingsessionstorageroot.windows",
         "UpdateRequires": "Replacement"
     },
     "nimblestudio.studio.studioencryptionconfiguration.keyarn": {
@@ -53848,7 +55349,7 @@
     "panorama.applicationinstance.manifestoverridespayload.payloaddata": {
         "Maximum": "51200",
         "Minimum": "0",
-        "Pattern": "^.*$",
+        "Pattern": ".*",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "panorama.applicationinstance.manifestoverridespayload.payloaddata",
@@ -53857,7 +55358,7 @@
     "panorama.applicationinstance.manifestpayload.payloaddata": {
         "Maximum": "51200",
         "Minimum": "1",
-        "Pattern": "^.+$",
+        "Pattern": ".+",
         "Required": "No",
         "Type": "String",
         "UniqueKey": "panorama.applicationinstance.manifestpayload.payloaddata",
@@ -57255,7 +58756,7 @@
     },
     "rds.database.instance.availabilityzone": {
         "Required": "No",
-        "Type": "String",
+        "SampleValue": "TODO-AvailabilityZone",
         "UniqueKey": "rds.database.instance.availabilityzone",
         "UpdateRequires": "Replacement"
     },
@@ -58226,7 +59727,7 @@
     },
     "robomaker.simulationapplication.robotsoftwaresuite.version": {
         "Allowed values": "Dashing | Foxy | Kinetic | Melodic",
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "robomaker.simulationapplication.robotsoftwaresuite.version",
         "UpdateRequires": "Replacement"
@@ -58242,7 +59743,7 @@
         "Maximum": "1024",
         "Minimum": "0",
         "Pattern": "7|9|11|Kinetic|Melodic|Dashing|Foxy",
-        "Required": "Yes",
+        "Required": "No",
         "Type": "String",
         "UniqueKey": "robomaker.simulationapplication.simulationsoftwaresuite.version",
         "UpdateRequires": "Replacement"
@@ -58558,12 +60059,6 @@
         "Required": "No",
         "SampleValue": "TODO-AliasTarget",
         "UniqueKey": "route53.recordset.1.aliastarget",
-        "UpdateRequires": "Replacement"
-    },
-    "route53.recordset.1.comment": {
-        "Maximum": "256",
-        "Required": "No",
-        "UniqueKey": "route53.recordset.1.comment",
         "UpdateRequires": "Replacement"
     },
     "route53.recordset.1.failover": {
@@ -59585,6 +61080,24 @@
         "UniqueKey": "s3.bucket.lifecycleconfig.rule.id",
         "UpdateRequires": "Replacement"
     },
+    "s3.bucket.lifecycleconfig.rule.noncurrentversionexpiration": {
+        "Required": "No",
+        "Type": "NoncurrentVersionExpiration",
+        "UniqueKey": "s3.bucket.lifecycleconfig.rule.noncurrentversionexpiration",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.lifecycleconfig.rule.noncurrentversionexpiration.newernoncurrentversions": {
+        "Required": "No",
+        "SampleValue": "TODO-NewerNoncurrentVersions",
+        "UniqueKey": "s3.bucket.lifecycleconfig.rule.noncurrentversionexpiration.newernoncurrentversions",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.lifecycleconfig.rule.noncurrentversionexpiration.noncurrentdays": {
+        "Required": "Yes",
+        "SampleValue": "TODO-NoncurrentDays",
+        "UniqueKey": "s3.bucket.lifecycleconfig.rule.noncurrentversionexpiration.noncurrentdays",
+        "UpdateRequires": "Replacement"
+    },
     "s3.bucket.lifecycleconfig.rule.noncurrentversionexpirationindays": {
         "Required": "Conditional",
         "Type": "Integer",
@@ -59597,8 +61110,14 @@
         "UniqueKey": "s3.bucket.lifecycleconfig.rule.noncurrentversiontransition",
         "UpdateRequires": "Replacement"
     },
+    "s3.bucket.lifecycleconfig.rule.noncurrentversiontransition.newernoncurrentversions": {
+        "Required": "No",
+        "SampleValue": "TODO-NewerNoncurrentVersions",
+        "UniqueKey": "s3.bucket.lifecycleconfig.rule.noncurrentversiontransition.newernoncurrentversions",
+        "UpdateRequires": "Replacement"
+    },
     "s3.bucket.lifecycleconfig.rule.noncurrentversiontransition.storageclass": {
-        "Allowed values": "DEEP_ARCHIVE | GLACIER | INTELLIGENT_TIERING | ONEZONE_IA | STANDARD_IA",
+        "Allowed values": "DEEP_ARCHIVE | GLACIER | GLACIER_IR | INTELLIGENT_TIERING | ONEZONE_IA | STANDARD_IA",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "s3.bucket.lifecycleconfig.rule.noncurrentversiontransition.storageclass",
@@ -59614,6 +61133,18 @@
         "Required": "Conditional",
         "Type": "List of [NoncurrentVersionTransition",
         "UniqueKey": "s3.bucket.lifecycleconfig.rule.noncurrentversiontransitions",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.lifecycleconfig.rule.objectsizegreaterthan": {
+        "Required": "No",
+        "SampleValue": "TODO-ObjectSizeGreaterThan",
+        "UniqueKey": "s3.bucket.lifecycleconfig.rule.objectsizegreaterthan",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.lifecycleconfig.rule.objectsizelessthan": {
+        "Required": "No",
+        "SampleValue": "TODO-ObjectSizeLessThan",
+        "UniqueKey": "s3.bucket.lifecycleconfig.rule.objectsizelessthan",
         "UpdateRequires": "Replacement"
     },
     "s3.bucket.lifecycleconfig.rule.prefix": {
@@ -59642,7 +61173,7 @@
         "UpdateRequires": "Replacement"
     },
     "s3.bucket.lifecycleconfig.rule.transition.storageclass": {
-        "Allowed values": "DEEP_ARCHIVE | GLACIER | INTELLIGENT_TIERING | ONEZONE_IA | STANDARD_IA",
+        "Allowed values": "DEEP_ARCHIVE | GLACIER | GLACIER_IR | INTELLIGENT_TIERING | ONEZONE_IA | STANDARD_IA",
         "Required": "Yes",
         "Type": "String",
         "UniqueKey": "s3.bucket.lifecycleconfig.rule.transition.storageclass",
@@ -59747,7 +61278,7 @@
     },
     "s3.bucket.metricsconfigurations": {
         "Required": "No",
-        "SampleValue": "TODO-MetricsConfigurations",
+        "Type": "List of [MetricsConfiguration",
         "UniqueKey": "s3.bucket.metricsconfigurations",
         "UpdateRequires": "Replacement"
     },
@@ -59792,6 +61323,12 @@
         "SampleValue": "True|False",
         "Type": "Boolean",
         "UniqueKey": "s3.bucket.notificationconfig.eventbridgeconfig.eventbridgeenabled",
+        "UpdateRequires": "Replacement"
+    },
+    "s3.bucket.notificationconfig.eventbridgeconfiguration": {
+        "Required": "No",
+        "Type": "EventBridgeConfiguration",
+        "UniqueKey": "s3.bucket.notificationconfig.eventbridgeconfiguration",
         "UpdateRequires": "Replacement"
     },
     "s3.bucket.notificationconfig.lambdaconfig.event": {
@@ -59896,12 +61433,6 @@
         "UniqueKey": "s3.bucket.notificationconfiguration.config.filter.s3key.rules.value",
         "UpdateRequires": "Replacement"
     },
-    "s3.bucket.notificationconfiguration.eventbridgeconfiguration": {
-        "Required": "No",
-        "Type": "List of [EventBridgeConfiguration",
-        "UniqueKey": "s3.bucket.notificationconfiguration.eventbridgeconfiguration",
-        "UpdateRequires": "Replacement"
-    },
     "s3.bucket.notificationconfiguration.lambdaconfigurations": {
         "Required": "No",
         "Type": "List of [LambdaConfiguration",
@@ -59946,7 +61477,6 @@
         "UpdateRequires": "Replacement"
     },
     "s3.bucket.objectlockenabled": {
-        "Allowed values": "Enabled",
         "AllowedValues": [
             "True",
             "False"
@@ -61447,7 +62977,7 @@
         "UpdateRequires": "Replacement"
     },
     "sagemaker.domain.kernelgatewayappsettings.customimages": {
-        "Maximum": "30",
+        "Maximum": "200",
         "Required": "No",
         "Type": "List of [CustomImage",
         "UniqueKey": "sagemaker.domain.kernelgatewayappsettings.customimages",
@@ -63124,7 +64654,7 @@
         "UpdateRequires": "Replacement"
     },
     "sagemaker.userprofile.kernelgatewayappsettings.customimages": {
-        "Maximum": "30",
+        "Maximum": "200",
         "Required": "No",
         "Type": "List of [CustomImage",
         "UniqueKey": "sagemaker.userprofile.kernelgatewayappsettings.customimages",
@@ -63311,6 +64841,18 @@
         "Required": "No",
         "Type": "Integer",
         "UniqueKey": "secretsmanager.rotationschedule.rotationrules.automaticallyafterdays",
+        "UpdateRequires": "Replacement"
+    },
+    "secretsmanager.rotationschedule.rotationrules.duration": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "secretsmanager.rotationschedule.rotationrules.duration",
+        "UpdateRequires": "Replacement"
+    },
+    "secretsmanager.rotationschedule.rotationrules.scheduleexpression": {
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "secretsmanager.rotationschedule.rotationrules.scheduleexpression",
         "UpdateRequires": "Replacement"
     },
     "secretsmanager.secret.generatesecretstring.excludecharacters": {
@@ -64254,6 +65796,28 @@
         "UniqueKey": "ssm.maintenancewindowtarget.targets.values",
         "UpdateRequires": "Replacement"
     },
+    "ssm.maintenancewindowtask.cloudwatchoutputconfig.cloudwatchloggroupname": {
+        "Maximum": "512",
+        "Minimum": "1",
+        "Pattern": "^.{1,512}$",
+        "Required": "No",
+        "SampleValue": "TODO-ssm.maintenancewindowtask.cloudwatchoutputconfig.CloudWatchLogGroupName",
+        "Type": "String",
+        "UniqueKey": "ssm.maintenancewindowtask.cloudwatchoutputconfig.cloudwatchloggroupname",
+        "UpdateRequires": "Replacement"
+    },
+    "ssm.maintenancewindowtask.cloudwatchoutputconfig.cloudwatchoutputenabled": {
+        "AllowedValues": [
+            "True",
+            "False"
+        ],
+        "Pattern": "^[True|False]",
+        "Required": "No",
+        "SampleValue": "True|False",
+        "Type": "Boolean",
+        "UniqueKey": "ssm.maintenancewindowtask.cloudwatchoutputconfig.cloudwatchoutputenabled",
+        "UpdateRequires": "Replacement"
+    },
     "ssm.maintenancewindowtask.logginginfo.region": {
         "Maximum": "20",
         "Minimum": "3",
@@ -64320,6 +65884,12 @@
         "UniqueKey": "ssm.maintenancewindowtask.maintenancewindowlambdaparameters.qualifier",
         "UpdateRequires": "Replacement"
     },
+    "ssm.maintenancewindowtask.maintenancewindowruncommandparameters.cloudwatchoutputconfig": {
+        "Required": "No",
+        "Type": "CloudWatchOutputConfig",
+        "UniqueKey": "ssm.maintenancewindowtask.maintenancewindowruncommandparameters.cloudwatchoutputconfig",
+        "UpdateRequires": "Replacement"
+    },
     "ssm.maintenancewindowtask.maintenancewindowruncommandparameters.comment": {
         "Maximum": "100",
         "Required": "No",
@@ -64339,6 +65909,13 @@
         "Required": "No",
         "Type": "String",
         "UniqueKey": "ssm.maintenancewindowtask.maintenancewindowruncommandparameters.documenthashtype",
+        "UpdateRequires": "Replacement"
+    },
+    "ssm.maintenancewindowtask.maintenancewindowruncommandparameters.documentversion": {
+        "Pattern": "([$]LATEST|[$]DEFAULT|^[1-9][0-9]*$)",
+        "Required": "No",
+        "Type": "String",
+        "UniqueKey": "ssm.maintenancewindowtask.maintenancewindowruncommandparameters.documentversion",
         "UpdateRequires": "Replacement"
     },
     "ssm.maintenancewindowtask.maintenancewindowruncommandparameters.notificationconfig": {
@@ -65417,6 +66994,12 @@
         "UniqueKey": "transfer.server.protocoldetails.passiveip",
         "UpdateRequires": "Replacement"
     },
+    "transfer.server.protocoldetails.tlssessionresumptionmode": {
+        "Required": "No",
+        "SampleValue": "TODO-TlsSessionResumptionMode",
+        "UniqueKey": "transfer.server.protocoldetails.tlssessionresumptionmode",
+        "UpdateRequires": "Replacement"
+    },
     "transfer.server.workflowdetail.executionrole": {
         "Maximum": "2048",
         "Minimum": "20",
@@ -65509,39 +67092,39 @@
         "UniqueKey": "transfer.workflow.workflowstep.type",
         "UpdateRequires": "Replacement"
     },
-    "w10805ab1c23c15c15c27c19b7.default": {
+    "w11088ab1c23c15c15c27c19b7.default": {
         "Required": "No",
         "SampleValue": "TODO-default",
         "Type": "String",
-        "UniqueKey": "w10805ab1c23c15c15c27c19b7.default"
+        "UniqueKey": "w11088ab1c23c15c15c27c19b7.default"
     },
-    "w10805ab1c23c15c15c27c23b7.label": {
+    "w11088ab1c23c15c15c27c23b7.label": {
         "Required": "No",
         "SampleValue": "TODO-Label",
         "Type": "`AWS::CloudFormation::Interface Label`",
-        "UniqueKey": "w10805ab1c23c15c15c27c23b7.label"
+        "UniqueKey": "w11088ab1c23c15c15c27c23b7.label"
     },
-    "w10805ab1c23c15c15c27c23b7.parameters": {
+    "w11088ab1c23c15c15c27c23b7.parameters": {
         "Required": "No",
         "SampleValue": "TODO-Parameters",
         "Type": "List of String values",
-        "UniqueKey": "w10805ab1c23c15c15c27c23b7.parameters"
+        "UniqueKey": "w11088ab1c23c15c15c27c23b7.parameters"
     },
-    "w10805ab1c23c15c15c27c27b7.parameterlogicalid": {
+    "w11088ab1c23c15c15c27c27b7.parameterlogicalid": {
         "Required": "No",
-        "UniqueKey": "w10805ab1c23c15c15c27c27b7.parameterlogicalid"
+        "UniqueKey": "w11088ab1c23c15c15c27c27b7.parameterlogicalid"
     },
-    "w10805ab1c31c10d376c13c17.key": {
+    "w11088ab1c31c10d384c13c17.key": {
         "Required": "Yes",
         "SampleValue": "TODO-Key",
         "Type": "String",
-        "UniqueKey": "w10805ab1c31c10d376c13c17.key"
+        "UniqueKey": "w11088ab1c31c10d384c13c17.key"
     },
-    "w10805ab1c31c10d376c13c17.value": {
+    "w11088ab1c31c10d384c13c17.value": {
         "Required": "Yes",
         "SampleValue": "TODO-Value",
         "Type": "String\n\n#",
-        "UniqueKey": "w10805ab1c31c10d376c13c17.value"
+        "UniqueKey": "w11088ab1c31c10d384c13c17.value"
     },
     "waf.bytematchset.bytematchtuples.fieldtomatch": {
         "Required": "Yes",

@@ -69,11 +69,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.MaximumBatchingWindowInSeconds": {
-    "Minimum": "0",
+    "*Default \\(Amazon MSK, Kafka, Amazon MQ event sources\\)*": "500 ms",
+    "*Default \\(Kinesis, DynamoDB, Amazon SQS event sources\\)*": "0",
     "Required": "No",
-    "Type": "Integer",
     "Maximum": "300",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Minimum": "0",
+    "Type": "Integer"
   },
   "lambda.eventsourcemapping.FilterCriteria": {
     "Required": "No",
