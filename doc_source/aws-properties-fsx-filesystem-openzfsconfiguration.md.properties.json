@@ -1,41 +1,26 @@
 {
-  "fsx.filesystem.openzfsconfiguration.WeeklyMaintenanceStartTime": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "fsx.filesystem.openzfsconfiguration.CopyTagsToBackups": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "fsx.filesystem.openzfsconfiguration.CopyTagsToVolumes": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
   "fsx.filesystem.openzfsconfiguration.AutomaticBackupRetentionDays": {
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "fsx.filesystem.openzfsconfiguration.RootVolumeConfiguration": {
+  "fsx.filesystem.openzfsconfiguration.CopyTagsToBackups": {
     "Required": "No",
-    "Type": "RootVolumeConfiguration",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "fsx.filesystem.openzfsconfiguration.DiskIopsConfiguration": {
+  "fsx.filesystem.openzfsconfiguration.CopyTagsToVolumes": {
     "Required": "No",
-    "Type": "DiskIopsConfiguration",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "fsx.filesystem.openzfsconfiguration.DailyAutomaticBackupStartTime": {
     "Required": "No",
@@ -43,16 +28,31 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "fsx.filesystem.openzfsconfiguration.DeploymentType": {
-    "Allowed values": "SINGLE_AZ_1",
     "Required": "Yes",
     "Type": "String",
+    "Allowed values": "SINGLE_AZ_1",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "fsx.filesystem.openzfsconfiguration.DiskIopsConfiguration": {
+    "Required": "No",
+    "Type": "DiskIopsConfiguration",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "fsx.filesystem.openzfsconfiguration.RootVolumeConfiguration": {
+    "Required": "No",
+    "Type": "RootVolumeConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "fsx.filesystem.openzfsconfiguration.ThroughputCapacity": {
-    "Minimum": "8",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "8",
     "Maximum": "4096",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.filesystem.openzfsconfiguration.WeeklyMaintenanceStartTime": {
+    "Required": "No",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

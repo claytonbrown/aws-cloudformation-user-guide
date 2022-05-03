@@ -1,14 +1,15 @@
 {
   "autoscaling.scalingpolicy.predictivescalingconfiguration.MaxCapacityBreachBehavior": {
-    "Allowed values": "HonorMaxCapacity | IncreaseMaxCapacity",
     "Required": "No",
     "Type": "String",
+    "Allowed values": "HonorMaxCapacity | IncreaseMaxCapacity",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "autoscaling.scalingpolicy.predictivescalingconfiguration.Mode": {
-    "Allowed values": "ForecastAndScale | ForecastOnly",
+  "autoscaling.scalingpolicy.predictivescalingconfiguration.MaxCapacityBuffer": {
     "Required": "No",
-    "Type": "String",
+    "Type": "Integer",
+    "Minimum": "0",
+    "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.scalingpolicy.predictivescalingconfiguration.MetricSpecifications": {
@@ -16,17 +17,16 @@
     "Type": "List of [PredictiveScalingMetricSpecification",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "autoscaling.scalingpolicy.predictivescalingconfiguration.SchedulingBufferTime": {
-    "Minimum": "0",
+  "autoscaling.scalingpolicy.predictivescalingconfiguration.Mode": {
     "Required": "No",
-    "Type": "Integer",
+    "Type": "String",
+    "Allowed values": "ForecastAndScale | ForecastOnly",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "autoscaling.scalingpolicy.predictivescalingconfiguration.MaxCapacityBuffer": {
-    "Minimum": "0",
+  "autoscaling.scalingpolicy.predictivescalingconfiguration.SchedulingBufferTime": {
     "Required": "No",
     "Type": "Integer",
-    "Maximum": "100",
+    "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

@@ -25,7 +25,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "[SecurityGroupIds](#cfn-batch-computeenvironment-computeresources-securitygroupids)" : [ String, ... ],
   "[SpotIamFleetRole](#cfn-batch-computeenvironment-computeresources-spotiamfleetrole)" : String,
   "[Subnets](#cfn-batch-computeenvironment-computeresources-subnets)" : [ String, ... ],
-  "[Tags](#cfn-batch-computeenvironment-computeresources-tags)" : Json,
+  "[Tags](#cfn-batch-computeenvironment-computeresources-tags)" : {Key : Value, ...},
   "[Type](#cfn-batch-computeenvironment-computeresources-type)" : String
 }
 ```
@@ -53,7 +53,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   [SpotIamFleetRole](#cfn-batch-computeenvironment-computeresources-spotiamfleetrole): String
   [Subnets](#cfn-batch-computeenvironment-computeresources-subnets):
     - String
-  [Tags](#cfn-batch-computeenvironment-computeresources-tags): Json
+  [Tags](#cfn-batch-computeenvironment-computeresources-tags): 
+    Key : Value
   [Type](#cfn-batch-computeenvironment-computeresources-type): String
 ```
 
@@ -297,9 +298,14 @@ Key\-value pair tags to be applied to EC2 resources that are launched in the com
 Key\-value pair tags to be applied to EC2 resources that are launched in the compute environment\. For AWS Batch, these take the form of "String1": "String2", where String1 is the tag key and String2 is the tag value−for example, `{ "Name": "Batch Instance - C4OnDemand" }`\. This is helpful for recognizing your AWS Batch instances in the Amazon EC2 console\. These tags can't be updated or removed after the compute environment is created\. Any changes to these tags require that you create a new compute environment and remove the old compute environment\. These tags aren't seen when using the AWS Batch `ListTagsForResource` API operation\.  
 >>>>>>> 2fbc9f39d0ed76ebb48415f03f6250c648a25373
 This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified\.
+<<<<<<< HEAD
 >>>>>>> 0f3f21b370a567bb44401913dd89f38588c024f6
 *Required*: No
 *Type*: Json
+=======
+*Required*: No  
+*Type*: Map of String  
+>>>>>>> e36f94cdd802b47145e313d47e4d74c150cf34d0
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Type`  <a name="cfn-batch-computeenvironment-computeresources-type"></a>

@@ -1,11 +1,4 @@
 {
-  "lightsail.container.Scale": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "Integer",
-    "Maximum": "20",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "lightsail.container.ContainerServiceDeployment": {
     "Required": "No",
     "Type": "ContainerServiceDeployment",
@@ -13,21 +6,29 @@
   },
   "lightsail.container.IsDisabled": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ]
-  },
-  "lightsail.container.Tags": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.container.Power": {
-    "Allowed values": "large | medium | micro | nano | small | xlarge",
     "Required": "Yes",
     "Type": "String",
+    "Allowed values": "large | medium | micro | nano | small | xlarge",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.container.PublicDomainNames": {
+    "Required": "No",
+    "Type": "List of [PublicDomainName",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.container.Scale": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "20",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.container.ServiceName": {
@@ -35,9 +36,8 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "lightsail.container.PublicDomainNames": {
+  "lightsail.container.Tags": {
     "Required": "No",
-    "Type": "List of [PublicDomainName",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   }
 }

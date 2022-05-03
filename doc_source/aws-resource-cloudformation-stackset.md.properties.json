@@ -1,92 +1,92 @@
 {
-  "cloudformation.stackset.Parameters": {
-    "Required": "No",
-    "Type": "List of [Parameter",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cloudformation.stackset.PermissionModel": {
-    "Type": "String",
-    "Required": "Yes",
-    "Allowed Values": "SERVICE_MANAGED` \\| `SELF_MANAGED`  \nThe `PermissionModel` property is required\\.",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "SERVICE_MANAGED` \\| `SELF_MANAGED`  \nThe `PermissionModel` property is required\\."
-    ]
-  },
-  "cloudformation.stackset.TemplateBody": {
-    "Required": "Conditional",
-    "Minimum": "1",
-    "Type": "String",
-    "Maximum": "51200",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cloudformation.stackset.StackSetName": {
-    "Pattern": "^[a-zA-Z][a-zA-Z0-9-]{0,127}$`  \nThe `StackSetName` property is required\\.",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "128",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "cloudformation.stackset.CallAs": {
+  "cloudformation.stackset.AdministrationRoleARN": {
+    "Minimum": "20",
+    "Maximum": "2048",
     "Required": "No",
     "UpdateRequires": "No interruption"
-  },
-  "cloudformation.stackset.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudformation.stackset.AutoDeployment": {
     "Required": "No",
     "Type": "AutoDeployment",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cloudformation.stackset.Description": {
+  "cloudformation.stackset.CallAs": {
     "Required": "No",
-    "Minimum": "1",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cloudformation.stackset.ExecutionRoleName": {
-    "Pattern": "[a-zA-Z_0-9+=,.@-]+",
-    "Required": "No",
-    "Maximum": "64",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "cloudformation.stackset.OperationPreferences": {
-    "Required": "No",
-    "Type": "OperationPreferences",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cloudformation.stackset.StackInstancesGroup": {
-    "Required": "No",
-    "Type": "List of [StackInstances",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "cloudformation.stackset.Capabilities": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cloudformation.stackset.AdministrationRoleARN": {
-    "Required": "No",
-    "Minimum": "20",
-    "Maximum": "2048",
-    "UpdateRequires": "No interruption"
-  },
-  "cloudformation.stackset.TemplateURL": {
-    "Required": "Conditional",
+  "cloudformation.stackset.Description": {
     "Minimum": "1",
-    "Type": "String",
     "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudformation.stackset.ExecutionRoleName": {
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": "[a-zA-Z_0-9+=,.@-]+",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudformation.stackset.ManagedExecution": {
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudformation.stackset.OperationPreferences": {
+    "Required": "No",
+    "Type": "OperationPreferences",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudformation.stackset.Parameters": {
+    "Required": "No",
+    "Type": "List of [Parameter",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudformation.stackset.PermissionModel": {
+    "AllowedValues": [
+      "SERVICE_MANAGED` \\| `SELF_MANAGED`  \nThe `PermissionModel` property is required\\."
+    ],
+    "Allowed Values": "SERVICE_MANAGED` \\| `SELF_MANAGED`  \nThe `PermissionModel` property is required\\.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cloudformation.stackset.StackInstancesGroup": {
+    "Required": "No",
+    "Type": "List of [StackInstances",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudformation.stackset.StackSetName": {
+    "Maximum": "128",
+    "Pattern": "^[a-zA-Z][a-zA-Z0-9-]{0,127}$`  \nThe `StackSetName` property is required\\.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cloudformation.stackset.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudformation.stackset.TemplateBody": {
+    "Minimum": "1",
+    "Maximum": "51200",
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudformation.stackset.TemplateURL": {
+    "Minimum": "1",
+    "Maximum": "1024",
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

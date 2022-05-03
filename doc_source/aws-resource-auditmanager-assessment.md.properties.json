@@ -1,19 +1,4 @@
 {
-  "auditmanager.assessment.FrameworkId": {
-    "Pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
-    "Required": "No",
-    "Maximum": "36",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "36",
-    "Type": "String"
-  },
-  "auditmanager.assessment.Description": {
-    "Pattern": "^[\\w\\W\\s\\S]*$",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "1000",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "auditmanager.assessment.AssessmentReportsDestination": {
     "Required": "No",
     "Type": "AssessmentReportsDestination",
@@ -24,17 +9,27 @@
     "Type": "AWSAccount",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "auditmanager.assessment.Name": {
-    "Pattern": "^[^\\\\]*$",
+  "auditmanager.assessment.Description": {
     "Required": "No",
-    "Maximum": "300",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
+    "Type": "String",
+    "Maximum": "1000",
+    "Pattern": "^[\\w\\W\\s\\S]*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "auditmanager.assessment.Scope": {
+  "auditmanager.assessment.FrameworkId": {
     "Required": "No",
-    "Type": "Scope",
+    "Type": "String",
+    "Minimum": "36",
+    "Maximum": "36",
+    "Pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "auditmanager.assessment.Name": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "300",
+    "Pattern": "^[^\\\\]*$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "auditmanager.assessment.Roles": {
@@ -42,15 +37,20 @@
     "Type": "List of [Role",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "auditmanager.assessment.Scope": {
+    "Required": "No",
+    "Type": "Scope",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "auditmanager.assessment.Status": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "ACTIVE | INACTIVE",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "auditmanager.assessment.Tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "auditmanager.assessment.Status": {
-    "Allowed values": "ACTIVE | INACTIVE",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

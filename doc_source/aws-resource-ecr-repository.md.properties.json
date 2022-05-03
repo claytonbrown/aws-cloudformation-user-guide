@@ -1,42 +1,42 @@
 {
-  "ecr.repository.RepositoryPolicyText": {
-    "Minimum": "0",
+  "ecr.repository.EncryptionConfiguration": {
     "Required": "No",
-    "Maximum": "10240",
-    "UpdateRequires": "No interruption"
-  },
-  "ecr.repository.LifecyclePolicy": {
-    "Required": "No",
-    "Type": "LifecyclePolicy",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Type": "EncryptionConfiguration",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecr.repository.ImageScanningConfiguration": {
     "Required": "No",
     "Type": "ImageScanningConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "ecr.repository.ImageTagMutability": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "IMMUTABLE | MUTABLE",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ecr.repository.LifecyclePolicy": {
+    "Required": "No",
+    "Type": "LifecyclePolicy",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ecr.repository.RepositoryName": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "2",
+    "Maximum": "256",
+    "Pattern": "(?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ecr.repository.RepositoryPolicyText": {
+    "Required": "No",
+    "Minimum": "0",
+    "Maximum": "10240",
+    "UpdateRequires": "No interruption"
+  },
   "ecr.repository.Tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "ecr.repository.RepositoryName": {
-    "Pattern": "(?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*",
-    "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "2",
-    "Type": "String"
-  },
-  "ecr.repository.EncryptionConfiguration": {
-    "Required": "No",
-    "Type": "EncryptionConfiguration",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ecr.repository.ImageTagMutability": {
-    "Allowed values": "IMMUTABLE | MUTABLE",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

@@ -1,71 +1,71 @@
 {
-  "panorama.applicationinstance.RuntimeRoleArn": {
-    "Pattern": "arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:role/.+",
-    "Required": "No",
-    "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "panorama.applicationinstance.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "panorama.applicationinstance.Name": {
-    "Pattern": "[a-zA-Z0-9\\-\\_]+",
-    "Required": "No",
-    "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "panorama.applicationinstance.StatusFilter": {
-    "Allowed values": "DEPLOYMENT_ERROR | DEPLOYMENT_SUCCEEDED | PROCESSING_DEPLOYMENT | PROCESSING_REMOVAL | REMOVAL_FAILED | REMOVAL_SUCCEEDED",
+  "panorama.applicationinstance.ApplicationInstanceIdToReplace": {
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "[a-zA-Z0-9\\-\\_]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "panorama.applicationinstance.ManifestPayload": {
+  "panorama.applicationinstance.DefaultRuntimeContextDevice": {
     "Required": "Yes",
-    "Type": "ManifestPayload",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "[a-zA-Z0-9\\-\\_]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "panorama.applicationinstance.Description": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "255",
+    "Pattern": ".*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "panorama.applicationinstance.DeviceId": {
-    "Pattern": "[a-zA-Z0-9\\-\\_]+",
     "Required": "No",
-    "Maximum": "255",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
-  },
-  "panorama.applicationinstance.Description": {
-    "Pattern": ".*",
-    "Required": "No",
     "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "0",
-    "Type": "String"
-  },
-  "panorama.applicationinstance.DefaultRuntimeContextDevice": {
     "Pattern": "[a-zA-Z0-9\\-\\_]+",
-    "Required": "Yes",
-    "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "panorama.applicationinstance.ManifestOverridesPayload": {
     "Required": "No",
     "Type": "ManifestOverridesPayload",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "panorama.applicationinstance.ApplicationInstanceIdToReplace": {
-    "Pattern": "[a-zA-Z0-9\\-\\_]+",
+  "panorama.applicationinstance.ManifestPayload": {
+    "Required": "Yes",
+    "Type": "ManifestPayload",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "panorama.applicationinstance.Name": {
     "Required": "No",
-    "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "255",
+    "Pattern": "[a-zA-Z0-9\\-\\_]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "panorama.applicationinstance.RuntimeRoleArn": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:role/.+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "panorama.applicationinstance.StatusFilter": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "DEPLOYMENT_ERROR | DEPLOYMENT_SUCCEEDED | PROCESSING_DEPLOYMENT | PROCESSING_REMOVAL | REMOVAL_FAILED | REMOVAL_SUCCEEDED",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "panorama.applicationinstance.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

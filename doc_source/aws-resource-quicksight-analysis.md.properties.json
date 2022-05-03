@@ -1,45 +1,35 @@
 {
-  "quicksight.analysis.AwsAccountId": {
-    "Pattern": "^[0-9]{12}$",
-    "Required": "Yes",
-    "Maximum": "12",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "12",
-    "Type": "String"
-  },
-  "quicksight.analysis.Parameters": {
-    "Required": "No",
-    "Type": "Parameters",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "quicksight.analysis.AnalysisId": {
-    "Pattern": "[\\w\\-]+",
     "Required": "Yes",
-    "Maximum": "2048",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "quicksight.analysis.Name": {
-    "Minimum": "1",
-    "Required": "No",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Pattern": "[\\w\\-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "quicksight.analysis.AwsAccountId": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "12",
+    "Maximum": "12",
+    "Pattern": "^[0-9]{12}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "quicksight.analysis.Errors": {
     "Required": "No",
     "Type": "List of [AnalysisError",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "quicksight.analysis.ThemeArn": {
+  "quicksight.analysis.Name": {
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Minimum": "1",
+    "Maximum": "2048",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "quicksight.analysis.SourceEntity": {
-    "Required": "Yes",
-    "Type": "AnalysisSourceEntity",
+  "quicksight.analysis.Parameters": {
+    "Required": "No",
+    "Type": "Parameters",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.analysis.Permissions": {
@@ -48,10 +38,20 @@
     "Maximum": "64",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "quicksight.analysis.SourceEntity": {
+    "Required": "Yes",
+    "Type": "AnalysisSourceEntity",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "quicksight.analysis.Tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "200",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.analysis.ThemeArn": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

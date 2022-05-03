@@ -1,20 +1,14 @@
 {
-  "appflow.flow.task.TaskProperties": {
+  "appflow.flow.task.ConnectorOperator": {
     "Required": "No",
-    "Type": "List of [TaskPropertiesObject",
+    "Type": "ConnectorOperator",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "appflow.flow.task.TaskType": {
-    "Type": "String",
-    "Required": "Yes",
-    "Allowed values": "Arithmetic` \\| `Filter` \\| `Map` \\| `Map_all` \\| `Mask` \\| `Merge` \\| `Truncate` \\| `Validate",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
   "appflow.flow.task.DestinationField": {
-    "Pattern": ".*",
     "Required": "No",
     "Type": "String",
     "Maximum": "256",
+    "Pattern": ".*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appflow.flow.task.SourceFields": {
@@ -22,9 +16,15 @@
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "appflow.flow.task.ConnectorOperator": {
+  "appflow.flow.task.TaskProperties": {
     "Required": "No",
-    "Type": "ConnectorOperator",
+    "Type": "List of [TaskPropertiesObject",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appflow.flow.task.TaskType": {
+    "Allowed values": "Arithmetic` \\| `Filter` \\| `Map` \\| `Map_all` \\| `Mask` \\| `Merge` \\| `Truncate` \\| `Validate",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

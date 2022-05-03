@@ -1,60 +1,46 @@
 {
-  "events.rule.ecsparameters.Group": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "events.rule.ecsparameters.PlatformVersion": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "events.rule.ecsparameters.LaunchType": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "events.rule.ecsparameters.EnableECSManagedTags": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
   "events.rule.ecsparameters.CapacityProviderStrategy": {
     "Required": "No",
     "Type": "List of [CapacityProviderStrategyItem",
     "Maximum": "6",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "events.rule.ecsparameters.PropagateTags": {
-    "Allowed values": "TASK_DEFINITION",
+  "events.rule.ecsparameters.EnableECSManagedTags": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "events.rule.ecsparameters.EnableExecuteCommand": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "events.rule.ecsparameters.Group": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "events.rule.ecsparameters.TaskDefinitionArn": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "1600",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "events.rule.ecsparameters.PlacementConstraints": {
+  "events.rule.ecsparameters.LaunchType": {
     "Required": "No",
-    "Type": "List of [PlacementConstraint",
-    "Maximum": "10",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "events.rule.ecsparameters.NetworkConfiguration": {
     "Required": "No",
     "Type": "NetworkConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "events.rule.ecsparameters.ReferenceId": {
+  "events.rule.ecsparameters.PlacementConstraints": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
+    "Type": "List of [PlacementConstraint",
+    "Maximum": "10",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.ecsparameters.PlacementStrategies": {
@@ -63,24 +49,38 @@
     "Maximum": "5",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "events.rule.ecsparameters.TaskCount": {
-    "Minimum": "1",
+  "events.rule.ecsparameters.PlatformVersion": {
     "Required": "No",
-    "Type": "Integer",
+    "UpdateRequires": "No interruption"
+  },
+  "events.rule.ecsparameters.PropagateTags": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "TASK_DEFINITION",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "events.rule.ecsparameters.EnableExecuteCommand": {
+  "events.rule.ecsparameters.ReferenceId": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "Type": "String",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.ecsparameters.TagList": {
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "events.rule.ecsparameters.TaskCount": {
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "1",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "events.rule.ecsparameters.TaskDefinitionArn": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1600",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

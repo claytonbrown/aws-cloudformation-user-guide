@@ -1,25 +1,35 @@
 {
-  "servicediscovery.service.NamespaceId": {
+  "servicediscovery.service.Description": {
     "Required": "No",
     "Type": "String",
-    "Maximum": "64",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "servicediscovery.service.Name": {
-    "Pattern": "((?=^.{1,127}$)^([a-zA-Z0-9_][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9_]|[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9_]|[a-zA-Z0-9]))*$)|(^\\.$)",
+  "servicediscovery.service.DnsConfig": {
     "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "DnsConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "servicediscovery.service.HealthCheckConfig": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   },
   "servicediscovery.service.HealthCheckCustomConfig": {
     "Required": "No",
     "Type": "HealthCheckCustomConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "servicediscovery.service.DnsConfig": {
+  "servicediscovery.service.Name": {
     "Required": "No",
-    "Type": "DnsConfig",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Type": "String",
+    "Pattern": "((?=^.{1,127}$)^([a-zA-Z0-9_][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9_]|[a-zA-Z0-9])(\\.([a-zA-Z0-9_][a-zA-Z0-9-_]{0,61}[a-zA-Z0-9_]|[a-zA-Z0-9]))*$)|(^\\.$)",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "servicediscovery.service.NamespaceId": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "64",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "servicediscovery.service.Tags": {
     "Required": "No",
@@ -27,20 +37,10 @@
     "Maximum": "200",
     "UpdateRequires": "Updates are not supported\\."
   },
-  "servicediscovery.service.Description": {
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "servicediscovery.service.Type": {
-    "Allowed values": "HTTP",
     "Required": "No",
     "Type": "String",
+    "Allowed values": "HTTP",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "servicediscovery.service.HealthCheckConfig": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
   }
 }

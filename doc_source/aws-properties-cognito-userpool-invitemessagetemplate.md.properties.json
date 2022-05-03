@@ -1,26 +1,26 @@
 {
-  "cognito.userpool.invitemessagetemplate.EmailSubject": {
-    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+  "cognito.userpool.invitemessagetemplate.EmailMessage": {
     "Required": "No",
-    "Maximum": "140",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
+    "Minimum": "6",
+    "Maximum": "20000",
+    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{####\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.invitemessagetemplate.EmailSubject": {
+    "Required": "No",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "140",
+    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.invitemessagetemplate.SMSMessage": {
-    "Pattern": ".*\\{####\\}.*",
     "Required": "No",
+    "Type": "String",
+    "Minimum": "6",
     "Maximum": "140",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "6",
-    "Type": "String"
-  },
-  "cognito.userpool.invitemessagetemplate.EmailMessage": {
-    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*\\{####\\}[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}\\s*]*",
-    "Required": "No",
-    "Maximum": "20000",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "6",
-    "Type": "String"
+    "Pattern": ".*\\{####\\}.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

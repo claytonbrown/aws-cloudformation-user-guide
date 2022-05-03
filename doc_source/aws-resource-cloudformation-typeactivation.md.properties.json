@@ -1,47 +1,18 @@
 {
-  "cloudformation.typeactivation.TypeName": {
-    "Pattern": "[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}(::MODULE){0,1}",
-    "Required": "Conditional",
-    "Maximum": "204",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "10",
-    "Type": "String"
-  },
-  "cloudformation.typeactivation.VersionBump": {
-    "Allowed values": "MAJOR | MINOR",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
   "cloudformation.typeactivation.AutoUpdate": {
     "Required": "No",
-    "UpdateRequires": "No interruption",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "UpdateRequires": "No interruption"
   },
-  "cloudformation.typeactivation.TypeNameAlias": {
-    "Pattern": "[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}(::MODULE){0,1}",
+  "cloudformation.typeactivation.ExecutionRoleArn": {
     "Required": "No",
-    "Maximum": "204",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "10",
-    "Type": "String"
-  },
-  "cloudformation.typeactivation.PublisherId": {
-    "Pattern": "[0-9a-zA-Z]{12,40}",
-    "Required": "Conditional",
-    "Maximum": "40",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "cloudformation.typeactivation.PublicTypeArn": {
-    "Pattern": "arn:aws[A-Za-z0-9-]{0,64}:cloudformation:[A-Za-z0-9-]{1,64}::type/.+/[0-9a-zA-Z]{12,40}/.+",
-    "Required": "Conditional",
     "Type": "String",
-    "Maximum": "1024",
+    "Minimum": "1",
+    "Maximum": "256",
+    "Pattern": "arn:.+:iam::[0-9]{12}:role/.+",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cloudformation.typeactivation.LoggingConfig": {
@@ -49,22 +20,51 @@
     "Type": "LoggingConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "cloudformation.typeactivation.ExecutionRoleArn": {
-    "Pattern": "arn:.+:iam::[0-9]{12}:role/.+",
-    "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
   "cloudformation.typeactivation.MajorVersion": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "cloudformation.typeactivation.Type": {
-    "Allowed values": "MODULE | RESOURCE",
+  "cloudformation.typeactivation.PublicTypeArn": {
     "Required": "Conditional",
     "Type": "String",
+    "Maximum": "1024",
+    "Pattern": "arn:aws[A-Za-z0-9-]{0,64}:cloudformation:[A-Za-z0-9-]{1,64}::type/.+/[0-9a-zA-Z]{12,40}/.+",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cloudformation.typeactivation.PublisherId": {
+    "Required": "Conditional",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "40",
+    "Pattern": "[0-9a-zA-Z]{12,40}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cloudformation.typeactivation.Type": {
+    "Required": "Conditional",
+    "Type": "String",
+    "Allowed values": "HOOK | MODULE | RESOURCE",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cloudformation.typeactivation.TypeName": {
+    "Required": "Conditional",
+    "Type": "String",
+    "Minimum": "10",
+    "Maximum": "204",
+    "Pattern": "[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}(::MODULE){0,1}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cloudformation.typeactivation.TypeNameAlias": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "10",
+    "Maximum": "204",
+    "Pattern": "[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}(::MODULE){0,1}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cloudformation.typeactivation.VersionBump": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "MAJOR | MINOR",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

@@ -1,26 +1,26 @@
 {
-  "sagemaker.project.Tags": {
+  "sagemaker.project.ProjectDescription": {
     "Required": "No",
-    "UpdateRequires": "Replacement"
+    "Type": "String",
+    "Maximum": "1024",
+    "Pattern": "[\\p{L}\\p{M}\\p{Z}\\p{S}\\p{N}\\p{P}]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "sagemaker.project.ProjectName": {
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,31}",
     "Required": "Yes",
-    "Maximum": "32",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "32",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,31}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "sagemaker.project.ServiceCatalogProvisioningDetails": {
     "Required": "Yes",
     "Type": "Json",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "sagemaker.project.ProjectDescription": {
-    "Pattern": "[\\p{L}\\p{M}\\p{Z}\\p{S}\\p{N}\\p{P}]*",
+  "sagemaker.project.Tags": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "Replacement"
   }
 }

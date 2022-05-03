@@ -1,6 +1,11 @@
 {
-  "msk.cluster.brokernodegroupinfo.SecurityGroups": {
+  "msk.cluster.brokernodegroupinfo.BrokerAZDistribution": {
     "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "msk.cluster.brokernodegroupinfo.ClientSubnets": {
+    "Required": "Yes",
     "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
@@ -9,24 +14,19 @@
     "Type": "ConnectivityInfo",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "msk.cluster.brokernodegroupinfo.ClientSubnets": {
+  "msk.cluster.brokernodegroupinfo.InstanceType": {
     "Required": "Yes",
-    "Type": "List of String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "msk.cluster.brokernodegroupinfo.BrokerAZDistribution": {
-    "Required": "No",
     "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "msk.cluster.brokernodegroupinfo.SecurityGroups": {
+    "Required": "No",
+    "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "msk.cluster.brokernodegroupinfo.StorageInfo": {
     "Required": "No",
     "Type": "StorageInfo",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "msk.cluster.brokernodegroupinfo.InstanceType": {
-    "Required": "Yes",
-    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

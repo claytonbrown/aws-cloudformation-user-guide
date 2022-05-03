@@ -1,10 +1,18 @@
 {
   "kinesisvideo.signalingchannel.MessageTtlSeconds": {
-    "Minimum": "5",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "5",
     "Maximum": "120",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisvideo.signalingchannel.Name": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "Pattern": "[a-zA-Z0-9_.-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "kinesisvideo.signalingchannel.Tags": {
     "Required": "No",
@@ -12,17 +20,9 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisvideo.signalingchannel.Type": {
-    "Allowed values": "FULL_MESH | SINGLE_MASTER",
     "Required": "No",
     "Type": "String",
+    "Allowed values": "FULL_MESH | SINGLE_MASTER",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "kinesisvideo.signalingchannel.Name": {
-    "Pattern": "[a-zA-Z0-9_.-]+",
-    "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
   }
 }

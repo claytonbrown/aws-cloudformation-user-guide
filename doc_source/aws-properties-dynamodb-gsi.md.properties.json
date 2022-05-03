@@ -1,17 +1,21 @@
 {
-  "dynamodb.gsi.IndexName": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "Updates are not supported\\."
-  },
-  "dynamodb.gsi.KeySchema": {
-    "Required": "Yes",
-    "UpdateRequires": "Updates are not supported\\."
-  },
   "dynamodb.gsi.ContributorInsightsSpecification": {
     "Required": "No",
     "Type": "ContributorInsightsSpecification",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dynamodb.gsi.IndexName": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "3",
+    "Maximum": "255",
+    "Pattern": "[a-zA-Z0-9_.-]+",
+    "UpdateRequires": "Updates are not supported\\."
+  },
+  "dynamodb.gsi.KeySchema": {
+    "Required": "Yes",
+    "Maximum": "2",
+    "UpdateRequires": "Updates are not supported\\."
   },
   "dynamodb.gsi.Projection": {
     "Required": "Yes",

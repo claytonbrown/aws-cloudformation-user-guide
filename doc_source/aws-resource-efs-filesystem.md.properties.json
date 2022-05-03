@@ -1,69 +1,69 @@
 {
-  "efs.filesystem.FileSystemTags": {
+  "efs.filesystem.AvailabilityZoneName": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "efs.filesystem.LifecyclePolicies": {
-    "Required": "No",
-    "Type": "List of [LifecyclePolicy",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": ".+",
+    "UpdateRequires": "Replacement"
   },
   "efs.filesystem.BackupPolicy": {
     "Required": "No",
     "Type": "BackupPolicy",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "efs.filesystem.Encrypted": {
-    "Required": "Conditional",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "efs.filesystem.ThroughputMode": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "efs.filesystem.FileSystemPolicy": {
-    "Pattern": "[\\s\\S]+",
-    "Minimum": "1",
-    "Required": "No",
-    "Maximum": "20000",
-    "UpdateRequires": "No interruption"
-  },
-  "efs.filesystem.PerformanceMode": {
-    "Allowed values": "generalPurpose | maxIO",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "efs.filesystem.AvailabilityZoneName": {
-    "Pattern": ".+",
-    "Minimum": "1",
-    "Required": "No",
-    "Maximum": "64",
-    "UpdateRequires": "Replacement"
-  },
   "efs.filesystem.BypassPolicyLockoutSafetyCheck": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "efs.filesystem.Encrypted": {
+    "Required": "Conditional",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "efs.filesystem.FileSystemPolicy": {
+    "Required": "No",
+    "Minimum": "1",
+    "Maximum": "20000",
+    "Pattern": "[\\s\\S]+",
+    "UpdateRequires": "No interruption"
+  },
+  "efs.filesystem.FileSystemTags": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "efs.filesystem.KmsKeyId": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2048",
+    "Pattern": "^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|mrk-[0-9a-f]{32}|alias/[a-zA-Z0-9/_-]+|(arn:aws[-a-z]*:kms:[a-z0-9-]+:\\d{12}:((key/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|(key/mrk-[0-9a-f]{32})|(alias/[a-zA-Z0-9/_-]+))))$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "efs.filesystem.LifecyclePolicies": {
+    "Required": "No",
+    "Type": "List of [LifecyclePolicy",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "efs.filesystem.PerformanceMode": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "generalPurpose | maxIO",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "efs.filesystem.ProvisionedThroughputInMibps": {
     "Required": "Conditional",
     "UpdateRequires": "No interruption"
   },
-  "efs.filesystem.KmsKeyId": {
-    "Pattern": "^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|mrk-[0-9a-f]{32}|alias/[a-zA-Z0-9/_-]+|(arn:aws[-a-z]*:kms:[a-z0-9-]+:\\d{12}:((key/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|(key/mrk-[0-9a-f]{32})|(alias/[a-zA-Z0-9/_-]+))))$",
+  "efs.filesystem.ThroughputMode": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "2048",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "No interruption"
   }
 }

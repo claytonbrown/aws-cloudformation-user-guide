@@ -1,29 +1,29 @@
 {
-  "ec2.networkinsightspath.DestinationPort": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "Integer",
-    "Maximum": "65535",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "ec2.networkinsightspath.Destination": {
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.networkinsightspath.Protocol": {
-    "Allowed values": "tcp | udp",
-    "Required": "Yes",
+  "ec2.networkinsightspath.DestinationIp": {
+    "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "15",
+    "Pattern": "^([0-9]{1,3}.){3}[0-9]{1,3}$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.networkinsightspath.DestinationIp": {
-    "Pattern": "^([0-9]{1,3}.){3}[0-9]{1,3}$",
+  "ec2.networkinsightspath.DestinationPort": {
     "Required": "No",
-    "Maximum": "15",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "0",
-    "Type": "String"
+    "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "65535",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.networkinsightspath.Protocol": {
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "tcp | udp",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.networkinsightspath.Source": {
     "Required": "Yes",
@@ -31,12 +31,12 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.networkinsightspath.SourceIp": {
-    "Pattern": "^([0-9]{1,3}.){3}[0-9]{1,3}$",
     "Required": "No",
-    "Maximum": "15",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "0",
-    "Type": "String"
+    "Maximum": "15",
+    "Pattern": "^([0-9]{1,3}.){3}[0-9]{1,3}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.networkinsightspath.Tags": {
     "Required": "No",

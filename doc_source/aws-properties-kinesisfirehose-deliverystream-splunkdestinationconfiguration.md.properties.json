@@ -1,4 +1,38 @@
 {
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.CloudWatchLoggingOptions": {
+    "Required": "No",
+    "Type": "CloudWatchLoggingOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.HECAcknowledgmentTimeoutInSeconds": {
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "180",
+    "Maximum": "600",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.HECEndpoint": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "2048",
+    "Pattern": ".*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.HECEndpointType": {
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "Event | Raw",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.HECToken": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "2048",
+    "Pattern": ".*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "kinesisfirehose.deliverystream.splunkdestinationconfiguration.ProcessingConfiguration": {
     "Required": "No",
     "Type": "ProcessingConfiguration",
@@ -9,49 +43,15 @@
     "Type": "SplunkRetryOptions",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.CloudWatchLoggingOptions": {
+  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.S3BackupMode": {
     "Required": "No",
-    "Type": "CloudWatchLoggingOptions",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.HECEndpointType": {
-    "Allowed values": "Event | Raw",
-    "Required": "Yes",
     "Type": "String",
+    "Allowed values": "AllEvents | FailedEventsOnly",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.HECToken": {
-    "Pattern": ".*",
-    "Required": "Yes",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "0",
-    "Type": "String"
-  },
-  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.HECEndpoint": {
-    "Pattern": ".*",
-    "Required": "Yes",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "0",
-    "Type": "String"
   },
   "kinesisfirehose.deliverystream.splunkdestinationconfiguration.S3Configuration": {
     "Required": "Yes",
     "Type": "S3DestinationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.S3BackupMode": {
-    "Allowed values": "AllEvents | FailedEventsOnly",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kinesisfirehose.deliverystream.splunkdestinationconfiguration.HECAcknowledgmentTimeoutInSeconds": {
-    "Minimum": "180",
-    "Required": "No",
-    "Type": "Integer",
-    "Maximum": "600",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

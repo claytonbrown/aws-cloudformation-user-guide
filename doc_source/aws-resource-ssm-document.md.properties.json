@@ -1,36 +1,40 @@
 {
-  "ssm.document.DocumentType": {
-    "Type": "String",
-    "Required": "No",
-    "Allowed Values": "ApplicationConfigurationSchema` \\| `Automation` \\| `Automation.ChangeTemplate` \\| `Command` \\| `DeploymentStrategy` \\| `Package` \\| `Policy` \\| `Session",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "ApplicationConfigurationSchema` \\| `Automation` \\| `Automation.ChangeTemplate` \\| `Command` \\| `DeploymentStrategy` \\| `Package` \\| `Policy` \\| `Session"
-    ]
-  },
-  "ssm.document.Content": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "Json",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "ssm.document.Attachments": {
     "Required": "No",
     "Type": "List of [AttachmentsSource",
     "Maximum": "20",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ssm.document.TargetType": {
-    "Pattern": "^\\/[\\w\\.\\-\\:\\/]*$",
-    "Required": "No",
-    "Maximum": "200",
-    "UpdateRequires": "Replacement"
+  "ssm.document.Content": {
+    "Required": "Yes",
+    "Type": "Json",
+    "Minimum": "1",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ssm.document.VersionName": {
-    "Pattern": "^[a-zA-Z0-9_\\-.]{1,128}$",
+  "ssm.document.DocumentFormat": {
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    "Allowed values": "JSON | TEXT | YAML",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ssm.document.DocumentType": {
+    "AllowedValues": [
+      "ApplicationConfigurationSchema` \\| `Automation` \\| `Automation.ChangeTemplate` \\| `Command` \\| `DeploymentStrategy` \\| `Package` \\| `Policy` \\| `Session"
+    ],
+    "Allowed Values": "ApplicationConfigurationSchema` \\| `Automation` \\| `Automation.ChangeTemplate` \\| `Command` \\| `DeploymentStrategy` \\| `Package` \\| `Policy` \\| `Session",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ssm.document.Name": {
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ssm.document.Requires": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
   },
   "ssm.document.Tags": {
     "Required": "No",
@@ -38,21 +42,16 @@
     "Maximum": "1000",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.document.Name": {
-    "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+  "ssm.document.TargetType": {
     "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ssm.document.DocumentFormat": {},
-  "ssm.document.TEXT": {
-    "Allowed values": "JSON | TEXT | YAML",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ssm.document.Requires": {
-    "Required": "No",
+    "Maximum": "200",
+    "Pattern": "^\\/[\\w\\.\\-\\:\\/]*$",
     "UpdateRequires": "Replacement"
+  },
+  "ssm.document.VersionName": {
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "^[a-zA-Z0-9_\\-.]{1,128}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

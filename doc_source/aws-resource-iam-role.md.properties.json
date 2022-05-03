@@ -1,47 +1,47 @@
 {
-  "iam.role.RoleName": {
+  "iam.role.AssumeRolePolicyDocument": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
+  },
+  "iam.role.Description": {
     "Required": "No",
+    "Type": "String",
+    "Maximum": "1000",
+    "Pattern": "[\\p{L}\\p{M}\\p{Z}\\p{S}\\p{N}\\p{P}]*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iam.role.ManagedPolicyArns": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "iam.role.MaxSessionDuration": {
+    "Required": "No",
+    "Minimum": "3600",
+    "Maximum": "43200",
+    "UpdateRequires": "No interruption"
+  },
+  "iam.role.Path": {
+    "Required": "No",
+    "Minimum": "1",
+    "Maximum": "512",
+    "Pattern": "(\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F)",
     "UpdateRequires": "Replacement"
   },
   "iam.role.PermissionsBoundary": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "iam.role.MaxSessionDuration": {
-    "Minimum": "3600",
-    "Required": "No",
-    "Maximum": "43200",
-    "UpdateRequires": "No interruption"
-  },
-  "iam.role.AssumeRolePolicyDocument": {
-    "Required": "Yes",
-    "UpdateRequires": "No interruption"
-  },
-  "iam.role.ManagedPolicyArns": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "iam.role.Description": {
-    "Pattern": "[\\p{L}\\p{M}\\p{Z}\\p{S}\\p{N}\\p{P}]*",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "1000",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "iam.role.Policies": {
     "Required": "No",
     "UpdateRequires": "No interruption"
+  },
+  "iam.role.RoleName": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
   },
   "iam.role.Tags": {
     "Required": "No",
     "Maximum": "50",
     "UpdateRequires": "No interruption"
-  },
-  "iam.role.Path": {
-    "Pattern": "(\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F)",
-    "Minimum": "1",
-    "Required": "No",
-    "Maximum": "512",
-    "UpdateRequires": "Replacement"
   }
 }

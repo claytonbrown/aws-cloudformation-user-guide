@@ -1,34 +1,8 @@
 {
-  "events.rule.target.KinesisParameters": {
-    "Required": "No",
-    "Type": "KinesisParameters",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "events.rule.target.DeadLetterConfig": {
-    "Required": "No",
-    "Type": "DeadLetterConfig",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "events.rule.target.RunCommandParameters": {
-    "Required": "No",
-    "Type": "RunCommandParameters",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "events.rule.target.SqsParameters": {
-    "Required": "No",
-    "Type": "SqsParameters",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "events.rule.target.InputPath": {
-    "Required": "No",
+  "events.rule.target.Arn": {
+    "Required": "Yes",
     "Type": "String",
-    "Maximum": "256",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "events.rule.target.RoleArn": {
     "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
     "Maximum": "1600",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -36,14 +10,27 @@
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "events.rule.target.RetryPolicy": {
+  "events.rule.target.DeadLetterConfig": {
     "Required": "No",
-    "Type": "RetryPolicy",
+    "Type": "DeadLetterConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.EcsParameters": {
     "Required": "No",
     "UpdateRequires": "No interruption"
+  },
+  "events.rule.target.HttpParameters": {
+    "Required": "No",
+    "Type": "HttpParameters",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "events.rule.target.Id": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": "[\\.\\-_A-Za-z0-9]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.Input": {
     "Required": "No",
@@ -51,9 +38,20 @@
     "Maximum": "8192",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "events.rule.target.InputPath": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "events.rule.target.InputTransformer": {
     "Required": "No",
     "Type": "InputTransformer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "events.rule.target.KinesisParameters": {
+    "Required": "No",
+    "Type": "KinesisParameters",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.RedshiftDataParameters": {
@@ -61,24 +59,31 @@
     "Type": "RedshiftDataParameters",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "events.rule.target.Id": {
-    "Pattern": "[\\.\\-_A-Za-z0-9]+",
-    "Required": "Yes",
-    "Maximum": "64",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "events.rule.target.HttpParameters": {
+  "events.rule.target.RetryPolicy": {
     "Required": "No",
-    "Type": "HttpParameters",
+    "Type": "RetryPolicy",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "events.rule.target.Arn": {
-    "Minimum": "1",
-    "Required": "Yes",
+  "events.rule.target.RoleArn": {
+    "Required": "Conditional",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "1600",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "events.rule.target.RunCommandParameters": {
+    "Required": "No",
+    "Type": "RunCommandParameters",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "events.rule.target.SageMakerPipelineParameters": {
+    "Required": "No",
+    "Type": "SageMakerPipelineParameters",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "events.rule.target.SqsParameters": {
+    "Required": "No",
+    "Type": "SqsParameters",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

@@ -1,25 +1,20 @@
 {
-  "imagebuilder.containerrecipe.ParentImage": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "imagebuilder.containerrecipe.Name": {
-    "Pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "imagebuilder.containerrecipe.Components": {
     "Required": "Yes",
     "Type": "List of [ComponentConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "imagebuilder.containerrecipe.PlatformOverride": {
+  "imagebuilder.containerrecipe.ContainerType": {
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "DOCKER",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "imagebuilder.containerrecipe.Description": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1024",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.DockerfileTemplateData": {
@@ -32,32 +27,37 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "imagebuilder.containerrecipe.ImageOsVersionOverride": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "imagebuilder.containerrecipe.InstanceConfiguration": {
     "Required": "No",
     "Type": "InstanceConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "imagebuilder.containerrecipe.WorkingDirectory": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
   "imagebuilder.containerrecipe.KmsKeyId": {
-    "Minimum": "1",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "1024",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "imagebuilder.containerrecipe.ContainerType": {
-    "Allowed values": "DOCKER",
+  "imagebuilder.containerrecipe.Name": {
     "Required": "Yes",
     "Type": "String",
+    "Pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "imagebuilder.containerrecipe.ImageOsVersionOverride": {
+  "imagebuilder.containerrecipe.ParentImage": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1024",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "imagebuilder.containerrecipe.PlatformOverride": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -67,21 +67,21 @@
     "Type": "Map of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "imagebuilder.containerrecipe.Description": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "imagebuilder.containerrecipe.TargetRepository": {
     "Required": "Yes",
     "Type": "TargetContainerRepository",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.Version": {
-    "Pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
     "Required": "Yes",
+    "Pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
     "UpdateRequires": "Replacement"
+  },
+  "imagebuilder.containerrecipe.WorkingDirectory": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1024",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

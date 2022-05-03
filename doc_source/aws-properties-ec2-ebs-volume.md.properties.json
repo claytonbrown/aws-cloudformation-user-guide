@@ -1,29 +1,11 @@
 {
-  "ec2.ebs.volume.Encrypted": {
+  "ec2.ebs.volume.AutoEnableIO": {
     "Required": "No",
-    "UpdateRequires": "Updates are not supported\\.",
     "AllowedValues": [
       "True",
       "False"
-    ]
-  },
-  "ec2.ebs.volume.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.ebs.volume.OutpostArn": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.ebs.volume.VolumeType": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "ec2.ebs.volume.Throughput": {
-    "Required": "No",
-    "Type": "Integer",
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.ebs.volume.AvailabilityZone": {
@@ -31,7 +13,38 @@
     "Type": "String",
     "UpdateRequires": "Updates are not supported\\."
   },
+  "ec2.ebs.volume.Encrypted": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "Updates are not supported\\."
+  },
   "ec2.ebs.volume.Iops": {
+    "Required": "Conditional",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.ebs.volume.KmsKeyId": {
+    "Required": "No",
+    "UpdateRequires": "Updates are not supported\\."
+  },
+  "ec2.ebs.volume.MultiAttachEnabled": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.ebs.volume.OutpostArn": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.ebs.volume.Size": {
     "Required": "Conditional",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -41,31 +54,18 @@
     "Type": "String",
     "UpdateRequires": "Updates are not supported\\."
   },
-  "ec2.ebs.volume.AutoEnableIO": {
+  "ec2.ebs.volume.Tags": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.ebs.volume.KmsKeyId": {
+  "ec2.ebs.volume.Throughput": {
     "Required": "No",
-    "UpdateRequires": "Updates are not supported\\."
-  },
-  "ec2.ebs.volume.Size": {
-    "Required": "Conditional",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.ebs.volume.MultiAttachEnabled": {
+  "ec2.ebs.volume.VolumeType": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "UpdateRequires": "No interruption"
   }
 }

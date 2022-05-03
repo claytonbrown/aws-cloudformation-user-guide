@@ -1,20 +1,10 @@
 {
-  "apprunner.service.SourceConfiguration": {
-    "Required": "Yes",
-    "Type": "SourceConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "apprunner.service.AutoScalingConfigurationArn": {
-    "Pattern": "arn:aws(-[\\w]+)*:[a-z0-9-\\\\.]{0,63}:[a-z0-9-\\\\.]{0,63}:[0-9]{12}:(\\w|\\/|-){1,1011}",
     "Required": "No",
-    "Maximum": "1011",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
-  },
-  "apprunner.service.InstanceConfiguration": {
-    "Required": "No",
-    "Type": "InstanceConfiguration",
+    "Maximum": "1011",
+    "Pattern": "arn:aws(-[\\w]+)*:[a-z0-9-\\\\.]{0,63}:[a-z0-9-\\\\.]{0,63}:[0-9]{12}:(\\w|\\/|-){1,1011}",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "apprunner.service.EncryptionConfiguration": {
@@ -22,22 +12,37 @@
     "Type": "EncryptionConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "apprunner.service.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "apprunner.service.ServiceName": {
-    "Pattern": "[A-Za-z0-9][A-Za-z0-9-_]{3,39}",
-    "Required": "No",
-    "Maximum": "40",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "4",
-    "Type": "String"
-  },
   "apprunner.service.HealthCheckConfiguration": {
     "Required": "No",
     "Type": "HealthCheckConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apprunner.service.InstanceConfiguration": {
+    "Required": "No",
+    "Type": "InstanceConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apprunner.service.NetworkConfiguration": {
+    "Required": "No",
+    "Type": "NetworkConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apprunner.service.ServiceName": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "4",
+    "Maximum": "40",
+    "Pattern": "[A-Za-z0-9][A-Za-z0-9-_]{3,39}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "apprunner.service.SourceConfiguration": {
+    "Required": "Yes",
+    "Type": "SourceConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apprunner.service.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

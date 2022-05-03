@@ -1,38 +1,38 @@
 {
-  "codegurureviewer.repositoryassociation.ConnectionArn": {
-    "Pattern": "arn:aws(-[\\w]+)*:.+:.+:[0-9]{12}:.+",
-    "Minimum": "0",
+  "codegurureviewer.repositoryassociation.BucketName": {
     "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "codegurureviewer.repositoryassociation.ConnectionArn": {
+    "Required": "No",
+    "Minimum": "0",
     "Maximum": "256",
+    "Pattern": "arn:aws(-[\\w]+)*:.+:.+:[0-9]{12}:.+",
     "UpdateRequires": "Replacement"
   },
   "codegurureviewer.repositoryassociation.Name": {
-    "Pattern": "^\\S[\\w.-]*$",
-    "Required": "Yes",
-    "Maximum": "100",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "codegurureviewer.repositoryassociation.Type": {
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "^\\S[\\w.-]*$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "codegurureviewer.repositoryassociation.Owner": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "^\\S(.*\\S)?$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "codegurureviewer.repositoryassociation.Tags": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
-  "codegurureviewer.repositoryassociation.BucketName": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "codegurureviewer.repositoryassociation.Owner": {
-    "Pattern": "^\\S(.*\\S)?$",
-    "Required": "No",
-    "Maximum": "100",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
+  "codegurureviewer.repositoryassociation.Type": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

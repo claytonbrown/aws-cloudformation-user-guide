@@ -1,8 +1,15 @@
 {
-  "gamelift.build.OperatingSystem": {
-    "Allowed values": "AMAZON_LINUX | AMAZON_LINUX_2 | WINDOWS_2012",
+  "gamelift.build.Name": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "gamelift.build.OperatingSystem": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "AMAZON_LINUX | AMAZON_LINUX_2 | WINDOWS_2012",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "gamelift.build.StorageLocation": {
@@ -10,17 +17,10 @@
     "Type": "S3Location",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "gamelift.build.Name": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "gamelift.build.Version": {
-    "Minimum": "1",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "1024",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }

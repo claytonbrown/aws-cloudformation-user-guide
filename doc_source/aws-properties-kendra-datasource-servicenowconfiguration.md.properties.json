@@ -1,27 +1,28 @@
 {
+  "kendra.datasource.servicenowconfiguration.AuthenticationType": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "HTTP_BASIC | OAUTH2",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kendra.datasource.servicenowconfiguration.HostUrl": {
+    "Required": "Yes",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "Pattern": "^(?!(^(https?|ftp|file):\\/\\/))[a-z0-9-]+(\\.service-now\\.com)$",
+    "UpdateRequires": "No interruption"
+  },
   "kendra.datasource.servicenowconfiguration.KnowledgeArticleConfiguration": {
     "Required": "No",
     "Type": "ServiceNowKnowledgeArticleConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kendra.datasource.servicenowconfiguration.HostUrl": {
-    "Pattern": "^(?!(^(https?|ftp|file):\\/\\/))[a-z0-9-]+(\\.service-now\\.com)$",
+  "kendra.datasource.servicenowconfiguration.SecretArn": {
     "Required": "Yes",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
-  },
-  "kendra.datasource.servicenowconfiguration.AuthenticationType": {
-    "Allowed values": "HTTP_BASIC | OAUTH2",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kendra.datasource.servicenowconfiguration.ServiceNowBuildVersion": {
-    "Allowed values": "LONDON | OTHERS",
-    "Required": "Yes",
-    "Type": "String",
+    "Maximum": "1284",
+    "Pattern": "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.servicenowconfiguration.ServiceCatalogConfiguration": {
@@ -29,12 +30,10 @@
     "Type": "ServiceNowServiceCatalogConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kendra.datasource.servicenowconfiguration.SecretArn": {
-    "Pattern": "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
+  "kendra.datasource.servicenowconfiguration.ServiceNowBuildVersion": {
     "Required": "Yes",
-    "Maximum": "1284",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
+    "Type": "String",
+    "Allowed values": "LONDON | OTHERS",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

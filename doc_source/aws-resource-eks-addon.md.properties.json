@@ -1,31 +1,31 @@
 {
-  "eks.addon.ResolveConflicts": {
-    "Allowed values": "NONE | OVERWRITE",
-    "Required": "No",
+  "eks.addon.AddonName": {
+    "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "eks.addon.AddonVersion": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "eks.addon.AddonName": {
+  "eks.addon.ClusterName": {
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "^[0-9A-Za-z][A-Za-z0-9\\-_]*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "eks.addon.ClusterName": {
-    "Pattern": "^[0-9A-Za-z][A-Za-z0-9\\-_]*",
-    "Required": "Yes",
-    "Maximum": "100",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
+  "eks.addon.ResolveConflicts": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "NONE | OVERWRITE",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "eks.addon.ServiceAccountRoleArn": {
-    "Minimum": "1",
     "Required": "No",
+    "Minimum": "1",
     "Maximum": "255",
     "UpdateRequires": "No interruption"
   },

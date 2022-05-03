@@ -1,62 +1,36 @@
 {
+  "ec2.capacityreservation.AvailabilityZone": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "ec2.capacityreservation.EbsOptimized": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.capacityreservation.EndDate": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.capacityreservation.InstanceMatchCriteria": {
-    "Allowed values": "open | targeted",
+  "ec2.capacityreservation.EndDateType": {
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ec2.capacityreservation.TagSpecifications": {
-    "Required": "No",
-    "Type": "List of [TagSpecification",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Allowed values": "limited | unlimited",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.capacityreservation.EphemeralStorage": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "True",
       "False"
-    ]
-  },
-  "ec2.capacityreservation.InstanceType": {
-    "Required": "Yes",
-    "UpdateRequires": "Replacement"
-  },
-  "ec2.capacityreservation.EndDateType": {
-    "Allowed values": "limited | unlimited",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.capacityreservation.Tenancy": {
-    "Allowed values": "dedicated | default",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "ec2.capacityreservation.PlacementGroupArn": {
-    "Pattern": "^arn:aws([a-z-]+)?:ec2:[a-z\\d-]+:\\d{12}:placement-group/([^\\s].+[^\\s]){1,255}$",
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "ec2.capacityreservation.AvailabilityZone": {
-    "Required": "Yes",
-    "Type": "String",
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.capacityreservation.InstanceCount": {
@@ -64,16 +38,42 @@
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.capacityreservation.OutPostArn": {
-    "Pattern": "^arn:aws([a-z-]+)?:outposts:[a-z\\d-]+:\\d{12}:outpost/op-[a-f0-9]{17}$",
+  "ec2.capacityreservation.InstanceMatchCriteria": {
     "Required": "No",
     "Type": "String",
+    "Allowed values": "open | targeted",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.capacityreservation.InstancePlatform": {
-    "Allowed values": "Linux with SQL Server Enterprise | Linux with SQL Server Standard | Linux with SQL Server Web | Linux/UNIX | Red Hat Enterprise Linux | RHEL with HA | RHEL with HA and SQL Server Enterprise | RHEL with HA and SQL Server Standard | RHEL with SQL Server Enterprise | RHEL with SQL Server Standard | RHEL with SQL Server Web | SUSE Linux | Windows | Windows with SQL Server | Windows with SQL Server Enterprise | Windows with SQL Server Standard | Windows with SQL Server Web",
     "Required": "Yes",
     "Type": "String",
+    "Allowed values": "Linux with SQL Server Enterprise | Linux with SQL Server Standard | Linux with SQL Server Web | Linux/UNIX | Red Hat Enterprise Linux | RHEL with HA | RHEL with HA and SQL Server Enterprise | RHEL with HA and SQL Server Standard | RHEL with SQL Server Enterprise | RHEL with SQL Server Standard | RHEL with SQL Server Web | SUSE Linux | Windows | Windows with SQL Server | Windows with SQL Server Enterprise | Windows with SQL Server Standard | Windows with SQL Server Web",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.capacityreservation.InstanceType": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
+  "ec2.capacityreservation.OutPostArn": {
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "^arn:aws([a-z-]+)?:outposts:[a-z\\d-]+:\\d{12}:outpost/op-[a-f0-9]{17}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.capacityreservation.PlacementGroupArn": {
+    "Required": "No",
+    "Pattern": "^arn:aws([a-z-]+)?:ec2:[a-z\\d-]+:\\d{12}:placement-group/([^\\s].+[^\\s]){1,255}$",
+    "UpdateRequires": "Replacement"
+  },
+  "ec2.capacityreservation.TagSpecifications": {
+    "Required": "No",
+    "Type": "List of [TagSpecification",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.capacityreservation.Tenancy": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "dedicated | default",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

@@ -1,40 +1,40 @@
 {
-  "config.configrule.Description": {
-    "Minimum": "0",
+  "config.configrule.ConfigRuleName": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": ".*\\S.*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "config.configrule.Description": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
     "Maximum": "256",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "config.configrule.InputParameters": {
-    "Minimum": "1",
     "Required": "No",
     "Type": "Json",
+    "Minimum": "1",
     "Maximum": "1024",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "config.configrule.Source": {
-    "Required": "Yes",
-    "Type": "Source",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "config.configrule.ConfigRuleName": {
-    "Pattern": ".*\\S.*",
+  "config.configrule.MaximumExecutionFrequency": {
     "Required": "No",
-    "Maximum": "128",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
+    "Type": "String",
+    "Allowed values": "One_Hour | Six_Hours | Three_Hours | Twelve_Hours | TwentyFour_Hours",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "config.configrule.Scope": {
     "Required": "No",
     "Type": "Scope",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "config.configrule.MaximumExecutionFrequency": {
-    "Allowed values": "One_Hour | Six_Hours | Three_Hours | Twelve_Hours | TwentyFour_Hours",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  "config.configrule.Source": {
+    "Required": "Yes",
+    "Type": "Source",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

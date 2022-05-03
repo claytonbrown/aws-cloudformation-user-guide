@@ -1,11 +1,9 @@
 {
-  "devicefarm.devicepool.Tags": {
+  "devicefarm.devicepool.Description": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "devicefarm.devicepool.Rules": {
-    "Required": "Yes",
-    "Type": "List of [Rule",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "16384",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "devicefarm.devicepool.MaxDevices": {
@@ -13,26 +11,28 @@
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "devicefarm.devicepool.ProjectArn": {
-    "Pattern": "^arn:.+",
-    "Required": "Yes",
-    "Maximum": "1011",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "32",
-    "Type": "String"
-  },
   "devicefarm.devicepool.Name": {
-    "Minimum": "0",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "0",
     "Maximum": "256",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "devicefarm.devicepool.Description": {
-    "Minimum": "0",
-    "Required": "No",
+  "devicefarm.devicepool.ProjectArn": {
+    "Required": "Yes",
     "Type": "String",
-    "Maximum": "16384",
+    "Minimum": "32",
+    "Maximum": "1011",
+    "Pattern": "^arn:.+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "devicefarm.devicepool.Rules": {
+    "Required": "Yes",
+    "Type": "List of [Rule",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "devicefarm.devicepool.Tags": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   }
 }

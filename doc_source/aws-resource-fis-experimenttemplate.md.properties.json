@@ -1,33 +1,38 @@
 {
-  "fis.experimenttemplate.Tags": {
+  "fis.experimenttemplate.Actions": {
+    "Required": "No",
+    "Type": "Map of [ExperimentTemplateAction",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fis.experimenttemplate.Description": {
     "Required": "Yes",
-    "Type": "Map of String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "String",
+    "Maximum": "512",
+    "Pattern": "[\\s\\S]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fis.experimenttemplate.LogConfiguration": {
+    "Required": "No",
+    "Type": "ExperimentTemplateLogConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "fis.experimenttemplate.RoleArn": {
-    "Pattern": "[\\S]+",
     "Required": "Yes",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
     "Minimum": "20",
-    "Type": "String"
+    "Maximum": "2048",
+    "Pattern": "[\\S]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "fis.experimenttemplate.StopConditions": {
     "Required": "Yes",
     "Type": "List of [ExperimentTemplateStopCondition",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "fis.experimenttemplate.Description": {
-    "Pattern": "[\\s\\S]+",
+  "fis.experimenttemplate.Tags": {
     "Required": "Yes",
-    "Type": "String",
-    "Maximum": "512",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "fis.experimenttemplate.Actions": {
-    "Required": "No",
-    "Type": "Map of [ExperimentTemplateAction",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Type": "Map of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "fis.experimenttemplate.Targets": {
     "Required": "Yes",

@@ -1,37 +1,37 @@
 {
-  "cloudformation.publictypeversion.PublicVersionNumber": {
-    "Pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(.*)$",
-    "Minimum": "5",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "cloudformation.publictypeversion.LogDeliveryBucket": {
-    "Pattern": "[\\s\\S]+",
-    "Minimum": "3",
-    "Required": "No",
-    "Maximum": "63",
-    "UpdateRequires": "Replacement"
-  },
   "cloudformation.publictypeversion.Arn": {
-    "Pattern": "arn:aws[A-Za-z0-9-]{0,64}:cloudformation:[A-Za-z0-9-]{1,64}:([0-9]{12})?:type/.+",
     "Required": "Conditional",
     "Type": "String",
     "Maximum": "1024",
+    "Pattern": "arn:aws[A-Za-z0-9-]{0,64}:cloudformation:[A-Za-z0-9-]{1,64}:([0-9]{12})?:type/.+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cloudformation.publictypeversion.LogDeliveryBucket": {
+    "Required": "No",
+    "Minimum": "3",
+    "Maximum": "63",
+    "Pattern": "[\\s\\S]+",
+    "UpdateRequires": "Replacement"
+  },
+  "cloudformation.publictypeversion.PublicVersionNumber": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "5",
+    "Pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(.*)$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cloudformation.publictypeversion.Type": {
-    "Allowed values": "MODULE | RESOURCE",
     "Required": "Conditional",
     "Type": "String",
+    "Allowed values": "HOOK | MODULE | RESOURCE",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cloudformation.publictypeversion.TypeName": {
-    "Pattern": "[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}(::MODULE){0,1}",
     "Required": "Conditional",
-    "Maximum": "204",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "Type": "String",
     "Minimum": "10",
-    "Type": "String"
+    "Maximum": "204",
+    "Pattern": "[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}(::MODULE){0,1}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

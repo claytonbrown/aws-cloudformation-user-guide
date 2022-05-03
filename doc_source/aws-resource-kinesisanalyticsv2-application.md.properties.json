@@ -1,47 +1,47 @@
 {
-  "kinesisanalyticsv2.application.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "kinesisanalyticsv2.application.ApplicationName": {
-    "Pattern": "[a-zA-Z0-9_.-]+",
-    "Required": "No",
-    "Maximum": "128",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "kinesisanalyticsv2.application.ApplicationDescription": {
-    "Minimum": "0",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "kinesisanalyticsv2.application.RuntimeEnvironment": {
-    "Allowed values": "FLINK-1_11 | FLINK-1_13 | FLINK-1_6 | FLINK-1_8 | SQL-1_0 | ZEPPELIN-FLINK-1_0 | ZEPPELIN-FLINK-2_0",
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "kinesisanalyticsv2.application.ApplicationMode": {
-    "Allowed values": "INTERACTIVE | STREAMING",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "kinesisanalyticsv2.application.ApplicationConfiguration": {
     "Required": "No",
     "Type": "ApplicationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisanalyticsv2.application.ServiceExecutionRole": {
-    "Pattern": "arn:.*",
-    "Required": "Yes",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+  "kinesisanalyticsv2.application.ApplicationDescription": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisanalyticsv2.application.ApplicationMode": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "INTERACTIVE | STREAMING",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "kinesisanalyticsv2.application.ApplicationName": {
+    "Required": "No",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "128",
+    "Pattern": "[a-zA-Z0-9_.-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "kinesisanalyticsv2.application.RuntimeEnvironment": {
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "FLINK-1_11 | FLINK-1_13 | FLINK-1_6 | FLINK-1_8 | SQL-1_0 | ZEPPELIN-FLINK-1_0 | ZEPPELIN-FLINK-2_0",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "kinesisanalyticsv2.application.ServiceExecutionRole": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "Pattern": "arn:.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisanalyticsv2.application.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

@@ -1,21 +1,8 @@
 {
-  "sagemaker.modelqualityjobdefinition.modelqualityappspecification.PostAnalyticsProcessorSourceUri": {
-    "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
+  "sagemaker.modelqualityjobdefinition.modelqualityappspecification.ContainerArguments": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "sagemaker.modelqualityjobdefinition.modelqualityappspecification.Environment": {
-    "Required": "No",
-    "Type": "Map of String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "sagemaker.modelqualityjobdefinition.modelqualityappspecification.RecordPreprocessorSourceUri": {
-    "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
+    "Type": "List of String",
+    "Maximum": "50",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "sagemaker.modelqualityjobdefinition.modelqualityappspecification.ContainerEntrypoint": {
@@ -24,23 +11,36 @@
     "Maximum": "100",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "sagemaker.modelqualityjobdefinition.modelqualityappspecification.ContainerArguments": {
+  "sagemaker.modelqualityjobdefinition.modelqualityappspecification.Environment": {
     "Required": "No",
-    "Type": "List of String",
-    "Maximum": "50",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "sagemaker.modelqualityjobdefinition.modelqualityappspecification.ProblemType": {
-    "Allowed values": "BinaryClassification | MulticlassClassification | Regression",
-    "Required": "Yes",
-    "Type": "String",
+    "Type": "Map of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "sagemaker.modelqualityjobdefinition.modelqualityappspecification.ImageUri": {
-    "Pattern": ".*",
     "Required": "Yes",
     "Type": "String",
     "Maximum": "255",
+    "Pattern": ".*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelqualityjobdefinition.modelqualityappspecification.PostAnalyticsProcessorSourceUri": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelqualityjobdefinition.modelqualityappspecification.ProblemType": {
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "BinaryClassification | MulticlassClassification | Regression",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelqualityjobdefinition.modelqualityappspecification.RecordPreprocessorSourceUri": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

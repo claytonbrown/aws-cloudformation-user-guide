@@ -1,20 +1,21 @@
 {
-  "guardduty.filter.Description": {
-    "Minimum": "0",
+  "guardduty.filter.Action": {
     "Required": "Yes",
     "Type": "String",
+    "Allowed values": "ARCHIVE | NOOP",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "guardduty.filter.Description": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "0",
     "Maximum": "512",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "guardduty.filter.Rank": {
-    "Required": "Yes",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
   "guardduty.filter.DetectorId": {
-    "Minimum": "1",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "300",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
@@ -23,17 +24,16 @@
     "Type": "FindingCriteria",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "guardduty.filter.Action": {
-    "Allowed values": "ARCHIVE | NOOP",
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "guardduty.filter.Name": {
-    "Minimum": "3",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "3",
     "Maximum": "64",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "guardduty.filter.Rank": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

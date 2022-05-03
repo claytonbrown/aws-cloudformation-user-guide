@@ -1,8 +1,15 @@
 {
-  "ssmincidents.responseplan.ssmautomation.TargetAccount": {
-    "Allowed values": "IMPACTED_ACCOUNT | RESPONSE_PLAN_OWNER_ACCOUNT",
+  "ssmincidents.responseplan.ssmautomation.DocumentName": {
+    "Required": "Yes",
+    "Type": "String",
+    "Pattern": "^[a-zA-Z0-9_\\-.:/]{3,128}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssmincidents.responseplan.ssmautomation.DocumentVersion": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "128",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssmincidents.responseplan.ssmautomation.Parameters": {
@@ -10,25 +17,18 @@
     "Type": "List of [SsmParameter",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssmincidents.responseplan.ssmautomation.DocumentVersion": {
+  "ssmincidents.responseplan.ssmautomation.RoleArn": {
+    "Required": "Yes",
+    "Type": "String",
     "Minimum": "0",
+    "Maximum": "1000",
+    "Pattern": "^arn:aws(-cn|-us-gov)?:iam::([0-9]{12})?:role/.+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssmincidents.responseplan.ssmautomation.TargetAccount": {
     "Required": "No",
     "Type": "String",
-    "Maximum": "128",
+    "Allowed values": "IMPACTED_ACCOUNT | RESPONSE_PLAN_OWNER_ACCOUNT",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssmincidents.responseplan.ssmautomation.DocumentName": {
-    "Pattern": "^[a-zA-Z0-9_\\-.:/]{3,128}$",
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssmincidents.responseplan.ssmautomation.RoleArn": {
-    "Pattern": "^arn:aws(-cn|-us-gov)?:iam::([0-9]{12})?:role/.+$",
-    "Required": "Yes",
-    "Maximum": "1000",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "0",
-    "Type": "String"
   }
 }

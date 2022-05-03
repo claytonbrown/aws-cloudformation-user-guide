@@ -1,4 +1,17 @@
 {
+  "sagemaker.domain.usersettings.ExecutionRole": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.domain.usersettings.JupyterServerAppSettings": {
+    "Required": "No",
+    "Type": "JupyterServerAppSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "sagemaker.domain.usersettings.KernelGatewayAppSettings": {
     "Required": "No",
     "Type": "KernelGatewayAppSettings",
@@ -14,18 +27,5 @@
     "Required": "No",
     "Type": "SharingSettings",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "sagemaker.domain.usersettings.JupyterServerAppSettings": {
-    "Required": "No",
-    "Type": "JupyterServerAppSettings",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "sagemaker.domain.usersettings.ExecutionRole": {
-    "Pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
-    "Required": "No",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "20",
-    "Type": "String"
   }
 }

@@ -1,5 +1,21 @@
 {
-  "ec2.blockdev.template.VolumeSize": {
+  "ec2.blockdev.template.DeleteOnTermination": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "ec2.blockdev.template.Encrypted": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "ec2.blockdev.template.Iops": {
     "Required": "Conditional",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -14,29 +30,13 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.blockdev.template.Encrypted": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "ec2.blockdev.template.DeleteOnTermination": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+  "ec2.blockdev.template.VolumeSize": {
+    "Required": "Conditional",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.blockdev.template.VolumeType": {
     "Required": "No",
     "UpdateRequires": "No interruption"
-  },
-  "ec2.blockdev.template.Iops": {
-    "Required": "Conditional",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

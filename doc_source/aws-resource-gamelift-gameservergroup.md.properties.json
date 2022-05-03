@@ -1,12 +1,33 @@
 {
+  "gamelift.gameservergroup.AutoScalingPolicy": {
+    "Required": "No",
+    "Type": "AutoScalingPolicy",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "gamelift.gameservergroup.BalancingStrategy": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "ON_DEMAND_ONLY | SPOT_ONLY | SPOT_PREFERRED",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "gamelift.gameservergroup.DeleteOption": {
     "Required": "No",
     "Type": "String",
+    "Allowed values": "FORCE_DELETE | RETAIN | SAFE_DELETE",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "gamelift.gameservergroup.MaxSize": {
+  "gamelift.gameservergroup.GameServerGroupName": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "[a-zA-Z0-9-\\.]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "gamelift.gameservergroup.GameServerProtectionPolicy": {
     "Required": "No",
-    "Type": "Double",
+    "Type": "String",
+    "Allowed values": "FULL_PROTECTION | NO_PROTECTION",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "gamelift.gameservergroup.InstanceDefinitions": {
@@ -15,57 +36,39 @@
     "Maximum": "20",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "gamelift.gameservergroup.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  "gamelift.gameservergroup.LaunchTemplate": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
   },
-  "gamelift.gameservergroup.BalancingStrategy": {
-    "Allowed values": "ON_DEMAND_ONLY | SPOT_ONLY | SPOT_PREFERRED",
+  "gamelift.gameservergroup.MaxSize": {
     "Required": "No",
-    "Type": "String",
+    "Type": "Double",
+    "Minimum": "1",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "gamelift.gameservergroup.MinSize": {
     "Required": "No",
     "Type": "Double",
+    "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "gamelift.gameservergroup.LaunchTemplate": {
+  "gamelift.gameservergroup.RoleArn": {
     "Required": "Yes",
-    "Type": "LaunchTemplate",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "gamelift.gameservergroup.GameServerGroupName": {
-    "Pattern": "[a-zA-Z0-9-\\.]+",
-    "Required": "Yes",
-    "Maximum": "128",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
-  },
-  "gamelift.gameservergroup.AutoScalingPolicy": {
-    "Required": "No",
-    "Type": "AutoScalingPolicy",
+    "Maximum": "256",
+    "Pattern": "^arn:.*:role\\/[\\w+=,.@-]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "gamelift.gameservergroup.Tags": {
+    "Required": "No",
+    "Maximum": "200",
+    "UpdateRequires": "No interruption"
   },
   "gamelift.gameservergroup.VpcSubnets": {
     "Required": "No",
     "Type": "List of String",
+    "Maximum": "20",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "gamelift.gameservergroup.GameServerProtectionPolicy": {
-    "Allowed values": "FULL_PROTECTION | NO_PROTECTION",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "gamelift.gameservergroup.RoleArn": {
-    "Pattern": "^arn:.*:role\\/[\\w+=,.@-]+",
-    "Required": "Yes",
-    "Maximum": "256",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
   }
 }

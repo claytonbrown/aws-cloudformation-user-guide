@@ -1,45 +1,45 @@
 {
   "sso.assignment.InstanceArn": {
-    "Pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
-    "Minimum": "10",
     "Required": "Yes",
+    "Minimum": "10",
     "Maximum": "1224",
+    "Pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
     "UpdateRequires": "Replacement"
   },
-  "sso.assignment.TargetType": {
-    "Allowed values": "AWS_ACCOUNT",
+  "sso.assignment.PermissionSetArn": {
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "sso.assignment.TargetId": {
-    "Pattern": "\\d{12}",
-    "Required": "Yes",
-    "Maximum": "12",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "12",
-    "Type": "String"
-  },
-  "sso.assignment.PrincipalType": {
-    "Allowed values": "GROUP | USER",
-    "Required": "Yes",
-    "Type": "String",
+    "Minimum": "10",
+    "Maximum": "1224",
+    "Pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "sso.assignment.PrincipalId": {
-    "Pattern": "^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$",
     "Required": "Yes",
-    "Maximum": "47",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "47",
+    "Pattern": "^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "sso.assignment.PermissionSetArn": {
-    "Pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}",
+  "sso.assignment.PrincipalType": {
     "Required": "Yes",
-    "Maximum": "1224",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "10",
-    "Type": "String"
+    "Type": "String",
+    "Allowed values": "GROUP | USER",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sso.assignment.TargetId": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "12",
+    "Maximum": "12",
+    "Pattern": "\\d{12}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sso.assignment.TargetType": {
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "AWS_ACCOUNT",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

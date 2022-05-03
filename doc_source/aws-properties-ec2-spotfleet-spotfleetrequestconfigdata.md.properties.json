@@ -1,71 +1,29 @@
 {
-  "ec2.spotfleet.spotfleetrequestconfigdata.ValidUntil": {
+  "ec2.spotfleet.spotfleetrequestconfigdata.AllocationStrategy": {
     "Required": "No",
-    "UpdateRequires": "Replacement"
+    "Type": "String",
+    "Allowed values": "capacityOptimized | capacityOptimizedPrioritized | diversified | lowestPrice",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.spotfleet.spotfleetrequestconfigdata.Context": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.spotfleet.spotfleetrequestconfigdata.ExcessCapacityTerminationPolicy": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "default | noTermination",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.spotfleet.spotfleetrequestconfigdata.IamFleetRole": {
     "Required": "Yes",
     "UpdateRequires": "Replacement"
   },
-  "ec2.spotfleet.spotfleetrequestconfigdata.ExcessCapacityTerminationPolicy": {
-    "Allowed values": "default | noTermination",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.spotfleet.spotfleetrequestconfigdata.ValidFrom": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "ec2.spotfleet.spotfleetrequestconfigdata.OnDemandMaxTotalPrice": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ec2.spotfleet.spotfleetrequestconfigdata.Type": {
-    "Allowed values": "instant | maintain | request",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ec2.spotfleet.spotfleetrequestconfigdata.SpotMaxTotalPrice": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ec2.spotfleet.spotfleetrequestconfigdata.ReplaceUnhealthyInstances": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "ec2.spotfleet.spotfleetrequestconfigdata.OnDemandTargetCapacity": {
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ec2.spotfleet.spotfleetrequestconfigdata.TerminateInstancesWithExpiration": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
   "ec2.spotfleet.spotfleetrequestconfigdata.InstanceInterruptionBehavior": {
+    "Required": "No",
+    "Type": "String",
     "Allowed values": "hibernate | stop | terminate",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ec2.spotfleet.spotfleetrequestconfigdata.AllocationStrategy": {
-    "Allowed values": "capacityOptimized | capacityOptimizedPrioritized | diversified | lowestPrice",
-    "Required": "No",
-    "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.spotfleet.spotfleetrequestconfigdata.InstancePoolsToUseCount": {
@@ -77,19 +35,39 @@
     "Type": "List of [SpotFleetLaunchSpecification",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "ec2.spotfleet.spotfleetrequestconfigdata.LaunchTemplateConfigs": {
+    "Required": "Conditional",
+    "Type": "List of [LaunchTemplateConfig",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "ec2.spotfleet.spotfleetrequestconfigdata.LoadBalancersConfig": {
     "Required": "No",
     "Type": "LoadBalancersConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.spotfleet.spotfleetrequestconfigdata.SpotPrice": {
+  "ec2.spotfleet.spotfleetrequestconfigdata.OnDemandAllocationStrategy": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "lowestPrice | prioritized",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.spotfleet.spotfleetrequestconfigdata.OnDemandMaxTotalPrice": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.spotfleet.spotfleetrequestconfigdata.LaunchTemplateConfigs": {
-    "Required": "Conditional",
-    "Type": "List of [LaunchTemplateConfig",
+  "ec2.spotfleet.spotfleetrequestconfigdata.OnDemandTargetCapacity": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.spotfleet.spotfleetrequestconfigdata.ReplaceUnhealthyInstances": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.spotfleet.spotfleetrequestconfigdata.SpotMaintenanceStrategies": {
@@ -97,26 +75,48 @@
     "Type": "SpotMaintenanceStrategies",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "ec2.spotfleet.spotfleetrequestconfigdata.SpotMaxTotalPrice": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.spotfleet.spotfleetrequestconfigdata.SpotPrice": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "ec2.spotfleet.spotfleetrequestconfigdata.TargetCapacity": {
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.spotfleet.spotfleetrequestconfigdata.Context": {
+  "ec2.spotfleet.spotfleetrequestconfigdata.TargetCapacityUnitType": {
     "Required": "No",
     "Type": "String",
+    "Allowed values": "memory-mib | units | vcpu",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.spotfleet.spotfleetrequestconfigdata.OnDemandAllocationStrategy": {
-    "Allowed values": "lowestPrice | prioritized",
+  "ec2.spotfleet.spotfleetrequestconfigdata.TerminateInstancesWithExpiration": {
     "Required": "No",
-    "Type": "String",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.spotfleet.spotfleetrequestconfigdata.TargetCapacityUnitType": {
-    "Allowed values": "memory-mib | units | vcpu",
+  "ec2.spotfleet.spotfleetrequestconfigdata.Type": {
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Allowed values": "instant | maintain | request",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.spotfleet.spotfleetrequestconfigdata.ValidFrom": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ec2.spotfleet.spotfleetrequestconfigdata.ValidUntil": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
   }
 }

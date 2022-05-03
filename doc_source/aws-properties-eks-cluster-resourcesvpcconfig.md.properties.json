@@ -1,31 +1,31 @@
 {
-  "eks.cluster.resourcesvpcconfig.PublicAccessCidrs": {
+  "eks.cluster.resourcesvpcconfig.EndpointPrivateAccess": {
     "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
     "UpdateRequires": "No interruption"
   },
   "eks.cluster.resourcesvpcconfig.EndpointPublicAccess": {
     "Required": "No",
-    "UpdateRequires": "No interruption",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "eks.cluster.resourcesvpcconfig.PublicAccessCidrs": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "eks.cluster.resourcesvpcconfig.SecurityGroupIds": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
   },
   "eks.cluster.resourcesvpcconfig.SubnetIds": {
     "Required": "Yes",
     "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "eks.cluster.resourcesvpcconfig.EndpointPrivateAccess": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "eks.cluster.resourcesvpcconfig.SecurityGroupIds": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
   }
 }

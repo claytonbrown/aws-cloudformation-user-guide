@@ -1,21 +1,31 @@
 {
-  "ssm.resourcedatasync.SyncSource": {
-    "Required": "No",
-    "Type": "SyncSource",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssm.resourcedatasync.KMSKeyArn": {
-    "Pattern": "arn:.*",
-    "Required": "No",
-    "Maximum": "512",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "ssm.resourcedatasync.SyncFormat": {
-    "Allowed values": "JsonSerDe",
+  "ssm.resourcedatasync.BucketName": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ssm.resourcedatasync.BucketPrefix": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ssm.resourcedatasync.BucketRegion": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ssm.resourcedatasync.KMSKeyArn": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "512",
+    "Pattern": "arn:.*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ssm.resourcedatasync.S3Destination": {
@@ -23,39 +33,29 @@
     "Type": "S3Destination",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "ssm.resourcedatasync.SyncFormat": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "JsonSerDe",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "ssm.resourcedatasync.SyncName": {
-    "Minimum": "1",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "64",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ssm.resourcedatasync.BucketName": {
-    "Minimum": "1",
+  "ssm.resourcedatasync.SyncSource": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "2048",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "SyncSource",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssm.resourcedatasync.SyncType": {
-    "Minimum": "1",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "64",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "ssm.resourcedatasync.BucketPrefix": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ssm.resourcedatasync.BucketRegion": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "64",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

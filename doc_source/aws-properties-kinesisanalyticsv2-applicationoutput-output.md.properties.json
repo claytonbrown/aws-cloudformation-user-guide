@@ -1,20 +1,12 @@
 {
-  "kinesisanalyticsv2.applicationoutput.output.Name": {
-    "Pattern": "[^-\\s<>&]*",
-    "Required": "No",
-    "Maximum": "32",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "kinesisanalyticsv2.applicationoutput.output.LambdaOutput": {
-    "Required": "No",
-    "Type": "LambdaOutput",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "kinesisanalyticsv2.applicationoutput.output.DestinationSchema": {
     "Required": "Yes",
     "Type": "DestinationSchema",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisanalyticsv2.applicationoutput.output.KinesisFirehoseOutput": {
+    "Required": "No",
+    "Type": "KinesisFirehoseOutput",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisanalyticsv2.applicationoutput.output.KinesisStreamsOutput": {
@@ -22,9 +14,17 @@
     "Type": "KinesisStreamsOutput",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kinesisanalyticsv2.applicationoutput.output.KinesisFirehoseOutput": {
+  "kinesisanalyticsv2.applicationoutput.output.LambdaOutput": {
     "Required": "No",
-    "Type": "KinesisFirehoseOutput",
+    "Type": "LambdaOutput",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisanalyticsv2.applicationoutput.output.Name": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "32",
+    "Pattern": "[^-\\s<>&]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

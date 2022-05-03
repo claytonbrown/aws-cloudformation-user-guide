@@ -1,15 +1,21 @@
 {
+  "transfer.workflow.Description": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "256",
+    "Pattern": "^[\\w- ]*$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "transfer.workflow.OnExceptionSteps": {
     "Required": "No",
     "Type": "List of [WorkflowStep",
     "Maximum": "8",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "transfer.workflow.Description": {
-    "Pattern": "^[\\w- ]*$",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "256",
+  "transfer.workflow.Steps": {
+    "Required": "Yes",
+    "Type": "List of [WorkflowStep",
+    "Maximum": "8",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "transfer.workflow.Tags": {
@@ -17,11 +23,5 @@
     "Type": "List of [Tag",
     "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "transfer.workflow.Steps": {
-    "Required": "Yes",
-    "Type": "List of [WorkflowStep",
-    "Maximum": "8",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

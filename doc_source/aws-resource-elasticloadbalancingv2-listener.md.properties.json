@@ -1,22 +1,17 @@
 {
-  "elasticloadbalancingv2.listener.DefaultActions": {
-    "Required": "Yes",
-    "Type": "List of [Action",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "elasticloadbalancingv2.listener.AlpnPolicy": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticloadbalancingv2.listener.SslPolicy": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
+  "elasticloadbalancingv2.listener.Certificates": {
+    "Required": "Conditional",
+    "Type": "List of [Certificate",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticloadbalancingv2.listener.Protocol": {
-    "Allowed values": "GENEVE | HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP",
-    "Required": "No",
-    "Type": "String",
+  "elasticloadbalancingv2.listener.DefaultActions": {
+    "Required": "Yes",
+    "Type": "List of [Action",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticloadbalancingv2.listener.LoadBalancerArn": {
@@ -25,15 +20,20 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticloadbalancingv2.listener.Port": {
-    "Minimum": "1",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "1",
     "Maximum": "65535",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "elasticloadbalancingv2.listener.Certificates": {
-    "Required": "Conditional",
-    "Type": "List of [Certificate",
+  "elasticloadbalancingv2.listener.Protocol": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "GENEVE | HTTP | HTTPS | TCP | TCP_UDP | TLS | UDP",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticloadbalancingv2.listener.SslPolicy": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   }
 }

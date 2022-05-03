@@ -1,47 +1,47 @@
 {
-  "lightsail.loadbalancer.SessionStickinessEnabled": {
+  "lightsail.loadbalancer.AttachedInstances": {
     "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.loadbalancer.HealthCheckPath": {
+    "Required": "No",
+    "Type": "String",
+    "Pattern": ".*\\S.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.loadbalancer.InstancePort": {
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "Updates are not supported\\."
   },
+  "lightsail.loadbalancer.IpAddressType": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "dualstack | ipv4",
+    "UpdateRequires": "Updates are not supported\\."
+  },
+  "lightsail.loadbalancer.LoadBalancerName": {
+    "Required": "Yes",
+    "Type": "String",
+    "Pattern": "\\w[\\w\\-]*\\w",
+    "UpdateRequires": "Updates are not supported\\."
+  },
+  "lightsail.loadbalancer.SessionStickinessEnabled": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "No interruption"
+  },
   "lightsail.loadbalancer.SessionStickinessLBCookieDurationSeconds": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "lightsail.loadbalancer.LoadBalancerName": {
-    "Pattern": "\\w[\\w\\-]*\\w",
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "Updates are not supported\\."
-  },
-  "lightsail.loadbalancer.HealthCheckPath": {
-    "Pattern": ".*\\S.*",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "lightsail.loadbalancer.AttachedInstances": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "lightsail.loadbalancer.Tags": {
     "Required": "No",
     "UpdateRequires": "No interruption"
-  },
-  "lightsail.loadbalancer.IpAddressType": {
-    "Allowed values": "dualstack | ipv4",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "Updates are not supported\\."
   }
 }

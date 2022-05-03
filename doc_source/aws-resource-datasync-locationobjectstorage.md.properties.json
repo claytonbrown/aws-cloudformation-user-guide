@@ -1,53 +1,11 @@
 {
-  "datasync.locationobjectstorage.ServerHostname": {
-    "Pattern": "^(([a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9\\-]*[A-Za-z0-9])$",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "datasync.locationobjectstorage.BucketName": {
-    "Pattern": "^[a-zA-Z0-9_\\-\\+\\./\\(\\)\\$\\p{Zs}]+$",
-    "Required": "Yes",
-    "Maximum": "63",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "3",
-    "Type": "String"
-  },
   "datasync.locationobjectstorage.AccessKey": {
-    "Pattern": "^.+$",
-    "Required": "No",
-    "Maximum": "200",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "8",
-    "Type": "String"
-  },
-  "datasync.locationobjectstorage.ServerProtocol": {
-    "Allowed values": "HTTP | HTTPS",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "datasync.locationobjectstorage.SecretKey": {
-    "Pattern": "^.+$",
-    "Required": "No",
-    "Maximum": "200",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "Minimum": "8",
-    "Type": "String"
-  },
-  "datasync.locationobjectstorage.Subdirectory": {
-    "Pattern": "^[a-zA-Z0-9_\\-\\+\\./\\(\\)\\p{Zs}]*$",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "4096",
+    "Maximum": "200",
+    "Pattern": "^.+$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "datasync.locationobjectstorage.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "Maximum": "50",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "datasync.locationobjectstorage.AgentArns": {
     "Required": "Yes",
@@ -55,11 +13,53 @@
     "Maximum": "4",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "datasync.locationobjectstorage.BucketName": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "3",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9_\\-\\+\\./\\(\\)\\$\\p{Zs}]+$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "datasync.locationobjectstorage.SecretKey": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "8",
+    "Maximum": "200",
+    "Pattern": "^.+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.locationobjectstorage.ServerHostname": {
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "255",
+    "Pattern": "^(([a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9\\-]*[A-Za-z0-9])$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "datasync.locationobjectstorage.ServerPort": {
-    "Minimum": "1",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "1",
     "Maximum": "65536",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.locationobjectstorage.ServerProtocol": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "HTTP | HTTPS",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.locationobjectstorage.Subdirectory": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "4096",
+    "Pattern": "^[a-zA-Z0-9_\\-\\+\\./\\(\\)\\p{Zs}]*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.locationobjectstorage.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

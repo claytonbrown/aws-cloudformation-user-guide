@@ -1,93 +1,99 @@
 {
-  "rds.dbcluster.BacktrackWindow": {
+  "rds.dbcluster.AssociatedRoles": {
     "Required": "No",
-    "Type": "Long",
+    "Type": "List of [DBClusterRole",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "rds.dbcluster.CopyTagsToSnapshot": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.dbcluster.SnapshotIdentifier": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "rds.dbcluster.DBClusterParameterGroupName": {},
-  "rds.dbcluster.SourceRegion": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "rds.dbcluster.RestoreType": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "rds.dbcluster.EngineVersion": {},
-  "rds.dbcluster.Engine": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
-  },
-  "rds.dbcluster.PreferredBackupWindow": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "rds.dbcluster.MasterUserPassword": {
-    "Required": "Conditional",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "rds.dbcluster.EnableHttpEndpoint": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.dbcluster.VpcSecurityGroupIds": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "rds.dbcluster.AvailabilityZones": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
-  "rds.dbcluster.EnableCloudwatchLogsExports": {
+  "rds.dbcluster.BacktrackWindow": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
+    "Type": "Long",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rds.dbcluster.BackupRetentionPeriod": {
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "rds.dbcluster.Tags": {
+  "rds.dbcluster.CopyTagsToSnapshot": {
     "Required": "No",
-    "Type": "List of [Tag",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rds.dbcluster.DatabaseName": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
-  "rds.dbcluster.MasterUsername": {
-    "Required": "Conditional",
+  "rds.dbcluster.DBClusterIdentifier": {
+    "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "rds.dbcluster.ScalingConfiguration": {
+  "rds.dbcluster.DBClusterParameterGroupName": {},
+  "rds.dbcluster.aws rds describe-db-cluster-parameter-groups --query \"DBClusterParameterGroups[].DBClusterParameterGroupName\" --output text": {
     "Required": "No",
-    "Type": "ScalingConfiguration",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.dbcluster.DBSubnetGroupName": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "rds.dbcluster.DeletionProtection": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.dbcluster.EnableCloudwatchLogsExports": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "rds.dbcluster.EnableHttpEndpoint": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "rds.dbcluster.EnableIAMDatabaseAuthentication": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "rds.dbcluster.Engine": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "rds.dbcluster.EngineMode": {
+    "EngineMode`  <a name=\"cfn-rds-dbcluster-enginemode\"></a>\nThe DB engine mode of the DB cluster, either `provisioned`, `serverless`, `parallelquery`, `global`, or `multimaster`\\.  \nThe `parallelquery` engine mode isn't required for Aurora MySQL version 1\\.23 and higher 1\\.x versions, and version 2\\.09 and higher 2\\.x versions\\.  \nThe `global` engine mode isn't required for Aurora MySQL version 1\\.22 and higher 1\\.x versions, and `global` engine mode isn't required for any 2\\.x versions\\.  \nThe `multimaster` engine mode only applies for DB clusters created with Aurora MySQL version 5\\.6\\.10a\\.  \nFor Aurora PostgreSQL, the `global` engine mode isn't required, and both the `parallelquery` and the `multimaster` engine modes currently aren't supported\\.  \nLimitations and requirements apply to some DB engine modes\\. For more information, see the following sections in the *Amazon Aurora User Guide": "+  [ Limitations of Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations) \n+  [ Limitations of Parallel Query](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations) \n+  [ Limitations of Aurora Global Databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations) \n+  [ Limitations of Multi\\-Master Clusters](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations)",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "rds.dbcluster.EngineVersion": {},
+  "rds.dbcluster.aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"": {},
+  "rds.dbcluster.aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"": {},
+  "rds.dbcluster.aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
   "rds.dbcluster.GlobalClusterIdentifier": {
     "Required": "No",
@@ -98,55 +104,13 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "rds.dbcluster.AssociatedRoles": {
-    "Required": "No",
-    "Type": "List of [DBClusterRole",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "rds.dbcluster.aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"": {},
-  "rds.dbcluster.SourceDBClusterIdentifier": {
-    "Required": "No",
+  "rds.dbcluster.MasterUsername": {
+    "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "rds.dbcluster.aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
-  },
-  "rds.dbcluster.aws rds describe-db-cluster-parameter-groups --query \"DBClusterParameterGroups[].DBClusterParameterGroupName\" --output text": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "rds.dbcluster.EnableIAMDatabaseAuthentication": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.dbcluster.StorageEncrypted": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.dbcluster.DeletionProtection": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.dbcluster.ReplicationSourceIdentifier": {
-    "Required": "No",
+  "rds.dbcluster.MasterUserPassword": {
+    "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -155,34 +119,70 @@
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "rds.dbcluster.DBClusterIdentifier": {
+  "rds.dbcluster.PreferredBackupWindow": {
     "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "No interruption"
   },
-  "rds.dbcluster.UseLatestRestorableTime": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.dbcluster.aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"": {},
   "rds.dbcluster.PreferredMaintenanceWindow": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "rds.dbcluster.EngineMode": {
-    "EngineMode`  <a name=\"cfn-rds-dbcluster-enginemode\"></a>\nThe DB engine mode of the DB cluster, either `provisioned`, `serverless`, `parallelquery`, `global`, or `multimaster`\\.  \nThe `parallelquery` engine mode isn't required for Aurora MySQL version 1\\.23 and higher 1\\.x versions, and version 2\\.09 and higher 2\\.x versions\\.  \nThe `global` engine mode isn't required for Aurora MySQL version 1\\.22 and higher 1\\.x versions, and `global` engine mode isn't required for any 2\\.x versions\\.  \nThe `multimaster` engine mode only applies for DB clusters created with Aurora MySQL version 5\\.6\\.10a\\.  \nFor Aurora PostgreSQL, the `global` engine mode isn't required, and both the `parallelquery` and the `multimaster` engine modes currently aren't supported\\.  \nLimitations and requirements apply to some DB engine modes\\. For more information, see the following sections in the *Amazon Aurora User Guide": "+  [ Limitations of Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations) \n+  [ Limitations of Parallel Query](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations) \n+  [ Limitations of Aurora Global Databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations) \n+  [ Limitations of Multi\\-Master Clusters](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations)",
+  "rds.dbcluster.ReplicationSourceIdentifier": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.dbcluster.RestoreType": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "rds.dbcluster.DBSubnetGroupName": {
+  "rds.dbcluster.ScalingConfiguration": {
+    "Required": "No",
+    "Type": "ScalingConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.dbcluster.SnapshotIdentifier": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "rds.dbcluster.SourceDBClusterIdentifier": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "rds.dbcluster.SourceRegion": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "rds.dbcluster.StorageEncrypted": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "rds.dbcluster.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.dbcluster.UseLatestRestorableTime": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "rds.dbcluster.VpcSecurityGroupIds": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

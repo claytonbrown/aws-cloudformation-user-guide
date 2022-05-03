@@ -1,8 +1,17 @@
 {
-  "events.archive.RetentionDays": {
-    "Minimum": "0",
+  "events.archive.ArchiveName": {
     "Required": "No",
-    "Type": "Integer",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "48",
+    "Pattern": "[\\.\\-_A-Za-z0-9]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "events.archive.Description": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "512",
+    "Pattern": ".*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.archive.EventPattern": {
@@ -10,25 +19,16 @@
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "events.archive.ArchiveName": {
-    "Pattern": "[\\.\\-_A-Za-z0-9]+",
+  "events.archive.RetentionDays": {
     "Required": "No",
-    "Maximum": "48",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "events.archive.Description": {
-    "Pattern": ".*",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "512",
+    "Type": "Integer",
+    "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.archive.SourceArn": {
-    "Minimum": "1",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "1600",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }

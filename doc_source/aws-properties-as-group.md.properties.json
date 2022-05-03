@@ -1,28 +1,84 @@
 {
+  "as.group.AutoScalingGroupName": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "as.group.AvailabilityZones": {
+    "Required": "Conditional",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "as.group.CapacityRebalance": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "as.group.Context": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "as.group.Cooldown": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "as.group.DesiredCapacity": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "as.group.DesiredCapacityType": {
+    "Required": "No",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "No interruption"
+  },
   "as.group.HealthCheckGracePeriod": {
     "Required": "Conditional",
     "UpdateRequires": "No interruption"
   },
-  "as.group.PlacementGroup": {
+  "as.group.HealthCheckType": {
     "Required": "No",
     "UpdateRequires": "No interruption"
+  },
+  "as.group.InstanceId": {
+    "Required": "Conditional",
+    "UpdateRequires": "Replacement"
+  },
+  "as.group.LaunchConfigurationName": {
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "as.group.LaunchTemplate": {
+    "Required": "Conditional",
+    "Type": "LaunchTemplateSpecification",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "as.group.LifecycleHookSpecificationList": {
+    "Required": "No",
+    "Type": "List of [LifecycleHookSpecification",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "as.group.LoadBalancerNames": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "as.group.MaxSize": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "as.group.HealthCheckType": {
+  "as.group.MaxInstanceLifetime": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "as.group.Context": {
-    "Required": "No",
+  "as.group.MaxSize": {
+    "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -31,25 +87,21 @@
     "Type": "List",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "as.group.DesiredCapacity": {
-    "Required": "No",
+  "as.group.MinSize": {
+    "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "as.group.TerminationPolicies": {
-    "Required": "No",
+  "as.group.MixedInstancesPolicy": {
+    "Required": "Conditional",
     "UpdateRequires": "No interruption"
   },
-  "as.group.LaunchConfigurationName": {
-    "Required": "Conditional",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "as.group.DesiredCapacityType": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "Minimum": "1",
+  "as.group.NewInstancesProtectedFromScaleIn": {
     "Required": "No",
-    "Maximum": "255",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
     "UpdateRequires": "No interruption"
   },
   "as.group.NotificationConfigurations": {
@@ -57,81 +109,29 @@
     "Type": "List of [NotificationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "as.group.VPCZoneIdentifier": {
-    "Required": "Conditional",
-    "Type": "List of String",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)\n\n#"
-  },
-  "as.group.LifecycleHookSpecificationList": {
+  "as.group.PlacementGroup": {
     "Required": "No",
-    "Type": "List of [LifecycleHookSpecification",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "as.group.MixedInstancesPolicy": {
-    "Required": "Conditional",
     "UpdateRequires": "No interruption"
   },
   "as.group.ServiceLinkedRoleARN": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "as.group.MaxInstanceLifetime": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "as.group.Cooldown": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "as.group.MinSize": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "as.group.CapacityRebalance": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "as.group.NewInstancesProtectedFromScaleIn": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
   "as.group.Tags": {
     "Required": "No",
     "UpdateRequires": "No interruption"
-  },
-  "as.group.AutoScalingGroupName": {
-    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
-    "Required": "No",
-    "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
   },
   "as.group.TargetGroupARNs": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "as.group.InstanceId": {
-    "Required": "Conditional",
-    "UpdateRequires": "Replacement"
+  "as.group.TerminationPolicies": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   },
-  "as.group.LaunchTemplate": {
-    "Required": "Conditional",
-    "Type": "LaunchTemplateSpecification",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "as.group.AvailabilityZones": {
+  "as.group.VPCZoneIdentifier": {
     "Required": "Conditional",
     "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)\n\n#"
   }
 }

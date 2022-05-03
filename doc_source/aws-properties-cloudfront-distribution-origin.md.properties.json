@@ -1,9 +1,9 @@
 {
-  "cloudfront.distribution.origin.DomainName": {
-    "Required": "Yes",
+  "cloudfront.distribution.origin.ConnectionAttempts": {
+    "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "cloudfront.distribution.origin.ConnectionAttempts": {
+  "cloudfront.distribution.origin.ConnectionTimeout": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
@@ -11,6 +11,10 @@
     "Required": "Conditional",
     "Type": "CustomOriginConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.distribution.origin.DomainName": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
   },
   "cloudfront.distribution.origin.Id": {
     "Required": "Yes",
@@ -25,17 +29,13 @@
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
+  "cloudfront.distribution.origin.OriginShield": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
   "cloudfront.distribution.origin.S3OriginConfig": {
     "Required": "Conditional",
     "Type": "S3OriginConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "cloudfront.distribution.origin.ConnectionTimeout": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "cloudfront.distribution.origin.OriginShield": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
   }
 }

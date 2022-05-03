@@ -1,42 +1,42 @@
 {
-  "lambda.permission.FunctionName": {
-    "Pattern": "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
-    "Minimum": "1",
+  "lambda.permission.Action": {
     "Required": "Yes",
-    "Maximum": "140",
-    "UpdateRequires": "Replacement"
-  },
-  "lambda.permission.SourceAccount": {
-    "Pattern": "\\d{12}",
-    "Required": "No",
     "Type": "String",
-    "Maximum": "12",
+    "Pattern": "(lambda:[*]|lambda:[a-zA-Z]+|[*])",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lambda.permission.EventSourceToken": {
-    "Pattern": "[a-zA-Z0-9._\\-]+",
     "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "0",
-    "Type": "String"
+    "Maximum": "256",
+    "Pattern": "[a-zA-Z0-9._\\-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "lambda.permission.Action": {
-    "Pattern": "(lambda:[*]|lambda:[a-zA-Z]+|[*])",
+  "lambda.permission.FunctionName": {
+    "Required": "Yes",
+    "Minimum": "1",
+    "Maximum": "140",
+    "Pattern": "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+    "UpdateRequires": "Replacement"
+  },
+  "lambda.permission.Principal": {
     "Required": "Yes",
     "Type": "String",
+    "Pattern": "[^\\s]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "lambda.permission.SourceAccount": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "12",
+    "Pattern": "\\d{12}",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lambda.permission.SourceArn": {
-    "Pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
     "Required": "No",
     "Type": "String",
+    "Pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "lambda.permission.Principal": {
-    "Pattern": "[^\\s]+",
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

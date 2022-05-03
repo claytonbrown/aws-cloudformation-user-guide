@@ -1,10 +1,22 @@
 {
-  "appmesh.virtualrouter.VirtualRouterName": {
+  "appmesh.virtualrouter.MeshName": {
+    "Required": "Yes",
+    "Type": "String",
     "Minimum": "1",
+    "Maximum": "255",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "appmesh.virtualrouter.MeshOwner": {
     "Required": "No",
     "Type": "String",
-    "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    "Minimum": "12",
+    "Maximum": "12",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "appmesh.virtualrouter.Spec": {
+    "Required": "Yes",
+    "Type": "VirtualRouterSpec",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appmesh.virtualrouter.Tags": {
     "Required": "No",
@@ -12,23 +24,11 @@
     "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "appmesh.virtualrouter.Spec": {
-    "Required": "Yes",
-    "Type": "VirtualRouterSpec",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "appmesh.virtualrouter.MeshOwner": {
-    "Minimum": "12",
+  "appmesh.virtualrouter.VirtualRouterName": {
     "Required": "No",
     "Type": "String",
-    "Maximum": "12",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "appmesh.virtualrouter.MeshName": {
     "Minimum": "1",
-    "Required": "Yes",
-    "Type": "String",
     "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

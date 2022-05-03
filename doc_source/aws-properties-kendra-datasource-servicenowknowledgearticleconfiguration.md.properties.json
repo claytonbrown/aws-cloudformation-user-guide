@@ -1,19 +1,34 @@
 {
-  "kendra.datasource.servicenowknowledgearticleconfiguration.FilterQuery": {
-    "Pattern": "^\\P{C}*$",
+  "kendra.datasource.servicenowknowledgearticleconfiguration.CrawlAttachments": {
     "Required": "No",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kendra.datasource.servicenowknowledgearticleconfiguration.DocumentDataFieldName": {
+    "Required": "Yes",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "100",
+    "Pattern": "^[a-zA-Z][a-zA-Z0-9_.]*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.servicenowknowledgearticleconfiguration.DocumentTitleFieldName": {
-    "Pattern": "^[a-zA-Z][a-zA-Z0-9_.]*$",
     "Required": "No",
-    "Maximum": "100",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "100",
+    "Pattern": "^[a-zA-Z][a-zA-Z0-9_.]*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kendra.datasource.servicenowknowledgearticleconfiguration.ExcludeAttachmentFilePatterns": {
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.servicenowknowledgearticleconfiguration.FieldMappings": {
     "Required": "No",
@@ -21,30 +36,15 @@
     "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kendra.datasource.servicenowknowledgearticleconfiguration.DocumentDataFieldName": {
-    "Pattern": "^[a-zA-Z][a-zA-Z0-9_.]*$",
-    "Required": "Yes",
-    "Maximum": "100",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+  "kendra.datasource.servicenowknowledgearticleconfiguration.FilterQuery": {
+    "Required": "No",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
-  },
-  "kendra.datasource.servicenowknowledgearticleconfiguration.CrawlAttachments": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "kendra.datasource.servicenowknowledgearticleconfiguration.IncludeAttachmentFilePatterns": {
-    "Required": "No",
-    "Type": "List of String",
-    "Maximum": "100",
+    "Maximum": "2048",
+    "Pattern": "^\\P{C}*$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "kendra.datasource.servicenowknowledgearticleconfiguration.ExcludeAttachmentFilePatterns": {
+  "kendra.datasource.servicenowknowledgearticleconfiguration.IncludeAttachmentFilePatterns": {
     "Required": "No",
     "Type": "List of String",
     "Maximum": "100",

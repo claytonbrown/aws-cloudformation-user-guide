@@ -1,7 +1,16 @@
 {
-  "s3.bucket.replicationconfiguration.rules.destination.ReplicationTime": {
+  "s3.bucket.replicationconfiguration.rules.destination.AccessControlTranslation": {
     "Required": "No",
-    "Type": "ReplicationTime",
+    "Type": "AccessControlTranslation",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "s3.bucket.replicationconfiguration.rules.destination.Account": {
+    "Required": "Conditional",
+    "UpdateRequires": "No interruption"
+  },
+  "s3.bucket.replicationconfiguration.rules.destination.Bucket": {
+    "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "s3.bucket.replicationconfiguration.rules.destination.EncryptionConfiguration": {
@@ -9,27 +18,18 @@
     "Type": "EncryptionConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "s3.bucket.replicationconfiguration.rules.destination.Bucket": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "s3.bucket.replicationconfiguration.rules.destination.StorageClass": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "s3.bucket.replicationconfiguration.rules.destination.Account": {
-    "Required": "Conditional",
-    "UpdateRequires": "No interruption"
-  },
   "s3.bucket.replicationconfiguration.rules.destination.Metrics": {
     "Required": "No",
     "Type": "Metrics",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "s3.bucket.replicationconfiguration.rules.destination.AccessControlTranslation": {
+  "s3.bucket.replicationconfiguration.rules.destination.ReplicationTime": {
     "Required": "No",
-    "Type": "AccessControlTranslation",
+    "Type": "ReplicationTime",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "s3.bucket.replicationconfiguration.rules.destination.StorageClass": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   }
 }

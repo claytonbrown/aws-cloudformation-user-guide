@@ -1,52 +1,19 @@
 {
-  "dms.endpoint.Password": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.ServerName": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.PostgreSqlSettings": {
-    "Required": "No",
-    "Type": "PostgreSqlSettings",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.SybaseSettings": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "dms.endpoint.Port": {
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.GcpMySQLSettings": {
-    "Required": "No",
-    "Type": "GcpMySQLSettings",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.EngineName": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.MySqlSettings": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
   "dms.endpoint.CertificateArn": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "dms.endpoint.KinesisSettings": {
+  "dms.endpoint.DatabaseName": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.DocDbSettings": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "dms.endpoint.S3Settings": {
+  "dms.endpoint.DynamoDbSettings": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
@@ -54,40 +21,45 @@
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "dms.endpoint.OracleSettings": {
+  "dms.endpoint.EndpointIdentifier": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "dms.endpoint.RedshiftSettings": {
-    "Required": "No",
-    "Type": "RedshiftSettings",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dms.endpoint.EndpointType": {
+    "Required": "Yes",
+    "Type": "String",
     "Allowed values": "source | target",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.EngineName": {
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.Username": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "dms.endpoint.ExtraConnectionAttributes": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "dms.endpoint.RedisSettings": {
+  "dms.endpoint.GcpMySQLSettings": {
     "Required": "No",
-    "Type": "RedisSettings",
+    "Type": "GcpMySQLSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.IbmDb2Settings": {
+    "Required": "No",
+    "Type": "IbmDb2Settings",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dms.endpoint.KafkaSettings": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "dms.endpoint.ResourceIdentifier": {
+  "dms.endpoint.KinesisSettings": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "dms.endpoint.KmsKeyId": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -97,7 +69,70 @@
     "Type": "MicrosoftSqlServerSettings",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "dms.endpoint.DocDbSettings": {
+  "dms.endpoint.MongoDbSettings": {
+    "Required": "No",
+    "Type": "MongoDbSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.MySqlSettings": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "dms.endpoint.NeptuneSettings": {
+    "Required": "No",
+    "Type": "NeptuneSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.OracleSettings": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "dms.endpoint.Password": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.Port": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.PostgreSqlSettings": {
+    "Required": "No",
+    "Type": "PostgreSqlSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.RedisSettings": {
+    "Required": "No",
+    "Type": "RedisSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.RedshiftSettings": {
+    "Required": "No",
+    "Type": "RedshiftSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.ResourceIdentifier": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "dms.endpoint.S3Settings": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "dms.endpoint.ServerName": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.SslMode": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "none | require | verify-ca | verify-full",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.SybaseSettings": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
@@ -106,44 +141,9 @@
     "Type": "List of [Tag",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "dms.endpoint.KmsKeyId": {
+  "dms.endpoint.Username": {
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "dms.endpoint.NeptuneSettings": {
-    "Required": "No",
-    "Type": "NeptuneSettings",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.EndpointIdentifier": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.MongoDbSettings": {
-    "Required": "No",
-    "Type": "MongoDbSettings",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.SslMode": {
-    "Allowed values": "none | require | verify-ca | verify-full",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.IbmDb2Settings": {
-    "Required": "No",
-    "Type": "IbmDb2Settings",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.DatabaseName": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.endpoint.DynamoDbSettings": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

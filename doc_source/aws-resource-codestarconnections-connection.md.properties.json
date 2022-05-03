@@ -1,25 +1,25 @@
 {
-  "codestarconnections.connection.ProviderType": {
-    "Allowed values": "Bitbucket | GitHub | GitHubEnterpriseServer",
-    "Required": "No",
+  "codestarconnections.connection.ConnectionName": {
+    "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "32",
+    "Pattern": "[\\s\\S]*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "codestarconnections.connection.HostArn": {
-    "Pattern": "arn:aws(-[\\w]+)*:codestar-connections:.+:[0-9]{12}:host\\/.+",
     "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "0",
-    "Type": "String"
+    "Maximum": "256",
+    "Pattern": "arn:aws(-[\\w]+)*:codestar-connections:.+:[0-9]{12}:host\\/.+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "codestarconnections.connection.ConnectionName": {
-    "Pattern": "[\\s\\S]*",
-    "Required": "Yes",
-    "Maximum": "32",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
+  "codestarconnections.connection.ProviderType": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "Bitbucket | GitHub | GitHubEnterpriseServer",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "codestarconnections.connection.Tags": {
     "Required": "No",

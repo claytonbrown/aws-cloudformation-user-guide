@@ -1,15 +1,9 @@
 {
-  "databrew.schedule.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "databrew.schedule.Name": {
-    "Minimum": "1",
+  "databrew.schedule.CronExpression": {
     "Required": "Yes",
-    "Type": "String",
-    "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Minimum": "1",
+    "Maximum": "512",
+    "UpdateRequires": "No interruption"
   },
   "databrew.schedule.JobNames": {
     "Required": "No",
@@ -17,10 +11,16 @@
     "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "databrew.schedule.CronExpression": {
-    "Minimum": "1",
+  "databrew.schedule.Name": {
     "Required": "Yes",
-    "Maximum": "512",
-    "UpdateRequires": "No interruption"
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "databrew.schedule.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

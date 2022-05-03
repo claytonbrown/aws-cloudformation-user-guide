@@ -1,38 +1,38 @@
 {
-  "location.geofencecollection.KmsKeyId": {
+  "location.geofencecollection.CollectionName": {
+    "Required": "Yes",
+    "Type": "String",
     "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "^[-._\\w]+$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "location.geofencecollection.Description": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "1000",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "location.geofencecollection.KmsKeyId": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
     "Maximum": "2048",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "location.geofencecollection.CollectionName": {
-    "Pattern": "^[-._\\w]+$",
-    "Required": "Yes",
-    "Maximum": "100",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "location.geofencecollection.Description": {
-    "Minimum": "0",
+  "location.geofencecollection.PricingPlan": {
+    "AllowedValues": [
+      "RequestBasedUsage"
+    ],
+    "Allowed Values": "RequestBasedUsage",
     "Required": "No",
     "Type": "String",
-    "Maximum": "1000",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "location.geofencecollection.PricingPlanDataSource": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "location.geofencecollection.PricingPlan": {
-    "Type": "String",
-    "Required": "No",
-    "Allowed Values": "RequestBasedUsage",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "RequestBasedUsage"
-    ]
   }
 }

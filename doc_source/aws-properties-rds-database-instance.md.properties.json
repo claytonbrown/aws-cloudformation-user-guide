@@ -1,16 +1,208 @@
 {
-  "rds.database.instance.PerformanceInsightsKMSKeyId": {
+  "rds.database.instance.AllocatedStorage": {
+    "Required": "Conditional",
+    "UpdateRequires": "No interruption"
+  },
+  "rds.database.instance.AllowMajorVersionUpgrade": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.database.instance.AssociatedRoles": {
+    "Required": "No",
+    "Type": "List of [DBInstanceRole",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.database.instance.AutoMinorVersionUpgrade": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.database.instance.AvailabilityZone": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "rds.database.instance.BackupRetentionPeriod": {
+    "Required": "No",
+    "UpdateRequires": "Some interruptions"
+  },
+  "rds.database.instance.CACertificateIdentifier": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "rds.database.instance.CharacterSetName": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "rds.database.instance.CopyTagsToSnapshot": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "rds.database.instance.DBClusterIdentifier": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "rds.database.instance.DBInstanceClass": {
+    "Required": "Yes",
+    "UpdateRequires": "Some interruptions"
+  },
+  "rds.database.instance.DBInstanceIdentifier": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
   },
   "rds.database.instance.DBName": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
+  "rds.database.instance.DBParameterGroupName": {},
+  "rds.database.instance.aws rds describe-db-parameter-groups --query \"DBParameterGroups[].DBParameterGroupName\" --output text": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "rds.database.instance.DBSecurityGroups": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.database.instance.DBSnapshotIdentifier": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "rds.database.instance.DBSubnetGroupName": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "rds.database.instance.DeleteAutomatedBackups": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.database.instance.DeletionProtection": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "rds.database.instance.Domain": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "rds.database.instance.DomainIAMRoleName": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.database.instance.EnableCloudwatchLogsExports": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "rds.database.instance.EnableIAMDatabaseAuthentication": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "rds.database.instance.EnablePerformanceInsights": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "No interruption"
+  },
+  "rds.database.instance.Engine": {
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "rds.database.instance.EngineVersion": {
+    "Required": "No",
+    "UpdateRequires": "Some interruptions"
+  },
+  "rds.database.instance.Iops": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "rds.database.instance.KmsKeyId": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "rds.database.instance.LicenseModel": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.database.instance.MasterUsername": {
+    "Required": "Conditional",
+    "UpdateRequires": "Replacement"
+  },
+  "rds.database.instance.MasterUserPassword": {
+    "Required": "Conditional",
+    "UpdateRequires": "No interruption"
+  },
   "rds.database.instance.MaxAllocatedStorage": {
     "Required": "No",
     "UpdateRequires": "No interruption"
+  },
+  "rds.database.instance.MonitoringInterval": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "rds.database.instance.MonitoringRoleArn": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "rds.database.instance.MultiAZ": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "UpdateRequires": "Some interruptions"
+  },
+  "rds.database.instance.OptionGroupName": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.database.instance.PerformanceInsightsKMSKeyId": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "rds.database.instance.PerformanceInsightsRetentionPeriod": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rds.database.instance.Port": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "rds.database.instance.PreferredBackupWindow": {
     "Required": "No",
@@ -20,50 +212,41 @@
     "Required": "No",
     "UpdateRequires": "Some interruptions"
   },
-  "rds.database.instance.Port": {
+  "rds.database.instance.ProcessorFeatures": {
     "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Type": "List of [ProcessorFeature",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "rds.database.instance.DBClusterIdentifier": {
+  "rds.database.instance.PromotionTier": {
     "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "rds.database.instance.EnableIAMDatabaseAuthentication": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.database.instance.DBInstanceClass": {
-    "Required": "Yes",
-    "UpdateRequires": "Some interruptions"
-  },
-  "rds.database.instance.MasterUserPassword": {
-    "Required": "Conditional",
     "UpdateRequires": "No interruption"
   },
-  "rds.database.instance.UseDefaultProcessorFeatures": {
+  "rds.database.instance.PubliclyAccessible": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "UpdateRequires": "Replacement"
   },
-  "rds.database.instance.DeletionProtection": {
+  "rds.database.instance.SourceDBInstanceIdentifier": {
     "Required": "No",
-    "UpdateRequires": "No interruption",
+    "UpdateRequires": "Replacement"
+  },
+  "rds.database.instance.SourceRegion": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "rds.database.instance.StorageEncrypted": {
+    "Required": "No",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "UpdateRequires": "Replacement"
   },
-  "rds.database.instance.BackupRetentionPeriod": {
+  "rds.database.instance.StorageType": {
     "Required": "No",
     "UpdateRequires": "Some interruptions"
   },
@@ -72,205 +255,22 @@
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "rds.database.instance.MonitoringRoleArn": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
   "rds.database.instance.Timezone": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "rds.database.instance.EnableCloudwatchLogsExports": {
+  "rds.database.instance.UseDefaultProcessorFeatures": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "rds.database.instance.MonitoringInterval": {
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
-  },
-  "rds.database.instance.Engine": {
-    "Required": "Conditional",
-    "Type": "String",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
-  },
-  "rds.database.instance.CharacterSetName": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "rds.database.instance.StorageEncrypted": {
-    "Required": "No",
-    "UpdateRequires": "Replacement",
     "AllowedValues": [
       "True",
       "False"
-    ]
-  },
-  "rds.database.instance.MultiAZ": {
-    "Required": "No",
-    "UpdateRequires": "Some interruptions",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.database.instance.DBParameterGroupName": {},
-  "rds.database.instance.aws rds describe-db-parameter-groups --query \"DBParameterGroups[].DBParameterGroupName\" --output text": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
-  },
-  "rds.database.instance.SourceRegion": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "rds.database.instance.AllowMajorVersionUpgrade": {
-    "Required": "No",
+    ],
     "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.database.instance.AvailabilityZone": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "rds.database.instance.CACertificateIdentifier": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "rds.database.instance.DBInstanceIdentifier": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "rds.database.instance.PubliclyAccessible": {
-    "Required": "No",
-    "UpdateRequires": "Replacement",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.database.instance.ProcessorFeatures": {
-    "Required": "No",
-    "Type": "List of [ProcessorFeature",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "rds.database.instance.EnablePerformanceInsights": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
   },
   "rds.database.instance.VPCSecurityGroups": {
     "Required": "No",
     "UpdateRequires": "No interruption"
-  },
-  "rds.database.instance.AutoMinorVersionUpgrade": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.database.instance.SourceDBInstanceIdentifier": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "rds.database.instance.DBSecurityGroups": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "rds.database.instance.Iops": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "rds.database.instance.OptionGroupName": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "rds.database.instance.DeleteAutomatedBackups": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.database.instance.DBSnapshotIdentifier": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "rds.database.instance.CopyTagsToSnapshot": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "rds.database.instance.DBSubnetGroupName": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "rds.database.instance.AllocatedStorage": {
-    "Required": "Conditional",
-    "UpdateRequires": "No interruption"
-  },
-  "rds.database.instance.MasterUsername": {
-    "Required": "Conditional",
-    "UpdateRequires": "Replacement"
-  },
-  "rds.database.instance.PromotionTier": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "rds.database.instance.Domain": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "rds.database.instance.LicenseModel": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "rds.database.instance.StorageType": {
-    "Required": "No",
-    "UpdateRequires": "Some interruptions"
-  },
-  "rds.database.instance.DomainIAMRoleName": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "rds.database.instance.AssociatedRoles": {
-    "Required": "No",
-    "Type": "List of [DBInstanceRole",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "rds.database.instance.KmsKeyId": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "rds.database.instance.EngineVersion": {
-    "Required": "No",
-    "UpdateRequires": "Some interruptions"
-  },
-  "rds.database.instance.PerformanceInsightsRetentionPeriod": {
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

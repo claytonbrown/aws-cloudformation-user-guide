@@ -1,20 +1,19 @@
 {
-  "acmpca.certificateauthority.Type": {
-    "Allowed values": "ROOT | SUBORDINATE",
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "acmpca.certificateauthority.KeyStorageSecurityStandard": {
-    "Allowed values": "FIPS_140_2_LEVEL_2_OR_HIGHER | FIPS_140_2_LEVEL_3_OR_HIGHER",
+  "acmpca.certificateauthority.CsrExtensions": {
     "Required": "No",
-    "Type": "String",
+    "Type": "CsrExtensions",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "acmpca.certificateauthority.SigningAlgorithm": {
-    "Allowed values": "SHA256WITHECDSA | SHA256WITHRSA | SHA384WITHECDSA | SHA384WITHRSA | SHA512WITHECDSA | SHA512WITHRSA",
+  "acmpca.certificateauthority.KeyAlgorithm": {
     "Required": "Yes",
     "Type": "String",
+    "Allowed values": "EC_prime256v1 | EC_secp384r1 | RSA_2048 | RSA_4096",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "acmpca.certificateauthority.KeyStorageSecurityStandard": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "FIPS_140_2_LEVEL_2_OR_HIGHER | FIPS_140_2_LEVEL_3_OR_HIGHER",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificateauthority.RevocationConfiguration": {
@@ -22,14 +21,10 @@
     "Type": "RevocationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "acmpca.certificateauthority.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "acmpca.certificateauthority.CsrExtensions": {
-    "Required": "No",
-    "Type": "CsrExtensions",
+  "acmpca.certificateauthority.SigningAlgorithm": {
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "SHA256WITHECDSA | SHA256WITHRSA | SHA384WITHECDSA | SHA384WITHRSA | SHA512WITHECDSA | SHA512WITHRSA",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificateauthority.Subject": {
@@ -37,10 +32,15 @@
     "Type": "Subject",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "acmpca.certificateauthority.KeyAlgorithm": {
-    "Allowed values": "EC_prime256v1 | EC_secp384r1 | RSA_2048 | RSA_4096",
+  "acmpca.certificateauthority.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "acmpca.certificateauthority.Type": {
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "Allowed values": "ROOT | SUBORDINATE",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

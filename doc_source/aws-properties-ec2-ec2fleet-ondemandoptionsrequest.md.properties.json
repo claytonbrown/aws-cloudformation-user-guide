@@ -1,21 +1,14 @@
 {
-  "ec2.ec2fleet.ondemandoptionsrequest.SingleInstanceType": {
+  "ec2.ec2fleet.ondemandoptionsrequest.AllocationStrategy": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "Type": "String",
+    "Allowed values": "lowest-price | prioritized",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.ec2fleet.ondemandoptionsrequest.SingleAvailabilityZone": {
+  "ec2.ec2fleet.ondemandoptionsrequest.CapacityReservationOptions": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "Type": "CapacityReservationOptionsRequest",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.ec2fleet.ondemandoptionsrequest.MaxTotalPrice": {
     "Required": "No",
@@ -27,15 +20,22 @@
     "Type": "Integer",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.ec2fleet.ondemandoptionsrequest.AllocationStrategy": {
-    "Allowed values": "lowest-price | prioritized",
+  "ec2.ec2fleet.ondemandoptionsrequest.SingleAvailabilityZone": {
     "Required": "No",
-    "Type": "String",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.ec2fleet.ondemandoptionsrequest.CapacityReservationOptions": {
+  "ec2.ec2fleet.ondemandoptionsrequest.SingleInstanceType": {
     "Required": "No",
-    "Type": "CapacityReservationOptionsRequest",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

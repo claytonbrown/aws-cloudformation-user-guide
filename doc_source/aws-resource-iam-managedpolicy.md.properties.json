@@ -1,48 +1,48 @@
 {
-  "iam.managedpolicy.Users": {
-    "Pattern": "[\\w+=,.@-]+",
-    "Required": "No",
-    "Maximum": "64",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
-    "Minimum": "1",
-    "Type": "List of String"
-  },
-  "iam.managedpolicy.PolicyDocument": {
-    "Pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
-    "Minimum": "1",
-    "Required": "Yes",
-    "Maximum": "131072",
-    "UpdateRequires": "No interruption"
-  },
-  "iam.managedpolicy.Groups": {
-    "Pattern": "[\\w+=,.@-]+",
-    "Required": "No",
-    "Maximum": "128",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "List of String"
-  },
-  "iam.managedpolicy.Path": {
-    "Pattern": "((/[A-Za-z0-9\\.,\\+@=_-]+)*)/",
-    "Minimum": "1",
-    "Required": "No",
-    "Maximum": "512",
-    "UpdateRequires": "Replacement"
-  },
   "iam.managedpolicy.Description": {
     "Required": "No",
     "Type": "String",
     "Maximum": "1000",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "iam.managedpolicy.Roles": {
+  "iam.managedpolicy.Groups": {
     "Required": "No",
     "Type": "List of String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "[\\w+=,.@-]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iam.managedpolicy.ManagedPolicyName": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "iam.managedpolicy.Path": {
+    "Required": "No",
+    "Minimum": "1",
+    "Maximum": "512",
+    "Pattern": "((/[A-Za-z0-9\\.,\\+@=_-]+)*)/",
+    "UpdateRequires": "Replacement"
+  },
+  "iam.managedpolicy.PolicyDocument": {
+    "Required": "Yes",
+    "Minimum": "1",
+    "Maximum": "131072",
+    "Pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+    "UpdateRequires": "No interruption"
+  },
+  "iam.managedpolicy.Roles": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iam.managedpolicy.Users": {
+    "Required": "No",
+    "Type": "List of String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": "[\\w+=,.@-]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

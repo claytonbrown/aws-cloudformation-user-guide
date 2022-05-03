@@ -1,12 +1,7 @@
 {
-  "wafv2.rulegroup.rule.RuleLabels": {
+  "wafv2.rulegroup.rule.Action": {
     "Required": "No",
-    "Type": "List of [Label",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "wafv2.rulegroup.rule.VisibilityConfig": {
-    "Required": "Yes",
-    "Type": "VisibilityConfig",
+    "Type": "RuleAction",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.rulegroup.rule.CaptchaConfig": {
@@ -14,10 +9,23 @@
     "Type": "CaptchaConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "wafv2.rulegroup.rule.Name": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "^[\\w\\-]+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "wafv2.rulegroup.rule.Priority": {
-    "Minimum": "0",
     "Required": "Yes",
     "Type": "Integer",
+    "Minimum": "0",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "wafv2.rulegroup.rule.RuleLabels": {
+    "Required": "No",
+    "Type": "List of [Label",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.rulegroup.rule.Statement": {
@@ -25,17 +33,9 @@
     "Type": "Statement",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "wafv2.rulegroup.rule.Action": {
-    "Required": "No",
-    "Type": "RuleAction",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "wafv2.rulegroup.rule.Name": {
-    "Pattern": "^[\\w\\-]+$",
+  "wafv2.rulegroup.rule.VisibilityConfig": {
     "Required": "Yes",
-    "Maximum": "128",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
+    "Type": "VisibilityConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

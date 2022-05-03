@@ -1,85 +1,70 @@
 {
-  "ssm.association.ComplianceSeverity": {
-    "Allowed values": "CRITICAL | HIGH | LOW | MEDIUM | UNSPECIFIED",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "ssm.association.ApplyOnlyAtCronInterval": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ]
-  },
-  "ssm.association.MaxErrors": {
-    "Pattern": "^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$",
-    "Required": "No",
-    "Maximum": "7",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "ssm.association.ScheduleExpression": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "256",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssm.association.InstanceId": {
-    "Pattern": "(^i-(\\w{8}|\\w{17})$)|(^mi-\\w{17}$)",
-    "Required": "Conditional",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssm.association.Parameters": {
-    "Required": "No",
-    "Type": "Map of Json",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssm.association.MaxConcurrency": {
-    "Pattern": "^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$",
-    "Required": "No",
-    "Maximum": "7",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "ssm.association.WaitForSuccessTimeoutSeconds": {
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "ssm.association.SyncCompliance": {
-    "Allowed values": "AUTO | MANUAL",
-    "Required": "No",
-    "Type": "String",
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssm.association.AssociationName": {
-    "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
     "Required": "No",
     "Type": "String",
+    "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.association.arn:partition:ssm:region:account-id:document/document-name": {
-    "Pattern": "^[a-zA-Z0-9_\\-.:/]{3,128}$",
-    "Required": "Yes",
+  "ssm.association.AutomationTargetParameterName": {
+    "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.association.Targets": {
-    "Required": "Conditional",
-    "Maximum": "5",
-    "UpdateRequires": "No interruption"
-  },
-  "ssm.association.Name": {},
   "ssm.association.CalendarNames": {
     "Required": "No",
     "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.association.ComplianceSeverity": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "CRITICAL | HIGH | LOW | MEDIUM | UNSPECIFIED",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.association.DocumentVersion": {
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "([$]LATEST|[$]DEFAULT|^[1-9][0-9]*$)",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.association.InstanceId": {
+    "Required": "Conditional",
+    "Type": "String",
+    "Pattern": "(^i-(\\w{8}|\\w{17})$)|(^mi-\\w{17}$)",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.association.MaxConcurrency": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "7",
+    "Pattern": "^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.association.MaxErrors": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "7",
+    "Pattern": "^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.association.Name": {},
+  "ssm.association.arn:partition:ssm:region:account-id:document/document-name": {
+    "Required": "Yes",
+    "Type": "String",
+    "Pattern": "^[a-zA-Z0-9_\\-.:/]{3,128}$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssm.association.OutputLocation": {
@@ -87,17 +72,32 @@
     "Type": "InstanceAssociationOutputLocation",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.association.DocumentVersion": {
-    "Pattern": "([$]LATEST|[$]DEFAULT|^[1-9][0-9]*$)",
+  "ssm.association.Parameters": {
     "Required": "No",
-    "Type": "String",
+    "Type": "Map of Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.association.AutomationTargetParameterName": {
-    "Minimum": "1",
+  "ssm.association.ScheduleExpression": {
     "Required": "No",
     "Type": "String",
-    "Maximum": "50",
+    "Minimum": "1",
+    "Maximum": "256",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.association.SyncCompliance": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "AUTO | MANUAL",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.association.Targets": {
+    "Required": "Conditional",
+    "Maximum": "5",
+    "UpdateRequires": "No interruption"
+  },
+  "ssm.association.WaitForSuccessTimeoutSeconds": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

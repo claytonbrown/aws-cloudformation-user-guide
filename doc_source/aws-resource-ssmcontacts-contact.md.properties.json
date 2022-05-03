@@ -1,29 +1,29 @@
 {
-  "ssmcontacts.contact.Type": {
-    "Allowed values": "ESCALATION | PERSONAL",
+  "ssmcontacts.contact.Alias": {
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "^[a-z0-9_\\-]*$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ssmcontacts.contact.DisplayName": {
-    "Pattern": "^[\\p{L}\\p{Z}\\p{N}_.\\-]*$",
     "Required": "Yes",
-    "Maximum": "255",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
     "Minimum": "0",
-    "Type": "String"
-  },
-  "ssmcontacts.contact.Alias": {
-    "Pattern": "^[a-z0-9_\\-]*$",
-    "Required": "Yes",
     "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
+    "Pattern": "^[\\p{L}\\p{Z}\\p{N}_.\\-]*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssmcontacts.contact.Plan": {
     "Required": "Yes",
     "Type": "List of [Stage",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssmcontacts.contact.Type": {
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "ESCALATION | PERSONAL",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

@@ -1,16 +1,20 @@
 {
-  "dynamodb.lsi.Projection": {
-    "Required": "Yes",
-    "Type": "Projection",
-    "UpdateRequires": "Updates are not supported\\.\n\n#"
-  },
   "dynamodb.lsi.IndexName": {
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "3",
+    "Maximum": "255",
+    "Pattern": "[a-zA-Z0-9_.-]+",
     "UpdateRequires": "Updates are not supported\\."
   },
   "dynamodb.lsi.KeySchema": {
     "Required": "Yes",
+    "Maximum": "2",
     "UpdateRequires": "Updates are not supported\\."
+  },
+  "dynamodb.lsi.Projection": {
+    "Required": "Yes",
+    "Type": "Projection",
+    "UpdateRequires": "Updates are not supported\\.\n\n#"
   }
 }

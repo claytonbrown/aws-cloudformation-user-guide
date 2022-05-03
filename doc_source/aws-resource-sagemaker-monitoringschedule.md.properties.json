@@ -1,26 +1,14 @@
 {
-  "sagemaker.monitoringschedule.MonitoringScheduleStatus": {
-    "Allowed values": "Failed | Pending | Scheduled | Stopped",
+  "sagemaker.monitoringschedule.EndpointName": {
     "Required": "No",
     "Type": "String",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "sagemaker.monitoringschedule.Tags": {
+  "sagemaker.monitoringschedule.FailureReason": {
     "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "sagemaker.monitoringschedule.MonitoringScheduleName": {
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$",
-    "Required": "Yes",
-    "Maximum": "63",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "sagemaker.monitoringschedule.MonitoringScheduleConfig": {
-    "Required": "Yes",
-    "Type": "MonitoringScheduleConfig",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "sagemaker.monitoringschedule.LastMonitoringExecutionSummary": {
@@ -28,16 +16,28 @@
     "Type": "MonitoringExecutionSummary",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "sagemaker.monitoringschedule.EndpointName": {
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "63",
+  "sagemaker.monitoringschedule.MonitoringScheduleConfig": {
+    "Required": "Yes",
+    "Type": "MonitoringScheduleConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "sagemaker.monitoringschedule.FailureReason": {
+  "sagemaker.monitoringschedule.MonitoringScheduleName": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.monitoringschedule.MonitoringScheduleStatus": {
     "Required": "No",
     "Type": "String",
+    "Allowed values": "Failed | Pending | Scheduled | Stopped",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.monitoringschedule.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

@@ -1,59 +1,59 @@
 {
-  "kms.key.KeyPolicy": {
-    "Required": "Yes",
-    "Minimum": "1",
-    "Maximum": "32768",
+  "kms.key.Description": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "8192",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kms.key.Enabled": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
     "UpdateRequires": "No interruption"
   },
   "kms.key.EnableKeyRotation": {
     "Required": "No",
-    "UpdateRequires": "No interruption",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "UpdateRequires": "No interruption"
   },
-  "kms.key.KeyUsage": {
-    "Allowed values": "ENCRYPT_DECRYPT | SIGN_VERIFY",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "kms.key.MultiRegion": {
-    "Required": "No",
-    "UpdateRequires": "Replacement",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "kms.key.Description": {
-    "Minimum": "0",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "8192",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  "kms.key.KeyPolicy": {
+    "Minimum": "1",
+    "Maximum": "32768",
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
   },
   "kms.key.KeySpec": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   },
-  "kms.key.Tags": {
+  "kms.key.KeyUsage": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
+    "Type": "String",
+    "Allowed values": "ENCRYPT_DECRYPT | SIGN_VERIFY",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "kms.key.PendingWindowInDays": {
+  "kms.key.MultiRegion": {
     "Required": "No",
-    "Minimum": "7",
-    "Maximum": "30",
-    "UpdateRequires": "No interruption"
-  },
-  "kms.key.Enabled": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "UpdateRequires": "Replacement"
+  },
+  "kms.key.PendingWindowInDays": {
+    "Minimum": "7",
+    "Maximum": "30",
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "kms.key.Tags": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   }
 }

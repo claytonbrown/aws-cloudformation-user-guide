@@ -1,37 +1,8 @@
 {
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.MemoryMiB": {
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorCount": {
     "Required": "No",
-    "Type": "MemoryMiB",
+    "Type": "AcceleratorCount",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.SpotMaxPricePercentageOverLowestPrice": {
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.OnDemandMaxPricePercentageOverLowestPrice": {
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorTotalMemoryMiB": {
-    "Required": "No",
-    "Type": "AcceleratorTotalMemoryMiB",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.MemoryGiBPerVCpu": {
-    "Required": "No",
-    "Type": "MemoryGiBPerVCpu",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.NetworkInterfaceCount": {
-    "Required": "No",
-    "Type": "NetworkInterfaceCount",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.LocalStorage": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorManufacturers": {
     "Required": "No",
@@ -39,6 +10,37 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorNames": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorTotalMemoryMiB": {
+    "Required": "No",
+    "Type": "AcceleratorTotalMemoryMiB",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorTypes": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.BareMetal": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "excluded | included | required",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.BaselineEbsBandwidthMbps": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.BurstablePerformance": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "excluded | included | required",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.CpuManufacturers": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -52,18 +54,47 @@
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.LocalStorage": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.LocalStorageTypes": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.MemoryGiBPerVCpu": {
+    "Required": "No",
+    "Type": "MemoryGiBPerVCpu",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.MemoryMiB": {
+    "Required": "No",
+    "Type": "MemoryMiB",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.NetworkInterfaceCount": {
+    "Required": "No",
+    "Type": "NetworkInterfaceCount",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.OnDemandMaxPricePercentageOverLowestPrice": {
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.RequireHibernateSupport": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.CpuManufacturers": {
+  "ec2.launchtemplate.launchtemplatedata.instancerequirements.SpotMaxPricePercentageOverLowestPrice": {
     "Required": "No",
-    "Type": "List of String",
+    "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.TotalLocalStorageGB": {
@@ -74,37 +105,6 @@
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.VCpuCount": {
     "Required": "No",
     "Type": "VCpuCount",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.BaselineEbsBandwidthMbps": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.BurstablePerformance": {
-    "Allowed values": "excluded | included | required",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.BareMetal": {
-    "Allowed values": "excluded | included | required",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.LocalStorageTypes": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorCount": {
-    "Required": "No",
-    "Type": "AcceleratorCount",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorTypes": {
-    "Required": "No",
-    "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

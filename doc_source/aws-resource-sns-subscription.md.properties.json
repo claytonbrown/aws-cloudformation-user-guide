@@ -1,21 +1,38 @@
 {
+  "sns.subscription.DeliveryPolicy": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "sns.subscription.Endpoint": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "sns.subscription.FilterPolicy": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
   "sns.subscription.Protocol": {
     "Required": "Yes",
     "UpdateRequires": "Replacement"
   },
-  "sns.subscription.SubscriptionRoleArn": {
+  "sns.subscription.RawMessageDelivery": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "sns.subscription.FilterPolicy": {
-    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
     "UpdateRequires": "No interruption"
   },
   "sns.subscription.RedrivePolicy": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "sns.subscription.DeliveryPolicy": {
+  "sns.subscription.Region": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sns.subscription.SubscriptionRoleArn": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
@@ -23,22 +40,5 @@
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "sns.subscription.Endpoint": {
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "sns.subscription.Region": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "sns.subscription.RawMessageDelivery": {
-    "Required": "No",
-    "UpdateRequires": "No interruption",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
   }
 }

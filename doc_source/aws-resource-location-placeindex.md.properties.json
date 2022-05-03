@@ -1,20 +1,7 @@
 {
-  "location.placeindex.IndexName": {
-    "Pattern": "^[-._\\w]+$",
+  "location.placeindex.DataSource": {
     "Required": "Yes",
-    "Maximum": "100",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "location.placeindex.PricingPlan": {
-    "Type": "String",
-    "Required": "No",
-    "Allowed Values": "RequestBasedUsage",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-    "AllowedValues": [
-      "RequestBasedUsage"
-    ]
+    "UpdateRequires": "Replacement"
   },
   "location.placeindex.DataSourceConfiguration": {
     "Required": "No",
@@ -22,14 +9,27 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "location.placeindex.Description": {
-    "Minimum": "0",
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
     "Maximum": "1000",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "location.placeindex.DataSource": {
+  "location.placeindex.IndexName": {
     "Required": "Yes",
-    "UpdateRequires": "Replacement"
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "^[-._\\w]+$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "location.placeindex.PricingPlan": {
+    "AllowedValues": [
+      "RequestBasedUsage"
+    ],
+    "Allowed Values": "RequestBasedUsage",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

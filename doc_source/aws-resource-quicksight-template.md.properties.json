@@ -1,15 +1,17 @@
 {
   "quicksight.template.AwsAccountId": {
-    "Pattern": "^[0-9]{12}$",
     "Required": "Yes",
-    "Maximum": "12",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "12",
-    "Type": "String"
+    "Maximum": "12",
+    "Pattern": "^[0-9]{12}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "quicksight.template.SourceEntity": {
-    "Required": "Yes",
-    "Type": "TemplateSourceEntity",
+  "quicksight.template.Name": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.template.Permissions": {
@@ -18,11 +20,9 @@
     "Maximum": "64",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "quicksight.template.Name": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "2048",
+  "quicksight.template.SourceEntity": {
+    "Required": "Yes",
+    "Type": "TemplateSourceEntity",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.template.Tags": {
@@ -31,19 +31,19 @@
     "Maximum": "200",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "quicksight.template.VersionDescription": {
+  "quicksight.template.TemplateId": {
+    "Required": "Yes",
+    "Type": "String",
     "Minimum": "1",
+    "Maximum": "2048",
+    "Pattern": "[\\w\\-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "quicksight.template.VersionDescription": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "512",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "quicksight.template.TemplateId": {
-    "Pattern": "[\\w\\-]+",
-    "Required": "Yes",
-    "Maximum": "2048",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
   }
 }

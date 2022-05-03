@@ -1,36 +1,21 @@
 {
-  "lightsail.instance.KeyPairName": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "lightsail.instance.Tags": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "lightsail.instance.InstanceName": {
-    "Pattern": "\\w[\\w\\-]*\\w",
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "lightsail.instance.Networking": {
-    "Required": "No",
-    "Type": "Networking",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "lightsail.instance.AddOns": {
     "Required": "No",
     "Type": "List of [AddOn",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.instance.AvailabilityZone": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "Updates are not supported\\."
   },
   "lightsail.instance.BlueprintId": {
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "Updates are not supported\\."
   },
-  "lightsail.instance.AvailabilityZone": {
-    "Required": "No",
+  "lightsail.instance.BundleId": {
+    "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "Updates are not supported\\."
   },
@@ -39,10 +24,25 @@
     "Type": "Hardware",
     "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
-  "lightsail.instance.BundleId": {
+  "lightsail.instance.InstanceName": {
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "Updates are not supported\\."
+    "Pattern": "\\w[\\w\\-]*\\w",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "lightsail.instance.KeyPairName": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.instance.Networking": {
+    "Required": "No",
+    "Type": "Networking",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.instance.Tags": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   },
   "lightsail.instance.UserData": {
     "Required": "No",

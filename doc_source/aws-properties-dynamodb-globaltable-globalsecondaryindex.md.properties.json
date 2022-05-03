@@ -1,21 +1,25 @@
 {
-  "dynamodb.globaltable.globalsecondaryindex.Projection": {
+  "dynamodb.globaltable.globalsecondaryindex.IndexName": {
     "Required": "Yes",
-    "Type": "Projection",
+    "Type": "String",
+    "Minimum": "3",
+    "Maximum": "255",
+    "Pattern": "[a-zA-Z0-9_.-]+",
     "UpdateRequires": "Updates are not supported\\."
   },
   "dynamodb.globaltable.globalsecondaryindex.KeySchema": {
     "Required": "Yes",
+    "Maximum": "2",
+    "UpdateRequires": "Updates are not supported\\."
+  },
+  "dynamodb.globaltable.globalsecondaryindex.Projection": {
+    "Required": "Yes",
+    "Type": "Projection",
     "UpdateRequires": "Updates are not supported\\."
   },
   "dynamodb.globaltable.globalsecondaryindex.WriteProvisionedThroughputSettings": {
     "Required": "No",
     "Type": "WriteProvisionedThroughputSettings",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dynamodb.globaltable.globalsecondaryindex.IndexName": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "Updates are not supported\\."
   }
 }

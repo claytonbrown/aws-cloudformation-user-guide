@@ -1,26 +1,40 @@
 {
-  "dms.replicationtask.Tags": {
+  "dms.replicationtask.CdcStartPosition": {
     "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "No interruption"
   },
   "dms.replicationtask.CdcStartTime": {
     "Required": "No",
     "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "dms.replicationtask.ReplicationTaskSettings": {
+  "dms.replicationtask.CdcStopPosition": {
     "Required": "No",
-    "UpdateRequires": "No interruption"
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dms.replicationtask.MigrationType": {
-    "Allowed values": "cdc | full-load | full-load-and-cdc",
     "Required": "Yes",
     "Type": "String",
+    "Allowed values": "cdc | full-load | full-load-and-cdc",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dms.replicationtask.ReplicationInstanceArn": {
     "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "dms.replicationtask.ReplicationTaskIdentifier": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.replicationtask.ReplicationTaskSettings": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "dms.replicationtask.ResourceIdentifier": {
+    "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
@@ -29,18 +43,17 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "dms.replicationtask.TargetEndpointArn": {
+  "dms.replicationtask.TableMappings": {
     "Required": "Yes",
-    "Type": "String",
+    "UpdateRequires": "No interruption"
+  },
+  "dms.replicationtask.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "dms.replicationtask.CdcStopPosition": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.replicationtask.ResourceIdentifier": {
-    "Required": "No",
+  "dms.replicationtask.TargetEndpointArn": {
+    "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
@@ -48,18 +61,5 @@
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "dms.replicationtask.TableMappings": {
-    "Required": "Yes",
-    "UpdateRequires": "No interruption"
-  },
-  "dms.replicationtask.ReplicationTaskIdentifier": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dms.replicationtask.CdcStartPosition": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
   }
 }

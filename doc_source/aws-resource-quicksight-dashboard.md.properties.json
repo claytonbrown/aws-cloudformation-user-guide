@@ -1,33 +1,30 @@
 {
-  "quicksight.dashboard.Name": {
-    "Minimum": "1",
-    "Required": "No",
+  "quicksight.dashboard.AwsAccountId": {
+    "Required": "Yes",
     "Type": "String",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "quicksight.dashboard.ThemeArn": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "quicksight.dashboard.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "Maximum": "200",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Minimum": "12",
+    "Maximum": "12",
+    "Pattern": "^[0-9]{12}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "quicksight.dashboard.DashboardId": {
-    "Pattern": "[\\w\\-]+",
     "Required": "Yes",
-    "Maximum": "2048",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "2048",
+    "Pattern": "[\\w\\-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "quicksight.dashboard.DashboardPublishOptions": {
     "Required": "No",
     "Type": "DashboardPublishOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.dashboard.Name": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.dashboard.Parameters": {
@@ -46,18 +43,21 @@
     "Type": "DashboardSourceEntity",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "quicksight.dashboard.AwsAccountId": {
-    "Pattern": "^[0-9]{12}$",
-    "Required": "Yes",
-    "Maximum": "12",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "12",
-    "Type": "String"
+  "quicksight.dashboard.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "quicksight.dashboard.VersionDescription": {
-    "Minimum": "1",
+  "quicksight.dashboard.ThemeArn": {
     "Required": "No",
     "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.dashboard.VersionDescription": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
     "Maximum": "512",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }

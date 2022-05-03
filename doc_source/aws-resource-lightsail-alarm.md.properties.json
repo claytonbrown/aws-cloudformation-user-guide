@@ -1,28 +1,61 @@
 {
-  "lightsail.alarm.MetricName": {
-    "Allowed values": "BurstCapacityPercentage | BurstCapacityTime | ClientTLSNegotiationErrorCount | CPUUtilization | DatabaseConnections | DiskQueueDepth | FreeStorageSpace | HealthyHostCount | HTTPCode_Instance_2XX_Count | HTTPCode_Instance_3XX_Count | HTTPCode_Instance_4XX_Count | HTTPCode_Instance_5XX_Count | HTTPCode_LB_4XX_Count | HTTPCode_LB_5XX_Count | InstanceResponseTime | NetworkIn | NetworkOut | NetworkReceiveThroughput | NetworkTransmitThroughput | RejectedConnectionCount | RequestCount | StatusCheckFailed | StatusCheckFailed_Instance | StatusCheckFailed_System | UnhealthyHostCount",
+  "lightsail.alarm.AlarmName": {
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "Updates are not supported\\."
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lightsail.alarm.ComparisonOperator": {
-    "Allowed values": "GreaterThanOrEqualToThreshold | GreaterThanThreshold | LessThanOrEqualToThreshold | LessThanThreshold",
     "Required": "Yes",
     "Type": "String",
+    "Allowed values": "GreaterThanOrEqualToThreshold | GreaterThanThreshold | LessThanOrEqualToThreshold | LessThanThreshold",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.alarm.ContactProtocols": {
-    "Type": "List of String",
-    "Required": "No",
-    "Allowed Values": "Email` \\| `SMS",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "Email` \\| `SMS"
-    ]
+    ],
+    "Allowed Values": "Email` \\| `SMS",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.alarm.DatapointsToAlarm": {
     "Required": "No",
     "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.alarm.EvaluationPeriods": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.alarm.MetricName": {
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "BurstCapacityPercentage | BurstCapacityTime | ClientTLSNegotiationErrorCount | CPUUtilization | DatabaseConnections | DiskQueueDepth | FreeStorageSpace | HealthyHostCount | HTTPCode_Instance_2XX_Count | HTTPCode_Instance_3XX_Count | HTTPCode_Instance_4XX_Count | HTTPCode_Instance_5XX_Count | HTTPCode_LB_4XX_Count | HTTPCode_LB_5XX_Count | InstanceResponseTime | NetworkIn | NetworkOut | NetworkReceiveThroughput | NetworkTransmitThroughput | RejectedConnectionCount | RequestCount | StatusCheckFailed | StatusCheckFailed_Instance | StatusCheckFailed_System | UnhealthyHostCount",
+    "UpdateRequires": "Updates are not supported\\."
+  },
+  "lightsail.alarm.MonitoredResourceName": {
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "Updates are not supported\\."
+  },
+  "lightsail.alarm.NotificationEnabled": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lightsail.alarm.NotificationTriggers": {
+    "AllowedValues": [
+      "OK` \\| `ALARM` \\| `INSUFFICIENT_DATA"
+    ],
+    "Allowed Values": "OK` \\| `ALARM` \\| `INSUFFICIENT_DATA",
+    "Required": "No",
+    "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.alarm.Threshold": {
@@ -30,43 +63,10 @@
     "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "lightsail.alarm.NotificationTriggers": {
-    "Type": "List of String",
-    "Required": "No",
-    "Allowed Values": "OK` \\| `ALARM` \\| `INSUFFICIENT_DATA",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "OK` \\| `ALARM` \\| `INSUFFICIENT_DATA"
-    ]
-  },
-  "lightsail.alarm.EvaluationPeriods": {
-    "Required": "Yes",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "lightsail.alarm.MonitoredResourceName": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "Updates are not supported\\."
-  },
-  "lightsail.alarm.AlarmName": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "lightsail.alarm.NotificationEnabled": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
   "lightsail.alarm.TreatMissingData": {
-    "Allowed values": "breaching | ignore | missing | notBreaching",
     "Required": "No",
     "Type": "String",
+    "Allowed values": "breaching | ignore | missing | notBreaching",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

@@ -1,11 +1,14 @@
 {
-  "ecs.taskdefinition.dockervolumeconfiguration.Driver": {
+  "ecs.taskdefinition.dockervolumeconfiguration.Autoprovision": {
     "Required": "No",
-    "Type": "String",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.dockervolumeconfiguration.Scope": {
-    "Allowed values": "shared | task",
+  "ecs.taskdefinition.dockervolumeconfiguration.Driver": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -20,13 +23,10 @@
     "Type": "Map of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ecs.taskdefinition.dockervolumeconfiguration.Autoprovision": {
+  "ecs.taskdefinition.dockervolumeconfiguration.Scope": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "Type": "String",
+    "Allowed values": "shared | task",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

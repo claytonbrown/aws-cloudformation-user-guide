@@ -1,13 +1,19 @@
 {
-  "s3outposts.endpoint.CustomerOwnedIpv4Pool": {
-    "Pattern": "^ipv4pool-coip-([0-9a-f]{17})$",
+  "s3outposts.endpoint.AccessType": {},
+  "s3outposts.endpoint.Private": {
     "Required": "No",
     "Type": "String",
+    "Allowed values": "CustomerOwnedIp | Private",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "s3outposts.endpoint.Private": {
-    "Allowed values": "CustomerOwnedIp | Private",
+  "s3outposts.endpoint.CustomerOwnedIpv4Pool": {
     "Required": "No",
+    "Type": "String",
+    "Pattern": "^ipv4pool-coip-([0-9a-f]{17})$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "s3outposts.endpoint.OutpostId": {
+    "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
@@ -16,12 +22,6 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "s3outposts.endpoint.OutpostId": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "s3outposts.endpoint.AccessType": {},
   "s3outposts.endpoint.SubnetId": {
     "Required": "Yes",
     "Type": "String",

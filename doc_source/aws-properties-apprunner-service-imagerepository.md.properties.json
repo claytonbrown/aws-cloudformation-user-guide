@@ -1,20 +1,20 @@
 {
-  "apprunner.service.imagerepository.ImageIdentifier": {
-    "Pattern": "([0-9]{12}.dkr.ecr.[a-z\\-]+-[0-9]{1}.amazonaws.com\\/((?:[a-z0-9]+(?:[._-][a-z0-9]+)*\\/)*[a-z0-9]+(?:[._-][a-z0-9]+)*)(:([\\w\\d+\\-=._:\\/@])+|@([\\w\\d\\:]+))?)|(^public\\.ecr\\.aws\\/.+\\/((?:[a-z0-9]+(?:[._-][a-z0-9]+)*\\/)*[a-z0-9]+(?:[._-][a-z0-9]+)*)(:([\\w\\d+\\-=._:\\/@])+|@([\\w\\d\\:]+))?)",
-    "Minimum": "1",
-    "Required": "Yes",
-    "Maximum": "1024",
-    "UpdateRequires": "No interruption"
-  },
-  "apprunner.service.imagerepository.ImageRepositoryType": {
-    "Allowed values": "ECR | ECR_PUBLIC",
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "apprunner.service.imagerepository.ImageConfiguration": {
     "Required": "No",
     "Type": "ImageConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apprunner.service.imagerepository.ImageIdentifier": {
+    "Required": "Yes",
+    "Minimum": "1",
+    "Maximum": "1024",
+    "Pattern": "([0-9]{12}.dkr.ecr.[a-z\\-]+-[0-9]{1}.amazonaws.com\\/((?:[a-z0-9]+(?:[._-][a-z0-9]+)*\\/)*[a-z0-9]+(?:[._-][a-z0-9]+)*)(:([\\w\\d+\\-=._:\\/@])+|@([\\w\\d\\:]+))?)|(^public\\.ecr\\.aws\\/.+\\/((?:[a-z0-9]+(?:[._-][a-z0-9]+)*\\/)*[a-z0-9]+(?:[._-][a-z0-9]+)*)(:([\\w\\d+\\-=._:\\/@])+|@([\\w\\d\\:]+))?)",
+    "UpdateRequires": "No interruption"
+  },
+  "apprunner.service.imagerepository.ImageRepositoryType": {
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "ECR | ECR_PUBLIC",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

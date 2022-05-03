@@ -5,30 +5,37 @@
     "Maximum": "4",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "datasync.locationsmb.Password": {
-    "Pattern": "^.{0,104}$",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "104",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "datasync.locationsmb.Domain": {
-    "Pattern": "^([A-Za-z0-9]+[A-Za-z0-9-.]*)*[A-Za-z0-9-]*[A-Za-z0-9]$",
     "Required": "No",
     "Type": "String",
     "Maximum": "253",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "datasync.locationsmb.Subdirectory": {
-    "Pattern": "^[a-zA-Z0-9_\\-\\+\\./\\(\\)\\$\\p{Zs}]+$",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "4096",
+    "Pattern": "^([A-Za-z0-9]+[A-Za-z0-9-.]*)*[A-Za-z0-9-]*[A-Za-z0-9]$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationsmb.MountOptions": {
     "Required": "No",
     "Type": "MountOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.locationsmb.Password": {
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "104",
+    "Pattern": "^.{0,104}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.locationsmb.ServerHostname": {
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "255",
+    "Pattern": "^(([a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9\\-]*[A-Za-z0-9])$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "datasync.locationsmb.Subdirectory": {
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "4096",
+    "Pattern": "^[a-zA-Z0-9_\\-\\+\\./\\(\\)\\$\\p{Zs}]+$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationsmb.Tags": {
@@ -37,18 +44,11 @@
     "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "datasync.locationsmb.ServerHostname": {
-    "Pattern": "^(([a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9\\-]*[A-Za-z0-9])$",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "datasync.locationsmb.User": {
-    "Pattern": "^[^\\x5B\\x5D\\\\/:;|=,+*?]{1,104}$",
     "Required": "Yes",
     "Type": "String",
     "Maximum": "104",
+    "Pattern": "^[^\\x5B\\x5D\\\\/:;|=,+*?]{1,104}$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

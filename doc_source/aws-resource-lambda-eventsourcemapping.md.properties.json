@@ -1,7 +1,84 @@
 {
+  "lambda.eventsourcemapping.BatchSize": {
+    "Required": "No",
+    "Minimum": "1",
+    "Maximum": "10000",
+    "UpdateRequires": "No interruption"
+  },
+  "lambda.eventsourcemapping.BisectBatchOnFunctionError": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "lambda.eventsourcemapping.DestinationConfig": {
     "Required": "No",
     "Type": "DestinationConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.Enabled": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.EventSourceArn": {
+    "Required": "No",
+    "Pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
+    "UpdateRequires": "Replacement"
+  },
+  "lambda.eventsourcemapping.FilterCriteria": {
+    "Required": "No",
+    "Type": "FilterCriteria",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.FunctionName": {
+    "Required": "Yes",
+    "Minimum": "1",
+    "Maximum": "140",
+    "Pattern": "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
+    "UpdateRequires": "No interruption"
+  },
+  "lambda.eventsourcemapping.FunctionResponseTypes": {
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "1",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.MaximumBatchingWindowInSeconds": {
+    "*Default \\(Kinesis, DynamoDB, Amazon SQS event sources\\)*": "0",
+    "*Default \\(Amazon MSK, Kafka, Amazon MQ event sources\\)*": "500 ms",
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "0",
+    "Maximum": "300",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.MaximumRecordAgeInSeconds": {
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "-1",
+    "Maximum": "604800",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.MaximumRetryAttempts": {
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "-1",
+    "Maximum": "10000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.ParallelizationFactor": {
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "10",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.Queues": {
@@ -10,57 +87,10 @@
     "Maximum": "1",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "lambda.eventsourcemapping.FunctionResponseTypes": {
+  "lambda.eventsourcemapping.SelfManagedEventSource": {
     "Required": "No",
-    "Type": "List of String",
-    "Maximum": "1",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "lambda.eventsourcemapping.EventSourceArn": {
-    "Pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
-    "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "lambda.eventsourcemapping.BisectBatchOnFunctionError": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "lambda.eventsourcemapping.StartingPositionTimestamp": {
-    "Required": "No",
-    "Type": "Double",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "lambda.eventsourcemapping.MaximumRetryAttempts": {
-    "Minimum": "-1",
-    "Required": "No",
-    "Type": "Integer",
-    "Maximum": "10000",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "lambda.eventsourcemapping.ParallelizationFactor": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "Integer",
-    "Maximum": "10",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "lambda.eventsourcemapping.TumblingWindowInSeconds": {
-    "Minimum": "0",
-    "Required": "No",
-    "Type": "Integer",
-    "Maximum": "900",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "lambda.eventsourcemapping.BatchSize": {
-    "Minimum": "1",
-    "Required": "No",
-    "Maximum": "10000",
-    "UpdateRequires": "No interruption"
+    "Type": "SelfManagedEventSource",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lambda.eventsourcemapping.SourceAccessConfigurations": {
     "Required": "No",
@@ -68,37 +98,14 @@
     "Maximum": "22",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "lambda.eventsourcemapping.MaximumBatchingWindowInSeconds": {
-    "*Default \\(Amazon MSK, Kafka, Amazon MQ event sources\\)*": "500 ms",
-    "*Default \\(Kinesis, DynamoDB, Amazon SQS event sources\\)*": "0",
-    "Required": "No",
-    "Maximum": "300",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "0",
-    "Type": "Integer"
-  },
-  "lambda.eventsourcemapping.FilterCriteria": {
-    "Required": "No",
-    "Type": "Json",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "lambda.eventsourcemapping.SelfManagedEventSource": {
-    "Required": "No",
-    "Type": "SelfManagedEventSource",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "lambda.eventsourcemapping.Enabled": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
   "lambda.eventsourcemapping.StartingPosition": {
     "Required": "No",
     "UpdateRequires": "Replacement"
+  },
+  "lambda.eventsourcemapping.StartingPositionTimestamp": {
+    "Required": "No",
+    "Type": "Double",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lambda.eventsourcemapping.Topics": {
     "Required": "No",
@@ -106,18 +113,11 @@
     "Maximum": "1",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "lambda.eventsourcemapping.MaximumRecordAgeInSeconds": {
-    "Minimum": "-1",
+  "lambda.eventsourcemapping.TumblingWindowInSeconds": {
     "Required": "No",
     "Type": "Integer",
-    "Maximum": "604800",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "lambda.eventsourcemapping.FunctionName": {
-    "Pattern": "(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?",
-    "Minimum": "1",
-    "Required": "Yes",
-    "Maximum": "140",
-    "UpdateRequires": "No interruption"
+    "Minimum": "0",
+    "Maximum": "900",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

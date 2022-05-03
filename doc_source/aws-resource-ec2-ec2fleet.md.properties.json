@@ -1,29 +1,14 @@
 {
-  "ec2.ec2fleet.ValidFrom": {
+  "ec2.ec2fleet.Context": {
     "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "ec2.ec2fleet.TargetCapacitySpecification": {
-    "Required": "Yes",
-    "Type": "TargetCapacitySpecificationRequest",
+    "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ec2.ec2fleet.ValidUntil": {
+  "ec2.ec2fleet.ExcessCapacityTerminationPolicy": {
     "Required": "No",
-    "UpdateRequires": "Replacement"
-  },
-  "ec2.ec2fleet.SpotOptions": {
-    "Required": "No",
-    "Type": "SpotOptionsRequest",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "ec2.ec2fleet.ReplaceUnhealthyInstances": {
-    "Required": "No",
-    "UpdateRequires": "Replacement",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+    "Type": "String",
+    "Allowed values": "no-termination | termination",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.ec2fleet.LaunchTemplateConfigs": {
     "Required": "Yes",
@@ -36,32 +21,47 @@
     "Type": "OnDemandOptionsRequest",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "ec2.ec2fleet.TerminateInstancesWithExpiration": {
+  "ec2.ec2fleet.ReplaceUnhealthyInstances": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "UpdateRequires": "Replacement"
   },
-  "ec2.ec2fleet.Context": {
+  "ec2.ec2fleet.SpotOptions": {
     "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ec2.ec2fleet.ExcessCapacityTerminationPolicy": {
-    "Allowed values": "no-termination | termination",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Type": "SpotOptionsRequest",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.ec2fleet.TagSpecifications": {
     "Required": "No",
     "Type": "List of [TagSpecification",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "ec2.ec2fleet.TargetCapacitySpecification": {
+    "Required": "Yes",
+    "Type": "TargetCapacitySpecificationRequest",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.ec2fleet.TerminateInstancesWithExpiration": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "ec2.ec2fleet.Type": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ec2.ec2fleet.ValidFrom": {
+    "Required": "No",
+    "UpdateRequires": "Replacement"
+  },
+  "ec2.ec2fleet.ValidUntil": {
     "Required": "No",
     "UpdateRequires": "Replacement"
   }

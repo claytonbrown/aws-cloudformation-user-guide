@@ -1,17 +1,54 @@
 {
-  "quicksight.dataset.LogicalTableMap": {
+  "quicksight.dataset.AwsAccountId": {
     "Required": "No",
-    "Type": "Map of [LogicalTable",
+    "Type": "String",
+    "Minimum": "12",
+    "Maximum": "12",
+    "Pattern": "^[0-9]{12}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "quicksight.dataset.ColumnGroups": {
+    "Required": "No",
+    "Type": "List of [ColumnGroup",
+    "Maximum": "8",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "quicksight.dataset.RowLevelPermissionDataSet": {
+  "quicksight.dataset.ColumnLevelPermissionRules": {
     "Required": "No",
-    "Type": "RowLevelPermissionDataSet",
+    "Type": "List of [ColumnLevelPermissionRule",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.dataset.DataSetId": {
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "quicksight.dataset.FieldFolders": {
+    "Required": "No",
+    "Type": "Map of [FieldFolder",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.dataset.ImportMode": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "DIRECT_QUERY | SPICE",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.dataset.IngestionWaitPolicy": {
     "Required": "No",
     "Type": "IngestionWaitPolicy",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.dataset.LogicalTableMap": {
+    "Required": "No",
+    "Type": "Map of [LogicalTable",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.dataset.Name": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.dataset.Permissions": {
@@ -20,46 +57,14 @@
     "Maximum": "64",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "quicksight.dataset.DataSetId": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "quicksight.dataset.AwsAccountId": {
-    "Pattern": "^[0-9]{12}$",
-    "Required": "No",
-    "Maximum": "12",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "12",
-    "Type": "String"
-  },
   "quicksight.dataset.PhysicalTableMap": {
     "Required": "No",
     "Type": "Map of [PhysicalTable",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "quicksight.dataset.ColumnGroups": {
+  "quicksight.dataset.RowLevelPermissionDataSet": {
     "Required": "No",
-    "Type": "List of [ColumnGroup",
-    "Maximum": "8",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "quicksight.dataset.ImportMode": {
-    "Allowed values": "DIRECT_QUERY | SPICE",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "quicksight.dataset.FieldFolders": {
-    "Required": "No",
-    "Type": "Map of [FieldFolder",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "quicksight.dataset.Name": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "128",
+    "Type": "RowLevelPermissionDataSet",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.dataset.Tags": {
@@ -67,10 +72,5 @@
     "Type": "List of [Tag",
     "Maximum": "200",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "quicksight.dataset.ColumnLevelPermissionRules": {
-    "Required": "No",
-    "Type": "List of [ColumnLevelPermissionRule",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

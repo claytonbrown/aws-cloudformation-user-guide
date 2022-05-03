@@ -1,26 +1,59 @@
 {
+  "ssm.maintenancewindow.AllowUnassociatedTargets": {
+    "Required": "Yes",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.maintenancewindow.Cutoff": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "Minimum": "0",
+    "Maximum": "23",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.maintenancewindow.Description": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.maintenancewindow.Duration": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "24",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "ssm.maintenancewindow.EndDate": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.maintenancewindow.ScheduleOffset": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "Integer",
-    "Maximum": "6",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssm.maintenancewindow.Cutoff": {
-    "Minimum": "0",
+  "ssm.maintenancewindow.Name": {
     "Required": "Yes",
-    "Type": "Integer",
-    "Maximum": "23",
+    "Type": "String",
+    "Minimum": "3",
+    "Maximum": "128",
+    "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.maintenancewindow.StartDate": {
-    "Required": "No",
+  "ssm.maintenancewindow.Schedule": {
+    "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.maintenancewindow.ScheduleOffset": {
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "6",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssm.maintenancewindow.ScheduleTimezone": {
@@ -28,43 +61,10 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ssm.maintenancewindow.Name": {
-    "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
-    "Required": "Yes",
-    "Maximum": "128",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "3",
-    "Type": "String"
-  },
-  "ssm.maintenancewindow.Duration": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "Integer",
-    "Maximum": "24",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssm.maintenancewindow.Description": {
-    "Minimum": "1",
+  "ssm.maintenancewindow.StartDate": {
     "Required": "No",
     "Type": "String",
-    "Maximum": "128",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssm.maintenancewindow.Schedule": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "256",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "ssm.maintenancewindow.AllowUnassociatedTargets": {
-    "Required": "Yes",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
   },
   "ssm.maintenancewindow.Tags": {
     "Required": "No",

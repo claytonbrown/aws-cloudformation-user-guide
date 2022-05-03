@@ -1,40 +1,40 @@
 {
-  "eks.cluster.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "eks.cluster.Name": {
-    "Pattern": "^[0-9A-Za-z][A-Za-z0-9\\-_]*",
-    "Required": "No",
-    "Maximum": "100",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "eks.cluster.RoleArn": {
-    "Required": "Yes",
-    "UpdateRequires": "Replacement"
-  },
-  "eks.cluster.Logging": {
-    "Required": "No",
-    "Type": "Logging",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "eks.cluster.EncryptionConfig": {
     "Required": "No",
     "Type": "List",
     "Maximum": "1",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "eks.cluster.ResourcesVpcConfig": {
-    "Required": "Yes",
-    "UpdateRequires": "No interruption"
-  },
   "eks.cluster.KubernetesNetworkConfig": {
     "Required": "No",
     "Type": "KubernetesNetworkConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "eks.cluster.Logging": {
+    "Required": "No",
+    "Type": "Logging",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "eks.cluster.Name": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "^[0-9A-Za-z][A-Za-z0-9\\-_]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "eks.cluster.ResourcesVpcConfig": {
+    "Required": "Yes",
+    "UpdateRequires": "No interruption"
+  },
+  "eks.cluster.RoleArn": {
+    "Required": "Yes",
+    "UpdateRequires": "Replacement"
+  },
+  "eks.cluster.Tags": {
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "eks.cluster.Version": {
     "Required": "No",

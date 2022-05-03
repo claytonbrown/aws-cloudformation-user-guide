@@ -1,33 +1,33 @@
 {
-  "cognito.userpool.emailconfiguration.From": {
+  "cognito.userpool.emailconfiguration.ConfigurationSet": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": "^[a-zA-Z0-9_-]+$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.emailconfiguration.EmailSendingAccount": {
     "Required": "No",
     "UpdateRequires": "No interruption"
   },
-  "cognito.userpool.emailconfiguration.ConfigurationSet": {
-    "Pattern": "^[a-zA-Z0-9_-]+$",
-    "Required": "No",
-    "Maximum": "64",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "cognito.userpool.emailconfiguration.ReplyToEmailAddress": {
-    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+@[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+  "cognito.userpool.emailconfiguration.From": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cognito.userpool.emailconfiguration.SourceArn": {
-    "Pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+  "cognito.userpool.emailconfiguration.ReplyToEmailAddress": {
     "Required": "No",
-    "Maximum": "2048",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
+    "Pattern": "[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+@[\\p{L}\\p{M}\\p{S}\\p{N}\\p{P}]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.emailconfiguration.SourceArn": {
+    "Required": "No",
+    "Type": "String",
     "Minimum": "20",
-    "Type": "String"
+    "Maximum": "2048",
+    "Pattern": "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

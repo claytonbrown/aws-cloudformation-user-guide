@@ -1,42 +1,42 @@
 {
-  "events.eventbuspolicy.EventBusName": {
-    "Pattern": "[\\.\\-_A-Za-z0-9]+",
-    "Required": "No",
-    "Maximum": "256",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "events.eventbuspolicy.StatementId": {
-    "Pattern": "[a-zA-Z0-9-_]+",
-    "Required": "Yes",
-    "Maximum": "64",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-    "Minimum": "1",
-    "Type": "String"
-  },
   "events.eventbuspolicy.Action": {
-    "Pattern": "events:[a-zA-Z]+",
     "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
     "Maximum": "64",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "events.eventbuspolicy.Principal": {
-    "Pattern": "(\\d{12}|\\*)",
-    "Minimum": "1",
-    "Required": "No",
-    "Maximum": "12",
-    "UpdateRequires": "No interruption"
+    "Pattern": "events:[a-zA-Z]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.eventbuspolicy.Condition": {
     "Required": "No",
+    "UpdateRequires": "No interruption"
+  },
+  "events.eventbuspolicy.EventBusName": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "Pattern": "[\\.\\-_A-Za-z0-9]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "events.eventbuspolicy.Principal": {
+    "Required": "No",
+    "Minimum": "1",
+    "Maximum": "12",
+    "Pattern": "(\\d{12}|\\*)",
     "UpdateRequires": "No interruption"
   },
   "events.eventbuspolicy.Statement": {
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "events.eventbuspolicy.StatementId": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": "[a-zA-Z0-9-_]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

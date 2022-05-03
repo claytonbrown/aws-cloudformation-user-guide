@@ -1,24 +1,11 @@
 {
   "sagemaker.workteam.Description": {
-    "Pattern": ".+",
     "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
     "Maximum": "200",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "sagemaker.workteam.NotificationConfiguration": {
-    "Required": "No",
-    "Type": "NotificationConfiguration",
+    "Pattern": ".+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "sagemaker.workteam.WorkteamName": {
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
-    "Required": "No",
-    "Maximum": "63",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
-    "Minimum": "1",
-    "Type": "String"
   },
   "sagemaker.workteam.MemberDefinitions": {
     "Required": "No",
@@ -26,9 +13,22 @@
     "Maximum": "10",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "sagemaker.workteam.NotificationConfiguration": {
+    "Required": "No",
+    "Type": "NotificationConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "sagemaker.workteam.Tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.workteam.WorkteamName": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

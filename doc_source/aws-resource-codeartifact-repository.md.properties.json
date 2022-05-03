@@ -1,53 +1,53 @@
 {
-  "codeartifact.repository.DomainOwner": {
-    "Pattern": "[0-9]{12}",
-    "Required": "No",
-    "Maximum": "12",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "12",
-    "Type": "String"
-  },
-  "codeartifact.repository.PermissionsPolicyDocument": {
-    "Required": "No",
-    "Type": "Json",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "codeartifact.repository.DomainName": {
-    "Pattern": "[a-z][a-z0-9\\-]{0,48}[a-z0-9]",
-    "Required": "Yes",
-    "Maximum": "50",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "2",
-    "Type": "String"
-  },
-  "codeartifact.repository.Upstreams": {
-    "Required": "No",
-    "Type": "List of String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
   "codeartifact.repository.Description": {
-    "Pattern": "\\P{C}*",
     "Required": "No",
     "Type": "String",
     "Maximum": "1000",
+    "Pattern": "\\P{C}*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codeartifact.repository.DomainName": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "2",
+    "Maximum": "50",
+    "Pattern": "[a-z][a-z0-9\\-]{0,48}[a-z0-9]",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "codeartifact.repository.DomainOwner": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "12",
+    "Maximum": "12",
+    "Pattern": "[0-9]{12}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "codeartifact.repository.ExternalConnections": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "codeartifact.repository.PermissionsPolicyDocument": {
+    "Required": "No",
+    "Type": "Json",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "codeartifact.repository.RepositoryName": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "2",
+    "Maximum": "100",
+    "Pattern": "[A-Za-z0-9][A-Za-z0-9._\\-]{1,99}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "codeartifact.repository.Tags": {
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "codeartifact.repository.RepositoryName": {
-    "Pattern": "[A-Za-z0-9][A-Za-z0-9._\\-]{1,99}",
-    "Required": "Yes",
-    "Maximum": "100",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "2",
-    "Type": "String"
+  "codeartifact.repository.Upstreams": {
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

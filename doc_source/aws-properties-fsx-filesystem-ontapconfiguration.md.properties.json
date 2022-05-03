@@ -1,39 +1,42 @@
 {
-  "fsx.filesystem.ontapconfiguration.ThroughputCapacity": {
-    "Minimum": "8",
+  "fsx.filesystem.ontapconfiguration.AutomaticBackupRetentionDays": {
     "Required": "No",
     "Type": "Integer",
-    "Maximum": "4096",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "fsx.filesystem.ontapconfiguration.FsxAdminPassword": {
-    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{8,50}$",
-    "Required": "No",
-    "Maximum": "50",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "8",
-    "Type": "String"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "fsx.filesystem.ontapconfiguration.DailyAutomaticBackupStartTime": {
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "fsx.filesystem.ontapconfiguration.PreferredSubnetId": {
-    "Required": "No",
+  "fsx.filesystem.ontapconfiguration.DeploymentType": {
+    "Required": "Yes",
     "Type": "String",
+    "Allowed values": "MULTI_AZ_1",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "fsx.filesystem.ontapconfiguration.EndpointIpAddressRange": {
-    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{9,17}$",
-    "Minimum": "9",
+  "fsx.filesystem.ontapconfiguration.DiskIopsConfiguration": {
     "Required": "No",
+    "Type": "DiskIopsConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.filesystem.ontapconfiguration.EndpointIpAddressRange": {
+    "Required": "No",
+    "Minimum": "9",
     "Maximum": "17",
+    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{9,17}$",
     "UpdateRequires": "Replacement"
   },
-  "fsx.filesystem.ontapconfiguration.DeploymentType": {
-    "Allowed values": "MULTI_AZ_1",
-    "Required": "Yes",
+  "fsx.filesystem.ontapconfiguration.FsxAdminPassword": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "8",
+    "Maximum": "50",
+    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{8,50}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.filesystem.ontapconfiguration.PreferredSubnetId": {
+    "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
@@ -43,19 +46,16 @@
     "Maximum": "50",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "fsx.filesystem.ontapconfiguration.AutomaticBackupRetentionDays": {
+  "fsx.filesystem.ontapconfiguration.ThroughputCapacity": {
     "Required": "No",
     "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Minimum": "8",
+    "Maximum": "4096",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "fsx.filesystem.ontapconfiguration.WeeklyMaintenanceStartTime": {
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "fsx.filesystem.ontapconfiguration.DiskIopsConfiguration": {
-    "Required": "No",
-    "Type": "DiskIopsConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

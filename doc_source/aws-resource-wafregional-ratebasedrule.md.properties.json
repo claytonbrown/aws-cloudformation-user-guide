@@ -1,34 +1,34 @@
 {
-  "wafregional.ratebasedrule.RateLimit": {
-    "Required": "Yes",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
   "wafregional.ratebasedrule.MatchPredicates": {
     "Required": "No",
     "Type": "List of [Predicate",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "wafregional.ratebasedrule.RateKey": {
-    "Allowed values": "IP",
+  "wafregional.ratebasedrule.MetricName": {
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": ".*\\S.*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "wafregional.ratebasedrule.MetricName": {
-    "Pattern": ".*\\S.*",
-    "Required": "Yes",
-    "Maximum": "128",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
   "wafregional.ratebasedrule.Name": {
-    "Pattern": ".*\\S.*",
     "Required": "Yes",
-    "Maximum": "128",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "128",
+    "Pattern": ".*\\S.*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "wafregional.ratebasedrule.RateKey": {
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "IP",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "wafregional.ratebasedrule.RateLimit": {
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

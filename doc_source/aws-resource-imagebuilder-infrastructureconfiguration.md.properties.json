@@ -1,13 +1,8 @@
 {
-  "imagebuilder.infrastructureconfiguration.Logging": {
-    "Required": "No",
-    "Type": "Logging",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "imagebuilder.infrastructureconfiguration.KeyPair": {
-    "Minimum": "1",
+  "imagebuilder.infrastructureconfiguration.Description": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "1024",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -16,51 +11,35 @@
     "Type": "InstanceMetadataOptions",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "imagebuilder.infrastructureconfiguration.SecurityGroupIds": {
+  "imagebuilder.infrastructureconfiguration.InstanceProfileName": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "Pattern": "^[\\w+=,.@-]+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "imagebuilder.infrastructureconfiguration.InstanceTypes": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "imagebuilder.infrastructureconfiguration.Description": {
-    "Minimum": "1",
+  "imagebuilder.infrastructureconfiguration.KeyPair": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "1024",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "imagebuilder.infrastructureconfiguration.InstanceProfileName": {
-    "Pattern": "^[\\w+=,.@-]+$",
-    "Required": "Yes",
-    "Maximum": "256",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "imagebuilder.infrastructureconfiguration.SnsTopicArn": {
-    "Minimum": "1",
+  "imagebuilder.infrastructureconfiguration.Logging": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "imagebuilder.infrastructureconfiguration.TerminateInstanceOnFailure": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "imagebuilder.infrastructureconfiguration.Tags": {
-    "Required": "No",
-    "Type": "Map of String",
+    "Type": "Logging",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "imagebuilder.infrastructureconfiguration.Name": {
-    "Pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
     "Required": "Yes",
     "Type": "String",
+    "Pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.infrastructureconfiguration.ResourceTags": {
@@ -68,16 +47,37 @@
     "Type": "Map of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "imagebuilder.infrastructureconfiguration.SubnetId": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "imagebuilder.infrastructureconfiguration.InstanceTypes": {
+  "imagebuilder.infrastructureconfiguration.SecurityGroupIds": {
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "imagebuilder.infrastructureconfiguration.SnsTopicArn": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "imagebuilder.infrastructureconfiguration.SubnetId": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "imagebuilder.infrastructureconfiguration.Tags": {
+    "Required": "No",
+    "Type": "Map of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "imagebuilder.infrastructureconfiguration.TerminateInstanceOnFailure": {
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

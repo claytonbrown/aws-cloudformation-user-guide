@@ -1,24 +1,27 @@
 {
-  "dlm.lifecyclepolicy.schedule.Name": {
-    "Pattern": "[0-9A-Za-z _-]+",
-    "Required": "No",
-    "Maximum": "120",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "0",
-    "Type": "String"
-  },
   "dlm.lifecyclepolicy.schedule.CopyTags": {
     "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ]
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dlm.lifecyclepolicy.schedule.CreateRule": {
     "Required": "No",
     "Type": "CreateRule",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dlm.lifecyclepolicy.schedule.CrossRegionCopyRules": {
+    "Required": "No",
+    "Type": "List of [CrossRegionCopyRule",
+    "Maximum": "3",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dlm.lifecyclepolicy.schedule.DeprecateRule": {
+    "Required": "No",
+    "Type": "DeprecateRule",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dlm.lifecyclepolicy.schedule.FastRestoreRule": {
@@ -26,9 +29,12 @@
     "Type": "FastRestoreRule",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "dlm.lifecyclepolicy.schedule.DeprecateRule": {
+  "dlm.lifecyclepolicy.schedule.Name": {
     "Required": "No",
-    "Type": "DeprecateRule",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "120",
+    "Pattern": "[0-9A-Za-z _-]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dlm.lifecyclepolicy.schedule.RetainRule": {
@@ -40,12 +46,6 @@
     "Required": "No",
     "Type": "List of [ShareRule",
     "Maximum": "1",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "dlm.lifecyclepolicy.schedule.CrossRegionCopyRules": {
-    "Required": "No",
-    "Type": "List of [CrossRegionCopyRule",
-    "Maximum": "3",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dlm.lifecyclepolicy.schedule.TagsToAdd": {

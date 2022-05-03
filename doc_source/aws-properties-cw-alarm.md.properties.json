@@ -1,46 +1,41 @@
 {
-  "cw.alarm.Metrics": {
+  "cw.alarm.ActionsEnabled": {
     "Required": "No",
-    "Type": "List of [MetricDataQuery",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cw.alarm.Period": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "cw.alarm.TreatMissingData": {
-    "Minimum": "1",
-    "Required": "No",
-    "Maximum": "255",
-    "UpdateRequires": "No interruption"
   },
   "cw.alarm.AlarmActions": {
     "Required": "No",
     "Maximum": "5",
     "UpdateRequires": "No interruption"
   },
-  "cw.alarm.AlarmName": {
-    "Minimum": "1",
+  "cw.alarm.AlarmDescription": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cw.alarm.AlarmName": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
     "Maximum": "255",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "cw.alarm.Unit": {
-    "Allowed values": "Bits | Bits/Second | Bytes | Bytes/Second | Count | Count/Second | Gigabits | Gigabits/Second | Gigabytes | Gigabytes/Second | Kilobits | Kilobits/Second | Kilobytes | Kilobytes/Second | Megabits | Megabits/Second | Megabytes | Megabytes/Second | Microseconds | Milliseconds | None | Percent | Seconds | Terabits | Terabits/Second | Terabytes | Terabytes/Second",
-    "Required": "No",
+  "cw.alarm.ComparisonOperator": {
+    "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "cw.alarm.InsufficientDataActions": {
-    "Required": "No",
-    "Type": "List of String",
-    "Maximum": "5",
+    "Allowed values": "GreaterThanOrEqualToThreshold | GreaterThanThreshold | GreaterThanUpperThreshold | LessThanLowerOrGreaterThanUpperThreshold | LessThanLowerThreshold | LessThanOrEqualToThreshold | LessThanThreshold",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.DatapointsToAlarm": {
-    "Minimum": "1",
     "Required": "No",
+    "Minimum": "1",
     "UpdateRequires": "No interruption"
   },
   "cw.alarm.Dimensions": {
@@ -49,64 +44,48 @@
     "Maximum": "10",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cw.alarm.ExtendedStatistic": {
-    "Pattern": "p(\\d{1,2}(\\.\\d{0,2})?|100)",
+  "cw.alarm.EvaluateLowSampleCountPercentile": {
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cw.alarm.ActionsEnabled": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
+  "cw.alarm.EvaluationPeriods": {
+    "Required": "Yes",
+    "Minimum": "1",
+    "UpdateRequires": "No interruption"
   },
-  "cw.alarm.Threshold": {
+  "cw.alarm.ExtendedStatistic": {
     "Required": "No",
-    "Type": "Double",
+    "Type": "String",
+    "Pattern": "p(\\d{1,2}(\\.\\d{0,2})?|100)",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cw.alarm.InsufficientDataActions": {
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "5",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.MetricName": {
-    "Minimum": "1",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "255",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cw.alarm.AlarmDescription": {
-    "Minimum": "0",
+  "cw.alarm.Metrics": {
     "Required": "No",
-    "Type": "String",
-    "Maximum": "1024",
+    "Type": "List of [MetricDataQuery",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cw.alarm.EvaluateLowSampleCountPercentile": {
+  "cw.alarm.Namespace": {
+    "Required": "No",
+    "Type": "String",
     "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
     "Maximum": "255",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cw.alarm.Statistic": {
-    "Allowed values": "Average | Maximum | Minimum | SampleCount | Sum",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cw.alarm.ThresholdMetricId": {
-    "Minimum": "1",
-    "Required": "No",
-    "Type": "String",
-    "Maximum": "255",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "cw.alarm.ComparisonOperator": {
-    "Allowed values": "GreaterThanOrEqualToThreshold | GreaterThanThreshold | GreaterThanUpperThreshold | LessThanLowerOrGreaterThanUpperThreshold | LessThanLowerThreshold | LessThanOrEqualToThreshold | LessThanThreshold",
-    "Required": "Yes",
-    "Type": "String",
+    "Pattern": "[^:].*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.OKActions": {
@@ -115,17 +94,38 @@
     "Maximum": "5",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "cw.alarm.Namespace": {
-    "Pattern": "[^:].*",
+  "cw.alarm.Period": {
     "Required": "No",
-    "Maximum": "255",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
-  "cw.alarm.EvaluationPeriods": {
-    "Minimum": "1",
-    "Required": "Yes",
     "UpdateRequires": "No interruption"
+  },
+  "cw.alarm.Statistic": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "Average | Maximum | Minimum | SampleCount | Sum",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cw.alarm.Threshold": {
+    "Required": "No",
+    "Type": "Double",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cw.alarm.ThresholdMetricId": {
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cw.alarm.TreatMissingData": {
+    "Required": "No",
+    "Minimum": "1",
+    "Maximum": "255",
+    "UpdateRequires": "No interruption"
+  },
+  "cw.alarm.Unit": {
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "Bits | Bits/Second | Bytes | Bytes/Second | Count | Count/Second | Gigabits | Gigabits/Second | Gigabytes | Gigabytes/Second | Kilobits | Kilobits/Second | Kilobytes | Kilobytes/Second | Megabits | Megabits/Second | Megabytes | Megabytes/Second | Microseconds | Milliseconds | None | Percent | Seconds | Terabits | Terabits/Second | Terabytes | Terabytes/Second",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

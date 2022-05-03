@@ -4,16 +4,23 @@
     "Type": "MountOptions",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "datasync.locationnfs.ServerHostname": {
-    "Pattern": "^(([a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9\\-]*[A-Za-z0-9])$",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "255",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
   "datasync.locationnfs.OnPremConfig": {
     "Required": "Yes",
     "Type": "OnPremConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.locationnfs.ServerHostname": {
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "255",
+    "Pattern": "^(([a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9\\-]*[A-Za-z0-9])$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "datasync.locationnfs.Subdirectory": {
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "4096",
+    "Pattern": "^[a-zA-Z0-9_\\-\\+\\./\\(\\)\\p{Zs}]+$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationnfs.Tags": {
@@ -21,12 +28,5 @@
     "Type": "List of [Tag",
     "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "datasync.locationnfs.Subdirectory": {
-    "Pattern": "^[a-zA-Z0-9_\\-\\+\\./\\(\\)\\p{Zs}]+$",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "4096",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

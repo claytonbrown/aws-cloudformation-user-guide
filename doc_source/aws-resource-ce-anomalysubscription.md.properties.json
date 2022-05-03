@@ -1,8 +1,9 @@
 {
-  "ce.anomalysubscription.Threshold": {
+  "ce.anomalysubscription.Frequency": {
     "Required": "Yes",
-    "Type": "Double",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Type": "String",
+    "Allowed values": "DAILY | IMMEDIATE | WEEKLY",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ce.anomalysubscription.MonitorArnList": {
     "Required": "Yes",
@@ -14,18 +15,17 @@
     "Type": "List of [Subscriber",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ce.anomalysubscription.Frequency": {
-    "Allowed values": "DAILY | IMMEDIATE | WEEKLY",
+  "ce.anomalysubscription.SubscriptionName": {
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "1024",
+    "Pattern": "[\\S\\s]*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "ce.anomalysubscription.SubscriptionName": {
-    "Pattern": "[\\S\\s]*",
+  "ce.anomalysubscription.Threshold": {
     "Required": "Yes",
-    "Maximum": "1024",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "0",
-    "Type": "String"
+    "Type": "Double",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

@@ -1,39 +1,25 @@
 {
-  "sagemaker.model.PrimaryContainer": {
-    "Required": "No",
-    "Type": "ContainerDefinition",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "sagemaker.model.EnableNetworkIsolation": {
-    "Required": "No",
-    "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "AllowedValues": [
-      "True",
-      "False"
-    ]
-  },
-  "sagemaker.model.VpcConfig": {
-    "Required": "No",
-    "Type": "VpcConfig",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "sagemaker.model.Tags": {
-    "Required": "No",
-    "Maximum": "50",
-    "UpdateRequires": "No interruption"
-  },
   "sagemaker.model.Containers": {
     "Required": "No",
     "Type": "List of [ContainerDefinition",
     "Maximum": "15",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "sagemaker.model.ModelName": {
-    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+  "sagemaker.model.EnableNetworkIsolation": {
     "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.model.ExecutionRoleArn": {
+    "Required": "Yes",
     "Type": "String",
-    "Maximum": "63",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "sagemaker.model.InferenceExecutionConfig": {
@@ -41,12 +27,26 @@
     "Type": "InferenceExecutionConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "sagemaker.model.ExecutionRoleArn": {
-    "Pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
-    "Required": "Yes",
-    "Maximum": "2048",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "20",
-    "Type": "String"
+  "sagemaker.model.ModelName": {
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.model.PrimaryContainer": {
+    "Required": "No",
+    "Type": "ContainerDefinition",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.model.Tags": {
+    "Required": "No",
+    "Maximum": "50",
+    "UpdateRequires": "No interruption"
+  },
+  "sagemaker.model.VpcConfig": {
+    "Required": "No",
+    "Type": "VpcConfig",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

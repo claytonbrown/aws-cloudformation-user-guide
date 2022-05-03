@@ -11,21 +11,13 @@
     "Maximum": "20",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "iotanalytics.dataset.Triggers": {
+  "iotanalytics.dataset.DatasetName": {
     "Required": "No",
-    "Type": "List of [Trigger",
-    "Maximum": "5",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "iotanalytics.dataset.VersioningConfiguration": {
-    "Required": "No",
-    "UpdateRequires": "No interruption"
-  },
-  "iotanalytics.dataset.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "Maximum": "50",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "(^(?!_{2}))(^[a-zA-Z0-9_]+$)",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "iotanalytics.dataset.LateDataRules": {
     "Required": "No",
@@ -38,12 +30,20 @@
     "Type": "RetentionPeriod",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "iotanalytics.dataset.DatasetName": {
-    "Pattern": "(^(?!_{2}))(^[a-zA-Z0-9_]+$)",
+  "iotanalytics.dataset.Tags": {
     "Required": "No",
-    "Maximum": "128",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotanalytics.dataset.Triggers": {
+    "Required": "No",
+    "Type": "List of [Trigger",
+    "Maximum": "5",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotanalytics.dataset.VersioningConfiguration": {
+    "Required": "No",
+    "UpdateRequires": "No interruption"
   }
 }

@@ -1,23 +1,23 @@
 {
-  "lambda.layerversion.content.S3Key": {
-    "Minimum": "1",
+  "lambda.layerversion.content.S3Bucket": {
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "3",
+    "Maximum": "63",
+    "Pattern": "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "lambda.layerversion.content.S3Key": {
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
     "Maximum": "1024",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "lambda.layerversion.content.S3Bucket": {
-    "Pattern": "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$",
-    "Required": "Yes",
-    "Maximum": "63",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "3",
-    "Type": "String"
-  },
   "lambda.layerversion.content.S3ObjectVersion": {
-    "Minimum": "1",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
     "Maximum": "1024",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
