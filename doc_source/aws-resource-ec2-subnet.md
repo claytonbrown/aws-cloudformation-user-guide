@@ -23,7 +23,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[MapPublicIpOnLaunch](#cfn-ec2-subnet-mappubliciponlaunch)" : Boolean,
       "[OutpostArn](#cfn-ec2-subnet-outpostarn)" : String,
       "[Tags](#cfn-ec2-subnet-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ],
-      "[VpcId](#cfn-awsec2subnet-prop-vpcid)" : String
+      "[VpcId](#cfn-ec2-subnet-vpcid)" : String
     }
 }
 ```
@@ -41,7 +41,7 @@ Properties:
   [OutpostArn](#cfn-ec2-subnet-outpostarn): String
   [Tags](#cfn-ec2-subnet-tags): 
     - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
-  [VpcId](#cfn-awsec2subnet-prop-vpcid): String
+  [VpcId](#cfn-ec2-subnet-vpcid): String
 ```
 
 ## Properties<a name="aws-resource-ec2-subnet-properties"></a>
@@ -94,7 +94,7 @@ Any tags assigned to the subnet\.
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
-`VpcId`  <a name="cfn-awsec2subnet-prop-vpcid"></a>
+`VpcId`  <a name="cfn-ec2-subnet-vpcid"></a>
 The ID of the VPC the subnet is in\.  
 If you update this property, you must also update the `CidrBlock` property\.  
 *Required*: Yes  
@@ -120,6 +120,9 @@ For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::G
 `AvailabilityZone`  <a name="AvailabilityZone-fn::getatt"></a>
 The Availability Zone of this subnet\. For example:  
  `{ "Fn::GetAtt" : [ "mySubnet", "AvailabilityZone" ] } ` 
+
+`Id`  <a name="Id-fn::getatt"></a>
+Not currently supported by AWS CloudFormation\.
 
 `Ipv6CidrBlocks`  <a name="Ipv6CidrBlocks-fn::getatt"></a>
 The IPv6 CIDR blocks that are associated with the subnet, such as `[ 2001:db8:1234:1a00::/64 ]`\.

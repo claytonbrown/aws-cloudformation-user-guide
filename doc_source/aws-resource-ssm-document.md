@@ -65,8 +65,7 @@ This parameter also supports `String` data types\.
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `DocumentFormat`  <a name="cfn-ssm-document-documentformat"></a>
-Specify the document format for the request\. The document format can be JSON or YAML\. JSON is the default format\.  
-`TEXT` is not supported, even though it is listed in the `Allowed values`\.
+Specify the document format for the request\. JSON is the default format\.  
 *Required*: No  
 *Type*: String  
 *Allowed values*: `JSON | TEXT | YAML`  
@@ -127,6 +126,96 @@ An optional field specifying the version of the artifact you are creating with t
 For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ## Examples<a name="aws-resource-ssm-document--examples"></a>
+
+### Create an Automation runbook that runs commands on an EC2 Linux instance<a name="aws-resource-ssm-document--examples--Create_an_Automation_runbook_that_runs_commands_on_an_EC2_Linux_instance"></a>
+
+The following runbook runs the commands you specify on your target Amazon EC2 Linux instance\. You specify the commands parameter value when starting the runbook\.
+
+#### YAML<a name="aws-resource-ssm-document--examples--Create_an_Automation_runbook_that_runs_commands_on_an_EC2_Linux_instance--yaml"></a>
+
+```
+document: 
+    Type: AWS::SSM::Document
+    Properties:
+      Content:
+        schemaVersion: '0.3'
+        description: 'Run a script on Linux instances.'
+        parameters:
+          AutomationAssumeRole:
+            type: String
+            description: (Optional) The ARN of the role that allows Automation to perform the actions on your behalf.
+            default: ''
+          commands:
+            type: String
+            description: "(Required) The commands to run or the path to an existing script on the instance."
+            default: 'echo Hello World'
+          InstanceId:
+            type: String
+            description: "(Required) The instance ID you want to run commands on."
+            default: ''
+        mainSteps:
+        - name: sayHello
+          action: 'aws:runCommand'
+          inputs:
+            DocumentName: AWS-RunShellScript
+            Parameters:
+              InstanceIds:
+              - '{{InstanceId}}'
+              commands:
+              - "{{ commands }}"
+      DocumentType: Automation
+      Name: 'CFN_runbook_example'
+```
+
+#### JSON<a name="aws-resource-ssm-document--examples--Create_an_Automation_runbook_that_runs_commands_on_an_EC2_Linux_instance--json"></a>
+
+```
+"document": {
+         "Type": "AWS::SSM::Document",
+         "Properties": {
+            "Content": {
+               "schemaVersion": "0.3",
+               "description": "Run a script on Linux instances.",
+               "parameters": {
+                  "AutomationAssumeRole": {
+                     "type": "String",
+                     "description": "(Optional) The ARN of the role that allows Automation to perform the actions on your behalf.",
+                     "default": ""
+                  },
+                  "commands": {
+                     "type": "String",
+                     "description": "(Required) The commands to run or the path to an existing script on the instance.",
+                     "default": "echo Hello World"
+                  },
+                  "InstanceId": {
+                     "type": "String",
+                     "description": "(Required) The instance ID you want to run commands on.",
+                     "default": ""
+                  }
+               },
+               "mainSteps": [
+                  {
+                     "name": "sayHello",
+                     "action": "aws:runCommand",
+                     "inputs": {
+                        "DocumentName": "AWS-RunShellScript",
+                        "Parameters": {
+                           "InstanceIds": [
+                              "{{InstanceId}}"
+                           ],
+                           "commands": [
+                              "{{ commands }}"
+                           ]
+                        }
+                     }
+                  }
+               ]
+            },
+            "DocumentType": "Automation",
+            "Name": "CFN_runbook_example"
+         }
+      }
+```
 
 ### Create a document that runs commands on an EC2 Linux instance<a name="aws-resource-ssm-document--examples--Create_a_document_that_runs_commands_on_an_EC2_Linux_instance"></a>
 

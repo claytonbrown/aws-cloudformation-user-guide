@@ -100,6 +100,7 @@ The platform configuration for jobs that are running on Fargate resources\. Jobs
 `Image`  <a name="cfn-batch-jobdefinition-containerproperties-image"></a>
 The image used to start a container\. This string is passed directly to the Docker daemon\. Images in the Docker Hub registry are available by default\. Other repositories are specified with ` repository-url/image:tag `\. Up to 255 letters \(uppercase and lowercase\), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed\. This parameter maps to `Image` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.docker.com/engine/reference/run/)\.  
 Docker image architecture must match the processor architecture of the compute resources that they're scheduled on\. For example, ARM\-based Docker images can only run on ARM\-based compute resources\.
++ Images in Amazon ECR Public repositories use the full `registry/repository[:tag]` or `registry/repository[@digest]` naming conventions\. For example, `public.ecr.aws/registry_alias/my-web-app:latest `\.
 + Images in Amazon ECR repositories use the full registry and repository URI \(for example, `012345678910.dkr.ecr.<region-name>.amazonaws.com/<repository-name>`\)\.
 + Images in official repositories on Docker Hub use a single name \(for example, `ubuntu` or `mongo`\)\.
 + Images in other repositories on Docker Hub are qualified with an organization name \(for example, `amazon/amazon-ecs-agent`\)\.
@@ -138,7 +139,7 @@ The Amazon ECS container agent running on a container instance must register the
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Memory`  <a name="cfn-batch-jobdefinition-containerproperties-memory"></a>
-This parameter is deprecated, use `resourceRequirements` to specify the memory requirements for the job definition\. It's not supported for jobs that run on Fargate resources\. For jobs run on EC2 resources, it specifies the memory hard limit \(in MiB\) for a container\. If your container attempts to exceed the specified number, it's terminated\. You must specify at least 4 MiB of memory for a job using this parameter\. The memory hard limit can be specified in several places\. It must be specified for each node at least once\.  
+This parameter is deprecated, use `resourceRequirements` to specify the memory requirements for the job definition\. It's not supported for jobs running on Fargate resources\. For jobs running on EC2 resources, it specifies the memory hard limit \(in MiB\) for a container\. If your container attempts to exceed the specified number, it's terminated\. You must specify at least 4 MiB of memory for a job using this parameter\. The memory hard limit can be specified in several places\. It must be specified for each node at least once\.  
 *Required*: No  
 *Type*: Integer  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -194,7 +195,7 @@ The user name to use inside the container\. This parameter maps to `User` in the
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Vcpus`  <a name="cfn-batch-jobdefinition-containerproperties-vcpus"></a>
-This parameter is deprecated, use `resourceRequirements` to specify the vCPU requirements for the job definition\. It's not supported for jobs that run on Fargate resources\. For jobs run on EC2 resources, it specifies the number of vCPUs reserved for the job\.  
+This parameter is deprecated, use `resourceRequirements` to specify the vCPU requirements for the job definition\. It's not supported for jobs running on Fargate resources\. For jobs running on EC2 resources, it specifies the number of vCPUs reserved for the job\.  
 Each vCPU is equivalent to 1,024 CPU shares\. This parameter maps to `CpuShares` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `--cpu-shares` option to [docker run](https://docs.docker.com/engine/reference/run/)\. The number of vCPUs must be specified but can be specified in several places\. You must specify it at least once for each node\.  
 *Required*: No  
 *Type*: Integer  

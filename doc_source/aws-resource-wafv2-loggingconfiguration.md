@@ -2,7 +2,18 @@
 
 Defines an association between logging destinations and a web ACL resource, for logging from AWS WAF\. As part of the association, you can specify parts of the standard logging fields to keep out of the logs and you can specify filters so that you log only a subset of the logging records\. 
 
-For information about configuring web ACL logging destinations, see [Logging web ACL traffic information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) in the * AWS WAF Developer Guide*\.
+**Note**  
+You can define one logging destination per web ACL\.
+
+You can access information about the traffic that AWS WAF inspects using the following steps:
+
+1. Create your logging destination\. You can use an Amazon CloudWatch Logs log group, an Amazon Simple Storage Service \(Amazon S3\) bucket, or an Amazon Kinesis Data Firehose\. For information about configuring logging destinations and the permissions that are required for each, see [Logging web ACL traffic information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) in the * AWS WAF Developer Guide*\.
+
+1. Associate your logging destination to your web ACL using a `PutLoggingConfiguration` request\.
+
+When you successfully enable logging using a `PutLoggingConfiguration` request, AWS WAF creates an additional role or policy that is required to write logs to the logging destination\. For an Amazon CloudWatch Logs log group, AWS WAF creates a resource policy on the log group\. For an Amazon S3 bucket, AWS WAF creates a bucket policy\. For an Amazon Kinesis Data Firehose, AWS WAF creates a service\-linked role\.
+
+For additional information about web ACL logging, see [Logging web ACL traffic information](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) in the * AWS WAF Developer Guide*\.
 
 ## Syntax<a name="aws-resource-wafv2-loggingconfiguration-syntax"></a>
 
@@ -38,7 +49,8 @@ Properties:
 ## Properties<a name="aws-resource-wafv2-loggingconfiguration-properties"></a>
 
 `LogDestinationConfigs`  <a name="cfn-wafv2-loggingconfiguration-logdestinationconfigs"></a>
-The Amazon Resource Names \(ARNs\) of the logging destinations that you want to associate with the web ACL\.  
+The logging destination configuration that you want to associate with the web ACL\.  
+You can associate one logging destination to a web ACL\.
 *Required*: Yes  
 *Type*: List of String  
 *Maximum*: `100`  
@@ -51,7 +63,7 @@ Filtering that specifies which web requests are kept in the logs and which are d
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `RedactedFields`  <a name="cfn-wafv2-loggingconfiguration-redactedfields"></a>
-The parts of the request that you want to keep out of the logs\. For example, if you redact the `SingleHeader` field, the `HEADER` field in the firehose will be `xxx`\.   
+The parts of the request that you want to keep out of the logs\. For example, if you redact the `SingleHeader` field, the `HEADER` field in the logs will be `xxx`\.   
 You can specify only the following fields for redaction: `UriPath`, `QueryString`, `SingleHeader`, `Method`, and `JsonBody`\.
 *Required*: No  
 *Type*: List of [FieldToMatch](aws-properties-wafv2-loggingconfiguration-fieldtomatch.md)  
