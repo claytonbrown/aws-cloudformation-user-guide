@@ -1,24 +1,24 @@
 {
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.BufferingHints": {
-    "Docs": "Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon ES domain.",
+    "Description": "Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon ES domain.",
     "Required": "No",
     "Type": "ElasticsearchBufferingHints",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.CloudWatchLoggingOptions": {
-    "Docs": "The Amazon CloudWatch Logs logging options for the delivery stream.",
+    "Description": "The Amazon CloudWatch Logs logging options for the delivery stream.",
     "Required": "No",
     "Type": "CloudWatchLoggingOptions",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.ClusterEndpoint": {
-    "Docs": "The endpoint to use when communicating with the cluster. Specify either this `ClusterEndpoint` or the `DomainARN` field.",
+    "Description": "The endpoint to use when communicating with the cluster. Specify either this `ClusterEndpoint` or the `DomainARN` field.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.DomainARN": {
-    "Docs": "The ARN of the Amazon ES domain. The IAM role must have permissions for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming the role specified in **RoleARN**.  Specify either `ClusterEndpoint` or `DomainARN`.",
+    "Description": "The ARN of the Amazon ES domain. The IAM role must have permissions for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig` after assuming the role specified in **RoleARN**.  Specify either `ClusterEndpoint` or `DomainARN`.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -27,7 +27,7 @@
     "UpdateRequires": "No interruption"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.IndexName": {
-    "Docs": "The name of the Elasticsearch index to which Kinesis Data Firehose adds data for indexing.",
+    "Description": "The name of the Elasticsearch index to which Kinesis Data Firehose adds data for indexing.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -36,25 +36,25 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.IndexRotationPeriod": {
-    "Docs": "The frequency of Elasticsearch index rotation. If you enable index rotation, Kinesis Data Firehose appends a portion of the UTC arrival timestamp to the specified index name, and rotates the appended timestamp accordingly. For more information, see [Index Rotation for the Amazon ES Destination](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation) in the *Amazon Kinesis Data Firehose Developer Guide*.",
+    "Description": "The frequency of Elasticsearch index rotation. If you enable index rotation, Kinesis Data Firehose appends a portion of the UTC arrival timestamp to the specified index name, and rotates the appended timestamp accordingly. For more information, see [Index Rotation for the Amazon ES Destination](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation) in the *Amazon Kinesis Data Firehose Developer Guide*.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.ProcessingConfiguration": {
-    "Docs": "The data processing configuration for the Kinesis Data Firehose delivery stream.",
+    "Description": "The data processing configuration for the Kinesis Data Firehose delivery stream.",
     "Required": "No",
     "Type": "ProcessingConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.RetryOptions": {
-    "Docs": "The retry behavior when Kinesis Data Firehose is unable to deliver data to Amazon ES.",
+    "Description": "The retry behavior when Kinesis Data Firehose is unable to deliver data to Amazon ES.",
     "Required": "No",
     "Type": "ElasticsearchRetryOptions",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.RoleARN": {
-    "Docs": "The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see [Controlling Access with Amazon Kinesis Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html).",
+    "Description": "The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see [Controlling Access with Amazon Kinesis Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html).",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -63,19 +63,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.S3BackupMode": {
-    "Docs": "The condition under which Kinesis Data Firehose delivers data to Amazon Simple Storage Service (Amazon S3). You can send Amazon S3 all documents (all data) or only the documents that Kinesis Data Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the `S3BackupMode` content for the [ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference*.",
+    "Description": "The condition under which Kinesis Data Firehose delivers data to Amazon Simple Storage Service (Amazon S3). You can send Amazon S3 all documents (all data) or only the documents that Kinesis Data Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the `S3BackupMode` content for the [ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference*.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.S3Configuration": {
-    "Docs": "The S3 bucket where Kinesis Data Firehose backs up incoming data.",
+    "Description": "The S3 bucket where Kinesis Data Firehose backs up incoming data.",
     "Required": "Yes",
     "Type": "S3DestinationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.TypeName": {
-    "Docs": "The Elasticsearch type name that Amazon ES adds to documents when indexing data.",
+    "Description": "The Elasticsearch type name that Amazon ES adds to documents when indexing data.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -84,7 +84,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.elasticsearchdestinationconfiguration.VpcConfiguration": {
-    "Docs": "The details of the VPC of the Amazon ES destination.",
+    "Description": "The details of the VPC of the Amazon ES destination.",
     "Required": "No",
     "Type": "VpcConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"

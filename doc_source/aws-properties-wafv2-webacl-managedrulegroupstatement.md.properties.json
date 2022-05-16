@@ -1,19 +1,19 @@
 {
   "wafv2.webacl.managedrulegroupstatement.ExcludedRules": {
-    "Docs": "The rules whose actions are set to `COUNT` by the web ACL, regardless of the action that is configured in the rule. This effectively excludes the rule from acting on web requests.",
+    "Description": "The rules whose actions are set to `COUNT` by the web ACL, regardless of the action that is configured in the rule. This effectively excludes the rule from acting on web requests.",
     "Required": "No",
     "Type": "List of [ExcludedRule",
     "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.webacl.managedrulegroupstatement.ManagedRuleGroupConfigs": {
-    "Docs": "Additional information that's used by a managed rule group. Most managed rule groups don't require this.  Use this for the account takeover prevention managed rule group `AWSManagedRulesATPRuleSet`, to provide information about the sign-in page of your application.   You can provide multiple individual `ManagedRuleGroupConfig` objects for any rule group configuration, for example `UsernameField` and `PasswordField`. The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: `LoginPath`, `PasswordField`, `PayloadType` and `UsernameField`.",
+    "Description": "Additional information that's used by a managed rule group. Most managed rule groups don't require this.  Use this for the account takeover prevention managed rule group `AWSManagedRulesATPRuleSet`, to provide information about the sign-in page of your application.   You can provide multiple individual `ManagedRuleGroupConfig` objects for any rule group configuration, for example `UsernameField` and `PasswordField`. The configuration that you provide depends on the needs of the managed rule group. For the ATP managed rule group, you provide the following individual configuration objects: `LoginPath`, `PasswordField`, `PayloadType` and `UsernameField`.",
     "Required": "No",
     "Type": "List of [ManagedRuleGroupConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.webacl.managedrulegroupstatement.Name": {
-    "Docs": "The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.",
+    "Description": "The name of the managed rule group. You use this, along with the vendor name, to identify the rule group.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -22,13 +22,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.webacl.managedrulegroupstatement.ScopeDownStatement": {
-    "Docs": "Statement nested inside a managed rule group statement to narrow the scope of the requests that AWS WAF evaluates using the rule group. Requests that match the scope-down statement are evaluated using the rule group. Requests that don't match the scope-down statement are not a match for the managed rule group statement, without any further evaluation.",
+    "Description": "Statement nested inside a managed rule group statement to narrow the scope of the requests that AWS WAF evaluates using the rule group. Requests that match the scope-down statement are evaluated using the rule group. Requests that don't match the scope-down statement are not a match for the managed rule group statement, without any further evaluation.",
     "Required": "No",
     "Type": "Statement",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.webacl.managedrulegroupstatement.VendorName": {
-    "Docs": "The name of the managed rule group vendor. You use this, along with the rule group name, to identify the rule group.",
+    "Description": "The name of the managed rule group vendor. You use this, along with the rule group name, to identify the rule group.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -37,7 +37,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.webacl.managedrulegroupstatement.Version": {
-    "Docs": "The version of the managed rule group to use. If you specify this, the version setting is fixed until you change it. If you don't specify this, AWS WAF uses the vendor's default version, and then keeps the version at the vendor's default when the vendor updates the managed rule group settings.",
+    "Description": "The version of the managed rule group to use. If you specify this, the version setting is fixed until you change it. If you don't specify this, AWS WAF uses the vendor's default version, and then keeps the version at the vendor's default when the vendor updates the managed rule group settings.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

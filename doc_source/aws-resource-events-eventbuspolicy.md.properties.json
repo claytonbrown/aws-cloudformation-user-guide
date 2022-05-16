@@ -1,6 +1,6 @@
 {
   "events.eventbuspolicy.Action": {
-    "Docs": "The action that you are enabling the other account to perform.",
+    "Description": "The action that you are enabling the other account to perform.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -9,13 +9,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.eventbuspolicy.Condition": {
-    "Docs": "This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations, see [What Is AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) in the * AWS Organizations User Guide*.  If you specify `Condition` with an AWS organization ID, and specify \"*\" as the value for `Principal`, you grant permission to all the accounts in the named organization.  The `Condition` is a JSON string which must contain `Type`, `Key`, and `Value` fields.",
+    "Description": "This parameter enables you to limit the permission to accounts that fulfill a certain condition, such as being a member of a certain AWS organization. For more information about AWS Organizations, see [What Is AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) in the * AWS Organizations User Guide*.  If you specify `Condition` with an AWS organization ID, and specify \"*\" as the value for `Principal`, you grant permission to all the accounts in the named organization.  The `Condition` is a JSON string which must contain `Type`, `Key`, and `Value` fields.",
     "Required": "No",
     "Type": "Condition",
     "UpdateRequires": "No interruption"
   },
   "events.eventbuspolicy.EventBusName": {
-    "Docs": "The name of the event bus associated with the rule. If you omit this, the default event bus is used.",
+    "Description": "The name of the event bus associated with the rule. If you omit this, the default event bus is used.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -24,7 +24,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "events.eventbuspolicy.Principal": {
-    "Docs": "The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify \"*\" to permit any account to put events to your default event bus.  If you specify \"*\" without specifying `Condition`, avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an `account` field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.",
+    "Description": "The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify \"*\" to permit any account to put events to your default event bus.  If you specify \"*\" without specifying `Condition`, avoid creating rules that may match undesirable events. To create more secure rules, make sure that the event pattern for each rule contains an `account` field with a specific account ID from which to receive events. Rules with an account field do not match any events sent from other accounts.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -33,13 +33,13 @@
     "UpdateRequires": "No interruption"
   },
   "events.eventbuspolicy.Statement": {
-    "Docs": "A JSON string that describes the permission policy statement. You can include a `Policy` parameter in the request instead of using the `StatementId`, `Action`, `Principal`, or `Condition` parameters.",
+    "Description": "A JSON string that describes the permission policy statement. You can include a `Policy` parameter in the request instead of using the `StatementId`, `Action`, `Principal`, or `Condition` parameters.",
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.eventbuspolicy.StatementId": {
-    "Docs": "An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this `StatementId` when you run [RemovePermission](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html).  Each `StatementId` must be unique.",
+    "Description": "An identifier string for the external account that you are granting permissions to. If you later want to revoke the permission for this external account, specify this `StatementId` when you run [RemovePermission](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html).  Each `StatementId` must be unique.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",

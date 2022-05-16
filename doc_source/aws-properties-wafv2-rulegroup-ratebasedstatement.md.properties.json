@@ -1,25 +1,25 @@
 {
   "wafv2.rulegroup.ratebasedstatement.AggregateKeyType": {
-    "Docs": "Setting that indicates how to aggregate the request counts. The options are the following:  + IP - Aggregate the request counts on the IP address from the web request origin.+ FORWARDED_IP - Aggregate the request counts on the first IP address in an HTTP header. If you use this, configure the `ForwardedIPConfig`, to specify the header to use.",
+    "Description": "Setting that indicates how to aggregate the request counts. The options are the following:  + IP - Aggregate the request counts on the IP address from the web request origin.+ FORWARDED_IP - Aggregate the request counts on the first IP address in an HTTP header. If you use this, configure the `ForwardedIPConfig`, to specify the header to use.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "FORWARDED_IP | IP",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.rulegroup.ratebasedstatement.ForwardedIPConfig": {
-    "Docs": "The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.   If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.This is required if `AggregateKeyType` is set to `FORWARDED_IP`.",
+    "Description": "The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.   If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.This is required if `AggregateKeyType` is set to `FORWARDED_IP`.",
     "Required": "No",
     "Type": "ForwardedIPConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.rulegroup.ratebasedstatement.Limit": {
-    "Docs": "The limit on requests per 5-minute period for a single originating IP address. If the statement includes a `ScopeDownStatement`, this limit is applied only to the requests that match the statement.",
+    "Description": "The limit on requests per 5-minute period for a single originating IP address. If the statement includes a `ScopeDownStatement`, this limit is applied only to the requests that match the statement.",
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.rulegroup.ratebasedstatement.ScopeDownStatement": {
-    "Docs": "An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement.",
+    "Description": "An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement.",
     "Required": "No",
     "Type": "Statement",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

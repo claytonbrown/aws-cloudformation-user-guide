@@ -1,36 +1,36 @@
 {
   "resourcegroups.group.Configuration": {
-    "Docs": "The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide*.  You can include either a `Configuration` or a `ResourceQuery`, but not both.",
+    "Description": "The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide*.  You can include either a `Configuration` or a `ResourceQuery`, but not both.",
     "Required": "Conditional",
     "Type": "List of [ConfigurationItem",
     "UpdateRequires": "No interruption"
   },
   "resourcegroups.group.Description": {
-    "Docs": "The description of the resource group.",
+    "Description": "The description of the resource group.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "resourcegroups.group.Name": {
-    "Docs": "The name of a resource group. The name must be unique within the AWS Region in which you create the resource. To create multiple resource groups based on the same CloudFormation stack, you must generate unique names for each.",
+    "Description": "The name of a resource group. The name must be unique within the AWS Region in which you create the resource. To create multiple resource groups based on the same CloudFormation stack, you must generate unique names for each.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "resourcegroups.group.ResourceQuery": {
-    "Docs": "The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*  + You can include either a `ResourceQuery` or a `Configuration`, but not both.+ You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources`, but not both.",
+    "Description": "The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*  + You can include either a `ResourceQuery` or a `Configuration`, but not both.+ You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources`, but not both.",
     "Required": "Conditional",
     "Type": "ResourceQuery",
     "UpdateRequires": "No interruption"
   },
   "resourcegroups.group.Resources": {
-    "Docs": "A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.  + You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery`, but not both.+ You can include a `Resources` property only if you also specify a `Configuration` property.",
+    "Description": "A list of the Amazon Resource Names (ARNs) of AWS resources that you want to add to the specified group.  + You can specify the group membership either by using a list of `Resources` or by using a `ResourceQuery`, but not both.+ You can include a `Resources` property only if you also specify a `Configuration` property.",
     "Required": "Conditional",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "resourcegroups.group.Tags": {
-    "Docs": "The tag key and value pairs that are attached to the resource group.",
+    "Description": "The tag key and value pairs that are attached to the resource group.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

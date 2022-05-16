@@ -1,6 +1,6 @@
 {
   "route53resolver.resolverrule.DomainName": {
-    "Docs": "DNS queries for this domain name are forwarded to the IP addresses that are specified in `TargetIps`. If a query matches multiple Resolver rules (example.com and www.example.com), the query is routed using the Resolver rule that contains the most specific domain name (www.example.com).",
+    "Description": "DNS queries for this domain name are forwarded to the IP addresses that are specified in `TargetIps`. If a query matches multiple Resolver rules (example.com and www.example.com), the query is routed using the Resolver rule that contains the most specific domain name (www.example.com).",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -8,7 +8,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "route53resolver.resolverrule.Name": {
-    "Docs": "The name for the Resolver rule, which you specified when you created the Resolver rule.",
+    "Description": "The name for the Resolver rule, which you specified when you created the Resolver rule.",
     "Required": "No",
     "Type": "String",
     "Maximum": "64",
@@ -16,7 +16,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "route53resolver.resolverrule.ResolverEndpointId": {
-    "Docs": "The ID of the endpoint that the rule is associated with.",
+    "Description": "The ID of the endpoint that the rule is associated with.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -24,21 +24,21 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "route53resolver.resolverrule.RuleType": {
-    "Docs": "When you want to forward DNS queries for specified domain name to resolvers on your network, specify `FORWARD`.  When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify `SYSTEM`.  For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify `FORWARD` for `RuleType`. To then have Resolver process queries for apex.example.com, you create a rule and specify `SYSTEM` for `RuleType`.  Currently, only Resolver can create rules that have a value of `RECURSIVE` for `RuleType`.",
+    "Description": "When you want to forward DNS queries for specified domain name to resolvers on your network, specify `FORWARD`.  When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify `SYSTEM`.  For example, to forward DNS queries for example.com to resolvers on your network, you create a rule and specify `FORWARD` for `RuleType`. To then have Resolver process queries for apex.example.com, you create a rule and specify `SYSTEM` for `RuleType`.  Currently, only Resolver can create rules that have a value of `RECURSIVE` for `RuleType`.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "FORWARD | RECURSIVE | SYSTEM",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "route53resolver.resolverrule.Tags": {
-    "Docs": "Route 53 Resolver doesn't support updating tags through CloudFormation.",
+    "Description": "Route 53 Resolver doesn't support updating tags through CloudFormation.",
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "200",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "route53resolver.resolverrule.TargetIps": {
-    "Docs": "An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.",
+    "Description": "An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.",
     "Required": "No",
     "Type": "List of [TargetAddress",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

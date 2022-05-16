@@ -1,6 +1,6 @@
 {
   "redshift.scheduledaction.Enable": {
-    "Docs": "If true, the schedule is enabled. If false, the scheduled action does not trigger. For more information about `state` of the scheduled action, see [AWS::Redshift::ScheduledAction](#aws-resource-redshift-scheduledaction).",
+    "Description": "If true, the schedule is enabled. If false, the scheduled action does not trigger. For more information about `state` of the scheduled action, see [AWS::Redshift::ScheduledAction](#aws-resource-redshift-scheduledaction).",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -10,47 +10,47 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.scheduledaction.EndTime": {
-    "Docs": "The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.",
+    "Description": "The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.scheduledaction.IamRole": {
-    "Docs": "The IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see [Using Identity-Based Policies for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html) in the *Amazon Redshift Cluster Management Guide*.",
+    "Description": "The IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see [Using Identity-Based Policies for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html) in the *Amazon Redshift Cluster Management Guide*.",
     "Required": "No",
     "Type": "String",
     "Maximum": "2147483647",
     "UpdateRequires": "No interruption"
   },
   "redshift.scheduledaction.Schedule": {
-    "Docs": "The schedule for a one-time (at format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour.  Format of at expressions is \"`at(yyyy-mm-ddThh:mm:ss)`\". For example, \"`at(2016-03-04T17:27:00)`\".  Format of cron expressions is \"`cron(Minutes Hours Day-of-month Month Day-of-week Year)`\". For example, \"`cron(0 10 ? * MON *)`\". For more information, see [Cron Expressions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions) in the *Amazon CloudWatch Events User Guide*.",
+    "Description": "The schedule for a one-time (at format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour.  Format of at expressions is \"`at(yyyy-mm-ddThh:mm:ss)`\". For example, \"`at(2016-03-04T17:27:00)`\".  Format of cron expressions is \"`cron(Minutes Hours Day-of-month Month Day-of-week Year)`\". For example, \"`cron(0 10 ? * MON *)`\". For more information, see [Cron Expressions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions) in the *Amazon CloudWatch Events User Guide*.",
     "Required": "No",
     "Type": "String",
     "Maximum": "2147483647",
     "UpdateRequires": "No interruption"
   },
   "redshift.scheduledaction.ScheduledActionDescription": {
-    "Docs": "The description of the scheduled action.",
+    "Description": "The description of the scheduled action.",
     "Required": "No",
     "Type": "String",
     "Maximum": "2147483647",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.scheduledaction.ScheduledActionName": {
-    "Docs": "The name of the scheduled action.",
+    "Description": "The name of the scheduled action.",
     "Required": "Yes",
     "Type": "String",
     "Maximum": "2147483647",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "redshift.scheduledaction.StartTime": {
-    "Docs": "The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.",
+    "Description": "The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.scheduledaction.TargetAction": {
-    "Docs": "A JSON format string of the Amazon Redshift API operation with input parameters.   \"`{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}`\".",
+    "Description": "A JSON format string of the Amazon Redshift API operation with input parameters.   \"`{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}`\".",
     "Required": "No",
     "Type": "ScheduledActionType",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

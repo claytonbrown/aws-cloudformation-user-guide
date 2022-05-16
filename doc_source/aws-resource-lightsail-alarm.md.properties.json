@@ -1,19 +1,19 @@
 {
   "lightsail.alarm.AlarmName": {
-    "Docs": "The name of the alarm.",
+    "Description": "The name of the alarm.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lightsail.alarm.ComparisonOperator": {
-    "Docs": "The arithmetic operation to use when comparing the specified statistic and threshold.",
+    "Description": "The arithmetic operation to use when comparing the specified statistic and threshold.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "GreaterThanOrEqualToThreshold | GreaterThanThreshold | LessThanOrEqualToThreshold | LessThanThreshold",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.alarm.ContactProtocols": {
-    "Docs": "The contact protocols for the alarm, such as `Email`, `SMS` (text messaging), or both.",
+    "Description": "The contact protocols for the alarm, such as `Email`, `SMS` (text messaging), or both.",
     "AllowedValues": [
       "Email` \\| `SMS"
     ],
@@ -23,32 +23,32 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.alarm.DatapointsToAlarm": {
-    "Docs": "The number of data points within the evaluation periods that must be breaching to cause the alarm to go to the `ALARM` state.",
+    "Description": "The number of data points within the evaluation periods that must be breaching to cause the alarm to go to the `ALARM` state.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.alarm.EvaluationPeriods": {
-    "Docs": "The number of periods over which data is compared to the specified threshold.",
+    "Description": "The number of periods over which data is compared to the specified threshold.",
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.alarm.MetricName": {
-    "Docs": "The name of the metric associated with the alarm.",
+    "Description": "The name of the metric associated with the alarm.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "BurstCapacityPercentage | BurstCapacityTime | ClientTLSNegotiationErrorCount | CPUUtilization | DatabaseConnections | DiskQueueDepth | FreeStorageSpace | HealthyHostCount | HTTPCode_Instance_2XX_Count | HTTPCode_Instance_3XX_Count | HTTPCode_Instance_4XX_Count | HTTPCode_Instance_5XX_Count | HTTPCode_LB_4XX_Count | HTTPCode_LB_5XX_Count | InstanceResponseTime | NetworkIn | NetworkOut | NetworkReceiveThroughput | NetworkTransmitThroughput | RejectedConnectionCount | RequestCount | StatusCheckFailed | StatusCheckFailed_Instance | StatusCheckFailed_System | UnhealthyHostCount",
     "UpdateRequires": "Updates are not supported\\."
   },
   "lightsail.alarm.MonitoredResourceName": {
-    "Docs": "The name of the Lightsail resource that the alarm monitors.",
+    "Description": "The name of the Lightsail resource that the alarm monitors.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "Updates are not supported\\."
   },
   "lightsail.alarm.NotificationEnabled": {
-    "Docs": "A Boolean value indicating whether the alarm is enabled.",
+    "Description": "A Boolean value indicating whether the alarm is enabled.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -58,7 +58,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.alarm.NotificationTriggers": {
-    "Docs": "The alarm states that trigger a notification.  To specify the `OK` and `INSUFFICIENT_DATA` values, you must also specify `ContactProtocols` values. Otherwise, the `OK` and `INSUFFICIENT_DATA` values will not take effect and the stack will drift.",
+    "Description": "The alarm states that trigger a notification.  To specify the `OK` and `INSUFFICIENT_DATA` values, you must also specify `ContactProtocols` values. Otherwise, the `OK` and `INSUFFICIENT_DATA` values will not take effect and the stack will drift.",
     "AllowedValues": [
       "OK` \\| `ALARM` \\| `INSUFFICIENT_DATA"
     ],
@@ -68,13 +68,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.alarm.Threshold": {
-    "Docs": "The value against which the specified statistic is compared.",
+    "Description": "The value against which the specified statistic is compared.",
     "Required": "Yes",
     "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.alarm.TreatMissingData": {
-    "Docs": "Specifies how the alarm handles missing data points.  An alarm can treat missing data in the following ways:  +  `breaching` - Assumes the missing data is not within the threshold. Missing data counts towards the number of times that the metric is not within the threshold.+  `notBreaching` - Assumes the missing data is within the threshold. Missing data does not count towards the number of times that the metric is not within the threshold.+  `ignore` - Ignores the missing data. Maintains the current alarm state.+  `missing` - Missing data is treated as missing.",
+    "Description": "Specifies how the alarm handles missing data points.  An alarm can treat missing data in the following ways:  +  `breaching` - Assumes the missing data is not within the threshold. Missing data counts towards the number of times that the metric is not within the threshold.+  `notBreaching` - Assumes the missing data is within the threshold. Missing data does not count towards the number of times that the metric is not within the threshold.+  `ignore` - Ignores the missing data. Maintains the current alarm state.+  `missing` - Missing data is treated as missing.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "breaching | ignore | missing | notBreaching",

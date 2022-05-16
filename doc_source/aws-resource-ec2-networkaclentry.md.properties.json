@@ -1,12 +1,12 @@
 {
   "ec2.networkaclentry.CidrBlock": {
-    "Docs": "The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the `CidrBlock` or `Ipv6CidrBlock` property.",
+    "Description": "The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the `CidrBlock` or `Ipv6CidrBlock` property.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.networkaclentry.Egress": {
-    "Docs": "Whether this rule applies to egress traffic from the subnet (`true`) or ingress traffic to the subnet (`false`). By default, AWS CloudFormation specifies `false`.",
+    "Description": "Whether this rule applies to egress traffic from the subnet (`true`) or ingress traffic to the subnet (`false`). By default, AWS CloudFormation specifies `false`.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -16,44 +16,44 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.networkaclentry.Icmp": {
-    "Docs": "The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter.",
+    "Description": "The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter.",
     "Required": "No",
     "Type": "Icmp",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.networkaclentry.Ipv6CidrBlock": {
-    "Docs": "The IPv6 network range to allow or deny, in CIDR notation. Requirement is conditional: You must specify the `CidrBlock` or `Ipv6CidrBlock` property.",
+    "Description": "The IPv6 network range to allow or deny, in CIDR notation. Requirement is conditional: You must specify the `CidrBlock` or `Ipv6CidrBlock` property.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.networkaclentry.NetworkAclId": {
-    "Docs": "The ID of the ACL for the entry.",
+    "Description": "The ID of the ACL for the entry.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.networkaclentry.PortRange": {
-    "Docs": "The range of port numbers for the UDP/TCP protocol. Conditional required if specifying 6 (TCP) or 17 (UDP) for the protocol parameter.",
+    "Description": "The range of port numbers for the UDP/TCP protocol. Conditional required if specifying 6 (TCP) or 17 (UDP) for the protocol parameter.",
     "Required": "No",
     "Type": "PortRange",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.networkaclentry.Protocol": {
-    "Docs": "The IP protocol that the rule applies to. You must specify -1 or a protocol number. You can specify -1 for all protocols.  If you specify -1, all ports are opened and the `PortRange` property is ignored.",
+    "Description": "The IP protocol that the rule applies to. You must specify -1 or a protocol number. You can specify -1 for all protocols.  If you specify -1, all ports are opened and the `PortRange` property is ignored.",
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.networkaclentry.RuleAction": {
-    "Docs": "Whether to allow or deny traffic that matches the rule; valid values are \"allow\" or \"deny\".",
+    "Description": "Whether to allow or deny traffic that matches the rule; valid values are \"allow\" or \"deny\".",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "allow | deny",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.networkaclentry.RuleNumber": {
-    "Docs": "Rule number to assign to the entry, such as 100. ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule.",
+    "Description": "Rule number to assign to the entry, such as 100. ACL entries are processed in ascending order by rule number. Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule.",
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"

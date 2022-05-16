@@ -1,42 +1,42 @@
 {
   "cassandra.table.BillingMode": {
-    "Docs": "The billing mode for the table, which determines how you'll be charged for reads and writes:  + **On-demand mode** (default) - You pay based on the actual reads and writes your application performs.+ **Provisioned mode** - Lets you specify the number of reads and writes per second that you need for your application.If you don't specify a value for this property, then the table will use on-demand mode.",
+    "Description": "The billing mode for the table, which determines how you'll be charged for reads and writes:  + **On-demand mode** (default) - You pay based on the actual reads and writes your application performs.+ **Provisioned mode** - Lets you specify the number of reads and writes per second that you need for your application.If you don't specify a value for this property, then the table will use on-demand mode.",
     "Required": "No",
     "Type": "BillingMode",
     "UpdateRequires": "No interruption"
   },
   "cassandra.table.ClusteringKeyColumns": {
-    "Docs": "One or more columns that determine how the table data is sorted.",
+    "Description": "One or more columns that determine how the table data is sorted.",
     "Required": "No",
     "Type": "List of [ClusteringKeyColumn",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cassandra.table.DefaultTimeToLive": {
-    "Docs": "The default Time To Live (TTL) value for all rows in a table in seconds. The maximum configurable value is 630,720,000 seconds, which is the equivalent of 20 years. By default, the TTL value for a table is 0, which means data does not expire.   For more information, see [Setting the default TTL value for a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl) in the *Amazon Keyspaces Developer Guide*.",
+    "Description": "The default Time To Live (TTL) value for all rows in a table in seconds. The maximum configurable value is 630,720,000 seconds, which is the equivalent of 20 years. By default, the TTL value for a table is 0, which means data does not expire.   For more information, see [Setting the default TTL value for a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl) in the *Amazon Keyspaces Developer Guide*.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "No interruption"
   },
   "cassandra.table.EncryptionSpecification": {
-    "Docs": "The encryption at rest options for the table.  + **AWS owned key** (default) - The key is owned by Amazon Keyspaces.+ **Customer managed key** - The key is stored in your account and is created, owned, and managed by you.",
+    "Description": "The encryption at rest options for the table.  + **AWS owned key** (default) - The key is owned by Amazon Keyspaces.+ **Customer managed key** - The key is stored in your account and is created, owned, and managed by you.",
     "Required": "No",
     "Type": "EncryptionSpecification",
     "UpdateRequires": "No interruption"
   },
   "cassandra.table.KeyspaceName": {
-    "Docs": "The name of the keyspace in which to create the table. The keyspace must already exist.",
+    "Description": "The name of the keyspace in which to create the table. The keyspace must already exist.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cassandra.table.PartitionKeyColumns": {
-    "Docs": "One or more columns that uniquely identify every row in the table. Every table must have a partition key.",
+    "Description": "One or more columns that uniquely identify every row in the table. Every table must have a partition key.",
     "Required": "Yes",
     "Type": "List of [Column",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cassandra.table.PointInTimeRecoveryEnabled": {
-    "Docs": "Specifies if point-in-time recovery is enabled or disabled for the table. The options are `PointInTimeRecoveryEnabled=true` and `PointInTimeRecoveryEnabled=false`. If not specified, the default is `PointInTimeRecoveryEnabled=false`.",
+    "Description": "Specifies if point-in-time recovery is enabled or disabled for the table. The options are `PointInTimeRecoveryEnabled=true` and `PointInTimeRecoveryEnabled=false`. If not specified, the default is `PointInTimeRecoveryEnabled=false`.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -46,19 +46,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cassandra.table.RegularColumns": {
-    "Docs": "One or more columns that are not part of the primary key - that is, columns that are *not* defined as partition key columns or clustering key columns.  You can add regular columns to existing tables by adding them to the template.",
+    "Description": "One or more columns that are not part of the primary key - that is, columns that are *not* defined as partition key columns or clustering key columns.  You can add regular columns to existing tables by adding them to the template.",
     "Required": "No",
     "Type": "List of [Column",
     "UpdateRequires": "No interruption"
   },
   "cassandra.table.TableName": {
-    "Docs": "The name of the table to be created. The table name is case sensitive. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.",
+    "Description": "The name of the table to be created. The table name is case sensitive. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "cassandra.table.Tags": {
-    "Docs": "A list of key-value pair tags to be attached to the resource.",
+    "Description": "A list of key-value pair tags to be attached to the resource.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

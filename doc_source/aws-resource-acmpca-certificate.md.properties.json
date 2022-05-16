@@ -1,43 +1,43 @@
 {
   "acmpca.certificate.ApiPassthrough": {
-    "Docs": "Specifies X.509 certificate information to be included in the issued certificate. An `APIPassthrough` or `APICSRPassthrough` template variant must be selected, or else this parameter is ignored.",
+    "Description": "Specifies X.509 certificate information to be included in the issued certificate. An `APIPassthrough` or `APICSRPassthrough` template variant must be selected, or else this parameter is ignored.",
     "Required": "No",
     "Type": "ApiPassthrough",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificate.CertificateAuthorityArn": {
-    "Docs": "The Amazon Resource Name (ARN) for the private CA issues the certificate.",
+    "Description": "The Amazon Resource Name (ARN) for the private CA issues the certificate.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificate.CertificateSigningRequest": {
-    "Docs": "The certificate signing request (CSR) for the certificate.",
+    "Description": "The certificate signing request (CSR) for the certificate.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificate.SigningAlgorithm": {
-    "Docs": "The name of the algorithm that will be used to sign the certificate to be issued.   This parameter should not be confused with the `SigningAlgorithm` parameter used to sign a CSR in the `CreateCertificateAuthority` action.  The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.",
+    "Description": "The name of the algorithm that will be used to sign the certificate to be issued.   This parameter should not be confused with the `SigningAlgorithm` parameter used to sign a CSR in the `CreateCertificateAuthority` action.  The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "SHA256WITHECDSA | SHA256WITHRSA | SHA384WITHECDSA | SHA384WITHRSA | SHA512WITHECDSA | SHA512WITHRSA",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificate.TemplateArn": {
-    "Docs": "Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the `EndEntityCertificate/V1` template. For more information about ACM Private CA templates, see [Using Templates](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html).",
+    "Description": "Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the `EndEntityCertificate/V1` template. For more information about ACM Private CA templates, see [Using Templates](https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html).",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificate.Validity": {
-    "Docs": "The period of time during which the certificate will be valid.",
+    "Description": "The period of time during which the certificate will be valid.",
     "Required": "Yes",
     "Type": "Validity",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificate.ValidityNotBefore": {
-    "Docs": "Information describing the start of the validity period of the certificate. This parameter sets the “Not Before\" date for the certificate.  By default, when issuing a certificate, ACM Private CA sets the \"Not Before\" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The `ValidityNotBefore` parameter can be used to customize the “Not Before” value.  Unlike the `Validity` parameter, the `ValidityNotBefore` parameter is optional.  The `ValidityNotBefore` value is expressed as an explicit date and time, using the `Validity` type value `ABSOLUTE`.",
+    "Description": "Information describing the start of the validity period of the certificate. This parameter sets the “Not Before\" date for the certificate.  By default, when issuing a certificate, ACM Private CA sets the \"Not Before\" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The `ValidityNotBefore` parameter can be used to customize the “Not Before” value.  Unlike the `Validity` parameter, the `ValidityNotBefore` parameter is optional.  The `ValidityNotBefore` value is expressed as an explicit date and time, using the `Validity` type value `ABSOLUTE`.",
     "Required": "No",
     "Type": "Validity",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"

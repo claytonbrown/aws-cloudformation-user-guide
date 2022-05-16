@@ -1,18 +1,18 @@
 {
   "mediapackage.packagingconfiguration.dashpackage.DashManifests": {
-    "Docs": "A list of DASH manifest configurations that are available from this endpoint.",
+    "Description": "A list of DASH manifest configurations that are available from this endpoint.",
     "Required": "Yes",
     "Type": "List of [DashManifest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.packagingconfiguration.dashpackage.Encryption": {
-    "Docs": "Parameters for encrypting content.",
+    "Description": "Parameters for encrypting content.",
     "Required": "No",
     "Type": "DashEncryption",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.packagingconfiguration.dashpackage.IncludeEncoderConfigurationInSegments": {
-    "Docs": "When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.",
+    "Description": "When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -22,19 +22,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.packagingconfiguration.dashpackage.PeriodTriggers": {
-    "Docs": "Controls whether MediaPackage produces single-period or multi-period DASH manifests. For more information about periods, see [Multi-period DASH in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/multi-period.html).  Valid values:  +  **ADS** - MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.+  *No value* - MediaPackage will produce single-period DASH manifests. This is the default setting.",
+    "Description": "Controls whether MediaPackage produces single-period or multi-period DASH manifests. For more information about periods, see [Multi-period DASH in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/multi-period.html).  Valid values:  +  **ADS** - MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.+  *No value* - MediaPackage will produce single-period DASH manifests. This is the default setting.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "No interruption"
   },
   "mediapackage.packagingconfiguration.dashpackage.SegmentDurationSeconds": {
-    "Docs": "Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source segment duration.",
+    "Description": "Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source segment duration.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.packagingconfiguration.dashpackage.SegmentTemplateFormat": {
-    "Docs": "Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to **NUMBER_WITH_TIMELINE**, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to **TIME_WITH_TIMELINE**, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to **NUMBER_WITH_DURATION**, only a duration is included in each SegmentTemplate, with $Number$ media URLs.",
+    "Description": "Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to **NUMBER_WITH_TIMELINE**, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to **TIME_WITH_TIMELINE**, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to **NUMBER_WITH_DURATION**, only a duration is included in each SegmentTemplate, with $Number$ media URLs.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"

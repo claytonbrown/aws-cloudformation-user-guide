@@ -1,79 +1,79 @@
 {
   "dms.replicationtask.CdcStartPosition": {
-    "Docs": "Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.   The value can be in date, checkpoint, or LSN/SCN format.  Date Example: --cdc-start-position “2018-03-08T12:12:12”  Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"  LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”  When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the `slotName` extra connection attribute to the name of this logical replication slot. For more information, see [Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).",
+    "Description": "Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.   The value can be in date, checkpoint, or LSN/SCN format.  Date Example: --cdc-start-position “2018-03-08T12:12:12”  Checkpoint Example: --cdc-start-position \"checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\"  LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”  When you use this task setting with a source PostgreSQL database, a logical replication slot should already be created and associated with the source endpoint. You can verify this by setting the `slotName` extra connection attribute to the name of this logical replication slot. For more information, see [Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "dms.replicationtask.CdcStartTime": {
-    "Docs": "Indicates the start time for a change data capture (CDC) operation.",
+    "Description": "Indicates the start time for a change data capture (CDC) operation.",
     "Required": "No",
     "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dms.replicationtask.CdcStopPosition": {
-    "Docs": "Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.  Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”  Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “",
+    "Description": "Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.  Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”  Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dms.replicationtask.MigrationType": {
-    "Docs": "The migration type. Valid values: `full-load` | `cdc` | `full-load-and-cdc`",
+    "Description": "The migration type. Valid values: `full-load` | `cdc` | `full-load-and-cdc`",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "cdc | full-load | full-load-and-cdc",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dms.replicationtask.ReplicationInstanceArn": {
-    "Docs": "The Amazon Resource Name (ARN) of a replication instance.",
+    "Description": "The Amazon Resource Name (ARN) of a replication instance.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "dms.replicationtask.ReplicationTaskIdentifier": {
-    "Docs": "An identifier for the replication task.  Constraints:  + Must contain 1-255 alphanumeric characters or hyphens.+ First character must be a letter.+ Cannot end with a hyphen or contain two consecutive hyphens.",
+    "Description": "An identifier for the replication task.  Constraints:  + Must contain 1-255 alphanumeric characters or hyphens.+ First character must be a letter.+ Cannot end with a hyphen or contain two consecutive hyphens.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dms.replicationtask.ReplicationTaskSettings": {
-    "Docs": "Overall settings for the task, in JSON format. For more information, see [Specifying Task Settings for AWS Database Migration Service Tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html) in the * AWS Database Migration Service User Guide.*",
+    "Description": "Overall settings for the task, in JSON format. For more information, see [Specifying Task Settings for AWS Database Migration Service Tasks](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html) in the * AWS Database Migration Service User Guide.*",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "dms.replicationtask.ResourceIdentifier": {
-    "Docs": "A friendly name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as `Example-App-ARN1`. For example, this value might result in the `EndpointArn` value `arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1`. If you don't specify a `ResourceIdentifier` value, AWS DMS generates a default identifier value for the end of `EndpointArn`.",
+    "Description": "A friendly name for the resource identifier at the end of the `EndpointArn` response parameter that is returned in the created `Endpoint` object. The value for this parameter can have up to 31 characters. It can contain only ASCII letters, digits, and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens, and can only begin with a letter, such as `Example-App-ARN1`. For example, this value might result in the `EndpointArn` value `arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1`. If you don't specify a `ResourceIdentifier` value, AWS DMS generates a default identifier value for the end of `EndpointArn`.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "dms.replicationtask.SourceEndpointArn": {
-    "Docs": "An Amazon Resource Name (ARN) that uniquely identifies the source endpoint.",
+    "Description": "An Amazon Resource Name (ARN) that uniquely identifies the source endpoint.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "dms.replicationtask.TableMappings": {
-    "Docs": "The table mappings for the task, in JSON format. For more information, see [Using Table Mapping to Specify Task Settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html) in the * AWS Database Migration Service User Guide.*",
+    "Description": "The table mappings for the task, in JSON format. For more information, see [Using Table Mapping to Specify Task Settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html) in the * AWS Database Migration Service User Guide.*",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "dms.replicationtask.Tags": {
-    "Docs": "One or more tags to be assigned to the replication task.",
+    "Description": "One or more tags to be assigned to the replication task.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "dms.replicationtask.TargetEndpointArn": {
-    "Docs": "An Amazon Resource Name (ARN) that uniquely identifies the target endpoint.",
+    "Description": "An Amazon Resource Name (ARN) that uniquely identifies the target endpoint.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "dms.replicationtask.TaskData": {
-    "Docs": "Not currently supported by AWS CloudFormation.",
+    "Description": "Not currently supported by AWS CloudFormation.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

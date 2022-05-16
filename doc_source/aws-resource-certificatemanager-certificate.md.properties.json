@@ -1,6 +1,6 @@
 {
   "certificatemanager.certificate.CertificateAuthorityArn": {
-    "Docs": "The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate. If you do not provide an ARN and you are trying to request a private certificate, ACM will attempt to issue a public certificate. For more information about private CAs, see the [AWS Certificate Manager Private Certificate Authority (PCA)](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html) user guide. The ARN must have the following form:    `arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012`",
+    "Description": "The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used to issue the certificate. If you do not provide an ARN and you are trying to request a private certificate, ACM will attempt to issue a public certificate. For more information about private CAs, see the [AWS Certificate Manager Private Certificate Authority (PCA)](https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html) user guide. The ARN must have the following form:    `arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012`",
     "Required": "No",
     "Type": "String",
     "Minimum": "20",
@@ -9,14 +9,14 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "certificatemanager.certificate.CertificateTransparencyLoggingPreference": {
-    "Docs": "You can opt out of certificate transparency logging by specifying the `DISABLED` option. Opt in by specifying `ENABLED`.  If you do not specify a certificate transparency logging preference on a new CloudFormation template, or if you remove the logging preference from an existing template, this is the same as explicitly enabling the preference.  Changing the certificate transparency logging preference will update the existing resource by calling `UpdateCertificateOptions` on the certificate. This action will not create a new resource.",
+    "Description": "You can opt out of certificate transparency logging by specifying the `DISABLED` option. Opt in by specifying `ENABLED`.  If you do not specify a certificate transparency logging preference on a new CloudFormation template, or if you remove the logging preference from an existing template, this is the same as explicitly enabling the preference.  Changing the certificate transparency logging preference will update the existing resource by calling `UpdateCertificateOptions` on the certificate. This action will not create a new resource.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "DISABLED | ENABLED",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "certificatemanager.certificate.DomainName": {
-    "Docs": "The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, `*.example.com` protects `www.example.com`, `site.example.com`, and `images.example.com.`",
+    "Description": "The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, `*.example.com` protects `www.example.com`, `site.example.com`, and `images.example.com.`",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -25,28 +25,28 @@
     "UpdateRequires": "Replacement"
   },
   "certificatemanager.certificate.DomainValidationOptions": {
-    "Docs": "Domain information that domain name registrars use to verify your identity.  In order for a AWS::CertificateManager::Certificate to be provisioned and validated in CloudFormation automatically, the `DomainName` property needs to be identical to one of the `DomainName` property supplied in DomainValidationOptions, if the ValidationMethod is **DNS**. Failing to keep them like-for-like will result in failure to create the domain validation records in Route53.",
+    "Description": "Domain information that domain name registrars use to verify your identity.  In order for a AWS::CertificateManager::Certificate to be provisioned and validated in CloudFormation automatically, the `DomainName` property needs to be identical to one of the `DomainName` property supplied in DomainValidationOptions, if the ValidationMethod is **DNS**. Failing to keep them like-for-like will result in failure to create the domain validation records in Route53.",
     "Required": "No",
     "Type": "List of [DomainValidationOption",
     "Maximum": "100",
     "UpdateRequires": "Replacement"
   },
   "certificatemanager.certificate.SubjectAlternativeNames": {
-    "Docs": "Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate. For example, you can add www.example.net to a certificate for which the `DomainName` field is www.example.com if users can reach your site by using either name.",
+    "Description": "Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate. For example, you can add www.example.net to a certificate for which the `DomainName` field is www.example.com if users can reach your site by using either name.",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "100",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "certificatemanager.certificate.Tags": {
-    "Docs": "Key-value pairs that can identify the certificate.",
+    "Description": "Key-value pairs that can identify the certificate.",
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "50",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "certificatemanager.certificate.ValidationMethod": {
-    "Docs": "The method you want to use to validate that you own or control the domain associated with a public certificate. You can [validate with DNS](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html) or [validate with email](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html). We recommend that you use DNS validation.  If not specified, this property defaults to email validation.",
+    "Description": "The method you want to use to validate that you own or control the domain associated with a public certificate. You can [validate with DNS](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html) or [validate with email](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html). We recommend that you use DNS validation.  If not specified, this property defaults to email validation.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "DNS | EMAIL",

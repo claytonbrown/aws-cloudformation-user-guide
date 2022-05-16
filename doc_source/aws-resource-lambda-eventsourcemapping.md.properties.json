@@ -1,6 +1,6 @@
 {
   "lambda.eventsourcemapping.BatchSize": {
-    "Docs": "The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).  +  **Amazon Kinesis** - Default 100. Max 10,000.+  **Amazon DynamoDB Streams** - Default 100. Max 1,000.+  **Amazon Simple Queue Service** - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.+  **Amazon Managed Streaming for Apache Kafka** - Default 100. Max 10,000.+  **Self-Managed Apache Kafka** - Default 100. Max 10,000.+  **Amazon MQ (ActiveMQ and RabbitMQ)** - Default 100. Max 10,000.",
+    "Description": "The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).  +  **Amazon Kinesis** - Default 100. Max 10,000.+  **Amazon DynamoDB Streams** - Default 100. Max 1,000.+  **Amazon Simple Queue Service** - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.+  **Amazon Managed Streaming for Apache Kafka** - Default 100. Max 10,000.+  **Self-Managed Apache Kafka** - Default 100. Max 10,000.+  **Amazon MQ (ActiveMQ and RabbitMQ)** - Default 100. Max 10,000.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "1",
@@ -8,7 +8,7 @@
     "UpdateRequires": "No interruption"
   },
   "lambda.eventsourcemapping.BisectBatchOnFunctionError": {
-    "Docs": "(Streams only) If the function returns an error, split the batch in two and retry. The default value is false.",
+    "Description": "(Streams only) If the function returns an error, split the batch in two and retry. The default value is false.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -18,13 +18,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.DestinationConfig": {
-    "Docs": "(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.",
+    "Description": "(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.",
     "Required": "No",
     "Type": "DestinationConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.Enabled": {
-    "Docs": "When true, the event source mapping is active. When false, Lambda pauses polling and invocation.  Default: True",
+    "Description": "When true, the event source mapping is active. When false, Lambda pauses polling and invocation.  Default: True",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -34,20 +34,20 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.EventSourceArn": {
-    "Docs": "The Amazon Resource Name (ARN) of the event source.  +  **Amazon Kinesis** - The ARN of the data stream or a stream consumer.+  **Amazon DynamoDB Streams** - The ARN of the stream.+  **Amazon Simple Queue Service** - The ARN of the queue.+  **Amazon Managed Streaming for Apache Kafka** - The ARN of the cluster.",
+    "Description": "The Amazon Resource Name (ARN) of the event source.  +  **Amazon Kinesis** - The ARN of the data stream or a stream consumer.+  **Amazon DynamoDB Streams** - The ARN of the stream.+  **Amazon Simple Queue Service** - The ARN of the queue.+  **Amazon Managed Streaming for Apache Kafka** - The ARN of the cluster.",
     "Required": "No",
     "Type": "String",
     "Pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
     "UpdateRequires": "Replacement"
   },
   "lambda.eventsourcemapping.FilterCriteria": {
-    "Docs": "(Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).",
+    "Description": "(Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).",
     "Required": "No",
     "Type": "FilterCriteria",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.FunctionName": {
-    "Docs": "The name of the Lambda function.",
+    "Description": "The name of the Lambda function.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -56,14 +56,14 @@
     "UpdateRequires": "No interruption"
   },
   "lambda.eventsourcemapping.FunctionResponseTypes": {
-    "Docs": "(Streams and SQS) A list of current response type enums applied to the event source mapping.  Valid Values: `ReportBatchItemFailures`",
+    "Description": "(Streams and SQS) A list of current response type enums applied to the event source mapping.  Valid Values: `ReportBatchItemFailures`",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "1",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.MaximumBatchingWindowInSeconds": {
-    "Docs": "The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.",
+    "Description": "The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.",
     "*Default \\(Kinesis, DynamoDB, Amazon SQS event sources\\)*": "0",
     "*Default \\(Amazon MSK, Kafka, Amazon MQ event sources\\)*": "500 ms",
     "Required": "No",
@@ -73,7 +73,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.MaximumRecordAgeInSeconds": {
-    "Docs": "(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.",
+    "Description": "(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "-1",
@@ -81,7 +81,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.MaximumRetryAttempts": {
-    "Docs": "(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.",
+    "Description": "(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "-1",
@@ -89,7 +89,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.ParallelizationFactor": {
-    "Docs": "(Streams only) The number of batches to process concurrently from each shard. The default value is 1.",
+    "Description": "(Streams only) The number of batches to process concurrently from each shard. The default value is 1.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "1",
@@ -97,46 +97,46 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.Queues": {
-    "Docs": "(Amazon MQ) The name of the Amazon MQ broker destination queue to consume.",
+    "Description": "(Amazon MQ) The name of the Amazon MQ broker destination queue to consume.",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "1",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.SelfManagedEventSource": {
-    "Docs": "The self-managed Apache Kafka cluster for your event source.",
+    "Description": "The self-managed Apache Kafka cluster for your event source.",
     "Required": "No",
     "Type": "SelfManagedEventSource",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lambda.eventsourcemapping.SourceAccessConfigurations": {
-    "Docs": "An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.",
+    "Description": "An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.",
     "Required": "No",
     "Type": "List of [SourceAccessConfiguration",
     "Maximum": "22",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.StartingPosition": {
-    "Docs": "The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.  + **LATEST** - Read only new records.+ **TRIM_HORIZON** - Process all available records.",
+    "Description": "The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.  + **LATEST** - Read only new records.+ **TRIM_HORIZON** - Process all available records.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "lambda.eventsourcemapping.StartingPositionTimestamp": {
-    "Docs": "With `StartingPosition` set to `AT_TIMESTAMP`, the time from which to start reading, in Unix time seconds.",
+    "Description": "With `StartingPosition` set to `AT_TIMESTAMP`, the time from which to start reading, in Unix time seconds.",
     "Required": "No",
     "Type": "Double",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lambda.eventsourcemapping.Topics": {
-    "Docs": "The name of the Kafka topic.",
+    "Description": "The name of the Kafka topic.",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "1",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.TumblingWindowInSeconds": {
-    "Docs": "(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.",
+    "Description": "(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "0",

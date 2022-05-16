@@ -1,37 +1,37 @@
 {
   "opsworks.stack.source.Password": {
-    "Docs": "When included in a request, the parameter depends on the repository type.  + For Amazon S3 bundles, set `Password` to the appropriate IAM secret access key.+ For HTTP bundles and Subversion repositories, set `Password` to the password.For more information on how to safely handle IAM credentials, see [https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html](https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html).  In responses, AWS OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.",
+    "Description": "When included in a request, the parameter depends on the repository type.  + For Amazon S3 bundles, set `Password` to the appropriate IAM secret access key.+ For HTTP bundles and Subversion repositories, set `Password` to the password.For more information on how to safely handle IAM credentials, see [https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html](https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html).  In responses, AWS OpsWorks Stacks returns `*****FILTERED*****` instead of the actual value.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "opsworks.stack.source.Revision": {
-    "Docs": "The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.",
+    "Description": "The application's version. AWS OpsWorks Stacks enables you to easily deploy new versions of an application. One of the simplest approaches is to have branches or revisions in your repository that represent different versions that can potentially be deployed.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.stack.source.SshKey": {
-    "Docs": "The repository's SSH key. For more information, see [Using Git Repository SSH Keys](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploykeys.html) in the *AWS OpsWorks User Guide*. To pass in an SSH key as a parameter, see the following example:   `\"Parameters\" : { \"GitSSHKey\" : { \"Description\" : \"Change SSH key newlines to commas.\", \"Type\" : \"CommaDelimitedList\", \"NoEcho\" : \"true\" }, ... \"CustomCookbooksSource\": { \"Revision\" : { \"Ref\": \"GitRevision\"}, \"SshKey\" : { \"Fn::Join\" : [ \"n\", { \"Ref\": \"GitSSHKey\"} ] }, \"Type\": \"git\", \"Url\": { \"Ref\": \"GitURL\"} } ...`",
+    "Description": "The repository's SSH key. For more information, see [Using Git Repository SSH Keys](https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-deploykeys.html) in the *AWS OpsWorks User Guide*. To pass in an SSH key as a parameter, see the following example:   `\"Parameters\" : { \"GitSSHKey\" : { \"Description\" : \"Change SSH key newlines to commas.\", \"Type\" : \"CommaDelimitedList\", \"NoEcho\" : \"true\" }, ... \"CustomCookbooksSource\": { \"Revision\" : { \"Ref\": \"GitRevision\"}, \"SshKey\" : { \"Fn::Join\" : [ \"n\", { \"Ref\": \"GitSSHKey\"} ] }, \"Type\": \"git\", \"Url\": { \"Ref\": \"GitURL\"} } ...`",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "opsworks.stack.source.Type": {
-    "Docs": "The repository type.",
+    "Description": "The repository type.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "archive | git | s3 | svn",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.stack.source.Url": {
-    "Docs": "The source URL. The following is an example of an Amazon S3 source URL: `https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz`.",
+    "Description": "The source URL. The following is an example of an Amazon S3 source URL: `https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz`.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.stack.source.Username": {
-    "Docs": "This parameter depends on the repository type.  + For Amazon S3 bundles, set `Username` to the appropriate IAM access key ID.+ For HTTP bundles, Git repositories, and Subversion repositories, set `Username` to the user name.",
+    "Description": "This parameter depends on the repository type.  + For Amazon S3 bundles, set `Username` to the appropriate IAM access key ID.+ For HTTP bundles, Git repositories, and Subversion repositories, set `Username` to the user name.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

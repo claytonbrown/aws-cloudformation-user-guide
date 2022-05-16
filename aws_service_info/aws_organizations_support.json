@@ -1711,8 +1711,8 @@
       "UntagResource",
       "UpdateResourceShare"
     ],
-    "ARNFormat": "arn:aws:ram:${Region}:${AccountId}:resource-share/${ResourceUUID}",
-    "ARNRegex": "^arn:aws:ram:.+:.+:.+",
+    "ARNFormat": "arn:${Partition}:ram:${Region}:${AccountId}:resource-share/${ResourceUUID}",
+    "ARNRegex": "^arn:${Partition}:ram:.+:.+:.+",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -10423,7 +10423,9 @@
     "Actions": [
       "AssociateLicense",
       "CreateWorkspace",
+      "CreateWorkspaceApiKey",
       "DeleteWorkspace",
+      "DeleteWorkspaceApiKey",
       "DescribeWorkspace",
       "DescribeWorkspaceAuthentication",
       "DisassociateLicense",
@@ -14302,8 +14304,8 @@
       "UntagResource",
       "UpdateEnvironment"
     ],
-    "ARNFormat": "arn:aws:<serviceName>:<region>:<account>:<resourceType>/<resourceName>",
-    "ARNRegex": "^arn:aws:airflow:.+",
+    "ARNFormat": "arn:aws:airflow:${Region}:${Account}:${ResourceType}/${ResourceName}",
+    "ARNRegex": "^arn:aws:airflow:.+:.+:.+",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",

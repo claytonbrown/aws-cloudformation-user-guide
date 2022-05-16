@@ -1,6 +1,6 @@
 {
   "cw.alarm.ActionsEnabled": {
-    "Docs": "Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.",
+    "Description": "Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -10,14 +10,14 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.AlarmActions": {
-    "Docs": "The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *Amazon CloudWatch API Reference*.",
+    "Description": "The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN). For more information about creating alarms and the actions that you can specify, see [PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html) in the *Amazon CloudWatch API Reference*.",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "5",
     "UpdateRequires": "No interruption"
   },
   "cw.alarm.AlarmDescription": {
-    "Docs": "The description of the alarm.",
+    "Description": "The description of the alarm.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -25,7 +25,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.AlarmName": {
-    "Docs": "The name of the alarm. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the alarm name.   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.",
+    "Description": "The name of the alarm. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the alarm name.   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -33,28 +33,28 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cw.alarm.ComparisonOperator": {
-    "Docs": "The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.  You can specify the following values: `GreaterThanThreshold`, `GreaterThanOrEqualToThreshold`, `LessThanThreshold`, or `LessThanOrEqualToThreshold`.",
+    "Description": "The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.  You can specify the following values: `GreaterThanThreshold`, `GreaterThanOrEqualToThreshold`, `LessThanThreshold`, or `LessThanOrEqualToThreshold`.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "GreaterThanOrEqualToThreshold | GreaterThanThreshold | GreaterThanUpperThreshold | LessThanLowerOrGreaterThanUpperThreshold | LessThanLowerThreshold | LessThanOrEqualToThreshold | LessThanThreshold",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.DatapointsToAlarm": {
-    "Docs": "The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an \"M out of N\" alarm. In that case, this value is the M, and the value that you set for `EvaluationPeriods` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *Amazon CloudWatch User Guide*.  If you omit this parameter, CloudWatch uses the same value here that you set for `EvaluationPeriods`, and the alarm goes to alarm state if that many consecutive periods are breaching.",
+    "Description": "The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an \"M out of N\" alarm. In that case, this value is the M, and the value that you set for `EvaluationPeriods` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *Amazon CloudWatch User Guide*.  If you omit this parameter, CloudWatch uses the same value here that you set for `EvaluationPeriods`, and the alarm goes to alarm state if that many consecutive periods are breaching.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "1",
     "UpdateRequires": "No interruption"
   },
   "cw.alarm.Dimensions": {
-    "Docs": "The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify `Dimensions`. Instead, you use `Metrics`.",
+    "Description": "The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify `Dimensions`. Instead, you use `Metrics`.",
     "Required": "No",
     "Type": "List of [Dimension",
     "Maximum": "10",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.EvaluateLowSampleCountPercentile": {
-    "Docs": "Used only for alarms based on percentiles. If `ignore`, the alarm state does not change during periods with too few data points to be statistically significant. If `evaluate` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.",
+    "Description": "Used only for alarms based on percentiles. If `ignore`, the alarm state does not change during periods with too few data points to be statistically significant. If `evaluate` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -62,28 +62,28 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.EvaluationPeriods": {
-    "Docs": "The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an \"M out of N\" alarm, this value is the N, and `DatapointsToAlarm` is the M.  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *Amazon CloudWatch User Guide*.",
+    "Description": "The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an \"M out of N\" alarm, this value is the N, and `DatapointsToAlarm` is the M.  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *Amazon CloudWatch User Guide*.",
     "Required": "Yes",
     "Type": "Integer",
     "Minimum": "1",
     "UpdateRequires": "No interruption"
   },
   "cw.alarm.ExtendedStatistic": {
-    "Docs": "The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.  For an alarm based on a metric, you must specify either `Statistic` or `ExtendedStatistic` but not both.  For an alarm based on a math expression, you can't specify `ExtendedStatistic`. Instead, you use `Metrics`.",
+    "Description": "The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.  For an alarm based on a metric, you must specify either `Statistic` or `ExtendedStatistic` but not both.  For an alarm based on a math expression, you can't specify `ExtendedStatistic`. Instead, you use `Metrics`.",
     "Required": "No",
     "Type": "String",
     "Pattern": "p(\\d{1,2}(\\.\\d{0,2})?|100)",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.InsufficientDataActions": {
-    "Docs": "The actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an Amazon Resource Name (ARN).",
+    "Description": "The actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an Amazon Resource Name (ARN).",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "5",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.MetricName": {
-    "Docs": "The name of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you use `Metrics` instead and you can't specify `MetricName`.",
+    "Description": "The name of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you use `Metrics` instead and you can't specify `MetricName`.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -91,13 +91,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.Metrics": {
-    "Docs": "An array that enables you to create an alarm based on the result of a metric math expression. Each item in the array either retrieves a metric or performs a math expression.  If you specify the `Metrics` parameter, you cannot specify `MetricName`, `Dimensions`, `Period`, `Namespace`, `Statistic`, `ExtendedStatistic`, or `Unit`.",
+    "Description": "An array that enables you to create an alarm based on the result of a metric math expression. Each item in the array either retrieves a metric or performs a math expression.  If you specify the `Metrics` parameter, you cannot specify `MetricName`, `Dimensions`, `Period`, `Namespace`, `Statistic`, `ExtendedStatistic`, or `Unit`.",
     "Required": "No",
     "Type": "List of [MetricDataQuery",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.Namespace": {
-    "Docs": "The namespace of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify `Namespace` and you use `Metrics` instead.  For a list of namespaces for metrics from AWS services, see [AWS Services That Publish CloudWatchMetrics. ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)",
+    "Description": "The namespace of the metric associated with the alarm. This is required for an alarm based on a metric. For an alarm based on a math expression, you can't specify `Namespace` and you use `Metrics` instead.  For a list of namespaces for metrics from AWS services, see [AWS Services That Publish CloudWatchMetrics. ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -106,33 +106,33 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.OKActions": {
-    "Docs": "The actions to execute when this alarm transitions to the `OK` state from any other state. Each action is specified as an Amazon Resource Name (ARN).",
+    "Description": "The actions to execute when this alarm transitions to the `OK` state from any other state. Each action is specified as an Amazon Resource Name (ARN).",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "5",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.Period": {
-    "Docs": "The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.  For an alarm based on a math expression, you can't specify `Period`, and instead you use the `Metrics` parameter.",
+    "Description": "The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.  For an alarm based on a math expression, you can't specify `Period`, and instead you use the `Metrics` parameter.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "No interruption"
   },
   "cw.alarm.Statistic": {
-    "Docs": "The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use `ExtendedStatistic`.  For an alarm based on a metric, you must specify either `Statistic` or `ExtendedStatistic` but not both.  For an alarm based on a math expression, you can't specify `Statistic`. Instead, you use `Metrics`.",
+    "Description": "The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use `ExtendedStatistic`.  For an alarm based on a metric, you must specify either `Statistic` or `ExtendedStatistic` but not both.  For an alarm based on a math expression, you can't specify `Statistic`. Instead, you use `Metrics`.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "Average | Maximum | Minimum | SampleCount | Sum",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.Threshold": {
-    "Docs": "The value to compare with the specified statistic.",
+    "Description": "The value to compare with the specified statistic.",
     "Required": "No",
     "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.ThresholdMetricId": {
-    "Docs": "In an alarm based on an anomaly detection model, this is the ID of the `ANOMALY_DETECTION_BAND` function used as the threshold for the alarm.",
+    "Description": "In an alarm based on an anomaly detection model, this is the ID of the `ANOMALY_DETECTION_BAND` function used as the threshold for the alarm.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -140,7 +140,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cw.alarm.TreatMissingData": {
-    "Docs": "Sets how this alarm is to handle missing data points. Valid values are `breaching`, `notBreaching`, `ignore`, and `missing`. For more information, see [ Configuring How CloudWatchAlarms Treat Missing Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data) in the *Amazon CloudWatchUser Guide*.  If you omit this parameter, the default behavior of `missing` is used.",
+    "Description": "Sets how this alarm is to handle missing data points. Valid values are `breaching`, `notBreaching`, `ignore`, and `missing`. For more information, see [ Configuring How CloudWatchAlarms Treat Missing Data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data) in the *Amazon CloudWatchUser Guide*.  If you omit this parameter, the default behavior of `missing` is used.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -148,7 +148,7 @@
     "UpdateRequires": "No interruption"
   },
   "cw.alarm.Unit": {
-    "Docs": "The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a `Metrics` array.   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.",
+    "Description": "The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a `Metrics` array.   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "Bits | Bits/Second | Bytes | Bytes/Second | Count | Count/Second | Gigabits | Gigabits/Second | Gigabytes | Gigabytes/Second | Kilobits | Kilobits/Second | Kilobytes | Kilobytes/Second | Megabits | Megabits/Second | Megabytes | Megabytes/Second | Microseconds | Milliseconds | None | Percent | Seconds | Terabits | Terabits/Second | Terabytes | Terabytes/Second",

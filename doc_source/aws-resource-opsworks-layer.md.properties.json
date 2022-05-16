@@ -1,12 +1,12 @@
 {
   "opsworks.layer.Attributes": {
-    "Docs": "One or more user-defined key-value pairs to be added to the stack attributes.  To create a cluster layer, set the `EcsClusterArn` attribute to the cluster's ARN.",
+    "Description": "One or more user-defined key-value pairs to be added to the stack attributes.  To create a cluster layer, set the `EcsClusterArn` attribute to the cluster's ARN.",
     "Required": "No",
     "Type": "Map of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.AutoAssignElasticIps": {
-    "Docs": "Whether to automatically assign an [Elastic IP address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) to the layer's instances. For more information, see [How to Edit a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html).",
+    "Description": "Whether to automatically assign an [Elastic IP address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) to the layer's instances. For more information, see [How to Edit a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html).",
     "Required": "Yes",
     "AllowedValues": [
       "True",
@@ -16,7 +16,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.AutoAssignPublicIps": {
-    "Docs": "For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see [How to Edit a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html).",
+    "Description": "For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see [How to Edit a Layer](https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html).",
     "Required": "Yes",
     "AllowedValues": [
       "True",
@@ -26,31 +26,31 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.CustomInstanceProfileArn": {
-    "Docs": "The ARN of an IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see [Using Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html).",
+    "Description": "The ARN of an IAM profile to be used for the layer's EC2 instances. For more information about IAM ARNs, see [Using Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html).",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.CustomJson": {
-    "Docs": "A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see [ Using Custom JSON](https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html). This feature is supported as of version 1.7.42 of the AWS CLI.",
+    "Description": "A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see [ Using Custom JSON](https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html). This feature is supported as of version 1.7.42 of the AWS CLI.",
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.CustomRecipes": {
-    "Docs": "A `LayerCustomRecipes` object that specifies the layer custom recipes.",
+    "Description": "A `LayerCustomRecipes` object that specifies the layer custom recipes.",
     "Required": "No",
     "Type": "Recipes",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.CustomSecurityGroupIds": {
-    "Docs": "An array containing the layer custom security group IDs.",
+    "Description": "An array containing the layer custom security group IDs.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.EnableAutoHealing": {
-    "Docs": "Whether to disable auto healing for the layer.",
+    "Description": "Whether to disable auto healing for the layer.",
     "Required": "Yes",
     "AllowedValues": [
       "True",
@@ -60,7 +60,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.InstallUpdatesOnBoot": {
-    "Docs": "Whether to install operating system and package updates when the instance boots. The default value is `true`. To control when updates are installed, set this value to `false`. You must then update your instances manually by using [CreateDeployment](https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/CreateDeployment) to run the `update_dependencies` stack command or by manually running `yum` (Amazon Linux) or `apt-get` (Ubuntu) on the instances.   To ensure that your instances have the latest security updates, we strongly recommend using the default value of `true`.",
+    "Description": "Whether to install operating system and package updates when the instance boots. The default value is `true`. To control when updates are installed, set this value to `false`. You must then update your instances manually by using [CreateDeployment](https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/CreateDeployment) to run the `update_dependencies` stack command or by manually running `yum` (Amazon Linux) or `apt-get` (Ubuntu) on the instances.   To ensure that your instances have the latest security updates, we strongly recommend using the default value of `true`.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -70,56 +70,56 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.LifecycleEventConfiguration": {
-    "Docs": "A `LifeCycleEventConfiguration` object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.",
+    "Description": "A `LifeCycleEventConfiguration` object that you can use to configure the Shutdown event to specify an execution timeout and enable or disable Elastic Load Balancer connection draining.",
     "Required": "No",
     "Type": "LifecycleEventConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.LoadBasedAutoScaling": {
-    "Docs": "The load-based scaling configuration for the AWS OpsWorks layer.",
+    "Description": "The load-based scaling configuration for the AWS OpsWorks layer.",
     "Required": "No",
     "Type": "LoadBasedAutoScaling",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.Name": {
-    "Docs": "The layer name, which is used by the console. Layer names can be a maximum of 32 characters.",
+    "Description": "The layer name, which is used by the console. Layer names can be a maximum of 32 characters.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.Packages": {
-    "Docs": "An array of `Package` objects that describes the layer packages.",
+    "Description": "An array of `Package` objects that describes the layer packages.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.Shortname": {
-    "Docs": "For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 32 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.  Built-in layer short names are defined by AWS OpsWorks Stacks. For more information, see the [Layer Reference](https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html).",
+    "Description": "For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 32 characters, which are limited to the alphanumeric characters, '-', '_', and '.'.  Built-in layer short names are defined by AWS OpsWorks Stacks. For more information, see the [Layer Reference](https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html).",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.StackId": {
-    "Docs": "The layer stack ID.",
+    "Description": "The layer stack ID.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "opsworks.layer.Tags": {
-    "Docs": "Specifies one or more sets of tags (key–value pairs) to associate with this AWS OpsWorks layer. Use tags to manage your resources.",
+    "Description": "Specifies one or more sets of tags (key–value pairs) to associate with this AWS OpsWorks layer. Use tags to manage your resources.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.Type": {
-    "Docs": "The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.",
+    "Description": "The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "aws-flow-ruby | custom | db-master | ecs-cluster | java-app | lb | memcached | monitoring-master | nodejs-app | php-app | rails-app | web",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "opsworks.layer.UseEbsOptimizedInstances": {
-    "Docs": "Whether to use Amazon EBS-optimized instances.",
+    "Description": "Whether to use Amazon EBS-optimized instances.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -129,7 +129,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opsworks.layer.VolumeConfigurations": {
-    "Docs": "A `VolumeConfigurations` object that describes the layer's Amazon EBS volumes.",
+    "Description": "A `VolumeConfigurations` object that describes the layer's Amazon EBS volumes.",
     "Required": "No",
     "Type": "List of [VolumeConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

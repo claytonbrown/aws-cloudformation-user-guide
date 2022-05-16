@@ -1,19 +1,19 @@
 {
   "datasync.locationhdfs.AgentArns": {
-    "Docs": "The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS cluster.",
+    "Description": "The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS cluster.",
     "Required": "Yes",
     "Type": "List of String",
     "Maximum": "4",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationhdfs.AuthenticationType": {
-    "Docs": "Not currently supported by AWS CloudFormation.",
+    "Description": "Not currently supported by AWS CloudFormation.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationhdfs.BlockSize": {
-    "Docs": "The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).",
+    "Description": "The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "1048576",
@@ -21,19 +21,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationhdfs.KerberosKeytab": {
-    "Docs": "The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Provide the base64-encoded file text. If `KERBEROS` is specified for `AuthType`, this value is required.",
+    "Description": "The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Provide the base64-encoded file text. If `KERBEROS` is specified for `AuthType`, this value is required.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationhdfs.KerberosKrb5Conf": {
-    "Docs": "The `krb5.conf` file that contains the Kerberos configuration information. You can load the `krb5.conf` by providing a string of the file's contents or an Amazon S3 presigned URL of the file. If`KERBEROS` is specified for `AuthType`, this value is required.",
+    "Description": "The `krb5.conf` file that contains the Kerberos configuration information. You can load the `krb5.conf` by providing a string of the file's contents or an Amazon S3 presigned URL of the file. If`KERBEROS` is specified for `AuthType`, this value is required.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationhdfs.KerberosPrincipal": {
-    "Docs": "The Kerberos principal with access to the files and folders on the HDFS cluster.   If `KERBEROS` is specified for `AuthenticationType`, this parameter is required.",
+    "Description": "The Kerberos principal with access to the files and folders on the HDFS cluster.   If `KERBEROS` is specified for `AuthenticationType`, this parameter is required.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -42,7 +42,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationhdfs.KmsKeyProviderUri": {
-    "Docs": "The URI of the HDFS cluster's Key Management Server (KMS).",
+    "Description": "The URI of the HDFS cluster's Key Management Server (KMS).",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -51,19 +51,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationhdfs.NameNodes": {
-    "Docs": "The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode.",
+    "Description": "The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode.",
     "Required": "Yes",
     "Type": "List of [NameNode",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationhdfs.QopConfiguration": {
-    "Docs": "The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY`. If you set `RpcProtection` or `DataTransferProtection`, the other parameter assumes the same value.",
+    "Description": "The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY`. If you set `RpcProtection` or `DataTransferProtection`, the other parameter assumes the same value.",
     "Required": "No",
     "Type": "QopConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationhdfs.ReplicationFactor": {
-    "Docs": "The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.",
+    "Description": "The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "1",
@@ -71,7 +71,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationhdfs.SimpleUser": {
-    "Docs": "The user name used to identify the client on the host operating system.   If `SIMPLE` is specified for `AuthenticationType`, this parameter is required.",
+    "Description": "The user name used to identify the client on the host operating system.   If `SIMPLE` is specified for `AuthenticationType`, this parameter is required.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -80,7 +80,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationhdfs.Subdirectory": {
-    "Docs": "A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to `/`.",
+    "Description": "A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to `/`.",
     "Required": "No",
     "Type": "String",
     "Maximum": "4096",
@@ -88,7 +88,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationhdfs.Tags": {
-    "Docs": "The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources.",
+    "Description": "The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources.",
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "50",

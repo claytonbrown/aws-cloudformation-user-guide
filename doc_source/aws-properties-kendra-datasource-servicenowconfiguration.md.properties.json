@@ -1,13 +1,13 @@
 {
   "kendra.datasource.servicenowconfiguration.AuthenticationType": {
-    "Docs": "The type of authentication used to connect to the ServiceNow instance. If you choose `HTTP_BASIC`, Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field. When you choose `OAUTH2`, Amazon Kendra is authenticated using the OAuth token and secret provided in the Secrets Manager secret, and the user name and password are used to determine which information Amazon Kendra has access to.  When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html).",
+    "Description": "The type of authentication used to connect to the ServiceNow instance. If you choose `HTTP_BASIC`, Amazon Kendra is authenticated using the user name and password provided in the AWS Secrets Manager secret in the `SecretArn` field. When you choose `OAUTH2`, Amazon Kendra is authenticated using the OAuth token and secret provided in the Secrets Manager secret, and the user name and password are used to determine which information Amazon Kendra has access to.  When you use `OAUTH2` authentication, you must generate a token and a client secret using the ServiceNow console. For more information, see [Using a ServiceNow data source](https://docs.aws.amazon.com/kendra/latest/dg/data-source-servicenow.html).",
     "Required": "No",
     "Type": "String",
     "Allowed values": "HTTP_BASIC | OAUTH2",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.servicenowconfiguration.HostUrl": {
-    "Docs": "The ServiceNow instance that the data source connects to. The host endpoint should look like the following: *{instance}.service-now.com.*",
+    "Description": "The ServiceNow instance that the data source connects to. The host endpoint should look like the following: *{instance}.service-now.com.*",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -16,13 +16,13 @@
     "UpdateRequires": "No interruption"
   },
   "kendra.datasource.servicenowconfiguration.KnowledgeArticleConfiguration": {
-    "Docs": "Configuration information for crawling knowledge articles in the ServiceNow site.",
+    "Description": "Configuration information for crawling knowledge articles in the ServiceNow site.",
     "Required": "No",
     "Type": "ServiceNowKnowledgeArticleConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.servicenowconfiguration.SecretArn": {
-    "Docs": "The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the user name and password required to connect to the ServiceNow instance.",
+    "Description": "The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the user name and password required to connect to the ServiceNow instance.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -31,13 +31,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.servicenowconfiguration.ServiceCatalogConfiguration": {
-    "Docs": "Configuration information for crawling service catalogs in the ServiceNow site.",
+    "Description": "Configuration information for crawling service catalogs in the ServiceNow site.",
     "Required": "No",
     "Type": "ServiceNowServiceCatalogConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.servicenowconfiguration.ServiceNowBuildVersion": {
-    "Docs": "The identifier of the release that the ServiceNow host is running. If the host is not running the `LONDON` release, use `OTHERS`.",
+    "Description": "The identifier of the release that the ServiceNow host is running. If the host is not running the `LONDON` release, use `OTHERS`.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "LONDON | OTHERS",

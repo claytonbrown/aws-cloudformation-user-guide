@@ -1,13 +1,13 @@
 {
   "appconfig.configurationprofile.ApplicationId": {
-    "Docs": "The application ID.",
+    "Description": "The application ID.",
     "Required": "Yes",
     "Type": "String",
     "Pattern": "[a-z0-9]{4,7}",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "appconfig.configurationprofile.Description": {
-    "Docs": "A description of the configuration profile.",
+    "Description": "A description of the configuration profile.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -15,7 +15,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appconfig.configurationprofile.LocationUri": {
-    "Docs": "A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store and for feature flags, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3:/// `. Here is an example: `s3://my-bucket/my-app/us-east-1/my-config.json`",
+    "Description": "A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store and for feature flags, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3:/// `. Here is an example: `s3://my-bucket/my-app/us-east-1/my-config.json`",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -23,7 +23,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "appconfig.configurationprofile.Name": {
-    "Docs": "A name for the configuration profile.",
+    "Description": "A name for the configuration profile.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -31,7 +31,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appconfig.configurationprofile.RetrievalRoleArn": {
-    "Docs": "The ARN of an IAM role with permission to access the configuration at the specified `LocationUri`.  A retrieval role ARN is not required for configurations stored in the AWS AppConfig hosted configuration store. It is required for all other sources that store your configuration.",
+    "Description": "The ARN of an IAM role with permission to access the configuration at the specified `LocationUri`.  A retrieval role ARN is not required for configurations stored in the AWS AppConfig hosted configuration store. It is required for all other sources that store your configuration.",
     "Required": "No",
     "Type": "String",
     "Minimum": "20",
@@ -40,20 +40,20 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appconfig.configurationprofile.Tags": {
-    "Docs": "Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.",
+    "Description": "Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.",
     "Required": "No",
     "Type": "List",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appconfig.configurationprofile.Type": {
-    "Docs": "The type of configurations contained in the profile. AWS AppConfig supports `feature flags` and `freeform` configurations. We recommend you create feature flag configurations to enable or disable new features and freeform configurations to distribute configurations to an application. When calling this API, enter one of the following values for `Type`:   `AWS.AppConfig.FeatureFlags`    `AWS.Freeform`",
+    "Description": "The type of configurations contained in the profile. AWS AppConfig supports `feature flags` and `freeform` configurations. We recommend you create feature flag configurations to enable or disable new features and freeform configurations to distribute configurations to an application. When calling this API, enter one of the following values for `Type`:   `AWS.AppConfig.FeatureFlags`    `AWS.Freeform`",
     "Required": "No",
     "Type": "String",
     "Pattern": "^[a-zA-Z\\.]+",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "appconfig.configurationprofile.Validators": {
-    "Docs": "A list of methods for validating the configuration.",
+    "Description": "A list of methods for validating the configuration.",
     "Required": "No",
     "Type": "List",
     "Maximum": "2",

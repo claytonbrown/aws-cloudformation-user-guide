@@ -1,90 +1,90 @@
 {
   "mediapackage.originendpoint.dashpackage.AdsOnDeliveryRestrictions": {
-    "Docs": "The flags on SCTE-35 segmentation descriptors that have to be present for MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in MediaPackage, see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html).",
+    "Description": "The flags on SCTE-35 segmentation descriptors that have to be present for MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in MediaPackage, see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html).",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.originendpoint.dashpackage.AdTriggers": {
-    "Docs": "Specifies the SCTE-35 message types that MediaPackage treats as ad markers in the output manifest.    Valid values:   +  **BREAK**+  **DISTRIBUTOR_ADVERTISEMENT**+  **DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY**.+  **DISTRIBUTOR_PLACEMENT_OPPORTUNITY**.+  **PROVIDER_ADVERTISEMENT**.+  **PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY**.+  **PROVIDER_PLACEMENT_OPPORTUNITY**.+  **SPLICE_INSERT**.",
+    "Description": "Specifies the SCTE-35 message types that MediaPackage treats as ad markers in the output manifest.    Valid values:   +  **BREAK**+  **DISTRIBUTOR_ADVERTISEMENT**+  **DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY**.+  **DISTRIBUTOR_PLACEMENT_OPPORTUNITY**.+  **PROVIDER_ADVERTISEMENT**.+  **PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY**.+  **PROVIDER_PLACEMENT_OPPORTUNITY**.+  **SPLICE_INSERT**.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "No interruption"
   },
   "mediapackage.originendpoint.dashpackage.Encryption": {
-    "Docs": "Parameters for encrypting content.",
+    "Description": "Parameters for encrypting content.",
     "Required": "No",
     "Type": "DashEncryption",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.originendpoint.dashpackage.ManifestLayout": {
-    "Docs": "Determines the position of some tags in the manifest.   Options:  +  **FULL** - elements like `SegmentTemplate` and `ContentProtection` are included in each `Representation`.+  **COMPACT** - duplicate elements are combined and presented at the `AdaptationSet` level.",
+    "Description": "Determines the position of some tags in the manifest.   Options:  +  **FULL** - elements like `SegmentTemplate` and `ContentProtection` are included in each `Representation`.+  **COMPACT** - duplicate elements are combined and presented at the `AdaptationSet` level.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "mediapackage.originendpoint.dashpackage.ManifestWindowSeconds": {
-    "Docs": "Time window (in seconds) contained in each manifest.",
+    "Description": "Time window (in seconds) contained in each manifest.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.originendpoint.dashpackage.MinBufferTimeSeconds": {
-    "Docs": "Minimum amount of content (measured in seconds) that a player must keep available in the buffer.",
+    "Description": "Minimum amount of content (measured in seconds) that a player must keep available in the buffer.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.originendpoint.dashpackage.MinUpdatePeriodSeconds": {
-    "Docs": "Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.",
+    "Description": "Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.originendpoint.dashpackage.PeriodTriggers": {
-    "Docs": "Controls whether MediaPackage produces single-period or multi-period DASH manifests. For more information about periods, see [Multi-period DASH in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/multi-period.html).  Valid values:  +  **ADS** - MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.+  *No value* - MediaPackage will produce single-period DASH manifests. This is the default setting.",
+    "Description": "Controls whether MediaPackage produces single-period or multi-period DASH manifests. For more information about periods, see [Multi-period DASH in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/multi-period.html).  Valid values:  +  **ADS** - MediaPackage will produce multi-period DASH manifests. Periods are created based on the SCTE-35 ad markers present in the input manifest.+  *No value* - MediaPackage will produce single-period DASH manifests. This is the default setting.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "No interruption"
   },
   "mediapackage.originendpoint.dashpackage.Profile": {
-    "Docs": "DASH profile for the output, such as HbbTV.  Valid values:  +  **NONE** - the output doesn't use a DASH profile.+  **HBBTV_1_5** - the output is HbbTV-compliant.",
+    "Description": "DASH profile for the output, such as HbbTV.  Valid values:  +  **NONE** - the output doesn't use a DASH profile.+  **HBBTV_1_5** - the output is HbbTV-compliant.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "mediapackage.originendpoint.dashpackage.SegmentDurationSeconds": {
-    "Docs": "Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.",
+    "Description": "Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.originendpoint.dashpackage.SegmentTemplateFormat": {
-    "Docs": "Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest. Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate`.  +  **NUMBER_WITH_TIMELINE** - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate`.+  **NUMBER_WITH_DURATION** - The `$Number$` variable is used in the `media` URL and a `duration` attribute is added to the segment template. The `SegmentTimeline` object is removed from the representation.+  **TIME_WITH_TIMELINE** - The `$Time$` variable is used in the `media` URL. The value of this variable is the timestamp of when the segment starts. A full `SegmentTimeline` object is presented in each `SegmentTemplate`.",
+    "Description": "Determines the type of variable used in the `media` URL of the `SegmentTemplate` tag in the manifest. Also specifies if segment timeline information is included in `SegmentTimeline` or `SegmentTemplate`.  +  **NUMBER_WITH_TIMELINE** - The `$Number$` variable is used in the `media` URL. The value of this variable is the sequential number of the segment. A full `SegmentTimeline` object is presented in each `SegmentTemplate`.+  **NUMBER_WITH_DURATION** - The `$Number$` variable is used in the `media` URL and a `duration` attribute is added to the segment template. The `SegmentTimeline` object is removed from the representation.+  **TIME_WITH_TIMELINE** - The `$Time$` variable is used in the `media` URL. The value of this variable is the timestamp of when the segment starts. A full `SegmentTimeline` object is presented in each `SegmentTemplate`.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "mediapackage.originendpoint.dashpackage.StreamSelection": {
-    "Docs": "Limitations for outputs from the endpoint, based on the video bitrate.",
+    "Description": "Limitations for outputs from the endpoint, based on the video bitrate.",
     "Required": "No",
     "Type": "StreamSelection",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.originendpoint.dashpackage.SuggestedPresentationDelaySeconds": {
-    "Docs": "Amount of time (in seconds) that the player should be from the live point at the end of the manifest.",
+    "Description": "Amount of time (in seconds) that the player should be from the live point at the end of the manifest.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.originendpoint.dashpackage.UtcTiming": {
-    "Docs": "Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).",
+    "Description": "Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.originendpoint.dashpackage.UtcTimingUri": {
-    "Docs": "Specifies the value attribute of the UTC timing field when utcTiming is set to HTTP-ISO or HTTP-HEAD.",
+    "Description": "Specifies the value attribute of the UTC timing field when utcTiming is set to HTTP-ISO or HTTP-HEAD.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

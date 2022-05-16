@@ -1,6 +1,6 @@
 {
   "events.rule.target.Arn": {
-    "Docs": "The Amazon Resource Name (ARN) of the target.",
+    "Description": "The Amazon Resource Name (ARN) of the target.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -8,31 +8,31 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.BatchParameters": {
-    "Docs": "If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the * AWS Batch User Guide*.",
+    "Description": "If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the * AWS Batch User Guide*.",
     "Required": "No",
     "Type": "BatchParameters",
     "UpdateRequires": "No interruption"
   },
   "events.rule.target.DeadLetterConfig": {
-    "Docs": "The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.",
+    "Description": "The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.",
     "Required": "No",
     "Type": "DeadLetterConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.EcsParameters": {
-    "Docs": "Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see [Task Definitions ](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide*.",
+    "Description": "Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see [Task Definitions ](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide*.",
     "Required": "No",
     "Type": "EcsParameters",
     "UpdateRequires": "No interruption"
   },
   "events.rule.target.HttpParameters": {
-    "Docs": "Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination.  If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.",
+    "Description": "Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination.  If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.",
     "Required": "No",
     "Type": "HttpParameters",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.Id": {
-    "Docs": "The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.",
+    "Description": "The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -41,45 +41,45 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.Input": {
-    "Docs": "Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](http://www.rfc-editor.org/rfc/rfc7159.txt).",
+    "Description": "Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](http://www.rfc-editor.org/rfc/rfc7159.txt).",
     "Required": "No",
     "Type": "String",
     "Maximum": "8192",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.InputPath": {
-    "Docs": "The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You must use JSON dot notation, not bracket notation. For more information about JSON paths, see [JSONPath](http://goessner.net/articles/JsonPath/).",
+    "Description": "The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You must use JSON dot notation, not bracket notation. For more information about JSON paths, see [JSONPath](http://goessner.net/articles/JsonPath/).",
     "Required": "No",
     "Type": "String",
     "Maximum": "256",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.InputTransformer": {
-    "Docs": "Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.",
+    "Description": "Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.",
     "Required": "No",
     "Type": "InputTransformer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.KinesisParameters": {
-    "Docs": "The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the `eventId` as the partition key.",
+    "Description": "The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the `eventId` as the partition key.",
     "Required": "No",
     "Type": "KinesisParameters",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.RedshiftDataParameters": {
-    "Docs": "Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.  If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.",
+    "Description": "Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.  If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.",
     "Required": "No",
     "Type": "RedshiftDataParameters",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.RetryPolicy": {
-    "Docs": "The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.",
+    "Description": "The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.",
     "Required": "No",
     "Type": "RetryPolicy",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.RoleArn": {
-    "Docs": "The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.",
+    "Description": "The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.",
     "Required": "Conditional",
     "Type": "String",
     "Minimum": "1",
@@ -87,19 +87,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.RunCommandParameters": {
-    "Docs": "Parameters used when you are using the rule to invoke Amazon EC2 Run Command.",
+    "Description": "Parameters used when you are using the rule to invoke Amazon EC2 Run Command.",
     "Required": "No",
     "Type": "RunCommandParameters",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.SageMakerPipelineParameters": {
-    "Docs": "Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.  If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.",
+    "Description": "Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.  If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.",
     "Required": "No",
     "Type": "SageMakerPipelineParameters",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.rule.target.SqsParameters": {
-    "Docs": "Contains the message group ID to use when the target is a FIFO queue.  If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.",
+    "Description": "Contains the message group ID to use when the target is a FIFO queue.  If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.",
     "Required": "No",
     "Type": "SqsParameters",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

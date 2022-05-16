@@ -1,12 +1,12 @@
 {
   "ec2.vpc.CidrBlock": {
-    "Docs": "The primary IPv4 CIDR block for the VPC.",
+    "Description": "The primary IPv4 CIDR block for the VPC.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.vpc.EnableDnsHostnames": {
-    "Docs": "Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).  You can only enable DNS hostnames if you've enabled DNS support.",
+    "Description": "Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not. Disabled by default for nondefault VPCs. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).  You can only enable DNS hostnames if you've enabled DNS support.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -16,7 +16,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.vpc.EnableDnsSupport": {
-    "Docs": "Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range \"plus two\" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).",
+    "Description": "Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range \"plus two\" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled. Enabled by default. For more information, see [DNS attributes in your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support).",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -26,26 +26,26 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.vpc.InstanceTenancy": {
-    "Docs": "The allowed tenancy of instances launched into the VPC.   + `\"default\"`: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.+ `\"dedicated\"`: An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.Updating `InstanceTenancy` requires no replacement only if you are updating its value from `\"dedicated\"` to `\"default\"`. Updating `InstanceTenancy` from `\"default\"` to `\"dedicated\"` requires replacement.",
+    "Description": "The allowed tenancy of instances launched into the VPC.   + `\"default\"`: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.+ `\"dedicated\"`: An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.Updating `InstanceTenancy` requires no replacement only if you are updating its value from `\"dedicated\"` to `\"default\"`. Updating `InstanceTenancy` from `\"default\"` to `\"dedicated\"` requires replacement.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "dedicated | default | host",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.vpc.Ipv4IpamPoolId": {
-    "Docs": "The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see [What is IPAM?](/vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.",
+    "Description": "The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see [What is IPAM?](/vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "ec2.vpc.Ipv4NetmaskLength": {
-    "Docs": "The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](/vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.",
+    "Description": "The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](/vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "Replacement"
   },
   "ec2.vpc.Tags": {
-    "Docs": "The tags for the VPC.",
+    "Description": "The tags for the VPC.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
