@@ -1,5 +1,6 @@
 {
   "imagebuilder.component.ChangeDescription": {
+    "Docs": "A change description of the component. For example `initial version`.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -7,11 +8,13 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.Data": {
+    "Docs": "The data of the component. For example, `name: HelloWorldTestingDocumentndescription: This is hello world testing document.nschemaVersion: 1.0nnphases:n - name: testn steps:n - name: HelloWorldStepn action: ExecuteBashn inputs:n commands:n - echo \"Hello World! Test.\"n`. See Examples below for the schema for creating a component using Data.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.Description": {
+    "Docs": "The description of the component.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -19,6 +22,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.KmsKeyId": {
+    "Docs": "The KMS key identifier used to encrypt the component.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -26,34 +30,40 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.Name": {
+    "Docs": "The name of the component.",
     "Required": "Yes",
     "Type": "String",
     "Pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.Platform": {
+    "Docs": "The platform of the component. For example, `Windows`.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "Linux | Windows",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.SupportedOsVersions": {
+    "Docs": "The operating system (OS) version supported by the component. If the OS information is available, a prefix match is performed against the base image OS version during image recipe creation.",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "25",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.Tags": {
+    "Docs": "The tags associated with the component.",
     "Required": "No",
     "Type": "Map of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.Uri": {
+    "Docs": "The `uri` of a YAML component document file. This must be an S3 URL (`s3://bucket/key`), and the requester must have permission to access the S3 bucket it points to. If you use Amazon S3, you can specify component content up to your service quota.  Alternatively, you can specify the YAML document inline, using the component `data` property. You cannot specify both properties.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.Version": {
+    "Docs": "The component version. For example, `1.0.0`.",
     "Required": "Yes",
     "Type": "String",
     "Pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",

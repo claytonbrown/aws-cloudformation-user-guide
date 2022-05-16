@@ -1,10 +1,12 @@
 {
   "finspace.environment.DataBundles": {
+    "Docs": "The list of Amazon Resource Names (ARN) of the data bundles to install. Currently supported data bundle ARNs:  +  `arn:aws:finspace:${Region}::data-bundle/capital-markets-sample` - Contains sample Capital Markets datasets, categories and controlled vocabularies.+  `arn:aws:finspace:${Region}::data-bundle/taq` (default) - Contains trades and quotes data in addition to sample Capital Markets data.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "finspace.environment.Description": {
+    "Docs": "The description of the FinSpace environment.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -13,17 +15,20 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "finspace.environment.FederationMode": {
+    "Docs": "The authentication mode for the environment.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "FEDERATED | LOCAL",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "finspace.environment.FederationParameters": {
+    "Docs": "Configuration information when authentication mode is FEDERATED.",
     "Required": "No",
     "Type": "FederationParameters",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "finspace.environment.KmsKeyId": {
+    "Docs": "The KMS key id used to encrypt in the FinSpace environment.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -32,6 +37,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "finspace.environment.Name": {
+    "Docs": "The name of the FinSpace environment.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -40,6 +46,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "finspace.environment.SuperuserParameters": {
+    "Docs": "Configuration information for the superuser.",
     "Required": "No",
     "Type": "SuperuserParameters",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"

@@ -1,5 +1,6 @@
 {
   "route53resolver.firewallrulegroupassociation.FirewallRuleGroupId": {
+    "Docs": "The unique identifier of the firewall rule group.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -7,12 +8,14 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "route53resolver.firewallrulegroupassociation.MutationProtection": {
+    "Docs": "If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "DISABLED | ENABLED",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "route53resolver.firewallrulegroupassociation.Name": {
+    "Docs": "The name of the association.",
     "Required": "No",
     "Type": "String",
     "Maximum": "64",
@@ -20,17 +23,20 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "route53resolver.firewallrulegroupassociation.Priority": {
+    "Docs": "The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC. DNS Firewall filters VPC traffic starting from rule group with the lowest numeric priority setting.   You must specify a unique priority for each rule group that you associate with a single VPC. To make it easier to insert rule groups later, leave space between the numbers, for example, use 101, 200, and so on. You can change the priority setting for a rule group association after you create it.  The allowed values for `Priority` are between 100 and 9900 (excluding 100 and 9900).",
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "route53resolver.firewallrulegroupassociation.Tags": {
+    "Docs": "A list of the tag keys and values that you want to associate with the rule group.",
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "200",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "route53resolver.firewallrulegroupassociation.VpcId": {
+    "Docs": "The unique identifier of the VPC that is associated with the rule group.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",

@@ -1,5 +1,6 @@
 {
   "pinpointemail.identity.DkimSigningEnabled": {
+    "Docs": "For domain identities, this attribute is used to enable or disable DomainKeys Identified Mail (DKIM) signing for the domain.  If the value is `true`, then the messages that you send from the domain are signed using both the DKIM keys for your domain, as well as the keys for the `amazonses.com` domain. If the value is `false`, then the messages that you send are only signed using the DKIM keys for the `amazonses.com` domain.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -9,6 +10,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "pinpointemail.identity.FeedbackForwardingEnabled": {
+    "Docs": "Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.  When you enable feedback forwarding, Amazon Pinpoint sends you email notifications when bounce or complaint events occur. Amazon Pinpoint sends this notification to the address that you specified in the Return-Path header of the original email.  When you disable feedback forwarding, Amazon Pinpoint sends notifications through other mechanisms, such as by notifying an Amazon SNS topic. You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events occur (even if this setting is disabled).",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -18,15 +20,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "pinpointemail.identity.MailFromAttributes": {
+    "Docs": "Used to enable or disable the custom Mail-From domain configuration for an email identity.",
     "Required": "No",
     "Type": "MailFromAttributes",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "pinpointemail.identity.Name": {
+    "Docs": "The address or domain of the identity, such as *sender@example.com* or *example.co.uk*.",
     "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "pinpointemail.identity.Tags": {
+    "Docs": "An object that defines the tags (keys and values) that you want to associate with the email identity.",
     "Required": "No",
     "Type": "List",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

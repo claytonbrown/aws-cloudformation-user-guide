@@ -1,5 +1,6 @@
 {
   "datasync.locations3.S3BucketArn": {
+    "Docs": "The ARN of the Amazon S3 bucket.",
     "Required": "Yes",
     "Type": "String",
     "Maximum": "156",
@@ -7,16 +8,20 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "datasync.locations3.S3Config": {
+    "Docs": "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.  For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide*.",
     "Required": "Yes",
+    "Type": "S3Config",
     "UpdateRequires": "Replacement"
   },
   "datasync.locations3.S3StorageClass": {
+    "Docs": "The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. For buckets in AWS Regions, the storage class defaults to S3 Standard.   For more information about S3 storage classes, see [Amazon S3 Storage Classes](http://aws.amazon.com/s3/storage-classes/). Some storage classes have behaviors that can affect your S3 storage costs. For detailed information, see [Considerations When Working with Amazon S3 Storage Classes in DataSync](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes).",
     "Required": "No",
     "Type": "String",
     "Allowed values": "DEEP_ARCHIVE | GLACIER | INTELLIGENT_TIERING | ONEZONE_IA | OUTPOSTS | STANDARD | STANDARD_IA",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "datasync.locations3.Subdirectory": {
+    "Docs": "A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.",
     "Required": "No",
     "Type": "String",
     "Maximum": "4096",
@@ -24,6 +29,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "datasync.locations3.Tags": {
+    "Docs": "The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources.",
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "50",

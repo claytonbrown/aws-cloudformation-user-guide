@@ -1,5 +1,6 @@
 {
   "docdb.dbinstance.AutoMinorVersionUpgrade": {
+    "Docs": "This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set.  Default: `false`",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -9,31 +10,37 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "docdb.dbinstance.AvailabilityZone": {
+    "Docs": "The Amazon EC2 Availability Zone that the instance is created in.   Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.  Example: `us-east-1d`",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "docdb.dbinstance.DBClusterIdentifier": {
+    "Docs": "The identifier of the cluster that the instance will belong to.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "docdb.dbinstance.DBInstanceClass": {
+    "Docs": "The compute and memory capacity of the instance; for example, `db.m4.large`. If you change the class of an instance there can be some interruption in the cluster's service.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "docdb.dbinstance.DBInstanceIdentifier": {
+    "Docs": "The instance identifier. This parameter is stored as a lowercase string.  Constraints:  + Must contain from 1 to 63 letters, numbers, or hyphens.+ The first character must be a letter.+ Cannot end with a hyphen or contain two consecutive hyphens.Example: `mydbinstance`",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "docdb.dbinstance.PreferredMaintenanceWindow": {
+    "Docs": "The time range each week during which system maintenance can occur, in Universal Coordinated Time (UTC).   Format: `ddd:hh24:mi-ddd:hh24:mi`   The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week.   Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun  Constraints: Minimum 30-minute window.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "docdb.dbinstance.Tags": {
+    "Docs": "The tags to be assigned to the instance. You can assign up to 10 tags to an instance.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

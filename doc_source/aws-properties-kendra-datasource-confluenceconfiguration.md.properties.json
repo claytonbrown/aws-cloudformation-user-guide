@@ -1,32 +1,38 @@
 {
   "kendra.datasource.confluenceconfiguration.AttachmentConfiguration": {
+    "Docs": "Configuration information for indexing attachments to Confluence blogs and pages.",
     "Required": "No",
     "Type": "ConfluenceAttachmentConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.confluenceconfiguration.BlogConfiguration": {
+    "Docs": "Configuration information for indexing Confluence blogs.",
     "Required": "No",
     "Type": "ConfluenceBlogConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.confluenceconfiguration.ExclusionPatterns": {
+    "Docs": ">A list of regular expression patterns to exclude certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are excluded from the index. Content that doesn't match the patterns is included in the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.confluenceconfiguration.InclusionPatterns": {
+    "Docs": "A list of regular expression patterns to include certain blog posts, pages, spaces, or attachments in your Confluence. Content that matches the patterns are included in the index. Content that doesn't match the patterns is excluded from the index. If content matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the content isn't included in the index.",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.confluenceconfiguration.PageConfiguration": {
+    "Docs": "Configuration information for indexing Confluence pages.",
     "Required": "No",
     "Type": "ConfluencePageConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.confluenceconfiguration.SecretArn": {
+    "Docs": "The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the key-value pairs required to connect to your Confluence server. The secret must contain a JSON structure with the following keys:  + username—The user name or email address of a user with administrative privileges for the Confluence server.+ password—The password associated with the user logging in to the Confluence server.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -35,24 +41,29 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.confluenceconfiguration.ServerUrl": {
+    "Docs": "The URL of your Confluence instance. Use the full URL of the server. For example, *https://server.example.com:port/*. You can also use an IP address, for example, *https://192.168.1.113/*.",
     "Required": "Yes",
+    "Type": "String",
     "Minimum": "1",
     "Maximum": "2048",
     "Pattern": "^(https?|ftp|file):\\/\\/([^\\s]*)",
     "UpdateRequires": "No interruption"
   },
   "kendra.datasource.confluenceconfiguration.SpaceConfiguration": {
+    "Docs": "Configuration information for indexing Confluence spaces.",
     "Required": "No",
     "Type": "ConfluenceSpaceConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.confluenceconfiguration.Version": {
+    "Docs": "Specifies the version of the Confluence installation that you are connecting to.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "CLOUD | SERVER",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.confluenceconfiguration.VpcConfiguration": {
+    "Docs": "Configuration information for an Amazon Virtual Private Cloud to connect to your Confluence. For more information, see [Configuring a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html).",
     "Required": "No",
     "Type": "DataSourceVpcConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

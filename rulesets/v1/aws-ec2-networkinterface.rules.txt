@@ -1,0 +1,14 @@
+# #AWS::EC2::NetworkInterface InterfaceType  == branch |OR| AWS::EC2::NetworkInterface InterfaceType  == efa |OR| AWS::EC2::NetworkInterface InterfaceType  == trunk << Enforce allowed values [branch | efa | trunk]
+# #AWS::EC2::NetworkInterface SourceDestCheck  == True |OR| AWS::EC2::NetworkInterface SourceDestCheck  == False << Enforce allowed values [True | False]
+# AWS::EC2::NetworkInterface InterfaceType  == /branch/ <<  branch is an expected value for AWS::EC2::NetworkInterface InterfaceType
+# AWS::EC2::NetworkInterface InterfaceType  == /efa/ <<  efa is an expected value for AWS::EC2::NetworkInterface InterfaceType
+# AWS::EC2::NetworkInterface InterfaceType  == /trunk/ <<  trunk is an expected value for AWS::EC2::NetworkInterface InterfaceType
+# AWS::EC2::NetworkInterface InterfaceType IN [branch,efa,trunk] << Enforcing Allowed Values only
+# AWS::EC2::NetworkInterface Ipv6AddressCount  == /[0-9].+/ <<  Integer is expected for AWS::EC2::NetworkInterface of Ipv6AddressCount 
+# AWS::EC2::NetworkInterface SecondaryPrivateIpAddressCount  == /[0-9].+/ <<  Integer is expected for AWS::EC2::NetworkInterface of SecondaryPrivateIpAddressCount 
+# AWS::EC2::NetworkInterface SourceDestCheck  == /False/ <<  False is an expected value for AWS::EC2::NetworkInterface SourceDestCheck
+# AWS::EC2::NetworkInterface SourceDestCheck  == /True/ <<  True is an expected value for AWS::EC2::NetworkInterface SourceDestCheck
+# AWS::EC2::NetworkInterface SourceDestCheck  == False <<  False is expected  safe default value
+# AWS::EC2::NetworkInterface SourceDestCheck  == True <<  True is expected safe default value
+# AWS::EC2::NetworkInterface SourceDestCheck IN [True,False] << Enforcing Allowed Values only
+# AWS::EC2::NetworkInterface SubnetId  == /.*/ <<  SubnetId is a required property for AWS::EC2::NetworkInterface

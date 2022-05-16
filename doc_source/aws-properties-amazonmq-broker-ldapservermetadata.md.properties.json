@@ -1,25 +1,30 @@
 {
   "amazonmq.broker.ldapservermetadata.Hosts": {
+    "Docs": "Specifies the location of the LDAP server such as AWS Directory Service for Microsoft Active Directory. Optional failover server.",
     "Required": "Yes",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amazonmq.broker.ldapservermetadata.RoleBase": {
+    "Docs": "The distinguished name of the node in the directory information tree (DIT) to search for roles or groups. For example, `ou=group`, `ou=corp`, `dc=corp`, `dc=example`, `dc=com`.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amazonmq.broker.ldapservermetadata.RoleName": {
+    "Docs": "The group name attribute in a role entry whose value is the name of that role. For example, you can specify `cn` for a group entry's common name. If authentication succeeds, then the user is assigned the the value of the `cn` attribute for each role entry that they are a member of.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amazonmq.broker.ldapservermetadata.RoleSearchMatching": {
+    "Docs": "The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the `{0}` placeholder in the search filter. The client's username is substituted into the `{1}` placeholder. For example, if you set this option to `(member=uid={1})` for the user janedoe, the search filter becomes `(member=uid=janedoe)` after string substitution. It matches all role entries that have a member attribute equal to `uid=janedoe` under the subtree selected by the `RoleBases`.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amazonmq.broker.ldapservermetadata.RoleSearchSubtree": {
+    "Docs": "The directory search scope for the role. If set to true, scope is to search the entire subtree.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -29,31 +34,37 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amazonmq.broker.ldapservermetadata.ServiceAccountPassword": {
+    "Docs": "Service account password. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin`,`dc=corp`, `dc=example`, `dc=com`.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amazonmq.broker.ldapservermetadata.ServiceAccountUsername": {
+    "Docs": "Service account username. A service account is an account in your LDAP server that has access to initiate a connection. For example, `cn=admin`, `ou=corp`, `dc=corp`, `dc=example`, `dc=com`.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amazonmq.broker.ldapservermetadata.UserBase": {
+    "Docs": "Select a particular subtree of the directory information tree (DIT) to search for user entries. The subtree is specified by a DN, which specifies the base node of the subtree. For example, by setting this option to `ou=Users`,`ou=corp`, `dc=corp`, `dc=example`, `dc=com`, the search for user entries is restricted to the subtree beneath `ou=Users`,`ou=corp`, `dc=corp`, `dc=example`, `dc=com`.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amazonmq.broker.ldapservermetadata.UserRoleName": {
+    "Docs": "The name of the LDAP attribute in the user's directory entry for the user's group membership. In some cases, user roles may be identified by the value of an attribute in the user's directory entry. The `UserRoleName` option allows you to provide the name of this attribute.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amazonmq.broker.ldapservermetadata.UserSearchMatching": {
+    "Docs": "The LDAP search filter used to find users within the `userBase`. The client's username is substituted into the `{0}` placeholder in the search filter. For example, if this option is set to `(uid={0})` and the received username is `janedoe`, the search filter becomes `(uid=janedoe)` after string substitution. It will result in matching an entry like `uid=janedoe`, `ou=Users`, `ou=corp`, `dc=corp`, `dc=example`, `dc=com`.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amazonmq.broker.ldapservermetadata.UserSearchSubtree": {
+    "Docs": "The directory search scope for the user. If set to true, scope is to search the entire subtree.",
     "Required": "No",
     "AllowedValues": [
       "True",

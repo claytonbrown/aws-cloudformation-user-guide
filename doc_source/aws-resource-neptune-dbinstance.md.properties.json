@@ -1,5 +1,6 @@
 {
   "neptune.dbinstance.AllowMajorVersionUpgrade": {
+    "Docs": "Indicates that major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible. This parameter must be set to true when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -9,6 +10,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "neptune.dbinstance.AutoMinorVersionUpgrade": {
+    "Docs": "Indicates that minor version patches are applied automatically.  When updating this property, some interruptions may occur.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -18,46 +20,55 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "neptune.dbinstance.AvailabilityZone": {
+    "Docs": "Specifies the name of the Availability Zone the DB instance is located in.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "neptune.dbinstance.DBClusterIdentifier": {
+    "Docs": "If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "neptune.dbinstance.DBInstanceClass": {
+    "Docs": "Contains the name of the compute and memory capacity class of the DB instance.  If you update this property, some interruptions may occur.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "neptune.dbinstance.DBInstanceIdentifier": {
+    "Docs": "Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "neptune.dbinstance.DBParameterGroupName": {
+    "Docs": "The name of an existing DB parameter group or a reference to an AWS::Neptune::DBParameterGroup resource created in the template. If any of the data members of the referenced parameter group are changed during an update, the DB instance might need to be restarted, which causes some interruption. If the parameter group contains static parameters, whether they were changed or not, an update triggers a reboot.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "neptune.dbinstance.DBSnapshotIdentifier": {
+    "Docs": "This parameter is not supported.   `AWS::Neptune::DBInstance` does not support restoring from snapshots.   `AWS::Neptune::DBCluster` does support restoring from snapshots.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "neptune.dbinstance.DBSubnetGroupName": {
+    "Docs": "A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new virtual private cloud (VPC).",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "neptune.dbinstance.PreferredMaintenanceWindow": {
+    "Docs": "Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "neptune.dbinstance.Tags": {
+    "Docs": "An arbitrary set of tags (key-value pairs) for this DB instance.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

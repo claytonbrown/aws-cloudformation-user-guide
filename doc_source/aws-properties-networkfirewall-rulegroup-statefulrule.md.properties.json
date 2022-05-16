@@ -1,14 +1,18 @@
 {
   "networkfirewall.rulegroup.statefulrule.Action": {
+    "Docs": "Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow.   The actions for a stateful rule are defined as follows:   +  **PASS** - Permits the packets to go to the intended destination.+  **DROP** - Blocks the packets from going to the intended destination and sends an alert log message, if alert logging is configured in the firewall's [AWS::NetworkFirewall::LoggingConfiguration](aws-resource-networkfirewall-loggingconfiguration.md). +  **ALERT** - Permits the packets to go to the intended destination and sends an alert log message, if alert logging is configured in the firewall's [AWS::NetworkFirewall::LoggingConfiguration](aws-resource-networkfirewall-loggingconfiguration.md).   You can use this action to test a rule that you intend to use to drop traffic. You can enable the rule with `ALERT` action, verify in the logs that the rule is filtering as you want, then change the action to `DROP`.",
     "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "networkfirewall.rulegroup.statefulrule.Header": {
+    "Docs": "The stateful inspection criteria for this rule, used to inspect traffic flows.",
     "Required": "Yes",
     "Type": "Header",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "networkfirewall.rulegroup.statefulrule.RuleOptions": {
+    "Docs": "Additional settings for a stateful rule, provided as keywords and settings.",
     "Required": "Yes",
     "Type": "List of [RuleOption",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

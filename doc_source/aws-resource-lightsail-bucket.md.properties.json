@@ -1,21 +1,25 @@
 {
   "lightsail.bucket.AccessRules": {
+    "Docs": "An object that describes the access rules for the bucket.",
     "Required": "No",
     "Type": "AccessRules",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.bucket.BucketName": {
+    "Docs": "The name of the bucket.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lightsail.bucket.BundleId": {
+    "Docs": "The bundle ID for the bucket (for example, `small_1_0`).  A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket.",
     "Required": "Yes",
     "Type": "String",
     "Pattern": ".*\\S.*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.bucket.ObjectVersioning": {
+    "Docs": "Indicates whether object versioning is enabled for the bucket.  The following options can be configured:  +  `Enabled` - Object versioning is enabled.+  `Suspended` - Object versioning was previously enabled but is currently suspended. Existing object versions are retained.+  `NeverEnabled` - Object versioning has never been enabled.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -26,18 +30,22 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.bucket.ReadOnlyAccessAccounts": {
+    "Docs": "An array of AWS account IDs that have read-only access to the bucket.",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "10",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.bucket.ResourcesReceivingAccess": {
+    "Docs": "An array of Lightsail instances that have access to the bucket.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.bucket.Tags": {
+    "Docs": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide*.  The `Value` of `Tags` is optional for Lightsail resources.",
     "Required": "No",
+    "Type": "List of [Tag",
     "UpdateRequires": "No interruption"
   }
 }

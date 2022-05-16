@@ -1,11 +1,13 @@
 {
   "workspaces.workspace.BundleId": {
+    "Docs": "The identifier of the bundle for the WorkSpace.",
     "Required": "Yes",
     "Type": "String",
     "Pattern": "^wsb-[0-9a-z]{8,63}$",
     "UpdateRequires": "Updates are not supported\\."
   },
   "workspaces.workspace.DirectoryId": {
+    "Docs": "The identifier of the AWS Directory Service directory for the WorkSpace.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "10",
@@ -14,6 +16,7 @@
     "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
   "workspaces.workspace.RootVolumeEncryptionEnabled": {
+    "Docs": "Indicates whether the data stored on the root volume is encrypted.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -23,11 +26,13 @@
     "UpdateRequires": "Updates are not supported\\."
   },
   "workspaces.workspace.Tags": {
+    "Docs": "The tags for the WorkSpace.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "workspaces.workspace.UserName": {
+    "Docs": "The user name of the user for the WorkSpace. This user name must exist in the AWS Directory Service directory for the WorkSpace.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -35,6 +40,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "workspaces.workspace.UserVolumeEncryptionEnabled": {
+    "Docs": "Indicates whether the data stored on the user volume is encrypted.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -44,11 +50,13 @@
     "UpdateRequires": "Updates are not supported\\."
   },
   "workspaces.workspace.VolumeEncryptionKey": {
+    "Docs": "The symmetric AWS KMS key used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric KMS keys.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "Updates are not supported\\."
   },
   "workspaces.workspace.WorkspaceProperties": {
+    "Docs": "The WorkSpace properties.",
     "Required": "No",
     "Type": "WorkspaceProperties",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

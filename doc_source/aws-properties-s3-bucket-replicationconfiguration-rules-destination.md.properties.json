@@ -1,35 +1,44 @@
 {
   "s3.bucket.replicationconfiguration.rules.destination.AccessControlTranslation": {
+    "Docs": "Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.",
     "Required": "No",
     "Type": "AccessControlTranslation",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "s3.bucket.replicationconfiguration.rules.destination.Account": {
+    "Docs": "Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS account that owns the destination bucket by specifying the `AccessControlTranslation` property, this is the account ID of the destination bucket owner. For more information, see [Cross-Region Replication Additional Configuration: Change Replica Owner](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr-change-owner.html) in the *Amazon S3 User Guide*.  If you specify the `AccessControlTranslation` property, the `Account` property is required.",
     "Required": "Conditional",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "s3.bucket.replicationconfiguration.rules.destination.Bucket": {
+    "Docs": "The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "s3.bucket.replicationconfiguration.rules.destination.EncryptionConfiguration": {
+    "Docs": "Specifies encryption-related information.",
     "Required": "No",
     "Type": "EncryptionConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "s3.bucket.replicationconfiguration.rules.destination.Metrics": {
+    "Docs": "A container specifying replication metrics-related settings enabling replication metrics and events.",
     "Required": "No",
     "Type": "Metrics",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "s3.bucket.replicationconfiguration.rules.destination.ReplicationTime": {
+    "Docs": "A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a `Metrics` block.",
     "Required": "No",
     "Type": "ReplicationTime",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "s3.bucket.replicationconfiguration.rules.destination.StorageClass": {
+    "Docs": "The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.   For valid values, see the `StorageClass` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   }
 }

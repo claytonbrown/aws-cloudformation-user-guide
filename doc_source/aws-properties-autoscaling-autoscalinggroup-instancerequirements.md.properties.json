@@ -1,88 +1,111 @@
 {
   "autoscaling.autoscalinggroup.instancerequirements.AcceleratorCount": {
+    "Docs": "The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type.  To exclude accelerator-enabled instance types, set `Max` to `0`.  Default: No minimum or maximum",
     "Required": "No",
     "Type": "AcceleratorCountRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.AcceleratorManufacturers": {
+    "Docs": "Indicates whether instance types must have accelerators by specific manufacturers.  + For instance types with NVIDIA devices, specify `nvidia`.+ For instance types with AMD devices, specify `amd`.+ For instance types with AWS devices, specify `amazon-web-services`.+ For instance types with Xilinx devices, specify `xilinx`.Default: Any manufacturer",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.AcceleratorNames": {
+    "Docs": "Lists the accelerators that must be on an instance type.  + For instance types with NVIDIA A100 GPUs, specify `a100`.+ For instance types with NVIDIA V100 GPUs, specify `v100`.+ For instance types with NVIDIA K80 GPUs, specify `k80`.+ For instance types with NVIDIA T4 GPUs, specify `t4`.+ For instance types with NVIDIA M60 GPUs, specify `m60`.+ For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520`.+ For instance types with Xilinx VU9P FPGAs, specify `vu9p`.Default: Any accelerator",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.AcceleratorTotalMemoryMiB": {
+    "Docs": "The minimum and maximum total memory size for the accelerators on an instance type, in MiB.  Default: No minimum or maximum",
     "Required": "No",
     "Type": "AcceleratorTotalMemoryMiBRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.AcceleratorTypes": {
+    "Docs": "Lists the accelerator types that must be on an instance type.  + For instance types with GPU accelerators, specify `gpu`.+ For instance types with FPGA accelerators, specify `fpga`.+ For instance types with inference accelerators, specify `inference`.Default: Any accelerator type",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.BareMetal": {
+    "Docs": "Indicates whether bare metal instance types are included, excluded, or required.  Default: `excluded`",
     "Required": "No",
     "Type": "String",
     "Allowed values": "excluded | included | required",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.BaselineEbsBandwidthMbps": {
+    "Docs": "The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.  Default: No minimum or maximum",
     "Required": "No",
+    "Type": "BaselineEbsBandwidthMbpsRequest",
     "UpdateRequires": "No interruption"
   },
   "autoscaling.autoscalinggroup.instancerequirements.BurstablePerformance": {
+    "Docs": "Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.  Default: `excluded`",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "autoscaling.autoscalinggroup.instancerequirements.CpuManufacturers": {
+    "Docs": "Lists which specific CPU manufacturers to include.  + For instance types with Intel CPUs, specify `intel`.+ For instance types with AMD CPUs, specify `amd`.+ For instance types with AWS CPUs, specify `amazon-web-services`.Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. Default: Any manufacturer",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.ExcludedInstanceTypes": {
+    "Docs": "Lists which instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (`*`). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`.   For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types.  Default: No excluded instance types",
     "Required": "No",
+    "Type": "List of String",
     "Maximum": "400",
     "UpdateRequires": "No interruption"
   },
   "autoscaling.autoscalinggroup.instancerequirements.InstanceGenerations": {
+    "Docs": "Indicates whether current or previous generation instance types are included.  + For current generation instance types, specify `current`. The current generation includes EC2 instance types currently recommended for use. This typically includes the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide for Linux Instances*.+ For previous generation instance types, specify `previous`.Default: Any current or previous generation",
     "Required": "No",
+    "Type": "List of String",
     "UpdateRequires": "No interruption"
   },
   "autoscaling.autoscalinggroup.instancerequirements.LocalStorage": {
+    "Docs": "Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide for Linux Instances*.  Default: `included`",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "autoscaling.autoscalinggroup.instancerequirements.LocalStorageTypes": {
+    "Docs": "Indicates the type of local storage that is required.  + For instance types with hard disk drive (HDD) storage, specify `hdd`.+ For instance types with solid state drive (SSD) storage, specify `sdd`.Default: Any local storage type",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.MemoryGiBPerVCpu": {
+    "Docs": "The minimum and maximum amount of memory per vCPU for an instance type, in GiB.  Default: No minimum or maximum",
     "Required": "No",
     "Type": "MemoryGiBPerVCpuRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.MemoryMiB": {
+    "Docs": "The minimum and maximum instance memory size for an instance type, in MiB.",
     "Required": "No",
     "Type": "MemoryMiBRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.NetworkInterfaceCount": {
+    "Docs": "The minimum and maximum number of network interfaces for an instance type.  Default: No minimum or maximum",
     "Required": "No",
     "Type": "NetworkInterfaceCountRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.OnDemandMaxPricePercentageOverLowestPrice": {
+    "Docs": "The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as `999999`.   If you set `DesiredCapacityType` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.   Default: `20`",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.RequireHibernateSupport": {
+    "Docs": "Indicates whether instance types must provide On-Demand Instance hibernation support.  Default: `false`",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -92,17 +115,20 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.SpotMaxPricePercentageOverLowestPrice": {
+    "Docs": "The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as `999999`.   If you set `DesiredCapacityType` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.   Default: `100`",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.TotalLocalStorageGB": {
+    "Docs": "The minimum and maximum total local storage size for an instance type, in GB.  Default: No minimum or maximum",
     "Required": "No",
     "Type": "TotalLocalStorageGBRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.VCpuCount": {
+    "Docs": "The minimum and maximum number of vCPUs for an instance type.",
     "Required": "No",
     "Type": "VCpuCountRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

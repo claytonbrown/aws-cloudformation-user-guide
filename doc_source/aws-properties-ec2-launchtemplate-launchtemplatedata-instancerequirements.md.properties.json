@@ -1,89 +1,111 @@
 {
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorCount": {
+    "Docs": "The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.  To exclude accelerator-enabled instance types, set `Max` to `0`.  Default: No minimum or maximum limits",
     "Required": "No",
     "Type": "AcceleratorCount",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorManufacturers": {
+    "Docs": "Indicates whether instance types must have accelerators by specific manufacturers.  + For instance types with NVIDIA devices, specify `nvidia`.+ For instance types with AMD devices, specify `amd`.+ For instance types with AWS devices, specify `amazon-web-services`.+ For instance types with Xilinx devices, specify `xilinx`.Default: Any manufacturer",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorNames": {
+    "Docs": "The accelerators that must be on the instance type.  + For instance types with NVIDIA A100 GPUs, specify `a100`.+ For instance types with NVIDIA V100 GPUs, specify `v100`.+ For instance types with NVIDIA K80 GPUs, specify `k80`.+ For instance types with NVIDIA T4 GPUs, specify `t4`.+ For instance types with NVIDIA M60 GPUs, specify `m60`.+ For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520`.+ For instance types with Xilinx VU9P FPGAs, specify `vu9p`.Default: Any accelerator",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorTotalMemoryMiB": {
+    "Docs": "The minimum and maximum amount of total accelerator memory, in MiB.  Default: No minimum or maximum limits",
     "Required": "No",
     "Type": "AcceleratorTotalMemoryMiB",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.AcceleratorTypes": {
+    "Docs": "The accelerator types that must be on the instance type.  + For instance types with GPU accelerators, specify `gpu`.+ For instance types with FPGA accelerators, specify `fpga`.+ For instance types with inference accelerators, specify `inference`.Default: Any accelerator type",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.BareMetal": {
+    "Docs": "Indicates whether bare metal instance types must be included, excluded, or required.  + To include bare metal instance types, specify `included`.+ To require only bare metal instance types, specify `required`.+ To exclude bare metal instance types, specify `excluded`.Default: `excluded`",
     "Required": "No",
     "Type": "String",
     "Allowed values": "excluded | included | required",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.BaselineEbsBandwidthMbps": {
+    "Docs": "The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.  Default: No minimum or maximum limits",
     "Required": "No",
+    "Type": "BaselineEbsBandwidthMbps",
     "UpdateRequires": "No interruption"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.BurstablePerformance": {
+    "Docs": "Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).  + To include burstable performance instance types, specify `included`.+ To require only burstable performance instance types, specify `required`.+ To exclude burstable performance instance types, specify `excluded`.Default: `excluded`",
     "Required": "No",
     "Type": "String",
     "Allowed values": "excluded | included | required",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.CpuManufacturers": {
+    "Docs": "The CPU manufacturers to include.  + For instance types with Intel CPUs, specify `intel`.+ For instance types with AMD CPUs, specify `amd`.+ For instance types with AWS CPUs, specify `amazon-web-services`.Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.Default: Any manufacturer",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.ExcludedInstanceTypes": {
+    "Docs": "The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (`*`), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`.  For example, if you specify `c5*`,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.  Default: No excluded instance types",
     "Required": "No",
+    "Type": "List of String",
     "Maximum": "400",
     "UpdateRequires": "No interruption"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.InstanceGenerations": {
+    "Docs": "Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.  For current generation instance types, specify `current`.  For previous generation instance types, specify `previous`.  Default: Current and previous generation instance types",
     "Required": "No",
+    "Type": "List of String",
     "UpdateRequires": "No interruption"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.LocalStorage": {
+    "Docs": "Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, [Amazon EC2 instance store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html) in the *Amazon EC2 User Guide*.  + To include instance types with instance store volumes, specify `included`.+ To require only instance types with instance store volumes, specify `required`.+ To exclude instance types with instance store volumes, specify `excluded`.Default: `included`",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.LocalStorageTypes": {
+    "Docs": "The type of local storage that is required.  + For instance types with hard disk drive (HDD) storage, specify `hdd`.+ For instance types with solid state drive (SDD) storage, specify `sdd`.Default: `hdd` and `sdd`",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.MemoryGiBPerVCpu": {
+    "Docs": "The minimum and maximum amount of memory per vCPU, in GiB.  Default: No minimum or maximum limits",
     "Required": "No",
     "Type": "MemoryGiBPerVCpu",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.MemoryMiB": {
+    "Docs": "The minimum and maximum amount of memory, in MiB.",
     "Required": "No",
     "Type": "MemoryMiB",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.NetworkInterfaceCount": {
+    "Docs": "The minimum and maximum number of network interfaces.  Default: No minimum or maximum limits",
     "Required": "No",
     "Type": "NetworkInterfaceCount",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.OnDemandMaxPricePercentageOverLowestPrice": {
+    "Docs": "The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.  To turn off price protection, specify a high value, such as `999999`.  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).  If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.Default: `20`",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.RequireHibernateSupport": {
+    "Docs": "Indicates whether instance types must support hibernation for On-Demand Instances.  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html).  Default: `false`",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -93,16 +115,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.SpotMaxPricePercentageOverLowestPrice": {
+    "Docs": "The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage above the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.  The parameter accepts an integer, which Amazon EC2 interprets as a percentage.  To turn off price protection, specify a high value, such as `999999`.  This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).  If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.Default: `100`",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.TotalLocalStorageGB": {
+    "Docs": "The minimum and maximum amount of total local storage, in GB.  Default: No minimum or maximum limits",
     "Required": "No",
     "Type": "TotalLocalStorageGB",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.instancerequirements.VCpuCount": {
+    "Docs": "The minimum and maximum number of vCPUs.",
     "Required": "No",
     "Type": "VCpuCount",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

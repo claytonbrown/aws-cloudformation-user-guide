@@ -1,5 +1,6 @@
 {
   "ivs.channel.Authorized": {
+    "Docs": "Whether the channel is authorized.",
     "Default": "false",
     "Required": "No",
     "AllowedValues": [
@@ -10,6 +11,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ivs.channel.LatencyMode": {
+    "Docs": "Channel latency mode. Valid values:  +  `NORMAL`: Use NORMAL to broadcast and deliver live video up to Full HD.+  `LOW`: Use LOW for near real-time interactions with viewers.In the Amazon IVS console, `LOW` and `NORMAL` correspond to `Ultra-low` and `Standard`, respectively.",
     "Default": "LOW",
     "Required": "No",
     "Type": "String",
@@ -17,6 +19,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ivs.channel.Name": {
+    "Docs": "Channel name.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -25,6 +28,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ivs.channel.RecordingConfigurationArn": {
+    "Docs": "The ARN of a RecordingConfiguration resource. An empty string indicates that recording is disabled for the channel. A RecordingConfiguration ARN indicates that recording is enabled using the specified recording configuration. See the [ RecordingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html) resource for more information and an example.",
     "Default": "\"\" \\(empty string, recording is disabled\\)",
     "Required": "No",
     "Type": "String",
@@ -34,12 +38,15 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ivs.channel.Tags": {
+    "Docs": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ivs.channel.Type": {
+    "Docs": "The channel type, which determines the allowable resolution and bitrate. *If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.* Valid values:  +  `STANDARD`: Multiple qualities are generated from the original input, to automatically give viewers the best experience for their devices and network conditions. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is transcoded only for renditions 360p and below; above that, audio is passed through.+  `BASIC`: delivers the original input to viewers. The viewer’s video-quality choice is limited to the original input. Resolution can be up to 480p and bitrate can be up to 1.5 Mbps.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   }
 }

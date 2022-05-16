@@ -1,38 +1,50 @@
 {
   "iotsitewise.portal.Alarms": {
+    "Docs": "Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see [Monitoring with alarms](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html) in the * AWS IoT SiteWise Application Guide*.",
     "Required": "No",
+    "Type": "Json",
     "UpdateRequires": "No interruption"
   },
   "iotsitewise.portal.NotificationSenderEmail": {
+    "Docs": "The email address that sends alarm notifications.  If you use the [AWS IoT Events managed Lambda function](https://docs.aws.amazon.com/iotevents/latest/developerguide/lambda-support.html) to manage your emails, you must [verify the sender email address in Amazon SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html).",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iotsitewise.portal.PortalAuthMode": {
+    "Docs": "The service to use to authenticate users to the portal. Choose from the following options:  +  `SSO` – The portal uses AWS Single Sign-On to authenticate users and manage user permissions. Before you can create a portal that uses AWS SSO, you must enable AWS SSO. For more information, see [Enabling AWS SSO](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide*. This option is only available in AWS Regions other than the China Regions.+  `IAM` – The portal uses AWS Identity and Access Management (IAM) to authenticate users and manage user permissions.You can't change this value after you create a portal.  Default: `SSO`",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "iotsitewise.portal.PortalContactEmail": {
+    "Docs": "The AWS administrator's contact email address.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iotsitewise.portal.PortalDescription": {
+    "Docs": "A description for the portal.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iotsitewise.portal.PortalName": {
+    "Docs": "A friendly name for the portal.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iotsitewise.portal.RoleArn": {
+    "Docs": "The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf. For more information, see [Using service roles for AWS IoT SiteWise Monitor](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html) in the *AWS IoT SiteWise User Guide*.",
     "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "iotsitewise.portal.Tags": {
+    "Docs": "A list of key-value pairs that contain metadata for the portal. For more information, see [Tagging your AWS IoT SiteWise resources](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html) in the *AWS IoT SiteWise User Guide*.",
     "Required": "No",
+    "Type": "List of [Tag",
     "UpdateRequires": "No interruption"
   }
 }

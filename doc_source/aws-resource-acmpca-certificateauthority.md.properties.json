@@ -1,43 +1,51 @@
 {
   "acmpca.certificateauthority.CsrExtensions": {
+    "Docs": "Specifies information to be added to the extension section of the certificate signing request (CSR).",
     "Required": "No",
     "Type": "CsrExtensions",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificateauthority.KeyAlgorithm": {
+    "Docs": "Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate. When you create a subordinate CA, you must use a key algorithm supported by the parent CA.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "EC_prime256v1 | EC_secp384r1 | RSA_2048 | RSA_4096",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificateauthority.KeyStorageSecurityStandard": {
+    "Docs": "Specifies a cryptographic key management compliance standard used for handling CA keys.  Default: FIPS_140_2_LEVEL_3_OR_HIGHER  Note: `FIPS_140_2_LEVEL_3_OR_HIGHER` is not supported in Region ap-northeast-3. When creating a CA in the ap-northeast-3, you must provide `FIPS_140_2_LEVEL_2_OR_HIGHER` as the argument for `KeyStorageSecurityStandard`. Failure to do this results in an `InvalidArgsException` with the message, \"A certificate authority cannot be created in this region with the specified security standard.\"",
     "Required": "No",
     "Type": "String",
     "Allowed values": "FIPS_140_2_LEVEL_2_OR_HIGHER | FIPS_140_2_LEVEL_3_OR_HIGHER",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificateauthority.RevocationConfiguration": {
+    "Docs": "Information about the certificate revocation list (CRL) created and maintained by your private CA. Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions. Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.",
     "Required": "No",
     "Type": "RevocationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "acmpca.certificateauthority.SigningAlgorithm": {
+    "Docs": "Name of the algorithm your private CA uses to sign certificate requests.  This parameter should not be confused with the `SigningAlgorithm` parameter used to sign certificates when they are issued.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "SHA256WITHECDSA | SHA256WITHRSA | SHA384WITHECDSA | SHA384WITHRSA | SHA512WITHECDSA | SHA512WITHRSA",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificateauthority.Subject": {
+    "Docs": "Structure that contains X.500 distinguished name information for your private CA.",
     "Required": "Yes",
     "Type": "Subject",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "acmpca.certificateauthority.Tags": {
+    "Docs": "Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html).",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "acmpca.certificateauthority.Type": {
+    "Docs": "Type of your private CA.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "ROOT | SUBORDINATE",

@@ -1,49 +1,60 @@
 {
   "ecs.taskset.Cluster": {
+    "Docs": "The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecs.taskset.ExternalId": {
+    "Docs": "An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the `ECS_TASK_SET_EXTERNAL_ID` AWS Cloud Map attribute set to the provided value.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecs.taskset.LaunchType": {
+    "Docs": "The launch type that new tasks in the task set uses. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.  If a `launchType` is specified, the `capacityProviderStrategy` parameter must be omitted.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "ecs.taskset.LoadBalancers": {
+    "Docs": "A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.",
     "Required": "No",
     "Type": "List of [LoadBalancer",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecs.taskset.NetworkConfiguration": {
+    "Docs": "The network configuration for the task set.",
     "Required": "No",
     "Type": "NetworkConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecs.taskset.PlatformVersion": {
+    "Docs": "The platform version that the tasks in the task set uses. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the `LATEST` platform version is used.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecs.taskset.Scale": {
+    "Docs": "A floating-point percentage of your desired number of tasks to place and keep running in the task set.",
     "Required": "No",
     "Type": "Scale",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ecs.taskset.Service": {
+    "Docs": "The short name or full Amazon Resource Name (ARN) of the service to create the task set in.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecs.taskset.ServiceRegistries": {
+    "Docs": "The details of the service discovery registries to assign to this task set. For more information, see [Service Discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).",
     "Required": "No",
     "Type": "List of [ServiceRegistry",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ecs.taskset.TaskDefinition": {
+    "Docs": "The task definition for the tasks in the task set to use.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"

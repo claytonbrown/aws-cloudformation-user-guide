@@ -1,11 +1,13 @@
 {
   "emr.studio.AuthMode": {
+    "Docs": "Specifies whether the Studio authenticates users using AWS SSO or IAM.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "IAM | SSO",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.studio.DefaultS3Location": {
+    "Docs": "The Amazon S3 location to back up EMR Studio Workspaces and notebook files.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "0",
@@ -14,6 +16,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "emr.studio.Description": {
+    "Docs": "A detailed description of the Amazon EMR Studio.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -22,6 +25,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "emr.studio.EngineSecurityGroupId": {
+    "Docs": "The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `VpcId`.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "0",
@@ -30,6 +34,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.studio.IdpAuthUrl": {
+    "Docs": "Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -38,6 +43,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "emr.studio.IdpRelayStateParameterName": {
+    "Docs": "The name of your identity provider's `RelayState` parameter.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -46,6 +52,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "emr.studio.Name": {
+    "Docs": "A descriptive name for the Amazon EMR Studio.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "0",
@@ -54,6 +61,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "emr.studio.ServiceRole": {
+    "Docs": "The Amazon Resource Name (ARN) of the IAM role that will be assumed by the Amazon EMR Studio. The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "0",
@@ -62,16 +70,19 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.studio.SubnetIds": {
+    "Docs": "A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `VpcId`. Studio users can create a Workspace in any of the specified subnets.",
     "Required": "Yes",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "emr.studio.Tags": {
+    "Docs": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "emr.studio.UserRole": {
+    "Docs": "The Amazon Resource Name (ARN) of the IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies. You only need to specify `UserRole` when you set `AuthMode` to `SSO`.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -80,6 +91,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.studio.VpcId": {
+    "Docs": "The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "0",
@@ -88,6 +100,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.studio.WorkspaceSecurityGroupId": {
+    "Docs": "The ID of the Workspace security group associated with the Amazon EMR Studio. The Workspace security group allows outbound network traffic to resources in the Engine security group and to the internet.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "0",

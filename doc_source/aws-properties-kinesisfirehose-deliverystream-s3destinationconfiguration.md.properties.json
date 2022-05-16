@@ -1,5 +1,6 @@
 {
   "kinesisfirehose.deliverystream.s3destinationconfiguration.BucketARN": {
+    "Docs": "The Amazon Resource Name (ARN) of the Amazon S3 bucket to send data to.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -8,25 +9,31 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.s3destinationconfiguration.BufferingHints": {
+    "Docs": "Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.",
     "Required": "No",
     "Type": "BufferingHints",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.s3destinationconfiguration.CloudWatchLoggingOptions": {
+    "Docs": "The CloudWatch logging options for your delivery stream.",
     "Required": "No",
     "Type": "CloudWatchLoggingOptions",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.s3destinationconfiguration.CompressionFormat": {
+    "Docs": "The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket. For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference*.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "kinesisfirehose.deliverystream.s3destinationconfiguration.EncryptionConfiguration": {
+    "Docs": "Configures Amazon Simple Storage Service (Amazon S3) server-side encryption. Kinesis Data Firehose uses AWS Key Management Service (AWS KMS) to encrypt the data that it delivers to your Amazon S3 bucket.",
     "Required": "No",
     "Type": "EncryptionConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.s3destinationconfiguration.ErrorOutputPrefix": {
+    "Docs": "A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -35,6 +42,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.s3destinationconfiguration.Prefix": {
+    "Docs": "A prefix that Kinesis Data Firehose adds to the files that it delivers to the Amazon S3 bucket. The prefix helps you identify the files that Kinesis Data Firehose delivered.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -43,7 +51,9 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.s3destinationconfiguration.RoleARN": {
+    "Docs": "The ARN of an AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon S3 Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3) in the *Amazon Kinesis Data Firehose Developer Guide*.",
     "Required": "Yes",
+    "Type": "String",
     "Minimum": "1",
     "Maximum": "512",
     "Pattern": "arn:.*",

@@ -1,10 +1,12 @@
 {
   "wafregional.ratebasedrule.MatchPredicates": {
+    "Docs": "The `Predicates` object contains one `Predicate` element for each `ByteMatchSet`, `IPSet`, or `SqlInjectionMatchSet>` object that you want to include in a `RateBasedRule`.",
     "Required": "No",
     "Type": "List of [Predicate",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafregional.ratebasedrule.MetricName": {
+    "Docs": "A name for the metrics for a `RateBasedRule`. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum length 128 and minimum length one. It can't contain whitespace or metric names reserved for AWS WAF, including \"All\" and \"Default_Action.\" You can't change the name of the metric after you create the `RateBasedRule`.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -13,6 +15,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "wafregional.ratebasedrule.Name": {
+    "Docs": "A friendly name or description for a `RateBasedRule`. You can't change the name of a `RateBasedRule` after you create it.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -21,12 +24,14 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "wafregional.ratebasedrule.RateKey": {
+    "Docs": "The field that AWS WAF uses to determine if requests are likely arriving from single source and thus subject to rate monitoring. The only valid value for `RateKey` is `IP`. `IP` indicates that requests arriving from the same IP address are subject to the `RateLimit` that is specified in the `RateBasedRule`.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "IP",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "wafregional.ratebasedrule.RateLimit": {
+    "Docs": "The maximum number of requests, which have an identical value in the field specified by the `RateKey`, allowed in a five-minute period. If the number of requests exceeds the `RateLimit` and the other predicates specified in the rule are also met, AWS WAF triggers the action that is specified for this rule.",
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

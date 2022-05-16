@@ -1,15 +1,18 @@
 {
   "databrew.job.DatabaseOutputs": {
+    "Docs": "Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.",
     "Required": "No",
     "Type": "List of [DatabaseOutput",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.DataCatalogOutputs": {
+    "Docs": "One or more artifacts that represent the AWS Glue Data Catalog output from running the job.",
     "Required": "No",
     "Type": "List of [DataCatalogOutput",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.DatasetName": {
+    "Docs": "A dataset that the job is to process.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -17,6 +20,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.EncryptionKeyArn": {
+    "Docs": "The Amazon Resource Name (ARN) of an encryption key that is used to protect the job output. For more information, see [Encrypting data written by DataBrew jobs](https://docs.aws.amazon.com/databrew/latest/dg/encryption-security-configuration.html)",
     "Required": "No",
     "Type": "String",
     "Minimum": "20",
@@ -24,34 +28,40 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.EncryptionMode": {
+    "Docs": "The encryption mode for the job, which can be one of the following:  +  `SSE-KMS` - Server-side encryption with keys managed by AWS KMS.+  `SSE-S3` - Server-side encryption with keys managed by Amazon S3.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "SSE-KMS | SSE-S3",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.JobSample": {
+    "Docs": "A sample configuration for profile jobs only, which determines the number of rows on which the profile job is run. If a `JobSample` value isn't provided, the default value is used. The default value is CUSTOM_ROWS for the mode parameter and 20,000 for the size parameter.",
     "Required": "No",
     "Type": "JobSample",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.LogSubscription": {
+    "Docs": "The current status of Amazon CloudWatch logging for the job.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "DISABLE | ENABLE",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.MaxCapacity": {
+    "Docs": "The maximum number of nodes that can be consumed when the job processes data.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.MaxRetries": {
+    "Docs": "The maximum number of times to retry the job after a job run fails.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.Name": {
+    "Docs": "The unique name of the job.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -59,21 +69,25 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "databrew.job.OutputLocation": {
+    "Docs": "Not currently supported by AWS CloudFormation.",
     "Required": "No",
     "Type": "OutputLocation",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.Outputs": {
+    "Docs": "One or more artifacts that represent output from running the job.",
     "Required": "No",
     "Type": "List of [Output",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.ProfileConfiguration": {
+    "Docs": "Configuration for profile jobs. Configuration can be used to select columns, do evaluations, and override default parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all supported columns.",
     "Required": "No",
     "Type": "ProfileConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.ProjectName": {
+    "Docs": "The name of the project that the job is associated with.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -81,11 +95,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.Recipe": {
+    "Docs": "A series of data transformation steps that the job runs.",
     "Required": "No",
     "Type": "Recipe",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.RoleArn": {
+    "Docs": "The Amazon Resource Name (ARN) of the role to be assumed for this job.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "20",
@@ -93,23 +109,27 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.Tags": {
+    "Docs": "Metadata tags that have been applied to the job.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "databrew.job.Timeout": {
+    "Docs": "The job's timeout in minutes. A job that attempts to run longer than this timeout period ends with a status of `TIMEOUT`.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "databrew.job.Type": {
+    "Docs": "The job type of the job, which must be one of the following:  +  `PROFILE` - A job to analyze a dataset, to determine its size, data types, data distribution, and more.+  `RECIPE` - A job to apply one or more transformations to a dataset.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "PROFILE | RECIPE",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "databrew.job.ValidationConfigurations": {
+    "Docs": "List of validation configurations that are applied to the profile job.",
     "Required": "No",
     "Type": "List of [ValidationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

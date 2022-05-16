@@ -1,0 +1,252 @@
+# #AWS::DMS::Endpoint EndpointType  == source |OR| AWS::DMS::Endpoint EndpointType  == target << Enforce allowed values [source | target]
+# #AWS::DMS::Endpoint SslMode  == none |OR| AWS::DMS::Endpoint SslMode  == require |OR| AWS::DMS::Endpoint SslMode  == verify-ca |OR| AWS::DMS::Endpoint SslMode  == verify-full << Enforce allowed values [none | require | verify-ca | verify-full]
+# AWS::DMS::Endpoint DocDbSettings.NestingLevel  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for DocDbSettings
+# AWS::DMS::Endpoint DocDbSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for DocDbSettings
+# AWS::DMS::Endpoint DocDbSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for DocDbSettings
+# AWS::DMS::Endpoint DynamoDbSettings.ServiceAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for DynamoDbSettings
+# AWS::DMS::Endpoint ElasticsearchSettings.EndpointUri  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for ElasticsearchSettings
+# AWS::DMS::Endpoint ElasticsearchSettings.ServiceAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for ElasticsearchSettings
+# AWS::DMS::Endpoint EndpointType  == /.*/ <<  EndpointType is a required property for AWS::DMS::Endpoint
+# AWS::DMS::Endpoint EndpointType  == /source/ <<  source is an expected value for AWS::DMS::Endpoint EndpointType
+# AWS::DMS::Endpoint EndpointType  == /target/ <<  target is an expected value for AWS::DMS::Endpoint EndpointType
+# AWS::DMS::Endpoint EndpointType IN [source,target] << Enforcing Allowed Values only
+# AWS::DMS::Endpoint EngineName  == /.*/ <<  EngineName is a required property for AWS::DMS::Endpoint
+# AWS::DMS::Endpoint GcpMySQLSettings.AfterConnectScript  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for GcpMySQLSettings
+# AWS::DMS::Endpoint GcpMySQLSettings.DatabaseName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for GcpMySQLSettings
+# AWS::DMS::Endpoint GcpMySQLSettings.Password  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for GcpMySQLSettings
+# AWS::DMS::Endpoint GcpMySQLSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for GcpMySQLSettings
+# AWS::DMS::Endpoint GcpMySQLSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for GcpMySQLSettings
+# AWS::DMS::Endpoint GcpMySQLSettings.ServerName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for GcpMySQLSettings
+# AWS::DMS::Endpoint GcpMySQLSettings.ServerTimezone  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for GcpMySQLSettings
+# AWS::DMS::Endpoint GcpMySQLSettings.Username  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for GcpMySQLSettings
+# AWS::DMS::Endpoint IbmDb2Settings.CurrentLsn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for IbmDb2Settings
+# AWS::DMS::Endpoint IbmDb2Settings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for IbmDb2Settings
+# AWS::DMS::Endpoint IbmDb2Settings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for IbmDb2Settings
+# AWS::DMS::Endpoint KafkaSettings.Broker  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KafkaSettings
+# AWS::DMS::Endpoint KafkaSettings.MessageFormat  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KafkaSettings
+# AWS::DMS::Endpoint KafkaSettings.SaslPassword  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KafkaSettings
+# AWS::DMS::Endpoint KafkaSettings.SaslUserName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KafkaSettings
+# AWS::DMS::Endpoint KafkaSettings.SecurityProtocol  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KafkaSettings
+# AWS::DMS::Endpoint KafkaSettings.SslCaCertificateArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KafkaSettings
+# AWS::DMS::Endpoint KafkaSettings.SslClientCertificateArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KafkaSettings
+# AWS::DMS::Endpoint KafkaSettings.SslClientKeyArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KafkaSettings
+# AWS::DMS::Endpoint KafkaSettings.SslClientKeyPassword  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KafkaSettings
+# AWS::DMS::Endpoint KafkaSettings.Topic  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KafkaSettings
+# AWS::DMS::Endpoint KinesisSettings.MessageFormat  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KinesisSettings
+# AWS::DMS::Endpoint KinesisSettings.ServiceAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KinesisSettings
+# AWS::DMS::Endpoint KinesisSettings.StreamArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for KinesisSettings
+# AWS::DMS::Endpoint MicrosoftSqlServerSettings.ControlTablesFileGroup  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MicrosoftSqlServerSettings
+# AWS::DMS::Endpoint MicrosoftSqlServerSettings.SafeguardPolicy  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MicrosoftSqlServerSettings
+# AWS::DMS::Endpoint MicrosoftSqlServerSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MicrosoftSqlServerSettings
+# AWS::DMS::Endpoint MicrosoftSqlServerSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MicrosoftSqlServerSettings
+# AWS::DMS::Endpoint MongoDbSettings.AuthMechanism  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MongoDbSettings
+# AWS::DMS::Endpoint MongoDbSettings.AuthSource  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MongoDbSettings
+# AWS::DMS::Endpoint MongoDbSettings.AuthType  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MongoDbSettings
+# AWS::DMS::Endpoint MongoDbSettings.DatabaseName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MongoDbSettings
+# AWS::DMS::Endpoint MongoDbSettings.DocsToInvestigate  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MongoDbSettings
+# AWS::DMS::Endpoint MongoDbSettings.ExtractDocId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MongoDbSettings
+# AWS::DMS::Endpoint MongoDbSettings.NestingLevel  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MongoDbSettings
+# AWS::DMS::Endpoint MongoDbSettings.Password  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MongoDbSettings
+# AWS::DMS::Endpoint MongoDbSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MongoDbSettings
+# AWS::DMS::Endpoint MongoDbSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MongoDbSettings
+# AWS::DMS::Endpoint MongoDbSettings.ServerName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MongoDbSettings
+# AWS::DMS::Endpoint MongoDbSettings.Username  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MongoDbSettings
+# AWS::DMS::Endpoint MySqlSettings.AfterConnectScript  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MySqlSettings
+# AWS::DMS::Endpoint MySqlSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MySqlSettings
+# AWS::DMS::Endpoint MySqlSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MySqlSettings
+# AWS::DMS::Endpoint MySqlSettings.ServerTimezone  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MySqlSettings
+# AWS::DMS::Endpoint MySqlSettings.TargetDbType  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for MySqlSettings
+# AWS::DMS::Endpoint NeptuneSettings.S3BucketFolder  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for NeptuneSettings
+# AWS::DMS::Endpoint NeptuneSettings.S3BucketName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for NeptuneSettings
+# AWS::DMS::Endpoint NeptuneSettings.ServiceAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for NeptuneSettings
+# AWS::DMS::Endpoint OracleSettings.AsmPassword  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint OracleSettings.AsmServer  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint OracleSettings.AsmUser  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint OracleSettings.CharLengthSemantics  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint OracleSettings.OraclePathPrefix  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint OracleSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint OracleSettings.SecretsManagerOracleAsmAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint OracleSettings.SecretsManagerOracleAsmSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint OracleSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint OracleSettings.SecurityDbEncryption  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint OracleSettings.SecurityDbEncryptionName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint OracleSettings.SpatialDataOptionToGeoJsonFunctionName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint OracleSettings.UsePathPrefix  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for OracleSettings
+# AWS::DMS::Endpoint Port  == /[0-9].+/ <<  Integer is expected for AWS::DMS::Endpoint of Port 
+# AWS::DMS::Endpoint PostgreSqlSettings.AfterConnectScript  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for PostgreSqlSettings
+# AWS::DMS::Endpoint PostgreSqlSettings.DdlArtifactsSchema  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for PostgreSqlSettings
+# AWS::DMS::Endpoint PostgreSqlSettings.HeartbeatSchema  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for PostgreSqlSettings
+# AWS::DMS::Endpoint PostgreSqlSettings.PluginName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for PostgreSqlSettings
+# AWS::DMS::Endpoint PostgreSqlSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for PostgreSqlSettings
+# AWS::DMS::Endpoint PostgreSqlSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for PostgreSqlSettings
+# AWS::DMS::Endpoint PostgreSqlSettings.SlotName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for PostgreSqlSettings
+# AWS::DMS::Endpoint RedisSettings.AuthPassword  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedisSettings
+# AWS::DMS::Endpoint RedisSettings.AuthType  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedisSettings
+# AWS::DMS::Endpoint RedisSettings.AuthUserName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedisSettings
+# AWS::DMS::Endpoint RedisSettings.ServerName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedisSettings
+# AWS::DMS::Endpoint RedisSettings.SslCaCertificateArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedisSettings
+# AWS::DMS::Endpoint RedisSettings.SslSecurityProtocol  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedisSettings
+# AWS::DMS::Endpoint RedshiftSettings.AfterConnectScript  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+# AWS::DMS::Endpoint RedshiftSettings.BucketFolder  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+# AWS::DMS::Endpoint RedshiftSettings.BucketName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+# AWS::DMS::Endpoint RedshiftSettings.DateFormat  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+# AWS::DMS::Endpoint RedshiftSettings.EncryptionMode  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+# AWS::DMS::Endpoint RedshiftSettings.ReplaceChars  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+# AWS::DMS::Endpoint RedshiftSettings.ReplaceInvalidChars  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+# AWS::DMS::Endpoint RedshiftSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+# AWS::DMS::Endpoint RedshiftSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+# AWS::DMS::Endpoint RedshiftSettings.ServerSideEncryptionKmsKeyId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+# AWS::DMS::Endpoint RedshiftSettings.ServiceAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+# AWS::DMS::Endpoint RedshiftSettings.TimeFormat  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for RedshiftSettings
+# AWS::DMS::Endpoint S3Settings.BucketFolder  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.BucketName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.CannedAclForObjects  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.CdcPath  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.CompressionType  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.CsvDelimiter  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.CsvNoSupValue  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.CsvNullValue  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.CsvRowDelimiter  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.DataFormat  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.DatePartitionDelimiter  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.DatePartitionSequence  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.DatePartitionTimezone  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.EncodingType  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.EncryptionMode  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.ExternalTableDefinition  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.ParquetVersion  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.ServerSideEncryptionKmsKeyId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.ServiceAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.TimestampColumnName  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for S3Settings
+# AWS::DMS::Endpoint S3Settings.dms.endpoint.s3settings.ExternalTableDefinition  == /.*/ <<  dms.endpoint.s3settings.ExternalTableDefinition is a Conditional property for AWS::DMS::Endpoint S3Settings
+# AWS::DMS::Endpoint SslMode  == /none/ <<  none is an expected value for AWS::DMS::Endpoint SslMode
+# AWS::DMS::Endpoint SslMode  == /require/ <<  require is an expected value for AWS::DMS::Endpoint SslMode
+# AWS::DMS::Endpoint SslMode  == /verify-ca/ <<  verify-ca is an expected value for AWS::DMS::Endpoint SslMode
+# AWS::DMS::Endpoint SslMode  == /verify-full/ <<  verify-full is an expected value for AWS::DMS::Endpoint SslMode
+# AWS::DMS::Endpoint SslMode IN [none,require,verify-ca,verify-full] << Enforcing Allowed Values only
+# AWS::DMS::Endpoint SybaseSettings.SecretsManagerAccessRoleArn  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for SybaseSettings
+# AWS::DMS::Endpoint SybaseSettings.SecretsManagerSecretId  == /\S/ <<  AWS::DMS::Endpoint is an expected but optional String property for SybaseSettings
+# GcpMySQLSettings.CleanSourceMetadataOnMismatch == False << Enforce Expected Value for dms.endpoint.gcpmysqlsettings.CleanSourceMetadataOnMismatch
+# GcpMySQLSettings.CleanSourceMetadataOnMismatch == True << Enforce Expected Value for dms.endpoint.gcpmysqlsettings.CleanSourceMetadataOnMismatch
+# GcpMySQLSettings.CleanSourceMetadataOnMismatch IN [True,False] << Enforce Allowed Values
+# KafkaSettings.IncludeControlDetails == False << Enforce Expected Value for dms.endpoint.kafkasettings.IncludeControlDetails
+# KafkaSettings.IncludeControlDetails == True << Enforce Expected Value for dms.endpoint.kafkasettings.IncludeControlDetails
+# KafkaSettings.IncludeControlDetails IN [True,False] << Enforce Allowed Values
+# KafkaSettings.IncludeNullAndEmpty == False << Enforce Expected Value for dms.endpoint.kafkasettings.IncludeNullAndEmpty
+# KafkaSettings.IncludeNullAndEmpty == True << Enforce Expected Value for dms.endpoint.kafkasettings.IncludeNullAndEmpty
+# KafkaSettings.IncludeNullAndEmpty IN [True,False] << Enforce Allowed Values
+# KafkaSettings.IncludeTableAlterOperations == False << Enforce Expected Value for dms.endpoint.kafkasettings.IncludeTableAlterOperations
+# KafkaSettings.IncludeTableAlterOperations == True << Enforce Expected Value for dms.endpoint.kafkasettings.IncludeTableAlterOperations
+# KafkaSettings.IncludeTableAlterOperations IN [True,False] << Enforce Allowed Values
+# KafkaSettings.IncludeTransactionDetails == False << Enforce Expected Value for dms.endpoint.kafkasettings.IncludeTransactionDetails
+# KafkaSettings.IncludeTransactionDetails == True << Enforce Expected Value for dms.endpoint.kafkasettings.IncludeTransactionDetails
+# KafkaSettings.IncludeTransactionDetails IN [True,False] << Enforce Allowed Values
+# KafkaSettings.NoHexPrefix == False << Enforce Expected Value for dms.endpoint.kafkasettings.NoHexPrefix
+# KafkaSettings.NoHexPrefix == True << Enforce Expected Value for dms.endpoint.kafkasettings.NoHexPrefix
+# KafkaSettings.NoHexPrefix IN [True,False] << Enforce Allowed Values
+# KafkaSettings.PartitionIncludeSchemaTable == False << Enforce Expected Value for dms.endpoint.kafkasettings.PartitionIncludeSchemaTable
+# KafkaSettings.PartitionIncludeSchemaTable == True << Enforce Expected Value for dms.endpoint.kafkasettings.PartitionIncludeSchemaTable
+# KafkaSettings.PartitionIncludeSchemaTable IN [True,False] << Enforce Allowed Values
+# KafkaSettings.SecurityProtocol == plaintext << Enforce Expected Value for dms.endpoint.kafkasettings.SecurityProtocol
+# KafkaSettings.SecurityProtocol == sasl-ssl << Enforce Expected Value for dms.endpoint.kafkasettings.SecurityProtocol
+# KafkaSettings.SecurityProtocol == ssl-authentication << Enforce Expected Value for dms.endpoint.kafkasettings.SecurityProtocol
+# KafkaSettings.SecurityProtocol == ssl-encryption << Enforce Expected Value for dms.endpoint.kafkasettings.SecurityProtocol
+# KafkaSettings.SecurityProtocol IN [plaintext,sasl-ssl,ssl-authentication,ssl-encryption] << Enforce Allowed Values
+# KinesisSettings.IncludeControlDetails == False << Enforce Expected Value for dms.endpoint.kinesissettings.IncludeControlDetails
+# KinesisSettings.IncludeControlDetails == True << Enforce Expected Value for dms.endpoint.kinesissettings.IncludeControlDetails
+# KinesisSettings.IncludeControlDetails IN [True,False] << Enforce Allowed Values
+# KinesisSettings.IncludeNullAndEmpty == False << Enforce Expected Value for dms.endpoint.kinesissettings.IncludeNullAndEmpty
+# KinesisSettings.IncludeNullAndEmpty == True << Enforce Expected Value for dms.endpoint.kinesissettings.IncludeNullAndEmpty
+# KinesisSettings.IncludeNullAndEmpty IN [True,False] << Enforce Allowed Values
+# KinesisSettings.IncludeTableAlterOperations == False << Enforce Expected Value for dms.endpoint.kinesissettings.IncludeTableAlterOperations
+# KinesisSettings.IncludeTableAlterOperations == True << Enforce Expected Value for dms.endpoint.kinesissettings.IncludeTableAlterOperations
+# KinesisSettings.IncludeTableAlterOperations IN [True,False] << Enforce Allowed Values
+# KinesisSettings.IncludeTransactionDetails == False << Enforce Expected Value for dms.endpoint.kinesissettings.IncludeTransactionDetails
+# KinesisSettings.IncludeTransactionDetails == True << Enforce Expected Value for dms.endpoint.kinesissettings.IncludeTransactionDetails
+# KinesisSettings.IncludeTransactionDetails IN [True,False] << Enforce Allowed Values
+# KinesisSettings.MessageFormat == json << Enforce Expected Value for dms.endpoint.kinesissettings.MessageFormat
+# KinesisSettings.MessageFormat == json-unformatted << Enforce Expected Value for dms.endpoint.kinesissettings.MessageFormat
+# KinesisSettings.MessageFormat IN [json,json-unformatted] << Enforce Allowed Values
+# KinesisSettings.NoHexPrefix == False << Enforce Expected Value for dms.endpoint.kinesissettings.NoHexPrefix
+# KinesisSettings.NoHexPrefix == True << Enforce Expected Value for dms.endpoint.kinesissettings.NoHexPrefix
+# KinesisSettings.NoHexPrefix IN [True,False] << Enforce Allowed Values
+# KinesisSettings.PartitionIncludeSchemaTable == False << Enforce Expected Value for dms.endpoint.kinesissettings.PartitionIncludeSchemaTable
+# KinesisSettings.PartitionIncludeSchemaTable == True << Enforce Expected Value for dms.endpoint.kinesissettings.PartitionIncludeSchemaTable
+# KinesisSettings.PartitionIncludeSchemaTable IN [True,False] << Enforce Allowed Values
+# MongoDbSettings.AuthMechanism == default << Enforce Expected Value for dms.endpoint.mongodbsettings.AuthMechanism
+# MongoDbSettings.AuthMechanism == mongodb_cr << Enforce Expected Value for dms.endpoint.mongodbsettings.AuthMechanism
+# MongoDbSettings.AuthMechanism == scram_sha_1 << Enforce Expected Value for dms.endpoint.mongodbsettings.AuthMechanism
+# MongoDbSettings.AuthMechanism IN [default,mongodb_cr,scram_sha_1] << Enforce Allowed Values
+# MongoDbSettings.AuthType == no << Enforce Expected Value for dms.endpoint.mongodbsettings.AuthType
+# MongoDbSettings.AuthType == password << Enforce Expected Value for dms.endpoint.mongodbsettings.AuthType
+# MongoDbSettings.AuthType IN [no,password] << Enforce Allowed Values
+# MongoDbSettings.NestingLevel == none << Enforce Expected Value for dms.endpoint.mongodbsettings.NestingLevel
+# MongoDbSettings.NestingLevel == one << Enforce Expected Value for dms.endpoint.mongodbsettings.NestingLevel
+# MongoDbSettings.NestingLevel IN [none,one] << Enforce Allowed Values
+# NeptuneSettings.IamAuthEnabled == False << Enforce Expected Value for dms.endpoint.neptunesettings.IamAuthEnabled
+# NeptuneSettings.IamAuthEnabled == True << Enforce Expected Value for dms.endpoint.neptunesettings.IamAuthEnabled
+# NeptuneSettings.IamAuthEnabled IN [True,False] << Enforce Allowed Values
+# RedisSettings.AuthType == auth-role << Enforce Expected Value for dms.endpoint.redissettings.AuthType
+# RedisSettings.AuthType == auth-token << Enforce Expected Value for dms.endpoint.redissettings.AuthType
+# RedisSettings.AuthType == none << Enforce Expected Value for dms.endpoint.redissettings.AuthType
+# RedisSettings.AuthType IN [auth-role,auth-token,none] << Enforce Allowed Values
+# RedisSettings.SslSecurityProtocol == plaintext << Enforce Expected Value for dms.endpoint.redissettings.SslSecurityProtocol
+# RedisSettings.SslSecurityProtocol == ssl-encryption << Enforce Expected Value for dms.endpoint.redissettings.SslSecurityProtocol
+# RedisSettings.SslSecurityProtocol IN [plaintext,ssl-encryption] << Enforce Allowed Values
+# S3Settings.AddColumnName == False << Enforce Expected Value for dms.endpoint.s3settings.AddColumnName
+# S3Settings.AddColumnName == True << Enforce Expected Value for dms.endpoint.s3settings.AddColumnName
+# S3Settings.AddColumnName IN [True,False] << Enforce Allowed Values
+# S3Settings.CdcInsertsAndUpdates == False << Enforce Expected Value for dms.endpoint.s3settings.CdcInsertsAndUpdates
+# S3Settings.CdcInsertsAndUpdates == True << Enforce Expected Value for dms.endpoint.s3settings.CdcInsertsAndUpdates
+# S3Settings.CdcInsertsAndUpdates IN [True,False] << Enforce Allowed Values
+# S3Settings.CdcInsertsOnly == False << Enforce Expected Value for dms.endpoint.s3settings.CdcInsertsOnly
+# S3Settings.CdcInsertsOnly == True << Enforce Expected Value for dms.endpoint.s3settings.CdcInsertsOnly
+# S3Settings.CdcInsertsOnly IN [True,False] << Enforce Allowed Values
+# S3Settings.CompressionType == gzip << Enforce Expected Value for dms.endpoint.s3settings.CompressionType
+# S3Settings.CompressionType == none << Enforce Expected Value for dms.endpoint.s3settings.CompressionType
+# S3Settings.CompressionType IN [gzip,none] << Enforce Allowed Values
+# S3Settings.DataFormat == csv << Enforce Expected Value for dms.endpoint.s3settings.DataFormat
+# S3Settings.DataFormat == parquet << Enforce Expected Value for dms.endpoint.s3settings.DataFormat
+# S3Settings.DataFormat IN [csv,parquet] << Enforce Allowed Values
+# S3Settings.DatePartitionDelimiter == DASH << Enforce Expected Value for dms.endpoint.s3settings.DatePartitionDelimiter
+# S3Settings.DatePartitionDelimiter == NONE << Enforce Expected Value for dms.endpoint.s3settings.DatePartitionDelimiter
+# S3Settings.DatePartitionDelimiter == SLASH << Enforce Expected Value for dms.endpoint.s3settings.DatePartitionDelimiter
+# S3Settings.DatePartitionDelimiter == UNDERSCORE << Enforce Expected Value for dms.endpoint.s3settings.DatePartitionDelimiter
+# S3Settings.DatePartitionDelimiter IN [DASH,NONE,SLASH,UNDERSCORE] << Enforce Allowed Values
+# S3Settings.DatePartitionEnabled == False << Enforce Expected Value for dms.endpoint.s3settings.DatePartitionEnabled
+# S3Settings.DatePartitionEnabled == True << Enforce Expected Value for dms.endpoint.s3settings.DatePartitionEnabled
+# S3Settings.DatePartitionEnabled IN [True,False] << Enforce Allowed Values
+# S3Settings.DatePartitionSequence == DDMMYYYY << Enforce Expected Value for dms.endpoint.s3settings.DatePartitionSequence
+# S3Settings.DatePartitionSequence == MMYYYYDD << Enforce Expected Value for dms.endpoint.s3settings.DatePartitionSequence
+# S3Settings.DatePartitionSequence == YYYYMM << Enforce Expected Value for dms.endpoint.s3settings.DatePartitionSequence
+# S3Settings.DatePartitionSequence == YYYYMMDD << Enforce Expected Value for dms.endpoint.s3settings.DatePartitionSequence
+# S3Settings.DatePartitionSequence == YYYYMMDDHH << Enforce Expected Value for dms.endpoint.s3settings.DatePartitionSequence
+# S3Settings.DatePartitionSequence IN [DDMMYYYY,MMYYYYDD,YYYYMM,YYYYMMDD,YYYYMMDDHH] << Enforce Allowed Values
+# S3Settings.EnableStatistics == False << Enforce Expected Value for dms.endpoint.s3settings.EnableStatistics
+# S3Settings.EnableStatistics == True << Enforce Expected Value for dms.endpoint.s3settings.EnableStatistics
+# S3Settings.EnableStatistics IN [True,False] << Enforce Allowed Values
+# S3Settings.EncodingType == plain << Enforce Expected Value for dms.endpoint.s3settings.EncodingType
+# S3Settings.EncodingType == plain-dictionary << Enforce Expected Value for dms.endpoint.s3settings.EncodingType
+# S3Settings.EncodingType == rle-dictionary << Enforce Expected Value for dms.endpoint.s3settings.EncodingType
+# S3Settings.EncodingType IN [plain,plain-dictionary,rle-dictionary] << Enforce Allowed Values
+# S3Settings.IncludeOpForFullLoad == False << Enforce Expected Value for dms.endpoint.s3settings.IncludeOpForFullLoad
+# S3Settings.IncludeOpForFullLoad == True << Enforce Expected Value for dms.endpoint.s3settings.IncludeOpForFullLoad
+# S3Settings.IncludeOpForFullLoad IN [True,False] << Enforce Allowed Values
+# S3Settings.ParquetTimestampInMillisecond == False << Enforce Expected Value for dms.endpoint.s3settings.ParquetTimestampInMillisecond
+# S3Settings.ParquetTimestampInMillisecond == True << Enforce Expected Value for dms.endpoint.s3settings.ParquetTimestampInMillisecond
+# S3Settings.ParquetTimestampInMillisecond IN [True,False] << Enforce Allowed Values
+# S3Settings.ParquetVersion == parquet-1-0 << Enforce Expected Value for dms.endpoint.s3settings.ParquetVersion
+# S3Settings.ParquetVersion == parquet-2-0 << Enforce Expected Value for dms.endpoint.s3settings.ParquetVersion
+# S3Settings.ParquetVersion IN [parquet-1-0,parquet-2-0] << Enforce Allowed Values
+# S3Settings.PreserveTransactions == False << Enforce Expected Value for dms.endpoint.s3settings.PreserveTransactions
+# S3Settings.PreserveTransactions == True << Enforce Expected Value for dms.endpoint.s3settings.PreserveTransactions
+# S3Settings.PreserveTransactions IN [True,False] << Enforce Allowed Values
+# S3Settings.Rfc4180 == False << Enforce Expected Value for dms.endpoint.s3settings.Rfc4180
+# S3Settings.Rfc4180 == True << Enforce Expected Value for dms.endpoint.s3settings.Rfc4180
+# S3Settings.Rfc4180 IN [True,False] << Enforce Allowed Values
+# S3Settings.UseCsvNoSupValue == False << Enforce Expected Value for dms.endpoint.s3settings.UseCsvNoSupValue
+# S3Settings.UseCsvNoSupValue == True << Enforce Expected Value for dms.endpoint.s3settings.UseCsvNoSupValue
+# S3Settings.UseCsvNoSupValue IN [True,False] << Enforce Allowed Values
+# S3Settings.UseTaskStartTimeForFullLoadTimestamp == False << Enforce Expected Value for dms.endpoint.s3settings.UseTaskStartTimeForFullLoadTimestamp
+# S3Settings.UseTaskStartTimeForFullLoadTimestamp == True << Enforce Expected Value for dms.endpoint.s3settings.UseTaskStartTimeForFullLoadTimestamp
+# S3Settings.UseTaskStartTimeForFullLoadTimestamp IN [True,False] << Enforce Allowed Values

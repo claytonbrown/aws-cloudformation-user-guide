@@ -1,20 +1,24 @@
 {
   "imagebuilder.imagerecipe.AdditionalInstanceConfiguration": {
+    "Docs": "Before you create a new AMI, Image Builder launches temporary Amazon EC2 instances to build and test your image configuration. Instance configuration adds a layer of control over those instances. You can define settings and add scripts to run when an instance is launched from your AMI.",
     "Required": "No",
     "Type": "AdditionalInstanceConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "imagebuilder.imagerecipe.BlockDeviceMappings": {
+    "Docs": "The block device mappings to apply when creating images from this recipe.",
     "Required": "No",
     "Type": "List of [InstanceBlockDeviceMapping",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.imagerecipe.Components": {
+    "Docs": "The components of the image recipe. Components are orchestration documents that define a sequence of steps for downloading, installing, configuring, and testing software packages. They also define validation and security hardening steps. A component is defined using a YAML document format.",
     "Required": "Yes",
     "Type": "List of [ComponentConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.imagerecipe.Description": {
+    "Docs": "The description of the image recipe.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -22,12 +26,14 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.imagerecipe.Name": {
+    "Docs": "The name of the image recipe.",
     "Required": "Yes",
     "Type": "String",
     "Pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.imagerecipe.ParentImage": {
+    "Docs": "The parent image of the image recipe. The string must be either an Image ARN (SemVers is ok) or an AMI ID.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -35,17 +41,20 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.imagerecipe.Tags": {
+    "Docs": "The tags of the image recipe.",
     "Required": "No",
     "Type": "Map of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.imagerecipe.Version": {
+    "Docs": "The semantic version of the image recipe.",
     "Required": "Yes",
     "Type": "String",
     "Pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.imagerecipe.WorkingDirectory": {
+    "Docs": "The working directory to be used during build and test workflows.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",

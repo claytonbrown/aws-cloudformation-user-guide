@@ -6,65 +6,33 @@ import logging
 import sys
 import inflection
 from botocore.session import get_session
+from colorlog import ColoredFormatter
 
-
-def setup_logging(logger, verbosity=None):
-    """Summary.
-
-    Args:
-        logger (TYPE): Description
-        verbosity (None, optional): Description
-    """
-    import sys
-    from colorlog import ColoredFormatter
-    # from pythonjsonlogger import jsonlogger
-
-    global log
-    log = logger
-
-    if verbosity is None:
-        verbosity = logging.INFO
-
-    if len(log.handlers) == 0:
-        logging.basicConfig(filename='debug.log', level=verbosity)
-        # formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        formatter_console_colour = "%(log_color)s%(levelname)-8s %(module)s:%(lineno)d- %(name)s%(reset)s %(blue)s%(message)s"
-
-        """
-        # create kinesis handler
-        # formatter_json = jsonlogger.JsonFormatter()
-        q = queue.Queue()
-        kinesis_handler = kinesishandler.KinesisHandler(10, q)
-        kinesis_handler.setFormatter(formatter_json)
-        kinesis_handler.setLevel(logging.INFO)
-        worker = kinesishandler.Worker(
-            q, "aws-account-base-stream", region="us-east-1")
-        worker.start()
-        log.addHandler(kinesis_handler)
-        """
-
-        # add std out handler
-        console_handler = logging.StreamHandler(sys.stdout)
-        console_handler.setLevel(verbosity)
-        colored_formatter = ColoredFormatter(
-            formatter_console_colour,
-            datefmt='%H:%M:%S ',
-            reset=True,
-            log_colors={
-                'DEBUG': 'white',
-                'INFO': 'green',
-                'WARNING': 'yellow',
-                'ERROR': 'orange',
-                'CRITICAL': 'red',
-            }
-        )
-        console_handler.setFormatter(colored_formatter)
-        log.addHandler(console_handler)
-        log.debug("logging initialized")
 
 
 log = logging.getLogger()
-setup_logging(log, verbosity=logging.INFO)
+verbosity = logging.INFO
+logging.basicConfig(filename='debug.log', level=verbosity)
+formatter_console_colour = "%(log_color)s%(levelname)-8s %(module)s:%(lineno)d- %(name)s%(reset)s %(blue)s%(message)s"
+console_handler = logging.StreamHandler(sys.stdout)
+console_handler.setLevel(verbosity)
+console_handler.setFormatter(ColoredFormatter(
+    formatter_console_colour,
+    datefmt='%H:%M:%S ',
+    reset=True,
+    log_colors={
+        'DEBUG': 'white',
+        'INFO': 'green',
+        'WARNING': 'yellow',
+        'ERROR': 'orange',
+        'CRITICAL': 'red',
+    }
+))
+log.addHandler(console_handler)
+log.info("logging initialized")
+
+
+log = logging.getLogger()
 
 
 f = csv.writer(open("test.csv", "w", newline=''))
@@ -99,10 +67,9 @@ processed_selectors = {}
 
 # MERGE ALL REGIONAL CFN SCHEMAS INTO SUPERSCHEMA WITH ENRICHMENT
 
-for file in glob.glob("../../data/cfn_resource_specs/CloudFormationResourceSpecification-*.json"):
-    log.debug(file)
-    region = file.rstrip('.json').split(
-        'CloudFormationResourceSpecification-')[1].lower().strip()
+for file in glob.glob("aws-cfn-resource-specs/specs/*/CloudFormationResourceSpecification.json"):
+    log.debug("Processing CFN Spec: %s" %(file))
+    region = file.rstrip('.json').split('aws-cfn-resource-specs/specs/')[1].split('/')[0].lower().strip()
     log.debug(region)
     with open(file, 'r') as schema:
         cfn[region] = json.load(schema)
@@ -120,6 +87,27 @@ for resource in spec["cfn"]["PropertyTypes"].keys():
             spec["cfn"]["PropertyTypes"][resource]["RegionSupport"].append(
                 region)
             log.debug("\tAdding region: %s" % (region))
+
+# collate doc_source property information from aws_cloudformation_docs which includes allowed values, min/max, property descriptions etc
+for file in glob.glob('doc_source/*.json'):
+    log.debug("Ingesting documentation: %s" % (file))
+    with open(file, 'r') as doc_source:
+        try:
+            doc_data = json.loads(doc_source.read())
+            # log.debug(json.dumps(doc_data, indent=4))
+            for k, v in doc_data.items():
+                if k in spec["cfn"]["PropertyTypes"]:
+                    # merge dicts
+                    spec["cfn"]["PropertyTypes"][k].update(v)
+                    log.info("Merged: %s" % (k))
+                else:
+                    # create new key value
+                    spec["cfn"]["PropertyTypes"][k] = v
+                    log.debug("Added Doc Source: %s" % (k))
+                    log.debug(json.dumps(v,indent=4))
+
+        except Exception as e:
+            log.warning(e)
 
 
 def massage_schema(schema):
@@ -186,7 +174,8 @@ for file in glob.glob("doc_source/AWS_*"):
                 resource = line.split("]")[0].split('[')[1]
                 key = resource.lower().replace('::', '-')
                 # log.debug((resource, key))
-                spec["Docs2Resource"][key] = resource
+                spec["Docs2Resource"][key.replace('-','.')] = resource
+                spec["Docs2Resource"][key.replace('-','.').replace('aws.','')] = resource
 
 
 # Enumerate all resource Properties DOCs
@@ -313,7 +302,12 @@ log.debug(json.dumps(sorted(list(all_keys)), indent=4))
 
 # process documentation nodes
 rules = {
-    "all": []
+    "v1":{
+        "all": []
+    },
+    "v2":{
+        "all": []
+    }
 }
 count_matched = 0
 
@@ -336,15 +330,19 @@ cfn_sample = {
 }
 
 
-def add_rule(resource, rule):
+def add_rule(resource, rule, v2rule=None):
     comment = "# "
     resource_type = inflection.parameterize(resource)
-    if resource_type not in rules.keys():
-        log.info("Adding rules file for: %s - %s " % (resource_type, resource))
-        rules[resource_type] = []
+    if resource_type not in rules['v1'].keys():
+        log.debug("Adding v1 rules file for: %s - %s " % (resource_type, resource))
+        rules['v1'][resource_type] = []
 
-    rules['all'].append(comment + rule)
-    rules[resource_type].append(comment + rule)
+    if resource_type not in rules['v2'].keys():
+        log.debug("Adding v2 rules file for: %s - %s " % (resource_type, resource))
+        rules['v2'][resource_type] = []
+
+    rules['v1']['all'].append(comment + rule)
+    rules['v1'][resource_type].append(comment + rule)
 
     # maintain vertices for each rule
     # ~id,~label,Documentation,hierarchy
@@ -397,6 +395,16 @@ for resource in spec["cfn"]["ResourceTypes"]:
             data = json.load(resource_json)
             log.debug(json.dumps(data))
             for property in spec["cfn"]["ResourceTypes"][resource]["Properties"]:
+
+                #property_key = resource.lower().replace("::",'-')
+                #doc_source_resource_filename = ("doc_source/aws-resource-%s.md.properties.json" % (property_key)).replace('-resource-aws-','-resource-')
+                #if os.path.isfile(doc_source_resource_filename):
+                #    try:
+                #        with open(doc_source_resource_filename) as doc_file:
+                #            doc_data = json.loads(doc_file.read())
+                #            for key, value in doc_data.items()
+
+
 
                 cfn_sample["Resources"][resource_id]["Properties"][property] = ""
 
@@ -655,15 +663,26 @@ for resource in spec["cfn"]["ResourceTypes"]:
 
                         if "Type" in data[key] and property != "Tags":
                             if data[key]["Type"] == "List of String":
-                                log.info(
-                                    "Not implemented - data[key][\"Type\"] == \"List of String\" ")
+                                #property_key = resource.lower().replace("::",'-')
+                                #doc_source_resource_filename = ("doc_source/aws-resource-%s.md.properties.json" % (property_key)).replace('-resource-aws-','-resource-')
+                                #if os.path.isfile(doc_source_resource_filename):
+                                #    with open(doc_source_resource_filename) as doc_file:
+                                #        doc_data = json.loads(doc_file.read())
+                                # log.info("DocSource [%s] %s" % (doc_source_exists, doc_source_resource_filename))
+                                log.info("Not implemented - data[%s][\"Type\"] == \"List of String\" " % (key))
+
                                 del data[key]["Type"]
+
+
 
                             data_type = "%s.%s" % (
                                 resource, property)  # data[key]["Type"]
                             known_type = data_type in spec["cfn"]["PropertyTypes"]
-                            singular_type = data_type[:-
-                                                      1] in spec["cfn"]["PropertyTypes"]
+                            singular_type = data_type[:-1] in spec["cfn"]["PropertyTypes"]
+
+                            # AWS::DAX::SubnetGroup.SubnetIds | aws-resource-dax-subnetgroup.md.properties.json
+                            # TOD
+
                             if singular_type:
                                 data_type = data_type[: -1]
                                 known_type = True
@@ -674,8 +693,12 @@ for resource in spec["cfn"]["ResourceTypes"]:
                                 if "Properties" in spec["cfn"]["PropertyTypes"][data_type]:
                                     sub_properties = spec["cfn"]["PropertyTypes"][data_type]["Properties"]
                                     for sub_property in sub_properties:
-                                        sub_selector = "%s %s.%s" % (
-                                            resource, property, sub_property.split('.')[-1])
+                                        sub_selector = "%s %s.%s" % (resource, property, sub_property.split('.')[-1])
+                                        doc_selector = "%s.%s.%s" % (
+                                                resource.lstrip("AWS::").lower().replace("::","."),
+                                                property.lower(),
+                                                sub_property.split('.')[-1]
+                                        )
                                         wilcard_selector = "* %s.%s" % (
                                             property, sub_property.split('.')[-1])
 
@@ -745,8 +768,8 @@ for resource in spec["cfn"]["ResourceTypes"]:
                                                 for prop_key, prop_value in sub_props.items():
                                                     drill_in_selector = "%s.%s" % (
                                                         property, prop_key.split('.')[-1])
-                                                    log.info(drill_in_selector)
-                                                    log.info(json.dumps(
+                                                    log.debug(drill_in_selector)
+                                                    log.debug(json.dumps(
                                                         sub_props[prop_key], indent=4))
 
                                                     if "AllowedValues" in sub_props[prop_key]:
@@ -809,15 +832,45 @@ for resource in spec["cfn"]["ResourceTypes"]:
                                                             del data[key]["Maximum"]
 
                                         elif sub_properties[sub_property].keys():
-                                            log.info(
-                                                "Selector: %s [%s - %s]" % (sub_selector, sub_selector_doc_file, file_found))
-                                            log.info(json.dumps(
-                                                sub_properties[sub_property], indent=4))
+                                            log.info("Selector: %s [%s - %s]" % (doc_selector, sub_selector_doc_file, file_found))
+                                            log.info(json.dumps(sub_properties[sub_property], indent=4))
+                                            if doc_selector in spec["cfn"]["PropertyTypes"]:
+                                                log.info(json.dumps(spec["cfn"]["PropertyTypes"][doc_selector], indent=4))
+                                            else:
+                                                log.warning("Could not locate doc_selector: %s" % (doc_selector))
+                                            """
+                                            Selector: AWS::S3::Bucket MetricsConfigurations.TagFilters [./doc_source/aws-properties-s3-bucket-metricsconfigurations.md.properties.json - False]
+                                            INFO     collate:833- root {
+                                                "DuplicatesAllowed": false,
+                                                "ItemType": "TagFilter",
+                                                "Required": false,
+                                                "Type": "List"
+                                            }
+                                            cat ./doc_source/aws-properties-s3-bucket-metricsconfigurations.md.properties.json
+                                            cat ./doc_source/aws-properties-s3-bucket-metricsconfiguration.md.properties.json | jq .
+                                            {
+                                              ...
+                                              "s3.bucket.metricsconfiguration.TagFilters": {
+                                                "Docs": "Specifies a list of tag filters to use as a metrics configuration filter. The metrics configuration includes only objects that meet the filter's criteria.",
+                                                "Required": "No",
+                                                "Type": "List of [TagFilter",
+                                                "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+                                              }
+                                            }
+                                            """
                             else:
+                                # Unknown Data Type: AWS::S3::BucketPolicy.PolicyDocument [False]
+                                #  cat doc_source/aws-properties-s3-bucket-inventoryconfiguration.md.properties.json | jq .
+                                # "s3.bucket.inventoryconfiguration.Destination"
+                                # ls ./doc_source/aws-properties-s3-bucket-metricsconfiguration.md.properties.json
+                                # AWS::Lightsail::Distribution.CacheBehaviorSettings
 
-                                log.warning("Unknown Data Type: %s [%s]" % (
-                                    data_type, known_type))
-                                log.warning(json.dumps(data[key], indent=4))
+                                log.warning("Unknown Data Type: %s [%s]" % (data_type, known_type))
+                                try:
+                                    log.info(json.dumps(spec["cfn"]["PropertyTypes"][doc_selector], indent=4))
+                                except:
+                                    log.warning(json.dumps(data[key], indent=4))
+
 
                         if len(data[key].keys()) > 1000:
                             log.info("%s %s" % (resource, property))
@@ -863,28 +916,39 @@ for property_type, data in spec["cfn"]["PropertyTypes"].items():
         try:
             resource_name, property_name = property_type.split('.')
             for sub_property in data["Properties"]:
-                property_docs_index = "%s-%s-%s" % ()
+                property_docs_index = "%s-%s-%s" % (resource_name, property_name, sub_property).lower().replace('::','-')
+                log.warning("DocsKey: %s" % (property_docs_index))
         except Exception as e:
             log.warning(e)
 
 
 
-with open("rulesets/all.rules.txt", 'w') as f:
-    f.write('\n'.join(sorted(list(set(rules['all'])))))
-    log.warning("Written %s rules" % (len(rules)))
+with open("rulesets/v1/all.rules.txt", 'w') as f:
+    f.write('\n'.join(sorted(list(set(rules['v1']['all'])))))
+    log.info("Written %s rules" % (len(rules['v1'])))
 
-for key in rules.keys():
+for key in rules['v1'].keys():
     if key != "all":
-        with open("rulesets/%s.rules.txt" % (key), 'w') as f:
-            f.write('\n'.join(sorted(list(set(rules[key])))))
-            log.warning("Written %s [%s] rules" % (key, len(rules[key])))
+        dest_file = "rulesets/v1/%s.rules.txt" % (key)
+        with open(dest_file, 'w') as f:
+            f.write('\n'.join(sorted(list(set(rules['v1'][key])))))
+            log.debug("Written %s [%s] rules" % (dest_file, len(rules['v1'][key])))
+log.info("Written v1 rulesets")
+
+for key in rules['v2'].keys():
+    if key != "all":
+        dest_file = "rulesets/v2/%s.rules.txt" % (key)
+        with open(dest_file, 'w') as f:
+            f.write('\n'.join(sorted(list(set(rules['v2'][key])))))
+            log.debug("Written %s [%s] rules" % (dest_file, len(rules['v2'][key])))
+log.info("Written v2 rulesets")
 
 log.warning("Matched :%s" % (count_matched))
 
 with open("spec.json", 'w') as f:
     f.write(json.dumps(spec, indent=4, sort_keys=True))
-    log.warning("Written spec.json")
+    log.info("Written spec.json")
 
 with open("cfn_sample.json", 'w') as f:
     f.write(json.dumps(cfn_sample, indent=4, sort_keys=True))
-    log.warning("Written cfn_sample.json")
+    log.info("Written cfn_sample.json")

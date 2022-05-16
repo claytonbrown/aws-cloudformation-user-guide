@@ -1,5 +1,6 @@
 {
   "rds.globalcluster.DeletionProtection": {
+    "Docs": "The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -9,26 +10,31 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rds.globalcluster.Engine": {
+    "Docs": "The name of the database engine to be used for this DB cluster.  If this property isn't specified, the database engine is derived from the source DB cluster specified by the `SourceDBClusterIdentifier` property.  If the `SourceDBClusterIdentifier` property isn't specified, this property is required. If the `SourceDBClusterIdentifier` property is specified, make sure this property isn't specified.",
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "rds.globalcluster.EngineVersion": {
+    "Docs": "The engine version of the Aurora global database.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "rds.globalcluster.GlobalClusterIdentifier": {
+    "Docs": "The cluster identifier of the global database cluster.",
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "rds.globalcluster.SourceDBClusterIdentifier": {
+    "Docs": "The DB cluster identifier or Amazon Resource Name (ARN) to use as the primary cluster of the global database.   If the `Engine` property isn't specified, this property is required. If the `Engine` property is specified, make sure this property isn't specified.",
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "rds.globalcluster.StorageEncrypted": {
+    "Docs": "The storage encryption setting for the global database cluster.",
     "Required": "No",
     "AllowedValues": [
       "True",

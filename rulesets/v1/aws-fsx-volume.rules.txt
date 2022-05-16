@@ -1,0 +1,31 @@
+# #AWS::FSx::Volume VolumeType  == ONTAP |OR| AWS::FSx::Volume VolumeType  == OPENZFS << Enforce allowed values [ONTAP | OPENZFS]
+# AWS::FSx::Volume Name  == /\S{1,203}/ <<  Name is a required property for AWS::FSx::Volume
+# AWS::FSx::Volume Name  == /^[^\u0000\u0085\u2028\u2029\r\n]{1,203}$/ <<  Name is a required pattern for AWS::FSx::Volume
+# AWS::FSx::Volume OntapConfiguration.JunctionPath  == /\S/ <<  AWS::FSx::Volume is an expected but optional String property for OntapConfiguration
+# AWS::FSx::Volume OntapConfiguration.SecurityStyle  == /\S/ <<  AWS::FSx::Volume is an expected but optional String property for OntapConfiguration
+# AWS::FSx::Volume OntapConfiguration.SizeInMegabytes  == /\S/ <<  AWS::FSx::Volume is an expected but optional String property for OntapConfiguration
+# AWS::FSx::Volume OntapConfiguration.StorageEfficiencyEnabled  == /\S/ <<  AWS::FSx::Volume is an expected but optional String property for OntapConfiguration
+# AWS::FSx::Volume OntapConfiguration.StorageVirtualMachineId  == /\S/ <<  AWS::FSx::Volume is an expected but optional String property for OntapConfiguration
+# AWS::FSx::Volume OntapConfiguration.fsx.volume.ontapconfiguration.JunctionPath  == /.*/ <<  fsx.volume.ontapconfiguration.JunctionPath is a required property for AWS::FSx::Volume OntapConfiguration
+# AWS::FSx::Volume OntapConfiguration.fsx.volume.ontapconfiguration.SizeInMegabytes  == /.*/ <<  fsx.volume.ontapconfiguration.SizeInMegabytes is a required property for AWS::FSx::Volume OntapConfiguration
+# AWS::FSx::Volume OntapConfiguration.fsx.volume.ontapconfiguration.StorageEfficiencyEnabled  == /.*/ <<  fsx.volume.ontapconfiguration.StorageEfficiencyEnabled is a required property for AWS::FSx::Volume OntapConfiguration
+# AWS::FSx::Volume OntapConfiguration.fsx.volume.ontapconfiguration.StorageVirtualMachineId  == /.*/ <<  fsx.volume.ontapconfiguration.StorageVirtualMachineId is a required property for AWS::FSx::Volume OntapConfiguration
+# AWS::FSx::Volume OpenZFSConfiguration.DataCompressionType  == /\S/ <<  AWS::FSx::Volume is an expected but optional String property for OpenZFSConfiguration
+# AWS::FSx::Volume OpenZFSConfiguration.ParentVolumeId  == /\S/ <<  AWS::FSx::Volume is an expected but optional String property for OpenZFSConfiguration
+# AWS::FSx::Volume OpenZFSConfiguration.fsx.volume.openzfsconfiguration.ParentVolumeId  == /.*/ <<  fsx.volume.openzfsconfiguration.ParentVolumeId is a required property for AWS::FSx::Volume OpenZFSConfiguration
+# AWS::FSx::Volume VolumeType  == /ONTAP/ <<  ONTAP is an expected value for AWS::FSx::Volume VolumeType
+# AWS::FSx::Volume VolumeType  == /OPENZFS/ <<  OPENZFS is an expected value for AWS::FSx::Volume VolumeType
+# AWS::FSx::Volume VolumeType IN [ONTAP,OPENZFS] << Enforcing Allowed Values only
+# OntapConfiguration.SecurityStyle == MIXED << Enforce Expected Value for fsx.volume.ontapconfiguration.SecurityStyle
+# OntapConfiguration.SecurityStyle == NTFS << Enforce Expected Value for fsx.volume.ontapconfiguration.SecurityStyle
+# OntapConfiguration.SecurityStyle == UNIX << Enforce Expected Value for fsx.volume.ontapconfiguration.SecurityStyle
+# OntapConfiguration.SecurityStyle IN [MIXED,NTFS,UNIX] << Enforce Allowed Values
+# OpenZFSConfiguration.CopyTagsToSnapshots == False << Enforce Expected Value for fsx.volume.openzfsconfiguration.CopyTagsToSnapshots
+# OpenZFSConfiguration.CopyTagsToSnapshots == True << Enforce Expected Value for fsx.volume.openzfsconfiguration.CopyTagsToSnapshots
+# OpenZFSConfiguration.CopyTagsToSnapshots IN [True,False] << Enforce Allowed Values
+# OpenZFSConfiguration.DataCompressionType == NONE << Enforce Expected Value for fsx.volume.openzfsconfiguration.DataCompressionType
+# OpenZFSConfiguration.DataCompressionType == ZSTD << Enforce Expected Value for fsx.volume.openzfsconfiguration.DataCompressionType
+# OpenZFSConfiguration.DataCompressionType IN [NONE,ZSTD] << Enforce Allowed Values
+# OpenZFSConfiguration.ReadOnly == False << Enforce Expected Value for fsx.volume.openzfsconfiguration.ReadOnly
+# OpenZFSConfiguration.ReadOnly == True << Enforce Expected Value for fsx.volume.openzfsconfiguration.ReadOnly
+# OpenZFSConfiguration.ReadOnly IN [True,False] << Enforce Allowed Values

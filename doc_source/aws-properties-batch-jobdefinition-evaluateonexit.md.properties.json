@@ -1,20 +1,27 @@
 {
   "batch.jobdefinition.evaluateonexit.Action": {
+    "Docs": "Specifies the action to take if all of the specified conditions (`onStatusReason`, `onReason`, and `onExitCode`) are met. The values aren't case sensitive.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "EXIT | RETRY",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "batch.jobdefinition.evaluateonexit.OnExitCode": {
+    "Docs": "Contains a glob pattern to match against the decimal representation of the `ExitCode` returned for a job. The pattern can be up to 512 characters in length. It can contain only numbers, and can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.  The string can be between 1 and 512 characters in length.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "batch.jobdefinition.evaluateonexit.OnReason": {
+    "Docs": "Contains a glob pattern to match against the `Reason` returned for a job. The pattern can be up to 512 characters in length. It can contain letters, numbers, periods (.), colons (:), and white space (including spaces and tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.  The string can be between 1 and 512 characters in length.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "batch.jobdefinition.evaluateonexit.OnStatusReason": {
+    "Docs": "Contains a glob pattern to match against the `StatusReason` returned for a job. The pattern can be up to 512 characters in length. It can contain letters, numbers, periods (.), colons (:), and white space (including spaces or tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.  The string can be between 1 and 512 characters in length.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   }
 }

@@ -1,45 +1,54 @@
 {
   "evidently.experiment.Description": {
+    "Docs": "An optional description of the experiment.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.experiment.MetricGoals": {
+    "Docs": "An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.",
     "Required": "Yes",
     "Type": "List of [MetricGoalObject",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.experiment.Name": {
+    "Docs": "A name for the new experiment.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "evidently.experiment.OnlineAbConfig": {
+    "Docs": "A structure that contains the configuration of which variation to use as the \"control\" version. The \"control\" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.",
     "Required": "Yes",
     "Type": "OnlineAbConfigObject",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.experiment.Project": {
+    "Docs": "The name or the ARN of the project where this experiment is to be created.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "evidently.experiment.RandomizationSalt": {
+    "Docs": "When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt`. If you omit `randomizationSalt`, Evidently uses the experiment name as the `randomizationSalt`.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.experiment.SamplingRate": {
+    "Docs": "The portion of the available audience that you want to allocate to this experiment, in thousandths of a percent. The available audience is the total audience minus the audience that you have allocated to overrides or current launches of this feature.  This is represented in thousandths of a percent. For example, specify 10,000 to allocate 10% of the available audience.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.experiment.Tags": {
+    "Docs": "Assigns one or more tags (key-value pairs) to the experiment.  Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.  Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.  You can associate as many as 50 tags with an experiment.  For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.experiment.Treatments": {
+    "Docs": "An array of structures that describe the configuration of each feature variation used in the experiment.",
     "Required": "Yes",
     "Type": "List of [TreatmentObject",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

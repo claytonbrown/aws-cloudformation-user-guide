@@ -1,19 +1,24 @@
 {
   "autoscaling.lifecyclehook.AutoScalingGroupName": {
+    "Docs": "The name of the Auto Scaling group for the lifecycle hook.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "autoscaling.lifecyclehook.DefaultResult": {
+    "Docs": "The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are `CONTINUE` and `ABANDON` (default).  For more information, see [Adding lifecycle hooks](https://docs.aws.amazon.com/autoscaling/ec2/userguide/adding-lifecycle-hooks.html) in the *Amazon EC2 Auto Scaling User Guide*.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "autoscaling.lifecyclehook.HeartbeatTimeout": {
+    "Docs": "The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from `30` to `7200` seconds. The default value is `3600` seconds (1 hour). If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the `DefaultResult` property.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.lifecyclehook.LifecycleHookName": {
+    "Docs": "The name of the lifecycle hook.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -22,11 +27,13 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "autoscaling.lifecyclehook.LifecycleTransition": {
+    "Docs": "The instance state to which you want to attach the lifecycle hook. The valid values are:  + autoscaling:EC2_INSTANCE_LAUNCHING+ autoscaling:EC2_INSTANCE_TERMINATING",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.lifecyclehook.NotificationMetadata": {
+    "Docs": "Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -35,12 +42,15 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.lifecyclehook.NotificationTargetARN": {
+    "Docs": "The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.lifecyclehook.RoleARN": {
+    "Docs": "The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue. For information about creating this role, see [Configuring a notification target for a lifecycle hook](https://docs.aws.amazon.com/autoscaling/ec2/userguide/configuring-lifecycle-hook-notifications.html) in the *Amazon EC2 Auto Scaling User Guide*.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   }
 }

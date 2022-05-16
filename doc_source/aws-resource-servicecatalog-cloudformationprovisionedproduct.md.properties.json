@@ -1,17 +1,20 @@
 {
   "servicecatalog.cloudformationprovisionedproduct.AcceptLanguage": {
+    "Docs": "The language code.  +  `en` - English (default)+  `jp` - Japanese+  `zh` - Chinese",
     "Required": "No",
     "Type": "String",
     "Maximum": "100",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "servicecatalog.cloudformationprovisionedproduct.NotificationArns": {
+    "Docs": "Passed to AWS CloudFormation. The SNS topic ARNs to which to publish stack-related events.",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "5",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "servicecatalog.cloudformationprovisionedproduct.PathId": {
+    "Docs": "The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html).  You must provide the name or ID, but not both.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -20,6 +23,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "servicecatalog.cloudformationprovisionedproduct.PathName": {
+    "Docs": "The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html).  You must provide the name or ID, but not both.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -27,6 +31,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "servicecatalog.cloudformationprovisionedproduct.ProductId": {
+    "Docs": "The product identifier.  You must specify either the ID or the name of the product, but not both.",
     "Required": "Conditional",
     "Type": "String",
     "Minimum": "1",
@@ -35,6 +40,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "servicecatalog.cloudformationprovisionedproduct.ProductName": {
+    "Docs": "A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.  Each time a stack is created or updated, if `ProductName` is provided it will successfully resolve to `ProductId` as long as only one product exists in the account or Region with that `ProductName`.  You must specify either the name or the ID of the product, but not both.",
     "Required": "Conditional",
     "Type": "String",
     "Minimum": "1",
@@ -43,6 +49,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "servicecatalog.cloudformationprovisionedproduct.ProvisionedProductName": {
+    "Docs": "A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -51,6 +58,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "servicecatalog.cloudformationprovisionedproduct.ProvisioningArtifactId": {
+    "Docs": "The identifier of the provisioning artifact (also known as a version).  You must specify either the ID or the name of the provisioning artifact, but not both.",
     "Required": "Conditional",
     "Type": "String",
     "Minimum": "1",
@@ -59,22 +67,26 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "servicecatalog.cloudformationprovisionedproduct.ProvisioningArtifactName": {
+    "Docs": "The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.   You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.",
     "Required": "Conditional",
     "Type": "String",
     "Maximum": "8192",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "servicecatalog.cloudformationprovisionedproduct.ProvisioningParameters": {
+    "Docs": "Parameters specified by the administrator that are required for provisioning the product.",
     "Required": "No",
     "Type": "List of [ProvisioningParameter",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "servicecatalog.cloudformationprovisionedproduct.ProvisioningPreferences": {
+    "Docs": "StackSet preferences that are required for provisioning the product or updating a provisioned product.",
     "Required": "No",
     "Type": "ProvisioningPreferences",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "servicecatalog.cloudformationprovisionedproduct.Tags": {
+    "Docs": "One or more tags.  Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.",
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "50",

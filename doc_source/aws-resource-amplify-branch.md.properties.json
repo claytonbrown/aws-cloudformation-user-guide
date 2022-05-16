@@ -1,26 +1,36 @@
 {
   "amplify.branch.AppId": {
+    "Docs": "The unique ID for an Amplify app.",
     "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "amplify.branch.BasicAuthConfig": {
+    "Docs": "The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password`.",
     "Required": "No",
     "Type": "BasicAuthConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amplify.branch.BranchName": {
+    "Docs": "The name for the branch.",
     "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "amplify.branch.BuildSpec": {
+    "Docs": "The build specification (build spec) for the branch.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "amplify.branch.Description": {
+    "Docs": "The description for the branch that is part of an Amplify app.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "amplify.branch.EnableAutoBuild": {
+    "Docs": "Enables auto building for the branch.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -30,6 +40,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amplify.branch.EnablePerformanceMode": {
+    "Docs": "Enables performance mode for the branch.  Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -39,27 +50,35 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amplify.branch.EnablePullRequestPreview": {
+    "Docs": "Sets whether the Amplify Console creates a preview for each pull request that is made for this branch. If this property is enabled, the Amplify Console deploys your app to a unique preview URL after each pull request is opened. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.  To provide backend support for your preview, the Amplify Console automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.  For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Console User Guide*.",
     "Required": "No",
     "AllowedValues": [
       "True",
       "False"
     ],
+    "Type": "Boolean",
     "UpdateRequires": "No interruption"
   },
   "amplify.branch.EnvironmentVariables": {
+    "Docs": "The environment variables for the branch.",
     "Required": "No",
     "Type": "List of [EnvironmentVariable",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amplify.branch.PullRequestEnvironmentName": {
+    "Docs": "If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod`, `test`, or `dev` that you initialized with the Amplify CLI and mapped to this branch.  To enable pull request previews, set the `EnablePullRequestPreview` property to `true`.  If you don't specify an environment, the Amplify Console provides backend support for each preview by automatically provisioning a temporary backend environment. Amplify Console deletes this environment when the pull request is closed.  For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Console User Guide*.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "amplify.branch.Stage": {
+    "Docs": "Describes the current stage for the branch.",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "amplify.branch.Tags": {
+    "Docs": "The tag for the branch.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

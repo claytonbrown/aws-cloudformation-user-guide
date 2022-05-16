@@ -924,6 +924,7 @@
       "RemoveThingFromThingGroup",
       "ReplaceTopicRule",
       "RetainPublish",
+      "RotateTunnelAccessToken",
       "SearchIndex",
       "SetDefaultAuthorizer",
       "SetDefaultPolicyVersion",
@@ -974,6 +975,7 @@
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
       "aws:TagKeys",
+      "iot:ClientMode",
       "iot:Delete",
       "iot:DomainName",
       "iot:ThingGroupArn",
@@ -4274,9 +4276,10 @@
       "VerifyEmailAddress",
       "VerifyEmailIdentity"
     ],
-    "ARNFormat": "arn:${Partition}:ses:${Region}:${Account}:${resourceType}/${resourceId}",
+    "ARNFormat": "arn:${Partition}:ses:${Region}:${Account}:${ResourceType}/${ResourceId}",
     "ARNRegex": "^arn:${Partition}:ses:.+:[0-9]+:.+",
     "conditionKeys": [
+      "ses:ApiVersion",
       "ses:FeedbackAddress",
       "ses:FromAddress",
       "ses:FromDisplayName",
@@ -4608,6 +4611,7 @@
       "PutUserWorkspaceSettings",
       "TagResource",
       "UntagResource",
+      "UpdateAccountExportSettings",
       "UpdateChart",
       "UpdateConnection",
       "UpdateFileFolder",
@@ -7922,8 +7926,8 @@
       "UntagCertificateAuthority",
       "UpdateCertificateAuthority"
     ],
-    "ARNFormat": "arn:aws:acm-pca:<region>:<account_ID>:<arn_type>/<resource_id>",
-    "ARNRegex": "^arn:aws:acm-pca:.+:[0-9]+:.+",
+    "ARNFormat": "arn:${Partition}:acm-pca:${Region}:${Account}:${ARNType}/${ResourceId}",
+    "ARNRegex": "^arn:${Partition}:acm-pca:.+:[0-9]+:.+",
     "conditionKeys": [
       "acm-pca:TemplateArn",
       "aws:RequestTag/${TagKey}",
@@ -8553,8 +8557,8 @@
       "UpdateWebACL",
       "UpdateXssMatchSet"
     ],
-    "ARNFormat": "arn:aws:waf::<account_ID>:<resource>/<resource_id>",
-    "ARNRegex": "^arn:aws:waf::[0-9]+:.+/.+",
+    "ARNFormat": "arn:${Partition}:waf::${Account}:${ResourceId}/${Id}",
+    "ARNRegex": "^arn:${Partition}:waf::[0-9]+:.+/.+",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -8856,8 +8860,8 @@
       "UpdateRuleGroup",
       "UpdateWebACL"
     ],
-    "ARNFormat": "arn:aws:wafv2:${Region}:${Account}:${Scope}/${ResourceType}/${ResourceName}/${ResourceId}",
-    "ARNRegex": "^arn:aws:wafv2:.+:.+:.+/.+/.+/.+",
+    "ARNFormat": "arn:${Partition}:wafv2:${Region}:${Account}:${Scope}/${ResourceType}/${ResourceName}/${ResourceId}",
+    "ARNRegex": "^arn:${Partition}:wafv2:.+:.+:.+/.+/.+/.+",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -13054,7 +13058,7 @@
       "UpdateRepositoryName",
       "UploadArchive"
     ],
-    "ARNFormat": "arn:aws:codecommit:<region>:<account_ID>:<repository_name>",
+    "ARNFormat": "arn:aws:codecommit:${Region}:${Account}:${RepositoryName}",
     "ARNRegex": "^arn:aws:codecommit:.+",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
@@ -13653,8 +13657,8 @@
       "UpdateWebACL",
       "UpdateXssMatchSet"
     ],
-    "ARNFormat": "arn:aws:waf-regional:<region>:<account_ID>:<resource>/<resource_id>",
-    "ARNRegex": "^arn:aws:waf-regional:.+:[0-9]+:.+/.+",
+    "ARNFormat": "arn:${Partition}:waf-regional:${Region}:${Account}:${ResourceId}/${Id}",
+    "ARNRegex": "^arn:${Partition}:waf-regional:.+:[0-9]+:.+/.+",
     "conditionKeys": [
       "aws:RequestTag/${TagKey}",
       "aws:ResourceTag/${TagKey}",
@@ -13829,8 +13833,8 @@
       "UpdateParameterGroup",
       "UpdateSubnetGroup"
     ],
-    "ARNFormat": "arn:aws:dax:${Region}:${Account}:cache/${ClusterName}",
-    "ARNRegex": "^arn:aws:dax:.+:[0-9]+:cache/[a-zA-Z0-9_.-]+",
+    "ARNFormat": "arn:${Partition}:dax:${Region}:${Account}:cache/${ClusterName}",
+    "ARNRegex": "^arn:${Partition}:dax:.+:[0-9]+:cache/[a-zA-Z0-9_.-]+",
     "conditionKeys": [
       "dax:EnclosingOperation"
     ],

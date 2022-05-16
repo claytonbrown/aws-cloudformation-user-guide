@@ -1,6 +1,15 @@
 import sys
 import json
 import pprint
+import re
+
+
+CLEANR = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
+
+def cleanhtml(raw_html):
+  cleantext = re.sub(CLEANR, '', raw_html).replace("\n","").replace("\\","").strip()
+  return cleantext
+
 
 debug = False
 output = {}
@@ -13,7 +22,17 @@ for data in pipe:
     if "Properties<a" in data:
         property_type = data.split("Properties<a name=\"")[1].split('\"')[0]
         property_type = property_type.replace("aws-resource-", "")  # .replace("-properties","")
-        for property in data.split("\n`"):
+        split_data = data.split("\n`")
+        if debug:
+            pprint.pprint(split_data)
+            # sys.exit(1)
+        for property in split_data:
+
+            try:
+                doc_text = cleanhtml("".join(property).split("\n*")[0].split("</a>\n")[1])
+            except:
+                doc_text = ""
+
             if "Properties<a " not in property:
                 property_name = property.split("`")[0]
                 property_bag = property.split("\n*")
@@ -23,9 +42,11 @@ for data in pipe:
                 properties[property_name] = {}
                 ok = True
                 for prop in property_bag:
+
                     if "*" in prop:
                         # print(prop)
                         try:
+                            properties[property_name]["Description"] = doc_text
                             items = prop.split("*: ")
 
                             # print(items)
@@ -39,6 +60,10 @@ for data in pipe:
 
                                 if property_data == "Boolean":
                                     properties[property_name]["AllowedValues"] = ["True", "False"]
+
+
+                            if "Type" in property_key:
+                                properties[property_name]["Type"] = property_data.strip('')
 
                             if "Pattern" in property_key:
                                 properties[property_name]["Pattern"] = property_data.strip('')
@@ -78,7 +103,7 @@ for data in pipe:
         for k1, v1 in output.items():
             if isinstance(v1, dict):
                 for k2, v2 in v1.items():
-                    norm_key = k1.replace("aws-properties-", "").replace("-properties", "").replace('-', '.') + '.' + k2 
+                    norm_key = k1.replace("aws-properties-", "").replace("-properties", "").replace('-', '.') + '.' + k2
                     property_key = norm_key
                     result[property_key] = v2
 

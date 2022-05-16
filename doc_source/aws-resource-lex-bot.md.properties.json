@@ -1,5 +1,6 @@
 {
   "lex.bot.AutoBuildBotLocales": {
+    "Docs": "Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -9,25 +10,31 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.BotFileS3Location": {
+    "Docs": "The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*",
     "Required": "No",
+    "Type": "S3Location",
     "UpdateRequires": "No interruption"
   },
   "lex.bot.BotLocales": {
+    "Docs": "A list of locales for the bot.",
     "Required": "No",
     "Type": "List of [BotLocale",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.BotTags": {
+    "Docs": "A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.DataPrivacy": {
+    "Docs": "Provides information on additional privacy protections Amazon Lex should use with the bot's data.",
     "Required": "Yes",
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.Description": {
+    "Docs": "The description of the version.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -35,22 +42,26 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.IdleSessionTTLInSeconds": {
+    "Docs": "The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.   A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Lex deletes any data provided before the timeout.  You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.",
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.Name": {
+    "Docs": "The name of the field to filter the list of bots.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "BotLocaleName",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.RoleArn": {
+    "Docs": "The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.TestBotAliasTags": {
+    "Docs": "A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

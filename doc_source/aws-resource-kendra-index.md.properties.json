@@ -1,26 +1,31 @@
 {
   "kendra.index.CapacityUnits": {
+    "Docs": "Specifies capacity units configured for your index. You can add and remove capacity units to tune an index to your requirements. You can set capacity units only for Enterprise edition indexes.",
     "Required": "No",
     "Type": "CapacityUnitsConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.index.Description": {
+    "Docs": "A description of the index.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.index.DocumentMetadataConfigurations": {
+    "Docs": "Specifies the properties of an index field. You can add either a custom or a built-in field. You can add and remove built-in fields at any time. When a built-in field is removed it's configuration reverts to the default for the field. Custom fields can't be removed from an index after they are added.",
     "Required": "No",
     "Type": "List of [DocumentMetadataConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.index.Edition": {
+    "Docs": "Indicates whether the index is a enterprise edition index or a developer edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION`.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "DEVELOPER_EDITION | ENTERPRISE_EDITION",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "kendra.index.Name": {
+    "Docs": "The name of the index.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -29,26 +34,31 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.index.RoleArn": {
+    "Docs": "An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.index.ServerSideEncryptionConfiguration": {
+    "Docs": "The identifier of the AWS KMS customer managed key (CMK) to use to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs.",
     "Required": "No",
     "Type": "ServerSideEncryptionConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "kendra.index.Tags": {
+    "Docs": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.index.UserContextPolicy": {
+    "Docs": "The user context policy.  ATTRIBUTE_FILTER  + All indexed content is searchable and displayable for all users. If there is an access control list, it is ignored. You can filter on user and group attributes.USER_TOKEN  + Enables SSO and token-based user access control. All documents with no access control and all documents accessible to the user will be searchable and displayable.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.index.UserTokenConfigurations": {
+    "Docs": "Defines the type of user token used for the index.",
     "Required": "No",
     "Type": "List of [UserTokenConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

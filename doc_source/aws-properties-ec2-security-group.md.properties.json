@@ -1,28 +1,36 @@
 {
   "ec2.security.group.GroupDescription": {
+    "Docs": "A description for the security group. This is informational only.  Constraints: Up to 255 characters in length  Constraints for EC2-Classic: ASCII characters  Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*",
     "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "ec2.security.group.GroupName": {
+    "Docs": "The name of the security group.  Constraints: Up to 255 characters in length. Cannot start with `sg-`.  Constraints for EC2-Classic: ASCII characters  Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*",
     "Required": "No",
+    "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "ec2.security.group.SecurityGroupEgress": {
+    "Docs": "[VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.",
     "Required": "No",
     "Type": "List of [Egress",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.security.group.SecurityGroupIngress": {
+    "Docs": "The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.",
     "Required": "No",
     "Type": "List of [Ingress",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.security.group.Tags": {
+    "Docs": "Any tags assigned to the security group.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.security.group.VpcId": {
+    "Docs": "[VPC only] The ID of the VPC for the security group.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"

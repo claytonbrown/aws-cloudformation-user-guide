@@ -1,50 +1,61 @@
 {
   "lightsail.instance.AddOns": {
+    "Docs": "An array of add-ons for the instance.  If the instance has an add-on enabled when performing a delete instance request, the add-on is automatically disabled before the instance is deleted.",
     "Required": "No",
     "Type": "List of [AddOn",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.instance.AvailabilityZone": {
+    "Docs": "The Availability Zone for the instance.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "Updates are not supported\\."
   },
   "lightsail.instance.BlueprintId": {
+    "Docs": "The blueprint ID for the instance (for example, `os_amlinux_2016_03`).",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "Updates are not supported\\."
   },
   "lightsail.instance.BundleId": {
+    "Docs": "The bundle ID for the instance (for example, `micro_1_0`).",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "Updates are not supported\\."
   },
   "lightsail.instance.Hardware": {
+    "Docs": "The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.  The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.",
     "Required": "No",
     "Type": "Hardware",
     "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
   "lightsail.instance.InstanceName": {
+    "Docs": "The name of the instance.",
     "Required": "Yes",
     "Type": "String",
     "Pattern": "\\w[\\w\\-]*\\w",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lightsail.instance.KeyPairName": {
+    "Docs": "The name of the key pair to use for the instance.  If no key pair name is specified, the Regional Lightsail default key pair is used.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.instance.Networking": {
+    "Docs": "The public ports and the monthly amount of data transfer allocated for the instance.",
     "Required": "No",
     "Type": "Networking",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.instance.Tags": {
+    "Docs": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide*.  The `Value` of `Tags` is optional for Lightsail resources.",
     "Required": "No",
+    "Type": "List of [Tag",
     "UpdateRequires": "No interruption"
   },
   "lightsail.instance.UserData": {
+    "Docs": "The optional launch script for the instance.  Specify a launch script to configure an instance with additional user data. For example, you might want to specify `apt-get -y update` as a launch script.  Depending on the blueprint of your instance, the command to get software on your instance varies. Amazon Linux and CentOS use `yum`, Debian and Ubuntu use `apt-get`, and FreeBSD uses `pkg`.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

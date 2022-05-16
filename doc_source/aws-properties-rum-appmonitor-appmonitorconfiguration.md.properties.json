@@ -1,5 +1,6 @@
 {
   "rum.appmonitor.appmonitorconfiguration.AllowCookies": {
+    "Docs": "If you set this to `true`, the CloudWatch RUM web client sets two cookies, a session cookie and a user cookie. The cookies allow the CloudWatch RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -9,6 +10,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rum.appmonitor.appmonitorconfiguration.EnableXRay": {
+    "Docs": "If you set this to `true`, CloudWatch RUM sends client-side traces to X-Ray for each sampled session. You can then see traces and segments from these user sessions in the RUM dashboard and the CloudWatch ServiceLens console. For more information, see [What is AWS X-Ray?](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -18,36 +20,43 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rum.appmonitor.appmonitorconfiguration.ExcludedPages": {
+    "Docs": "A list of URLs in your website or application to exclude from RUM data collection.  You can't include both `ExcludedPages` and `IncludedPages` in the same app monitor.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rum.appmonitor.appmonitorconfiguration.FavoritePages": {
+    "Docs": "A list of pages in your application that are to be displayed with a \"favorite\" icon in the CloudWatch RUM console.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rum.appmonitor.appmonitorconfiguration.GuestRoleArn": {
+    "Docs": "The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to CloudWatch RUM.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rum.appmonitor.appmonitorconfiguration.IdentityPoolId": {
+    "Docs": "The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to CloudWatch RUM.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rum.appmonitor.appmonitorconfiguration.IncludedPages": {
+    "Docs": "If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.   You can't include both `ExcludedPages` and `IncludedPages` in the same app monitor.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rum.appmonitor.appmonitorconfiguration.SessionSampleRate": {
+    "Docs": "Specifies the portion of user sessions to use for CloudWatch RUM data collection. Choosing a higher portion gives you more data but also incurs more costs.  The range for this value is 0 to 1 inclusive. Setting this to 1 means that 100% of user sessions are sampled, and setting it to 0.1 means that 10% of user sessions are sampled.  If you omit this parameter, the default of 0.1 is used, and 10% of sessions will be sampled.",
     "Required": "No",
     "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rum.appmonitor.appmonitorconfiguration.Telemetries": {
+    "Docs": "An array that lists the types of telemetry data that this app monitor is to collect.  + `errors` indicates that RUM collects data about unhandled JavaScript errors raised by your application.+ `performance` indicates that RUM collects performance data about how your application and its resources are loaded and rendered. This includes Core Web Vitals.+ `http` indicates that RUM collects data about HTTP errors thrown by your application.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

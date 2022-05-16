@@ -1,5 +1,6 @@
 {
   "autoscaling.scalingpolicy.metricdataquery.Expression": {
+    "Docs": "The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the `Id` of the other metrics to refer to those metrics, and can also use the `Id` of other expressions to use the result of those expressions.   Conditional: Within each `MetricDataQuery` object, you must specify either `Expression` or `MetricStat`, but not both.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -8,6 +9,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.scalingpolicy.metricdataquery.Id": {
+    "Docs": "A short name that identifies the object's results in the response. This name must be unique among all `MetricDataQuery` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -16,6 +18,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.scalingpolicy.metricdataquery.Label": {
+    "Docs": "A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.",
     "Required": "No",
     "Type": "String",
     "Maximum": "2047",
@@ -23,11 +26,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.scalingpolicy.metricdataquery.MetricStat": {
+    "Docs": "Information about the metric data to return.  Conditional: Within each `MetricDataQuery` object, you must specify either `Expression` or `MetricStat`, but not both.",
     "Required": "No",
     "Type": "MetricStat",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.scalingpolicy.metricdataquery.ReturnData": {
+    "Docs": "Indicates whether to return the timestamps and raw data values of this metric.   If you use any math expressions, specify `true` for this value for only the final math expression that the metric specification is based on. You must specify `false` for `ReturnData` for all the other metrics and expressions used in the metric specification.  If you are only retrieving metrics and not performing any math expressions, do not specify anything for `ReturnData`. This sets it to its default (`true`).",
     "Required": "No",
     "AllowedValues": [
       "True",

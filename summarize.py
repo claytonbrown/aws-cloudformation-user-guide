@@ -4,6 +4,8 @@ from colorlog import ColoredFormatter
 import glob
 import sys
 import os
+import chevron
+import exrex
 
 log = logging.getLogger()
 verbosity = logging.INFO
@@ -26,6 +28,42 @@ colored_formatter = ColoredFormatter(
 console_handler.setFormatter(colored_formatter)
 log.addHandler(console_handler)
 log.debug("logging initialized")
+
+sample_rule = """
+let resources = Resources.*[ Type == {{ resource_type }} ]
+let allowed_values = [{{ allowed_values }}]
+
+rule s3_buckets_allowed_sse_algorithm when %s3_buckets !empty {
+    let encryption = %s3_buckets.Properties.BucketEncryption
+    %{{ property_name }} exists
+    %{{ matcher_rule}} in %allowed_values
+
+}
+"""
+resource_rules = {}
+
+def add_rule(
+        cfn_resource = 'AWS::S3::Bucket',
+        cfn_property = 'encryption',
+        path_match='encryption.ServerSideEncryptionConfiguration[*].ServerSideEncryptionByDefault.SSEAlgorithm',
+        allowed_values_string
+        ):
+
+    if resource_rules not in resource_rules:
+        resource_rules[cfn_resource] = []
+
+    resource_rules[cfn_resource].append(
+        chevron.render(
+            {
+                'resource_type': cfn_resource,                  # e.g. 'AWS::S3::Bucket'
+                'parent_property_name': cfn_property,           # e.g. %encryption exists
+                'matcher_rule': path_match,                     # e.g. %encryption.ServerSideEncryptionConfiguration[*].ServerSideEncryptionByDefault.SSEAlgorithm
+                'allowed_values': allowed_values_string         # e.g.
+            }
+        )
+    )
+
+sampleString = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ" * 500
 
 # aws-properties-autoscalingplans-scalingplan-scalinginstruction.md:*Allowed Values*: `KeepExternalPolicies | ReplaceExternalPolicies`
 properties = {}
@@ -60,7 +98,7 @@ for resource_name, resource_properties in cfn_schema["ResourceTypes"].items():
 
     if "Properties" in resource_properties:
         for resource_property_name, resource_property_detail in resource_properties["Properties"].items():
-            property_key = "%s.%s" % (key, resource_property_name) 
+            property_key = "%s.%s" % (key, resource_property_name)
             property_ref = "%s.%s" % (resource_name, resource_property_name)
             schema_key[property_key] = property_ref
             log.info("%s --> %s" % (property_key, property_ref))
@@ -71,6 +109,12 @@ for file in files:
     log.debug(file)
     data = json.load(open(file,'r'))
     for k, v in data.items():
+
+        # coerce two word key to camelcase Key AllowedValues
+        if "Allowed values" in v:
+            v["AllowedValues"] = v["Allowed values"]
+            del v["Allowed values"]
+
 
         if k in schema_key:
             v["Schema"] = schema_key[k]
@@ -89,6 +133,13 @@ for file in files:
             if len(v.keys()) == 3:
                 v["SampleValue"] = 'TODO-' + k.split('.')[-1]
 
+            # generate sample value from pattern
+            if "Pattern" in v:
+                regexPattern = v["Pattern"] #.strip().replace('\n','').replace('\t','').replace('\r','').replace("\r\n\t","")
+                log.info("Pattern: %s " % (regexPattern ))
+                v["GeneratedSample"] = "TODO - fix encoding issue" # exrex.getone( regexPattern )
+                log.info("GeneratedSample %s --> %s" % (regexPattern, v["GeneratedSample"]))
+
             # enforce regex for string length when no pattern provided
             if "Type" in v and v["Type"] == "String":
                 if "Pattern" not in v and "Minimum" in v and "Maximum" in v:
@@ -98,20 +149,36 @@ for file in files:
                     v["SampleValue"] = "TODO-%s" % (k)
                     log.debug(constrainedString)
 
+                # generate sample string of string length
+                if "Maximum" in v and "SampleValue" not in v:
+                    v["SampleValue"] = sampleString[:int(v["Maximum"])]
+
             # enforce regex for integer when no pattern provided
-            if "Type" in v and v["Type"] == "Integer":
-                if "Pattern" not in v and "Minimum" in v and "Maximum" in v:
-                    template = "^[%s,%s]}$"
-                    constrainedString = template % (int(v["Minimum"]), int(v["Maximum"]))
-                    v["Pattern"] = constrainedString
-                    v["SampleValue"] = "%s...%s" % (int(v["Minimum"]), int(v["Maximum"]))
-                    log.debug(constrainedString)
+            if "Type" in v:
+                if v["Type"] == "Integer":
+                    if "Pattern" not in v and "Minimum" in v and "Maximum" in v:
+                        template = "^[%s,%s]}$"
+                        constrainedString = template % (int(v["Minimum"]), int(v["Maximum"]))
+                        v["Pattern"] = constrainedString
+                        v["SampleValue"] = "%s...%s" % (int(v["Minimum"]), int(v["Maximum"]))
+                        log.debug(constrainedString)
+
+            # coerce pipe separated string values into unique list e.g.  "Allowed values": "CA_REPOSITORY | RESOURCE_PKI_MANIFEST | RESOURCE_PKI_NOTIFY",
+            if "AllowedValues" in v and type(v["AllowedValues"]) == str:
+                v["AllowedValues"] = list(set(v["AllowedValues"].split(" | ")))
+
 
             if "AllowedValues" in v and "SampleValue" not in v:
                 # v["SampleValue"] = sorted(v["AllowedValues"])[0]
                 v["SampleValue"] = "|".join(v["AllowedValues"])
                 if "Pattern" not in v:
                     v["Pattern"] = "^[%s]" % (v["SampleValue"])
+
+
+            v['PropertyKey'] = k.split('.')[-1]
+            v['ServiceKey'] = k.split('.')[0]
+            v['ParentKey'] = k.split('.')[0]
+
         else:
             log.warn(k)
             log.warn(json.dumps(v, indent=4))

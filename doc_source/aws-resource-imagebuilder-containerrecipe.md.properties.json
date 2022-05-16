@@ -1,16 +1,19 @@
 {
   "imagebuilder.containerrecipe.Components": {
+    "Docs": "Components for build and test that are included in the container recipe.",
     "Required": "Yes",
     "Type": "List of [ComponentConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.ContainerType": {
+    "Docs": "Specifies the type of container, such as Docker.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "DOCKER",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.Description": {
+    "Docs": "The description of the container recipe.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -18,26 +21,31 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.DockerfileTemplateData": {
+    "Docs": "Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.DockerfileTemplateUri": {
+    "Docs": "The S3 URI for the Dockerfile that will be used to build your container image.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.ImageOsVersionOverride": {
+    "Docs": "Specifies the operating system version for the source image.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.InstanceConfiguration": {
+    "Docs": "A group of options that can be used to configure an instance for building and testing container images.",
     "Required": "No",
     "Type": "InstanceConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.KmsKeyId": {
+    "Docs": "Identifies which KMS key is used to encrypt the container image for distribution to the target Region.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -45,12 +53,14 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.Name": {
+    "Docs": "The name of the container recipe.",
     "Required": "Yes",
     "Type": "String",
     "Pattern": "^[-_A-Za-z-0-9][-_A-Za-z0-9 ]{1,126}[-_A-Za-z-0-9]$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.ParentImage": {
+    "Docs": "The base image for the container recipe.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -58,26 +68,32 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.PlatformOverride": {
+    "Docs": "Specifies the operating system platform when you use a custom source image.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.Tags": {
+    "Docs": "Tags that are attached to the container recipe.",
     "Required": "No",
     "Type": "Map of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.TargetRepository": {
+    "Docs": "The destination repository for the container image.",
     "Required": "Yes",
     "Type": "TargetContainerRepository",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.containerrecipe.Version": {
+    "Docs": "The semantic version of the container recipe.  The semantic version has four nodes: ../. You can assign values for the first three, and can filter on all of them.   **Assignment:** For the first three nodes you can assign any positive integer value, including zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the build number to the fourth node.   **Patterns:** You can use any numeric pattern that adheres to the assignment requirements for the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or a date, such as 2021.01.01.   **Filtering:** With semantic versioning, you have the flexibility to use wildcards (x) to specify the most recent versions or nodes when selecting the base image or components for your recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be wildcards.",
     "Required": "Yes",
+    "Type": "String",
     "Pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
     "UpdateRequires": "Replacement"
   },
   "imagebuilder.containerrecipe.WorkingDirectory": {
+    "Docs": "The working directory for use during build and test workflows.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",

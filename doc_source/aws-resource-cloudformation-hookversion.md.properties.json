@@ -1,19 +1,24 @@
 {
   "cloudformation.hookversion.ExecutionRoleArn": {
+    "Docs": "The Amazon Resource Name (ARN) of the task execution role that grants the hook permission.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cloudformation.hookversion.LoggingConfig": {
+    "Docs": "Contains logging configuration information for an extension.",
     "Required": "No",
     "Type": "LoggingConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cloudformation.hookversion.SchemaHandlerPackage": {
+    "Docs": "A URL to the Amazon S3 bucket containing the hook project package that contains the necessary files for the hook you want to register.  For information on generating a schema handler package for the resource you want to register, see [submit](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html) in the *CloudFormation CLI User Guide for Extension Development*.  The user registering the resource must be able to access the package in the S3 bucket. That's, the user must have [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions for the schema handler package. For more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html) in the *AWS Identity and Access Management User Guide*.",
     "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "cloudformation.hookversion.TypeName": {
+    "Docs": "The unique name for your hook. Specifies a three-part namespace for your hook, with a recommended pattern of `Organization::Service::Hook`.  The following organization namespaces are reserved and can't be used in your hook type names:  +  `Alexa` +  `AMZN` +  `Amazon` +  `ASK` +  `AWS` +  `Custom` +  `Dev`",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "10",

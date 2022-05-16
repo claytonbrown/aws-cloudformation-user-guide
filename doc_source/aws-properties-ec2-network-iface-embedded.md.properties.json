@@ -1,5 +1,6 @@
 {
   "ec2.network.iface.embedded.AssociatePublicIpAddress": {
+    "Docs": "Indicates whether to assign a public IPv4 address to an instance. Applies only if creating a network interface when launching an instance. The network interface must be the primary network interface. If launching into a default subnet, the default value is `true`.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -9,6 +10,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.network.iface.embedded.DeleteOnTermination": {
+    "Docs": "Indicates whether the network interface is deleted when the instance is terminated. Applies only if creating a network interface when launching an instance.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -18,51 +20,61 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.network.iface.embedded.Description": {
+    "Docs": "The description of the network interface. Applies only if creating a network interface when launching an instance.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.network.iface.embedded.DeviceIndex": {
+    "Docs": "The position of the network interface in the attachment order. A primary network interface has a device index of 0.  If you create a network interface when launching an instance, you must specify the device index.",
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.network.iface.embedded.GroupSet": {
+    "Docs": "The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.network.iface.embedded.Ipv6AddressCount": {
+    "Docs": "A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.network.iface.embedded.Ipv6Addresses": {
+    "Docs": "One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.",
     "Required": "No",
     "Type": "List of [InstanceIpv6Address",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.network.iface.embedded.NetworkInterfaceId": {
+    "Docs": "The ID of the network interface, when attaching an existing network interface.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.network.iface.embedded.PrivateIpAddress": {
+    "Docs": "The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.network.iface.embedded.PrivateIpAddresses": {
+    "Docs": "One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary.",
     "Required": "No",
     "Type": "List of [PrivateIpAddressSpecification",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.network.iface.embedded.SecondaryPrivateIpAddressCount": {
+    "Docs": "The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.network.iface.embedded.SubnetId": {
+    "Docs": "The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

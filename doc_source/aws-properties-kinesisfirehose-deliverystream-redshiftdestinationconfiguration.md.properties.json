@@ -1,10 +1,12 @@
 {
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.CloudWatchLoggingOptions": {
+    "Docs": "The CloudWatch logging options for your delivery stream.",
     "Required": "No",
     "Type": "CloudWatchLoggingOptions",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.ClusterJDBCURL": {
+    "Docs": "The connection string that Kinesis Data Firehose uses to connect to the Amazon Redshift cluster.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -13,11 +15,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.CopyCommand": {
+    "Docs": "Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.",
     "Required": "Yes",
     "Type": "CopyCommand",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.Password": {
+    "Docs": "The password for the Amazon Redshift user that you specified in the `Username` property.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "6",
@@ -26,39 +30,47 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.ProcessingConfiguration": {
+    "Docs": "The data processing configuration for the Kinesis Data Firehose delivery stream.",
     "Required": "No",
     "Type": "ProcessingConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.RetryOptions": {
+    "Docs": "The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).",
     "Required": "No",
     "Type": "RedshiftRetryOptions",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.RoleARN": {
+    "Docs": "The ARN of the AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon Redshift Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-rs) in the *Amazon Kinesis Data Firehose Developer Guide*.",
     "Required": "Yes",
+    "Type": "String",
     "Minimum": "1",
     "Maximum": "512",
     "Pattern": "arn:.*",
     "UpdateRequires": "No interruption"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.S3BackupConfiguration": {
+    "Docs": "The configuration for backup in Amazon S3.",
     "Required": "No",
     "Type": "S3DestinationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.S3BackupMode": {
+    "Docs": "The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "Disabled | Enabled",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.S3Configuration": {
+    "Docs": "The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.",
     "Required": "Yes",
     "Type": "S3DestinationConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kinesisfirehose.deliverystream.redshiftdestinationconfiguration.Username": {
+    "Docs": "The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",

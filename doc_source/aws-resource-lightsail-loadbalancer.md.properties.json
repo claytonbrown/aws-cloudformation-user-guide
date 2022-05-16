@@ -1,47 +1,57 @@
 {
   "lightsail.loadbalancer.AttachedInstances": {
+    "Docs": "The Lightsail instances to attach to the load balancer.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.loadbalancer.HealthCheckPath": {
+    "Docs": "The path on the attached instance where the health check will be performed. If no path is specified, the load balancer tries to make a request to the default (root) page (`/index.html`).",
     "Required": "No",
     "Type": "String",
     "Pattern": ".*\\S.*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.loadbalancer.InstancePort": {
+    "Docs": "The port that the load balancer uses to direct traffic to your Lightsail instances. For HTTP traffic, specify port `80`. For HTTPS traffic, specify port `443`.",
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "Updates are not supported\\."
   },
   "lightsail.loadbalancer.IpAddressType": {
+    "Docs": "The IP address type of the load balancer.  The possible values are `ipv4` for IPv4 only, and `dualstack` for both IPv4 and IPv6.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "dualstack | ipv4",
     "UpdateRequires": "Updates are not supported\\."
   },
   "lightsail.loadbalancer.LoadBalancerName": {
+    "Docs": "The name of the load balancer.",
     "Required": "Yes",
     "Type": "String",
     "Pattern": "\\w[\\w\\-]*\\w",
     "UpdateRequires": "Updates are not supported\\."
   },
   "lightsail.loadbalancer.SessionStickinessEnabled": {
+    "Docs": "A Boolean value indicating whether session stickiness is enabled.  Enable session stickiness (also known as *session affinity*) to bind a user's session to a specific instance. This ensures that all requests from the user during the session are sent to the same instance.",
     "Required": "No",
     "AllowedValues": [
       "True",
       "False"
     ],
+    "Type": "Boolean",
     "UpdateRequires": "No interruption"
   },
   "lightsail.loadbalancer.SessionStickinessLBCookieDurationSeconds": {
+    "Docs": "The time period, in seconds, after which the load balancer session stickiness cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lightsail.loadbalancer.Tags": {
+    "Docs": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *AWS CloudFormation User Guide*.  The `Value` of `Tags` is optional for Lightsail resources.",
     "Required": "No",
+    "Type": "List of [Tag",
     "UpdateRequires": "No interruption"
   }
 }

@@ -1,5 +1,6 @@
 {
   "cloudformation.publictypeversion.Arn": {
+    "Docs": "The Amazon Resource Number (ARN) of the extension.  Conditional: You must specify `Arn`, or `TypeName` and `Type`.",
     "Required": "Conditional",
     "Type": "String",
     "Maximum": "1024",
@@ -7,13 +8,16 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cloudformation.publictypeversion.LogDeliveryBucket": {
+    "Docs": "The S3 bucket to which CloudFormation delivers the contract test execution logs.  CloudFormation delivers the logs by the time contract testing has completed and the extension has been assigned a test type status of `PASSED` or `FAILED`.  The user initiating the stack operation must be able to access items in the specified S3 bucket. Specifically, the user needs the following permissions:  + GetObject+ PutObjectFor more information, see [Actions, Resources, and Condition Keys for Amazon S3](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html) in the *AWS Identity and Access Management User Guide*.",
     "Required": "No",
+    "Type": "String",
     "Minimum": "3",
     "Maximum": "63",
     "Pattern": "[\\s\\S]+",
     "UpdateRequires": "Replacement"
   },
   "cloudformation.publictypeversion.PublicVersionNumber": {
+    "Docs": "The version number to assign to this version of the extension.  Use the following format, and adhere to semantic versioning when assigning a version number to your extension:   `MAJOR.MINOR.PATCH`   For more information, see [Semantic Versioning 2.0.0](https://semver.org/).  If you don't specify a version number, CloudFormation increments the version number by one minor version release.  You cannot specify a version number the first time you publish a type. AWS CloudFormation automatically sets the first version number to be `1.0.0`.",
     "Required": "No",
     "Type": "String",
     "Minimum": "5",
@@ -21,12 +25,14 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cloudformation.publictypeversion.Type": {
+    "Docs": "The type of the extension to test.  Conditional: You must specify `Arn`, or `TypeName` and `Type`.",
     "Required": "Conditional",
     "Type": "String",
     "Allowed values": "HOOK | MODULE | RESOURCE",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cloudformation.publictypeversion.TypeName": {
+    "Docs": "The name of the extension to test.  Conditional: You must specify `Arn`, or `TypeName` and `Type`.",
     "Required": "Conditional",
     "Type": "String",
     "Minimum": "10",

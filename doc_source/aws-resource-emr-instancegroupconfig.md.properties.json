@@ -1,9 +1,12 @@
 {
   "emr.instancegroupconfig.AutoScalingPolicy": {
+    "Docs": "",
     "Required": "No",
+    "Type": "AutoScalingPolicy",
     "UpdateRequires": "No interruption"
   },
   "emr.instancegroupconfig.BidPrice": {
+    "Docs": "If specified, indicates that the instance group uses Spot Instances. This is the maximum price you are willing to pay for Spot Instances. Specify `OnDemandPrice` to set the amount equal to the On-Demand price, or specify an amount in USD.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -12,11 +15,13 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.instancegroupconfig.Configurations": {
+    "Docs": "Amazon EMR releases 4.x or later.The list of configurations supplied for an EMR cluster instance group. You can specify a separate configuration for each instance group (master, core, and task).",
     "Required": "No",
     "Type": "List of [Configuration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.instancegroupconfig.CustomAmiId": {
+    "Docs": "The custom AMI ID to use for the provisioned instance group.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -25,16 +30,19 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.instancegroupconfig.EbsConfiguration": {
+    "Docs": "",
     "Required": "No",
     "Type": "EbsConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.instancegroupconfig.InstanceCount": {
+    "Docs": "Target number of instances for the instance group.",
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "emr.instancegroupconfig.InstanceRole": {
+    "Docs": "The role of the instance group in the cluster.",
     "AllowedValues": [
       "TASK"
     ],
@@ -44,6 +52,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.instancegroupconfig.InstanceType": {
+    "Docs": "The EC2 instance type for all instances in the instance group.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -52,17 +61,20 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.instancegroupconfig.JobFlowId": {
+    "Docs": "The ID of an Amazon EMR cluster that you want to associate this instance group with.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.instancegroupconfig.Market": {
+    "Docs": "Market type of the EC2 instances used to create a cluster node.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "ON_DEMAND | SPOT",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "emr.instancegroupconfig.Name": {
+    "Docs": "Friendly name given to the instance group.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",

@@ -1,23 +1,27 @@
 {
   "ssm.document.Attachments": {
+    "Docs": "A list of key-value pairs that describe attachments to a version of a document.",
     "Required": "No",
     "Type": "List of [AttachmentsSource",
     "Maximum": "20",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ssm.document.Content": {
+    "Docs": "The content for the new SSM document in JSON or YAML.  This parameter also supports `String` data types.",
     "Required": "Yes",
     "Type": "Json",
     "Minimum": "1",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ssm.document.DocumentFormat": {
+    "Docs": "Specify the document format for the request. JSON is the default format.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "JSON | TEXT | YAML",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ssm.document.DocumentType": {
+    "Docs": "The type of document to create.",
     "AllowedValues": [
       "ApplicationConfigurationSchema` \\| `Automation` \\| `Automation.ChangeTemplate` \\| `Command` \\| `DeploymentStrategy` \\| `Package` \\| `Policy` \\| `Session"
     ],
@@ -27,28 +31,35 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ssm.document.Name": {
+    "Docs": "A name for the SSM document.  You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:  +  `aws-` +  `amazon` +  `amzn`",
     "Required": "No",
     "Type": "String",
     "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ssm.document.Requires": {
+    "Docs": "A list of SSM documents required by a document. This parameter is used exclusively by AWS AppConfig. When a user creates an AWS AppConfig configuration in an SSM document, the user must also specify a required document for validation purposes. In this case, an `ApplicationConfiguration` document requires an `ApplicationConfigurationSchema` document for validation purposes. For more information, see [What is AWS AppConfig?](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the * AWS AppConfig User Guide*.",
     "Required": "No",
+    "Type": "List of [DocumentRequires",
     "UpdateRequires": "Replacement"
   },
   "ssm.document.Tags": {
+    "Docs": "AWS CloudFormation resource tags to apply to the document. Use tags to help you identify and categorize resources.",
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "1000",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssm.document.TargetType": {
+    "Docs": "Specify a target type to define the kinds of resources the document can run on. For example, to run a document on EC2 instances, specify the following value: `/AWS::EC2::Instance`. If you specify a value of '/' the document can run on all types of resources. If you don't specify a value, the document can't run on any resources. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) in the *AWS CloudFormation User Guide*.",
     "Required": "No",
+    "Type": "String",
     "Maximum": "200",
     "Pattern": "^\\/[\\w\\.\\-\\:\\/]*$",
     "UpdateRequires": "Replacement"
   },
   "ssm.document.VersionName": {
+    "Docs": "An optional field specifying the version of the artifact you are creating with the document. For example, \"Release 12, Update 6\". This value is unique across all versions of a document, and can't be changed.",
     "Required": "No",
     "Type": "String",
     "Pattern": "^[a-zA-Z0-9_\\-.]{1,128}$",

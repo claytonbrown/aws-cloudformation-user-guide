@@ -1,11 +1,13 @@
 {
   "servicediscovery.service.dnsrecord.TTL": {
+    "Docs": "The amount of time, in seconds, that you want DNS resolvers to cache the settings for this record.  Alias records don't include a TTL because Route 53 uses the TTL for the AWS resource that an alias record routes traffic to. If you include the `AWS_ALIAS_DNS_NAME` attribute when you submit a [RegisterInstance](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html) request, the `TTL` value is ignored. Always specify a TTL for the service; you can use a service to register instances that create either alias or non-alias records.",
     "Required": "Yes",
     "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "servicediscovery.service.dnsrecord.Type": {},
   "servicediscovery.service.dnsrecord.priority weight port service-hostname": {
+    "Docs": "",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "A | AAAA | CNAME | SRV",

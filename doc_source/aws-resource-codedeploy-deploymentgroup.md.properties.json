@@ -1,10 +1,12 @@
 {
   "codedeploy.deploymentgroup.AlarmConfiguration": {
+    "Docs": "Information about the Amazon CloudWatch alarms that are associated with the deployment group.",
     "Required": "No",
     "Type": "AlarmConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codedeploy.deploymentgroup.ApplicationName": {
+    "Docs": "The name of an existing CodeDeploy application to associate this deployment group with.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -12,32 +14,39 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "codedeploy.deploymentgroup.AutoRollbackConfiguration": {
+    "Docs": "Information about the automatic rollback configuration that is associated with the deployment group. If you specify this property, don't specify the `Deployment` property.",
     "Required": "No",
     "Type": "AutoRollbackConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codedeploy.deploymentgroup.AutoScalingGroups": {
+    "Docs": "A list of associated Auto Scaling groups that CodeDeploy automatically deploys revisions to when new instances are created. Duplicates are not allowed.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codedeploy.deploymentgroup.BlueGreenDeploymentConfiguration": {
+    "Docs": "Information about blue/green deployment options for a deployment group.",
     "Required": "No",
     "Type": "BlueGreenDeploymentConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codedeploy.deploymentgroup.Deployment": {
+    "Docs": "The application revision to deploy to this deployment group. If you specify this property, your target application revision is deployed as soon as the provisioning process is complete. If you specify this property, don't specify the `AutoRollbackConfiguration` property.",
     "Required": "No",
     "Type": "Deployment",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codedeploy.deploymentgroup.DeploymentConfigName": {
+    "Docs": "A deployment configuration name or a predefined configuration name. With predefined configurations, you can deploy application revisions to one instance at a time (`CodeDeployDefault.OneAtATime`), half of the instances at a time (`CodeDeployDefault.HalfAtATime`), or all the instances at once (`CodeDeployDefault.AllAtOnce`). For more information and valid values, see [Working with Deployment Configurations](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html) in the *AWS CodeDeploy User Guide*.",
     "Required": "No",
+    "Type": "String",
     "Minimum": "1",
     "Maximum": "100",
     "UpdateRequires": "No interruption"
   },
   "codedeploy.deploymentgroup.DeploymentGroupName": {
+    "Docs": "A name for the deployment group. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment group name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -45,43 +54,55 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "codedeploy.deploymentgroup.DeploymentStyle": {
+    "Docs": "Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer.    If you specify this property with a blue/green deployment type, don't specify the `AutoScalingGroups`, `LoadBalancerInfo`, or `Deployment` properties.    For blue/green deployments, AWS CloudFormation supports deployments on Lambda compute platforms only. You can perform Amazon ECS blue/green deployments using `AWS::CodeDeploy::BlueGreen ` hook. See [Perform Amazon ECS blue/green deployments through CodeDeploy using AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/blue-green.html) for more information.",
     "Required": "No",
     "Type": "DeploymentStyle",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codedeploy.deploymentgroup.Ec2TagFilters": {
+    "Docs": "The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed.    You can specify `EC2TagFilters` or `Ec2TagSet`, but not both.",
     "Required": "No",
     "Type": "List of [EC2TagFilter",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codedeploy.deploymentgroup.Ec2TagSet": {
+    "Docs": "Information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as `ec2TagFilter`.",
     "Required": "No",
     "Type": "EC2TagSet",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codedeploy.deploymentgroup.ECSServices": {
+    "Docs": "The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format `:`.",
     "Required": "No",
     "Type": "List of [ECSService",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codedeploy.deploymentgroup.LoadBalancerInfo": {
+    "Docs": "Information about the load balancer to use in a deployment. For more information, see [ Integrating CodeDeploy with Elastic Load Balancing](https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elastic-load-balancing.html) in the *AWS CodeDeploy User Guide*.",
     "Required": "No",
+    "Type": "LoadBalancerInfo",
     "UpdateRequires": "No interruption"
   },
   "codedeploy.deploymentgroup.OnPremisesInstanceTagFilters": {
+    "Docs": "The on-premises instance tags already applied to on-premises instances that you want to include in the deployment group. CodeDeploy includes all on-premises instances identified by any of the tags you specify in this deployment group. To register on-premises instances with CodeDeploy, see [Working with On-Premises Instances for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-on-premises.html) in the *AWS CodeDeploy User Guide*. Duplicates are not allowed.    You can specify `OnPremisesInstanceTagFilters` or `OnPremisesInstanceTagSet`, but not both.",
     "Required": "No",
+    "Type": "List of [TagFilter",
     "UpdateRequires": "No interruption"
   },
   "codedeploy.deploymentgroup.OnPremisesTagSet": {
+    "Docs": "Information about groups of tags applied to on-premises instances. The deployment group includes only on-premises instances identified by all the tag groups.   You can specify `OnPremisesInstanceTagFilters` or `OnPremisesInstanceTagSet`, but not both.",
     "Required": "No",
     "Type": "OnPremisesTagSet",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "codedeploy.deploymentgroup.ServiceRoleArn": {
+    "Docs": "A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf. For more information, see [Create a Service Role for AWS CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/getting-started-create-service-role.html) in the *AWS CodeDeploy User Guide*.    In some cases, you might need to add a dependency on the service role's policy. For more information, see IAM role policy in [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).",
     "Required": "Yes",
+    "Type": "String",
     "UpdateRequires": "No interruption"
   },
   "codedeploy.deploymentgroup.TriggerConfigurations": {
+    "Docs": "Information about triggers associated with the deployment group. Duplicates are not allowed",
     "Required": "No",
     "Type": "List of [TriggerConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
