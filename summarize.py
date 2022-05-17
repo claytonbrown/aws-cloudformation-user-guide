@@ -42,11 +42,13 @@ rule s3_buckets_allowed_sse_algorithm when %s3_buckets !empty {
 """
 resource_rules = {}
 
+cfn_selectors = {}
+
 def add_rule(
         cfn_resource = 'AWS::S3::Bucket',
         cfn_property = 'encryption',
         path_match='encryption.ServerSideEncryptionConfiguration[*].ServerSideEncryptionByDefault.SSEAlgorithm',
-        allowed_values_string
+        allowed_values_string=""
         ):
 
     if resource_rules not in resource_rules:
@@ -96,12 +98,18 @@ for resource_name, resource_properties in cfn_schema["ResourceTypes"].items():
     schema_key[key] = resource_name
     log.info("%s --> %s" % (key, resource_name))
 
+
+    # create CNF guard 2 resource selector
+    cfn_selectors[resource_name] = {}
+
     if "Properties" in resource_properties:
         for resource_property_name, resource_property_detail in resource_properties["Properties"].items():
             property_key = "%s.%s" % (key, resource_property_name)
             property_ref = "%s.%s" % (resource_name, resource_property_name)
             schema_key[property_key] = property_ref
             log.info("%s --> %s" % (property_key, property_ref))
+
+            cfn_selectors[resource_name][resource_property_name]= {}
 
 files = glob.glob('doc_source/aws-properties-*.md.properties.json')
 for file in files:
@@ -165,7 +173,7 @@ for file in files:
 
             # coerce pipe separated string values into unique list e.g.  "Allowed values": "CA_REPOSITORY | RESOURCE_PKI_MANIFEST | RESOURCE_PKI_NOTIFY",
             if "AllowedValues" in v and type(v["AllowedValues"]) == str:
-                v["AllowedValues"] = list(set(v["AllowedValues"].split(" | ")))
+                v["AllowedValues"] = sorted(list(set(v["AllowedValues"].split(" | "))))
 
 
             if "AllowedValues" in v and "SampleValue" not in v:
