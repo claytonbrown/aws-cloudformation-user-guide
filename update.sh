@@ -15,14 +15,14 @@ curl https://raw.githubusercontent.com/powdahound/ec2instances.info/master/www/i
 # Process Resources
 for document in `ls doc_source/aws-resource*.md`; do
 	# echo $document;
-	cat $document | python cfn_properties_json.py | jq . > "$document.properties.json"
+	cat $document | python3 cfn_properties_json.py | jq . > "$document.properties.json"
 	echo "Generated $document.properties.json"
 done;
 
 # Process Resource Properties
 for document in `ls doc_source/aws-properties-*.md`; do
 	# echo $document;
-	cat $document | python cfn_properties_json.py | jq . > "$document.properties.json"
+	cat $document | python3 cfn_properties_json.py | jq . > "$document.properties.json"
 	echo "Generated $document.properties.json"
 done;
 
