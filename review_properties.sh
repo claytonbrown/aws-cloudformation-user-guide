@@ -2,5 +2,5 @@ cp ../cfn_resource_specs/CloudFormationResourceSpecification-us-east-1.json ./Cl
 
 for document in `ls doc_source/aws-properties-*.md`; do
 	echo $document;
-	cat $document | python cfn_properties_json.py | jq .
+	cat $document | python3 cfn_properties_json.py | jq .
 done;

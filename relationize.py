@@ -59,16 +59,16 @@ def add_rule(
     if resource_rules not in resource_rules:
         resource_rules[cfn_resource] = []
 
-    resource_rules[cfn_resource].append(
-        chevron.render(
+    rule_sample = chevron.render(
             {
                 'resource_type': cfn_resource,                  # e.g. 'AWS::S3::Bucket'
                 'parent_property_name': cfn_property,           # e.g. %encryption exists
                 'matcher_rule': path_match,                     # e.g. %encryption.ServerSideEncryptionConfiguration[*].ServerSideEncryptionByDefault.SSEAlgorithm
                 'allowed_values': allowed_values_string         # e.g.
             }
-        )
     )
+    log.info(rule_sample)
+    resource_rules[cfn_resource].append(rule_sample)
 
 sampleString = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ" * 500
 
@@ -103,7 +103,7 @@ for resource_name, resource_properties in cfn_schema["ResourceTypes"].items():
     schema_key[key] = resource_name
     log.info("%s --> %s" % (key, resource_name))
 
-    g.put("cfn","resource",resource_name)
+    g.put("cfn","Resource",resource_name)
 
 
     # create CNF guard 2 resource selector
@@ -117,6 +117,8 @@ for resource_name, resource_properties in cfn_schema["ResourceTypes"].items():
             log.info("%s --> %s" % (property_key, property_ref))
 
             cfn_selectors[resource_name][resource_property_name]= {}
+
+            g.put(resource_name,"resource",resource_property_name)
 
 files = glob.glob('doc_source/aws-properties-*.md.properties.json')
 for file in files:
@@ -215,3 +217,10 @@ with open(output_file, 'w') as file:
     file.write(json.dumps(properties, indent=4, sort_keys=True))
     file.close()
     log.info("Written: %s" % (output_file))
+
+for cfn_resource in resource_rules.keys():
+    rule_file = "./rulesets/v2/%s.guard.txt" % (inflection.paramatize(cfn_resource.lower()))
+    with open(rule_file, 'w') as f:
+        f.write(json.dumps(resource_rules[cfn_resource], indent=4))
+        log.info("Written: %s" % (rule_file))
+        f.close()

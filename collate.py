@@ -73,7 +73,8 @@ for file in glob.glob("aws-cfn-resource-specs/specs/*/CloudFormationResourceSpec
     log.debug(region)
     with open(file, 'r') as schema:
         cfn[region] = json.load(schema)
-        log.debug("Loading cfn for : %s" % (region))
+        log.info("Loading cfn for : %s" % (region))
+
 spec["cfn"] = cfn["us-east-1"]
 log.info("Set global spec to us-east-1")
 log.info("Assessing resource availability in regions [%s]" % (

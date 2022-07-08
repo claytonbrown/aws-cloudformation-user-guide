@@ -54,42 +54,25 @@ def add_rule(
     if resource_rules not in resource_rules:
         resource_rules[cfn_resource] = []
 
-    resource_rules[cfn_resource].append(
-        chevron.render(
-            {
-                'resource_type': cfn_resource,                  # e.g. 'AWS::S3::Bucket'
-                'parent_property_name': cfn_property,           # e.g. %encryption exists
-                'matcher_rule': path_match,                     # e.g. %encryption.ServerSideEncryptionConfiguration[*].ServerSideEncryptionByDefault.SSEAlgorithm
-                'allowed_values': allowed_values_string         # e.g.
-            }
-        )
-    )
+
+    args = {
+        'template': sample_rule,
+
+        'data': {
+            'resource_type': cfn_resource,                  # e.g. 'AWS::S3::Bucket'
+            'parent_property_name': cfn_property,           # e.g. %encryption exists
+            'matcher_rule': path_match,                     # e.g. %encryption.ServerSideEncryptionConfiguration[*].ServerSideEncryptionByDefault.SSEAlgorithm
+            'allowed_values': allowed_values_string         # e.g.
+        }
+    }
+    rule = chevron.render(**args)
+    log.info(rule)
+    resource_rules[cfn_resource].append(rule)
 
 sampleString = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ" * 500
 
 # aws-properties-autoscalingplans-scalingplan-scalinginstruction.md:*Allowed Values*: `KeepExternalPolicies | ReplaceExternalPolicies`
 properties = {}
-"""
-input_file = "summary.txt"
-with open(input_file, "r") as file:
-    for line in file.readlines():
-        try:
-            key, value = line.replace("`", "").split('.md:*Allowed Values*: ')
-            key = key.replace("aws-resource-", "")
-            key = key.replace("aws-properties-", "")
-            key = key.replace("-", ".")
-            properties[key] = value.replace('\n', '').strip().split(' | ')
-
-        except Exception as e:
-            # log.debug(line)
-            # log.debug(e)
-            logging.debug(e)
-            pass
-
-    # work with exceptions
-    properties["glue.job.jobcommand.pythonversion"] = ["2", "3"]
-    properties["appsync.graphqlapi.authenticationtype"] = ["API_KEY", "AWS_IAM", "AMAZON_COGNITO_USER_POOLS", "OPENID_CONNECT"]
-"""
 
 cfn_schema = json.load(open('CloudFormationResourceSpecification.json','r'))
 schema_key = {}
@@ -108,8 +91,14 @@ for resource_name, resource_properties in cfn_schema["ResourceTypes"].items():
             property_ref = "%s.%s" % (resource_name, resource_property_name)
             schema_key[property_key] = property_ref
             log.info("%s --> %s" % (property_key, property_ref))
-
             cfn_selectors[resource_name][resource_property_name]= {}
+
+            add_rule(
+                cfn_resource = resource_name,
+                cfn_property = resource_property_name,
+                path_match='TODO',
+                allowed_values_string=""
+            )
 
 files = glob.glob('doc_source/aws-properties-*.md.properties.json')
 for file in files:
@@ -208,3 +197,15 @@ with open(output_file, 'w') as file:
     file.write(json.dumps(properties, indent=4, sort_keys=True))
     file.close()
     log.info("Written: %s" % (output_file))
+
+
+for cfn_resource in resource_rules.keys():
+    rule_file = "./rulesets/v2/%s.guard.txt" % (inflection.paramatize(cfn_resource.lower()))
+    with open(rule_file, 'w') as f:
+        f.write(json.dumps(resource_rules[cfn_resource], indent=4))
+        log.info("Written: %s" % (rule_file))
+        f.close()
+
+
+# EXPLORE ICONS 
+icon_files = glob.glob("")        
