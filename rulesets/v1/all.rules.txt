@@ -174,7 +174,6 @@ The `PermissionModel` property is required\.]
 # #AWS::EC2::ClientVpnEndpoint SelfServicePortal  == disabled |OR| AWS::EC2::ClientVpnEndpoint SelfServicePortal  == enabled << Enforce allowed values [disabled | enabled]
 # #AWS::EC2::ClientVpnEndpoint SplitTunnel  == True |OR| AWS::EC2::ClientVpnEndpoint SplitTunnel  == False << Enforce allowed values [True | False]
 # #AWS::EC2::ClientVpnEndpoint TransportProtocol  == tcp |OR| AWS::EC2::ClientVpnEndpoint TransportProtocol  == udp << Enforce allowed values [tcp | udp]
-# #AWS::EC2::CustomerGateway Type  == ipsec.1 << Enforce allowed values [ipsec.1]
 # #AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy  == no-termination |OR| AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy  == termination << Enforce allowed values [no-termination | termination]
 # #AWS::EC2::EC2Fleet ReplaceUnhealthyInstances  == True |OR| AWS::EC2::EC2Fleet ReplaceUnhealthyInstances  == False << Enforce allowed values [True | False]
 # #AWS::EC2::EC2Fleet TerminateInstancesWithExpiration  == True |OR| AWS::EC2::EC2Fleet TerminateInstancesWithExpiration  == False << Enforce allowed values [True | False]
@@ -222,7 +221,6 @@ The `PermissionModel` property is required\.]
 # #AWS::EC2::VPCEndpointService PayerResponsibility  == ServiceOwner << Enforce allowed values [ServiceOwner]
 # #AWS::EC2::VPNConnection StaticRoutesOnly  == True |OR| AWS::EC2::VPNConnection StaticRoutesOnly  == False << Enforce allowed values [True | False]
 # #AWS::EC2::VPNConnection Type  == ipsec.1 << Enforce allowed values [ipsec.1]
-# #AWS::EC2::VPNGateway Type  == ipsec.1 << Enforce allowed values [ipsec.1]
 # #AWS::EC2::Volume AutoEnableIO  == True |OR| AWS::EC2::Volume AutoEnableIO  == False << Enforce allowed values [True | False]
 # #AWS::EC2::Volume Encrypted  == True |OR| AWS::EC2::Volume Encrypted  == False << Enforce allowed values [True | False]
 # #AWS::EC2::Volume MultiAttachEnabled  == True |OR| AWS::EC2::Volume MultiAttachEnabled  == False << Enforce allowed values [True | False]
@@ -965,6 +963,7 @@ The `PermissionModel` property is required\.]
 # AWS::AppFlow::Flow KMSArn  == /arn.*{20,2048}/ <<  KMSArn is a required property for AWS::AppFlow::Flow
 # AWS::AppFlow::Flow KMSArn  == /arn:aws:kms:.*:[0-9]+:.*/ <<  KMSArn is a required pattern for AWS::AppFlow::Flow
 # AWS::AppFlow::Flow SourceFlowConfig  == /.*/ <<  SourceFlowConfig is a required property for AWS::AppFlow::Flow
+# AWS::AppFlow::Flow SourceFlowConfig.ApiVersion  == /\S/ <<  AWS::AppFlow::Flow is an expected but optional String property for SourceFlowConfig
 # AWS::AppFlow::Flow SourceFlowConfig.ConnectorProfileName  == /\S/ <<  AWS::AppFlow::Flow is an expected but optional String property for SourceFlowConfig
 # AWS::AppFlow::Flow SourceFlowConfig.ConnectorType  == /\S/ <<  AWS::AppFlow::Flow is an expected but optional String property for SourceFlowConfig
 # AWS::AppFlow::Flow SourceFlowConfig.appflow.flow.sourceflowconfig.ConnectorType  == /.*/ <<  appflow.flow.sourceflowconfig.ConnectorType is a required property for AWS::AppFlow::Flow SourceFlowConfig
@@ -2868,6 +2867,7 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::DataSync::Task Options.Gid  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
 # AWS::DataSync::Task Options.LogLevel  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
 # AWS::DataSync::Task Options.Mtime  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
+# AWS::DataSync::Task Options.ObjectTags  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
 # AWS::DataSync::Task Options.OverwriteMode  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
 # AWS::DataSync::Task Options.PosixPermissions  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
 # AWS::DataSync::Task Options.PreserveDeletedFiles  == /\S/ <<  AWS::DataSync::Task is an expected but optional String property for Options
@@ -3112,12 +3112,6 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::EC2::ClientVpnRoute TargetVpcSubnetId  == /.*/ <<  TargetVpcSubnetId is a required property for AWS::EC2::ClientVpnRoute
 # AWS::EC2::ClientVpnTargetNetworkAssociation ClientVpnEndpointId  == /.*/ <<  ClientVpnEndpointId is a required property for AWS::EC2::ClientVpnTargetNetworkAssociation
 # AWS::EC2::ClientVpnTargetNetworkAssociation SubnetId  == /.*/ <<  SubnetId is a required property for AWS::EC2::ClientVpnTargetNetworkAssociation
-# AWS::EC2::CustomerGateway BgpAsn  == /.*/ <<  BgpAsn is a required property for AWS::EC2::CustomerGateway
-# AWS::EC2::CustomerGateway BgpAsn  == /[0-9].+/ <<  Integer is expected for AWS::EC2::CustomerGateway of BgpAsn 
-# AWS::EC2::CustomerGateway IpAddress  == /.*/ <<  IpAddress is a required property for AWS::EC2::CustomerGateway
-# AWS::EC2::CustomerGateway Type  == /.*/ <<  Type is a required property for AWS::EC2::CustomerGateway
-# AWS::EC2::CustomerGateway Type  == /ipsec.1/ <<  ipsec.1 is an expected value for AWS::EC2::CustomerGateway Type
-# AWS::EC2::CustomerGateway Type IN [ipsec.1] << Enforcing Allowed Values only
 # AWS::EC2::DHCPOptions NetbiosNodeType  == /[0-9].+/ <<  Integer is expected for AWS::EC2::DHCPOptions of NetbiosNodeType 
 # AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy  == /no-termination/ <<  no-termination is an expected value for AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy
 # AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy  == /termination/ <<  termination is an expected value for AWS::EC2::EC2Fleet ExcessCapacityTerminationPolicy
@@ -3502,9 +3496,6 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::EC2::VPNConnection VpnTunnelOptionsSpecifications.TunnelInsideCidr  == /\S/ <<  AWS::EC2::VPNConnection is an expected but optional String property for VpnTunnelOptionsSpecifications
 # AWS::EC2::VPNConnectionRoute DestinationCidrBlock  == /.*/ <<  DestinationCidrBlock is a required property for AWS::EC2::VPNConnectionRoute
 # AWS::EC2::VPNConnectionRoute VpnConnectionId  == /.*/ <<  VpnConnectionId is a required property for AWS::EC2::VPNConnectionRoute
-# AWS::EC2::VPNGateway Type  == /.*/ <<  Type is a required property for AWS::EC2::VPNGateway
-# AWS::EC2::VPNGateway Type  == /ipsec.1/ <<  ipsec.1 is an expected value for AWS::EC2::VPNGateway Type
-# AWS::EC2::VPNGateway Type IN [ipsec.1] << Enforcing Allowed Values only
 # AWS::EC2::VPNGatewayRoutePropagation RouteTableIds  == /.*/ <<  RouteTableIds is a required property for AWS::EC2::VPNGatewayRoutePropagation
 # AWS::EC2::VPNGatewayRoutePropagation VpnGatewayId  == /.*/ <<  VpnGatewayId is a required property for AWS::EC2::VPNGatewayRoutePropagation
 # AWS::EC2::Volume AutoEnableIO  == /False/ <<  False is an expected value for AWS::EC2::Volume AutoEnableIO
@@ -5804,6 +5795,7 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::Logs::MetricFilter MetricTransformations.MetricName  == /\S/ <<  AWS::Logs::MetricFilter is an expected but optional String property for MetricTransformations
 # AWS::Logs::MetricFilter MetricTransformations.MetricNamespace  == /\S/ <<  AWS::Logs::MetricFilter is an expected but optional String property for MetricTransformations
 # AWS::Logs::MetricFilter MetricTransformations.MetricValue  == /\S/ <<  AWS::Logs::MetricFilter is an expected but optional String property for MetricTransformations
+# AWS::Logs::MetricFilter MetricTransformations.Unit  == /\S/ <<  AWS::Logs::MetricFilter is an expected but optional String property for MetricTransformations
 # AWS::Logs::QueryDefinition Name  == /.*/ <<  Name is a required property for AWS::Logs::QueryDefinition
 # AWS::Logs::QueryDefinition QueryString  == /.*/ <<  QueryString is a required property for AWS::Logs::QueryDefinition
 # AWS::Logs::ResourcePolicy PolicyDocument  == /.*/ <<  PolicyDocument is a required property for AWS::Logs::ResourcePolicy
@@ -6785,7 +6777,6 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::RDS::DBInstance UseDefaultProcessorFeatures  == False <<  False is expected  safe default value
 # AWS::RDS::DBInstance UseDefaultProcessorFeatures  == True <<  True is expected safe default value
 # AWS::RDS::DBInstance UseDefaultProcessorFeatures IN [True,False] << Enforcing Allowed Values only
-# AWS::RDS::DBParameterGroup Description  == /.*/ <<  Description is a required property for AWS::RDS::DBParameterGroup
 # AWS::RDS::DBProxy Auth  == /.*/ <<  Auth is a required property for AWS::RDS::DBProxy
 # AWS::RDS::DBProxy DBProxyName  == /.*/ <<  DBProxyName is a required property for AWS::RDS::DBProxy
 # AWS::RDS::DBProxy DebugLogging  == /False/ <<  False is an expected value for AWS::RDS::DBProxy DebugLogging
@@ -6810,8 +6801,6 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::RDS::DBSecurityGroup DBSecurityGroupIngress  == /.*/ <<  DBSecurityGroupIngress is a required property for AWS::RDS::DBSecurityGroup
 # AWS::RDS::DBSecurityGroup GroupDescription  == /.*/ <<  GroupDescription is a required property for AWS::RDS::DBSecurityGroup
 # AWS::RDS::DBSecurityGroupIngress DBSecurityGroupName  == /.*/ <<  DBSecurityGroupName is a required property for AWS::RDS::DBSecurityGroupIngress
-# AWS::RDS::DBSubnetGroup DBSubnetGroupDescription  == /.*/ <<  DBSubnetGroupDescription is a required property for AWS::RDS::DBSubnetGroup
-# AWS::RDS::DBSubnetGroup SubnetIds  == /.*/ <<  SubnetIds is a required property for AWS::RDS::DBSubnetGroup
 # AWS::RDS::EventSubscription Enabled  == /False/ <<  False is an expected value for AWS::RDS::EventSubscription Enabled
 # AWS::RDS::EventSubscription Enabled  == /True/ <<  True is an expected value for AWS::RDS::EventSubscription Enabled
 # AWS::RDS::EventSubscription Enabled  == False <<  False is expected  safe default value
@@ -6995,6 +6984,7 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::ResilienceHub::App ResourceMappings.LogicalStackName  == /\S/ <<  AWS::ResilienceHub::App is an expected but optional String property for ResourceMappings
 # AWS::ResilienceHub::App ResourceMappings.MappingType  == /\S/ <<  AWS::ResilienceHub::App is an expected but optional String property for ResourceMappings
 # AWS::ResilienceHub::App ResourceMappings.ResourceName  == /\S/ <<  AWS::ResilienceHub::App is an expected but optional String property for ResourceMappings
+# AWS::ResilienceHub::App ResourceMappings.TerraformSourceName  == /\S/ <<  AWS::ResilienceHub::App is an expected but optional String property for ResourceMappings
 # AWS::ResilienceHub::ResiliencyPolicy Policy  == /.*/ <<  Policy is a required property for AWS::ResilienceHub::ResiliencyPolicy
 # AWS::ResilienceHub::ResiliencyPolicy PolicyName  == /.*/ <<  PolicyName is a required property for AWS::ResilienceHub::ResiliencyPolicy
 # AWS::ResilienceHub::ResiliencyPolicy Tier  == /.*/ <<  Tier is a required property for AWS::ResilienceHub::ResiliencyPolicy
@@ -7206,6 +7196,7 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::S3::BucketPolicy Bucket  == /.*/ <<  Bucket is a required property for AWS::S3::BucketPolicy
 # AWS::S3::BucketPolicy PolicyDocument  == /.*/ <<  PolicyDocument is a required property for AWS::S3::BucketPolicy
 # AWS::S3::MultiRegionAccessPoint Regions  == /.*/ <<  Regions is a required property for AWS::S3::MultiRegionAccessPoint
+# AWS::S3::MultiRegionAccessPoint Regions.AccountId  == /\S/ <<  AWS::S3::MultiRegionAccessPoint is an expected but optional String property for Regions
 # AWS::S3::MultiRegionAccessPoint Regions.Bucket  == /\S/ <<  AWS::S3::MultiRegionAccessPoint is an expected but optional String property for Regions
 # AWS::S3::MultiRegionAccessPointPolicy MrapName  == /.*/ <<  MrapName is a required property for AWS::S3::MultiRegionAccessPointPolicy
 # AWS::S3::MultiRegionAccessPointPolicy Policy  == /.*/ <<  Policy is a required property for AWS::S3::MultiRegionAccessPointPolicy
@@ -8128,6 +8119,7 @@ The `StackSetName` property is required\./ <<  StackSetName is a required patter
 # AWS::Transfer::Server PostAuthenticationLoginBanner  == /[\x09-\x0D\x20-\x7E]*/ <<  PostAuthenticationLoginBanner is a required pattern for AWS::Transfer::Server
 # AWS::Transfer::Server PreAuthenticationLoginBanner  == /[\x09-\x0D\x20-\x7E]*/ <<  PreAuthenticationLoginBanner is a required pattern for AWS::Transfer::Server
 # AWS::Transfer::Server ProtocolDetails.PassiveIp  == /\S/ <<  AWS::Transfer::Server is an expected but optional String property for ProtocolDetails
+# AWS::Transfer::Server ProtocolDetails.SetStatOption  == /\S/ <<  AWS::Transfer::Server is an expected but optional String property for ProtocolDetails
 # AWS::Transfer::Server ProtocolDetails.TlsSessionResumptionMode  == /\S/ <<  AWS::Transfer::Server is an expected but optional String property for ProtocolDetails
 # AWS::Transfer::Server SecurityPolicyName  == /TransferSecurityPolicy-.+/ <<  SecurityPolicyName is a required pattern for AWS::Transfer::Server
 # AWS::Transfer::Server SecurityPolicyName  == /arn.*{0,100}/ <<  SecurityPolicyName is a required property for AWS::Transfer::Server

@@ -372,6 +372,7 @@ def generate_sample_property(resource, property, type):
     else:
         return {}
 
+docs2_resource = {}
 
 for resource in spec["cfn"]["ResourceTypes"]:
     resource_id = inflection.parameterize(resource)
@@ -744,6 +745,8 @@ for resource in spec["cfn"]["ResourceTypes"]:
                                                 )
                                                 del sub_properties[sub_property]["Type"]
 
+
+
                                         # waf-bytematchset-bytematchtuples-fieldtomatch
                                         coerced_file_part = "%s-%s" % (
                                             resource, property)
@@ -913,6 +916,7 @@ for property_type, data in spec["cfn"]["PropertyTypes"].items():
     """
     if not "Properties" in data:
         log.warning("PropertyType has not properties: %s" % (property_type))
+        log.info(json.dumps(data, indent=4))
     else:
         try:
             resource_name, property_name = property_type.split('.')
