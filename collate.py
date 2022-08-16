@@ -75,7 +75,7 @@ for file in glob.glob("aws-cfn-resource-specs/specs/*/CloudFormationResourceSpec
         cfn[region] = json.load(schema)
         log.info("Loading cfn for : %s" % (region))
 
-spec["cfn"] = cfn["us-east-1"]
+spec["cfn"] = json.loads(open('CloudFormationResourceSpecificationWithDocs.json', 'r').read())
 log.info("Set global spec to us-east-1")
 log.info("Assessing resource availability in regions [%s]" % (
     ",".join(cfn.keys())))

@@ -2,7 +2,7 @@ import sys
 import json
 import pprint
 import re
-
+import inflection
 
 CLEANR = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
 
@@ -17,7 +17,25 @@ properties = {}
 result = {}
 pipe = sys.stdin.read()
 pipe = pipe.split("# ")
+
+
 for data in pipe:
+    firstline = data.split("\n")[0]
+
+    if 'AWS::' in firstline and "aws-resource-" in firstline: 
+        # AWS::RDS::DBCluster<a name="aws-resource-rds-dbcluster"></a>
+        
+        properties["CfnAbout"] = data.split("</a>")[1].split('#')[0].strip().replace("\\","")
+        properties['CfnType'] = firstline.split('<a')[0].replace('# ','').strip().replace(' ','.')
+        properties['CfnDocsKey'] = firstline.split('"')[1].split('"')[0].replace('#','').strip().split('.')[0]
+
+    if 'AWS::' in firstline and "aws-properties-" in firstline: 
+        # AWS::Redshift::Cluster Endpoint<a name="aws-properties-redshift-cluster-endpoint"></a>
+        firstline = data.split("##")[0].split('*')[0]
+        properties["CfnAbout"] = data.split("</a>")[1].split('#')[0].strip().replace("\\","")
+        properties['CfnType'] = firstline.split('<a')[0].replace('# ','').strip().replace(' ','.')
+        properties['CfnDocsKey'] = firstline.split('"')[1].split('"')[0].replace('#','').strip().split('.')[0]
+
     # print(data)
     if "Properties<a" in data:
         property_type = data.split("Properties<a name=\"")[1].split('\"')[0]
