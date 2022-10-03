@@ -10,7 +10,7 @@ curl https://raw.githubusercontent.com/witoff/aws-iam-reference/master/reference
 curl https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/endpoints.json | jq . > ./aws_service_info/api_endpoints.json
 
 # Update EC2 Types
-curl https://raw.githubusercontent.com/powdahound/ec2instances.info/master/www/instances.json | jq . > ./aws_service_info/ec2_instances.json
+python3 vantage_scrape.py
 
 # Process Resources
 for document in `ls doc_source/aws-resource*.md`; do
@@ -31,4 +31,6 @@ python3 collate.py
 python3 summarize.py
 
 # Publish new cloudformation guard generated ruleset
-cp cfndecorator.ruleset ../cloudformation-guard/Examples/
+cp -R rulesets/* cloudformation-guard/Examples/
+
+ 
