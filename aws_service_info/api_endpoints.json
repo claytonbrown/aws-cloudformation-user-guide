@@ -2424,6 +2424,12 @@
           "isRegionalized": false,
           "partitionEndpoint": "aws-global"
         },
+        "cases": {
+          "endpoints": {
+            "us-east-1": {},
+            "us-west-2": {}
+          }
+        },
         "cassandra": {
           "endpoints": {
             "ap-east-1": {},
@@ -2794,6 +2800,7 @@
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
+            "me-central-1": {},
             "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {},
@@ -8194,6 +8201,7 @@
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
+            "me-central-1": {},
             "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {
@@ -8426,6 +8434,35 @@
           },
           "isRegionalized": false,
           "partitionEndpoint": "aws-global"
+        },
+        "ingest.timestream": {
+          "endpoints": {
+            "ap-northeast-1": {},
+            "ap-southeast-2": {},
+            "eu-central-1": {},
+            "eu-west-1": {},
+            "ingest-fips-us-east-1": {
+              "credentialScope": {
+                "region": "us-east-1"
+              },
+              "hostname": "ingest.timestream-fips.us-east-1.amazonaws.com"
+            },
+            "ingest-fips-us-east-2": {
+              "credentialScope": {
+                "region": "us-east-2"
+              },
+              "hostname": "ingest.timestream-fips.us-east-2.amazonaws.com"
+            },
+            "ingest-fips-us-west-2": {
+              "credentialScope": {
+                "region": "us-west-2"
+              },
+              "hostname": "ingest.timestream-fips.us-west-2.amazonaws.com"
+            },
+            "us-east-1": {},
+            "us-east-2": {},
+            "us-west-2": {}
+          }
         },
         "inspector": {
           "endpoints": {
@@ -11986,6 +12023,13 @@
               "deprecated": true,
               "hostname": "pinpoint-fips.us-east-1.amazonaws.com"
             },
+            "fips-us-east-2": {
+              "credentialScope": {
+                "region": "us-east-2"
+              },
+              "deprecated": true,
+              "hostname": "pinpoint-fips.us-east-2.amazonaws.com"
+            },
             "fips-us-west-2": {
               "credentialScope": {
                 "region": "us-west-2"
@@ -12001,6 +12045,20 @@
               "variants": [
                 {
                   "hostname": "pinpoint-fips.us-east-1.amazonaws.com",
+                  "tags": [
+                    "fips"
+                  ]
+                }
+              ]
+            },
+            "us-east-2": {
+              "credentialScope": {
+                "region": "us-east-2"
+              },
+              "hostname": "pinpoint.us-east-2.amazonaws.com",
+              "variants": [
+                {
+                  "hostname": "pinpoint-fips.us-east-2.amazonaws.com",
                   "tags": [
                     "fips"
                   ]
@@ -18172,8 +18230,30 @@
             "ap-southeast-2": {},
             "eu-central-1": {},
             "eu-west-2": {},
-            "us-east-1": {},
-            "us-west-2": {}
+            "fips-us-east-1": {
+              "deprecated": true
+            },
+            "fips-us-west-2": {
+              "deprecated": true
+            },
+            "us-east-1": {
+              "variants": [
+                {
+                  "tags": [
+                    "fips"
+                  ]
+                }
+              ]
+            },
+            "us-west-2": {
+              "variants": [
+                {
+                  "tags": [
+                    "fips"
+                  ]
+                }
+              ]
+            }
           }
         },
         "workdocs": {
@@ -20452,6 +20532,16 @@
           }
         },
         "cloudtrail": {
+          "defaults": {
+            "variants": [
+              {
+                "hostname": "cloudtrail.us-gov-west-1.amazonaws.com",
+                "tags": [
+                  "fips"
+                ]
+              }
+            ]
+          },
           "endpoints": {
             "fips-us-gov-east-1": {
               "credentialScope": {
@@ -21155,13 +21245,29 @@
               "credentialScope": {
                 "region": "us-gov-east-1"
               },
-              "hostname": "ec2.us-gov-east-1.amazonaws.com"
+              "hostname": "ec2.us-gov-east-1.amazonaws.com",
+              "variants": [
+                {
+                  "hostname": "ec2.us-gov-east-1.api.aws",
+                  "tags": [
+                    "dualstack"
+                  ]
+                }
+              ]
             },
             "us-gov-west-1": {
               "credentialScope": {
                 "region": "us-gov-west-1"
               },
-              "hostname": "ec2.us-gov-west-1.amazonaws.com"
+              "hostname": "ec2.us-gov-west-1.amazonaws.com",
+              "variants": [
+                {
+                  "hostname": "ec2.us-gov-west-1.api.aws",
+                  "tags": [
+                    "dualstack"
+                  ]
+                }
+              ]
             }
           }
         },
@@ -25035,7 +25141,8 @@
         },
         "synthetics": {
           "endpoints": {
-            "us-iso-east-1": {}
+            "us-iso-east-1": {},
+            "us-iso-west-1": {}
           }
         },
         "tagging": {
