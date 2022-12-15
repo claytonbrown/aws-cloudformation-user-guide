@@ -10,7 +10,7 @@ curl https://raw.githubusercontent.com/witoff/aws-iam-reference/master/reference
 curl https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/endpoints.json | jq . > ./aws_service_info/api_endpoints.json
 
 # Update EC2 Types
-python3 vantage_scrape.py
+python3 vantage_scrape.py| jq . > ./aws_service_info/ec2_instances.json
 
 # Process Resources
 for document in `ls doc_source/aws-resource*.md`; do
