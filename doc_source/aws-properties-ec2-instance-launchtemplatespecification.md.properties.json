@@ -1,21 +1,21 @@
 {
-  "ec2.instance.launchtemplatespecification.CfnAbout": "Specifies a launch template. You must specify either the launch template ID or launch template name.\n\n `LaunchTemplateSpecification` is a property of the [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource.",
+  "ec2.instance.launchtemplatespecification.CfnAbout": "Specifies a launch template to use when launching an Amazon EC2 instance.\n\nYou must specify the following:\n+ The ID or the name of the launch template, but not both.\n+ The version of the launch template.\n\n`LaunchTemplateSpecification` is a property of the [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource.\n\nFor information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html",
   "ec2.instance.launchtemplatespecification.CfnType": "AWS::EC2::Instance.LaunchTemplateSpecification",
   "ec2.instance.launchtemplatespecification.CfnDocsKey": "aws-properties-ec2-instance-launchtemplatespecification",
   "ec2.instance.launchtemplatespecification.LaunchTemplateId": {
-    "Description": "The ID of the launch template.",
+    "Description": "The ID of the launch template.  You must specify the `LaunchTemplateId` or the `LaunchTemplateName`, but not both.",
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.instance.launchtemplatespecification.LaunchTemplateName": {
-    "Description": "The name of the launch template.",
+    "Description": "The name of the launch template.  You must specify the `LaunchTemplateName` or the `LaunchTemplateId`, but not both.",
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.instance.launchtemplatespecification.Version": {
-    "Description": "The version number of the launch template. AWS CloudFormation does not support specifying `$Latest`, or `$Default` for the template version number.",
+    "Description": "The version number of the launch template.  Specifying `$Latest` or `$Default` for the template version number is not supported. However, you can specify `LatestVersionNumber` or `DefaultVersionNumber` using the `Fn::GetAtt` intrinsic function. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate-return-values-fn--getatt).",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

@@ -1,6 +1,6 @@
 # AWS::Batch::JobDefinition NodeRangeProperty<a name="aws-properties-batch-jobdefinition-noderangeproperty"></a>
 
-An object representing the properties of the node range for a multi\-node parallel job\.
+An object that represents the properties of the node range for a multi\-node parallel job\.
 
 ## Syntax<a name="aws-properties-batch-jobdefinition-noderangeproperty-syntax"></a>
 
@@ -33,10 +33,14 @@ The container details for the node range\.
 
 `TargetNodes`  <a name="cfn-batch-jobdefinition-noderangeproperty-targetnodes"></a>
 <<<<<<< HEAD
+<<<<<<< HEAD
 The range of nodes, using node index values\. A range of `0:3` indicates nodes with index values of `0` through `3`\. If the starting range value is omitted \(`:n`\), then `0` is used to start the range\. If the ending range value is omitted \(`n:`\), then the highest possible node index is used to end the range\. Your accumulative node ranges must account for all nodes \(`0:n`\)\. You may nest node ranges, for example `0:10` and `4:5`, in which case the `4:5` range properties override the `0:10` properties\.  
 =======
 The range of nodes, using node index values\. A range of `0:3` indicates nodes with index values of `0` through `3`\. If the starting range value is omitted \(`:n`\), then `0` is used to start the range\. If the ending range value is omitted \(`n:`\), then the highest possible node index is used to end the range\. Your accumulative node ranges must account for all nodes \(`0:n`\)\. You can nest node ranges, for example `0:10` and `4:5`, in which case the `4:5` range properties override the `0:10` properties\.  
 >>>>>>> 1096456c6b2b25f069505b56b407ae9946e80022
+=======
+The range of nodes, using node index values\. A range of `0:3` indicates nodes with index values of `0` through `3`\. If the starting range value is omitted \(`:n`\), then `0` is used to start the range\. If the ending range value is omitted \(`n:`\), then the highest possible node index is used to end the range\. Your accumulative node ranges must account for all nodes \(`0:n`\)\. You can nest node ranges \(for example, `0:10` and `4:5`\)\. In this case, the `4:5` range properties override the `0:10` properties\.  
+>>>>>>> e7a309b42780b79bdfb6c8a59688608a25170d79
 *Required*: Yes  
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

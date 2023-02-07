@@ -1,16 +1,16 @@
 {
-  "ec2.ec2fleet.fleetlaunchtemplatespecificationrequest.CfnAbout": "Specifies the launch template to use for an EC2 Fleet. You must specify either the launch template ID or launch template name in the request.\n\n `FleetLaunchTemplateSpecificationRequest` is a property of the [ FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.",
+  "ec2.ec2fleet.fleetlaunchtemplatespecificationrequest.CfnAbout": "Specifies the launch template to be used by the EC2 Fleet for configuring Amazon EC2 instances.\n\nYou must specify the following:\n+ The ID or the name of the launch template, but not both.\n+ The version of the launch template.\n\n`FleetLaunchTemplateSpecificationRequest` is a property of the [ FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.\n\nFor information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html",
   "ec2.ec2fleet.fleetlaunchtemplatespecificationrequest.CfnType": "AWS::EC2::EC2Fleet.FleetLaunchTemplateSpecificationRequest",
   "ec2.ec2fleet.fleetlaunchtemplatespecificationrequest.CfnDocsKey": "aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest",
   "ec2.ec2fleet.fleetlaunchtemplatespecificationrequest.LaunchTemplateId": {
-    "Description": "The ID of the launch template. If you specify the template ID, you can't specify the template name.",
-    "Required": "No",
+    "Description": "The ID of the launch template.  You must specify the `LaunchTemplateId` or the `LaunchTemplateName`, but not both.",
+    "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.ec2fleet.fleetlaunchtemplatespecificationrequest.LaunchTemplateName": {
-    "Description": "The name of the launch template. If you specify the template name, you can't specify the template ID.",
-    "Required": "No",
+    "Description": "The name of the launch template.  You must specify the `LaunchTemplateName` or the `LaunchTemplateId`, but not both.",
+    "Required": "Conditional",
     "Type": "String",
     "Minimum": "3",
     "Maximum": "128",
@@ -19,7 +19,7 @@
   },
   "ec2.ec2fleet.fleetlaunchtemplatespecificationrequest.Version": {
     "Description": "The launch template version number, `$Latest`, or `$Default`. You must specify a value, otherwise the request fails.  If the value is `$Latest`, Amazon EC2 uses the latest version of the launch template.  If the value is `$Default`, Amazon EC2 uses the default version of the launch template.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }

@@ -2,6 +2,16 @@
   "ec2.network.iface.embedded.CfnAbout": "Specifies a network interface that is to be attached to an instance.\n\nYou can create a network interface when launching an instance. For an example, see the [AWS::EC2::Instance examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html",
   "ec2.network.iface.embedded.CfnType": "AWS::EC2::Instance.NetworkInterface",
   "ec2.network.iface.embedded.CfnDocsKey": "aws-properties-ec2-network-iface-embedded",
+  "ec2.network.iface.embedded.AssociateCarrierIpAddress": {
+    "Description": "Indicates whether to assign a carrier IP address to the network interface.  You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see [Carrier IP address](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the * AWS Wavelength Developer Guide*.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "No interruption"
+  },
   "ec2.network.iface.embedded.AssociatePublicIpAddress": {
     "Description": "Indicates whether to assign a public IPv4 address to an instance. Applies only if creating a network interface when launching an instance. The network interface must be the primary network interface. If launching into a default subnet, the default value is `true`.",
     "Required": "No",
@@ -47,7 +57,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.network.iface.embedded.Ipv6Addresses": {
-    "Description": "One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.",
+    "Description": "The IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.",
     "Required": "No",
     "Type": "List of [InstanceIpv6Address",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

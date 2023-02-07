@@ -1,10 +1,10 @@
 {
-  "ec2.vpc.CfnAbout": "Specifies a VPC with the specified IPv4 CIDR block. The smallest VPC you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses). For more information about how large to make your VPC, see [Overview of VPCs and subnets](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html) in the *Amazon Virtual Private Cloud User Guide*.",
+  "ec2.vpc.CfnAbout": "Specifies a virtual private cloud (VPC).\n\nYou can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (BYOIP).\n\nFor more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/configure-your-vpc.html) in the *Amazon VPC User Guide*.",
   "ec2.vpc.CfnType": "AWS::EC2::VPC",
   "ec2.vpc.CfnDocsKey": "aws-resource-ec2-vpc",
   "ec2.vpc.CidrBlock": {
-    "Description": "The primary IPv4 CIDR block for the VPC.",
-    "Required": "Yes",
+    "Description": "The IPv4 network range for the VPC, in CIDR notation. For example, `10.0.0.0/16`. We modify the specified CIDR block to its canonical form; for example, if you specify `100.68.0.18/18`, we modify it to `100.68.0.0/18`.  You must specify either`CidrBlock` or `Ipv4IpamPoolId`.",
+    "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
@@ -29,20 +29,20 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.vpc.InstanceTenancy": {
-    "Description": "The allowed tenancy of instances launched into the VPC.   + `\"default\"`: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.+ `\"dedicated\"`: An instance launched into the VPC is a Dedicated Instance by default, unless you explicitly specify a tenancy of host during instance launch. You cannot specify a tenancy of default during instance launch.Updating `InstanceTenancy` requires no replacement only if you are updating its value from `\"dedicated\"` to `\"default\"`. Updating `InstanceTenancy` from `\"default\"` to `\"dedicated\"` requires replacement.",
+    "Description": "The allowed tenancy of instances launched into the VPC.  + `default`: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.+ `dedicated`: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of `host` during instance launch. You cannot specify a tenancy of `default` during instance launch.Updating `InstanceTenancy` requires no replacement only if you are updating its value from `dedicated` to `default`. Updating `InstanceTenancy` from `default` to `dedicated` requires replacement.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "dedicated | default | host",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
   "ec2.vpc.Ipv4IpamPoolId": {
-    "Description": "The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see [What is IPAM?](/vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.",
-    "Required": "No",
+    "Description": "The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. For more information, see [What is IPAM?](/vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.  You must specify either`CidrBlock` or `Ipv4IpamPoolId`.",
+    "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "ec2.vpc.Ipv4NetmaskLength": {
-    "Description": "The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](/vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.",
+    "Description": "The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool. For more information about IPAM, see [What is IPAM?](https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html) in the *Amazon VPC IPAM User Guide*.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "Replacement"

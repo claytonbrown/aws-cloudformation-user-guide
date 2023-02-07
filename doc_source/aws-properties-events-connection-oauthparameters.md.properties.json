@@ -1,27 +1,31 @@
 {
-  "events.connection.oauthparameters.CfnAbout": "<a name=\"aws-properties-events-connection-oauthparameters-description\">",
+  "events.connection.oauthparameters.CfnAbout": "Contains the OAuth authorization parameters to use for the connection.",
   "events.connection.oauthparameters.CfnType": "AWS::Events::Connection.OAuthParameters",
   "events.connection.oauthparameters.CfnDocsKey": "aws-properties-events-connection-oauthparameters",
   "events.connection.oauthparameters.AuthorizationEndpoint": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The URL to the authorization endpoint when OAuth is specified as the authorization type.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "Pattern": "^((%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@\\x26=+$,A-Za-z0-9])+)([).!';/?:,])?$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.connection.oauthparameters.ClientParameters": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.",
     "Required": "Yes",
     "Type": "ClientParameters",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.connection.oauthparameters.HttpMethod": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The method to use for the authorization request.",
     "Required": "Yes",
     "Type": "String",
+    "Allowed values": "GET | POST | PUT",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.connection.oauthparameters.OAuthHttpParameters": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.",
     "Required": "No",
     "Type": "ConnectionHttpParameters",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

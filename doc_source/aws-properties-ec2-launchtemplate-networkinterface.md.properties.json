@@ -40,7 +40,7 @@
   },
   "ec2.launchtemplate.networkinterface.DeviceIndex": {
     "Description": "The device index for the network interface attachment.",
-    "Required": "Yes",
+    "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -56,6 +56,18 @@
     "Type": "String",
     "UpdateRequires": "No interruption"
   },
+  "ec2.launchtemplate.networkinterface.Ipv4PrefixCount": {
+    "Description": "The number of IPv4 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the `Ipv4Prefix` option.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.networkinterface.Ipv4Prefixes": {
+    "Description": "One or more IPv4 prefixes to be assigned to the network interface. You cannot use this option if you use the `Ipv4PrefixCount` option.",
+    "Required": "No",
+    "Type": "List of [Ipv4PrefixSpecification",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "ec2.launchtemplate.networkinterface.Ipv6AddressCount": {
     "Description": "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses.",
     "Required": "No",
@@ -66,6 +78,18 @@
     "Description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.",
     "Required": "No",
     "Type": "List of [Ipv6Add",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.networkinterface.Ipv6PrefixCount": {
+    "Description": "The number of IPv6 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the `Ipv6Prefix` option.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.networkinterface.Ipv6Prefixes": {
+    "Description": "One or more IPv6 prefixes to be assigned to the network interface. You cannot use this option if you use the `Ipv6PrefixCount` option.",
+    "Required": "No",
+    "Type": "List of [Ipv6PrefixSpecification",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.networkinterface.NetworkCardIndex": {

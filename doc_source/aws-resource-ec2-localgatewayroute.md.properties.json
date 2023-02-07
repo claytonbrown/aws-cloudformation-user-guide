@@ -1,5 +1,5 @@
 {
-  "ec2.localgatewayroute.CfnAbout": "Creates a static route for the specified local gateway route table.",
+  "ec2.localgatewayroute.CfnAbout": "Creates a static route for the specified local gateway route table. You must specify one of the following targets: \n+  `LocalGatewayVirtualInterfaceGroupId` \n+  `NetworkInterfaceId`",
   "ec2.localgatewayroute.CfnType": "AWS::EC2::LocalGatewayRoute",
   "ec2.localgatewayroute.CfnDocsKey": "aws-resource-ec2-localgatewayroute",
   "ec2.localgatewayroute.DestinationCidrBlock": {
@@ -16,8 +16,14 @@
   },
   "ec2.localgatewayroute.LocalGatewayVirtualInterfaceGroupId": {
     "Description": "The ID of the virtual interface group.",
-    "Required": "Yes",
+    "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.localgatewayroute.NetworkInterfaceId": {
+    "Description": "The ID of the network interface.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

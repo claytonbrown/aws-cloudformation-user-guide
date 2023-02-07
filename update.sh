@@ -1,6 +1,9 @@
-# Update to latest CFN spec
+git submodule update --init
 git pull upstream main
-cp ../cfn_resource_specs/CloudFormationResourceSpecification-us-east-1.json ./CloudFormationResourceSpecification.json
+cd aws-cfn-resource-specs
+git pull 
+cd ..
+cp cp aws-cfn-resource-specs/specs/us-east-1/CloudFormationResourceSpecification.json ./CloudFormationResourceSpecification.json
 curl https://awspolicygen.s3.amazonaws.com/js/policies.js | sed '1s/[^=]*=//' | jq '[.serviceMap[]]' | jq 'map( { (.StringPrefix|tostring): . } ) | add' > ./aws_service_info/aws_organizations_support.json
 
 # Update IAM reference

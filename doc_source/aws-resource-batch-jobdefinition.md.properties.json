@@ -3,9 +3,15 @@
   "batch.jobdefinition.CfnType": "AWS::Batch::JobDefinition",
   "batch.jobdefinition.CfnDocsKey": "aws-resource-batch-jobdefinition",
   "batch.jobdefinition.ContainerProperties": {
-    "Description": "An object with various properties specific to container-based jobs.",
+    "Description": "An object with various properties specific to Amazon ECS based jobs. Valid values are `containerProperties`, `eksProperties`, and `nodeProperties`. Only one can be specified.",
     "Required": "No",
     "Type": "ContainerProperties",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "batch.jobdefinition.EksProperties": {
+    "Description": "An object with various properties that are specific to Amazon EKS based jobs. Valid values are `containerProperties`, `eksProperties`, and `nodeProperties`. Only one can be specified.",
+    "Required": "No",
+    "Type": "EksProperties",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "batch.jobdefinition.JobDefinitionName": {
@@ -15,13 +21,13 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "batch.jobdefinition.NodeProperties": {
-    "Description": "An object with various properties specific to multi-node parallel jobs.  If the job runs on Fargate resources, then you must not specify `nodeProperties`; use `containerProperties` instead.",
+    "Description": "An object with various properties that are specific to multi-node parallel jobs. Valid values are `containerProperties`, `eksProperties`, and `nodeProperties`. Only one can be specified.  If the job runs on Fargate resources, don't specify `nodeProperties`. Use `containerProperties` instead.",
     "Required": "No",
     "Type": "NodeProperties",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "batch.jobdefinition.Parameters": {
-    "Description": "Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job Definition Parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the * AWS Batch User Guide*.",
+    "Description": "Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the * AWS Batch User Guide*.",
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "No interruption"
@@ -33,7 +39,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "batch.jobdefinition.PropagateTags": {
-    "Description": "Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks during task creation. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.",
+    "Description": "Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -55,13 +61,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "batch.jobdefinition.Tags": {
-    "Description": "The tags applied to the job definition.",
+    "Description": "The tags that are applied to the job definition.",
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "batch.jobdefinition.Timeout": {
-    "Description": "The timeout configuration for jobs that are submitted with this job definition. You can specify a timeout duration after which AWS Batch terminates your jobs if they haven't finished.",
+    "Description": "The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.",
     "Required": "No",
     "Type": "Timeout",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

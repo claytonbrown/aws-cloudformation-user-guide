@@ -1,0 +1,52 @@
+{
+  "ec2.vpnconnection.CfnAbout": "Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.\n\nTo specify a VPN connection between a transit gateway and customer gateway, use the `TransitGatewayId` and `CustomerGatewayId` properties.\n\nTo specify a VPN connection between a virtual private gateway and customer gateway, use the `VpnGatewayId` and `CustomerGatewayId` properties.\n\nFor more information, see [AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *AWS Site-to-Site VPN User Guide*.",
+  "ec2.vpnconnection.CfnType": "AWS::EC2::VPNConnection",
+  "ec2.vpnconnection.CfnDocsKey": "aws-resource-ec2-vpnconnection",
+  "ec2.vpnconnection.CustomerGatewayId": {
+    "Description": "The ID of the customer gateway at your end of the VPN connection.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.vpnconnection.StaticRoutesOnly": {
+    "Description": "Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.  If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify `true`.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.vpnconnection.Tags": {
+    "Description": "Any tags assigned to the VPN connection.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.vpnconnection.TransitGatewayId": {
+    "Description": "The ID of the transit gateway associated with the VPN connection.  You must specify either `TransitGatewayId` or `VpnGatewayId`, but not both.",
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.vpnconnection.Type": {
+    "Description": "The type of VPN connection.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "ipsec.1",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.vpnconnection.VpnGatewayId": {
+    "Description": "The ID of the virtual private gateway at the AWS side of the VPN connection.  You must specify either `TransitGatewayId` or `VpnGatewayId`, but not both.",
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.vpnconnection.VpnTunnelOptionsSpecifications": {
+    "Description": "The tunnel options for the VPN connection.",
+    "Required": "No",
+    "Type": "List of [VpnTunnelOptionsSpecification",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  }
+}

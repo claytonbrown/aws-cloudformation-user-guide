@@ -3,17 +3,47 @@
   "ec2.natgateway.CfnType": "AWS::EC2::NatGateway",
   "ec2.natgateway.CfnDocsKey": "aws-resource-ec2-natgateway",
   "ec2.natgateway.AllocationId": {
-    "Description": "[Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.",
-    "Required": "No",
+    "Description": "[Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.",
+    "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.natgateway.ConnectivityType": {
-    "Description": "Indicates whether the NAT gateway supports public or private connectivity.",
+    "Description": "Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "private | public",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.natgateway.MaxDrainDurationSeconds": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.natgateway.PrivateIpAddress": {
+    "Description": "The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.natgateway.SecondaryAllocationIds": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.natgateway.SecondaryPrivateIpAddressCount": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.natgateway.SecondaryPrivateIpAddresses": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.natgateway.SubnetId": {
     "Description": "The ID of the subnet in which the NAT gateway is located.",

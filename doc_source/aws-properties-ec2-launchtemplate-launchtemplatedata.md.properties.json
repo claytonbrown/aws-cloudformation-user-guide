@@ -1,5 +1,5 @@
 {
-  "ec2.launchtemplate.launchtemplatedata.CfnAbout": "The information to include in the launch template.",
+  "ec2.launchtemplate.launchtemplatedata.CfnAbout": "The information to include in the launch template.\n\n**Note**  \nYou must specify at least one parameter for the launch template data.",
   "ec2.launchtemplate.launchtemplatedata.CfnType": "AWS::EC2::LaunchTemplate.LaunchTemplateData",
   "ec2.launchtemplate.launchtemplatedata.CfnDocsKey": "aws-properties-ec2-launchtemplate-launchtemplatedata",
   "ec2.launchtemplate.launchtemplatedata.BlockDeviceMappings": {
@@ -21,10 +21,20 @@
     "UpdateRequires": "No interruption"
   },
   "ec2.launchtemplate.launchtemplatedata.CreditSpecification": {
-    "Description": "The credit option for CPU usage of the instance. Valid for T2, T3, or T3a instances only.",
+    "Description": "The credit option for CPU usage of the instance. Valid only for T instances.",
     "Required": "No",
     "Type": "CreditSpecification",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.launchtemplatedata.DisableApiStop": {
+    "Description": "Indicates whether to enable the instance for stop protection. For more information, see [Stop protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) in the *Amazon Elastic Compute Cloud User Guide*.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "No interruption"
   },
   "ec2.launchtemplate.launchtemplatedata.DisableApiTermination": {
     "Description": "If you set this parameter to `true`, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set `InstanceInitiatedShutdownBehavior` to `terminate`, you can terminate the instance by running the shutdown command from the instance.",
@@ -65,7 +75,7 @@
     "UpdateRequires": "No interruption"
   },
   "ec2.launchtemplate.launchtemplatedata.HibernationOptions": {
-    "Description": "Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites). For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide*.",
+    "Description": "Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the [hibernation prerequisites](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html). For more information, see [Hibernate your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html) in the *Amazon Elastic Compute Cloud User Guide*.",
     "Required": "No",
     "Type": "HibernationOptions",
     "UpdateRequires": "No interruption"
@@ -77,10 +87,10 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.ImageId": {
-    "Description": "The ID of the AMI.",
+    "Description": "The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.  Valid formats:  +  `ami-17characters00000` +  `resolve:ssm:parameter-name` +  `resolve:ssm:parameter-name:version-number` +  `resolve:ssm:parameter-name:label` For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide*.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "ec2.launchtemplate.launchtemplatedata.InstanceInitiatedShutdownBehavior": {
     "Description": "Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).  Default: `stop`",
@@ -96,13 +106,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.InstanceRequirements": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.  If you specify `InstanceRequirements`, you can't specify `InstanceType`.",
     "Required": "No",
     "Type": "InstanceRequirements",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.InstanceType": {
-    "Description": "The instance type. For more information, see [Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.  If you specify `InstanceTypes`, you can't specify `InstanceRequirements`.",
+    "Description": "The instance type. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon Elastic Compute Cloud User Guide*.  If you specify `InstanceType`, you can't specify `InstanceRequirements`.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
@@ -125,8 +135,14 @@
     "Type": "List of [LicenseSpecification",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "ec2.launchtemplate.launchtemplatedata.MaintenanceOptions": {
+    "Description": "The maintenance options of your instance.",
+    "Required": "No",
+    "Type": "MaintenanceOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "ec2.launchtemplate.launchtemplatedata.MetadataOptions": {
-    "Description": "The metadata options for the instance. For more information, see [Instance Metadata and User Data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.",
+    "Description": "The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon Elastic Compute Cloud User Guide*.",
     "Required": "No",
     "Type": "MetadataOptions",
     "UpdateRequires": "No interruption"
@@ -156,7 +172,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.RamDiskId": {
-    "Description": "The ID of the RAM disk.  We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User Provided Kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.",
+    "Description": "The ID of the RAM disk.  We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see [User provided kernels](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html) in the *Amazon Elastic Compute Cloud User Guide*.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
@@ -168,19 +184,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.SecurityGroups": {
-    "Description": "[EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.",
+    "Description": "One or more security group names. For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.TagSpecifications": {
-    "Description": "The tags to apply to the resources during launch. You can only tag instances and volumes on launch. The specified tags are applied to all instances or volumes that are created during launch.",
+    "Description": "The tags to apply to the resources that are created during instance launch.  You can specify tags for the following resources only:  + Instances+ Volumes+ Elastic graphics+ Spot Instance requests+ Network interfacesTo tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).  To tag the launch template itself, you must use the [TagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html) parameter.",
     "Required": "No",
     "Type": "List of [TagSpecification",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.launchtemplate.launchtemplatedata.UserData": {
-    "Description": "The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Running Commands on Your Linux Instance at Launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Adding User Data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data) (Windows).  If you are creating the launch template for use with AWS Batch, the user data must be provided in the [ MIME multi-part archive format](https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the * AWS Batch User Guide*.",
+    "Description": "The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Linux instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) (Linux) or [Work with instance user data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html) (Windows) in the *Amazon Elastic Compute Cloud User Guide*.  If you are creating the launch template for use with AWS Batch, the user data must be provided in the [ MIME multi-part archive format](https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the * AWS Batch User Guide*.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"

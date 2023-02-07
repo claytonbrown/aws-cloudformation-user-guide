@@ -1,9 +1,9 @@
 {
-  "events.connection.parameter.CfnAbout": "<a name=\"aws-properties-events-connection-parameter-description\">",
+  "events.connection.parameter.CfnAbout": "Additional query string parameter for the connection. You can include up to 100 additional query string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB.",
   "events.connection.parameter.CfnType": "AWS::Events::Connection.Parameter",
   "events.connection.parameter.CfnDocsKey": "aws-properties-events-connection-parameter",
   "events.connection.parameter.IsValueSecret": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "Specifies whether the value is secret.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -13,15 +13,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.connection.parameter.Key": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The key for a query string parameter.",
     "Required": "Yes",
     "Type": "String",
+    "Maximum": "512",
+    "Pattern": "[^\\x00-\\x1F\\x7F]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "events.connection.parameter.Value": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The value associated with the key for the query string parameter.",
     "Required": "Yes",
     "Type": "String",
+    "Maximum": "512",
+    "Pattern": "[^\\x00-\\x09\\x0B\\x0C\\x0E-\\x1F\\x7F]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

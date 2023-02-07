@@ -1,24 +1,24 @@
 {
-  "ec2.security.group.egress.CfnAbout": "[EC2-VPC only] Adds the specified egress rules to a security group for use with a VPC.\n\nAn outbound rule permits instances to send traffic to the specified destination IPv4 or IPv6 CIDR address ranges, or to the specified destination security groups for the same VPC.\n\nYou specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.\n\nYou must specify a destination security group (`DestinationPrefixListId` or `DestinationSecurityGroupId`) or a CIDR range (`CidrIp` or `CidrIpv6`). If you do not specify one of these parameters, the stack will launch successfully but the rule will not be added to the security group.\n\nRule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.\n\nFor more information about VPC security group limits, see [Amazon VPC Limits](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html).\n\nUse `AWS::EC2::SecurityGroupIngress` and `AWS::EC2::SecurityGroupEgress` only when necessary, typically to allow security groups to reference each other in ingress and egress rules. Otherwise, use the embedded ingress and egress rules of the security group. For more information, see [Amazon EC2 Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html).",
+  "ec2.security.group.egress.CfnAbout": "[EC2-VPC only] Adds the specified egress rules to a security group for use with a VPC.\n\nAn outbound rule permits instances to send traffic to the specified destination IPv4 or IPv6 CIDR address ranges, or to the specified destination security groups for the same VPC.\n\nYou specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.\n\nYou must specify only one of the following properties: `CidrIp`, `CidrIpv6`, `DestinationPrefixListId`, or `DestinationSecurityGroupId`.\n\nYou must specify a destination security group (`DestinationPrefixListId` or `DestinationSecurityGroupId`) or a CIDR range (`CidrIp` or `CidrIpv6`). If you do not specify one of these parameters, the stack will launch successfully but the rule will not be added to the security group.\n\nRule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.\n\nFor more information about VPC security group limits, see [Amazon VPC Limits](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html).\n\nUse `AWS::EC2::SecurityGroupIngress` and `AWS::EC2::SecurityGroupEgress` only when necessary, typically to allow security groups to reference each other in ingress and egress rules. Otherwise, use the embedded ingress and egress rules of the security group. For more information, see [Amazon EC2 Security Groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html).",
   "ec2.security.group.egress.CfnType": "AWS::EC2::SecurityGroupEgress",
   "ec2.security.group.egress.CfnDocsKey": "aws-resource-ec2-security-group-egress",
   "ec2.security.group.egress.CidrIp": {
-    "Description": "The IPv4 address range, in CIDR format.  You must specify a destination security group (`DestinationPrefixListId` or `DestinationSecurityGroupId`) or a CIDR range (`CidrIp` or `CidrIpv6`).",
+    "Description": "The IPv4 address range, in CIDR format.  You must specify a destination security group (`DestinationPrefixListId` or `DestinationSecurityGroupId`) or a CIDR range (`CidrIp` or `CidrIpv6`).  For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide*.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "Replacement"
   },
   "ec2.security.group.egress.CidrIpv6": {
-    "Description": "The IPv6 address range, in CIDR format.  You must specify a destination security group (`DestinationPrefixListId` or `DestinationSecurityGroupId`) or a CIDR range (`CidrIp` or `CidrIpv6`).",
+    "Description": "The IPv6 address range, in CIDR format.  You must specify a destination security group (`DestinationPrefixListId` or `DestinationSecurityGroupId`) or a CIDR range (`CidrIp` or `CidrIpv6`).  For examples of rules that you can add to security groups for specific access scenarios, see [Security group rules for different use cases](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html) in the *Amazon EC2 User Guide*.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "Replacement"
   },
   "ec2.security.group.egress.Description": {
-    "Description": "The description of an egress (outbound) security group rule.",
+    "Description": "The description of an egress (outbound) security group rule.  Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "ec2.security.group.egress.DestinationPrefixListId": {
     "Description": "[EC2-VPC only] The prefix list IDs for an AWS service. This is the AWS service that you want to access through a VPC endpoint from instances associated with the security group.  You must specify a destination security group (`DestinationPrefixListId` or `DestinationSecurityGroupId`) or a CIDR range (`CidrIp` or `CidrIpv6`).",
@@ -33,7 +33,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.security.group.egress.FromPort": {
-    "Description": "The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of `-1` indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "Description": "If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -51,7 +51,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.security.group.egress.ToPort": {
-    "Description": "The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of `-1` indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.",
+    "Description": "If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
