@@ -2,11 +2,12 @@
 
 Specifies a network address translation \(NAT\) gateway in the specified subnet\. You can create either a public NAT gateway or a private NAT gateway\. The default is a public NAT gateway\. If you create a public NAT gateway, you must specify an elastic IP address\.
 
-With a NAT gateway, instances in a private subnet can connect to the internet, other AWS services, or an on\-premises network using the IP address of the NAT gateway\.
+With a NAT gateway, instances in a private subnet can connect to the internet, other AWS services, or an on\-premises network using the IP address of the NAT gateway\. For more information, see [NAT Gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in the *Amazon VPC User Guide*\.
 
 If you add a default route \(`AWS::EC2::Route` resource\) that points to a NAT gateway, specify the NAT gateway ID for the route's `NatGatewayId` property\.
 
-For more information, see [NAT Gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in the *Amazon VPC User Guide*\.
+**Important**  
+When you associate an EIP or secondary EIPs with a public NAT gateway, the network border group of the EIPs must match the network border group of the Availability Zone \(AZ\) that the public NAT gateway is in\. If it's not the same, the NAT gateway will fail to launch\. You can see the network border group for the subnet's AZ by viewing the details of the subnet\. Similarly, you can view the network border group of an EIP by viewing the details of the EIP address\. For more information about network border groups and EIPs, see [Allocate an Elastic IP address](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#allocate-eip) in the *Amazon VPC User Guide*\. 
 
 ## Syntax<a name="aws-resource-ec2-natgateway-syntax"></a>
 
@@ -66,9 +67,11 @@ Indicates whether the NAT gateway supports public or private connectivity\. The 
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `MaxDrainDurationSeconds`  <a name="cfn-ec2-natgateway-maxdraindurationseconds"></a>
-Property description not available\.  
+The maximum amount of time to wait \(in seconds\) before forcibly releasing the IP addresses if connections are still in progress\. Default value is 350 seconds\.  
 *Required*: No  
 *Type*: Integer  
+*Minimum*: `1`  
+*Maximum*: `4000`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `PrivateIpAddress`  <a name="cfn-ec2-natgateway-privateipaddress"></a>
@@ -78,19 +81,23 @@ The private IPv4 address to assign to the NAT gateway\. If you don't provide an 
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `SecondaryAllocationIds`  <a name="cfn-ec2-natgateway-secondaryallocationids"></a>
-Property description not available\.  
+Secondary EIP allocation IDs\. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*\.  
 *Required*: No  
 *Type*: List of String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `SecondaryPrivateIpAddressCount`  <a name="cfn-ec2-natgateway-secondaryprivateipaddresscount"></a>
-Property description not available\.  
+\[Private NAT gateway only\] The number of secondary private IPv4 addresses you want to assign to the NAT gateway\. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*\.  
+`SecondaryPrivateIpAddressCount` and `SecondaryPrivateIpAddresses` cannot be set at the same time\.  
 *Required*: No  
 *Type*: Integer  
+*Minimum*: `1`  
+*Maximum*: `31`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `SecondaryPrivateIpAddresses`  <a name="cfn-ec2-natgateway-secondaryprivateipaddresses"></a>
-Property description not available\.  
+Secondary private IPv4 addresses\. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*\.  
+`SecondaryPrivateIpAddressCount` and `SecondaryPrivateIpAddresses` cannot be set at the same time\.  
 *Required*: No  
 *Type*: List of String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -111,15 +118,15 @@ The tags for the NAT gateway\.
 
 ### Ref<a name="aws-resource-ec2-natgateway-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the resource name\. For example, `nat-0a12bc456789de0fg`\.
+When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the ID of the NAT gateway\. For example, `nat-0a12bc456789de0fg`\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-resource-ec2-natgateway-return-values-fn--getatt"></a>
 
-The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+The `Fn::GetAtt`intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
 
-For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
+For more information about using the `Fn::GetAtt`intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
 
 #### <a name="aws-resource-ec2-natgateway-return-values-fn--getatt-fn--getatt"></a>
 

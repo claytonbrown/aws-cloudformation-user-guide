@@ -94,7 +94,7 @@ Describes the configuration of Spot Instances in an EC2 Fleet\.
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `TagSpecifications`  <a name="cfn-ec2-ec2fleet-tagspecifications"></a>
-The key\-value pair for tagging the EC2 Fleet request on creation\. For more information, see [Tagging your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources)\.  
+The key\-value pair for tagging the EC2 Fleet request on creation\. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources)\.  
 If the fleet type is `instant`, specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch\.  
 If the fleet type is `maintain` or `request`, specify a resource type of `fleet` to tag the fleet\. You cannot specify a resource type of `instance`\. To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template)\.  
 *Required*: No  
@@ -140,15 +140,15 @@ The end date and time of the request, in UTC format \(for example, *YYYY*\-*MM*\
 
 ### Ref<a name="aws-resource-ec2-ec2fleet-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the fleet ID, such as `fleet-1fe24079-d272-4023-8e7c-70e10784cb0e`\.
+When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the fleet ID, such as `fleet-1fe24079-d272-4023-8e7c-70e10784cb0e`\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-resource-ec2-ec2fleet-return-values-fn--getatt"></a>
 
-The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+The `Fn::GetAtt`intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
 
-For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
+For more information about using the `Fn::GetAtt`intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
 
 #### <a name="aws-resource-ec2-ec2fleet-return-values-fn--getatt-fn--getatt"></a>
 

@@ -25,7 +25,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "[SecurityGroupIds](#cfn-batch-computeenvironment-computeresources-securitygroupids)" : [ String, ... ],
   "[SpotIamFleetRole](#cfn-batch-computeenvironment-computeresources-spotiamfleetrole)" : String,
   "[Subnets](#cfn-batch-computeenvironment-computeresources-subnets)" : [ String, ... ],
-  "[Tags](#cfn-batch-computeenvironment-computeresources-tags)" : {Key : Value, ...},
+  "[Tags](#cfn-batch-computeenvironment-computeresources-tags)" : {Key: Value, ...},
   "[Type](#cfn-batch-computeenvironment-computeresources-type)" : String,
   "[UpdateToLatestImageVersion](#cfn-batch-computeenvironment-computeresources-updatetolatestimageversion)" : Boolean
 }
@@ -55,7 +55,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   [Subnets](#cfn-batch-computeenvironment-computeresources-subnets):
     - String
   [Tags](#cfn-batch-computeenvironment-computeresources-tags): 
-    Key : Value
+    Key: Value
   [Type](#cfn-batch-computeenvironment-computeresources-type): String
   [UpdateToLatestImageVersion](#cfn-batch-computeenvironment-computeresources-updatetolatestimageversion): Boolean
 ```
@@ -89,8 +89,11 @@ AWS Batch selects an instance type that best fits the needs of the jobs with a p
 BEST\_FIT\_PROGRESSIVE  
  AWS Batch will select additional instance types that are large enough to meet the requirements of the jobs in the queue, with a preference for instance types with a lower cost per unit vCPU\. If additional instances of the previously selected instance types aren't available, AWS Batch will select new instance types\.  
 SPOT\_CAPACITY\_OPTIMIZED  
- AWS Batch will select one or more instance types that are large enough to meet the requirements of the jobs in the queue, with a preference for instance types that are less likely to be interrupted\. This allocation strategy is only available for Spot Instance compute resources\.
-With both `BEST_FIT_PROGRESSIVE` and `SPOT_CAPACITY_OPTIMIZED` allocation strategies using On\-Demand or Spot Instances, and the `BEST_FIT` strategy using Spot Instances, AWS Batch might need to go above `maxvCpus` to meet your capacity requirements\. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance\.  
+ AWS Batch will select one or more instance types that are large enough to meet the requirements of the jobs in the queue, with a preference for instance types that are less likely to be interrupted\. This allocation strategy is only available for Spot Instance compute resources\.  
+SPOT\_PRICE\_CAPACITY\_OPTIMIZED  
+ The price and capacity optimized allocation strategy looks at both price and capacity to select the Spot Instance pools that are the least likely to be interrupted and have the lowest possible price\. This allocation strategy is only available for Spot Instance compute resources\.  
+We recommend that you use `SPOT_PRICE_CAPACITY_OPTIMIZED` rather than `SPOT_CAPACITY_OPTIMIZED` in most instances\.
+With `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED`, and `SPOT_PRICE_CAPACITY_OPTIMIZED` allocation strategies using On\-Demand or Spot Instances, and the `BEST_FIT` strategy using Spot Instances, AWS Batch might need to go above `maxvCpus` to meet your capacity requirements\. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance\.  
 *Required*: No  
 *Type*: String  
 <<<<<<< HEAD
@@ -131,9 +134,11 @@ This parameter isn't applicable to jobs that are running on Fargate resources\. 
 *Update requires*: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)
 
 `DesiredvCpus`  <a name="cfn-batch-computeenvironment-computeresources-desiredvcpus"></a>
-The desired number of Amazon EC2 vCPUS in the compute environment\. AWS Batch modifies this value between the minimum and maximum values based on job queue demand\.  
+The desired number of vCPUS in the compute environment\. AWS Batch modifies this value between the minimum and maximum values based on job queue demand\.  
 This parameter isn't applicable to jobs that are running on Fargate resources\. Don't specify it\.
  AWS Batch doesn't support changing the desired number of vCPUs of an existing compute environment\. Don't specify this parameter for compute environments using Amazon EKS clusters\.
+When you update the `desiredvCpus` setting, the value must be between the `minvCpus` and `maxvCpus` values\.   
+Additionally, the updated `desiredvCpus` value must be greater than or equal to the current `desiredvCpus` value\. For more information, see [Troubleshooting AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#error-desired-vcpus-update) in the * AWS Batch User Guide*\.
 *Required*: No  
 *Type*: Integer  
 >>>>>>> e7a309b42780b79bdfb6c8a59688608a25170d79
@@ -313,7 +318,7 @@ The AMI that you choose for a compute environment must match the architecture of
 *Update requires*: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)
 
 `InstanceRole`  <a name="cfn-batch-computeenvironment-computeresources-instancerole"></a>
-The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment\. You can specify the short name or full Amazon Resource Name \(ARN\) of an instance profile\. For example, ` ecsInstanceRole ` or `arn:aws:iam::<aws_account_id>:instance-profile/ecsInstanceRole `\. For more information, see [Amazon ECS instance role](https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html) in the * AWS Batch User Guide*\.  
+The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment\. Required for Amazon EC2 instances\. You can specify the short name or full Amazon Resource Name \(ARN\) of an instance profile\. For example, ` ecsInstanceRole ` or `arn:aws:iam::<aws_account_id>:instance-profile/ecsInstanceRole `\. For more information, see [Amazon ECS instance role](https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html) in the * AWS Batch User Guide*\.  
 When updating a compute environment, changing this setting requires an infrastructure update of the compute environment\. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the * AWS Batch User Guide*\.  
 This parameter isn't applicable to jobs that are running on Fargate resources\. Don't specify it\.
 *Required*: No  
@@ -340,13 +345,13 @@ This parameter isn't applicable to jobs running on Fargate resources, and should
 
 `MaxvCpus`  <a name="cfn-batch-computeenvironment-computeresources-maxvcpus"></a>
 The maximum number of Amazon EC2 vCPUs that an environment can reach\.  
-With both `BEST_FIT_PROGRESSIVE` and `SPOT_CAPACITY_OPTIMIZED` allocation strategies using On\-Demand or Spot Instances, and the `BEST_FIT` strategy using Spot Instances, AWS Batch might need to exceed `maxvCpus` to meet your capacity requirements\. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance\. That is, no more than a single instance from among those specified in your compute environment\.
+With `BEST_FIT_PROGRESSIVE`,`SPOT_CAPACITY_OPTIMIZED` and `SPOT_PRICE_CAPACITY_OPTIMIZED` \(recommended\) strategies using On\-Demand or Spot Instances, and the `BEST_FIT` strategy using Spot Instances, AWS Batch might need to exceed `maxvCpus` to meet your capacity requirements\. In this event, AWS Batch never exceeds `maxvCpus` by more than a single instance\.
 *Required*: Yes  
 *Type*: Integer  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `MinvCpus`  <a name="cfn-batch-computeenvironment-computeresources-minvcpus"></a>
-The minimum number of Amazon EC2 vCPUs that an environment should maintain \(even if the compute environment is `DISABLED`\)\.  
+The minimum number of vCPUs that an environment should maintain \(even if the compute environment is `DISABLED`\)\.  
 This parameter isn't applicable to jobs that are running on Fargate resources\. Don't specify it\.
 *Required*: No  
 *Type*: Integer  
@@ -446,7 +451,7 @@ When updating a compute environment, changing the VPC subnets requires an infras
 *Update requires*: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)
 
 `Tags`  <a name="cfn-batch-computeenvironment-computeresources-tags"></a>
-Key\-value pair tags to be applied to EC2 resources that are launched in the compute environment\. For AWS Batch, these take the form of `"String1": "String2"`, where `String1` is the tag key and `String2` is the tag value\-for example, `{ "Name": "Batch Instance - C4OnDemand" }`\. This is helpful for recognizing your AWS Batch instances in the Amazon EC2 console\. These tags aren't seen when using the AWS Batch `ListTagsForResource` API operation\.  
+Key\-value pair tags to be applied to EC2 resources that are launched in the compute environment\. For AWS Batch, these take the form of `"String1": "String2"`, where `String1` is the tag key and `String2` is the tag value\-for example, `{ "Name": "Batch Instance - C4OnDemand" }`\. This is helpful for recognizing your Batch instances in the Amazon EC2 console\. These tags aren't seen when using the AWS Batch `ListTagsForResource` API operation\.  
 When updating a compute environment, changing this setting requires an infrastructure update of the compute environment\. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the * AWS Batch User Guide*\.  
 This parameter isn't applicable to jobs that are running on Fargate resources\. Don't specify it\.
 *Required*: No  

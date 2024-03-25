@@ -1,6 +1,6 @@
 # AWS::CustomerProfiles::ObjectType<a name="aws-resource-customerprofiles-objecttype"></a>
 
-The AWS::CustomerProfiles::ObjectType resource specifies an Amazon Connect Customer Profiles Object Type Mapping\.
+Specifies an Amazon Connect Customer Profiles Object Type Mapping\.
 
 ## Syntax<a name="aws-resource-customerprofiles-objecttype-syntax"></a>
 
@@ -20,6 +20,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[Fields](#cfn-customerprofiles-objecttype-fields)" : [ FieldMap, ... ],
       "[Keys](#cfn-customerprofiles-objecttype-keys)" : [ KeyMap, ... ],
       "[ObjectTypeName](#cfn-customerprofiles-objecttype-objecttypename)" : String,
+      "[SourceLastUpdatedTimestampFormat](#cfn-customerprofiles-objecttype-sourcelastupdatedtimestampformat)" : String,
       "[Tags](#cfn-customerprofiles-objecttype-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ],
       "[TemplateId](#cfn-customerprofiles-objecttype-templateid)" : String
     }
@@ -41,6 +42,7 @@ Properties:
   [Keys](#cfn-customerprofiles-objecttype-keys): 
     - KeyMap
   [ObjectTypeName](#cfn-customerprofiles-objecttype-objecttypename): String
+  [SourceLastUpdatedTimestampFormat](#cfn-customerprofiles-objecttype-sourcelastupdatedtimestampformat): String
   [Tags](#cfn-customerprofiles-objecttype-tags): 
     - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
   [TemplateId](#cfn-customerprofiles-objecttype-templateid): String
@@ -96,6 +98,12 @@ The name of the profile object type\.
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
+`SourceLastUpdatedTimestampFormat`  <a name="cfn-customerprofiles-objecttype-sourcelastupdatedtimestampformat"></a>
+Property description not available\.  
+*Required*: No  
+*Type*: String  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `Tags`  <a name="cfn-customerprofiles-objecttype-tags"></a>
 The tags used to organize, track, or control access for this resource\.  
 *Required*: No  
@@ -112,15 +120,15 @@ A unique identifier for the template mapping\. This can be used instead of speci
 
 ### Ref<a name="aws-resource-customerprofiles-objecttype-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the DomainName and the ObjectTypeName of the object type\.
+When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the DomainName and the ObjectTypeName of the object type\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-resource-customerprofiles-objecttype-return-values-fn--getatt"></a>
 
-The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+The `Fn::GetAtt`intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
 
-For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
+For more information about using the `Fn::GetAtt`intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
 
 #### <a name="aws-resource-customerprofiles-objecttype-return-values-fn--getatt-fn--getatt"></a>
 
@@ -139,72 +147,53 @@ The following example creates a object type if Domain existed\.
 #### YAML<a name="aws-resource-customerprofiles-objecttype--examples----yaml"></a>
 
 ```
-Resources:
-    ObjectType:
-      Type: "AWS::CustomerProfiles::ObjectType"
-      Properties:
-        DomainName: "ExampleDomain"
-        ObjectTypeName: "ExampleObjectType"
-        AllowProfileCreation: false
-        Description: "Description Example"
-        ExpirationDays: 1
-        Fields:
-          - Name: "email"
-            ObjectTypeField:
-              Source: "_source.email"
-              Target: "_profile.BusinessEmail"
-              ContentType: "EMAIL_ADDRESS"
-        Keys:
-          - Name: "_email"
-            ObjectTypeKeyList:
-              - FieldNames:
-                  - "email"
-                StandardIdentifiers:
-                  - "PROFILE"
-                  - "UNIQUE"
+Type: "AWS::CustomerProfiles::ObjectType"
+Properties: 
+    DomainName: "ExampleDomain" 
+    ObjectTypeName: "ExampleObjectType"
+    AllowProfileCreation: false 
+    Description: "Description Example" 
+    ExpirationDays: 1 
+    Fields: 
+      - Name: "email" 
+        ObjectTypeField: 
+          Source: "_source.email" 
+          Target: "_profile.BusinessEmail"
+          ContentType: "EMAIL_ADDRESS" 
+    Keys: 
+      - Name: "_email" 
+        ObjectTypeKeyList: 
+          - FieldNames: 
+            - "email" 
+            StandardIdentifiers: 
+              - "PROFILE" 
+              - "UNIQUE"
 ```
 
 #### JSON<a name="aws-resource-customerprofiles-objecttype--examples----json"></a>
 
 ```
-{
-  "Resources": {
-    "ObjectType": {
-      "Type": "AWS::CustomerProfiles::ObjectType",
-      "Properties": {
-        "DomainName": "ExampleDomain",
-        "ObjectTypeName": "ExampleObjectType",
-        "AllowProfileCreation": false,
-        "Description": "Description Example",
-        "ExpirationDays": 1,
-        "Fields": [
-          {
-            "Name": "email",
-            "ObjectTypeField": {
-              "Source": "_source.email",
-              "Target": "_profile.BusinessEmail",
-              "ContentType": "EMAIL_ADDRESS"
-            }
-          }
-        ],
-        "Keys": [
-          {
-            "Name": "_email",
-            "ObjectTypeKeyList": [
-              {
-                "FieldNames": [
-                    "email"
-                ],
-                "StandardIdentifiers": [
-                    "PROFILE",
-                    "UNIQUE"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    }
-  }
+"Type": "AWS::CustomerProfiles::ObjectType", 
+"Properties": { 
+    "DomainName": "ExampleDomain",
+    "ObjectTypeName": "ExampleObjectType", 
+    "AllowProfileCreation": false, 
+    "Description": "Description Example", 
+    "ExpirationDays": 1, 
+    "Fields": [{ 
+        "Name": "email",
+        "ObjectTypeField": { 
+            "Source": "_source.email", 
+            "Target": "_profile.BusinessEmail",
+            "ContentType": "EMAIL_ADDRESS" 
+        } 
+    }], 
+    "Keys": [{ 
+        "Name": "_email", 
+        "ObjectTypeKeyList": [{
+            "FieldNames": [ "email" ], 
+            "StandardIdentifiers": [ "PROFILE", "UNIQUE" ] 
+        }] 
+    }]
 }
 ```

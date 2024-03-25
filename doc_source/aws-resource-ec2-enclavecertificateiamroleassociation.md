@@ -37,29 +37,25 @@ Properties:
 The ARN of the ACM certificate with which to associate the IAM role\.  
 *Required*: Yes  
 *Type*: String  
-*Minimum*: `1`  
-*Maximum*: `1283`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `RoleArn`  <a name="cfn-ec2-enclavecertificateiamroleassociation-rolearn"></a>
 The ARN of the IAM role to associate with the ACM certificate\. You can associate up to 16 IAM roles with an ACM certificate\.  
 *Required*: Yes  
 *Type*: String  
-*Minimum*: `1`  
-*Maximum*: `1283`  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 ## Return values<a name="aws-resource-ec2-enclavecertificateiamroleassociation-return-values"></a>
 
 ### Ref<a name="aws-resource-ec2-enclavecertificateiamroleassociation-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the IAM role and ACM certificate association\.
+When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the IAM role and ACM certificate association\.
 
 ### Fn::GetAtt<a name="aws-resource-ec2-enclavecertificateiamroleassociation-return-values-fn--getatt"></a>
 
-The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+The `Fn::GetAtt`intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
 
-For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
+For more information about using the `Fn::GetAtt`intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
 
 #### <a name="aws-resource-ec2-enclavecertificateiamroleassociation-return-values-fn--getatt-fn--getatt"></a>
 

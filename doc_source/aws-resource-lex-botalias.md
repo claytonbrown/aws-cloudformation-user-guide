@@ -51,7 +51,7 @@ Properties:
 ## Properties<a name="aws-resource-lex-botalias-properties"></a>
 
 `BotAliasLocaleSettings`  <a name="cfn-lex-botalias-botaliaslocalesettings"></a>
-Maps configuration information to a specific locale\. You can use this parameter to specify a specific Lambda function to run different functions in different locales\.  
+Specifies settings that are unique to a locale\. For example, you can use different Lambda function depending on the bot's locale\.  
 *Required*: No  
 *Type*: [List](aws-properties-lex-botalias-botaliaslocalesettings.md) of [BotAliasLocaleSettingsItem](aws-properties-lex-botalias-botaliaslocalesettingsitem.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -62,7 +62,7 @@ The name of the bot alias\.
 *Type*: String  
 *Minimum*: `1`  
 *Maximum*: `100`  
-*Pattern*: `^([0-9a-zA-Z][_-]?)+$`  
+*Pattern*: `^([0-9a-zA-Z][_-]?){1,100}$`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `BotAliasTags`  <a name="cfn-lex-botalias-botaliastags"></a>

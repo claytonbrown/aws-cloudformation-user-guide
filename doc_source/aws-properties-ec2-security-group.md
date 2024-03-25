@@ -2,6 +2,8 @@
 
 Specifies a security group\. To create a security group, use the [VpcId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-vpcid) property to specify the VPC for which to create the security group\.
 
+If you do not specify an egress rule, we add egress rules that allow IPv4 and IPv6 traffic on all ports and protocols to any destination\. We do not add these rules if you specify your own egress rules\. If you later remove your egress rules, we restore the default egress rules\.
+
 This type supports updates\. For more information about updating stacks, see [AWS CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html)\.
 
 **Important**  
@@ -46,10 +48,9 @@ Properties:
 ## Properties<a name="aws-properties-ec2-security-group-properties"></a>
 
 `GroupDescription`  <a name="cfn-ec2-securitygroup-groupdescription"></a>
-A description for the security group\. This is informational only\.  
+A description for the security group\.  
 Constraints: Up to 255 characters in length  
-Constraints for EC2\-Classic: ASCII characters  
-Constraints for EC2\-VPC: a\-z, A\-Z, 0\-9, spaces, and \.\_\-:/\(\)\#,@\[\]\+=&;\{\}\!$\*  
+Valid characters: a\-z, A\-Z, 0\-9, spaces, and \.\_\-:/\(\)\#,@\[\]\+=&;\{\}\!$\*  
 *Required*: Yes  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -57,14 +58,13 @@ Constraints for EC2\-VPC: a\-z, A\-Z, 0\-9, spaces, and \.\_\-:/\(\)\#,@\[\]\+=&
 `GroupName`  <a name="cfn-ec2-securitygroup-groupname"></a>
 The name of the security group\.  
 Constraints: Up to 255 characters in length\. Cannot start with `sg-`\.  
-Constraints for EC2\-Classic: ASCII characters  
-Constraints for EC2\-VPC: a\-z, A\-Z, 0\-9, spaces, and \.\_\-:/\(\)\#,@\[\]\+=&;\{\}\!$\*  
+Valid characters: a\-z, A\-Z, 0\-9, spaces, and \.\_\-:/\(\)\#,@\[\]\+=&;\{\}\!$\*  
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `SecurityGroupEgress`  <a name="cfn-ec2-securitygroup-securitygroupegress"></a>
-\[VPC only\] The outbound rules associated with the security group\. There is a short interruption during which you cannot connect to the security group\.  
+The outbound rules associated with the security group\. There is a short interruption during which you cannot connect to the security group\.  
 *Required*: No  
 *Type*: List of [Egress](aws-properties-ec2-security-group-rule.md)  
 *Update requires*: [Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)
@@ -82,7 +82,7 @@ Any tags assigned to the security group\.
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `VpcId`  <a name="cfn-ec2-securitygroup-vpcid"></a>
-\[VPC only\] The ID of the VPC for the security group\.  
+The ID of the VPC for the security group\.  
 *Required*: No  
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
@@ -91,15 +91,15 @@ Any tags assigned to the security group\.
 
 ### Ref<a name="aws-properties-ec2-security-group-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the resource ID\. For security groups that were created without specifying a VPC \(EC2\-Classic or a default VPC\), `Ref` returns the resource name\.
+When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the resource ID\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-properties-ec2-security-group-return-values-fn--getatt"></a>
 
-The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+The `Fn::GetAtt`intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
 
-For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
+For more information about using the `Fn::GetAtt`intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
 
 #### <a name="aws-properties-ec2-security-group-return-values-fn--getatt-fn--getatt"></a>
 
@@ -148,7 +148,7 @@ InstanceSecurityGroup:
   Type: AWS::EC2::SecurityGroup
   Properties:
     GroupDescription: Allow http to client host
-    VpcId: Ref: myVPC
+    VpcId: !Ref myVPC
     SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: 80
@@ -191,7 +191,7 @@ sgwithoutegress:
     SecurityGroupEgress:
       - CidrIp: 127.0.0.1/32
         IpProtocol: "-1"
-    VpcId: Ref: myVPC
+    VpcId: !Ref myVPC
 ```
 
 ### Allow ping requests<a name="aws-properties-ec2-security-group--examples--Allow_ping_requests"></a>
@@ -232,7 +232,7 @@ SGPing:
   DependsOn: VPC
   Properties:
     GroupDescription: SG to test ping
-    VpcId: Ref: VPC
+    VpcId: !Ref VPC
     SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: 22

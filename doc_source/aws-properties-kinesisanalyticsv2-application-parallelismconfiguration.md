@@ -29,13 +29,13 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ## Properties<a name="aws-properties-kinesisanalyticsv2-application-parallelismconfiguration-properties"></a>
 
 `AutoScalingEnabled`  <a name="cfn-kinesisanalyticsv2-application-parallelismconfiguration-autoscalingenabled"></a>
-Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput\.  
+Describes whether the Managed Service for Apache Flink service can increase the parallelism of the application in response to increased throughput\.  
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `ConfigurationType`  <a name="cfn-kinesisanalyticsv2-application-parallelismconfiguration-configurationtype"></a>
-Describes whether the application uses the default parallelism for the Kinesis Data Analytics service\. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties\.  
+Describes whether the application uses the default parallelism for the Managed Service for Apache Flink service\. You must set this property to `CUSTOM` in order to change your application's `AutoScalingEnabled`, `Parallelism`, or `ParallelismPerKPU` properties\.  
 *Required*: Yes  
 *Type*: String  
 *Allowed values*: `CUSTOM | DEFAULT`  
@@ -49,7 +49,7 @@ Describes the initial number of parallel tasks that a Java\-based Kinesis Data A
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `ParallelismPerKPU`  <a name="cfn-kinesisanalyticsv2-application-parallelismconfiguration-parallelismperkpu"></a>
-Describes the number of parallel tasks that a Java\-based Kinesis Data Analytics application can perform per Kinesis Processing Unit \(KPU\) used by the application\. For more information about KPUs, see [Amazon Kinesis Data Analytics Pricing](https://docs.aws.amazon.com/kinesis/data-analytics/pricing/)\.  
+Describes the number of parallel tasks that a Java\-based Kinesis Data Analytics application can perform per Kinesis Processing Unit \(KPU\) used by the application\. For more information about KPUs, see [Amazon Kinesis Data Analytics Pricing](http://aws.amazon.com/kinesis/data-analytics/pricing/)\.  
 *Required*: No  
 *Type*: Integer  
 *Minimum*: `1`  

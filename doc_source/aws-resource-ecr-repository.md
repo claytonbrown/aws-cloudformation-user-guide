@@ -12,6 +12,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "Type" : "AWS::ECR::Repository",
   "Properties" : {
+      "[EmptyOnDelete](#cfn-ecr-repository-emptyondelete)" : Boolean,
       "[EncryptionConfiguration](#cfn-ecr-repository-encryptionconfiguration)" : EncryptionConfiguration,
       "[ImageScanningConfiguration](#cfn-ecr-repository-imagescanningconfiguration)" : ImageScanningConfiguration,
       "[ImageTagMutability](#cfn-ecr-repository-imagetagmutability)" : String,
@@ -28,6 +29,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ```
 Type: AWS::ECR::Repository
 Properties: 
+  [EmptyOnDelete](#cfn-ecr-repository-emptyondelete): Boolean
   [EncryptionConfiguration](#cfn-ecr-repository-encryptionconfiguration): 
     EncryptionConfiguration
   [ImageScanningConfiguration](#cfn-ecr-repository-imagescanningconfiguration): 
@@ -42,6 +44,12 @@ Properties:
 ```
 
 ## Properties<a name="aws-resource-ecr-repository-properties"></a>
+
+`EmptyOnDelete`  <a name="cfn-ecr-repository-emptyondelete"></a>
+If true, deleting the repository force deletes the contents of the repository\. If false, the repository must be empty before attempting to delete it\.  
+*Required*: No  
+*Type*: Boolean  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `EncryptionConfiguration`  <a name="cfn-ecr-repository-encryptionconfiguration"></a>
 The encryption configuration for the repository\. This determines how the contents of your repository are encrypted at rest\.  
@@ -70,6 +78,7 @@ Creates or updates a lifecycle policy\. For information about lifecycle policy s
 
 `RepositoryName`  <a name="cfn-ecr-repository-repositoryname"></a>
 The name to use for the repository\. The repository name may be specified on its own \(such as `nginx-web-app`\) or it can be prepended with a namespace to group the repository into a category \(such as `project-a/nginx-web-app`\)\. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name\. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html)\.  
+The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes\.  
 If you specify a name, you cannot perform updates that require replacement of this resource\. You can perform updates that require no or some interruption\. If you must replace the resource, specify a new name\.
 *Required*: No  
 *Type*: String  
@@ -96,15 +105,15 @@ An array of key\-value pairs to apply to this resource\.
 
 ### Ref<a name="aws-resource-ecr-repository-return-values-ref"></a>
 
- When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the resource name, such as `test-repository`\.
+ When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the resource name, such as `test-repository`\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-resource-ecr-repository-return-values-fn--getatt"></a>
 
-The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+The `Fn::GetAtt`intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
 
-For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
+For more information about using the `Fn::GetAtt`intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
 
 #### <a name="aws-resource-ecr-repository-return-values-fn--getatt-fn--getatt"></a>
 

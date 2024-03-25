@@ -1,6 +1,6 @@
 # AWS::Events::Endpoint<a name="aws-resource-events-endpoint"></a>
 
-A global endpoint used to improve your application's availability by making it regional\-fault tolerant\. For more information about global endpoints, see [Making applications Regional\-fault tolerant with global endpoints and event replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html) in the Amazon EventBridge User Guide\.
+A global endpoint used to improve your application's availability by making it regional\-fault tolerant\. For more information about global endpoints, see [Making applications Regional\-fault tolerant with global endpoints and event replication](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html) in the *Amazon EventBridge User Guide*\.
 
 ## Syntax<a name="aws-resource-events-endpoint-syntax"></a>
 
@@ -57,7 +57,7 @@ The event buses being used by the endpoint\.
 
 `Name`  <a name="cfn-events-endpoint-name"></a>
 The name of the endpoint\.  
-*Required*: Yes  
+*Required*: No  
 *Type*: String  
 *Minimum*: `1`  
 *Maximum*: `64`  
@@ -89,9 +89,9 @@ The routing configuration of the endpoint\.
 
 ### Ref<a name="aws-resource-events-endpoint-return-values-ref"></a>
 
- When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns Endpoint ID, such as `mystack-Endpoint-ABCDEFGHIJK`\. 
+ When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns Endpoint ID, such as `mystack-Endpoint-ABCDEFGHIJK`\. 
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-resource-events-endpoint-return-values-fn--getatt"></a>
 

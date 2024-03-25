@@ -12,6 +12,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "[Command](#cfn-batch-jobdefinition-containerproperties-command)" : [ String, ... ],
   "[Environment](#cfn-batch-jobdefinition-containerproperties-environment)" : [ Environment, ... ],
+  "[EphemeralStorage](#cfn-batch-jobdefinition-containerproperties-ephemeralstorage)" : EphemeralStorage,
   "[ExecutionRoleArn](#cfn-batch-jobdefinition-containerproperties-executionrolearn)" : String,
   "[FargatePlatformConfiguration](#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration)" : FargatePlatformConfiguration,
   "[Image](#cfn-batch-jobdefinition-containerproperties-image)" : String,
@@ -25,6 +26,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "[Privileged](#cfn-batch-jobdefinition-containerproperties-privileged)" : Boolean,
   "[ReadonlyRootFilesystem](#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem)" : Boolean,
   "[ResourceRequirements](#cfn-batch-jobdefinition-containerproperties-resourcerequirements)" : [ ResourceRequirement, ... ],
+  "[RuntimePlatform](#cfn-batch-jobdefinition-containerproperties-runtimeplatform)" : RuntimePlatform,
   "[Secrets](#cfn-batch-jobdefinition-containerproperties-secrets)" : [ Secret, ... ],
   "[Ulimits](#cfn-batch-jobdefinition-containerproperties-ulimits)" : [ Ulimit, ... ],
   "[User](#cfn-batch-jobdefinition-containerproperties-user)" : String,
@@ -40,6 +42,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
     - String
   [Environment](#cfn-batch-jobdefinition-containerproperties-environment): 
     - Environment
+  [EphemeralStorage](#cfn-batch-jobdefinition-containerproperties-ephemeralstorage): 
+    EphemeralStorage
   [ExecutionRoleArn](#cfn-batch-jobdefinition-containerproperties-executionrolearn): String
   [FargatePlatformConfiguration](#cfn-batch-jobdefinition-containerproperties-fargateplatformconfiguration): 
     FargatePlatformConfiguration
@@ -59,6 +63,8 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   [ReadonlyRootFilesystem](#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem): Boolean
   [ResourceRequirements](#cfn-batch-jobdefinition-containerproperties-resourcerequirements): 
     - ResourceRequirement
+  [RuntimePlatform](#cfn-batch-jobdefinition-containerproperties-runtimeplatform): 
+    RuntimePlatform
   [Secrets](#cfn-batch-jobdefinition-containerproperties-secrets): 
     - Secret
   [Ulimits](#cfn-batch-jobdefinition-containerproperties-ulimits): 
@@ -85,6 +91,12 @@ Environment variables cannot start with "`AWS_BATCH`"\. This naming convention i
 *Type*: [List](aws-properties-batch-jobdefinition-environment.md) of [Environment](aws-properties-batch-jobdefinition-environment.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`EphemeralStorage`  <a name="cfn-batch-jobdefinition-containerproperties-ephemeralstorage"></a>
+The amount of ephemeral storage to allocate for the task\. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate\.  
+*Required*: No  
+*Type*: [EphemeralStorage](aws-properties-batch-jobdefinition-containerproperties-ephemeralstorage.md)  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `ExecutionRoleArn`  <a name="cfn-batch-jobdefinition-containerproperties-executionrolearn"></a>
 The Amazon Resource Name \(ARN\) of the execution role that AWS Batch can assume\. For jobs that run on Fargate resources, you must provide an execution role\. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the * AWS Batch User Guide*\.  
 *Required*: No  
@@ -98,7 +110,7 @@ The platform configuration for jobs that are running on Fargate resources\. Jobs
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Image`  <a name="cfn-batch-jobdefinition-containerproperties-image"></a>
-The image used to start a container\. This string is passed directly to the Docker daemon\. Images in the Docker Hub registry are available by default\. Other repositories are specified with ` repository-url/image:tag `\. It can be 255 characters long\. It can contain uppercase and lowercase letters, numbers, hyphens \(\-\), underscores \(\_\), colons \(:\), periods \(\.\), forward slashes \(/\), and number signs \(\#\)\. This parameter maps to `Image` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.docker.com/engine/reference/run/)\.  
+Required\. The image used to start a container\. This string is passed directly to the Docker daemon\. Images in the Docker Hub registry are available by default\. Other repositories are specified with ` repository-url/image:tag `\. It can be 255 characters long\. It can contain uppercase and lowercase letters, numbers, hyphens \(\-\), underscores \(\_\), colons \(:\), periods \(\.\), forward slashes \(/\), and number signs \(\#\)\. This parameter maps to `Image` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.docker.com/engine/reference/run/)\.  
 Docker image architecture must match the processor architecture of the compute resources that they're scheduled on\. For example, ARM\-based Docker images can only run on ARM\-based compute resources\.
 + Images in Amazon ECR Public repositories use the full `registry/repository[:tag]` or `registry/repository[@digest]` naming conventions\. For example, `public.ecr.aws/registry_alias/my-web-app:latest `\.
 + Images in Amazon ECR repositories use the full registry and repository URI \(for example, `123456789012.dkr.ecr.<region-name>.amazonaws.com/<repository-name>`\)\.
@@ -173,6 +185,12 @@ When this parameter is true, the container is given read\-only access to its roo
 The type and amount of resources to assign to a container\. The supported resources include `GPU`, `MEMORY`, and `VCPU`\.  
 *Required*: No  
 *Type*: List of [ResourceRequirement](aws-properties-batch-jobdefinition-resourcerequirement.md)  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`RuntimePlatform`  <a name="cfn-batch-jobdefinition-containerproperties-runtimeplatform"></a>
+An object that represents the compute environment architecture for AWS Batch jobs on Fargate\.  
+*Required*: No  
+*Type*: [RuntimePlatform](aws-properties-batch-jobdefinition-containerproperties-runtimeplatform.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Secrets`  <a name="cfn-batch-jobdefinition-containerproperties-secrets"></a>

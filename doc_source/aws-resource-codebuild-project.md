@@ -2,6 +2,9 @@
 
 The `AWS::CodeBuild::Project` resource configures how AWS CodeBuild builds your source code\. For example, it tells CodeBuild where to get the source code and which build environment to use\.
 
+**Note**  
+To unset or remove a project value via CFN, explicitly provide the attribute with value as empty input\. 
+
 ## Syntax<a name="aws-resource-codebuild-project-syntax"></a>
 
 To declare this entity in your AWS CloudFormation template, use the following syntax:
@@ -504,7 +507,7 @@ Resources:
         SecurityGroupIds: [!Ref CodeBuildSecurityGroup]
       Cache:
         Type: S3
-        Location: mybucket/prefix
+        Location: <mybucket/prefix>
   CodeBuildRole:
     Type: AWS::IAM::Role
     Properties:
@@ -615,7 +618,7 @@ Resources:
         },
         "Cache": {
           "Type": "S3",
-          "Location": "mybucket/prefix"
+          "Location": "<mybucket/prefix>"
         }
       }
     },

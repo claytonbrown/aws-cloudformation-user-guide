@@ -12,6 +12,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "Type" : "AWS::EC2::FlowLog",
   "Properties" : {
+      "[DeliverCrossAccountRole](#cfn-ec2-flowlog-delivercrossaccountrole)" : String,
       "[DeliverLogsPermissionArn](#cfn-ec2-flowlog-deliverlogspermissionarn)" : String,
       "[DestinationOptions](#cfn-ec2-flowlog-destinationoptions)" : DestinationOptions,
       "[LogDestination](#cfn-ec2-flowlog-logdestination)" : String,
@@ -32,6 +33,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ```
 Type: AWS::EC2::FlowLog
 Properties: 
+  [DeliverCrossAccountRole](#cfn-ec2-flowlog-delivercrossaccountrole): String
   [DeliverLogsPermissionArn](#cfn-ec2-flowlog-deliverlogspermissionarn): String
   [DestinationOptions](#cfn-ec2-flowlog-destinationoptions): 
     DestinationOptions
@@ -48,6 +50,12 @@ Properties:
 ```
 
 ## Properties<a name="aws-resource-ec2-flowlog-properties"></a>
+
+`DeliverCrossAccountRole`  <a name="cfn-ec2-flowlog-delivercrossaccountrole"></a>
+The ARN of the IAM role that allows the service to publish flow logs across accounts\.  
+*Required*: No  
+*Type*: String  
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `DeliverLogsPermissionArn`  <a name="cfn-ec2-flowlog-deliverlogspermissionarn"></a>
 The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account\.  
@@ -144,15 +152,15 @@ The type of traffic to monitor \(accepted traffic, rejected traffic, or all traf
 
 ### Ref<a name="aws-resource-ec2-flowlog-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the flow log ID, such as `fl-123456abc123abc1`\.
+When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the flow log ID, such as `fl-123456abc123abc1`\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-resource-ec2-flowlog-return-values-fn--getatt"></a>
 
-The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+The `Fn::GetAtt`intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
 
-For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
+For more information about using the `Fn::GetAtt`intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
 
 #### <a name="aws-resource-ec2-flowlog-return-values-fn--getatt-fn--getatt"></a>
 

@@ -12,6 +12,35 @@ When you apply template changes to update a top\-level stack, CloudFormation upd
 **Note**  
 You must acknowledge IAM capabilities for nested stacks that contain IAM resources\. Also, verify that you have cancel update stack permissions, which is required if an update rolls back\. For more information about IAM and CloudFormation, see [Controlling access with AWS Identity and Access Management](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html)\.
 
+**Important**  
+A subset of `AWS::CloudFormation::Stack` resource type properties listed below are available to customers using AWS CloudFormation, AWS CDK, and AWS Cloud Control API to configure\.  
+`NotificationARNs`
+`Parameters`
+`Tags`
+`TemplateURL`
+`TimeoutInMinutes`
+These properties can be configured only when using AWS Cloud Control API\. This is because the below properties are set by the parent stack, and thus cannot be configured using AWS CloudFormation or AWS CDK but only AWS Cloud Control API\.  
+`Capabilities`
+`Description`
+`DisableRollback`
+`EnableTerminationProtection`
+`RoleARN`
+`StackName`
+`StackPolicyBody`
+`StackPolicyURL`
+`StackStatusReason`
+`TemplateBody`
+Customers that configure `AWS::CloudFormation::Stack` using AWS CloudFormation and AWS CDK can do so for nesting a CloudFormation stack as a resource in their top\-level template\.  
+These read\-only properties can be accessed only when using AWS Cloud Control API\.  
+`ChangeSetId`
+`CreationTime`
+`LastUpdateDate`
+`Outputs`
+`ParentId`
+`RootId`
+`StackId`
+`StackStatus`
+
 ## Syntax<a name="aws-properties-stack-syntax"></a>
 
 To declare this entity in your AWS CloudFormation template, use the following syntax:
@@ -23,7 +52,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "Type" : "AWS::CloudFormation::Stack",
   "Properties" : {
       "[NotificationARNs](#cfn-cloudformation-stack-notificationarns)" : [ String, ... ],
-      "[Parameters](#cfn-cloudformation-stack-parameters)" : {Key : Value, ...},
+      "[Parameters](#cfn-cloudformation-stack-parameters)" : {Key: Value, ...},
       "[Tags](#cfn-cloudformation-stack-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ],
       "[TemplateURL](#cfn-cloudformation-stack-templateurl)" : String,
       "[TimeoutInMinutes](#cfn-cloudformation-stack-timeoutinminutes)" : Integer
@@ -39,7 +68,7 @@ Properties:
   [NotificationARNs](#cfn-cloudformation-stack-notificationarns): 
     - String
   [Parameters](#cfn-cloudformation-stack-parameters): 
-    Key : Value
+    Key: Value
   [Tags](#cfn-cloudformation-stack-tags): 
     - [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)
   [TemplateURL](#cfn-cloudformation-stack-templateurl): String
@@ -92,11 +121,11 @@ Updates aren't supported\.
 
 ### Ref<a name="aws-properties-stack-return-values-ref"></a>
 
- When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the stack ID\. For example:
+ When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the stack ID\. For example:
 
  `arn:aws:cloudformation:us-east-2:123456789012:stack/mystack-mynestedstack-sggfrhxhum7w/f449b250-b969-11e0-a185-5081d0136786` 
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ## Examples<a name="aws-properties-stack--examples"></a>
 

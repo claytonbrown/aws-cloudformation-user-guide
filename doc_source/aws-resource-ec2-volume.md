@@ -74,7 +74,7 @@ Indicates whether the volume is auto\-enabled for I/O operations\. By default, A
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `AvailabilityZone`  <a name="cfn-ec2-volume-availabilityzone"></a>
-The Availability Zone in which to create the volume\.  
+The ID of the Availability Zone in which to create the volume\. For example, `us-east-1a`\.  
 *Required*: Yes  
 *Type*: String  
 *Update requires*: Updates are not supported\.
@@ -161,7 +161,6 @@ The volume type\. This parameter can be one of the following values:
 + Throughput Optimized HDD: `st1` 
 + Cold HDD: `sc1` 
 + Magnetic: `standard` 
-Throughput Optimized HDD \(`st1`\) and Cold HDD \(`sc1`\) volumes can't be used as boot volumes\.
 For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) in the *Amazon Elastic Compute Cloud User Guide*\.  
 Default: `gp2`   
 *Required*: No  
@@ -173,15 +172,15 @@ Default: `gp2`
 
 ### Ref<a name="aws-resource-ec2-volume-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the resource name\. For example: `vol-5cb85026`\.
+When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the resource name\. For example: `vol-5cb85026`\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-resource-ec2-volume-return-values-fn--getatt"></a>
 
-The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+The `Fn::GetAtt`intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
 
-For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
+For more information about using the `Fn::GetAtt`intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
 
 #### <a name="aws-resource-ec2-volume-return-values-fn--getatt-fn--getatt"></a>
 

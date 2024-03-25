@@ -16,6 +16,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[ConfigParameters](#cfn-redshiftserverless-workgroup-configparameters)" : [ ConfigParameter, ... ],
       "[EnhancedVpcRouting](#cfn-redshiftserverless-workgroup-enhancedvpcrouting)" : Boolean,
       "[NamespaceName](#cfn-redshiftserverless-workgroup-namespacename)" : String,
+      "[Port](#cfn-redshiftserverless-workgroup-port)" : Integer,
       "[PubliclyAccessible](#cfn-redshiftserverless-workgroup-publiclyaccessible)" : Boolean,
       "[SecurityGroupIds](#cfn-redshiftserverless-workgroup-securitygroupids)" : [ String, ... ],
       "[SubnetIds](#cfn-redshiftserverless-workgroup-subnetids)" : [ String, ... ],
@@ -35,6 +36,7 @@ Properties:
     - ConfigParameter
   [EnhancedVpcRouting](#cfn-redshiftserverless-workgroup-enhancedvpcrouting): Boolean
   [NamespaceName](#cfn-redshiftserverless-workgroup-namespacename): String
+  [Port](#cfn-redshiftserverless-workgroup-port): Integer
   [PubliclyAccessible](#cfn-redshiftserverless-workgroup-publiclyaccessible): Boolean
   [SecurityGroupIds](#cfn-redshiftserverless-workgroup-securitygroupids): 
     - String
@@ -71,6 +73,12 @@ The namespace the workgroup is associated with\.
 *Type*: String  
 *Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
+`Port`  <a name="cfn-redshiftserverless-workgroup-port"></a>
+The custom port to use when connecting to a workgroup\. Valid port ranges are 5431\-5455 and 8191\-8215\. The default is 5439\.  
+*Required*: No  
+*Type*: Integer  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `PubliclyAccessible`  <a name="cfn-redshiftserverless-workgroup-publiclyaccessible"></a>
 A value that specifies whether the workgroup can be accessible from a public network\.  
 *Required*: No  
@@ -106,3 +114,60 @@ The name of the workgroup\.
 ### Ref<a name="aws-resource-redshiftserverless-workgroup-return-values-ref"></a>
 
 When the logical ID of this resource is provided to the Ref intrinsic function, Ref returns the WorkgroupName, such as `sample-workgroup.` For more information about using the Ref function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+
+### Fn::GetAtt<a name="aws-resource-redshiftserverless-workgroup-return-values-fn--getatt"></a>
+
+GetAtt returns a value for a specified attribute of this type\. For more information, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\. The following are the available attributes and sample return values\.
+
+#### <a name="aws-resource-redshiftserverless-workgroup-return-values-fn--getatt-fn--getatt"></a>
+
+`Workgroup`  <a name="Workgroup-fn::getatt"></a>
+Returns the `Workgroup` value\.
+
+`Workgroup.BaseCapacity`  <a name="Workgroup.BaseCapacity-fn::getatt"></a>
+The base data warehouse capacity of the workgroup in Redshift Processing Units \(RPUs\)\.
+
+`Workgroup.ConfigParameters`  <a name="Workgroup.ConfigParameters-fn::getatt"></a>
+Property description not available\.
+
+`Workgroup.CreationDate`  <a name="Workgroup.CreationDate-fn::getatt"></a>
+The creation date of the workgroup\.
+
+`Workgroup.Endpoint`  <a name="Workgroup.Endpoint-fn::getatt"></a>
+Property description not available\.
+
+`Workgroup.Endpoint.Address`  <a name="Workgroup.Endpoint.Address-fn::getatt"></a>
+The DNS address of the VPC endpoint\.
+
+`Workgroup.Endpoint.Port`  <a name="Workgroup.Endpoint.Port-fn::getatt"></a>
+The custom port to use when connecting to a workgroup\. Valid port ranges are 5431\-5455 and 8191\-8215\. The default is 5439\.
+
+`Workgroup.Endpoint.VpcEndpoints`  <a name="Workgroup.Endpoint.VpcEndpoints-fn::getatt"></a>
+Property description not available\.
+
+`Workgroup.EnhancedVpcRouting`  <a name="Workgroup.EnhancedVpcRouting-fn::getatt"></a>
+The value that specifies whether to enable enhanced virtual private cloud \(VPC\) routing, which forces Amazon Redshift Serverless to route traffic through your VPC\.
+
+`Workgroup.NamespaceName`  <a name="Workgroup.NamespaceName-fn::getatt"></a>
+The namespace the workgroup is associated with\.
+
+`Workgroup.PubliclyAccessible`  <a name="Workgroup.PubliclyAccessible-fn::getatt"></a>
+A value that specifies whether the workgroup can be accessible from a public network\.
+
+`Workgroup.SecurityGroupIds`  <a name="Workgroup.SecurityGroupIds-fn::getatt"></a>
+An array of security group IDs to associate with the workgroup\.
+
+`Workgroup.Status`  <a name="Workgroup.Status-fn::getatt"></a>
+The status of the workgroup\.
+
+`Workgroup.SubnetIds`  <a name="Workgroup.SubnetIds-fn::getatt"></a>
+An array of subnet IDs the workgroup is associated with\.
+
+`Workgroup.WorkgroupArn`  <a name="Workgroup.WorkgroupArn-fn::getatt"></a>
+The Amazon Resource Name \(ARN\) that links to the workgroup\.
+
+`Workgroup.WorkgroupId`  <a name="Workgroup.WorkgroupId-fn::getatt"></a>
+The unique identifier of the workgroup\.
+
+`Workgroup.WorkgroupName`  <a name="Workgroup.WorkgroupName-fn::getatt"></a>
+The name of the workgroup\.

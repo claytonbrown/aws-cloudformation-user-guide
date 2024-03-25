@@ -50,7 +50,7 @@ Indicates whether requests from service consumers to create an endpoint to your 
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `ContributorInsightsEnabled`  <a name="cfn-ec2-vpcendpointservice-contributorinsightsenabled"></a>
-Indicates whether to enable the built\-in Contributor Insights rules\.  
+Indicates whether to enable the built\-in Contributor Insights rules provided by AWS PrivateLink\.  
 *Required*: No  
 *Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
@@ -78,9 +78,20 @@ The entity that is responsible for the endpoint costs\. The default is the endpo
 
 ### Ref<a name="aws-resource-ec2-vpcendpointservice-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the ID of the VPC endpoint service configuration\.
+When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the ID of the VPC endpoint service configuration\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+
+### Fn::GetAtt<a name="aws-resource-ec2-vpcendpointservice-return-values-fn--getatt"></a>
+
+The `Fn::GetAtt`intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+
+For more information about using the `Fn::GetAtt`intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
+
+#### <a name="aws-resource-ec2-vpcendpointservice-return-values-fn--getatt-fn--getatt"></a>
+
+`ServiceId`  <a name="ServiceId-fn::getatt"></a>
+The ID of the endpoint service\.
 
 ## See also<a name="aws-resource-ec2-vpcendpointservice--seealso"></a>
 + [CreateVpcEndpointServiceConfiguration](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpcEndpointServiceConfiguration.html) in the *Amazon EC2 API Reference*

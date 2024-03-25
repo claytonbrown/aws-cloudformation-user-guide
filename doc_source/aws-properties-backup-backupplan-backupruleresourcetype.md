@@ -14,9 +14,10 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "[CopyActions](#cfn-backup-backupplan-backupruleresourcetype-copyactions)" : [ CopyActionResourceType, ... ],
   "[EnableContinuousBackup](#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup)" : Boolean,
   "[Lifecycle](#cfn-backup-backupplan-backupruleresourcetype-lifecycle)" : LifecycleResourceType,
-  "[RecoveryPointTags](#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags)" : {Key : Value, ...},
+  "[RecoveryPointTags](#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags)" : {Key: Value, ...},
   "[RuleName](#cfn-backup-backupplan-backupruleresourcetype-rulename)" : String,
   "[ScheduleExpression](#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression)" : String,
+  "[ScheduleExpressionTimezone](#cfn-backup-backupplan-backupruleresourcetype-scheduleexpressiontimezone)" : String,
   "[StartWindowMinutes](#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes)" : Double,
   "[TargetBackupVault](#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault)" : String
 }
@@ -32,9 +33,10 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   [Lifecycle](#cfn-backup-backupplan-backupruleresourcetype-lifecycle): 
     LifecycleResourceType
   [RecoveryPointTags](#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags): 
-    Key : Value
+    Key: Value
   [RuleName](#cfn-backup-backupplan-backupruleresourcetype-rulename): String
   [ScheduleExpression](#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression): String
+  [ScheduleExpressionTimezone](#cfn-backup-backupplan-backupruleresourcetype-scheduleexpressiontimezone): String
   [StartWindowMinutes](#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes): Double
   [TargetBackupVault](#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault): String
 ```
@@ -83,8 +85,15 @@ A CRON expression specifying when AWS Backup initiates a backup job\.
 *Type*: String  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`ScheduleExpressionTimezone`  <a name="cfn-backup-backupplan-backupruleresourcetype-scheduleexpressiontimezone"></a>
+Property description not available\.  
+*Required*: No  
+*Type*: String  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
 `StartWindowMinutes`  <a name="cfn-backup-backupplan-backupruleresourcetype-startwindowminutes"></a>
 An optional value that specifies a period of time in minutes after a backup is scheduled before a job is canceled if it doesn't start successfully\.  
+If this value is included, it must be at least 60 minutes to avoid errors\.  
 *Required*: No  
 *Type*: Double  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)

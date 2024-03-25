@@ -20,6 +20,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 {
   "Type" : "AWS::EC2::KeyPair",
   "Properties" : {
+      "[KeyFormat](#cfn-ec2-keypair-keyformat)" : String,
       "[KeyName](#cfn-ec2-keypair-keyname)" : String,
       "[KeyType](#cfn-ec2-keypair-keytype)" : String,
       "[PublicKeyMaterial](#cfn-ec2-keypair-publickeymaterial)" : String,
@@ -33,6 +34,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ```
 Type: AWS::EC2::KeyPair
 Properties: 
+  [KeyFormat](#cfn-ec2-keypair-keyformat): String
   [KeyName](#cfn-ec2-keypair-keyname): String
   [KeyType](#cfn-ec2-keypair-keytype): String
   [PublicKeyMaterial](#cfn-ec2-keypair-publickeymaterial): String
@@ -41,6 +43,14 @@ Properties:
 ```
 
 ## Properties<a name="aws-resource-ec2-keypair-properties"></a>
+
+`KeyFormat`  <a name="cfn-ec2-keypair-keyformat"></a>
+The format of the key pair\.  
+Default: `pem`   
+*Required*: No  
+*Type*: String  
+*Allowed values*: `pem | ppk`  
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `KeyName`  <a name="cfn-ec2-keypair-keyname"></a>
 A unique name for the key pair\.  
@@ -62,21 +72,21 @@ Default: `rsa`
 The public key material\. The `PublicKeyMaterial` property is used to import a key pair\. If this property is not specified, then a new key pair will be created\.  
 *Required*: No  
 *Type*: String  
-*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 `Tags`  <a name="cfn-ec2-keypair-tags"></a>
 The tags to apply to the key pair\.  
 *Required*: No  
 *Type*: List of [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)  
-*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
 
 ## Return values<a name="aws-resource-ec2-keypair-return-values"></a>
 
 ### Ref<a name="aws-resource-ec2-keypair-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the name of the key pair\.
+When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the name of the key pair\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-resource-ec2-keypair-return-values-fn--getatt"></a>
 

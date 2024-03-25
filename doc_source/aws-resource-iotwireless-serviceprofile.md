@@ -57,7 +57,7 @@ The tags are an array of key\-value pairs to attach to the specified resource\. 
 
 ### Ref<a name="aws-resource-iotwireless-serviceprofile-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the service profile ID\.
+When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the service profile ID\.
 
 ### Fn::GetAtt<a name="aws-resource-iotwireless-serviceprofile-return-values-fn--getatt"></a>
 
@@ -98,12 +98,6 @@ The MinGwDiversity value\.
 
 `LoRaWAN.NwkGeoLoc`  <a name="LoRaWAN.NwkGeoLoc-fn::getatt"></a>
 The NwkGeoLoc value\.
-
-`LoRaWAN.PrAllowed`  <a name="LoRaWAN.PrAllowed-fn::getatt"></a>
-The PRAllowed value that describes whether passive roaming is allowed\.
-
-`LoRaWAN.RaAllowed`  <a name="LoRaWAN.RaAllowed-fn::getatt"></a>
-The RAAllowed value that describes whether roaming activation is allowed\.
 
 `LoRaWAN.ReportDevStatusBattery`  <a name="LoRaWAN.ReportDevStatusBattery-fn::getatt"></a>
 The ReportDevStatusBattery value\.

@@ -23,6 +23,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[IpamScopeId](#cfn-ec2-ipampool-ipamscopeid)" : String,
       "[Locale](#cfn-ec2-ipampool-locale)" : String,
       "[ProvisionedCidrs](#cfn-ec2-ipampool-provisionedcidrs)" : [ ProvisionedCidr, ... ],
+      "[PublicIpSource](#cfn-ec2-ipampool-publicipsource)" : String,
       "[PubliclyAdvertisable](#cfn-ec2-ipampool-publiclyadvertisable)" : Boolean,
       "[SourceIpamPoolId](#cfn-ec2-ipampool-sourceipampoolid)" : String,
       "[Tags](#cfn-ec2-ipampool-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ]
@@ -48,6 +49,7 @@ Properties:
   [Locale](#cfn-ec2-ipampool-locale): String
   [ProvisionedCidrs](#cfn-ec2-ipampool-provisionedcidrs): 
     - ProvisionedCidr
+  [PublicIpSource](#cfn-ec2-ipampool-publicipsource): String
   [PubliclyAdvertisable](#cfn-ec2-ipampool-publiclyadvertisable): Boolean
   [SourceIpamPoolId](#cfn-ec2-ipampool-sourceipampoolid): String
   [Tags](#cfn-ec2-ipampool-tags): 
@@ -131,6 +133,13 @@ Information about the CIDRs provisioned to an IPAM pool\.
 *Type*: List of [ProvisionedCidr](aws-properties-ec2-ipampool-provisionedcidr.md)  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
+`PublicIpSource`  <a name="cfn-ec2-ipampool-publicipsource"></a>
+The IP address source for pools in the public scope\. Only used for provisioning IP address CIDRs to pools in the public scope\. Default is `BYOIP`\. For more information, see [Create IPv6 pools](https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html) in the *Amazon VPC IPAM User Guide*\. By default, you can add only one Amazon\-provided IPv6 CIDR block to a top\-level IPv6 pool\. For information on increasing the default limit, see [ Quotas for your IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) in the *Amazon VPC IPAM User Guide*\.  
+*Required*: No  
+*Type*: String  
+*Allowed values*: `amazon | byoip`  
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+
 `PubliclyAdvertisable`  <a name="cfn-ec2-ipampool-publiclyadvertisable"></a>
 Determines if a pool is publicly advertisable\. This option is not available for pools with AddressFamily set to `ipv4`\.  
 *Required*: No  
@@ -153,15 +162,15 @@ The key/value combination of a tag assigned to the resource\. Use the tag key in
 
 ### Ref<a name="aws-resource-ec2-ipampool-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the IPAM pool ID\.
+When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the IPAM pool ID\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-resource-ec2-ipampool-return-values-fn--getatt"></a>
 
-The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+The `Fn::GetAtt`intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
 
-For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
+For more information about using the `Fn::GetAtt`intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
 
 #### <a name="aws-resource-ec2-ipampool-return-values-fn--getatt-fn--getatt"></a>
 

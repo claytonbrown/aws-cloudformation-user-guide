@@ -27,6 +27,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
   "[Ipv6Prefixes](#cfn-ec2-launchtemplate-networkinterface-ipv6prefixes)" : [ Ipv6PrefixSpecification, ... ],
   "[NetworkCardIndex](#cfn-ec2-launchtemplate-networkinterface-networkcardindex)" : Integer,
   "[NetworkInterfaceId](#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid)" : String,
+  "[PrimaryIpv6](#cfn-ec2-launchtemplate-networkinterface-primaryipv6)" : Boolean,
   "[PrivateIpAddress](#cfn-ec2-launchtemplate-networkinterface-privateipaddress)" : String,
   "[PrivateIpAddresses](#cfn-ec2-launchtemplate-networkinterface-privateipaddresses)" : [ PrivateIpAdd, ... ],
   "[SecondaryPrivateIpAddressCount](#cfn-ec2-launchtemplate-networkinterface-secondaryprivateipaddresscount)" : Integer,
@@ -56,6 +57,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
     - Ipv6PrefixSpecification
   [NetworkCardIndex](#cfn-ec2-launchtemplate-networkinterface-networkcardindex): Integer
   [NetworkInterfaceId](#cfn-ec2-launchtemplate-networkinterface-networkinterfaceid): String
+  [PrimaryIpv6](#cfn-ec2-launchtemplate-networkinterface-primaryipv6): Boolean
   [PrivateIpAddress](#cfn-ec2-launchtemplate-networkinterface-privateipaddress): String
   [PrivateIpAddresses](#cfn-ec2-launchtemplate-networkinterface-privateipaddresses): 
     - PrivateIpAdd
@@ -66,7 +68,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
 ## Properties<a name="aws-properties-ec2-launchtemplate-networkinterface-properties"></a>
 
 `AssociateCarrierIpAddress`  <a name="cfn-ec2-launchtemplate-networkinterface-associatecarrieripaddress"></a>
-Indicates whether to associate a Carrier IP address with eth0 for a new network interface\.  
+Associates a Carrier IP address with eth0 for a new network interface\.  
 Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface\. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the * AWS Wavelength Developer Guide*\.  
 *Required*: No  
 *Type*: Boolean  
@@ -156,6 +158,12 @@ The index of the network card\. Some instance types support multiple network car
 The ID of the network interface\.  
 *Required*: No  
 *Type*: String  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`PrimaryIpv6`  <a name="cfn-ec2-launchtemplate-networkinterface-primaryipv6"></a>
+The primary IPv6 address of the network interface\. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached\. For more information about primary IPv6 addresses, see [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html)\.  
+*Required*: No  
+*Type*: Boolean  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `PrivateIpAddress`  <a name="cfn-ec2-launchtemplate-networkinterface-privateipaddress"></a>

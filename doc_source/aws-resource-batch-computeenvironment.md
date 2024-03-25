@@ -18,11 +18,14 @@ Create a new compute environment with the new AMI\.
 Add the compute environment to an existing job queue\.
 Remove the earlier compute environment from your job queue\.
 Delete the earlier compute environment\.
-In April 2022, AWS Batch added enhanced support for updating compute environments\. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the * AWS Batch User Guide*\. To use the enhanced updating of compute environments to update AMIs, follow these rules:  
+In April 2022, AWS Batch added enhanced support for updating compute environments\. For example, the `UpdateComputeEnvironent` API lets you use the `ReplaceComputeEnvironment` property to dynamically update compute environment parameters such as the launch template or instance type without replacement\. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the * AWS Batch User Guide*\.   
+To use the enhanced updating of compute environments to update AMIs, follow these rules:  
 Either do not set the [ServiceRole](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-servicerole) property or set it to the **AWSServiceRoleForBatch** service\-linked role\.
 Set the [AllocationStrategy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-allocationstrategy) property to `BEST_FIT_PROGRESSIVE` or `SPOT_CAPACITY_OPTIMIZED`\.
-Set the [ReplaceComputeEnvironment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-replacecomputeenvironment) property to `false`\.
-Set the [UpdateToLatestImageVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-updatetolatestimageversion) property to `true`\.
+Set the [ReplaceComputeEnvironment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-replacecomputeenvironment) property to `false`\.  
+Set the `ReplaceComputeEnvironment` property to `false` if the compute environment uses the `BEST_FIT` allocation strategy\.
+If the `ReplaceComputeEnvironment` property is set to `false`, you might receive an error message when you update the CFN template for a compute environment\. This issue occurs if the updated `desiredvcpus` value is less than the current `desiredvcpus` value\. As a workaround, delete the `desiredvcpus` value from the updated template or use the `minvcpus` property to manage the number of vCPUs\. For information, see [Error message when you update the `DesiredvCpus` setting](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#error-desired-vcpus-update)\.
+Set the [UpdateToLatestImageVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-updatetolatestimageversion) property to `true`\. This property is used when you update a compute environment\. The [UpdateToLatestImageVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-updatetolatestimageversion) property is ignored when you create a compute environment\.
 Either do not specify an image ID in [ImageId](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-imageid) or [ImageIdOverride](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-ec2configurationobject.html#cfn-batch-computeenvironment-ec2configurationobject-imageidoverride) properties, or in the launch template identified by the [Launch Template](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-launchtemplate) property\. In that case AWS Batch will select the latest Amazon ECS optimized AMI supported by AWS Batch at the time the infrastructure update is initiated\. Alternatively you can specify the AMI ID in the `ImageId` or `ImageIdOverride` properties, or the launch template identified by the `LaunchTemplate` properties\. Changing any of these properties will trigger an infrastructure update\.
 If these rules are followed, any update that triggers an infrastructure update will cause the AMI ID to be re\-selected\. If the [Version](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html#cfn-batch-computeenvironment-launchtemplatespecification-version) property of the [LaunchTemplateSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html) is set to `$Latest` or `$Default`, the latest or default version of the launch template will be evaluated up at the time of the infrastructure update, even if the `LaunchTemplateSpecification` was not updated\.
 
@@ -42,7 +45,7 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[ReplaceComputeEnvironment](#cfn-batch-computeenvironment-replacecomputeenvironment)" : Boolean,
       "[ServiceRole](#cfn-batch-computeenvironment-servicerole)" : String,
       "[State](#cfn-batch-computeenvironment-state)" : String,
-      "[Tags](#cfn-batch-computeenvironment-tags)" : {Key : Value, ...},
+      "[Tags](#cfn-batch-computeenvironment-tags)" : {Key: Value, ...},
       "[Type](#cfn-batch-computeenvironment-type)" : String,
       "[UnmanagedvCpus](#cfn-batch-computeenvironment-unmanagedvcpus)" : Integer,
       "[UpdatePolicy](#cfn-batch-computeenvironment-updatepolicy)" : UpdatePolicy
@@ -64,7 +67,7 @@ Properties:
   [ServiceRole](#cfn-batch-computeenvironment-servicerole): String
   [State](#cfn-batch-computeenvironment-state): String
   [Tags](#cfn-batch-computeenvironment-tags): 
-    Key : Value
+    Key: Value
   [Type](#cfn-batch-computeenvironment-type): String
   [UnmanagedvCpus](#cfn-batch-computeenvironment-unmanagedvcpus): Integer
   [UpdatePolicy](#cfn-batch-computeenvironment-updatepolicy): 
@@ -110,7 +113,9 @@ Depending on how you created your AWS Batch service role, its ARN might contain 
 `State`  <a name="cfn-batch-computeenvironment-state"></a>
 The state of the compute environment\. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues\.  
 If the state is `ENABLED`, then the AWS Batch scheduler can attempt to place jobs from an associated job queue on the compute resources within the environment\. If the compute environment is managed, then it can scale its instances out or in automatically, based on the job queue demand\.  
-If the state is `DISABLED`, then the AWS Batch scheduler doesn't attempt to place jobs within the environment\. Jobs in a `STARTING` or `RUNNING` state continue to progress normally\. Managed compute environments in the `DISABLED` state don't scale out\. However, they scale in to `minvCpus` value after instances become idle\.  
+If the state is `DISABLED`, then the AWS Batch scheduler doesn't attempt to place jobs within the environment\. Jobs in a `STARTING` or `RUNNING` state continue to progress normally\. Managed compute environments in the `DISABLED` state don't scale out\.   
+Compute environments in a `DISABLED` state may continue to incur billing charges\. To prevent additional charges, turn off and then delete the compute environment\. For more information, see [State](https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state) in the * AWS Batch User Guide*\.
+When an instance is idle, the instance scales down to the `minvCpus` value\. However, the instance size doesn't change\. For example, consider a `c5.8xlarge` instance with a `minvCpus` value of `4` and a `desiredvCpus` value of `36`\. This instance doesn't scale down to a `c5.large` instance\.  
 *Required*: No  
 *Type*: String  
 *Allowed values*: `DISABLED | ENABLED`  
@@ -146,15 +151,15 @@ Specifies the infrastructure update policy for the compute environment\. For mor
 
 ### Ref<a name="aws-resource-batch-computeenvironment-return-values-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the compute environment ARN, such as `arn:aws:batch:us-east-1:555555555555:compute-environment/M4OnDemand`\.
+When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the compute environment ARN, such as `arn:aws:batch:us-east-1:555555555555:compute-environment/M4OnDemand`\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-resource-batch-computeenvironment-return-values-fn--getatt"></a>
 
-The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+The `Fn::GetAtt`intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
 
-For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
+For more information about using the `Fn::GetAtt`intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
 
 #### <a name="aws-resource-batch-computeenvironment-return-values-fn--getatt-fn--getatt"></a>
 

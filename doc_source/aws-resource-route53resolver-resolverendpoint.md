@@ -4,6 +4,10 @@ Creates a Resolver endpoint\. There are two types of Resolver endpoints, inbound
 + An *inbound Resolver endpoint* forwards DNS queries to the DNS service for a VPC from your network\.
 + An *outbound Resolver endpoint* forwards DNS queries from the DNS service for a VPC to your network\.
 
+**Important**  
+You cannot update `ResolverEndpointType` and `IpAddresses` in the same request\.
+When you update a dual\-stack IP address, you must update both IP addresses\. You can’t update only an IPv4 or IPv6 and keep an existing IP address\.
+
 ## Syntax<a name="aws-resource-route53resolver-resolverendpoint-syntax"></a>
 
 To declare this entity in your AWS CloudFormation template, use the following syntax:
@@ -17,6 +21,9 @@ To declare this entity in your AWS CloudFormation template, use the following sy
       "[Direction](#cfn-route53resolver-resolverendpoint-direction)" : String,
       "[IpAddresses](#cfn-route53resolver-resolverendpoint-ipaddresses)" : [ IpAddressRequest, ... ],
       "[Name](#cfn-route53resolver-resolverendpoint-name)" : String,
+      "[OutpostArn](#cfn-route53resolver-resolverendpoint-outpostarn)" : String,
+      "[PreferredInstanceType](#cfn-route53resolver-resolverendpoint-preferredinstancetype)" : String,
+      "[ResolverEndpointType](#cfn-route53resolver-resolverendpoint-resolverendpointtype)" : String,
       "[SecurityGroupIds](#cfn-route53resolver-resolverendpoint-securitygroupids)" : [ String, ... ],
       "[Tags](#cfn-route53resolver-resolverendpoint-tags)" : [ [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html), ... ]
     }
@@ -32,6 +39,9 @@ Properties:
   [IpAddresses](#cfn-route53resolver-resolverendpoint-ipaddresses): 
     - IpAddressRequest
   [Name](#cfn-route53resolver-resolverendpoint-name): String
+  [OutpostArn](#cfn-route53resolver-resolverendpoint-outpostarn): String
+  [PreferredInstanceType](#cfn-route53resolver-resolverendpoint-preferredinstancetype): String
+  [ResolverEndpointType](#cfn-route53resolver-resolverendpoint-resolverendpointtype): String
   [SecurityGroupIds](#cfn-route53resolver-resolverendpoint-securitygroupids): 
     - String
   [Tags](#cfn-route53resolver-resolverendpoint-tags): 
@@ -51,9 +61,10 @@ Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
 
 `IpAddresses`  <a name="cfn-route53resolver-resolverendpoint-ipaddresses"></a>
 The subnets and IP addresses in your VPC that DNS queries originate from \(for outbound endpoints\) or that you forward DNS queries to \(for inbound endpoints\)\. The subnet ID uniquely identifies a VPC\.   
+Even though the minimum is 1, Route 53 requires that you create at least two\.
 *Required*: Yes  
 *Type*: List of [IpAddressRequest](aws-properties-route53resolver-resolverendpoint-ipaddressrequest.md)  
-*Maximum*: `10`  
+*Maximum*: `20`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `Name`  <a name="cfn-route53resolver-resolverendpoint-name"></a>
@@ -62,6 +73,30 @@ A friendly name that lets you easily find a configuration in the Resolver dashbo
 *Type*: String  
 *Maximum*: `64`  
 *Pattern*: `(?!^[0-9]+$)([a-zA-Z0-9\-_' ']+)`  
+*Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
+
+`OutpostArn`  <a name="cfn-route53resolver-resolverendpoint-outpostarn"></a>
+The ARN \(Amazon Resource Name\) for the Outpost\.  
+*Required*: No  
+*Type*: String  
+*Minimum*: `1`  
+*Maximum*: `255`  
+*Pattern*: `^arn:aws([a-z-]+)?:outposts:[a-z\d-]+:\d{12}:outpost/op-[a-f0-9]{17}$`  
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+
+`PreferredInstanceType`  <a name="cfn-route53resolver-resolverendpoint-preferredinstancetype"></a>
+ The Amazon EC2 instance type\.   
+*Required*: No  
+*Type*: String  
+*Minimum*: `1`  
+*Maximum*: `255`  
+*Update requires*: [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)
+
+`ResolverEndpointType`  <a name="cfn-route53resolver-resolverendpoint-resolverendpointtype"></a>
+ The Resolver endpoint IP address type\.   
+*Required*: No  
+*Type*: String  
+*Allowed values*: `DUALSTACK | IPV4 | IPV6`  
 *Update requires*: [No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)
 
 `SecurityGroupIds`  <a name="cfn-route53resolver-resolverendpoint-securitygroupids"></a>
@@ -81,15 +116,15 @@ Route 53 Resolver doesn't support updating tags through CloudFormation\.
 
 ### Ref<a name="aws-resource-route53resolver-resolverendpoint-return-values-ref"></a>
 
- When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the `ResolverEndpoint` object\.
+ When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the `ResolverEndpoint` object\.
 
-For more information about using the `Ref` function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
+For more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)\.
 
 ### Fn::GetAtt<a name="aws-resource-route53resolver-resolverendpoint-return-values-fn--getatt"></a>
 
-The `Fn::GetAtt` intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
+The `Fn::GetAtt`intrinsic function returns a value for a specified attribute of this type\. The following are the available attributes and sample return values\.
 
-For more information about using the `Fn::GetAtt` intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
+For more information about using the `Fn::GetAtt`intrinsic function, see [Fn::GetAtt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.html)\.
 
 #### <a name="aws-resource-route53resolver-resolverendpoint-return-values-fn--getatt-fn--getatt"></a>
 
@@ -108,8 +143,17 @@ The number of IP addresses that the resolver endpoint can use for DNS queries\.
 `Name`  <a name="Name-fn::getatt"></a>
 The name that you assigned to the resolver endpoint when you created the endpoint\.
 
+`OutpostArn`  <a name="OutpostArn-fn::getatt"></a>
+Property description not available\.
+
+`PreferredInstanceType`  <a name="PreferredInstanceType-fn::getatt"></a>
+Property description not available\.
+
 `ResolverEndpointId`  <a name="ResolverEndpointId-fn::getatt"></a>
 The ID of the resolver endpoint\.
+
+`ResolverEndpointType`  <a name="ResolverEndpointType-fn::getatt"></a>
+For the endpoint type you can choose either IPv4, IPv6\. or dual\-stack\. A dual\-stack endpoint means that it will resolve via both IPv4 and IPv6\. If you choose either IPv4 or IPv6, this endpoint type is applied to all IP addresses\.
 
 ## Examples<a name="aws-resource-route53resolver-resolverendpoint--examples"></a>
 
@@ -162,6 +206,33 @@ Properties :
     - 
       Key: LineOfBusiness
       Value: Engineering
+```
+
+### Associate a Resolver rule with a VPC<a name="aws-resource-route53resolver-resolverendpoint--examples--Associate_a_Resolver_rule_with_a_VPC"></a>
+
+The following example associates a resolver rule with a VPC\. When you associate a rule with a VPC, Resolver forwards all DNS queries for the domain name that is specified in the rule and that originate in the VPC\. The queries are forwarded to the IP addresses for the DNS resolvers that are specified in the rule\.
+
+#### JSON<a name="aws-resource-route53resolver-resolverendpoint--examples--Associate_a_Resolver_rule_with_a_VPC--json"></a>
+
+```
+{
+ "Type" : "AWS::Route53Resolver::ResolverRuleAssociation",
+ "Properties" : {
+	 "Name" : "MyResolverRuleAssociation",
+	 "ResolverRuleId" : "rslvr-rr-5328a0899aexample",
+	 "VPCId" : "vpc-03cf94c75cexample"
+	 }
+ }
+```
+
+#### YAML<a name="aws-resource-route53resolver-resolverendpoint--examples--Associate_a_Resolver_rule_with_a_VPC--yaml"></a>
+
+```
+Type: "AWS::Route53Resolver::ResolverRuleAssociation"
+	Properties:
+	  Name: MyResolverRuleAssociation
+	  ResolverRuleId: rslvr-rr-5328a0899aexample
+	  VPCId: vpc-03cf94c75cexample
 ```
 
 ## See also<a name="aws-resource-route53resolver-resolverendpoint--seealso"></a>
