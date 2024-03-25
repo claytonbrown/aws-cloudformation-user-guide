@@ -1,0 +1,55 @@
+{
+  "datasync.storagesystem.CfnAbout": "The `AWS::DataSync::StorageSystem` resource creates an AWS resource for an on-premises storage system that you want DataSync Discovery to collect information about. For more information, see [discovering your storage with DataSync Discovery.](https://docs.aws.amazon.com/datasync/latest/userguide/understanding-your-storage.html)",
+  "datasync.storagesystem.CfnType": "AWS::DataSync::StorageSystem",
+  "datasync.storagesystem.CfnDocsKey": "aws-resource-datasync-storagesystem",
+  "datasync.storagesystem.AgentArns": {
+    "Description": "Specifies the Amazon Resource Name (ARN) of the DataSync agent that connects to and reads from your on-premises storage system's management interface. You can only specify one ARN.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "Maximum": "1",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.storagesystem.CloudWatchLogGroupArn": {
+    "Description": "Specifies the ARN of the Amazon CloudWatch log group for monitoring and logging discovery job events.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "562",
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):logs:[a-z\\-0-9]+:[0-9]{12}:log-group:([^:\\*]*)(:\\*)?$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.storagesystem.Name": {
+    "Description": "Specifies a familiar name for your on-premises storage system.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "Pattern": "^[\\p{L}\\p{M}\\p{N}\\s+=._:@\\/-]+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.storagesystem.ServerConfiguration": {
+    "Description": "Specifies the server name and network port required to connect with the management interface of your on-premises storage system.",
+    "Required": "Yes",
+    "Type": "ServerConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.storagesystem.ServerCredentials": {
+    "Description": "Specifies the user name and password for accessing your on-premises storage system's management interface.",
+    "Required": "No",
+    "Type": "ServerCredentials",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.storagesystem.SystemType": {
+    "Description": "Specifies the type of on-premises storage system that you want DataSync Discovery to collect information about.  DataSync Discovery currently supports NetApp Fabric-Attached Storage (FAS) and All Flash FAS (AFF) systems running ONTAP 9.7 or later.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "NetAppONTAP",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.storagesystem.Tags": {
+    "Description": "Specifies labels that help you categorize, filter, and search for your AWS resources. We recommend creating at least a name tag for your on-premises storage system.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

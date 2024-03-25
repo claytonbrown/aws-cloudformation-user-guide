@@ -1,0 +1,56 @@
+{
+  "cleanrooms.configuredtableassociation.CfnAbout": "Creates a configured table association. A configured table association links a configured table with a collaboration.",
+  "cleanrooms.configuredtableassociation.CfnType": "AWS::CleanRooms::ConfiguredTableAssociation",
+  "cleanrooms.configuredtableassociation.CfnDocsKey": "aws-resource-cleanrooms-configuredtableassociation",
+  "cleanrooms.configuredtableassociation.ConfiguredTableIdentifier": {
+    "Description": "A unique identifier for the configured table to be associated to. Currently accepts a configured table ID.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "36",
+    "Maximum": "36",
+    "Pattern": ".*[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}.*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cleanrooms.configuredtableassociation.Description": {
+    "Description": "A description of the configured table association.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "255",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDBFF-\\uDC00\\uDFFF\\t\\r\\n]*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtableassociation.MembershipIdentifier": {
+    "Description": "The unique ID for the membership this configured table association belongs to.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "36",
+    "Maximum": "36",
+    "Pattern": ".*[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}.*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cleanrooms.configuredtableassociation.Name": {
+    "Description": "The name of the configured table association, in lowercase. The table is identified by this name when running protected queries against the underlying data.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "128",
+    "Pattern": "[a-zA-Z0-9_](([a-zA-Z0-9_ ]+-)*([a-zA-Z0-9_ ]+))?",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cleanrooms.configuredtableassociation.RoleArn": {
+    "Description": "The service will assume this role to access catalog metadata and query the table.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "32",
+    "Maximum": "512",
+    "Pattern": "arn:aws:iam::[\\w]+:role/[\\w+=,./@-]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtableassociation.Tags": {
+    "Description": "An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

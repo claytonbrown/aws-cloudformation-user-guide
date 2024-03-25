@@ -1,0 +1,62 @@
+{
+  "proton.environmentaccountconnection.CfnAbout": "Detailed data of an AWS Proton environment account connection resource.",
+  "proton.environmentaccountconnection.CfnType": "AWS::Proton::EnvironmentAccountConnection",
+  "proton.environmentaccountconnection.CfnDocsKey": "aws-resource-proton-environmentaccountconnection",
+  "proton.environmentaccountconnection.CodebuildRoleArn": {
+    "Description": "The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov):iam::\\d{12}:role/([\\w+=,.@-]{1,512}[/:])*([\\w+=,.@-]{1,64})$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "proton.environmentaccountconnection.ComponentRoleArn": {
+    "Description": "The Amazon Resource Name (ARN) of the IAM service role that AWS Proton uses when provisioning directly defined components in the associated environment account. It determines the scope of infrastructure that a component can provision in the account.  The environment account connection must have a `componentRoleArn` to allow directly defined components to be associated with any environments running in the account.  For more information about components, see [AWS Proton components](https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html) in the *AWS Proton User Guide*.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov):iam::\\d{12}:role/([\\w+=,.@-]{1,512}[/:])*([\\w+=,.@-]{1,64})$",
+    "UpdateRequires": "No interruption"
+  },
+  "proton.environmentaccountconnection.EnvironmentAccountId": {
+    "Description": "The environment account that's connected to the environment account connection.",
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "^\\d{12}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "proton.environmentaccountconnection.EnvironmentName": {
+    "Description": "The name of the environment that's associated with the environment account connection.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "^[0-9A-Za-z]+[0-9A-Za-z_\\-]*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "proton.environmentaccountconnection.ManagementAccountId": {
+    "Description": "The ID of the management account that's connected to the environment account connection.",
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "^\\d{12}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "proton.environmentaccountconnection.RoleArn": {
+    "Description": "The IAM service role that's associated with the environment account connection.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "200",
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov):[a-zA-Z0-9-]+:[a-zA-Z0-9-]*:\\d{12}:([\\w+=,.@-]+[/:])*[\\w+=,.@-]+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "proton.environmentaccountconnection.Tags": {
+    "Description": "An optional list of metadata items that you can associate with the AWS Proton environment account connection. A tag is a key-value pair.  For more information, see [AWS Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in the *AWS Proton User Guide*.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "No interruption"
+  }
+}

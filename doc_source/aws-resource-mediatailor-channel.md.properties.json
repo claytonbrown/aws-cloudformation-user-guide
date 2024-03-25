@@ -1,0 +1,49 @@
+{
+  "mediatailor.channel.CfnAbout": "The configuration parameters for a channel. For information about MediaTailor channels, see [Working with channels](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html) in the *MediaTailor User Guide*.",
+  "mediatailor.channel.CfnType": "AWS::MediaTailor::Channel",
+  "mediatailor.channel.CfnDocsKey": "aws-resource-mediatailor-channel",
+  "mediatailor.channel.ChannelName": {
+    "Description": "The name of the channel.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "mediatailor.channel.FillerSlate": {
+    "Description": "The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode`. MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode`.",
+    "Required": "No",
+    "Type": "SlateSource",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediatailor.channel.LogConfiguration": {
+    "Description": "The log configuration.",
+    "Required": "No",
+    "Type": "LogConfigurationForChannel",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediatailor.channel.Outputs": {
+    "Description": "The channel's output properties.",
+    "Required": "Yes",
+    "Type": "List of [RequestOutputItem",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediatailor.channel.PlaybackMode": {},
+  "mediatailor.channel.LINEAR": {},
+  "mediatailor.channel.LOOP": {
+    "Description": "",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediatailor.channel.Tags": {
+    "Description": "The tags to assign to the channel. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see [Tagging AWS Elemental MediaTailor Resources](https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html).",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediatailor.channel.Tier": {
+    "Description": "The tier for this channel. STANDARD tier channels can contain live programs.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  }
+}

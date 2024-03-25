@@ -13,7 +13,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.AquaConfigurationStatus": {
-    "Description": "The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) when it is created. Possible values include the following.  + enabled - Use AQUA if it is available for the current AWS Region and Amazon Redshift node type.+ disabled - Don't use AQUA. + auto - Amazon Redshift determines whether to use AQUA.",
+    "Description": "This parameter is retired. It does not set the AQUA configuration status. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).",
     "Required": "No",
     "Type": "String",
     "Allowed values": "auto | disabled | enabled",
@@ -108,7 +108,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "redshift.cluster.DeferMaintenance": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "A Boolean indicating whether to enable the deferred maintenance window.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -118,19 +118,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.DeferMaintenanceDuration": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.DeferMaintenanceEndTime": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "A timestamp for the end of the time period when we defer maintenance.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.DeferMaintenanceStartTime": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "A timestamp indicating the start time for the deferred maintenance window.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -143,7 +143,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.ElasticIp": {
-    "Description": "The Elastic IP (EIP) address for the cluster.  Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to [Supported Platforms to Launch Your Cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms) in the Amazon Redshift Cluster Management Guide.",
+    "Description": "The Elastic IP (EIP) address for the cluster.  Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. Don't specify the Elastic IP address for a publicly accessible cluster with availability zone relocation turned on. For more information about provisioning clusters in EC2-VPC, go to [Supported Platforms to Launch Your Cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms) in the Amazon Redshift Cluster Management Guide.",
     "Required": "No",
     "Type": "String",
     "Maximum": "2147483647",
@@ -157,6 +157,12 @@
       "False"
     ],
     "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "redshift.cluster.Endpoint": {
+    "Description": "The connection endpoint.",
+    "Required": "No",
+    "Type": "Endpoint",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.EnhancedVpcRouting": {
@@ -216,14 +222,14 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.MasterUsername": {
-    "Description": "The user name associated with the admin user account for the cluster that is being created.  Constraints:  + Must be 1 - 128 alphanumeric characters. The user name can't be `PUBLIC`.+ First character must be a letter.+ Cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.",
+    "Description": "The user name associated with the admin user account for the cluster that is being created.  Constraints:  + Must be 1 - 128 alphanumeric characters or hyphens. The user name can't be `PUBLIC`.+ Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.+ The first character must be a letter.+ Must not contain a colon (:) or a slash (/).+ Cannot be a reserved word. A list of reserved words can be found in [Reserved Words](https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html) in the Amazon Redshift Database Developer Guide.",
     "Required": "Yes",
     "Type": "String",
     "Maximum": "2147483647",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "redshift.cluster.MasterUserPassword": {
-    "Description": "The password associated with the admin user account for the cluster that is being created.  Constraints:  + Must be between 8 and 64 characters in length.+ Must contain at least one uppercase letter.+ Must contain at least one lowercase letter.+ Must contain one number.+ Can be any printable ASCII character (ASCII code 33-126) except ' (single quote), \" (double quote), , /, or @.",
+    "Description": "The password associated with the admin user account for the cluster that is being created.  Constraints:  + Must be between 8 and 64 characters in length.+ Must contain at least one uppercase letter.+ Must contain at least one lowercase letter.+ Must contain one number.+ Can be any printable ASCII character (ASCII code 33-126) except `'` (single quote), `\"` (double quote), ``, `/`, or `@`.",
     "Required": "Yes",
     "Type": "String",
     "Maximum": "2147483647",
@@ -273,19 +279,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.ResourceAction": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The Amazon Redshift operation to be performed. Supported operations are `pause-cluster` and `resume-cluster`.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.RevisionTarget": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "Describes a `RevisionTarget` object.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.RotateEncryptionKey": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "Rotates the encryption keys for a cluster.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -295,7 +301,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.SnapshotClusterIdentifier": {
-    "Description": "The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.",
+    "Description": "The name of the cluster the source snapshot was created from. This parameter is required if your user or role has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.",
     "Required": "No",
     "Type": "String",
     "Maximum": "2147483647",
@@ -309,7 +315,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.SnapshotCopyManual": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -319,13 +325,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.SnapshotCopyRetentionPeriod": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The number of days to retain automated snapshots in the destination AWS Region after they are copied from the source AWS Region.  By default, this only changes the retention period of copied automated snapshots.   If you decrease the retention period for automated snapshots that are copied to a destination AWS Region, Amazon Redshift deletes any existing automated snapshots that were copied to the destination AWS Region and that fall outside of the new retention period.  Constraints: Must be at least 1 and no more than 35 for automated snapshots.   If you specify the `manual` option, only newly copied manual snapshots will have the new retention period.   If you specify the value of -1 newly copied manual snapshots are retained indefinitely.  Constraints: The number of days must be either -1 or an integer between 1 and 3,653 for manual snapshots.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "redshift.cluster.SnapshotIdentifier": {
-    "Description": "The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.  Example: `my-snapshot-id`",
+    "Description": "The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive. You must specify this parameter or `snapshotArn`, but not both.  Example: `my-snapshot-id`",
     "Required": "No",
     "Type": "String",
     "Maximum": "2147483647",

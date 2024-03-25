@@ -1,0 +1,22 @@
+{
+  "sagemaker.modelcard.sourcealgorithm.CfnAbout": "Specifies an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.",
+  "sagemaker.modelcard.sourcealgorithm.CfnType": "AWS::SageMaker::ModelCard.SourceAlgorithm",
+  "sagemaker.modelcard.sourcealgorithm.CfnDocsKey": "aws-properties-sagemaker-modelcard-sourcealgorithm",
+  "sagemaker.modelcard.sourcealgorithm.AlgorithmName": {
+    "Description": "The name of an algorithm that was used to create the model package. The algorithm must be either an algorithm resource in your SageMaker account or an algorithm in AWS Marketplace that you are subscribed to.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "170",
+    "Pattern": "(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:[a-z\\-]*\\/)?([a-zA-Z0-9]([a-zA-Z0-9-]){0,62})(?<!-)$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelcard.sourcealgorithm.ModelDataUrl": {
+    "Description": "The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single `gzip` compressed tar archive (`.tar.gz` suffix).  The model artifacts must be in an S3 bucket that is in the same AWS region as the algorithm.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "mediaconnect.flowoutput.CfnAbout": "The AWS::MediaConnect::FlowOutput resource defines the destination address, protocol, and port that AWS Elemental MediaConnect sends the ingested video to. Each flow can have up to 50 outputs. An output can have the same protocol or a different protocol from the source.",
+  "mediaconnect.flowoutput.CfnAbout": "The AWS::MediaConnect::FlowOutput resource defines the destination address, protocol, and port that AWS Elemental MediaConnect sends the ingested video to. Each flow can have up to 50 outputs. An output can have the same protocol or a different protocol from the source. The following protocols are supported: RIST, RTP, RTP-FEC, SRT-listener, SRT-caller, Zixi pull, Zixi push, and Fujitsu-QoS. CDI and ST 2110 JPEG XS protocols are not currently supported by AWS CloudFormation.",
   "mediaconnect.flowoutput.CfnType": "AWS::MediaConnect::FlowOutput",
   "mediaconnect.flowoutput.CfnDocsKey": "aws-resource-mediaconnect-flowoutput",
   "mediaconnect.flowoutput.CidrAllowList": {
@@ -27,13 +27,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediaconnect.flowoutput.FlowArn": {
-    "Description": "The Amazon Resource Name (ARN) of the flow.",
+    "Description": "The Amazon Resource Name (ARN) of the flow this output is attached to.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediaconnect.flowoutput.MaxLatency": {
-    "Description": "The maximum latency in milliseconds for Zixi-based streams.",
+    "Description": "The maximum latency in milliseconds. This parameter applies only to RIST-based, Zixi-based, and Fujitsu-based streams.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -75,7 +75,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediaconnect.flowoutput.StreamId": {
-    "Description": "The stream ID that you want to use for the transport. This parameter applies only to Zixi-based streams.",
+    "Description": "The stream ID that you want to use for this transport. This parameter applies only to Zixi and SRT caller-based streams.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

@@ -2,6 +2,12 @@
   "ec2.host.CfnAbout": "Allocates a fully dedicated physical server for launching EC2 instances. Because the host is fully dedicated for your use, it can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses. For more information, see [ Dedicated Hosts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html) in the *Amazon EC2 User Guide for Linux Instances*.",
   "ec2.host.CfnType": "AWS::EC2::Host",
   "ec2.host.CfnDocsKey": "aws-resource-ec2-host",
+  "ec2.host.AssetId": {
+    "Description": "The ID of the Outpost hardware asset on which the Dedicated Host is allocated.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "ec2.host.AutoPlacement": {
     "Description": "Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. For more information, see [ Understanding auto-placement and affinity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding) in the *Amazon EC2 User Guide*.  Default: `on`",
     "Required": "No",
@@ -13,6 +19,13 @@
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.host.HostMaintenance": {
+    "Description": "Indicates whether host maintenance is enabled or disabled for the Dedicated Host.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "off | on",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ec2.host.HostRecovery": {
     "Description": "Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default. For more information, see [ Host recovery](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html) in the *Amazon EC2 User Guide*.  Default: `off`",

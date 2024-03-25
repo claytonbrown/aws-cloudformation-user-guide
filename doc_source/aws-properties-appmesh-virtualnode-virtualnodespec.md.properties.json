@@ -9,7 +9,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appmesh.virtualnode.virtualnodespec.Backends": {
-    "Description": "The backends that the virtual node is expected to send outbound traffic to.",
+    "Description": "The backends that the virtual node is expected to send outbound traffic to.  App Mesh doesn't validate the existence of those virtual services specified in backends. This is to prevent a cyclic dependency between virtual nodes and virtual services creation. Make sure the virtual service name is correct. The virtual service can be created afterwards if it doesn't already exist.",
     "Required": "No",
     "Type": "List of [Backend",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -18,7 +18,6 @@
     "Description": "The listener that the virtual node is expected to receive inbound traffic from. You can specify one listener.",
     "Required": "No",
     "Type": "List of [Listener",
-    "Maximum": "1",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appmesh.virtualnode.virtualnodespec.Logging": {

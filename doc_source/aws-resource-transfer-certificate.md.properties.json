@@ -1,0 +1,64 @@
+{
+  "transfer.certificate.CfnAbout": "Imports the signing and encryption certificates that you need to create local (AS2) profiles and partner profiles.",
+  "transfer.certificate.CfnType": "AWS::Transfer::Certificate",
+  "transfer.certificate.CfnDocsKey": "aws-resource-transfer-certificate",
+  "transfer.certificate.ActiveDate": {
+    "Description": "An optional date that specifies when the certificate becomes active.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "transfer.certificate.Certificate": {
+    "Description": "The file name for the certificate.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "16384",
+    "Pattern": "^[\\u0009\\u000A\\u000D\\u0020-\\u00FF]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "transfer.certificate.CertificateChain": {
+    "Description": "The list of certificates that make up the chain for the certificate.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2097152",
+    "Pattern": "^[\\u0009\\u000A\\u000D\\u0020-\\u00FF]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "transfer.certificate.Description": {
+    "Description": "The name or description that's used to identity the certificate.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "200",
+    "Pattern": "^[\\p{Graph}]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "transfer.certificate.InactiveDate": {
+    "Description": "An optional date that specifies when the certificate becomes inactive.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "transfer.certificate.PrivateKey": {
+    "Description": "The file that contains the private key for the certificate that's being imported.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "transfer.certificate.Tags": {
+    "Description": "Key-value pairs that can be used to group and search for certificates.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "transfer.certificate.Usage": {
+    "Description": "Specifies whether this certificate is used for signing or encryption.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "ENCRYPTION | SIGNING",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

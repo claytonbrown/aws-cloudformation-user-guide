@@ -3,10 +3,10 @@
   "mediapackage.packagingconfiguration.dashmanifest.CfnType": "AWS::MediaPackage::PackagingConfiguration.DashManifest",
   "mediapackage.packagingconfiguration.dashmanifest.CfnDocsKey": "aws-properties-mediapackage-packagingconfiguration-dashmanifest",
   "mediapackage.packagingconfiguration.dashmanifest.ManifestLayout": {
-    "Description": "Determines the position of some tags in the Media Presentation Description (MPD). When set to **FULL**, elements like `SegmentTemplate` and `ContentProtection` are included in each `Representation`. When set to **COMPACT**, duplicate elements are combined and presented at the AdaptationSet level.",
+    "Description": "Determines the position of some tags in the Media Presentation Description (MPD). When set to `FULL`, elements like `SegmentTemplate` and `ContentProtection` are included in each `Representation`. When set to `COMPACT`, duplicate elements are combined and presented at the AdaptationSet level.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "No interruption"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.packagingconfiguration.dashmanifest.ManifestName": {
     "Description": "A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.",
@@ -21,10 +21,16 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.packagingconfiguration.dashmanifest.Profile": {
-    "Description": "The DASH profile type. When set to **HBBTV_1_5**, the content is compliant with HbbTV 1.5.",
+    "Description": "The DASH profile type. When set to `HBBTV_1_5`, the content is compliant with HbbTV 1.5.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "No interruption"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediapackage.packagingconfiguration.dashmanifest.ScteMarkersSource": {
+    "Description": "The source of scte markers used.  Value description:  +  `SEGMENTS` - The scte markers are sourced from the segments of the ingested content.+  `MANIFEST` - the scte markers are sourced from the manifest of the ingested content. The MANIFEST value is compatible with source HLS playlists using the SCTE-35 Enhanced syntax (`EXT-OATCLS-SCTE35` tags). SCTE-35 Elemental and SCTE-35 Daterange syntaxes are not supported with this option.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.packagingconfiguration.dashmanifest.StreamSelection": {
     "Description": "Limitations for outputs from the endpoint, based on the video bitrate.",

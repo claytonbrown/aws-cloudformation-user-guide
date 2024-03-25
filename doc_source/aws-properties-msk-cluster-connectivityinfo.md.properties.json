@@ -1,11 +1,17 @@
 {
-  "msk.cluster.connectivityinfo.CfnAbout": "Specifies whether the cluster's brokers are publicly accessible. By default, they are not.",
+  "msk.cluster.connectivityinfo.CfnAbout": "Broker access controls.",
   "msk.cluster.connectivityinfo.CfnType": "AWS::MSK::Cluster.ConnectivityInfo",
   "msk.cluster.connectivityinfo.CfnDocsKey": "aws-properties-msk-cluster-connectivityinfo",
   "msk.cluster.connectivityinfo.PublicAccess": {
-    "Description": "Specifies whether the cluster's brokers are accessible from the internet. Public access is off by default.",
+    "Description": "Access control settings for the cluster's brokers.",
     "Required": "No",
     "Type": "PublicAccess",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "msk.cluster.connectivityinfo.VpcConnectivity": {
+    "Description": "VPC connection control settings for brokers",
+    "Required": "No",
+    "Type": "VpcConnectivity",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

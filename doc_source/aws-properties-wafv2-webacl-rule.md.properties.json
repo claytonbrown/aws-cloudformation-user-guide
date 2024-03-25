@@ -1,5 +1,5 @@
 {
-  "wafv2.webacl.rule.CfnAbout": "A single rule, which you can use to identify web requests that you want to allow, block, or count. Each rule includes one top-level Statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.",
+  "wafv2.webacl.rule.CfnAbout": "A single rule, which you can use in a [AWS::WAFv2::WebACL](aws-resource-wafv2-webacl.md) or [AWS::WAFv2::RuleGroup](aws-resource-wafv2-rulegroup.md) to identify web requests that you want to manage in some way. Each rule includes one top-level [Statement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html",
   "wafv2.webacl.rule.CfnType": "AWS::WAFv2::WebACL.Rule",
   "wafv2.webacl.rule.CfnDocsKey": "aws-properties-wafv2-webacl-rule",
   "wafv2.webacl.rule.Action": {
@@ -14,8 +14,14 @@
     "Type": "CaptchaConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "wafv2.webacl.rule.ChallengeConfig": {
+    "Description": "Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.",
+    "Required": "No",
+    "Type": "ChallengeConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "wafv2.webacl.rule.Name": {
-    "Description": "The descriptive name of the rule. You can't change the name of a `Rule` after you create it.",
+    "Description": "The name of the rule.   If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -43,13 +49,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.webacl.rule.Statement": {
-    "Description": "The AWS WAF processing statement for the rule, for example ByteMatchStatement or SizeConstraintStatement.",
+    "Description": "The AWS WAF processing statement for the rule, for example [ByteMatchStatement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement) or [SizeConstraintStatement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement).",
     "Required": "Yes",
     "Type": "Statement",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.webacl.rule.VisibilityConfig": {
-    "Description": "Defines and enables Amazon CloudWatch metrics and web request sample collection.",
+    "Description": "Defines and enables Amazon CloudWatch metrics and web request sample collection.   If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.",
     "Required": "Yes",
     "Type": "VisibilityConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

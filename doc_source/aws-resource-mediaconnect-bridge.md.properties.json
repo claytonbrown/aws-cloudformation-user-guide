@@ -1,0 +1,47 @@
+{
+  "mediaconnect.bridge.CfnAbout": "The AWS::MediaConnect::Bridge resource defines a connection between your data center’s gateway instances and the cloud. For each bridge, you specify the type of bridge, transport protocol to use, and details for any outputs and failover.",
+  "mediaconnect.bridge.CfnType": "AWS::MediaConnect::Bridge",
+  "mediaconnect.bridge.CfnDocsKey": "aws-resource-mediaconnect-bridge",
+  "mediaconnect.bridge.EgressGatewayBridge": {
+    "Description": "Create a bridge with the egress bridge type. An egress bridge is a cloud-to-ground bridge. The content comes from an existing MediaConnect flow and is delivered to your premises.",
+    "Required": "No",
+    "Type": "EgressGatewayBridge",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediaconnect.bridge.IngressGatewayBridge": {
+    "Description": "Create a bridge with the ingress bridge type. An ingress bridge is a ground-to-cloud bridge. The content originates at your premises and is delivered to the cloud.",
+    "Required": "No",
+    "Type": "IngressGatewayBridge",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediaconnect.bridge.Name": {
+    "Description": "The network output name. This name is used to reference the output and must be unique among outputs in this bridge.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediaconnect.bridge.Outputs": {
+    "Description": "The outputs that you want to add to this bridge.",
+    "Required": "No",
+    "Type": "List of [BridgeOutput",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediaconnect.bridge.PlacementArn": {
+    "Description": "The bridge placement Amazon Resource Number (ARN).",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediaconnect.bridge.SourceFailoverConfig": {
+    "Description": "The settings for source failover.",
+    "Required": "No",
+    "Type": "FailoverConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediaconnect.bridge.Sources": {
+    "Description": "The sources that you want to add to this bridge.",
+    "Required": "Yes",
+    "Type": "List of [BridgeSource",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

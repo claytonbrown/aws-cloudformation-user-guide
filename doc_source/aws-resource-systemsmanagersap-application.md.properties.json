@@ -1,0 +1,53 @@
+{
+  "systemsmanagersap.application.CfnAbout": "An SAP application registered with AWS Systems Manager for SAP.",
+  "systemsmanagersap.application.CfnType": "AWS::SystemsManagerSAP::Application",
+  "systemsmanagersap.application.CfnDocsKey": "aws-resource-systemsmanagersap-application",
+  "systemsmanagersap.application.ApplicationId": {
+    "Description": "The ID of the application.",
+    "Required": "Yes",
+    "Type": "String",
+    "Pattern": "[\\w\\d]{1,50}",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "systemsmanagersap.application.ApplicationType": {
+    "Description": "The type of the application.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "HANA | SAP_ABAP",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "systemsmanagersap.application.Credentials": {
+    "Description": "The credentials of the SAP application.",
+    "Required": "No",
+    "Type": "List of [Credential",
+    "Maximum": "20",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "systemsmanagersap.application.Instances": {
+    "Description": "The Amazon EC2 instances on which your SAP application is running.",
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "1",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "systemsmanagersap.application.SapInstanceNumber": {
+    "Description": "The SAP instance number of the application.",
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "[0-9]{2}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "systemsmanagersap.application.Sid": {
+    "Description": "The System ID of the application.",
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "[A-Z][A-Z0-9]{2}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "systemsmanagersap.application.Tags": {
+    "Description": "The tags on the application.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

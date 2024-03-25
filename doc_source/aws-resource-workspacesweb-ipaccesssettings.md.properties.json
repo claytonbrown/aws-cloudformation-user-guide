@@ -1,0 +1,50 @@
+{
+  "workspacesweb.ipaccesssettings.CfnAbout": "This resource specifies IP access settings that can be associated with a web portal. For more information, see [Set up IP access controls (optional)](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/ip-access-controls.html).",
+  "workspacesweb.ipaccesssettings.CfnType": "AWS::WorkSpacesWeb::IpAccessSettings",
+  "workspacesweb.ipaccesssettings.CfnDocsKey": "aws-resource-workspacesweb-ipaccesssettings",
+  "workspacesweb.ipaccesssettings.AdditionalEncryptionContext": {
+    "Description": "Additional encryption context of the IP access settings.",
+    "Required": "No",
+    "Type": "Map of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "workspacesweb.ipaccesssettings.CustomerManagedKey": {
+    "Description": "The custom managed key of the IP access settings.",
+    "Pattern": "^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "workspacesweb.ipaccesssettings.Description": {
+    "Description": "The description of the IP access settings.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "Pattern": ".+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.ipaccesssettings.DisplayName": {
+    "Description": "The display name of the IP access settings.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": ".+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.ipaccesssettings.IpRules": {
+    "Description": "The IP rules of the IP access settings.",
+    "Required": "Yes",
+    "Type": "List of [IpRule",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.ipaccesssettings.Tags": {
+    "Description": "The tags to add to the browser settings resource. A tag is a key-value pair.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

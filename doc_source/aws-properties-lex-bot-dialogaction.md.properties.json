@@ -1,15 +1,18 @@
 {
-  "lex.bot.dialogaction.CfnAbout": "<a name=\"aws-properties-lex-bot-dialogaction-description\">",
+  "lex.bot.dialogaction.CfnAbout": "Defines the action that the bot executes at runtime when the conversation reaches this step.",
   "lex.bot.dialogaction.CfnType": "AWS::Lex::Bot.DialogAction",
   "lex.bot.dialogaction.CfnDocsKey": "aws-properties-lex-bot-dialogaction",
   "lex.bot.dialogaction.SlotToElicit": {
-    "Description": "Property description not available.",
+    "Description": "If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "^([0-9a-zA-Z][_-]?){1,100}$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.dialogaction.SuppressNextMessage": {
-    "Description": "Property description not available.",
+    "Description": "When true the next message for the intent is not used.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -19,9 +22,10 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.dialogaction.Type": {
-    "Description": "Property description not available.",
+    "Description": "The action that the bot should execute.",
     "Required": "Yes",
     "Type": "String",
+    "Allowed values": "CloseIntent | ConfirmIntent | ElicitIntent | ElicitSlot | EndConversation | EvaluateConditional | FulfillIntent | InvokeDialogCodeHook | StartIntent",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

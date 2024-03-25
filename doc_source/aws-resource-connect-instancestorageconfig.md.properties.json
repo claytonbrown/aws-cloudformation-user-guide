@@ -1,0 +1,48 @@
+{
+  "connect.instancestorageconfig.CfnAbout": "The storage configuration for the instance.",
+  "connect.instancestorageconfig.CfnType": "AWS::Connect::InstanceStorageConfig",
+  "connect.instancestorageconfig.CfnDocsKey": "aws-resource-connect-instancestorageconfig",
+  "connect.instancestorageconfig.InstanceArn": {
+    "Description": "The Amazon Resource Name (ARN) of the instance.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "connect.instancestorageconfig.KinesisFirehoseConfig": {
+    "Description": "The configuration of the Kinesis Firehose delivery stream.",
+    "Required": "No",
+    "Type": "KinesisFirehoseConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "connect.instancestorageconfig.KinesisStreamConfig": {
+    "Description": "The configuration of the Kinesis data stream.",
+    "Required": "No",
+    "Type": "KinesisStreamConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "connect.instancestorageconfig.KinesisVideoStreamConfig": {
+    "Description": "The configuration of the Kinesis video stream.",
+    "Required": "No",
+    "Type": "KinesisVideoStreamConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "connect.instancestorageconfig.ResourceType": {
+    "Description": "A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "connect.instancestorageconfig.S3Config": {
+    "Description": "The S3 bucket configuration.",
+    "Required": "No",
+    "Type": "S3Config",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "connect.instancestorageconfig.StorageType": {
+    "Description": "A valid storage type.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "KINESIS_FIREHOSE | KINESIS_STREAM | KINESIS_VIDEO_STREAM | S3",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

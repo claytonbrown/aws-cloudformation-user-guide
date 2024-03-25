@@ -1,0 +1,33 @@
+{
+  "entityresolution.matchingworkflow.outputsource.CfnAbout": "A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed`. Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.",
+  "entityresolution.matchingworkflow.outputsource.CfnType": "AWS::EntityResolution::MatchingWorkflow.OutputSource",
+  "entityresolution.matchingworkflow.outputsource.CfnDocsKey": "aws-properties-entityresolution-matchingworkflow-outputsource",
+  "entityresolution.matchingworkflow.outputsource.ApplyNormalization": {
+    "Description": "Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER`, and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "entityresolution.matchingworkflow.outputsource.KMSArn": {
+    "Description": "Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "entityresolution.matchingworkflow.outputsource.Output": {
+    "Description": "A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed`. Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.",
+    "Required": "Yes",
+    "Type": "List of [OutputAttribute",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "entityresolution.matchingworkflow.outputsource.OutputS3Path": {
+    "Description": "The S3 path to which AWS Entity Resolution will write the output table.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

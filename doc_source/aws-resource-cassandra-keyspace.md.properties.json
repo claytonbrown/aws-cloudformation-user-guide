@@ -1,5 +1,5 @@
 {
-  "cassandra.keyspace.CfnAbout": "The `AWS::Cassandra::Keyspace` resource allows you to create a new keyspace in Amazon Keyspaces (for Apache Cassandra). For more information, see [Create a keyspace and a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide*.",
+  "cassandra.keyspace.CfnAbout": "You can use the `AWS::Cassandra::Keyspace` resource to create a new keyspace in Amazon Keyspaces (for Apache Cassandra). For more information, see [Create a keyspace and a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide*.",
   "cassandra.keyspace.CfnType": "AWS::Cassandra::Keyspace",
   "cassandra.keyspace.CfnDocsKey": "aws-resource-cassandra-keyspace",
   "cassandra.keyspace.KeyspaceName": {
@@ -8,8 +8,14 @@
     "Type": "String",
     "UpdateRequires": "Replacement"
   },
+  "cassandra.keyspace.ReplicationSpecification": {
+    "Description": "Specifies the `ReplicationStrategy` of a keyspace. The options are:  + `SINGLE_REGION` for a single Region keyspace (optional) or+ `MULTI_REGION` for a multi-Region keyspace If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION`. If you choose `MULTI_REGION`, you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.",
+    "Required": "No",
+    "Type": "ReplicationSpecification",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "cassandra.keyspace.Tags": {
-    "Description": "A list of key-value pair tags to be attached to the resource.",
+    "Description": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

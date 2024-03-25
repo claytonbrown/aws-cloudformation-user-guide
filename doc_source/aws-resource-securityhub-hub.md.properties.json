@@ -1,9 +1,36 @@
 {
-  "securityhub.hub.CfnAbout": "The `AWS::SecurityHub::Hub` resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.\n\nThe CIS AWS Foundations Benchmark standard and the Foundational Security Best Practices standard are also enabled in each Region where you enable Security Hub.",
+  "securityhub.hub.CfnAbout": "The `AWS::SecurityHub::Hub` resource specifies the enablement of the AWS Security Hub service in your AWS account. The service is enabled in the current AWS Region or the specified Region. You create a separate `Hub` resource in each Region in which you want to enable Security Hub.\n\nWhen you use this resource to enable Security Hub, default security standards are enabled. To disable default standards, set the `EnableDefaultStandards` property to `false`. You can use the [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html) resource to enable additional standards.\n\nWhen you use this resource to enable Security Hub, new controls are automatically enabled for your enabled standards. To disable automatic enablement of new controls, set the `AutoEnableControls` property to `false`.\n\nYou must create an `AWS::SecurityHub::Hub` resource for an account before you can create other types of Security Hub resources for the account through AWS CloudFormation. Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html), such as `\"DependsOn\": \"Hub\"`, to ensure that you've created an `AWS::SecurityHub::Hub` resource before creating other Security Hub resources for an account.",
   "securityhub.hub.CfnType": "AWS::SecurityHub::Hub",
   "securityhub.hub.CfnDocsKey": "aws-resource-securityhub-hub",
+  "securityhub.hub.AutoEnableControls": {
+    "Description": "Whether to automatically enable new controls when they are added to standards that are enabled.  By default, this is set to `true`, and new controls are enabled automatically. To not automatically enable new controls, set this to `false`.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "securityhub.hub.ControlFindingGenerator": {
+    "Description": "Specifies whether an account has consolidated control findings turned on or off. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.  The value for this field in a member account matches the value in the administrator account. For accounts that aren't part of an organization, the default value of this field is `SECURITY_CONTROL` if you enabled Security Hub on or after February 23, 2023.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "SECURITY_CONTROL | STANDARD_CONTROL",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "securityhub.hub.EnableDefaultStandards": {
+    "Description": "Whether to enable the security standards that Security Hub has designated as automatically enabled. If you don't provide a value for `EnableDefaultStandards`, it is set to `true`, and the designated standards are automatically enabled in each AWS Region where you enable Security Hub. If you don't want to enable the designated standards, set `EnableDefaultStandards` to `false`.  Currently, the automatically enabled standards are the Center for Internet Security (CIS) AWS Foundations Benchmark v1.2.0 and AWS Foundational Security Best Practices (FSBP).",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "securityhub.hub.Tags": {
-    "Description": "The tags to add to the hub resource.",
+    "Description": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

@@ -1,0 +1,36 @@
+{
+  "iotfleetwise.fleet.CfnAbout": "Creates a fleet that represents a group of vehicles. \n\n**Note**  \nYou must create both a signal catalog and vehicles before you can create a fleet. \n\nFor more information, see [Fleets](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleets.html) in the *AWS IoT FleetWise Developer Guide*.",
+  "iotfleetwise.fleet.CfnType": "AWS::IoTFleetWise::Fleet",
+  "iotfleetwise.fleet.CfnDocsKey": "aws-resource-iotfleetwise-fleet",
+  "iotfleetwise.fleet.Description": {
+    "Description": "(Optional) A brief description of the fleet.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "Pattern": "[^\\u0000-\\u001F\\u007F]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotfleetwise.fleet.Id": {
+    "Description": "The unique ID of the fleet.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "[a-zA-Z0-9:_-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "iotfleetwise.fleet.SignalCatalogArn": {
+    "Description": "The ARN of the signal catalog associated with the fleet.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "iotfleetwise.fleet.Tags": {
+    "Description": "(Optional) Metadata that can be used to manage the fleet.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

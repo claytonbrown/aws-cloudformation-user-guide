@@ -1,9 +1,9 @@
 {
-  "config.configurationrecorder.CfnAbout": "The AWS::Config::ConfigurationRecorder resource describes the AWS resource types for which AWS Config records configuration changes. The configuration recorder stores the configurations of the supported resources in your account as configuration items. \n\n**Note**  \nTo enable AWS Config, you must create a configuration recorder and a delivery channel. AWS Config uses the delivery channel to deliver the configuration changes to your Amazon S3 bucket or Amazon SNS topic. For more information, see [AWS::Config::DeliveryChannel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html).\n\nAWS CloudFormation starts the recorder as soon as the delivery channel is available.\n\nTo stop the recorder and delete it, delete the configuration recorder from your stack. To stop the recorder without deleting it, call the [StopConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html) action of the AWS Config API directly.\n\nFor more information, see [Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html",
+  "config.configurationrecorder.CfnAbout": "The `AWS::Config::ConfigurationRecorder` resource type describes the AWS resource types that AWS Config records for configuration changes.\n\nThe configuration recorder stores the configuration changes of the specified resources in your account as configuration items.\n\n**Note**  \nTo enable AWS Config, you must create a configuration recorder and a delivery channel.  \nAWS Config uses the delivery channel to deliver the configuration changes to your Amazon S3 bucket or Amazon SNS topic. For more information, see [AWS::Config::DeliveryChannel](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html).\n\nAWS CloudFormation starts the recorder as soon as the delivery channel is available.\n\nTo stop the recorder and delete it, delete the configuration recorder from your stack. To stop the recorder without deleting it, call the [StopConfigurationRecorder](https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html) action of the AWS Config API directly.\n\nFor more information, see [Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html",
   "config.configurationrecorder.CfnType": "AWS::Config::ConfigurationRecorder",
   "config.configurationrecorder.CfnDocsKey": "aws-resource-config-configurationrecorder",
   "config.configurationrecorder.Name": {
-    "Description": "A name for the configuration recorder. If you don't specify a name, AWS CloudFormation CloudFormation generates a unique physical ID and uses that ID for the configuration recorder name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).  After you create a configuration recorder, you cannot rename it. If you don't want a name that AWS CloudFormation generates, specify a value for this property. Updates are not supported.",
+    "Description": "The name of the configuration recorder. AWS Config automatically assigns the name of \"default\" when creating the configuration recorder.  You cannot change the name of the configuration recorder after it has been created. To change the configuration recorder name, you must delete it and create a new configuration recorder with a new name.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -11,15 +11,15 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "config.configurationrecorder.RecordingGroup": {
-    "Description": "Indicates whether to record configurations for all supported resources or for a list of resource types. The resource types that you list must be supported by AWS Config.",
+    "Description": "Specifies which resource types AWS Config records for configuration changes.",
     "Required": "No",
     "Type": "RecordingGroup",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "config.configurationrecorder.RoleARN": {
-    "Description": "The Amazon Resource Name (ARN) of the IAM (IAM) role that is used to make read or write requests to the delivery channel that you specify and to get configuration details for supported AWS resources. For more information, see [Permissions for the IAM Role Assigned](https://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) to AWS Config in the AWS Config Developer Guide.",
+    "Description": "Amazon Resource Name (ARN) of the IAM role assumed by AWS Config and used by the configuration recorder. For more information, see [Permissions for the IAM Role Assigned](https://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) to AWS Config in the AWS Config Developer Guide.",
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "UpdateRequires": "No interruption"
   }
 }

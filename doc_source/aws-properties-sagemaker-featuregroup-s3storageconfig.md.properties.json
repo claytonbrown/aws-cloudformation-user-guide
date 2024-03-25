@@ -1,0 +1,21 @@
+{
+  "sagemaker.featuregroup.s3storageconfig.CfnAbout": "The Amazon Simple Storage (Amazon S3) location and and security configuration for `OfflineStore`.",
+  "sagemaker.featuregroup.s3storageconfig.CfnType": "AWS::SageMaker::FeatureGroup.S3StorageConfig",
+  "sagemaker.featuregroup.s3storageconfig.CfnDocsKey": "aws-properties-sagemaker-featuregroup-s3storageconfig",
+  "sagemaker.featuregroup.s3storageconfig.KmsKeyId": {
+    "Description": "The AWS Key Management Service (KMS) key ARN of the key used to encrypt any objects written into the `OfflineStore` S3 location.  The IAM `roleARN` that is passed as a parameter to `CreateFeatureGroup` must have below permissions to the `KmsKeyId`:  +  `\"kms:GenerateDataKey\"`",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2048",
+    "Pattern": ".*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.featuregroup.s3storageconfig.S3Uri": {
+    "Description": "The S3 URI, or location in Amazon S3, of `OfflineStore`.  S3 URIs have a format similar to the following: `s3://example-bucket/prefix/`.",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "1024",
+    "Pattern": "^(https|s3)://([^/]+)/?(.*)$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  }
+}

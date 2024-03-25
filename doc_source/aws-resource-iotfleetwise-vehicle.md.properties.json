@@ -1,0 +1,46 @@
+{
+  "iotfleetwise.vehicle.CfnAbout": "Creates a vehicle, which is an instance of a vehicle model (model manifest). Vehicles created from the same vehicle model consist of the same signals inherited from the vehicle model.\n\n**Note**  \n If you have an existing AWS IoT thing, you can use AWS IoT FleetWise to create a vehicle and collect data from your thing. \n\nFor more information, see [Create a vehicle (console)](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/create-vehicle-console.html) in the *AWS IoT FleetWise Developer Guide*.",
+  "iotfleetwise.vehicle.CfnType": "AWS::IoTFleetWise::Vehicle",
+  "iotfleetwise.vehicle.CfnDocsKey": "aws-resource-iotfleetwise-vehicle",
+  "iotfleetwise.vehicle.AssociationBehavior": {
+    "Description": "(Optional) An option to create a new AWS IoT thing when creating a vehicle, or to validate an existing thing as a vehicle.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "CreateIotThing | ValidateIotThingExists",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotfleetwise.vehicle.Attributes": {
+    "Description": "(Optional) Static information about a vehicle in a key-value pair. For example: `\"engine Type\"` : `\"v6\"`",
+    "Required": "No",
+    "Type": "Map of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotfleetwise.vehicle.DecoderManifestArn": {
+    "Description": "The Amazon Resource Name (ARN) of a decoder manifest associated with the vehicle to create.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotfleetwise.vehicle.ModelManifestArn": {
+    "Description": "The Amazon Resource Name (ARN) of the vehicle model (model manifest) to create the vehicle from.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotfleetwise.vehicle.Name": {
+    "Description": "The unique ID of the vehicle.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "[a-zA-Z\\d\\-_:]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "iotfleetwise.vehicle.Tags": {
+    "Description": "(Optional) Metadata which can be used to manage the vehicle.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "opensearchservice.domain.samloptions.CfnAbout": "Container for information about the SAML configuration for OpenSearch Dashboards.",
+  "opensearchservice.domain.samloptions.CfnType": "AWS::OpenSearchService::Domain.SAMLOptions",
+  "opensearchservice.domain.samloptions.CfnDocsKey": "aws-properties-opensearchservice-domain-samloptions",
+  "opensearchservice.domain.samloptions.Enabled": {
+    "Description": "True to enable SAML authentication for a domain.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "opensearchservice.domain.samloptions.Idp": {
+    "Description": "The SAML Identity Provider's information.",
+    "Required": "No",
+    "Type": "Idp",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "opensearchservice.domain.samloptions.MasterBackendRole": {
+    "Description": "The backend role that the SAML master user is mapped to.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "opensearchservice.domain.samloptions.MasterUserName": {
+    "Description": "The SAML master user name, which is stored in the domain's internal user database.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": ".*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "opensearchservice.domain.samloptions.RolesKey": {
+    "Description": "Element of the SAML assertion to use for backend roles. Default is `roles`.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "opensearchservice.domain.samloptions.SessionTimeoutMinutes": {
+    "Description": "The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "opensearchservice.domain.samloptions.SubjectKey": {
+    "Description": "Element of the SAML assertion to use for the user name. Default is `NameID`.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

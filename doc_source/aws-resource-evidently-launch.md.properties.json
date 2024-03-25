@@ -6,6 +6,15 @@
     "Description": "An optional description for the launch.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "160",
+    "Pattern": ".*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "evidently.launch.ExecutionStatus": {
+    "Description": "A structure that you can use to start and stop the launch.",
+    "Required": "No",
+    "Type": "ExecutionStatusObject",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.launch.Groups": {
@@ -18,24 +27,34 @@
     "Description": "An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.",
     "Required": "No",
     "Type": "List of [MetricDefinitionObject",
+    "Maximum": "3",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.launch.Name": {
     "Description": "The name for the launch. It can include up to 127 characters.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "127",
+    "Pattern": "[-a-zA-Z0-9._]*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "evidently.launch.Project": {
     "Description": "The name or ARN of the project that you want to create the launch in.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "2048",
+    "Pattern": ".*(^[a-zA-Z0-9._-]*$)|(arn:[^:]*:[^:]*:[^:]*:[^:]*:project/[a-zA-Z0-9._-]*).*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "evidently.launch.RandomizationSalt": {
     "Description": "When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt`. If you omit `randomizationSalt`, Evidently uses the launch name as the `randomizationsSalt`.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "127",
+    "Pattern": ".*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.launch.ScheduledSplitsConfig": {

@@ -1,0 +1,80 @@
+{
+  "docdbelastic.cluster.CfnAbout": "Creates a new Amazon DocumentDB elastic cluster and returns its cluster structure.",
+  "docdbelastic.cluster.CfnType": "AWS::DocDBElastic::Cluster",
+  "docdbelastic.cluster.CfnDocsKey": "aws-resource-docdbelastic-cluster",
+  "docdbelastic.cluster.AdminUserName": {
+    "Description": "The name of the Amazon DocumentDB elastic clusters administrator.",
+    "Constraints": "+ Must be from 1 to 63 letters or numbers\\.\n+ The first character must be a letter\\.\n+ Cannot be a reserved word\\.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "docdbelastic.cluster.AdminUserPassword": {
+    "Description": "The password for the Elastic DocumentDB cluster administrator and can contain any printable ASCII characters.",
+    "Constraints": "+ Must contain from 8 to 100 characters\\.\n+ Cannot contain a forward slash \\(/\\), double quote \\(\"\\), or the \"at\" symbol \\(@\\)\\.\n+ A valid `AdminUserName` entry is also required\\.",
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "docdbelastic.cluster.AuthType": {
+    "Description": "The authentication type used to determine where to fetch the password used for accessing the elastic cluster. Valid types are `PLAIN_TEXT` or `SECRET_ARN`.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "PLAIN_TEXT | SECRET_ARN",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "docdbelastic.cluster.ClusterName": {
+    "Description": "The name of the new elastic cluster. This parameter is stored as a lowercase string.",
+    "Constraints": "+ Must contain from 1 to 63 letters, numbers, or hyphens\\.\n+ The first character must be a letter\\.\n+ Cannot end with a hyphen or contain two consecutive hyphens\\.",
+    "Example": "my-cluster",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "docdbelastic.cluster.KmsKeyId": {
+    "Description": "The KMS key identifier to use to encrypt the new elastic cluster.  The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you are creating a cluster using the same Amazon account that owns this KMS encryption key, you can use the KMS key alias instead of the ARN as the KMS encryption key.  If an encryption key is not specified, Amazon DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "docdbelastic.cluster.PreferredMaintenanceWindow": {
+    "Description": "The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).",
+    "Format": "ddd:hh24:mi-ddd:hh24:mi",
+    "Default": "a 30\\-minute window selected at random from an 8\\-hour block of time for each AWS Region, occurring on a random day of the week\\.",
+    "Valid days": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
+    "Constraints": "Minimum 30\\-minute window\\.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "docdbelastic.cluster.ShardCapacity": {
+    "Description": "The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.",
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "docdbelastic.cluster.ShardCount": {
+    "Description": "The number of shards assigned to the elastic cluster. Maximum is 32.",
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "docdbelastic.cluster.SubnetIds": {
+    "Description": "The Amazon EC2 subnet IDs for the new elastic cluster.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "docdbelastic.cluster.Tags": {
+    "Description": "The tags to be assigned to the new elastic cluster.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "docdbelastic.cluster.VpcSecurityGroupIds": {
+    "Description": "A list of EC2 VPC security groups to associate with the new elastic cluster.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

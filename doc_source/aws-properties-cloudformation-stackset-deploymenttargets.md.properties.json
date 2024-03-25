@@ -2,11 +2,27 @@
   "cloudformation.stackset.deploymenttargets.CfnAbout": "The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.",
   "cloudformation.stackset.deploymenttargets.CfnType": "AWS::CloudFormation::StackSet.DeploymentTargets",
   "cloudformation.stackset.deploymenttargets.CfnDocsKey": "aws-properties-cloudformation-stackset-deploymenttargets",
+  "cloudformation.stackset.deploymenttargets.AccountFilterType": {
+    "Description": "Limit deployment targets to individual accounts or include additional accounts with provided OUs.  The following is a list of possible values for the `AccountFilterType` operation.  +  `INTERSECTION`: StackSets deploys to the accounts specified in `Accounts` parameter. +  `DIFFERENCE`: StackSets excludes the accounts specified in `Accounts` parameter. This enables user to avoid certain accounts within an OU such as suspended accounts.+  `UNION`: StackSets includes additional accounts deployment targets.   This is the default value if `AccountFilterType` is not provided. This enables user to update an entire OU and individual accounts from a different OU in one request, which used to be two separate requests.+  `NONE`: Deploys to all the accounts in specified organizational units (OU).",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "DIFFERENCE | INTERSECTION | NONE | UNION",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "cloudformation.stackset.deploymenttargets.Accounts": {
     "Description": "The names of one or more AWS accounts for which you want to deploy stack set updates.",
     "Pattern": "^[0-9]{12}$",
     "Required": "Conditional",
     "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudformation.stackset.deploymenttargets.AccountsUrl": {
+    "Description": "Returns the value of the `AccountsUrl` property.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "5120",
+    "Pattern": "(s3://|http(s?)://).+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudformation.stackset.deploymenttargets.OrganizationalUnitIds": {

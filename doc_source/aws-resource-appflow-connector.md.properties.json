@@ -1,0 +1,34 @@
+{
+  "appflow.connector.CfnAbout": "Creates a new connector profile associated with your AWS account. There is a soft quota of 100 connector profiles per AWS account. If you need more connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support channel. In each connector profile that you create, you can provide the credentials and properties for only one connector.",
+  "appflow.connector.CfnType": "AWS::AppFlow::Connector",
+  "appflow.connector.CfnDocsKey": "aws-resource-appflow-connector",
+  "appflow.connector.ConnectorLabel": {
+    "Description": "The label used for registering the connector.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "256",
+    "Pattern": "[a-zA-Z0-9][\\w!@#.-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "appflow.connector.ConnectorProvisioningConfig": {
+    "Description": "The configuration required for registering the connector.",
+    "Required": "Yes",
+    "Type": "ConnectorProvisioningConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appflow.connector.ConnectorProvisioningType": {
+    "Description": "The provisioning type used to register the connector.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "LAMBDA",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appflow.connector.Description": {
+    "Description": "A description about the connector runtime setting.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "Pattern": "[\\s\\w/!@#+=.-]*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

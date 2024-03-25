@@ -3,7 +3,7 @@
   "kendra.datasource.onedriveconfiguration.CfnType": "AWS::Kendra::DataSource.OneDriveConfiguration",
   "kendra.datasource.onedriveconfiguration.CfnDocsKey": "aws-properties-kendra-datasource-onedriveconfiguration",
   "kendra.datasource.onedriveconfiguration.DisableLocalGroups": {
-    "Description": "A Boolean value that specifies whether local groups are disabled (`True`) or enabled (`False`).",
+    "Description": "`TRUE` to disable local groups information.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -16,7 +16,7 @@
     "Description": "A list of regular expression patterns to exclude certain documents in your OneDrive. Documents that match the patterns are excluded from the index. Documents that don't match the patterns are included in the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.  The pattern is applied to the file name.",
     "Required": "No",
     "Type": "List of String",
-    "Maximum": "100",
+    "Maximum": "250",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.onedriveconfiguration.FieldMappings": {
@@ -30,7 +30,7 @@
     "Description": "A list of regular expression patterns to include certain documents in your OneDrive. Documents that match the patterns are included in the index. Documents that don't match the patterns are excluded from the index. If a document matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the document isn't included in the index.  The pattern is applied to the file name.",
     "Required": "No",
     "Type": "List of String",
-    "Maximum": "100",
+    "Maximum": "250",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.onedriveconfiguration.OneDriveUsers": {
@@ -40,7 +40,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "kendra.datasource.onedriveconfiguration.SecretArn": {
-    "Description": "The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password to connect to OneDrive. The user named should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application.",
+    "Description": "The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user name and password to connect to OneDrive. The user name should be the application ID for the OneDrive application, and the password is the application key for the OneDrive application.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",

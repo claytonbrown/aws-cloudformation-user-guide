@@ -1,0 +1,97 @@
+{
+  "workspacesweb.portal.CfnAbout": "This resource specifies a web portal, which users use to start browsing sessions. A `Standard` web portal can't start browsing sessions unless you have at defined and associated an `IdentityProvider` and `NetworkSettings` resource. An `IAM Identity Center` web portal does not require an `IdentityProvider` resource.\n\nFor more information about web portals, see [What is Amazon WorkSpaces Web?](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/what-is-workspaces-web.html.html).",
+  "workspacesweb.portal.CfnType": "AWS::WorkSpacesWeb::Portal",
+  "workspacesweb.portal.CfnDocsKey": "aws-resource-workspacesweb-portal",
+  "workspacesweb.portal.AdditionalEncryptionContext": {
+    "Description": "The additional encryption context of the portal.",
+    "Required": "No",
+    "Type": "Map of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "workspacesweb.portal.AuthenticationType": {},
+  "workspacesweb.portal.Standard": {},
+  "workspacesweb.portal.IAM Identity Center": {
+    "Description": "",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "IAM_Identity_Center | Standard",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.portal.BrowserSettingsArn": {
+    "Description": "The ARN of the browser settings that is associated with this web portal.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "arn:[\\w+=\\/,.@-]+:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\\/[a-fA-F0-9\\-]{36})+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.portal.CustomerManagedKey": {
+    "Description": "The customer managed key of the web portal.",
+    "Pattern": "^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "workspacesweb.portal.DisplayName": {
+    "Description": "The name of the web portal.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": ".+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.portal.IpAccessSettingsArn": {
+    "Description": "The ARN of the IP access settings that is associated with the web portal.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "arn:[\\w+=\\/,.@-]+:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\\/[a-fA-F0-9\\-]{36})+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.portal.NetworkSettingsArn": {
+    "Description": "The ARN of the network settings that is associated with the web portal.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "arn:[\\w+=\\/,.@-]+:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\\/[a-fA-F0-9\\-]{36})+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.portal.Tags": {
+    "Description": "The tags to add to the web portal. A tag is a key-value pair.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.portal.TrustStoreArn": {
+    "Description": "The ARN of the trust store that is associated with the web portal.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "arn:[\\w+=\\/,.@-]+:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\\/[a-fA-F0-9\\-]{36})+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.portal.UserAccessLoggingSettingsArn": {
+    "Description": "The ARN of the user access logging settings that is associated with the web portal.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "arn:[\\w+=\\/,.@-]+:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\\/[a-fA-F0-9\\-]{36})+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.portal.UserSettingsArn": {
+    "Description": "The ARN of the user settings that is associated with the web portal.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "arn:[\\w+=\\/,.@-]+:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\\/[a-fA-F0-9\\-]{36})+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

@@ -1,36 +1,45 @@
 {
-  "fsx.storagevirtualmachine.FileSystemId": {
-    "Required": "Yes",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "fsx.storagevirtualmachine.Tags": {
-    "Required": "No",
-    "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
-  },
-  "fsx.storagevirtualmachine.Name": {
-    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,47}$",
-    "Required": "Yes",
-    "Maximum": "47",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
-  },
+  "fsx.storagevirtualmachine.CfnAbout": "Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.",
+  "fsx.storagevirtualmachine.CfnType": "AWS::FSx::StorageVirtualMachine",
+  "fsx.storagevirtualmachine.CfnDocsKey": "aws-resource-fsx-storagevirtualmachine",
   "fsx.storagevirtualmachine.ActiveDirectoryConfiguration": {
+    "Description": "Describes the Microsoft Active Directory configuration to which the SVM is joined, if applicable.",
     "Required": "No",
     "Type": "ActiveDirectoryConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "fsx.storagevirtualmachine.SvmAdminPassword": {
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "fsx.storagevirtualmachine.RootVolumeSecurityStyle": {
-    "Allowed values": "MIXED | NTFS | UNIX",
-    "Required": "No",
+  "fsx.storagevirtualmachine.FileSystemId": {
+    "Description": "Specifies the FSx for ONTAP file system on which to create the SVM.",
+    "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "fsx.storagevirtualmachine.Name": {
+    "Description": "The name of the SVM.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "47",
+    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,47}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "fsx.storagevirtualmachine.RootVolumeSecurityStyle": {
+    "Description": "The security style of the root volume of the SVM. Specify one of the following values:  +  `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.+  `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.+  `MIXED` if the file system is managed by both UNIX and Windows administrators and users consist of both NFS and SMB clients.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "MIXED | NTFS | UNIX",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "fsx.storagevirtualmachine.SvmAdminPassword": {
+    "Description": "Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's `fsxadmin` user to manage the SVM. For more information, see [ Managing SVMs using the NetApp ONTAP CLI](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-resources-ontap-apps.html#vsadmin-ontap-cli) in the *FSx for ONTAP User Guide*.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "No interruption"
+  },
+  "fsx.storagevirtualmachine.Tags": {
+    "Description": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

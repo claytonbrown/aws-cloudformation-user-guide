@@ -6,18 +6,25 @@
     "Description": "An optional description of the experiment.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "160",
+    "Pattern": ".*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.experiment.MetricGoals": {
     "Description": "An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.",
     "Required": "Yes",
     "Type": "List of [MetricGoalObject",
+    "Maximum": "3",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.experiment.Name": {
     "Description": "A name for the new experiment.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "127",
+    "Pattern": "[-a-zA-Z0-9._]*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "evidently.experiment.OnlineAbConfig": {
@@ -30,12 +37,34 @@
     "Description": "The name or the ARN of the project where this experiment is to be created.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "2048",
+    "Pattern": ".*arn:[^:]*:[^:]*:[^:]*:[^:]*:project/[-a-zA-Z0-9._]*.*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "evidently.experiment.RandomizationSalt": {
     "Description": "When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt`. If you omit `randomizationSalt`, Evidently uses the experiment name as the `randomizationSalt`.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "127",
+    "Pattern": ".*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "evidently.experiment.RemoveSegment": {
+    "Description": "Set this to `true` to remove the segment that is associated with this experiment. You can't use this parameter if the experiment is currently running.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "evidently.experiment.RunningStatus": {
+    "Description": "A structure that you can use to start and stop the experiment.",
+    "Required": "No",
+    "Type": "RunningStatusObject",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.experiment.SamplingRate": {
@@ -43,6 +72,12 @@
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "evidently.experiment.Segment": {
+    "Description": "Specifies an audience *segment* to use in the experiment. When a segment is used in an experiment, only user sessions that match the segment pattern are used in the experiment.  For more information, see [ Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax).",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "No interruption"
   },
   "evidently.experiment.Tags": {
     "Description": "Assigns one or more tags (key-value pairs) to the experiment.  Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.  Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of characters.  You can associate as many as 50 tags with an experiment.  For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html).",
@@ -54,6 +89,7 @@
     "Description": "An array of structures that describe the configuration of each feature variation used in the experiment.",
     "Required": "Yes",
     "Type": "List of [TreatmentObject",
+    "Maximum": "5",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

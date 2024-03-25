@@ -15,13 +15,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudfront.distribution.distributionconfig.CNAMEs": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "Property description not available.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudfront.distribution.distributionconfig.Comment": {
-    "Description": "An optional comment to describe the distribution. The comment cannot be longer than 128 characters.",
+    "Description": "A comment to describe the distribution. The comment cannot be longer than 128 characters.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudfront.distribution.distributionconfig.ContinuousDeploymentPolicyId": {
+    "Description": "The identifier of a continuous deployment policy. For more information, see `CreateContinuousDeploymentPolicy`.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -33,19 +39,19 @@
     "UpdateRequires": "No interruption"
   },
   "cloudfront.distribution.distributionconfig.CustomOrigin": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "Property description not available.",
     "Required": "No",
     "Type": "LegacyCustomOrigin",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudfront.distribution.distributionconfig.DefaultCacheBehavior": {
     "Description": "A complex type that describes the default cache behavior if you don't specify a `CacheBehavior` element or if files don't match any of the values of `PathPattern` in `CacheBehavior` elements. You must create exactly one default cache behavior.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "DefaultCacheBehavior",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudfront.distribution.distributionconfig.DefaultRootObject": {
-    "Description": "The object that you want CloudFront to request from your origin (for example, `index.html`) when a viewer requests the root URL for your distribution (`http://www.example.com`) instead of an object in your distribution (`http://www.example.com/product-description.html`). Specifying a default root object avoids exposing the contents of your distribution.  Specify only the object name, for example, `index.html`. Don't add a `/` before the object name.  If you don't want to specify a default root object when you create a distribution, include an empty `DefaultRootObject` element.  To delete the default root object from an existing distribution, update the distribution configuration and include an empty `DefaultRootObject` element.  To replace the default root object, update the distribution configuration and specify the new object.  For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.",
+    "Description": "The object that you want CloudFront to request from your origin (for example, `index.html`) when a viewer requests the root URL for your distribution (`https://www.example.com`) instead of an object in your distribution (`https://www.example.com/product-description.html`). Specifying a default root object avoids exposing the contents of your distribution.  Specify only the object name, for example, `index.html`. Don't add a `/` before the object name.  If you don't want to specify a default root object when you create a distribution, include an empty `DefaultRootObject` element.  To delete the default root object from an existing distribution, update the distribution configuration and include an empty `DefaultRootObject` element.  To replace the default root object, update the distribution configuration and specify the new object.  For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
@@ -61,14 +67,14 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudfront.distribution.distributionconfig.HttpVersion": {
-    "Description": "(Optional) Specify the maximum HTTP version that you want viewers to use to communicate with CloudFront. The default value for new web distributions is `http1.1`.  For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must support server name identification (SNI).  In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency. You can improve performance by optimizing for HTTP/2.",
+    "Description": "(Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CloudFront. The default value for new distributions is `http1.1`.  For viewers and CloudFront to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI).  For viewers and CloudFront to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CloudFront supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).",
     "Required": "No",
     "Type": "String",
-    "Allowed values": "http1.1 | http2",
+    "Allowed values": "http1.1 | http2 | http2and3 | http3",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudfront.distribution.distributionconfig.IPV6Enabled": {
-    "Description": "If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify `true`. If you specify `false`, CloudFront responds to IPv6 DNS requests with the DNS response code `NOERROR` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.   In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the `IpAddress` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html) in the *Amazon CloudFront Developer Guide*.  If you're using an Amazon Route 53 AWS Integration alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:  + You enable IPv6 for the distribution+ You're using alternate domain names in the URLs for your objectsFor more information, see [Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html) in the * Amazon Route 53 AWS Integration Developer Guide*.  If you created a CNAME resource record set, either with Amazon Route 53 AWS Integration or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.",
+    "Description": "If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify `true`. If you specify `false`, CloudFront responds to IPv6 DNS requests with the DNS response code `NOERROR` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.  In general, you should enable IPv6 if you have users on IPv6 networks who want to access your content. However, if you're using signed URLs or signed cookies to restrict access to your content, and if you're using a custom policy that includes the `IpAddress` parameter to restrict the IP addresses that can access your content, don't enable IPv6. If you want to restrict access to some content by IP address and not restrict access to other content (or restrict access but not by IP address), you can create two distributions. For more information, see [Creating a Signed URL Using a Custom Policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html) in the *Amazon CloudFront Developer Guide*.  If you're using an Amazon Route 53 AWS Integration alias resource record set to route traffic to your CloudFront distribution, you need to create a second alias resource record set when both of the following are true:  + You enable IPv6 for the distribution+ You're using alternate domain names in the URLs for your objectsFor more information, see [Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html) in the * Amazon Route 53 AWS Integration Developer Guide*.  If you created a CNAME resource record set, either with Amazon Route 53 AWS Integration or with another DNS service, you don't need to make any changes. A CNAME record will route traffic to your distribution regardless of the IP address format of the viewer request.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -108,13 +114,23 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudfront.distribution.distributionconfig.S3Origin": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "Property description not available.",
     "Required": "No",
     "Type": "LegacyS3Origin",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "cloudfront.distribution.distributionconfig.Staging": {
+    "Description": "A Boolean that indicates whether this is a staging distribution. When this value is `true`, this is a staging distribution. When this value is `false`, this is not a staging distribution.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "cloudfront.distribution.distributionconfig.ViewerCertificate": {
-    "Description": "A complex type that determines the distribution’s SSL/TLS configuration for communicating with viewers.",
+    "Description": "A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.",
     "Required": "No",
     "Type": "ViewerCertificate",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

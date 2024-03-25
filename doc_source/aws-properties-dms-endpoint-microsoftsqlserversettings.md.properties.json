@@ -1,17 +1,132 @@
 {
-  "dms.endpoint.microsoftsqlserversettings.CfnAbout": "Not currently supported by AWS CloudFormation.",
+  "dms.endpoint.microsoftsqlserversettings.CfnAbout": "Provides information that defines a Microsoft SQL Server endpoint. This information includes the output format of records applied to the endpoint and details of transaction and control table data information. For information about other available settings, see [ Extra connection attributes when using SQL Server as a source for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html",
   "dms.endpoint.microsoftsqlserversettings.CfnType": "AWS::DMS::Endpoint.MicrosoftSqlServerSettings",
   "dms.endpoint.microsoftsqlserversettings.CfnDocsKey": "aws-properties-dms-endpoint-microsoftsqlserversettings",
-  "dms.endpoint.microsoftsqlserversettings.SecretsManagerAccessRoleArn": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+  "dms.endpoint.microsoftsqlserversettings.BcpPacketSize": {
+    "Description": "The maximum size of the packets (in bytes) used to transfer data using BCP.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.ControlTablesFileGroup": {
+    "Description": "Specifies a file group for the AWS DMS internal tables. When the replication task starts, all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created for the specified file group.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "dms.endpoint.microsoftsqlserversettings.SecretsManagerSecretId": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+  "dms.endpoint.microsoftsqlserversettings.DatabaseName": {
+    "Description": "Database name for the endpoint.",
     "Required": "No",
     "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.ForceLobLookup": {
+    "Description": "Forces LOB lookup on inline LOB.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.Password": {
+    "Description": "Endpoint connection password.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.Port": {
+    "Description": "Endpoint TCP port.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.QuerySingleAlwaysOnNode": {
+    "Description": "Cleans and recreates table metadata information on the replication instance when a mismatch occurs. An example is a situation where running an alter DDL statement on a table might result in different information about the table cached in the replication instance.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.ReadBackupOnly": {
+    "Description": "When this attribute is set to `Y`, AWS DMS only reads changes from transaction log backups and doesn't read from the active transaction log file during ongoing replication. Setting this parameter to `Y` enables you to control active transaction log file growth during full load and ongoing replication tasks. However, it can add some source latency to ongoing replication.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.SafeguardPolicy": {
+    "Description": "Use this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods.   *Start transactions in the database:* This is the default method. When this method is used, AWS DMS prevents TLOG truncation by mimicking a transaction in the database. As long as such a transaction is open, changes that appear after the transaction started aren't truncated. If you need Microsoft Replication to be enabled in your database, then you must choose this method.   *Exclusively use sp_repldone within a single task*: When this method is used, AWS DMS reads the changes and then uses sp_repldone to mark the TLOG transactions as ready for truncation. Although this method doesn't involve any transactional activities, it can only be used when Microsoft Replication isn't running. Also, when using this method, only one AWS DMS task can access the database at any given time. Therefore, if you need to run parallel AWS DMS tasks against the same database, use the default method.",
+    "SafeguardPolicy`  <a name=\"cfn-dms-endpoint-microsoftsqlserversettings-safeguardpolicy\"></a>\nUse this attribute to minimize the need to access the backup log and enable AWS DMS to prevent truncation using one of the following two methods\\.  \n *Start transactions in the database:* This is the default method\\. When this method is used, AWS DMS prevents TLOG truncation by mimicking a transaction in the database\\. As long as such a transaction is open, changes that appear after the transaction started aren't truncated\\. If you need Microsoft Replication to be enabled in your database, then you must choose this method\\.  \n *Exclusively use sp\\_repldone within a single task": "When this method is used, AWS DMS reads the changes and then uses sp\\_repldone to mark the TLOG transactions as ready for truncation\\. Although this method doesn't involve any transactional activities, it can only be used when Microsoft Replication isn't running\\. Also, when using this method, only one AWS DMS task can access the database at any given time\\. Therefore, if you need to run parallel AWS DMS tasks against the same database, use the default method\\.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.SecretsManagerAccessRoleArn": {
+    "Description": "The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the value in `SecretsManagerSecret`. The role must allow the `iam:PassRole` action. `SecretsManagerSecret` has the value of the AWS Secrets Manager secret that allows access to the SQL Server endpoint.  You can specify one of two sets of values for these permissions. You can specify the values for this setting and `SecretsManagerSecretId`. Or you can specify clear-text values for `UserName`, `Password`, `ServerName`, and `Port`. You can't specify both.  For more information on creating this `SecretsManagerSecret`, the corresponding `SecretsManagerAccessRoleArn`, and the `SecretsManagerSecretId` that is required to access it, see [ Using secrets to access AWS Database Migration Service resources](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager) in the *AWS Database Migration Service User Guide*.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "No interruption"
+  },
+  "dms.endpoint.microsoftsqlserversettings.SecretsManagerSecretId": {
+    "Description": "The full ARN, partial ARN, or display name of the `SecretsManagerSecret` that contains the MicrosoftSQLServer endpoint connection details.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.ServerName": {
+    "Description": "Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance, this is the output of [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html), in the ` [Endpoint](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html).Address` field.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.TlogAccessMode": {
+    "Description": "Indicates the mode used to fetch CDC data.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.TrimSpaceInChar": {
+    "Description": "Use the `TrimSpaceInChar` source endpoint setting to right-trim data on CHAR and NCHAR data types during migration. Setting `TrimSpaceInChar` does not left-trim data. The default value is `true`.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.UseBcpFullLoad": {
+    "Description": "Use this to attribute to transfer data for full-load operations using BCP. When the target table contains an identity column that does not exist in the source table, you must disable the use BCP for loading table option.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.Username": {
+    "Description": "Endpoint connection user name.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.microsoftsqlserversettings.UseThirdPartyBackupDevice": {
+    "Description": "When this attribute is set to `Y`, DMS processes third-party transaction log backups if they are created in native format.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

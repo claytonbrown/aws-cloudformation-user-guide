@@ -3,7 +3,7 @@
   "rds.optiongroup.CfnType": "AWS::RDS::OptionGroup",
   "rds.optiongroup.CfnDocsKey": "aws-resource-rds-optiongroup",
   "rds.optiongroup.EngineName": {
-    "Description": "Specifies the name of the engine that this option group should be associated with.  Valid Values:   + `mariadb`+ `mysql`+ `oracle-ee`+ `oracle-se2`+ `oracle-se1`+ `oracle-se`+ `postgres`+ `sqlserver-ee`+ `sqlserver-se`+ `sqlserver-ex`+ `sqlserver-web`",
+    "Description": "Specifies the name of the engine that this option group should be associated with.  Valid Values:   + `mariadb`+ `mysql`+ `oracle-ee`+ `oracle-ee-cdb`+ `oracle-se2`+ `oracle-se2-cdb`+ `postgres`+ `sqlserver-ee`+ `sqlserver-se`+ `sqlserver-ex`+ `sqlserver-web`",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -18,7 +18,7 @@
     "Description": "A list of options and the settings for each option.",
     "Required": "Conditional",
     "Type": "List of [OptionConfiguration",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rds.optiongroup.OptionGroupDescription": {
     "Description": "The description of the option group.",
@@ -26,8 +26,14 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "rds.optiongroup.OptionGroupName": {
+    "Description": "The name of the option group to be created.  Constraints:  + Must be 1 to 255 letters, numbers, or hyphens+ First character must be a letter+ Can't end with a hyphen or contain two consecutive hyphensExample: `myoptiongroup`   If you don't specify a value for `OptionGroupName` property, a name is automatically created for the option group.  This value is stored as a lowercase string.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "rds.optiongroup.Tags": {
-    "Description": "Tags to assign to the option group.",
+    "Description": "An optional array of key-value pairs to apply to this option group.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

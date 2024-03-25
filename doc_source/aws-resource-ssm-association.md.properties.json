@@ -89,7 +89,7 @@
   "ssm.association.Parameters": {
     "Description": "The parameters for the runtime configuration of the document.",
     "Required": "No",
-    "Type": "Map of Json",
+    "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssm.association.ScheduleExpression": {
@@ -98,6 +98,14 @@
     "Type": "String",
     "Minimum": "1",
     "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssm.association.ScheduleOffset": {
+    "Description": "Number of days to wait after the scheduled day to run an association.",
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "6",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssm.association.SyncCompliance": {
@@ -115,7 +123,7 @@
     "UpdateRequires": "No interruption"
   },
   "ssm.association.WaitForSuccessTimeoutSeconds": {
-    "Description": "The number of seconds the service should wait for the association status to show \"Success\" before proceeding with the stack execution. If the association status doesn't show \"Success\" after the specified number of seconds, then stack creation fails.",
+    "Description": "The number of seconds the service should wait for the association status to show \"Success\" before proceeding with the stack execution. If the association status doesn't show \"Success\" after the specified number of seconds, then stack creation fails.  When you specify a value for the `WaitForSuccessTimeoutSeconds`, [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html) for your AWS CloudFormation stack’s configuration might yield inaccurate results. If drift detection is important in your scenario, we recommend that you don’t include `WaitForSuccessTimeoutSeconds` in your template.",
     "Required": "No",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

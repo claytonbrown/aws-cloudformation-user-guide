@@ -1,0 +1,47 @@
+{
+  "networkmanager.connectattachment.CfnAbout": "Creates a core network Connect attachment from a specified core network attachment. \n\nA core network Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a core network and an appliance. A core network Connect attachment uses an existing VPC attachment as the underlying transport mechanism.",
+  "networkmanager.connectattachment.CfnType": "AWS::NetworkManager::ConnectAttachment",
+  "networkmanager.connectattachment.CfnDocsKey": "aws-resource-networkmanager-connectattachment",
+  "networkmanager.connectattachment.CoreNetworkId": {
+    "Description": "The ID of the core network where the Connect attachment is located.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "networkmanager.connectattachment.EdgeLocation": {
+    "Description": "The Region where the edge is located.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "63",
+    "Pattern": "[\\s\\S]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "networkmanager.connectattachment.Options": {
+    "Description": "Options for connecting an attachment.",
+    "Required": "Yes",
+    "Type": "ConnectAttachmentOptions",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "networkmanager.connectattachment.ProposedSegmentChange": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "ProposedSegmentChange",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "networkmanager.connectattachment.Tags": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "networkmanager.connectattachment.TransportAttachmentId": {
+    "Description": "The ID of the transport attachment.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "50",
+    "Pattern": "^attachment-([0-9a-f]{8,17})$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  }
+}

@@ -16,7 +16,7 @@
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
-    "Maximum": "2048",
+    "Maximum": "512",
     "Pattern": "[\\w\\-]+",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
@@ -26,9 +26,15 @@
     "Type": "DashboardPublishOptions",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "quicksight.dashboard.Definition": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "DashboardVersionDefinition",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "quicksight.dashboard.Name": {
     "Description": "The display name of the dashboard.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
     "Maximum": "2048",
@@ -49,7 +55,7 @@
   },
   "quicksight.dashboard.SourceEntity": {
     "Description": "The entity that you are using as a source when you create the dashboard. In `SourceEntity`, you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate`, specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate`ARN can contain any AWS account; and any QuickSight-supported AWS Region.   Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.",
-    "Required": "Yes",
+    "Required": "No",
     "Type": "DashboardSourceEntity",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },

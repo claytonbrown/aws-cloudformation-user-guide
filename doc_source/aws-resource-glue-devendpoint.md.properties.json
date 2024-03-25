@@ -54,18 +54,23 @@
     "Description": "A list of public keys to be used by the `DevEndpoints` for authentication. Using this attribute is preferred over a single public key because the public keys allow you to have a different private key per client.  If you previously created an endpoint with a public key, you must remove that key to be able to set a list of public keys. Call the `UpdateDevEndpoint` API operation with the public key content in the `deletePublicKeys` attribute, and the list of new keys in the `addPublicKeys` attribute.",
     "Required": "No",
     "Type": "List of String",
+    "Maximum": "5",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.devendpoint.RoleArn": {
     "Description": "The Amazon Resource Name (ARN) of the IAM role used in this `DevEndpoint`.",
     "Required": "Yes",
     "Type": "String",
+    "Pattern": "arn:aws:iam::\\d{12}:role/.*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.devendpoint.SecurityConfiguration": {
     "Description": "The name of the `SecurityConfiguration` structure to be used with this `DevEndpoint`.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.devendpoint.SecurityGroupIds": {

@@ -1,5 +1,5 @@
 {
-  "ram.resourceshare.CfnAbout": "Specifies a resource share.",
+  "ram.resourceshare.CfnAbout": "Creates a resource share. You can provide a list of the Amazon Resource Names (ARNs) for the resources that you want to share, a list of principals you want to share the resources with, and the permissions to grant those principals.\n\n**Note**  \nSharing a resource makes it available for use by principals outside of the AWS account that created the resource. Sharing doesn't change any permissions or quotas that apply to the resource in the account that created it.",
   "ram.resourceshare.CfnType": "AWS::RAM::ResourceShare",
   "ram.resourceshare.CfnDocsKey": "aws-resource-ram-resourceshare",
   "ram.resourceshare.AllowExternalPrincipals": {
@@ -25,13 +25,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ram.resourceshare.Principals": {
-    "Description": "Specifies a list of one or more principals to associate with the resource share.  You can include the following values:  + An AWS account ID, for example: `123456789012` + An [Amazon Resoure Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of an organization in AWS Organizations, for example: `arn:aws:organizations::123456789012:organization/o-exampleorgid` + An ARN of an organizational unit (OU) in AWS Organizations, for example: `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123` + An ARN of an IAM role, for example: `arn:aws:iam::123456789012:role/rolename` + An ARN of an IAM user, for example: `arn:aws:iam::123456789012user/username` Not all resource types can be shared with IAM roles and users. For more information, see [Sharing with IAM roles and users](https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types) in the * AWS Resource Access Manager User Guide*.",
+    "Description": "Specifies the principals to associate with the resource share. The possible values are:  + An AWS account ID+ An Amazon Resource Name (ARN) of an organization in AWS Organizations + An ARN of an organizational unit (OU) in AWS Organizations + An ARN of an IAM role+ An ARN of an IAM userNot all resource types can be shared with IAM roles and users. For more information, see the column **Can share with IAM roles and users** in the tables on [Shareable AWS resources](https://docs.aws.amazon.com/ram/latest/userguide/shareable.html) in the * AWS Resource Access Manager User Guide*.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "No interruption"
   },
   "ram.resourceshare.ResourceArns": {
     "Description": "Specifies a list of one or more ARNs of the resources to associate with the resource share.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ram.resourceshare.Sources": {
+    "Description": "Property description not available.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

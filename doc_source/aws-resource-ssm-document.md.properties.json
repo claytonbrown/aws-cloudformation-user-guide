@@ -7,21 +7,21 @@
     "Required": "No",
     "Type": "List of [AttachmentsSource",
     "Maximum": "20",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
   "ssm.document.Content": {
-    "Description": "The content for the new SSM document in JSON or YAML.  This parameter also supports `String` data types.",
+    "Description": "The content for the new SSM document in JSON or YAML. For more information about the schemas for SSM document content, see [SSM document schema features and examples](https://docs.aws.amazon.com/systems-manager/latest/userguide/document-schemas-features.html) in the *AWS Systems Manager User Guide*.  This parameter also supports `String` data types.",
     "Required": "Yes",
     "Type": "Json",
     "Minimum": "1",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "Some interruptions"
   },
   "ssm.document.DocumentFormat": {
     "Description": "Specify the document format for the request. JSON is the default format.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "JSON | TEXT | YAML",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
   },
   "ssm.document.DocumentType": {
     "Description": "The type of document to create.",
@@ -34,7 +34,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ssm.document.Name": {
-    "Description": "A name for the SSM document.  You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:  +  `aws-` +  `amazon` +  `amzn`",
+    "Description": "A name for the SSM document.  You can't use the following strings as document name prefixes. These are reserved by AWS for use as document name prefixes:  +  `aws` +  `amazon` +  `amzn`",
     "Required": "No",
     "Type": "String",
     "Pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
@@ -44,7 +44,7 @@
     "Description": "A list of SSM documents required by a document. This parameter is used exclusively by AWS AppConfig. When a user creates an AWS AppConfig configuration in an SSM document, the user must also specify a required document for validation purposes. In this case, an `ApplicationConfiguration` document requires an `ApplicationConfigurationSchema` document for validation purposes. For more information, see [What is AWS AppConfig?](https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html) in the * AWS AppConfig User Guide*.",
     "Required": "No",
     "Type": "List of [DocumentRequires",
-    "UpdateRequires": "Replacement"
+    "UpdateRequires": "Some interruptions"
   },
   "ssm.document.Tags": {
     "Description": "AWS CloudFormation resource tags to apply to the document. Use tags to help you identify and categorize resources.",
@@ -59,13 +59,19 @@
     "Type": "String",
     "Maximum": "200",
     "Pattern": "^\\/[\\w\\.\\-\\:\\/]*$",
-    "UpdateRequires": "Replacement"
+    "UpdateRequires": "Some interruptions"
+  },
+  "ssm.document.UpdateMethod": {
+    "Description": "If the document resource you specify in your template already exists, this parameter determines whether a new version of the existing document is created, or the existing document is replaced. `Replace` is the default method. If you specify `NewVersion` for the `UpdateMethod` parameter, and the `Name` of the document does not match an existing resource, a new document is created. When you specify `NewVersion`, the default version of the document is changed to the newly created version.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssm.document.VersionName": {
-    "Description": "An optional field specifying the version of the artifact you are creating with the document. For example, \"Release 12, Update 6\". This value is unique across all versions of a document, and can't be changed.",
+    "Description": "An optional field specifying the version of the artifact you are creating with the document. For example, `Release12.1`. This value is unique across all versions of a document, and can't be changed.",
     "Required": "No",
     "Type": "String",
     "Pattern": "^[a-zA-Z0-9_\\-.]{1,128}$",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)\n\n#"
   }
 }

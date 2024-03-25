@@ -1,0 +1,29 @@
+{
+  "pipes.pipe.batchcontaineroverrides.CfnAbout": "The overrides that are sent to a container.",
+  "pipes.pipe.batchcontaineroverrides.CfnType": "AWS::Pipes::Pipe.BatchContainerOverrides",
+  "pipes.pipe.batchcontaineroverrides.CfnDocsKey": "aws-properties-pipes-pipe-batchcontaineroverrides",
+  "pipes.pipe.batchcontaineroverrides.Command": {
+    "Description": "The command to send to the container that overrides the default command from the Docker image or the task definition.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pipes.pipe.batchcontaineroverrides.Environment": {
+    "Description": "The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition.  Environment variables cannot start with \"`AWS Batch`\". This naming convention is reserved for variables that AWS Batch sets.",
+    "Required": "No",
+    "Type": "List of [BatchEnvironmentVariable",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pipes.pipe.batchcontaineroverrides.InstanceType": {
+    "Description": "The instance type to use for a multi-node parallel job.  This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pipes.pipe.batchcontaineroverrides.ResourceRequirements": {
+    "Description": "The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include `GPU`, `MEMORY`, and `VCPU`.",
+    "Required": "No",
+    "Type": "List of [BatchResourceRequirement",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

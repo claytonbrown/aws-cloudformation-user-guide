@@ -1,0 +1,21 @@
+{
+  "forecast.dataset.encryptionconfig.CfnAbout": "An AWS Key Management Service (KMS) key and an AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key. You can specify this optional object in the CreateDataset and CreatePredictor requests.",
+  "forecast.dataset.encryptionconfig.CfnType": "AWS::Forecast::Dataset.EncryptionConfig",
+  "forecast.dataset.encryptionconfig.CfnDocsKey": "aws-properties-forecast-dataset-encryptionconfig",
+  "forecast.dataset.encryptionconfig.KmsKeyArn": {
+    "Description": "The Amazon Resource Name (ARN) of the KMS key.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "256",
+    "Pattern": "arn:aws:kms:.*:key/.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "forecast.dataset.encryptionconfig.RoleArn": {
+    "Description": "The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.  Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "256",
+    "Pattern": "arn:([a-z\\d-]+):forecast:.*:.*:.+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

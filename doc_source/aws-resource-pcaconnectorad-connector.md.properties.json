@@ -1,0 +1,33 @@
+{
+  "pcaconnectorad.connector.CfnAbout": "Creates a connector between AWS Private CA and an Active Directory. You must specify the private CA, directory ID, and security groups.",
+  "pcaconnectorad.connector.CfnType": "AWS::PCAConnectorAD::Connector",
+  "pcaconnectorad.connector.CfnDocsKey": "aws-resource-pcaconnectorad-connector",
+  "pcaconnectorad.connector.CertificateAuthorityArn": {
+    "Description": "The Amazon Resource Name (ARN) of the certificate authority being used.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "5",
+    "Maximum": "200",
+    "Pattern": "arn:[\\w-]+:acm-pca:[\\w-]+:[0-9]+:certificate-authority\\/[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "pcaconnectorad.connector.DirectoryId": {
+    "Description": "The identifier of the Active Directory.",
+    "Required": "Yes",
+    "Type": "String",
+    "Pattern": "d-[0-9a-f]{10}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "pcaconnectorad.connector.Tags": {
+    "Description": "Metadata assigned to a connector consisting of a key-value pair.",
+    "Required": "No",
+    "Type": "Map of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pcaconnectorad.connector.VpcInformation": {
+    "Description": "Information of the VPC and security group(s) used with the connector.",
+    "Required": "Yes",
+    "Type": "VpcInformation",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  }
+}

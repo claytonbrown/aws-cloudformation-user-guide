@@ -4,10 +4,16 @@
   "ssmcontacts.contact.stage.CfnDocsKey": "aws-properties-ssmcontacts-contact-stage",
   "ssmcontacts.contact.stage.DurationInMinutes": {
     "Description": "The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.",
-    "Required": "Yes",
+    "Required": "No",
     "Type": "Integer",
     "Minimum": "0",
     "Maximum": "30",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssmcontacts.contact.stage.RotationIds": {
+    "Description": "The Amazon Resource Names (ARNs) of the on-call rotations associated with the plan.",
+    "Required": "No",
+    "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ssmcontacts.contact.stage.Targets": {

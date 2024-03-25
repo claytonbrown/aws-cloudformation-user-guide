@@ -3,13 +3,19 @@
   "iotwireless.taskdefinition.CfnType": "AWS::IoTWireless::TaskDefinition",
   "iotwireless.taskdefinition.CfnDocsKey": "aws-resource-iotwireless-taskdefinition",
   "iotwireless.taskdefinition.AutoCreateTasks": {
-    "Description": "Whether to automatically create tasks using this task definition for all gateways with the specified current version. If `false`, the task must me created by calling `CreateWirelessGatewayTask`.",
+    "Description": "Whether to automatically create tasks using this task definition for all gateways with the specified current version. If `false`, the task must be created by calling `CreateWirelessGatewayTask`.",
     "Required": "Yes",
     "AllowedValues": [
       "True",
       "False"
     ],
     "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotwireless.taskdefinition.LoRaWANUpdateGatewayTaskEntry": {
+    "Description": "LoRaWANUpdateGatewayTaskEntry object.",
+    "Required": "No",
+    "Type": "LoRaWANUpdateGatewayTaskEntry",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iotwireless.taskdefinition.Name": {
@@ -25,6 +31,13 @@
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotwireless.taskdefinition.TaskDefinitionType": {
+    "Description": "A filter to list only the wireless gateway task definitions that use this task definition type.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "UPDATE",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iotwireless.taskdefinition.Update": {

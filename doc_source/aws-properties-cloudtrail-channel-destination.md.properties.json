@@ -1,0 +1,21 @@
+{
+  "cloudtrail.channel.destination.CfnAbout": "Contains information about the destination receiving events.",
+  "cloudtrail.channel.destination.CfnType": "AWS::CloudTrail::Channel.Destination",
+  "cloudtrail.channel.destination.CfnDocsKey": "aws-properties-cloudtrail-channel-destination",
+  "cloudtrail.channel.destination.Location": {
+    "Description": "For channels used for a CloudTrail Lake integration, the location is the ARN of an event data store that receives events from a channel. For service-linked channels, the location is the name of the AWS service.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "3",
+    "Maximum": "1024",
+    "Pattern": "^[a-zA-Z0-9._/\\-:]+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudtrail.channel.destination.Type": {
+    "Description": "The type of destination for events arriving from a channel. For channels used for a CloudTrail Lake integration, the value is `EventDataStore`. For service-linked channels, the value is `AWS_SERVICE`.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "AWS_SERVICE | EVENT_DATA_STORE",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

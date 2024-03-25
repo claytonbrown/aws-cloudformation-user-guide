@@ -1,0 +1,86 @@
+{
+  "emrserverless.application.CfnAbout": "The `AWS::EMRServerless::Application` resource specifies an EMR Serverless application. An application uses open source analytics frameworks to run jobs that process data. To create an application, you must specify the release version for the open source framework version you want to use and the type of application you want, such as Apache Spark or Apache Hive. After you create an application, you can submit data processing jobs or interactive requests to it.",
+  "emrserverless.application.CfnType": "AWS::EMRServerless::Application",
+  "emrserverless.application.CfnDocsKey": "aws-resource-emrserverless-application",
+  "emrserverless.application.Architecture": {
+    "Description": "The CPU architecture of an application.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "ARM64 | X86_64",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "emrserverless.application.AutoStartConfiguration": {
+    "Description": "The configuration for an application to automatically start on job submission.",
+    "Required": "No",
+    "Type": "AutoStartConfiguration",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "emrserverless.application.AutoStopConfiguration": {
+    "Description": "The configuration for an application to automatically stop after a certain amount of time being idle.",
+    "Required": "No",
+    "Type": "AutoStopConfiguration",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "emrserverless.application.ImageConfiguration": {
+    "Description": "The image configuration applied to all worker types.",
+    "Required": "No",
+    "Type": "ImageConfigurationInput",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "emrserverless.application.InitialCapacity": {
+    "Description": "The initial capacity of the application.",
+    "Required": "No",
+    "Type": "List of [InitialCapacityConfigKeyValuePair",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "emrserverless.application.MaximumCapacity": {
+    "Description": "The maximum capacity of the application. This is cumulative across all workers at any given point in time during the lifespan of the application is created. No new resources will be created once any one of the defined limits is hit.",
+    "Required": "No",
+    "Type": "MaximumAllowedResources",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "emrserverless.application.Name": {
+    "Description": "The name of the application.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": "[A-Za-z0-9._/#-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "emrserverless.application.NetworkConfiguration": {
+    "Description": "The network configuration for customer VPC connectivity for the application.",
+    "Required": "No",
+    "Type": "NetworkConfiguration",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "emrserverless.application.ReleaseLabel": {
+    "Description": "The Amazon EMR release associated with the application.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": "[A-Za-z0-9._/-]+",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)"
+  },
+  "emrserverless.application.Tags": {
+    "Description": "The tags assigned to the application.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "emrserverless.application.Type": {
+    "Description": "The type of application, such as Spark or Hive.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "emrserverless.application.WorkerTypeSpecifications": {
+    "Description": "The specification applied to each worker type.",
+    "Required": "No",
+    "Type": "Map of [WorkerTypeSpecificationInput",
+    "UpdateRequires": "[Some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt)\n\n#"
+  }
+}

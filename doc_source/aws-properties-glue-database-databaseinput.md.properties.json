@@ -3,7 +3,7 @@
   "glue.database.databaseinput.CfnType": "AWS::Glue::Database.DatabaseInput",
   "glue.database.databaseinput.CfnDocsKey": "aws-properties-glue-database-databaseinput",
   "glue.database.databaseinput.CreateTableDefaultPermissions": {
-    "Description": "Creates a set of default permissions on the table for principals.",
+    "Description": "Creates a set of default permissions on the table for principals. Used by AWS Lake Formation. Not used in the normal course of AWS Glue operations.",
     "Required": "No",
     "Type": "List of [PrincipalPrivileges",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -12,18 +12,33 @@
     "Description": "A description of the database.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "2048",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "glue.database.databaseinput.FederatedDatabase": {
+    "Description": "A `FederatedDatabase` structure that references an entity outside the AWS Glue Data Catalog.",
+    "Required": "No",
+    "Type": "FederatedDatabase",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.database.databaseinput.LocationUri": {
     "Description": "The location of the database (for example, an HDFS path).",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1024",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.database.databaseinput.Name": {
     "Description": "The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "glue.database.databaseinput.Parameters": {

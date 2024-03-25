@@ -5,7 +5,7 @@
   "iot.jobtemplate.AbortConfig": {
     "Description": "The criteria that determine when and how a job abort takes place.",
     "Required": "No",
-    "Type": "Json",
+    "Type": "AbortConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "iot.jobtemplate.Description": {
@@ -21,10 +21,10 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "iot.jobtemplate.DocumentSource": {
-    "Description": "An S3 link to the job document to use in the template. Required if you don't specify a value for `document`.  If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.  The placeholder link is of the following form:   `${aws:iot:s3-presigned-url:https://s3.amazonaws.com/bucket/key}`   where *bucket* is your bucket name and *key* is the object in the bucket to which you are linking.",
+    "Description": "An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for `document`.  For example, `--document-source https://s3.region-code.amazonaws.com/example-firmware/device-firmware.1.0`   For more information, see [Methods for accessing a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html).",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "Replacement"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "iot.jobtemplate.JobArn": {
     "Description": "The ARN of the job to use as the basis for the job template.",
@@ -35,13 +35,13 @@
   "iot.jobtemplate.JobExecutionsRetryConfig": {
     "Description": "Allows you to create the criteria to retry a job.",
     "Required": "No",
-    "Type": "Json",
+    "Type": "JobExecutionsRetryConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iot.jobtemplate.JobExecutionsRolloutConfig": {
     "Description": "Allows you to create a staged rollout of a job.",
     "Required": "No",
-    "Type": "Json",
+    "Type": "JobExecutionsRolloutConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "iot.jobtemplate.JobTemplateId": {
@@ -50,10 +50,16 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "iot.jobtemplate.MaintenanceWindows": {
+    "Description": "An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.",
+    "Required": "No",
+    "Type": "List of [MaintenanceWindow",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "iot.jobtemplate.PresignedUrlConfig": {
     "Description": "Configuration for pre-signed S3 URLs.",
     "Required": "No",
-    "Type": "Json",
+    "Type": "PresignedUrlConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "iot.jobtemplate.Tags": {
@@ -65,7 +71,7 @@
   "iot.jobtemplate.TimeoutConfig": {
     "Description": "Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to `IN_PROGRESS`. If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to `TIMED_OUT`.",
     "Required": "No",
-    "Type": "Json",
+    "Type": "TimeoutConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

@@ -2,6 +2,14 @@
   "appflow.flow.sourceflowconfig.CfnAbout": "Contains information about the configuration of the source connector used in the flow.",
   "appflow.flow.sourceflowconfig.CfnType": "AWS::AppFlow::Flow.SourceFlowConfig",
   "appflow.flow.sourceflowconfig.CfnDocsKey": "aws-properties-appflow-flow-sourceflowconfig",
+  "appflow.flow.sourceflowconfig.ApiVersion": {
+    "Description": "The API version of the connector when it's used as a source in the flow.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "256",
+    "Pattern": "\\S+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "appflow.flow.sourceflowconfig.ConnectorProfileName": {
     "Description": "The name of the connector profile. This name must be unique for each connector profile in the AWS account.",
     "Required": "No",
@@ -11,13 +19,10 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appflow.flow.sourceflowconfig.ConnectorType": {
-    "Description": "The type of source connector, such as Salesforce, Amplitude, and so on.",
-    "AllowedValues": [
-      "S3 \\| Amplitude \\| Datadog \\| Dynatrace \\| Googleanalytics \\| Infornexus \\| Salesforce \\| Servicenow \\| Singular \\| Slack \\| Trendmicro \\| Veeva \\| Zendesk"
-    ],
-    "Allowed Values": "S3 \\| Amplitude \\| Datadog \\| Dynatrace \\| Googleanalytics \\| Infornexus \\| Salesforce \\| Servicenow \\| Singular \\| Slack \\| Trendmicro \\| Veeva \\| Zendesk",
+    "Description": "The type of connector, such as Salesforce, Amplitude, and so on.",
     "Required": "Yes",
     "Type": "String",
+    "Allowed values": "Amplitude | CustomConnector | CustomerProfiles | Datadog | Dynatrace | EventBridge | Googleanalytics | Honeycode | Infornexus | LookoutMetrics | Marketo | Pardot | Redshift | S3 | Salesforce | SAPOData | Servicenow | Singular | Slack | Snowflake | Trendmicro | Upsolver | Veeva | Zendesk",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appflow.flow.sourceflowconfig.IncrementalPullConfig": {

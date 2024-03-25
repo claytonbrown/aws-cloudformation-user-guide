@@ -1,0 +1,33 @@
+{
+  "sagemaker.endpoint.rollingupdatepolicy.CfnAbout": "Specifies a rolling deployment strategy for updating a SageMaker endpoint.",
+  "sagemaker.endpoint.rollingupdatepolicy.CfnType": "AWS::SageMaker::Endpoint.RollingUpdatePolicy",
+  "sagemaker.endpoint.rollingupdatepolicy.CfnDocsKey": "aws-properties-sagemaker-endpoint-rollingupdatepolicy",
+  "sagemaker.endpoint.rollingupdatepolicy.MaximumBatchSize": {
+    "Description": "Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count.",
+    "Required": "Yes",
+    "Type": "CapacitySize",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.endpoint.rollingupdatepolicy.MaximumExecutionTimeoutInSeconds": {
+    "Description": "The time limit for the total deployment. Exceeding this limit causes a timeout.",
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "600",
+    "Maximum": "28800",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.endpoint.rollingupdatepolicy.RollbackMaximumBatchSize": {
+    "Description": "Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback.",
+    "Required": "No",
+    "Type": "CapacitySize",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.endpoint.rollingupdatepolicy.WaitIntervalInSeconds": {
+    "Description": "The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet.",
+    "Required": "Yes",
+    "Type": "Integer",
+    "Minimum": "0",
+    "Maximum": "3600",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

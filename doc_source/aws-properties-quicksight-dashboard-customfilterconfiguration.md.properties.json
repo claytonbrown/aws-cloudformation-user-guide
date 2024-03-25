@@ -1,0 +1,42 @@
+{
+  "quicksight.dashboard.customfilterconfiguration.CfnAbout": "A custom filter that filters based on a single value. This filter can be partially matched.",
+  "quicksight.dashboard.customfilterconfiguration.CfnType": "AWS::QuickSight::Dashboard.CustomFilterConfiguration",
+  "quicksight.dashboard.customfilterconfiguration.CfnDocsKey": "aws-properties-quicksight-dashboard-customfilterconfiguration",
+  "quicksight.dashboard.customfilterconfiguration.CategoryValue": {
+    "Description": "The category value for the filter.  This field is mutually exclusive to `ParameterName`.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "512",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.dashboard.customfilterconfiguration.MatchOperator": {
+    "Description": "The match operator that is used to determine if a filter should be applied.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "CONTAINS | DOES_NOT_CONTAIN | DOES_NOT_EQUAL | ENDS_WITH | EQUALS | STARTS_WITH",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.dashboard.customfilterconfiguration.NullOption": {
+    "Description": "This option determines how null values should be treated when filtering data.  +  `ALL_VALUES`: Include null values in filtered results.+  `NULLS_ONLY`: Only include null values in filtered results.+  `NON_NULLS_ONLY`: Exclude null values from filtered results.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "ALL_VALUES | NON_NULLS_ONLY | NULLS_ONLY",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.dashboard.customfilterconfiguration.ParameterName": {
+    "Description": "The parameter whose value should be used for the filter value.  This field is mutually exclusive to `CategoryValue`.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "Pattern": "^[a-zA-Z0-9]+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.dashboard.customfilterconfiguration.SelectAllOptions": {
+    "Description": "Select all of the values. Null is not the assigned value of select all.  +  `FILTER_ALL_VALUES`",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "FILTER_ALL_VALUES",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

@@ -6,18 +6,27 @@
     "Description": "A description of the table.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "2048",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.table.tableinput.Name": {
     "Description": "The table name. For Hive compatibility, this is folded to lowercase when it is stored.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "glue.table.tableinput.Owner": {
-    "Description": "The table owner.",
+    "Description": "The table owner. Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.table.tableinput.Parameters": {
@@ -36,6 +45,7 @@
     "Description": "The retention time for this table.",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.table.tableinput.StorageDescriptor": {
@@ -45,9 +55,10 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.table.tableinput.TableType": {
-    "Description": "The type of this table (`EXTERNAL_TABLE`, `VIRTUAL_VIEW`, etc.).",
+    "Description": "The type of this table. AWS Glue will create tables with the `EXTERNAL_TABLE` type. Other services, such as Athena, may create tables with additional table types.    AWS Glue related table types:    EXTERNAL_TABLE  Hive compatible attribute - indicates a non-Hive managed table.  GOVERNED  Used by AWS Lake Formation. The AWS Glue Data Catalog understands `GOVERNED`.",
     "Required": "No",
     "Type": "String",
+    "Maximum": "255",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.table.tableinput.TargetTable": {
@@ -57,15 +68,17 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.table.tableinput.ViewExpandedText": {
-    "Description": "If the table is a view, the expanded text of the view; otherwise `null`.",
+    "Description": "Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations.",
     "Required": "No",
     "Type": "String",
+    "Maximum": "409600",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.table.tableinput.ViewOriginalText": {
-    "Description": "If the table is a view, the original text of the view; otherwise `null`.",
+    "Description": "Included for Apache Hive compatibility. Not used in the normal course of AWS Glue operations. If the table is a `VIRTUAL_VIEW`, certain Athena configuration encoded in base64.",
     "Required": "No",
     "Type": "String",
+    "Maximum": "409600",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

@@ -1,0 +1,89 @@
+{
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.CfnAbout": "An object that specifies metadata for your organization's AWS Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug logging enabled, and other custom rule metadata, such as resource type, resource ID of AWS resource, and organization trigger types that initiate AWS Config to evaluate AWS resources against a rule.",
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.CfnType": "AWS::Config::OrganizationConfigRule.OrganizationCustomPolicyRuleMetadata",
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.CfnDocsKey": "aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata",
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.DebugLogDeliveryAccounts": {
+    "Description": "A list of accounts that you can enable debug logging for your organization AWS Config Custom Policy rule. List is null when debug logging is enabled for all accounts.",
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "1000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.Description": {
+    "Description": "The description that you provide for your organization AWS Config Custom Policy rule.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.InputParameters": {
+    "Description": "A string, in JSON format, that is passed to your organization AWS Config Custom Policy rule.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.MaximumExecutionFrequency": {
+    "Description": "The maximum frequency with which AWS Config runs evaluations for a rule. Your AWS Config Custom Policy rule is triggered when AWS Config delivers the configuration snapshot. For more information, see [ConfigSnapshotDeliveryProperties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties).",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "One_Hour | Six_Hours | Three_Hours | Twelve_Hours | TwentyFour_Hours",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.OrganizationConfigRuleTriggerTypes": {
+    "Description": "The type of notification that initiates AWS Config to run an evaluation for a rule. For AWS Config Custom Policy rules, AWS Config supports change-initiated notification types:  +  `ConfigurationItemChangeNotification` - Initiates an evaluation when AWS Config delivers a configuration item as a result of a resource change.+  `OversizedConfigurationItemChangeNotification` - Initiates an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.PolicyText": {
+    "Description": "The policy definition containing the logic for your organization AWS Config Custom Policy rule.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "10000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.ResourceIdScope": {
+    "Description": "The ID of the AWS resource that was evaluated.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "768",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.ResourceTypesScope": {
+    "Description": "The type of the AWS resource that was evaluated.",
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.Runtime": {
+    "Description": "The runtime system for your organization AWS Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by AWS Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": "guard\\-2\\.x\\.x",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.TagKeyScope": {
+    "Description": "One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.organizationconfigrule.organizationcustompolicyrulemetadata.TagValueScope": {
+    "Description": "The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

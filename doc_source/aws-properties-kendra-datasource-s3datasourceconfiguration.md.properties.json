@@ -27,21 +27,21 @@
     "Description": "A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed.  Some [examples](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) are:  +  **.png , *.jpg* will exclude all PNG and JPEG image files in a directory (files with the extensions .png and .jpg).+  **internal** will exclude all files in a directory that contain 'internal' in the file name, such as 'internal', 'internal_only', 'company_internal'.+  ***/*internal** will exclude all internal-related files in a directory and its subdirectories.",
     "Required": "No",
     "Type": "List of String",
-    "Maximum": "100",
+    "Maximum": "250",
     "UpdateRequires": "No interruption"
   },
   "kendra.datasource.s3datasourceconfiguration.InclusionPatterns": {
     "Description": "A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed.  Some [examples](https://docs.aws.amazon.com/cli/latest/reference/s3/#use-of-exclude-and-include-filters) are:  +  **.txt* will include all text files in a directory (files with the extension .txt).+  ***/*.txt* will include all text files in a directory and its subdirectories.+  **tax** will include all files in a directory that contain 'tax' in the file name, such as 'tax', 'taxes', 'income_tax'.",
     "Required": "No",
     "Type": "List of String",
-    "Maximum": "100",
+    "Maximum": "250",
     "UpdateRequires": "No interruption"
   },
   "kendra.datasource.s3datasourceconfiguration.InclusionPrefixes": {
     "Description": "A list of S3 prefixes for the documents that should be included in the index.",
     "Required": "No",
     "Type": "List of String",
-    "Maximum": "100",
+    "Maximum": "250",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

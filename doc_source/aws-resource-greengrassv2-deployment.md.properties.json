@@ -1,0 +1,50 @@
+{
+  "greengrassv2.deployment.CfnAbout": "Creates a continuous deployment for a target, which is a AWS IoT Greengrass core device or group of core devices. When you add a new core device to a group of core devices that has a deployment, AWS IoT Greengrass deploys that group's deployment to the new device.\n\nYou can define one deployment for each target. When you create a new deployment for a target that has an existing deployment, you replace the previous deployment. AWS IoT Greengrass applies the new deployment to the target devices. \n\nYou can only add, update, or delete up to 10 deployments at a time to a single target.\n\nEvery deployment has a revision number that indicates how many deployment revisions you define for a target. Use this operation to create a new revision of an existing deployment. This operation returns the revision number of the new deployment when you create it.\n\nFor more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide*.\n\n**Important**  \nDeployment resources are deleted when you delete stacks. To keep the deployments in a stack, you must specify `\"DeletionPolicy\": \"Retain\"` on each deployment resource in the stack template that you want to keep. For more information, see [DeletionPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).  \nYou can only delete up to 10 deployment resources at a time. If you delete more than 10 resources, you receive an error.",
+  "greengrassv2.deployment.CfnType": "AWS::GreengrassV2::Deployment",
+  "greengrassv2.deployment.CfnDocsKey": "aws-resource-greengrassv2-deployment",
+  "greengrassv2.deployment.Components": {
+    "Description": "The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.",
+    "Required": "No",
+    "Type": "Map of [ComponentDeploymentSpecification",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "greengrassv2.deployment.DeploymentName": {
+    "Description": "The name of the deployment.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "greengrassv2.deployment.DeploymentPolicies": {
+    "Description": "The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.",
+    "Required": "No",
+    "Type": "DeploymentPolicies",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "greengrassv2.deployment.IotJobConfiguration": {
+    "Description": "The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.",
+    "Required": "No",
+    "Type": "DeploymentIoTJobConfiguration",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "greengrassv2.deployment.ParentTargetArn": {
+    "Description": "The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "greengrassv2.deployment.Tags": {
+    "Description": "Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide*.  This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates."
+  },
+  "greengrassv2.deployment.": {
+    "Description": "",
+    "Required": "No",
+    "Type": "Map of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "greengrassv2.deployment.TargetArn": {
+    "Description": "The ARN of the target AWS IoT thing or thing group.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  }
+}

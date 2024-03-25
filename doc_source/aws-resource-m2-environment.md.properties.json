@@ -1,0 +1,94 @@
+{
+  "m2.environment.CfnAbout": "Specifies a runtime environment for a given runtime engine.",
+  "m2.environment.CfnType": "AWS::M2::Environment",
+  "m2.environment.CfnDocsKey": "aws-resource-m2-environment",
+  "m2.environment.Description": {
+    "Description": "The description of the runtime environment.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "500",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "m2.environment.EngineType": {
+    "Description": "The target platform for the runtime environment.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "bluage | microfocus",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "m2.environment.EngineVersion": {
+    "Description": "The version of the runtime engine.",
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "\\S{1,10}",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "m2.environment.HighAvailabilityConfig": {
+    "Description": "Defines the details of a high availability configuration.",
+    "Required": "No",
+    "Type": "HighAvailabilityConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "m2.environment.InstanceType": {
+    "Description": "The instance type of the runtime environment.",
+    "Required": "Yes",
+    "Type": "String",
+    "Pattern": "\\S{1,20}",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "m2.environment.KmsKeyId": {
+    "Description": "The identifier of a customer managed key.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "m2.environment.Name": {
+    "Description": "The name of the runtime environment.",
+    "Required": "Yes",
+    "Type": "String",
+    "Pattern": "[A-Za-z0-9][A-Za-z0-9_\\-]{1,59}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "m2.environment.PreferredMaintenanceWindow": {
+    "Description": "Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. The following two examples are valid maintenance windows: `sun:23:45-mon:00:15` or `sat:01:00-sat:03:00`.   If you do not provide a value, a random system-generated value will be assigned.",
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "\\S{1,50}",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "m2.environment.PubliclyAccessible": {
+    "Description": "Specifies whether the runtime environment is publicly accessible.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "m2.environment.SecurityGroupIds": {
+    "Description": "The list of security groups for the VPC associated with this runtime environment.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "m2.environment.StorageConfigurations": {
+    "Description": "Defines the storage configuration for a runtime environment.",
+    "Required": "No",
+    "Type": "List of [StorageConfiguration",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "m2.environment.SubnetIds": {
+    "Description": "The list of subnets associated with the VPC for this runtime environment.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "m2.environment.Tags": {
+    "Description": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
+    "Required": "No",
+    "Type": "Map of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

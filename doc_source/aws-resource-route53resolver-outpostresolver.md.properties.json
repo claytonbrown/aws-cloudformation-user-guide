@@ -1,0 +1,42 @@
+{
+  "route53resolver.outpostresolver.CfnAbout": "Creates a Amazon Route 53 Resolver on an Outpost.",
+  "route53resolver.outpostresolver.CfnType": "AWS::Route53Resolver::OutpostResolver",
+  "route53resolver.outpostresolver.CfnDocsKey": "aws-resource-route53resolver-outpostresolver",
+  "route53resolver.outpostresolver.InstanceCount": {
+    "Description": "Amazon EC2 instance count for the Resolver on the Outpost.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "route53resolver.outpostresolver.Name": {
+    "Description": "Name of the Resolver.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "route53resolver.outpostresolver.OutpostArn": {
+    "Description": "The ARN (Amazon Resource Name) for the Outpost.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "^arn:aws([a-z-]+)?:outposts:[a-z\\d-]+:\\d{12}:outpost/op-[a-f0-9]{17}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "route53resolver.outpostresolver.PreferredInstanceType": {
+    "Description": "The Amazon EC2 instance type.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "route53resolver.outpostresolver.Tags": {
+    "Description": "A key value pair that helps you identify a Route 53 Resolver.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

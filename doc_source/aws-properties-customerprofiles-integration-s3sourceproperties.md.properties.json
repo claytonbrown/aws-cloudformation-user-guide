@@ -1,17 +1,22 @@
 {
-  "customerprofiles.integration.s3sourceproperties.CfnAbout": "<a name=\"aws-properties-customerprofiles-integration-s3sourceproperties-description\">",
+  "customerprofiles.integration.s3sourceproperties.CfnAbout": "The properties that are applied when Amazon S3 is being used as the flow source.",
   "customerprofiles.integration.s3sourceproperties.CfnType": "AWS::CustomerProfiles::Integration.S3SourceProperties",
   "customerprofiles.integration.s3sourceproperties.CfnDocsKey": "aws-properties-customerprofiles-integration-s3sourceproperties",
   "customerprofiles.integration.s3sourceproperties.BucketName": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The Amazon S3 bucket name where the source files are stored.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "3",
+    "Maximum": "63",
+    "Pattern": "\\S+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "customerprofiles.integration.s3sourceproperties.BucketPrefix": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The object key for the Amazon S3 bucket in which the source files are stored.",
     "Required": "No",
     "Type": "String",
+    "Maximum": "512",
+    "Pattern": ".*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

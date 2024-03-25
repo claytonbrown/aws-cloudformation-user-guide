@@ -14,6 +14,12 @@
     "Type": "List",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "batch.jobdefinition.containerproperties.EphemeralStorage": {
+    "Description": "The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.",
+    "Required": "No",
+    "Type": "EphemeralStorage",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "batch.jobdefinition.containerproperties.ExecutionRoleArn": {
     "Description": "The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the * AWS Batch User Guide*.",
     "Required": "No",
@@ -27,7 +33,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "batch.jobdefinition.containerproperties.Image": {
-    "Description": "The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with ` repository-url/image:tag `. It can be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs (#). This parameter maps to `Image` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.docker.com/engine/reference/run/).  Docker image architecture must match the processor architecture of the compute resources that they're scheduled on. For example, ARM-based Docker images can only run on ARM-based compute resources.+ Images in Amazon ECR Public repositories use the full `registry/repository[:tag]` or `registry/repository[@digest]` naming conventions. For example, `public.ecr.aws/registry_alias/my-web-app:latest `.+ Images in Amazon ECR repositories use the full registry and repository URI (for example, `123456789012.dkr.ecr..amazonaws.com/`).+ Images in official repositories on Docker Hub use a single name (for example, `ubuntu` or `mongo`).+ Images in other repositories on Docker Hub are qualified with an organization name (for example, `amazon/amazon-ecs-agent`).+ Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu`).",
+    "Description": "Required. The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with ` repository-url/image:tag `. It can be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs (#). This parameter maps to `Image` in the [Create a container](https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.docker.com/engine/reference/run/).  Docker image architecture must match the processor architecture of the compute resources that they're scheduled on. For example, ARM-based Docker images can only run on ARM-based compute resources.+ Images in Amazon ECR Public repositories use the full `registry/repository[:tag]` or `registry/repository[@digest]` naming conventions. For example, `public.ecr.aws/registry_alias/my-web-app:latest `.+ Images in Amazon ECR repositories use the full registry and repository URI (for example, `123456789012.dkr.ecr..amazonaws.com/`).+ Images in official repositories on Docker Hub use a single name (for example, `ubuntu` or `mongo`).+ Images in other repositories on Docker Hub are qualified with an organization name (for example, `amazon/amazon-ecs-agent`).+ Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu`).",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -98,6 +104,12 @@
     "Description": "The type and amount of resources to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.",
     "Required": "No",
     "Type": "List of [ResourceRequirement",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "batch.jobdefinition.containerproperties.RuntimePlatform": {
+    "Description": "An object that represents the compute environment architecture for AWS Batch jobs on Fargate.",
+    "Required": "No",
+    "Type": "RuntimePlatform",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "batch.jobdefinition.containerproperties.Secrets": {

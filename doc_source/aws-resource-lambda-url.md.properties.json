@@ -1,0 +1,37 @@
+{
+  "lambda.url.CfnAbout": "The `AWS::Lambda::Url` resource creates a function URL with the specified configuration parameters. A [function URL](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) is a dedicated HTTP(S) endpoint that you can use to invoke your function.",
+  "lambda.url.CfnType": "AWS::Lambda::Url",
+  "lambda.url.CfnDocsKey": "aws-resource-lambda-url",
+  "lambda.url.AuthType": {
+    "Description": "The type of authentication that your function URL uses. Set to `AWS_IAM` if you want to restrict access to authenticated users only. Set to `NONE` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "AWS_IAM | NONE",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.url.Cors": {
+    "Description": "The [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.",
+    "Required": "No",
+    "Type": "Cors",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.url.InvokeMode": {
+    "Description": "Use one of the following options:  +  `BUFFERED` – This is the default option. Lambda invokes your function using the `Invoke` API operation. Invocation results are available when the payload is complete. The maximum payload size is 6 MB.+  `RESPONSE_STREAM` – Your function streams payload results as they become available. Lambda invokes your function using the `InvokeWithResponseStream` API operation. The maximum response payload size is 20 MB, however, you can [request a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html).",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "BUFFERED | RESPONSE_STREAM",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.url.Qualifier": {
+    "Description": "The alias name.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "lambda.url.TargetFunctionArn": {
+    "Description": "The name of the Lambda function.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "Replacement"
+  }
+}

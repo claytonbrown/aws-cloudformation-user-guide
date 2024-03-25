@@ -1,5 +1,5 @@
 {
-  "cassandra.table.CfnAbout": "The `AWS::Cassandra::Table` resource allows you to create a new table in Amazon Keyspaces (for Apache Cassandra). For more information, see [Create a keyspace and a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide*.",
+  "cassandra.table.CfnAbout": "You can use the `AWS::Cassandra::Table` resource to create a new table in Amazon Keyspaces (for Apache Cassandra). For more information, see [Create a keyspace and a table](https://docs.aws.amazon.com/keyspaces/latest/devguide/getting-started.ddl.html) in the *Amazon Keyspaces Developer Guide*.",
   "cassandra.table.CfnType": "AWS::Cassandra::Table",
   "cassandra.table.CfnDocsKey": "aws-resource-cassandra-table",
   "cassandra.table.BillingMode": {
@@ -7,6 +7,16 @@
     "Required": "No",
     "Type": "BillingMode",
     "UpdateRequires": "No interruption"
+  },
+  "cassandra.table.ClientSideTimestampsEnabled": {
+    "Description": "Enables client-side timestamps for the table. By default, the setting is disabled. You can enable client-side timestamps with the following option:  + `status: \"enabled\"`After client-side timestamps are enabled for a table, you can't disable this setting.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "cassandra.table.ClusteringKeyColumns": {
     "Description": "One or more columns that determine how the table data is sorted.",
@@ -27,7 +37,7 @@
     "UpdateRequires": "No interruption"
   },
   "cassandra.table.KeyspaceName": {
-    "Description": "The name of the keyspace in which to create the table. The keyspace must already exist.",
+    "Description": "The name of the keyspace to create the table in. The keyspace must already exist.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -55,13 +65,13 @@
     "UpdateRequires": "No interruption"
   },
   "cassandra.table.TableName": {
-    "Description": "The name of the table to be created. The table name is case sensitive. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.",
+    "Description": "The name of the table to be created. The table name is case sensitive. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).  If you specify a name, you can't perform updates that require replacing this resource. You can perform updates that require no interruption or some interruption. If you must replace the resource, specify a new name.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "cassandra.table.Tags": {
-    "Description": "A list of key-value pair tags to be attached to the resource.",
+    "Description": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

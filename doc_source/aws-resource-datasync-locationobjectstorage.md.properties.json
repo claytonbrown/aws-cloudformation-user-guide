@@ -3,24 +3,24 @@
   "datasync.locationobjectstorage.CfnType": "AWS::DataSync::LocationObjectStorage",
   "datasync.locationobjectstorage.CfnDocsKey": "aws-resource-datasync-locationobjectstorage",
   "datasync.locationobjectstorage.AccessKey": {
-    "Description": "Optional. The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.",
+    "Description": "Specifies the access key (for example, a user name) if credentials are required to authenticate with the object storage server.",
     "Required": "No",
     "Type": "String",
-    "Minimum": "8",
+    "Minimum": "1",
     "Maximum": "200",
     "Pattern": "^.+$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationobjectstorage.AgentArns": {
-    "Description": "The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.",
+    "Description": "Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can securely connect with your location.",
     "Required": "Yes",
     "Type": "List of String",
     "Maximum": "4",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationobjectstorage.BucketName": {
-    "Description": "The bucket on the self-managed object storage server that is used to read data from.",
-    "Required": "Yes",
+    "Description": "Specifies the name of the object storage bucket involved in the transfer.",
+    "Required": "No",
     "Type": "String",
     "Minimum": "3",
     "Maximum": "63",
@@ -28,24 +28,30 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "datasync.locationobjectstorage.SecretKey": {
-    "Description": "Optional. The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `AccessKey` and `SecretKey` to provide the user name and password, respectively.",
+    "Description": "Specifies the secret key (for example, a password) if credentials are required to authenticate with the object storage server.",
     "Required": "No",
     "Type": "String",
-    "Minimum": "8",
+    "Minimum": "1",
     "Maximum": "200",
     "Pattern": "^.+$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "datasync.locationobjectstorage.ServerCertificate": {
+    "Description": "Specifies a file with the certificates that are used to sign the object storage server's certificate (for example, `file:///home/user/.ssh/storage_sys_certificate.pem`). The file you specify must include the following:  + The certificate of the signing certificate authority (CA)+ Any intermediate certificates+ base64 encoding+ A `.pem` extensionThe file can be up to 32768 bytes (before base64 encoding).  To use this parameter, configure `ServerProtocol` to `HTTPS`.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "datasync.locationobjectstorage.ServerHostname": {
-    "Description": "The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.",
-    "Required": "Yes",
+    "Description": "Specifies the domain name or IP address of the object storage server. A DataSync agent uses this hostname to mount the object storage server in a network.",
+    "Required": "No",
     "Type": "String",
     "Maximum": "255",
     "Pattern": "^(([a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9\\-]*[A-Za-z0-9])$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "datasync.locationobjectstorage.ServerPort": {
-    "Description": "The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS). You can specify a custom port if your self-managed object storage server requires one.",
+    "Description": "Specifies the port that your object storage server accepts inbound network traffic on (for example, port 443).",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "1",
@@ -53,14 +59,14 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationobjectstorage.ServerProtocol": {
-    "Description": "The protocol that the object storage server uses to communicate. Valid values are HTTP or HTTPS.",
+    "Description": "Specifies the protocol that your object storage server uses to communicate.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "HTTP | HTTPS",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationobjectstorage.Subdirectory": {
-    "Description": "The subdirectory in the self-managed object storage server that is used to read data from.",
+    "Description": "Specifies the object prefix for your object storage server. If this is a source location, DataSync only copies objects with this prefix. If this is a destination location, DataSync writes all objects with this prefix.",
     "Required": "No",
     "Type": "String",
     "Maximum": "4096",
@@ -68,7 +74,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "datasync.locationobjectstorage.Tags": {
-    "Description": "The key-value pair that represents the tag that you want to add to the location. The value can be an empty string. We recommend using tags to name your resources.",
+    "Description": "Specifies the key-value pair that represents a tag that you want to add to the resource. Tags can help you manage, filter, and search for your resources. We recommend creating a name tag for your location.",
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "50",

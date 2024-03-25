@@ -1,0 +1,21 @@
+{
+  "kinesisanalyticsv2.application.applicationrestoreconfiguration.CfnAbout": "Specifies the method and snapshot to use when restarting an application using previously saved application state.",
+  "kinesisanalyticsv2.application.applicationrestoreconfiguration.CfnType": "AWS::KinesisAnalyticsV2::Application.ApplicationRestoreConfiguration",
+  "kinesisanalyticsv2.application.applicationrestoreconfiguration.CfnDocsKey": "aws-properties-kinesisanalyticsv2-application-applicationrestoreconfiguration",
+  "kinesisanalyticsv2.application.applicationrestoreconfiguration.ApplicationRestoreType": {
+    "Description": "Specifies how the application should be restored.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "RESTORE_FROM_CUSTOM_SNAPSHOT | RESTORE_FROM_LATEST_SNAPSHOT | SKIP_RESTORE_FROM_SNAPSHOT",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "kinesisanalyticsv2.application.applicationrestoreconfiguration.SnapshotName": {
+    "Description": "The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for the `ApplicationRestoreType`.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "Pattern": "[a-zA-Z0-9_.-]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

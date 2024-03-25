@@ -1,23 +1,29 @@
 {
+  "fsx.snapshot.CfnAbout": "A snapshot of an Amazon FSx for OpenZFS volume.",
+  "fsx.snapshot.CfnType": "AWS::FSx::Snapshot",
+  "fsx.snapshot.CfnDocsKey": "aws-resource-fsx-snapshot",
   "fsx.snapshot.Name": {
-    "Pattern": "^[a-zA-Z0-9_:.-]{1,203}$",
+    "Description": "The name of the snapshot.",
     "Required": "Yes",
-    "Maximum": "203",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
+    "Type": "String",
     "Minimum": "1",
-    "Type": "String"
+    "Maximum": "203",
+    "Pattern": "^[a-zA-Z0-9_:.-]{1,203}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "fsx.snapshot.Tags": {
+    "Description": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "fsx.snapshot.VolumeId": {
-    "Pattern": "^(fsvol-[0-9a-f]{17,})$",
+    "Description": "The ID of the volume that the snapshot is of.",
     "Required": "Yes",
-    "Maximum": "23",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#",
+    "Type": "String",
     "Minimum": "23",
-    "Type": "String"
+    "Maximum": "23",
+    "Pattern": "^(fsvol-[0-9a-f]{17,})$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

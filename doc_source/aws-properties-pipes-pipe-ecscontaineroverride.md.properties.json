@@ -1,0 +1,53 @@
+{
+  "pipes.pipe.ecscontaineroverride.CfnAbout": "The overrides that are sent to a container. An empty container override can be passed in. An example of an empty container override is `{\"containerOverrides\": [ ] }`. If a non-empty container override is specified, the `name` parameter must be included.",
+  "pipes.pipe.ecscontaineroverride.CfnType": "AWS::Pipes::Pipe.EcsContainerOverride",
+  "pipes.pipe.ecscontaineroverride.CfnDocsKey": "aws-properties-pipes-pipe-ecscontaineroverride",
+  "pipes.pipe.ecscontaineroverride.Command": {
+    "Description": "The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pipes.pipe.ecscontaineroverride.Cpu": {
+    "Description": "The number of `cpu` units reserved for the container, instead of the default value from the task definition. You must also specify a container name.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pipes.pipe.ecscontaineroverride.Environment": {
+    "Description": "The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name.",
+    "Required": "No",
+    "Type": "List of [EcsEnvironmentVariable",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pipes.pipe.ecscontaineroverride.EnvironmentFiles": {
+    "Description": "A list of files containing the environment variables to pass to a container, instead of the value from the container definition.",
+    "Required": "No",
+    "Type": "List of [EcsEnvironmentFile",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pipes.pipe.ecscontaineroverride.Memory": {
+    "Description": "The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pipes.pipe.ecscontaineroverride.MemoryReservation": {
+    "Description": "The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pipes.pipe.ecscontaineroverride.Name": {
+    "Description": "The name of the container that receives the override. This parameter is required if any override is specified.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pipes.pipe.ecscontaineroverride.ResourceRequirements": {
+    "Description": "The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU.",
+    "Required": "No",
+    "Type": "List of [EcsResourceRequirement",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

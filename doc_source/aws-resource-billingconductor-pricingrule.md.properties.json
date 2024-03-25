@@ -1,16 +1,25 @@
 {
-  "billingconductor.pricingrule.CfnAbout": "Creates a pricing rule can be associated to a pricing plan, or a set of pricing plans.",
+  "billingconductor.pricingrule.CfnAbout": "Creates a pricing rule which can be associated with a pricing plan, or a set of pricing plans.",
   "billingconductor.pricingrule.CfnType": "AWS::BillingConductor::PricingRule",
   "billingconductor.pricingrule.CfnDocsKey": "aws-resource-billingconductor-pricingrule",
+  "billingconductor.pricingrule.BillingEntity": {
+    "Description": "The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplace.",
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "[a-zA-Z0-9 ]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "billingconductor.pricingrule.Description": {
     "Description": "The pricing rule description.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "1024",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "billingconductor.pricingrule.ModifierPercentage": {
     "Description": "A percentage modifier applied on the public pricing rates.",
-    "Required": "Yes",
+    "Required": "No",
     "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -18,18 +27,34 @@
     "Description": "The name of a pricing rule.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "[a-zA-Z0-9_\\+=\\.\\-@]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "billingconductor.pricingrule.Operation": {
+    "Description": "Operation is the specific AWS action covered by this line item. This describes the specific usage of the line item.   If the `Scope` attribute is set to `SKU`, this attribute indicates which operation the `PricingRule` is modifying. For example, a value of `RunInstances:0202` indicates the operation of running an Amazon EC2 instance.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "Pattern": "\\S+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "billingconductor.pricingrule.Scope": {
-    "Description": "The scope of pricing rule that indicates if it is globally applicable, or if it is service-specific.",
+    "Description": "The scope of pricing rule that indicates if it's globally applicable or service-specific.",
     "Required": "Yes",
     "Type": "String",
+    "Allowed values": "BILLING_ENTITY | GLOBAL | SERVICE | SKU",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "billingconductor.pricingrule.Service": {
     "Description": "If the `Scope` attribute is `SERVICE`, this attribute indicates which service the `PricingRule` is applicable for.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "[a-zA-Z0-9]+",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "billingconductor.pricingrule.Tags": {
@@ -38,10 +63,23 @@
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "billingconductor.pricingrule.Tiering": {
+    "Description": "The set of tiering configurations for the pricing rule.",
+    "Required": "No",
+    "Type": "Tiering",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "billingconductor.pricingrule.Type": {
     "Description": "The type of pricing rule.",
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "Allowed values": "DISCOUNT | MARKUP | TIERING",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "billingconductor.pricingrule.UsageType": {
+    "Description": "Usage Type is the unit that each service uses to measure the usage of a specific type of resource.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

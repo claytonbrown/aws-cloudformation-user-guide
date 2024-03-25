@@ -3,9 +3,9 @@
   "stepfunctions.statemachine.CfnType": "AWS::StepFunctions::StateMachine",
   "stepfunctions.statemachine.CfnDocsKey": "aws-resource-stepfunctions-statemachine",
   "stepfunctions.statemachine.Definition": {
-    "Description": "The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your AWS Step Functions template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html).",
+    "Description": "The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html).",
     "Required": "No",
-    "Type": "Definition",
+    "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "stepfunctions.statemachine.DefinitionS3Location": {
@@ -21,9 +21,9 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "stepfunctions.statemachine.DefinitionSubstitutions": {
-    "Description": "A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.",
+    "Description": "A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.   Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}`.",
     "Required": "No",
-    "Type": "Map of String",
+    "Type": "Map of Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "stepfunctions.statemachine.LoggingConfiguration": {

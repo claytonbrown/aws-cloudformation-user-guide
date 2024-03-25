@@ -1,39 +1,46 @@
 {
-  "customerprofiles.integration.flowdefinition.CfnAbout": "<a name=\"aws-properties-customerprofiles-integration-flowdefinition-description\">",
+  "customerprofiles.integration.flowdefinition.CfnAbout": "The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of customers.",
   "customerprofiles.integration.flowdefinition.CfnType": "AWS::CustomerProfiles::Integration.FlowDefinition",
   "customerprofiles.integration.flowdefinition.CfnDocsKey": "aws-properties-customerprofiles-integration-flowdefinition",
   "customerprofiles.integration.flowdefinition.Description": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "A description of the flow you want to create.",
     "Required": "No",
     "Type": "String",
+    "Maximum": "2048",
+    "Pattern": "[\\w!@#\\-.?,\\s]*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "customerprofiles.integration.flowdefinition.FlowName": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.",
     "Required": "Yes",
     "Type": "String",
+    "Maximum": "256",
+    "Pattern": "[a-zA-Z0-9][\\w!@#.-]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "customerprofiles.integration.flowdefinition.KmsArn": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "arn:aws:kms:.*:[0-9]+:.*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "customerprofiles.integration.flowdefinition.SourceFlowConfig": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The configuration that controls how Customer Profiles retrieves data from the source.",
     "Required": "Yes",
     "Type": "SourceFlowConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "customerprofiles.integration.flowdefinition.Tasks": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "A list of tasks that Customer Profiles performs while transferring the data in the flow run.",
     "Required": "Yes",
     "Type": "List of [Task",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "customerprofiles.integration.flowdefinition.TriggerConfig": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The trigger settings that determine how and when the flow runs.",
     "Required": "Yes",
     "Type": "TriggerConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

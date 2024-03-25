@@ -1,0 +1,33 @@
+{
+  "cleanrooms.membership.CfnAbout": "Creates a membership for a specific collaboration identifier and joins the collaboration.",
+  "cleanrooms.membership.CfnType": "AWS::CleanRooms::Membership",
+  "cleanrooms.membership.CfnDocsKey": "aws-resource-cleanrooms-membership",
+  "cleanrooms.membership.CollaborationIdentifier": {
+    "Description": "The unique ID for the associated collaboration.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "36",
+    "Maximum": "36",
+    "Pattern": ".*[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}.*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cleanrooms.membership.DefaultResultConfiguration": {
+    "Description": "The default protected query result configuration as specified by the member who can receive results.",
+    "Required": "No",
+    "Type": "MembershipProtectedQueryResultConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.membership.QueryLogStatus": {
+    "Description": "An indicator as to whether query logging has been enabled or disabled for the collaboration.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "DISABLED | ENABLED",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.membership.Tags": {
+    "Description": "An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

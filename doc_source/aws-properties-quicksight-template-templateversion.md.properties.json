@@ -1,52 +1,64 @@
 {
-  "quicksight.template.templateversion.Description": {
-    "Minimum": "1",
+  "quicksight.template.templateversion.CfnAbout": "A version of a template.",
+  "quicksight.template.templateversion.CfnType": "AWS::QuickSight::Template.TemplateVersion",
+  "quicksight.template.templateversion.CfnDocsKey": "aws-properties-quicksight-template-templateversion",
+  "quicksight.template.templateversion.CreatedTime": {
+    "Description": "The time that this template version was created.",
     "Required": "No",
     "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.template.templateversion.DataSetConfigurations": {
+    "Description": "Schema of the dataset identified by the placeholder. Any dashboard created from this template should be bound to new datasets matching the same schema described through this API operation.",
+    "Required": "No",
+    "Type": "List of [DataSetConfiguration",
+    "Maximum": "30",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.template.templateversion.Description": {
+    "Description": "The description of the template.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
     "Maximum": "512",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "quicksight.template.templateversion.VersionNumber": {
+  "quicksight.template.templateversion.Errors": {
+    "Description": "Errors associated with this template version.",
     "Required": "No",
-    "Type": "Double",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "quicksight.template.templateversion.Status": {
-    "Allowed values": "CREATION_FAILED | CREATION_IN_PROGRESS | CREATION_SUCCESSFUL | DELETED | UPDATE_FAILED | UPDATE_IN_PROGRESS | UPDATE_SUCCESSFUL",
-    "Required": "No",
-    "Type": "String",
+    "Type": "List of [TemplateError",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.template.templateversion.Sheets": {
+    "Description": "A list of the associated sheets with the unique identifier and name of each sheet.",
     "Required": "No",
     "Type": "List of [Sheet",
     "Maximum": "20",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.template.templateversion.SourceEntityArn": {
+    "Description": "The Amazon Resource Name (ARN) of an analysis or template that was used to create this template.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "quicksight.template.templateversion.DataSetConfigurations": {
+  "quicksight.template.templateversion.Status": {
+    "Description": "The status that is associated with the template.  +  `CREATION_IN_PROGRESS` +  `CREATION_SUCCESSFUL` +  `CREATION_FAILED` +  `UPDATE_IN_PROGRESS` +  `UPDATE_SUCCESSFUL` +  `UPDATE_FAILED` +  `DELETED`",
     "Required": "No",
-    "Type": "List of [DataSetConfiguration",
-    "Maximum": "30",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "quicksight.template.templateversion.Errors": {
-    "Required": "No",
-    "Type": "List of [TemplateError",
+    "Type": "String",
+    "Allowed values": "CREATION_FAILED | CREATION_IN_PROGRESS | CREATION_SUCCESSFUL | DELETED | UPDATE_FAILED | UPDATE_IN_PROGRESS | UPDATE_SUCCESSFUL",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.template.templateversion.ThemeArn": {
+    "Description": "The ARN of the theme associated with this version of the template.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "quicksight.template.templateversion.CreatedTime": {
+  "quicksight.template.templateversion.VersionNumber": {
+    "Description": "The version number of the template version.",
     "Required": "No",
-    "Type": "String",
+    "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

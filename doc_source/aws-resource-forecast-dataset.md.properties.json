@@ -3,7 +3,7 @@
   "forecast.dataset.CfnType": "AWS::Forecast::Dataset",
   "forecast.dataset.CfnDocsKey": "aws-resource-forecast-dataset",
   "forecast.dataset.DataFrequency": {
-    "Description": "The frequency of data collection. This parameter is required for RELATED_TIME_SERIES datasets.  Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes), 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example, \"D\" indicates every day and \"15min\" indicates every 15 minutes.",
+    "Description": "The frequency of data collection. This parameter is required for RELATED_TIME_SERIES datasets.  Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day), H (Hour), and min (Minute). For example, \"1D\" indicates every day and \"15min\" indicates every 15 minutes. You cannot specify a value that would overlap with the next larger frequency. That means, for example, you cannot specify a frequency of 60 minutes, because that is equivalent to 1 hour. The valid values for each frequency are the following:  + Minute - 1-59+ Hour - 1-23+ Day - 1-6+ Week - 1-4+ Month - 1-11+ Year - 1Thus, if you want every other week forecasts, specify \"2W\". Or, if you want quarterly forecasts, you specify \"3M\".",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -37,19 +37,19 @@
   "forecast.dataset.EncryptionConfig": {
     "Description": "A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.",
     "Required": "No",
-    "Type": "Json",
+    "Type": "EncryptionConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "forecast.dataset.Schema": {
     "Description": "The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html).",
     "Required": "Yes",
-    "Type": "Json",
+    "Type": "Schema",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "forecast.dataset.Tags": {
     "Description": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
     "Required": "No",
-    "Type": "List of Json",
+    "Type": "List of [TagsItems",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

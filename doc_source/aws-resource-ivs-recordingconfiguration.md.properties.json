@@ -3,7 +3,7 @@
   "ivs.recordingconfiguration.CfnType": "AWS::IVS::RecordingConfiguration",
   "ivs.recordingconfiguration.CfnDocsKey": "aws-resource-ivs-recordingconfiguration",
   "ivs.recordingconfiguration.DestinationConfiguration": {
-    "Description": "A destination configuration contains information about where recorded video will be stored. See the [ DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html) property type for more information.",
+    "Description": "A destination configuration contains information about where recorded video will be stored. See the [ DestinationConfiguration](aws-properties-ivs-recordingconfiguration-destinationconfiguration.md) property type for more information.",
     "Required": "Yes",
     "Type": "DestinationConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -14,7 +14,22 @@
     "Type": "String",
     "Minimum": "0",
     "Maximum": "128",
-    "Pattern": "^[a-zA-Z0-9-_]*$",
+    "Pattern": "[a-zA-Z0-9-_]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ivs.recordingconfiguration.RecordingReconnectWindowSeconds": {
+    "Description": "If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.",
+    "Default": "0",
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "0",
+    "Maximum": "300",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ivs.recordingconfiguration.RenditionConfiguration": {
+    "Description": "A rendition configuration describes which renditions should be recorded for a stream. See the [RenditionConfiguration](aws-properties-ivs-recordingconfiguration-renditionconfiguration.md) property type for more information.",
+    "Required": "No",
+    "Type": "RenditionConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ivs.recordingconfiguration.Tags": {
@@ -24,7 +39,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "ivs.recordingconfiguration.ThumbnailConfiguration": {
-    "Description": "A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the [ThumbnailConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thunbnailconfiguration.html) property type for more information.",
+    "Description": "A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the [ThumbnailConfiguration](aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.md) property type for more information.",
     "Required": "No",
     "Type": "ThumbnailConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"

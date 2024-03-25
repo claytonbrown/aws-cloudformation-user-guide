@@ -1,0 +1,48 @@
+{
+  "ssmcontacts.rotation.CfnAbout": "Specifies a rotation in an on-call schedule.",
+  "ssmcontacts.rotation.CfnType": "AWS::SSMContacts::Rotation",
+  "ssmcontacts.rotation.CfnDocsKey": "aws-resource-ssmcontacts-rotation",
+  "ssmcontacts.rotation.ContactIds": {
+    "Description": "The Amazon Resource Names (ARNs) of the contacts to add to the rotation.  The order in which you list the contacts is their shift order in the rotation schedule.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "Maximum": "25",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssmcontacts.rotation.Name": {
+    "Description": "The name for the rotation.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "^[a-zA-Z0-9_\\-\\s\\.]*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssmcontacts.rotation.Recurrence": {
+    "Description": "Information about the rule that specifies when shift team members rotate.",
+    "Required": "Yes",
+    "Type": "RecurrenceSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssmcontacts.rotation.StartTime": {
+    "Description": "The date and time the rotation goes into effect.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssmcontacts.rotation.Tags": {
+    "Description": "Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide*.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "No interruption"
+  },
+  "ssmcontacts.rotation.TimeZoneId": {
+    "Description": "The time zone to base the rotation’s activity on, in Internet Assigned Numbers Authority (IANA) format. For example: \"America/Los_Angeles\", \"UTC\", or \"Asia/Seoul\". For more information, see the [Time Zone Database](https://www.iana.org/time-zones) on the IANA website.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "^[:a-zA-Z0-9_\\-\\s\\.\\\\/]*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

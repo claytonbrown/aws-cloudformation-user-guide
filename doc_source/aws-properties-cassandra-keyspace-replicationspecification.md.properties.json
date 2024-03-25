@@ -1,0 +1,17 @@
+{
+  "cassandra.keyspace.replicationspecification.CfnAbout": "You can use `ReplicationSpecification` to configure the `ReplicationStrategy` of a keyspace in Amazon Keyspaces. \n\nThe `ReplicationSpecification` property is `CreateOnly` and cannot be changed after the keyspace has been created. This property applies automatically to all tables in the keyspace. \n\nFor more information, see [Multi-Region Replication](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication.html) in the *Amazon Keyspaces Developer Guide*.",
+  "cassandra.keyspace.replicationspecification.CfnType": "AWS::Cassandra::Keyspace.ReplicationSpecification",
+  "cassandra.keyspace.replicationspecification.CfnDocsKey": "aws-properties-cassandra-keyspace-replicationspecification",
+  "cassandra.keyspace.replicationspecification.RegionList": {
+    "Description": "Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two and up to six Regions, including the Region that the keyspace is being created in.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cassandra.keyspace.replicationspecification.ReplicationStrategy": {
+    "Description": "The options are:  + `SINGLE_REGION` (optional) + `MULTI_REGION` If no value is specified, the default is `SINGLE_REGION`. If `MULTI_REGION` is specified, `RegionList` is required.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  }
+}

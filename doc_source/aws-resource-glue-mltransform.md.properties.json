@@ -6,6 +6,9 @@
     "Description": "A user-defined, long-form description text for the machine learning transform.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "2048",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\r\\n\\t]*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.mltransform.GlueVersion": {
@@ -18,12 +21,14 @@
     "Description": "A list of AWS Glue table definitions used by the transform.",
     "Required": "Yes",
     "Type": "InputRecordTables",
+    "Maximum": "10",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "glue.mltransform.MaxCapacity": {
     "Description": "",
     "Required": "No",
     "Type": "String",
+    "Allowed values": "G.025X | G.1X | G.2X | G.4X | G.8X | Standard | Z.2X",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   },
   "glue.mltransform.MaxRetries": {
@@ -36,6 +41,9 @@
     "Description": "A user-defined name for the machine learning transform. Names are required to be unique. `Name` is optional:  + If you supply `Name`, the stack cannot be repeatedly created.+ If `Name` is not provided, a randomly generated name will be used instead.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.mltransform.NumberOfWorkers": {
@@ -60,6 +68,7 @@
     "Description": "The timeout in minutes of the machine learning transform.",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "1",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "glue.mltransform.TransformEncryption": {

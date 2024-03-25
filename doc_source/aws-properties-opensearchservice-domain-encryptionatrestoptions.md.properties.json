@@ -3,8 +3,8 @@
   "opensearchservice.domain.encryptionatrestoptions.CfnType": "AWS::OpenSearchService::Domain.EncryptionAtRestOptions",
   "opensearchservice.domain.encryptionatrestoptions.CfnDocsKey": "aws-properties-opensearchservice-domain-encryptionatrestoptions",
   "opensearchservice.domain.encryptionatrestoptions.Enabled": {
-    "Description": "Specify `true` to enable encryption at rest.",
-    "Required": "No",
+    "Description": "Specify `true` to enable encryption at rest. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html).",
+    "Required": "Conditional",
     "AllowedValues": [
       "True",
       "False"
@@ -13,9 +13,12 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opensearchservice.domain.encryptionatrestoptions.KmsKeyId": {
-    "Description": "The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a`. Required if you enable encryption at rest.",
+    "Description": "The KMS key ID. Takes the form `1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a`. Required if you enable encryption at rest.  You can also use `keyAlias` as a value.",
     "Required": "Conditional",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "500",
+    "Pattern": ".*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

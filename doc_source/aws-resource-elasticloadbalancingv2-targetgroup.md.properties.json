@@ -1,5 +1,5 @@
 {
-  "elasticloadbalancingv2.targetgroup.CfnAbout": "Specifies a target group for a load balancer.\n\nBefore you register a Lambda function as a target, you must create a `AWS::Lambda::Permission` resource that grants the Elastic Load Balancing service principal permission to invoke the Lambda function.",
+  "elasticloadbalancingv2.targetgroup.CfnAbout": "Specifies a target group for an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.\n\nBefore you register a Lambda function as a target, you must create a `AWS::Lambda::Permission` resource that grants the Elastic Load Balancing service principal permission to invoke the Lambda function.",
   "elasticloadbalancingv2.targetgroup.CfnType": "AWS::ElasticLoadBalancingV2::TargetGroup",
   "elasticloadbalancingv2.targetgroup.CfnDocsKey": "aws-resource-elasticloadbalancingv2-targetgroup",
   "elasticloadbalancingv2.targetgroup.HealthCheckEnabled": {
@@ -13,7 +13,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticloadbalancingv2.targetgroup.HealthCheckIntervalSeconds": {
-    "Description": "The approximate amount of time, in seconds, between health checks of an individual target. If the target group protocol is HTTP or HTTPS, the default is 30 seconds. If the target group protocol is TCP, TLS, UDP, or TCP_UDP, the supported values are 10 and 30 seconds and the default is 30 seconds. If the target group protocol is GENEVE, the default is 10 seconds. If the target type is `lambda`, the default is 35 seconds.",
+    "Description": "The approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. If the target group protocol is TCP, TLS, UDP, TCP_UDP, HTTP or HTTPS, the default is 30 seconds. If the target group protocol is GENEVE, the default is 10 seconds. If the target type is `lambda`, the default is 35 seconds.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "5",
@@ -42,7 +42,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticloadbalancingv2.targetgroup.HealthCheckTimeoutSeconds": {
-    "Description": "The amount of time, in seconds, during which no response from a target means a failed health check. For target groups with a protocol of HTTP, HTTPS, or GENEVE, the default is 5 seconds. For target groups with a protocol of TCP or TLS, this value must be 6 seconds for HTTP health checks and 10 seconds for TCP and HTTPS health checks. If the target type is `lambda`, the default is 30 seconds.",
+    "Description": "The amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is `lambda`, the default is 30 seconds.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "2",
@@ -50,7 +50,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticloadbalancingv2.targetgroup.HealthyThresholdCount": {
-    "Description": "The number of consecutive health checks successes required before considering an unhealthy target healthy. For target groups with a protocol of HTTP or HTTPS, the default is 5. For target groups with a protocol of TCP, TLS, or GENEVE, the default is 3. If the target type is `lambda`, the default is 5.",
+    "Description": "The number of consecutive health check successes required before considering a target healthy. The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For target groups with a protocol of GENEVE, the default is 5. If the target type is `lambda`, the default is 5.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "2",
@@ -65,7 +65,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticloadbalancingv2.targetgroup.Matcher": {
-    "Description": "[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.",
+    "Description": "[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target. For target groups with a protocol of TCP, TCP_UDP, UDP or TLS the range is 200-599. For target groups with a protocol of HTTP or HTTPS, the range is 200-499. For target groups with a protocol of GENEVE, the range is 200-399.",
     "Required": "No",
     "Type": "Matcher",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -123,7 +123,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticloadbalancingv2.targetgroup.UnhealthyThresholdCount": {
-    "Description": "The number of consecutive health check failures required before considering a target unhealthy. If the target group protocol is HTTP or HTTPS, the default is 2. If the target group protocol is TCP or TLS, this value must be the same as the healthy threshold count. If the target group protocol is GENEVE, the default is 3. If the target type is `lambda`, the default is 2.",
+    "Description": "The number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For target groups with a protocol of GENEVE, the default is 2. If the target type is `lambda`, the default is 5.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "2",

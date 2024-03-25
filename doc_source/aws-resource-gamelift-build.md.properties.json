@@ -11,16 +11,24 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "gamelift.build.OperatingSystem": {
-    "Description": "The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.",
+    "Description": "The operating system that your game server binaries run on. This value determines the type of fleet resources that you use for this build. If your game build contains multiple executables, they all must run on the same operating system. You must specify a valid operating system in this request. There is no default value. You can't change a build's operating system later.  If you have active fleets using the Windows Server 2012 operating system, you can continue to create new builds using this OS until October 10, 2023, when Microsoft ends its support. All others must use Windows Server 2016 when creating new Windows-based builds.",
     "Required": "No",
     "Type": "String",
-    "Allowed values": "AMAZON_LINUX | AMAZON_LINUX_2 | WINDOWS_2012",
+    "Allowed values": "AMAZON_LINUX | AMAZON_LINUX_2 | AMAZON_LINUX_2023 | WINDOWS_2012 | WINDOWS_2016",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "gamelift.build.ServerSdkVersion": {
+    "Description": "The Amazon GameLift Server SDK version used to develop your game server.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "128",
+    "Pattern": "^\\d+\\.\\d+\\.\\d+$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "gamelift.build.StorageLocation": {
-    "Description": "Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon Web Services to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.  If a `StorageLocation` is specified, the size of your file can be found in your Amazon S3 bucket. Amazon Web Services will report a `SizeOnDisk` of 0.",
+    "Description": "Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.  If a `StorageLocation` is specified, the size of your file can be found in your Amazon S3 bucket. Amazon GameLift will report a `SizeOnDisk` of 0.",
     "Required": "No",
-    "Type": "S3Location",
+    "Type": "StorageLocation",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "gamelift.build.Version": {

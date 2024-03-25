@@ -1,11 +1,17 @@
 {
-  "mediapackage.originendpoint.spekekeyprovider.CfnAbout": "Keyprovider settings for DRM.",
+  "mediapackage.originendpoint.spekekeyprovider.CfnAbout": "Key provider settings for DRM.",
   "mediapackage.originendpoint.spekekeyprovider.CfnType": "AWS::MediaPackage::OriginEndpoint.SpekeKeyProvider",
   "mediapackage.originendpoint.spekekeyprovider.CfnDocsKey": "aws-properties-mediapackage-originendpoint-spekekeyprovider",
   "mediapackage.originendpoint.spekekeyprovider.CertificateArn": {
     "Description": "The Amazon Resource Name (ARN) for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.",
     "Required": "No",
     "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediapackage.originendpoint.spekekeyprovider.EncryptionContractConfiguration": {
+    "Description": "Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.",
+    "Required": "No",
+    "Type": "EncryptionContractConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.originendpoint.spekekeyprovider.ResourceId": {

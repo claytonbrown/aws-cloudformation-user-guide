@@ -3,7 +3,7 @@
   "servicecatalog.cloudformationproduct.CfnType": "AWS::ServiceCatalog::CloudFormationProduct",
   "servicecatalog.cloudformationproduct.CfnDocsKey": "aws-resource-servicecatalog-cloudformationproduct",
   "servicecatalog.cloudformationproduct.AcceptLanguage": {
-    "Description": "The language code.  +  `en` - English (default)+  `jp` - Japanese+  `zh` - Chinese",
+    "Description": "The language code.  +  `jp` - Japanese+  `zh` - Chinese",
     "Required": "No",
     "Type": "String",
     "Maximum": "100",
@@ -37,9 +37,16 @@
     "Maximum": "8191",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "servicecatalog.cloudformationproduct.ProductType": {
+    "Description": "The type of product.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "CLOUD_FORMATION_TEMPLATE | MARKETPLACE | TERRAFORM_CLOUD | TERRAFORM_OPEN_SOURCE",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "servicecatalog.cloudformationproduct.ProvisioningArtifactParameters": {
     "Description": "The configuration of the provisioning artifact (also known as a version).",
-    "Required": "Yes",
+    "Required": "No",
     "Type": "List of [ProvisioningArtifactProperties",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -51,6 +58,12 @@
       "False"
     ],
     "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "servicecatalog.cloudformationproduct.SourceConnection": {
+    "Description": "A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct`, `UpdateProduct`, `DescribeProductAsAdmin`, and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.",
+    "Required": "No",
+    "Type": "SourceConnection",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "servicecatalog.cloudformationproduct.SupportDescription": {

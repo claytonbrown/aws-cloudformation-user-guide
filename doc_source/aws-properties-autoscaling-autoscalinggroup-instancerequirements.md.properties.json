@@ -1,9 +1,9 @@
 {
-  "autoscaling.autoscalinggroup.instancerequirements.CfnAbout": "`InstanceRequirements` specifies a set of requirements for the types of instances that can be launched by an `AWS::AutoScaling::AutoScalingGroup` resource. `InstanceRequirements` is a property of the `LaunchTemplateOverrides` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.\n\nYou must specify `VCpuCount` and `MemoryMiB`, but all other properties are optional. Any unspecified optional property is set to its default.\n\nWhen you specify multiple properties, you get instance types that satisfy all of the specified properties. If you specify multiple values for a property, you get instance types that satisfy any of the specified values.\n\nFor more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*.",
+  "autoscaling.autoscalinggroup.instancerequirements.CfnAbout": "The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.\n\nWhen you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.\n\nTo limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance types, you can use one of the following parameters, but not both in the same request:\n+ `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.\n+ `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.\n\n**Note**  \nYou must specify `VCpuCount` and `MemoryMiB`. All other attributes are optional. Any unspecified optional attribute is set to its default.\n\nFor an example template, see [Auto scaling template snippets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html).\n\nFor more information, see [Creating an Auto Scaling group using attribute-based instance type selection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html) in the *Amazon EC2 Auto Scaling User Guide*. For help determining which instance types match your attributes before you apply them to your Auto Scaling group, see [Preview instance types with specified attributes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html",
   "autoscaling.autoscalinggroup.instancerequirements.CfnType": "AWS::AutoScaling::AutoScalingGroup.InstanceRequirements",
   "autoscaling.autoscalinggroup.instancerequirements.CfnDocsKey": "aws-properties-autoscaling-autoscalinggroup-instancerequirements",
   "autoscaling.autoscalinggroup.instancerequirements.AcceleratorCount": {
-    "Description": "The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type.  To exclude accelerator-enabled instance types, set `Max` to `0`.  Default: No minimum or maximum",
+    "Description": "The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) for an instance type.  To exclude accelerator-enabled instance types, set `Max` to `0`.  Default: No minimum or maximum limits",
     "Required": "No",
     "Type": "AcceleratorCountRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -21,7 +21,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.AcceleratorTotalMemoryMiB": {
-    "Description": "The minimum and maximum total memory size for the accelerators on an instance type, in MiB.  Default: No minimum or maximum",
+    "Description": "The minimum and maximum total memory size for the accelerators on an instance type, in MiB.  Default: No minimum or maximum limits",
     "Required": "No",
     "Type": "AcceleratorTotalMemoryMiBRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -32,6 +32,13 @@
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "autoscaling.autoscalinggroup.instancerequirements.AllowedInstanceTypes": {
+    "Description": "The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.  You can use strings with one or more wild cards, represented by an asterisk (`*`), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`.  For example, if you specify `c5*`, Amazon EC2 Auto Scaling will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, Amazon EC2 Auto Scaling will allow all the M5a instance types, but not the M5n instance types.  If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.Default: All instance types",
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "400",
+    "UpdateRequires": "No interruption"
+  },
   "autoscaling.autoscalinggroup.instancerequirements.BareMetal": {
     "Description": "Indicates whether bare metal instance types are included, excluded, or required.  Default: `excluded`",
     "Required": "No",
@@ -40,7 +47,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.BaselineEbsBandwidthMbps": {
-    "Description": "The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.  Default: No minimum or maximum",
+    "Description": "The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.  Default: No minimum or maximum limits",
     "Required": "No",
     "Type": "BaselineEbsBandwidthMbpsRequest",
     "UpdateRequires": "No interruption"
@@ -58,7 +65,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.ExcludedInstanceTypes": {
-    "Description": "Lists which instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (`*`). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`.   For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types.  Default: No excluded instance types",
+    "Description": "The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (`*`), to exclude an instance family, type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`.   For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, Amazon EC2 Auto Scaling will exclude all the M5a instance types, but not the M5n instance types.  If you specify `ExcludedInstanceTypes`, you can't specify `AllowedInstanceTypes`.Default: No excluded instance types",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "400",
@@ -77,13 +84,13 @@
     "UpdateRequires": "No interruption"
   },
   "autoscaling.autoscalinggroup.instancerequirements.LocalStorageTypes": {
-    "Description": "Indicates the type of local storage that is required.  + For instance types with hard disk drive (HDD) storage, specify `hdd`.+ For instance types with solid state drive (SSD) storage, specify `sdd`.Default: Any local storage type",
+    "Description": "Indicates the type of local storage that is required.  + For instance types with hard disk drive (HDD) storage, specify `hdd`.+ For instance types with solid state drive (SSD) storage, specify `ssd`.Default: Any local storage type",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.MemoryGiBPerVCpu": {
-    "Description": "The minimum and maximum amount of memory per vCPU for an instance type, in GiB.  Default: No minimum or maximum",
+    "Description": "The minimum and maximum amount of memory per vCPU for an instance type, in GiB.  Default: No minimum or maximum limits",
     "Required": "No",
     "Type": "MemoryGiBPerVCpuRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -94,14 +101,20 @@
     "Type": "MemoryMiBRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "autoscaling.autoscalinggroup.instancerequirements.NetworkBandwidthGbps": {
+    "Description": "The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).  Default: No minimum or maximum limits",
+    "Required": "No",
+    "Type": "NetworkBandwidthGbpsRequest",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "autoscaling.autoscalinggroup.instancerequirements.NetworkInterfaceCount": {
-    "Description": "The minimum and maximum number of network interfaces for an instance type.  Default: No minimum or maximum",
+    "Description": "The minimum and maximum number of network interfaces for an instance type.  Default: No minimum or maximum limits",
     "Required": "No",
     "Type": "NetworkInterfaceCountRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.OnDemandMaxPricePercentageOverLowestPrice": {
-    "Description": "The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as `999999`.   If you set `DesiredCapacityType` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.   Default: `20`",
+    "Description": "The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as `999999`.   If you set `DesiredCapacityType` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.   Default: `20`",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "0",
@@ -118,14 +131,14 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.SpotMaxPricePercentageOverLowestPrice": {
-    "Description": "The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as `999999`.   If you set `DesiredCapacityType` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.   Default: `100`",
+    "Description": "The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as `999999`.   If you set `DesiredCapacityType` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.   Default: `100`",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "autoscaling.autoscalinggroup.instancerequirements.TotalLocalStorageGB": {
-    "Description": "The minimum and maximum total local storage size for an instance type, in GB.  Default: No minimum or maximum",
+    "Description": "The minimum and maximum total local storage size for an instance type, in GB.  Default: No minimum or maximum limits",
     "Required": "No",
     "Type": "TotalLocalStorageGBRequest",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

@@ -20,6 +20,12 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "mediaconnect.flow.source.GatewayBridgeSource": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "GatewayBridgeSource",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "mediaconnect.flow.source.IngestIp": {
     "Description": "The IP address that the flow listens on for incoming content.",
     "Required": "No",
@@ -57,10 +63,22 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "mediaconnect.flow.source.Protocol": {
-    "Description": "The protocol that is used by the source. For a full list of available protocols, see: [Source protocols](https://docs.aws.amazon.com/mediaconnect/latest/api/v1-flows-flowarn-source.html#v1-flows-flowarn-source-prop-setsourcerequest-protocol) in the *AWS Elemental MediaConnect API Reference*.",
+    "Description": "The protocol that is used by the source. AWS CloudFormation does not currently support CDI or ST 2110 JPEG XS source protocols.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "No interruption"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediaconnect.flow.source.SenderControlPort": {
+    "Description": "The port that the flow uses to send outbound requests to initiate connection with the sender.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediaconnect.flow.source.SenderIpAddress": {
+    "Description": "The IP address that the flow communicates with to initiate connection with the sender.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediaconnect.flow.source.SourceArn": {
     "Description": "The ARN of the source.",
@@ -69,9 +87,21 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediaconnect.flow.source.SourceIngestPort": {
-    "Description": "The port that the flow will be listening on for incoming content.",
+    "Description": "The port that the flow listens on for incoming content. If the protocol of the source is Zixi, the port must be set to 2088.",
     "Required": "No",
     "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediaconnect.flow.source.SourceListenerAddress": {
+    "Description": "Source IP or domain name for SRT-caller protocol.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "mediaconnect.flow.source.SourceListenerPort": {
+    "Description": "Source port for SRT-caller protocol.",
+    "Required": "No",
+    "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediaconnect.flow.source.StreamId": {

@@ -1,0 +1,27 @@
+{
+  "xray.resourcepolicy.CfnAbout": "Use `AWS::XRay::ResourcePolicy` to specify an X-Ray resource-based policy, which grants one or more AWS services and accounts permissions to access X-Ray. Each resource-based policy is associated with a specific AWS account.",
+  "xray.resourcepolicy.CfnType": "AWS::XRay::ResourcePolicy",
+  "xray.resourcepolicy.CfnDocsKey": "aws-resource-xray-resourcepolicy",
+  "xray.resourcepolicy.BypassPolicyLockoutCheck": {
+    "Description": "A flag to indicate whether to bypass the resource-based policy lockout safety check.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "xray.resourcepolicy.PolicyDocument": {
+    "Description": "The resource-based policy document, which can be up to 5kb in size.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "xray.resourcepolicy.PolicyName": {
+    "Description": "The name of the resource-based policy. Must be unique within a specific AWS account.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  }
+}

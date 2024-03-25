@@ -1,5 +1,5 @@
 {
-  "auditmanager.assessment.CfnAbout": "The `AWS::AuditManager::Assessment` resource is an AWS Audit Manager resource type that defines the scope of audit evidence collected by Audit Manager. An Audit Manager assessment is an implementation of an Audit Manager framework.",
+  "auditmanager.assessment.CfnAbout": "The `AWS::AuditManager::Assessment` resource is an Audit Manager resource type that defines the scope of audit evidence collected by Audit Manager. An Audit Manager assessment is an implementation of an Audit Manager framework.",
   "auditmanager.assessment.CfnType": "AWS::AuditManager::Assessment",
   "auditmanager.assessment.CfnDocsKey": "aws-resource-auditmanager-assessment",
   "auditmanager.assessment.AssessmentReportsDestination": {
@@ -13,6 +13,12 @@
     "Required": "No",
     "Type": "AWSAccount",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "auditmanager.assessment.Delegations": {
+    "Description": "The delegations that are associated with the assessment.",
+    "Required": "No",
+    "Type": "List of [Delegation",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "auditmanager.assessment.Description": {
     "Description": "The description of the assessment.",
@@ -53,7 +59,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "auditmanager.assessment.Status": {
-    "Description": "The overall status of the assessment.",
+    "Description": "The overall status of the assessment.  When you create a new assessment, the initial `Status` value is always `ACTIVE`. When you create an assessment, even if you specify the value as `INACTIVE`, the value overrides to `ACTIVE`.   After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE`.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "ACTIVE | INACTIVE",

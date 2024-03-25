@@ -1,0 +1,33 @@
+{
+  "cleanrooms.collaboration.memberspecification.CfnAbout": "Basic metadata used to construct a new member.",
+  "cleanrooms.collaboration.memberspecification.CfnType": "AWS::CleanRooms::Collaboration.MemberSpecification",
+  "cleanrooms.collaboration.memberspecification.CfnDocsKey": "aws-properties-cleanrooms-collaboration-memberspecification",
+  "cleanrooms.collaboration.memberspecification.AccountId": {
+    "Description": "The identifier used to reference members of the collaboration. Currently only supports AWS account ID.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "12",
+    "Maximum": "12",
+    "Pattern": "\\d+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cleanrooms.collaboration.memberspecification.DisplayName": {
+    "Description": "The member's display name.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "(?!\\s*$)[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDBFF-\\uDC00\\uDFFF\\t]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cleanrooms.collaboration.memberspecification.MemberAbilities": {
+    "Description": "The abilities granted to the collaboration member.",
+    "AllowedValues": [
+      "CAN_QUERY` \\| `CAN_RECEIVE_RESULTS"
+    ],
+    "Allowed Values": "CAN_QUERY` \\| `CAN_RECEIVE_RESULTS",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  }
+}

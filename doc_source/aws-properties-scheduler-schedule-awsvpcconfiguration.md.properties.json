@@ -1,0 +1,23 @@
+{
+  "scheduler.schedule.awsvpcconfiguration.CfnAbout": "This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.",
+  "scheduler.schedule.awsvpcconfiguration.CfnType": "AWS::Scheduler::Schedule.AwsVpcConfiguration",
+  "scheduler.schedule.awsvpcconfiguration.CfnDocsKey": "aws-properties-scheduler-schedule-awsvpcconfiguration",
+  "scheduler.schedule.awsvpcconfiguration.AssignPublicIp": {
+    "Description": "Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE`.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "scheduler.schedule.awsvpcconfiguration.SecurityGroups": {
+    "Description": "Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "scheduler.schedule.awsvpcconfiguration.Subnets": {
+    "Description": "Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ssmcontacts.plan.CfnAbout": "Information about the stages and on-call rotation teams associated with an escalation plan or engagement plan.",
+  "ssmcontacts.plan.CfnType": "AWS::SSMContacts::Plan",
+  "ssmcontacts.plan.CfnDocsKey": "aws-resource-ssmcontacts-plan",
+  "ssmcontacts.plan.ContactId": {
+    "Description": "The Amazon Resource Name (ARN) of the contact.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "Pattern": "arn:(aws|aws-cn|aws-us-gov):ssm-contacts:[-\\w+=\\/,.@]*:[0-9]+:([\\w+=\\/,.@:-])*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ssmcontacts.plan.RotationIds": {
+    "Description": "The Amazon Resource Names (ARNs) of the on-call rotations associated with the plan.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssmcontacts.plan.Stages": {
+    "Description": "A list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods.",
+    "Required": "No",
+    "Type": "List of [Stage",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

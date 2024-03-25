@@ -1,0 +1,27 @@
+{
+  "connect.routingprofile.routingprofilequeueconfig.CfnAbout": "Contains information about the queue and channel for which priority and delay can be set.",
+  "connect.routingprofile.routingprofilequeueconfig.CfnType": "AWS::Connect::RoutingProfile.RoutingProfileQueueConfig",
+  "connect.routingprofile.routingprofilequeueconfig.CfnDocsKey": "aws-properties-connect-routingprofile-routingprofilequeueconfig",
+  "connect.routingprofile.routingprofilequeueconfig.Delay": {
+    "Description": "The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide*.",
+    "Required": "Yes",
+    "Type": "Integer",
+    "Minimum": "0",
+    "Maximum": "9999",
+    "UpdateRequires": "No interruption"
+  },
+  "connect.routingprofile.routingprofilequeueconfig.Priority": {
+    "Description": "The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html).",
+    "Required": "Yes",
+    "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "99",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "connect.routingprofile.routingprofilequeueconfig.QueueReference": {
+    "Description": "Contains information about a queue resource.",
+    "Required": "Yes",
+    "Type": "RoutingProfileQueueReference",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

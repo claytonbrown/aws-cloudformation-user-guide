@@ -1,0 +1,37 @@
+{
+  "ec2.launchtemplate.spotoptions.CfnAbout": "Specifies options for Spot Instances.\n\n`SpotOptions` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).",
+  "ec2.launchtemplate.spotoptions.CfnType": "AWS::EC2::LaunchTemplate.SpotOptions",
+  "ec2.launchtemplate.spotoptions.CfnDocsKey": "aws-properties-ec2-launchtemplate-spotoptions",
+  "ec2.launchtemplate.spotoptions.BlockDurationMinutes": {
+    "Description": "Deprecated.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.spotoptions.InstanceInterruptionBehavior": {
+    "Description": "The behavior when a Spot Instance is interrupted. The default is `terminate`.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "hibernate | stop | terminate",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.spotoptions.MaxPrice": {
+    "Description": "The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.  If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.spotoptions.SpotInstanceType": {
+    "Description": "The Spot Instance request type.  If you are using Spot Instances with an Auto Scaling group, use `one-time` requests, as the Amazon EC2 Auto Scaling service handles requesting new Spot Instances whenever the group is below its desired capacity.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "one-time | persistent",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ec2.launchtemplate.spotoptions.ValidUntil": {
+    "Description": "The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.  + For a persistent request, the request remains active until the `ValidUntil` date and time is reached. Otherwise, the request remains active until you cancel it.+ For a one-time request, `ValidUntil` is not supported. The request remains active until all instances launch or you cancel the request.Default: 7 days from the current date",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "No interruption"
+  }
+}

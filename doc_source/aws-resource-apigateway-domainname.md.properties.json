@@ -3,25 +3,25 @@
   "apigateway.domainname.CfnType": "AWS::ApiGateway::DomainName",
   "apigateway.domainname.CfnDocsKey": "aws-resource-apigateway-domainname",
   "apigateway.domainname.CertificateArn": {
-    "Description": "The reference to an AWS-managed certificate for use by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source. For requirements and additional information about setting up certificates, see [Get Certificates Ready in AWS Certificate Manager](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html#how-to-custom-domains-prerequisites) in the *API Gateway Developer Guide*.",
+    "Description": "The reference to an AWS-managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "No interruption"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "apigateway.domainname.DomainName": {
-    "Description": "The custom domain name for your API. Uppercase letters are not supported.",
+    "Description": "The custom domain name as an API host name, for example, `my-api.example.com`.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "apigateway.domainname.EndpointConfiguration": {
-    "Description": "A list of the endpoint types of the domain name.",
+    "Description": "The endpoint configuration of this DomainName showing the endpoint types of the domain name.",
     "Required": "No",
     "Type": "EndpointConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "apigateway.domainname.MutualTlsAuthentication": {
-    "Description": "The mutual TLS authentication configuration for a custom domain name.",
+    "Description": "The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.",
     "Required": "No",
     "Type": "MutualTlsAuthentication",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -33,19 +33,20 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "apigateway.domainname.RegionalCertificateArn": {
-    "Description": "The reference to an AWS-managed certificate for use by the regional endpoint for the domain name. AWS Certificate Manager is the only supported source.",
+    "Description": "The reference to an AWS-managed certificate that will be used for validating the regional domain name. AWS Certificate Manager is the only supported source.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "apigateway.domainname.SecurityPolicy": {
-    "Description": "The Transport Layer Security (TLS) version + cipher suite for this domain name.  Valid values include `TLS_1_0` and `TLS_1_2`.",
+    "Description": "The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`.",
     "Required": "No",
     "Type": "String",
+    "Allowed values": "TLS_1_0 | TLS_1_2",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "apigateway.domainname.Tags": {
-    "Description": "An array of arbitrary tags (key-value pairs) to associate with the domain name.",
+    "Description": "The collection of tags. Each tag element is associated with a given resource.",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

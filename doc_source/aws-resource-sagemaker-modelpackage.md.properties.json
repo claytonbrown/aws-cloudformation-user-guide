@@ -1,0 +1,161 @@
+{
+  "sagemaker.modelpackage.CfnAbout": "A versioned model that can be deployed for SageMaker inference.",
+  "sagemaker.modelpackage.CfnType": "AWS::SageMaker::ModelPackage",
+  "sagemaker.modelpackage.CfnDocsKey": "aws-resource-sagemaker-modelpackage",
+  "sagemaker.modelpackage.AdditionalInferenceSpecifications": {
+    "Description": "An array of additional Inference Specification objects.",
+    "Required": "No",
+    "Type": "List of [AdditionalInferenceSpecificationDefinition",
+    "Maximum": "15",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelpackage.AdditionalInferenceSpecificationsToAdd": {
+    "Description": "An array of additional Inference Specification objects to be added to the existing array. The total number of additional Inference Specification objects cannot exceed 15. Each additional Inference Specification object specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.",
+    "Required": "No",
+    "Type": "List of [AdditionalInferenceSpecificationDefinition",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelpackage.ApprovalDescription": {
+    "Description": "A description provided when the model approval is set.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "Pattern": ".*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelpackage.CertifyForMarketplace": {
+    "Description": "Whether the model package is to be certified to be listed on AWS Marketplace. For information about listing model packages on AWS Marketplace, see [List Your Algorithm or Model Package on AWS Marketplace](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html).",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelpackage.ClientToken": {
+    "Description": "A unique token that guarantees that the call to this API is idempotent.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.CustomerMetadataProperties": {
+    "Description": "The metadata properties for the model package.",
+    "Required": "No",
+    "Type": "Map of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelpackage.Domain": {
+    "Description": "The machine learning domain of your model package and its components. Common machine learning domains include computer vision and natural language processing.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.DriftCheckBaselines": {
+    "Description": "Represents the drift check baselines that can be used when the model monitor is set using the model package.",
+    "Required": "No",
+    "Type": "DriftCheckBaselines",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.InferenceSpecification": {
+    "Description": "Defines how to perform inference generation after a training job is run.",
+    "Required": "No",
+    "Type": "InferenceSpecification",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.LastModifiedTime": {
+    "Description": "The last time the model package was modified.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelpackage.MetadataProperties": {
+    "Description": "Metadata properties of the tracking entity, trial, or trial component.",
+    "Required": "No",
+    "Type": "MetadataProperties",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.ModelApprovalStatus": {
+    "Description": "The approval status of the model. This can be one of the following values.  +  `APPROVED` - The model is approved+  `REJECTED` - The model is rejected.+  `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "Approved | PendingManualApproval | Rejected",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelpackage.ModelMetrics": {
+    "Description": "Metrics for the model.",
+    "Required": "No",
+    "Type": "ModelMetrics",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.ModelPackageDescription": {
+    "Description": "The description of the model package.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "Pattern": "[\\p{L}\\p{M}\\p{Z}\\p{S}\\p{N}\\p{P}]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.ModelPackageGroupName": {
+    "Description": "The model group to which the model belongs.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.ModelPackageName": {
+    "Description": "The name of the model.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelpackage.ModelPackageStatusDetails": {
+    "Description": "Specifies the validation and image scan statuses of the model package.",
+    "Required": "No",
+    "Type": "ModelPackageStatusDetails",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelpackage.ModelPackageVersion": {
+    "Description": "The version number of a versioned model.",
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "1",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelpackage.SamplePayloadUrl": {
+    "Description": "The Amazon Simple Storage Service path where the sample payload are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.SourceAlgorithmSpecification": {
+    "Description": "A list of algorithms that were used to create a model package.",
+    "Required": "No",
+    "Type": "SourceAlgorithmSpecification",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.Tags": {
+    "Description": "A list of the tags associated with the model package. For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the * AWS General Reference Guide*.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "No interruption"
+  },
+  "sagemaker.modelpackage.Task": {
+    "Description": "The machine learning task your model package accomplishes. Common machine learning tasks include object detection and image classification.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.ValidationSpecification": {
+    "Description": "Specifies batch transform jobs that SageMaker runs to validate your model package.",
+    "Required": "No",
+    "Type": "ValidationSpecification",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  }
+}

@@ -4,7 +4,7 @@
   "sagemaker.domain.usersettings.CfnDocsKey": "aws-properties-sagemaker-domain-usersettings",
   "sagemaker.domain.usersettings.ExecutionRole": {
     "Description": "The execution role for the user.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "String",
     "Minimum": "20",
     "Maximum": "2048",
@@ -23,8 +23,20 @@
     "Type": "KernelGatewayAppSettings",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "sagemaker.domain.usersettings.RSessionAppSettings": {
+    "Description": "A collection of settings that configure the `RSessionGateway` app.",
+    "Required": "No",
+    "Type": "RSessionAppSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.domain.usersettings.RStudioServerProAppSettings": {
+    "Description": "A collection of settings that configure user interaction with the `RStudioServerPro` app.",
+    "Required": "No",
+    "Type": "RStudioServerProAppSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "sagemaker.domain.usersettings.SecurityGroups": {
-    "Description": "The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.  Optional when the `CreateDomain.AppNetworkAccessType` parameter is set to `PublicInternetOnly`.  Required when the `CreateDomain.AppNetworkAccessType` parameter is set to `VpcOnly`.  Amazon SageMaker adds a security group to allow NFS traffic from SageMaker Studio. Therefore, the number of security groups that you can specify is one less than the maximum number shown.",
+    "Description": "The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.  Optional when the `CreateDomain.AppNetworkAccessType` parameter is set to `PublicInternetOnly`.  Required when the `CreateDomain.AppNetworkAccessType` parameter is set to `VpcOnly`, unless specified as part of the `DefaultUserSettings` for the domain.  Amazon SageMaker adds a security group to allow NFS traffic from SageMaker Studio. Therefore, the number of security groups that you can specify is one less than the maximum number shown.",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "5",

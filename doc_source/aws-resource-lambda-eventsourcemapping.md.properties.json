@@ -2,8 +2,14 @@
   "lambda.eventsourcemapping.CfnAbout": "The `AWS::Lambda::EventSourceMapping` resource creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.\n\nFor details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source. \n+ [ Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html",
   "lambda.eventsourcemapping.CfnType": "AWS::Lambda::EventSourceMapping",
   "lambda.eventsourcemapping.CfnDocsKey": "aws-resource-lambda-eventsourcemapping",
+  "lambda.eventsourcemapping.AmazonManagedKafkaEventSourceConfig": {
+    "Description": "Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.",
+    "Required": "No",
+    "Type": "AmazonManagedKafkaEventSourceConfig",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "lambda.eventsourcemapping.BatchSize": {
-    "Description": "The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).  +  **Amazon Kinesis** - Default 100. Max 10,000.+  **Amazon DynamoDB Streams** - Default 100. Max 1,000.+  **Amazon Simple Queue Service** - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.+  **Amazon Managed Streaming for Apache Kafka** - Default 100. Max 10,000.+  **Self-Managed Apache Kafka** - Default 100. Max 10,000.+  **Amazon MQ (ActiveMQ and RabbitMQ)** - Default 100. Max 10,000.",
+    "Description": "The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).  +  **Amazon Kinesis** – Default 100. Max 10,000.+  **Amazon DynamoDB Streams** – Default 100. Max 10,000.+  **Amazon Simple Queue Service** – Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.+  **Amazon Managed Streaming for Apache Kafka** – Default 100. Max 10,000.+  **Self-managed Apache Kafka** – Default 100. Max 10,000.+  **Amazon MQ (ActiveMQ and RabbitMQ)** – Default 100. Max 10,000.+  **DocumentDB** – Default 100. Max 10,000.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "1",
@@ -11,7 +17,7 @@
     "UpdateRequires": "No interruption"
   },
   "lambda.eventsourcemapping.BisectBatchOnFunctionError": {
-    "Description": "(Streams only) If the function returns an error, split the batch in two and retry. The default value is false.",
+    "Description": "(Kinesis and DynamoDB Streams only) If the function returns an error, split the batch in two and retry. The default value is false.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -21,9 +27,15 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.DestinationConfig": {
-    "Description": "(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.",
+    "Description": "(Kinesis and DynamoDB Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.",
     "Required": "No",
     "Type": "DestinationConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.DocumentDBEventSourceConfig": {
+    "Description": "Specific configuration settings for a DocumentDB event source.",
+    "Required": "No",
+    "Type": "DocumentDBEventSourceConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.Enabled": {
@@ -37,14 +49,14 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.EventSourceArn": {
-    "Description": "The Amazon Resource Name (ARN) of the event source.  +  **Amazon Kinesis** - The ARN of the data stream or a stream consumer.+  **Amazon DynamoDB Streams** - The ARN of the stream.+  **Amazon Simple Queue Service** - The ARN of the queue.+  **Amazon Managed Streaming for Apache Kafka** - The ARN of the cluster.",
+    "Description": "The Amazon Resource Name (ARN) of the event source.  +  **Amazon Kinesis** – The ARN of the data stream or a stream consumer.+  **Amazon DynamoDB Streams** – The ARN of the stream.+  **Amazon Simple Queue Service** – The ARN of the queue.+  **Amazon Managed Streaming for Apache Kafka** – The ARN of the cluster.+  **Amazon MQ** – The ARN of the broker.+  **Amazon DocumentDB** – The ARN of the DocumentDB change stream.",
     "Required": "No",
     "Type": "String",
     "Pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
     "UpdateRequires": "Replacement"
   },
   "lambda.eventsourcemapping.FilterCriteria": {
-    "Description": "(Streams and Amazon SQS) An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).",
+    "Description": "An object that defines the filter criteria that determine whether Lambda should process an event. For more information, see [Lambda event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html).",
     "Required": "No",
     "Type": "FilterCriteria",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -68,15 +80,15 @@
   "lambda.eventsourcemapping.MaximumBatchingWindowInSeconds": {
     "Description": "The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.",
     "*Default \\(Kinesis, DynamoDB, Amazon SQS event sources\\)*": "0",
-    "*Default \\(Amazon MSK, Kafka, Amazon MQ event sources\\)*": "500 ms",
+    "*Default \\(Amazon MSK, Kafka, Amazon MQ, Amazon DocumentDB event sources\\)*": "500 ms",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "0",
     "Maximum": "300",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "lambda.eventsourcemapping.MaximumRecordAgeInSeconds": {
-    "Description": "(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.",
+    "Description": "(Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.  The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "-1",
@@ -84,7 +96,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.MaximumRetryAttempts": {
-    "Description": "(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.",
+    "Description": "(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "-1",
@@ -92,7 +104,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.ParallelizationFactor": {
-    "Description": "(Streams only) The number of batches to process concurrently from each shard. The default value is 1.",
+    "Description": "(Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "1",
@@ -106,10 +118,22 @@
     "Maximum": "1",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "lambda.eventsourcemapping.ScalingConfig": {
+    "Description": "(Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).",
+    "Required": "No",
+    "Type": "ScalingConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "lambda.eventsourcemapping.SelfManagedEventSource": {
     "Description": "The self-managed Apache Kafka cluster for your event source.",
     "Required": "No",
     "Type": "SelfManagedEventSource",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "lambda.eventsourcemapping.SelfManagedKafkaEventSourceConfig": {
+    "Description": "Specific configuration settings for a self-managed Apache Kafka event source.",
+    "Required": "No",
+    "Type": "SelfManagedKafkaEventSourceConfig",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "lambda.eventsourcemapping.SourceAccessConfigurations": {
@@ -120,13 +144,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.StartingPosition": {
-    "Description": "The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources.  + **LATEST** - Read only new records.+ **TRIM_HORIZON** - Process all available records.",
+    "Description": "The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.  + **LATEST** - Read only new records.+ **TRIM_HORIZON** - Process all available records.+ **AT_TIMESTAMP** - Specify a time from which to start reading records.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "lambda.eventsourcemapping.StartingPositionTimestamp": {
-    "Description": "With `StartingPosition` set to `AT_TIMESTAMP`, the time from which to start reading, in Unix time seconds.",
+    "Description": "With `StartingPosition` set to `AT_TIMESTAMP`, the time from which to start reading, in Unix time seconds. `StartingPositionTimestamp` cannot be in the future.",
     "Required": "No",
     "Type": "Double",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -139,7 +163,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lambda.eventsourcemapping.TumblingWindowInSeconds": {
-    "Description": "(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.",
+    "Description": "(Kinesis and DynamoDB Streams only) The duration in seconds of a processing window for DynamoDB and Kinesis Streams event sources. A value of 0 seconds indicates no tumbling window.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "0",

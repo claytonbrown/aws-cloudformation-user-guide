@@ -1,0 +1,27 @@
+{
+  "fms.policy.securityservicepolicydata.CfnAbout": "Details about the security service that is being used to protect the resources.",
+  "fms.policy.securityservicepolicydata.CfnType": "AWS::FMS::Policy.SecurityServicePolicyData",
+  "fms.policy.securityservicepolicydata.CfnDocsKey": "aws-properties-fms-policy-securityservicepolicydata",
+  "fms.policy.securityservicepolicydata.ManagedServiceData": {
+    "Description": "Details about the service that are specific to the service type, in JSON format.   + Example: `DNS_FIREWALL`    `\"{\"type\":\"DNS_FIREWALL\",\"preProcessRuleGroups\":[{\"ruleGroupId\":\"rslvr-frg-1\",\"priority\":10}],\"postProcessRuleGroups\":[{\"ruleGroupId\":\"rslvr-frg-2\",\"priority\":9911}]}\"`",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "10000",
+    "Pattern": "^((?!\\\\[nr]).)+",
+    "UpdateRequires": "No interruption"
+  },
+  "fms.policy.securityservicepolicydata.PolicyOption": {
+    "Description": "Contains the Network Firewall firewall policy options to configure a centralized deployment model.",
+    "Required": "No",
+    "Type": "PolicyOption",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fms.policy.securityservicepolicydata.Type": {
+    "Description": "The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an AWS WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting AWS Support.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "DNS_FIREWALL | IMPORT_NETWORK_FIREWALL | NETWORK_FIREWALL | SECURITY_GROUPS_COMMON | SECURITY_GROUPS_CONTENT_AUDIT | SECURITY_GROUPS_USAGE_AUDIT | SHIELD_ADVANCED | THIRD_PARTY_FIREWALL | WAF | WAFV2",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

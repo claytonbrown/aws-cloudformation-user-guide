@@ -1,0 +1,33 @@
+{
+  "wafv2.webacl.awsmanagedrulesatpruleset.CfnAbout": "Details for your use of the account takeover prevention managed rule group, `AWSManagedRulesATPRuleSet`. This configuration is used in `ManagedRuleGroupConfig`.",
+  "wafv2.webacl.awsmanagedrulesatpruleset.CfnType": "AWS::WAFv2::WebACL.AWSManagedRulesATPRuleSet",
+  "wafv2.webacl.awsmanagedrulesatpruleset.CfnDocsKey": "aws-properties-wafv2-webacl-awsmanagedrulesatpruleset",
+  "wafv2.webacl.awsmanagedrulesatpruleset.EnableRegexInPath": {
+    "Description": "Allow the use of regular expressions in the login page path.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "wafv2.webacl.awsmanagedrulesatpruleset.LoginPath": {
+    "Description": "The path of the login endpoint for your application. For example, for the URL `https://example.com/web/login`, you would provide the path `/web/login`. Login paths that start with the path that you provide are considered a match. For example `/web/login` matches the login paths `/web/login`, `/web/login/`, `/web/loginPage`, and `/web/login/thisPage`, but doesn't match the login path `/home/web/login` or `/website/login`.  The rule group inspects only HTTP `POST` requests to your specified login endpoint.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "wafv2.webacl.awsmanagedrulesatpruleset.RequestInspection": {
+    "Description": "The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.",
+    "Required": "No",
+    "Type": "RequestInspection",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "wafv2.webacl.awsmanagedrulesatpruleset.ResponseInspection": {
+    "Description": "The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates.   Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time.",
+    "Required": "No",
+    "Type": "ResponseInspection",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

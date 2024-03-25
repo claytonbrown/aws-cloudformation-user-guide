@@ -1,47 +1,70 @@
 {
-  "appflow.connectorprofile.sapodataconnectorprofileproperties.CfnAbout": "<a name=\"aws-properties-appflow-connectorprofile-sapodataconnectorprofileproperties-description\">",
+  "appflow.connectorprofile.sapodataconnectorprofileproperties.CfnAbout": "The connector-specific profile properties required when using SAPOData.",
   "appflow.connectorprofile.sapodataconnectorprofileproperties.CfnType": "AWS::AppFlow::ConnectorProfile.SAPODataConnectorProfileProperties",
   "appflow.connectorprofile.sapodataconnectorprofileproperties.CfnDocsKey": "aws-properties-appflow-connectorprofile-sapodataconnectorprofileproperties",
   "appflow.connectorprofile.sapodataconnectorprofileproperties.ApplicationHostUrl": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The location of the SAPOData resource.",
     "Required": "No",
     "Type": "String",
+    "Maximum": "256",
+    "Pattern": "^(https?)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appflow.connectorprofile.sapodataconnectorprofileproperties.ApplicationServicePath": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The application path to catalog service.",
     "Required": "No",
     "Type": "String",
+    "Maximum": "512",
+    "Pattern": "\\S+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appflow.connectorprofile.sapodataconnectorprofileproperties.ClientNumber": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The client number for the client creating the connection.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "3",
+    "Maximum": "3",
+    "Pattern": "^\\d{3}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appflow.connectorprofile.sapodataconnectorprofileproperties.DisableSSO": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appflow.connectorprofile.sapodataconnectorprofileproperties.LogonLanguage": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The logon language of SAPOData instance.",
     "Required": "No",
     "Type": "String",
+    "Maximum": "2",
+    "Pattern": "^[a-zA-Z0-9_]*$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appflow.connectorprofile.sapodataconnectorprofileproperties.OAuthProperties": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The SAPOData OAuth properties required for OAuth type authentication.",
     "Required": "No",
     "Type": "OAuthProperties",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appflow.connectorprofile.sapodataconnectorprofileproperties.PortNumber": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The port number of the SAPOData instance.",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "65535",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appflow.connectorprofile.sapodataconnectorprofileproperties.PrivateLinkServiceName": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The SAPOData Private Link service name to be used for private data transfers.",
     "Required": "No",
     "Type": "String",
+    "Maximum": "512",
+    "Pattern": "^$|com.amazonaws.vpce.[\\w/!:@#.\\-]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

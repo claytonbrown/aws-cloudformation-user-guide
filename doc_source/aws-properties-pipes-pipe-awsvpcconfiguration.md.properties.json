@@ -1,0 +1,23 @@
+{
+  "pipes.pipe.awsvpcconfiguration.CfnAbout": "This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.",
+  "pipes.pipe.awsvpcconfiguration.CfnType": "AWS::Pipes::Pipe.AwsVpcConfiguration",
+  "pipes.pipe.awsvpcconfiguration.CfnDocsKey": "aws-properties-pipes-pipe-awsvpcconfiguration",
+  "pipes.pipe.awsvpcconfiguration.AssignPublicIp": {
+    "Description": "Specifies whether the task's elastic network interface receives a public IP address. You can specify `ENABLED` only when `LaunchType` in `EcsParameters` is set to `FARGATE`.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pipes.pipe.awsvpcconfiguration.SecurityGroups": {
+    "Description": "Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "pipes.pipe.awsvpcconfiguration.Subnets": {
+    "Description": "Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

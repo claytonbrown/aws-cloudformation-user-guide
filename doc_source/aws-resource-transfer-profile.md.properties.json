@@ -1,0 +1,34 @@
+{
+  "transfer.profile.CfnAbout": "Creates the local or partner profile to use for AS2 transfers.",
+  "transfer.profile.CfnType": "AWS::Transfer::Profile",
+  "transfer.profile.CfnDocsKey": "aws-resource-transfer-profile",
+  "transfer.profile.As2Id": {
+    "Description": "The `As2Id` is the *AS2-name*, as defined in the [RFC 4130](https://datatracker.ietf.org/doc/html/rfc4130). For inbound transfers, this is the `AS2-From` header for the AS2 messages sent from the partner. For outbound connectors, this is the `AS2-To` header for the AS2 messages sent to the partner using the `StartFileTransfer` API operation. This ID cannot include spaces.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "^[\\p{Print}\\s]*",
+    "UpdateRequires": "No interruption"
+  },
+  "transfer.profile.CertificateIds": {
+    "Description": "An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "transfer.profile.ProfileType": {
+    "Description": "Indicates whether to list only `LOCAL` type profiles or only `PARTNER` type profiles. If not supplied in the request, the command lists all types of profiles.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "LOCAL | PARTNER",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "transfer.profile.Tags": {
+    "Description": "Key-value pairs that can be used to group and search for profiles.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

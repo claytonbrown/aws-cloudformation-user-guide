@@ -1,22 +1,28 @@
 {
+  "fsx.volume.openzfsconfiguration.userandgroupquotas.CfnAbout": "An object specifying how much storage users or groups can use on the volume.",
+  "fsx.volume.openzfsconfiguration.userandgroupquotas.CfnType": "AWS::FSx::Volume.UserAndGroupQuotas",
+  "fsx.volume.openzfsconfiguration.userandgroupquotas.CfnDocsKey": "aws-properties-fsx-volume-openzfsconfiguration-userandgroupquotas",
   "fsx.volume.openzfsconfiguration.userandgroupquotas.Id": {
-    "Minimum": "0",
+    "Description": "The ID of the user or group.",
     "Required": "Yes",
     "Type": "Integer",
+    "Minimum": "0",
+    "Maximum": "2147483647",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.volume.openzfsconfiguration.userandgroupquotas.StorageCapacityQuotaGiB": {
+    "Description": "The amount of storage that the user or group can use in gibibytes (GiB).",
+    "Required": "Yes",
+    "Type": "Integer",
+    "Minimum": "0",
     "Maximum": "2147483647",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "fsx.volume.openzfsconfiguration.userandgroupquotas.Type": {
-    "Allowed values": "GROUP | USER",
+    "Description": "A value that specifies whether the quota applies to a user or group.",
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "fsx.volume.openzfsconfiguration.userandgroupquotas.StorageCapacityQuotaGiB": {
-    "Minimum": "0",
-    "Required": "Yes",
-    "Type": "Integer",
-    "Maximum": "2147483647",
+    "Allowed values": "GROUP | USER",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

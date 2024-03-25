@@ -1,0 +1,59 @@
+{
+  "iotevents.alarmmodel.alarmaction.CfnAbout": "Specifies one of the following actions to receive notifications when the alarm state changes.",
+  "iotevents.alarmmodel.alarmaction.CfnType": "AWS::IoTEvents::AlarmModel.AlarmAction",
+  "iotevents.alarmmodel.alarmaction.CfnDocsKey": "aws-properties-iotevents-alarmmodel-alarmaction",
+  "iotevents.alarmmodel.alarmaction.DynamoDB": {
+    "Description": "Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.  You must use expressions for all parameters in `DynamoDBAction`. The expressions accept literals, operators, functions, references, and substitution templates.",
+    "Required": "No",
+    "Type": "DynamoDB",
+    "UpdateRequires": "No interruption"
+  },
+  "iotevents.alarmmodel.alarmaction.DynamoDBv2": {
+    "Description": "Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.  You must use expressions for all parameters in `DynamoDBv2Action`. The expressions accept literals, operators, functions, references, and substitution templates.",
+    "Required": "No",
+    "Type": "DynamoDBv2",
+    "UpdateRequires": "No interruption"
+  },
+  "iotevents.alarmmodel.alarmaction.Firehose": {
+    "Description": "Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.",
+    "Required": "No",
+    "Type": "Firehose",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotevents.alarmmodel.alarmaction.IotEvents": {
+    "Description": "Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.",
+    "Required": "No",
+    "Type": "IotEvents",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotevents.alarmmodel.alarmaction.IotSiteWise": {
+    "Description": "Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.  You must use expressions for all parameters in `IotSiteWiseAction`. The expressions accept literals, operators, functions, references, and substitutions templates.",
+    "Required": "No",
+    "Type": "IotSiteWise",
+    "UpdateRequires": "No interruption"
+  },
+  "iotevents.alarmmodel.alarmaction.IotTopicPublish": {
+    "Description": "Information required to publish the MQTT message through the AWS IoT message broker.",
+    "Required": "No",
+    "Type": "IotTopicPublish",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotevents.alarmmodel.alarmaction.Lambda": {
+    "Description": "Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.",
+    "Required": "No",
+    "Type": "Lambda",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotevents.alarmmodel.alarmaction.Sns": {
+    "Description": "Information required to publish the Amazon SNS message.",
+    "Required": "No",
+    "Type": "Sns",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotevents.alarmmodel.alarmaction.Sqs": {
+    "Description": "Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.",
+    "Required": "No",
+    "Type": "Sqs",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

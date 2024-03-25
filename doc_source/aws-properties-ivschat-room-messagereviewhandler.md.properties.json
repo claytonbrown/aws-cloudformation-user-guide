@@ -1,0 +1,22 @@
+{
+  "ivschat.room.messagereviewhandler.CfnAbout": "The MessageReviewHandler property type specifies configuration information for optional message review.",
+  "ivschat.room.messagereviewhandler.CfnType": "AWS::IVSChat::Room.MessageReviewHandler",
+  "ivschat.room.messagereviewhandler.CfnDocsKey": "aws-properties-ivschat-room-messagereviewhandler",
+  "ivschat.room.messagereviewhandler.FallbackResult": {
+    "Description": "Specifies the fallback behavior (whether the message is allowed or denied) if the handler does not return a valid response, encounters an error, or times out. (For the timeout period, see [ Service Quotas](https://docs.aws.amazon.com/ivs/latest/userguide/service-quotas.html).) If allowed, the message is delivered with returned content to all users connected to the room. If denied, the message is not delivered to any user.",
+    "Default": "ALLOW",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "ALLOW | DENY",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ivschat.room.messagereviewhandler.Uri": {
+    "Description": "Identifier of the message review handler. Currently this must be an ARN of a lambda function.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "170",
+    "Pattern": "^$|^arn:aws:lambda:[a-z0-9-]+:[0-9]{12}:function:.+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

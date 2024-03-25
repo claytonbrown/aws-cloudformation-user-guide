@@ -3,7 +3,7 @@
   "rds.globalcluster.CfnType": "AWS::RDS::GlobalCluster",
   "rds.globalcluster.CfnDocsKey": "aws-resource-rds-globalcluster",
   "rds.globalcluster.DeletionProtection": {
-    "Description": "The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.",
+    "Description": "Specifies whether to enable deletion protection for the new global database cluster. The global database can't be deleted when deletion protection is enabled.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -13,31 +13,31 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rds.globalcluster.Engine": {
-    "Description": "The name of the database engine to be used for this DB cluster.  If this property isn't specified, the database engine is derived from the source DB cluster specified by the `SourceDBClusterIdentifier` property.  If the `SourceDBClusterIdentifier` property isn't specified, this property is required. If the `SourceDBClusterIdentifier` property is specified, make sure this property isn't specified.",
+    "Description": "The database engine to use for this global database cluster.  Valid Values: `aurora-mysql | aurora-postgresql`   Constraints:  + Can't be specified if `SourceDBClusterIdentifier` is specified. In this case, Amazon Aurora uses the engine of the source DB cluster.",
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "rds.globalcluster.EngineVersion": {
-    "Description": "The engine version of the Aurora global database.",
+    "Description": "The engine version to use for this global database cluster.  Constraints:  + Can't be specified if `SourceDBClusterIdentifier` is specified. In this case, Amazon Aurora uses the engine version of the source DB cluster.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "rds.globalcluster.GlobalClusterIdentifier": {
-    "Description": "The cluster identifier of the global database cluster.",
+    "Description": "The cluster identifier for this global database cluster. This parameter is stored as a lowercase string.",
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "rds.globalcluster.SourceDBClusterIdentifier": {
-    "Description": "The DB cluster identifier or Amazon Resource Name (ARN) to use as the primary cluster of the global database.   If the `Engine` property isn't specified, this property is required. If the `Engine` property is specified, make sure this property isn't specified.",
+    "Description": "The Amazon Resource Name (ARN) to use as the primary cluster of the global database.  If you provide a value for this parameter, don't specify values for the following settings because Amazon Aurora uses the values from the specified source DB cluster:  +  `DatabaseName` +  `Engine` +  `EngineVersion` +  `StorageEncrypted`",
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "rds.globalcluster.StorageEncrypted": {
-    "Description": "The storage encryption setting for the global database cluster.",
+    "Description": "Specifies whether to enable storage encryption for the new global database cluster.  Constraints:  + Can't be specified if `SourceDBClusterIdentifier` is specified. In this case, Amazon Aurora uses the setting from the source DB cluster.",
     "Required": "No",
     "AllowedValues": [
       "True",

@@ -1,0 +1,99 @@
+{
+  "sagemaker.inferenceexperiment.CfnAbout": "Creates an inference experiment using the configurations specified in the request. \n\n Use this API to setup and schedule an experiment to compare model variants on a Amazon SageMaker inference endpoint. For more information about inference experiments, see [Shadow tests](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html). \n\n Amazon SageMaker begins your experiment at the scheduled time and routes traffic to your endpoint's model variants based on your specified configuration. \n\n While the experiment is in progress or after it has concluded, you can view metrics that compare your model variants. For more information, see [View, monitor, and edit shadow tests](https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests-view-monitor-edit.html).",
+  "sagemaker.inferenceexperiment.CfnType": "AWS::SageMaker::InferenceExperiment",
+  "sagemaker.inferenceexperiment.CfnDocsKey": "aws-resource-sagemaker-inferenceexperiment",
+  "sagemaker.inferenceexperiment.DataStorageConfig": {
+    "Description": "The Amazon S3 location and configuration for storing inference request and response data.",
+    "Required": "No",
+    "Type": "DataStorageConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.inferenceexperiment.Description": {
+    "Description": "The description of the inference experiment.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "Pattern": ".*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.inferenceexperiment.DesiredState": {
+    "Description": "The desired state of the experiment after stopping. The possible states are the following:   +  `Completed`: The experiment completed successfully+  `Cancelled`: The experiment was canceled",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "Cancelled | Completed",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.inferenceexperiment.EndpointName": {
+    "Description": "The name of the endpoint.",
+    "Required": "Yes",
+    "Type": "String",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.inferenceexperiment.KmsKey": {
+    "Description": "The AWS Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3 server-side encryption.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2048",
+    "Pattern": ".*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.inferenceexperiment.ModelVariants": {
+    "Description": "An array of `ModelVariantConfigSummary` objects. There is one for each variant in the inference experiment. Each `ModelVariantConfigSummary` object in the array describes the infrastructure configuration for deploying the corresponding variant.",
+    "Required": "Yes",
+    "Type": "List of [ModelVariantConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.inferenceexperiment.Name": {
+    "Description": "The name of the inference experiment.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "120",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,119}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.inferenceexperiment.RoleArn": {
+    "Description": "The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage Amazon SageMaker Inference endpoints for model deployment.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.inferenceexperiment.Schedule": {
+    "Description": "The duration for which the inference experiment ran or will run.  The maximum duration that you can set for an inference experiment is 30 days.",
+    "Required": "No",
+    "Type": "InferenceExperimentSchedule",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.inferenceexperiment.ShadowModeConfig": {
+    "Description": "The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.",
+    "Required": "No",
+    "Type": "ShadowModeConfig",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.inferenceexperiment.StatusReason": {
+    "Description": "The error message for the inference experiment status result.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "1024",
+    "Pattern": ".*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.inferenceexperiment.Tags": {
+    "Description": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.inferenceexperiment.Type": {
+    "Description": "The type of the inference experiment.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "ShadowMode",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  }
+}

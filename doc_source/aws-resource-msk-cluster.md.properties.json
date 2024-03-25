@@ -1,15 +1,15 @@
 {
-  "msk.cluster.CfnAbout": "The `AWS::MSK::Cluster` resource creates an Amazon MSK cluster. For more information, see [What Is Amazon MSK?](https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html) in the *Amazon MSK Developer Guide*.",
+  "msk.cluster.CfnAbout": "Creates a new MSK cluster. The following Python 3.6 examples shows how you can create a cluster that's distributed over two Availability Zones. Before you run this Python script, replace the example subnet and security-group IDs with the IDs of your subnets and security group. When you create an MSK cluster, its brokers get evenly distributed over a number of Availability Zones that's equal to the number of subnets that you specify in the `BrokerNodeGroupInfo` parameter. In this example, you can add a third subnet to get a cluster that's distributed over three Availability Zones.\n\n```\nimport boto3\n\nclient = boto3.client('kafka')\n\nresponse = client.create_cluster(\n    BrokerNodeGroupInfo={\n        'BrokerAZDistribution': 'DEFAULT',\n        'ClientSubnets': [\n            'subnet-012345678901fedcba',\n            'subnet-9876543210abcdef01'\n        ],\n        'InstanceType': 'kafka.m5.large',\n        'SecurityGroups': [\n            'sg-012345abcdef789789'\n        ]\n    },\n    ClusterName='SalesCluster',\n    EncryptionInfo={\n        'EncryptionInTransit': {\n            'ClientBroker': 'TLS_PLAINTEXT',\n            'InCluster': True\n        }\n    },\n    EnhancedMonitoring='PER_TOPIC_PER_BROKER',\n    KafkaVersion='2.2.1',\n    NumberOfBrokerNodes=2\n)\n\nprint(response)\n```",
   "msk.cluster.CfnType": "AWS::MSK::Cluster",
   "msk.cluster.CfnDocsKey": "aws-resource-msk-cluster",
   "msk.cluster.BrokerNodeGroupInfo": {
-    "Description": "The setup to be used for brokers in the cluster.  AWS CloudFormation may replace the cluster when you update certain `BrokerNodeGroupInfo` properties. To understand the update behavior for your use case, you should review the child properties for [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#aws-properties-msk-cluster-brokernodegroupinfo-properties](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-brokernodegroupinfo.html#aws-properties-msk-cluster-brokernodegroupinfo-properties).",
+    "Description": "Information about the broker nodes in the cluster.",
     "Required": "Yes",
     "Type": "BrokerNodeGroupInfo",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "msk.cluster.ClientAuthentication": {
-    "Description": "Includes information related to client authentication.",
+    "Description": "Includes all client authentication related information.",
     "Required": "No",
     "Type": "ClientAuthentication",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -21,7 +21,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "msk.cluster.ConfigurationInfo": {
-    "Description": "The Amazon MSK configuration to use for the cluster.",
+    "Description": "Represents the configuration that you want MSK to use for the cluster.",
     "Required": "No",
     "Type": "ConfigurationInfo",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -45,19 +45,19 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "msk.cluster.KafkaVersion": {
-    "Description": "The version of Apache Kafka. For more information, see [Supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) in the Amazon MSK Developer Guide.",
+    "Description": "The version of Apache Kafka. You can use Amazon MSK to create clusters that use Apache Kafka versions 1.1.1 and 2.2.1.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "msk.cluster.LoggingInfo": {
-    "Description": "You can configure your Amazon MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.",
+    "Description": "Logging Info details.",
     "Required": "No",
     "Type": "LoggingInfo",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "msk.cluster.NumberOfBrokerNodes": {
-    "Description": "The number of broker nodes you want in the Amazon MSK cluster. You can submit an update to increase the number of broker nodes in a cluster.",
+    "Description": "The number of broker nodes in the cluster.",
     "Required": "Yes",
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -68,10 +68,16 @@
     "Type": "OpenMonitoring",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "msk.cluster.StorageMode": {
+    "Description": "This controls storage mode for supported storage tiers.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "msk.cluster.Tags": {
-    "Description": "A map of key:value pairs to apply to this resource. Both key and value are of type String.",
+    "Description": "Create tags when creating the cluster.",
     "Required": "No",
     "Type": "Map of String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

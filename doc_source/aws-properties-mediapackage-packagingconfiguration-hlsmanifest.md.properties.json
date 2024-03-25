@@ -3,10 +3,10 @@
   "mediapackage.packagingconfiguration.hlsmanifest.CfnType": "AWS::MediaPackage::PackagingConfiguration.HlsManifest",
   "mediapackage.packagingconfiguration.hlsmanifest.CfnDocsKey": "aws-properties-mediapackage-packagingconfiguration-hlsmanifest",
   "mediapackage.packagingconfiguration.hlsmanifest.AdMarkers": {
-    "Description": "This setting controls ad markers in the packaged content. **NONE** omits SCTE-35 ad markers from the output. **PASSTHROUGH** copies SCTE-35 ad markers from the source content to the output. **SCTE35_ENHANCED** generates ad markers and blackout tags in the output, based on SCTE-35 messages in the source content.",
+    "Description": "This setting controls ad markers in the packaged content.  Valid values:  + `NONE` - Omits all SCTE-35 ad markers from the output.+ `PASSTHROUGH` - Creates a copy in the output of the SCTE-35 ad markers (comments) taken directly from the input manifest.+ `SCTE35_ENHANCED` - Generates ad markers and blackout tags in the output based on the SCTE-35 messages from the input manifest.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "No interruption"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "mediapackage.packagingconfiguration.hlsmanifest.IncludeIframeOnlyStream": {
     "Description": "Applies to stream sets with a single video track only. When enabled, the output includes an additional I-frame only stream, along with the other tracks.",

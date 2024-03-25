@@ -2,10 +2,24 @@
   "athena.workgroup.workgroupconfiguration.CfnAbout": "The configuration of the workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether Amazon CloudWatch Metrics are enabled for the workgroup, and the limit for the amount of bytes scanned (cutoff) per query, if it is specified. The [EnforceWorkGroupConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html",
   "athena.workgroup.workgroupconfiguration.CfnType": "AWS::Athena::WorkGroup.WorkGroupConfiguration",
   "athena.workgroup.workgroupconfiguration.CfnDocsKey": "aws-properties-athena-workgroup-workgroupconfiguration",
+  "athena.workgroup.workgroupconfiguration.AdditionalConfiguration": {
+    "Description": "Specifies a user defined JSON string that is passed to the session engine.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "athena.workgroup.workgroupconfiguration.BytesScannedCutoffPerQuery": {
     "Description": "The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. No default is defined.  This property currently supports integer types. Support for long values is planned.",
     "Required": "No",
     "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "athena.workgroup.workgroupconfiguration.CustomerContentEncryptionConfiguration": {
+    "Description": "Specifies the KMS key that is used to encrypt the user's data stores in Athena. This setting does not apply to Athena SQL workgroups.",
+    "Required": "No",
+    "Type": "CustomerContentEncryptionConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "athena.workgroup.workgroupconfiguration.EnforceWorkGroupConfiguration": {
@@ -19,9 +33,18 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "athena.workgroup.workgroupconfiguration.EngineVersion": {
-    "Description": "The engine version that all queries running on the workgroup use. Queries on the `AmazonAthenaPreviewFunctionality` workgroup run on the preview engine regardless of this setting.",
+    "Description": "The engine version that all queries running on the workgroup use.",
     "Required": "No",
     "Type": "EngineVersion",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "athena.workgroup.workgroupconfiguration.ExecutionRole": {
+    "Description": "Role used to access user resources in an Athena for Apache Spark session. This property applies only to Spark-enabled workgroups in Athena.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "athena.workgroup.workgroupconfiguration.PublishCloudWatchMetricsEnabled": {

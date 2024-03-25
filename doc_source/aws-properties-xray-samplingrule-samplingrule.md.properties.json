@@ -10,27 +10,27 @@
   },
   "xray.samplingrule.samplingrule.FixedRate": {
     "Description": "The percentage of matching requests to instrument, after the reservoir is exhausted.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "xray.samplingrule.samplingrule.Host": {
     "Description": "Matches the hostname from a request URL.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "String",
     "Maximum": "64",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "xray.samplingrule.samplingrule.HTTPMethod": {
     "Description": "Matches the HTTP method of a request.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "String",
     "Maximum": "10",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "xray.samplingrule.samplingrule.Priority": {
     "Description": "The priority of the sampling rule.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "Integer",
     "Minimum": "1",
     "Maximum": "9999",
@@ -38,26 +38,26 @@
   },
   "xray.samplingrule.samplingrule.ReservoirSize": {
     "Description": "A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "Integer",
     "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "xray.samplingrule.samplingrule.ResourceARN": {
     "Description": "Matches the ARN of the AWS resource on which the service runs.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "String",
     "Maximum": "500",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "xray.samplingrule.samplingrule.RuleARN": {
-    "Description": "The ARN of the sampling rule. You must specify either RuleARN or RuleName, but not both.",
+    "Description": "The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.  Specifying a sampling rule by name is recommended, as specifying by ARN will be deprecated in future.",
     "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "xray.samplingrule.samplingrule.RuleName": {
-    "Description": "The name of the sampling rule. You must specify either RuleARN or RuleName, but not both.",
+    "Description": "The name of the sampling rule. Specify a rule by either name or ARN, but not both.",
     "Required": "Conditional",
     "Type": "String",
     "Minimum": "1",
@@ -66,30 +66,30 @@
   },
   "xray.samplingrule.samplingrule.ServiceName": {
     "Description": "Matches the `name` that the service uses to identify itself in segments.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "String",
     "Maximum": "64",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "xray.samplingrule.samplingrule.ServiceType": {
     "Description": "Matches the `origin` that the service uses to identify its type in segments.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "String",
     "Maximum": "64",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "xray.samplingrule.samplingrule.URLPath": {
     "Description": "Matches the path from a request URL.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "String",
     "Maximum": "128",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "xray.samplingrule.samplingrule.Version": {
-    "Description": "The version of the sampling rule format (`1`).",
-    "Required": "No",
+    "Description": "The version of the sampling rule. `Version` can only be set when creating a new sampling rule.",
+    "Required": "Conditional",
     "Type": "Integer",
     "Minimum": "1",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   }
 }

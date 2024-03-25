@@ -3,14 +3,14 @@
   "elasticsearch.domain.domainendpointoptions.CfnType": "AWS::Elasticsearch::Domain.DomainEndpointOptions",
   "elasticsearch.domain.domainendpointoptions.CfnDocsKey": "aws-properties-elasticsearch-domain-domainendpointoptions",
   "elasticsearch.domain.domainendpointoptions.CustomEndpoint": {
-    "Description": "The fully qualified URL for your custom endpoint.",
-    "Required": "No",
+    "Description": "The fully qualified URL for your custom endpoint. Required if you enabled a custom endpoint for the domain.",
+    "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticsearch.domain.domainendpointoptions.CustomEndpointCertificateArn": {
-    "Description": "The AWS Certificate Manager ARN for your domain's SSL/TLS certificate.",
-    "Required": "No",
+    "Description": "The AWS Certificate Manager ARN for your domain's SSL/TLS certificate. Required if you enabled a custom endpoint for the domain.",
+    "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -35,7 +35,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticsearch.domain.domainendpointoptions.TLSSecurityPolicy": {
-    "Description": "The minimum TLS version required for traffic to the domain. Valid values are TLS 1.0 (default) or 1.2:  + `Policy-Min-TLS-1-0-2019-07`+ `Policy-Min-TLS-1-2-2019-07`",
+    "Description": "The minimum TLS version required for traffic to the domain. Valid values are TLS 1.3 (recommended) or 1.2:  + `Policy-Min-TLS-1-0-2019-07`+ `Policy-Min-TLS-1-2-2019-07`",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

@@ -1,0 +1,41 @@
+{
+  "quicksight.template.filtergroup.CfnAbout": "A grouping of individual filters. Filter groups are applied to the same group of visuals.\n\nFor more information, see [Adding filter conditions (group filters) with AND and OR operators](https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html) in the *Amazon QuickSight User Guide*.",
+  "quicksight.template.filtergroup.CfnType": "AWS::QuickSight::Template.FilterGroup",
+  "quicksight.template.filtergroup.CfnDocsKey": "aws-properties-quicksight-template-filtergroup",
+  "quicksight.template.filtergroup.CrossDataset": {
+    "Description": "The filter new feature which can apply filter group to all data sets. Choose one of the following options:  +  `ALL_DATASETS` +  `SINGLE_DATASET`",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "ALL_DATASETS | SINGLE_DATASET",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.template.filtergroup.FilterGroupId": {
+    "Description": "The value that uniquely identifies a `FilterGroup` within a dashboard, template, or analysis.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "512",
+    "Pattern": "[\\w\\-]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.template.filtergroup.Filters": {
+    "Description": "The list of filters that are present in a `FilterGroup`.",
+    "Required": "Yes",
+    "Type": "List of [Filter",
+    "Maximum": "20",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.template.filtergroup.ScopeConfiguration": {
+    "Description": "The configuration that specifies what scope to apply to a `FilterGroup`.  This is a union type structure. For this structure to be valid, only one of the attributes can be defined.",
+    "Required": "Yes",
+    "Type": "FilterScopeConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.template.filtergroup.Status": {
+    "Description": "The status of the `FilterGroup`.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "DISABLED | ENABLED",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

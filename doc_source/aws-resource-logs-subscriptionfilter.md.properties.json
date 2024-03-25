@@ -1,5 +1,5 @@
 {
-  "logs.subscriptionfilter.CfnAbout": "The `AWS::Logs::SubscriptionFilter` resource specifies a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination. Currently, the supported destinations are:\n+ An Amazon Kinesis data stream belonging to the same account as the subscription filter, for same-account delivery.\n+ A logical destination that belongs to a different account, for cross-account delivery.\n+ An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.\n+ An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.\n\nThere can as many as two subscription filters associated with a log group.",
+  "logs.subscriptionfilter.CfnAbout": "The `AWS::Logs::SubscriptionFilter` resource specifies a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination. Currently, the supported destinations are:\n+ An Amazon Kinesis data stream belonging to the same account as the subscription filter, for same-account delivery.\n+ A logical destination that belongs to a different account, for cross-account delivery.\n+ An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.\n+ An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.\n\nThere can be as many as two subscription filters associated with a log group.",
   "logs.subscriptionfilter.CfnType": "AWS::Logs::SubscriptionFilter",
   "logs.subscriptionfilter.CfnDocsKey": "aws-resource-logs-subscriptionfilter",
   "logs.subscriptionfilter.DestinationArn": {
@@ -7,13 +7,28 @@
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "logs.subscriptionfilter.Distribution": {
+    "Description": "The method used to distribute log data to the destination, which can be either random or grouped by log stream.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "logs.subscriptionfilter.FilterName": {
+    "Description": "The name of the subscription filter.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "512",
+    "Pattern": "[^:*]*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "logs.subscriptionfilter.FilterPattern": {
     "Description": "The filtering expressions that restrict what gets delivered to the destination AWS resource. For more information about the filter pattern syntax, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).",
     "Required": "Yes",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "logs.subscriptionfilter.LogGroupName": {
     "Description": "The log group to associate with the subscription filter. All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.",
@@ -29,6 +44,6 @@
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

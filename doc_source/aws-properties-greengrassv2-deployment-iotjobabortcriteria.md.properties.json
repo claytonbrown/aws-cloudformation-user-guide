@@ -1,0 +1,29 @@
+{
+  "greengrassv2.deployment.iotjobabortcriteria.CfnAbout": "Contains criteria that define when and how to cancel a job.\n\nThe deployment stops if the following conditions are true:\n\n1. The number of things that receive the deployment exceeds the `minNumberOfExecutedThings`.\n\n1. The percentage of failures with type `failureType` exceeds the `thresholdPercentage`.",
+  "greengrassv2.deployment.iotjobabortcriteria.CfnType": "AWS::GreengrassV2::Deployment.IoTJobAbortCriteria",
+  "greengrassv2.deployment.iotjobabortcriteria.CfnDocsKey": "aws-properties-greengrassv2-deployment-iotjobabortcriteria",
+  "greengrassv2.deployment.iotjobabortcriteria.Action": {
+    "Description": "The action to perform when the criteria are met.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "greengrassv2.deployment.iotjobabortcriteria.FailureType": {
+    "Description": "The type of job deployment failure that can cancel a job.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "greengrassv2.deployment.iotjobabortcriteria.MinNumberOfExecutedThings": {
+    "Description": "The minimum number of things that receive the configuration before the job can cancel.",
+    "Required": "Yes",
+    "Type": "Integer",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "greengrassv2.deployment.iotjobabortcriteria.ThresholdPercentage": {
+    "Description": "The minimum percentage of `failureType` failures that occur before the job can cancel.  This parameter supports up to two digits after the decimal (for example, you can specify `10.9` or `10.99`, but not `10.999`).",
+    "Required": "Yes",
+    "Type": "Double",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  }
+}

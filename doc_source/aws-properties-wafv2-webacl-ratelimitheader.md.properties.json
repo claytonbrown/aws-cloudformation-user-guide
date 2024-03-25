@@ -1,0 +1,20 @@
+{
+  "wafv2.webacl.ratelimitheader.CfnAbout": "Specifies a header as an aggregate key for a rate-based rule. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.",
+  "wafv2.webacl.ratelimitheader.CfnType": "AWS::WAFv2::WebACL.RateLimitHeader",
+  "wafv2.webacl.ratelimitheader.CfnDocsKey": "aws-properties-wafv2-webacl-ratelimitheader",
+  "wafv2.webacl.ratelimitheader.Name": {
+    "Description": "The name of the header to use.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": ".*\\S.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "wafv2.webacl.ratelimitheader.TextTransformations": {
+    "Description": "Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. Text transformations are used in rule match statements, to transform the `FieldToMatch` request component before inspecting it, and they're used in rate-based rule statements, to transform request components before using them as custom aggregation keys. If you specify one or more transformations to apply, AWS WAF performs all transformations on the specified content, starting from the lowest priority setting, and then uses the transformed component contents.",
+    "Required": "Yes",
+    "Type": "List of [TextTransformation",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

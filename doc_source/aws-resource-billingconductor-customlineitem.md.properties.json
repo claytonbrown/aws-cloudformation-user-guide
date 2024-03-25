@@ -1,11 +1,12 @@
 {
-  "billingconductor.customlineitem.CfnAbout": "Creates a custom line item that can be used to create a one-time fixed charge that can be applied to a single billing group for the current or previous billing period. The one-time fixed charge is either a fee or discount.",
+  "billingconductor.customlineitem.CfnAbout": "Creates a custom line item that can be used to create a one-time or recurring, fixed or percentage-based charge that you can apply to a single billing group. You can apply custom line items to the current or previous billing period. You can create either a fee or a discount custom line item.",
   "billingconductor.customlineitem.CfnType": "AWS::BillingConductor::CustomLineItem",
   "billingconductor.customlineitem.CfnDocsKey": "aws-resource-billingconductor-customlineitem",
   "billingconductor.customlineitem.BillingGroupArn": {
     "Description": "The Amazon Resource Name (ARN) that references the billing group where the custom line item applies to.",
     "Required": "Yes",
     "Type": "String",
+    "Pattern": "(arn:aws(-cn)?:billingconductor::[0-9]{12}:billinggroup/)?[0-9]{12}",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "billingconductor.customlineitem.BillingPeriodRange": {
@@ -24,12 +25,17 @@
     "Description": "The custom line item's description. This is shown on the Bills page in association with the charge value.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "billingconductor.customlineitem.Name": {
     "Description": "The custom line item's name.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "[a-zA-Z0-9_\\+=\\.\\-@]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "billingconductor.customlineitem.Tags": {

@@ -1,5 +1,5 @@
 {
-  "lightsail.loadbalancer.CfnAbout": "The `AWS::Lightsail::LoadBalancer` resource specifies a load balancer that can be used with Lightsail instances.\n\n**Note**  \nYou cannot attach attach TLS certificates to a load balancer using the `AWS::Lightsail::LoadBalancer` resource type. Instead, use the `LoadBalancerTlsCertificate` resource type to create a certificate and attach it to a load balancer.",
+  "lightsail.loadbalancer.CfnAbout": "The `AWS::Lightsail::LoadBalancer` resource specifies a load balancer that can be used with Lightsail instances.\n\n**Note**  \nYou cannot attach a TLS certificate to a load balancer using the `AWS::Lightsail::LoadBalancer` resource type. Instead, use the `AWS::Lightsail::LoadBalancerTlsCertificate` resource type to create a certificate and attach it to a load balancer.",
   "lightsail.loadbalancer.CfnType": "AWS::Lightsail::LoadBalancer",
   "lightsail.loadbalancer.CfnDocsKey": "aws-resource-lightsail-loadbalancer",
   "lightsail.loadbalancer.AttachedInstances": {
@@ -56,5 +56,12 @@
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "No interruption"
+  },
+  "lightsail.loadbalancer.TlsPolicyName": {
+    "Description": "The name of the TLS security policy for the load balancer.",
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "\\w[\\w\\-]*\\w",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

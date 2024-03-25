@@ -1,0 +1,52 @@
+{
+  "sagemaker.modelcard.CfnAbout": "Creates an Amazon SageMaker Model Card.\n\nFor information about how to use model cards, see [Amazon SageMaker Model Card](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html).",
+  "sagemaker.modelcard.CfnType": "AWS::SageMaker::ModelCard",
+  "sagemaker.modelcard.CfnDocsKey": "aws-resource-sagemaker-modelcard",
+  "sagemaker.modelcard.Content": {
+    "Description": "The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema).",
+    "Required": "Yes",
+    "Type": "Content",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelcard.CreatedBy": {
+    "Description": "Information about the user who created or modified one or more of the following:  + Experiment+ Trial+ Trial component+ Lineage group+ Project+ Model Card",
+    "Required": "No",
+    "Type": "UserContext",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelcard.LastModifiedBy": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "UserContext",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelcard.ModelCardName": {
+    "Description": "The unique name of the model card.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "63",
+    "Pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelcard.ModelCardStatus": {
+    "Description": "The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.  +  `Draft`: The model card is a work in progress.+  `PendingReview`: The model card is pending review.+  `Approved`: The model card is approved.+  `Archived`: The model card is archived. No more updates should be made to the model card, but it can still be exported.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "Approved | Archived | Draft | PendingReview",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.modelcard.SecurityConfig": {
+    "Description": "The security configuration used to protect model card data.",
+    "Required": "No",
+    "Type": "SecurityConfig",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelcard.Tags": {
+    "Description": "Key-value pairs used to manage metadata for the model card.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

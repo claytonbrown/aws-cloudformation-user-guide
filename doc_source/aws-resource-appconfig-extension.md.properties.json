@@ -1,0 +1,45 @@
+{
+  "appconfig.extension.CfnAbout": "Creates an AWS AppConfig extension. An extension augments your ability to inject logic or behavior at different points during the AWS AppConfig workflow of creating or deploying a configuration.\n\nYou can create your own extensions or use the AWS authored extensions provided by AWS AppConfig. For an AWS AppConfig extension that uses AWS Lambda, you must create a Lambda function to perform any computation and processing defined in the extension. If you plan to create custom versions of the AWS authored notification extensions, you only need to specify an Amazon Resource Name (ARN) in the `Uri` field for the new extension version.\n+ For a custom EventBridge notification extension, enter the ARN of the EventBridge default events in the `Uri` field.\n+ For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS topic in the `Uri` field.\n+ For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS message queue in the `Uri` field. \n\nFor more information about extensions, see [Working with AWS AppConfig extensions](https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html) in the * AWS AppConfig User Guide*.",
+  "appconfig.extension.CfnType": "AWS::AppConfig::Extension",
+  "appconfig.extension.CfnDocsKey": "aws-resource-appconfig-extension",
+  "appconfig.extension.Actions": {
+    "Description": "The actions defined in the extension.",
+    "Required": "Yes",
+    "Type": "Json",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appconfig.extension.Description": {
+    "Description": "Information about the extension.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "1024",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appconfig.extension.LatestVersionNumber": {
+    "Description": "You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appconfig.extension.Name": {
+    "Description": "A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "appconfig.extension.Parameters": {
+    "Description": "The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.",
+    "Required": "No",
+    "Type": "Map of [Parameter",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appconfig.extension.Tags": {
+    "Description": "Adds one or more tags for the specified extension. Tags are metadata that help you categorize resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  }
+}

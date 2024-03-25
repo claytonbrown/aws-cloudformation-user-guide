@@ -2,6 +2,16 @@
   "iotwireless.partneraccount.CfnAbout": "A partner account. If `PartnerAccountId` and `PartnerType` are `null`, returns all partner accounts.",
   "iotwireless.partneraccount.CfnType": "AWS::IoTWireless::PartnerAccount",
   "iotwireless.partneraccount.CfnDocsKey": "aws-resource-iotwireless-partneraccount",
+  "iotwireless.partneraccount.AccountLinked": {
+    "Description": "Whether the partner account is linked to the AWS account.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "iotwireless.partneraccount.PartnerAccountId": {
     "Description": "The ID of the partner account to update.",
     "Required": "No",
@@ -9,10 +19,29 @@
     "Maximum": "256",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "iotwireless.partneraccount.PartnerType": {
+    "Description": "The partner type.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "Sidewalk",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "iotwireless.partneraccount.Sidewalk": {
     "Description": "The Sidewalk account credentials.",
     "Required": "No",
     "Type": "SidewalkAccountInfo",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotwireless.partneraccount.SidewalkResponse": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "SidewalkAccountInfoWithFingerprint",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotwireless.partneraccount.SidewalkUpdate": {
+    "Description": "Sidewalk update.",
+    "Required": "No",
+    "Type": "SidewalkUpdateAccount",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iotwireless.partneraccount.Tags": {

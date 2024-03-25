@@ -1,0 +1,49 @@
+{
+  "cleanrooms.configuredtable.analysisruleaggregation.CfnAbout": "A type of analysis rule that enables query structure and specified queries that produce aggregate statistics.",
+  "cleanrooms.configuredtable.analysisruleaggregation.CfnType": "AWS::CleanRooms::ConfiguredTable.AnalysisRuleAggregation",
+  "cleanrooms.configuredtable.analysisruleaggregation.CfnDocsKey": "aws-properties-cleanrooms-configuredtable-analysisruleaggregation",
+  "cleanrooms.configuredtable.analysisruleaggregation.AggregateColumns": {
+    "Description": "The columns that query runners are allowed to use in aggregation queries.",
+    "Required": "Yes",
+    "Type": "List of [AggregateColumn",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtable.analysisruleaggregation.AllowedJoinOperators": {
+    "Description": "Which logical operators (if any) are to be used in an INNER JOIN match condition. Default is `AND`.",
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "2",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtable.analysisruleaggregation.DimensionColumns": {
+    "Description": "The columns that query runners are allowed to select, group by, or filter by.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtable.analysisruleaggregation.JoinColumns": {
+    "Description": "Columns in configured table that can be used in join statements and/or as aggregate columns. They can never be outputted directly.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtable.analysisruleaggregation.JoinRequired": {
+    "Description": "Control that requires member who runs query to do a join with their configured table and/or other configured table in query.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "QUERY_RUNNER",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtable.analysisruleaggregation.OutputConstraints": {
+    "Description": "Columns that must meet a specific threshold value (after an aggregation function is applied to it) for each output row to be returned.",
+    "Required": "Yes",
+    "Type": "List of [AggregationConstraint",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtable.analysisruleaggregation.ScalarFunctions": {
+    "Description": "Set of scalar functions that are allowed to be used on dimension columns and the output of aggregation of metrics.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

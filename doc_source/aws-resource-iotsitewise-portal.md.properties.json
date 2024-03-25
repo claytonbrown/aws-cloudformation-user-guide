@@ -1,11 +1,11 @@
 {
-  "iotsitewise.portal.CfnAbout": "Creates a portal, which can contain projects and dashboards. Before you can create a portal, you must enable AWS SSO. AWS IoT SiteWise Monitor uses AWS SSO to manage user permissions. For more information, see [Enabling AWS SSO](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html",
+  "iotsitewise.portal.CfnAbout": "Creates a portal, which can contain projects and dashboards. Before you can create a portal, you must enable IAM Identity Center. AWS IoT SiteWise Monitor uses IAM Identity Center to manage user permissions. For more information, see [Enabling IAM Identity Center](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html",
   "iotsitewise.portal.CfnType": "AWS::IoTSiteWise::Portal",
   "iotsitewise.portal.CfnDocsKey": "aws-resource-iotsitewise-portal",
   "iotsitewise.portal.Alarms": {
     "Description": "Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range. For more information, see [Monitoring with alarms](https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html) in the * AWS IoT SiteWise Application Guide*.",
     "Required": "No",
-    "Type": "Json",
+    "Type": "Alarms",
     "UpdateRequires": "No interruption"
   },
   "iotsitewise.portal.NotificationSenderEmail": {
@@ -15,7 +15,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iotsitewise.portal.PortalAuthMode": {
-    "Description": "The service to use to authenticate users to the portal. Choose from the following options:  +  `SSO` – The portal uses AWS Single Sign-On to authenticate users and manage user permissions. Before you can create a portal that uses AWS SSO, you must enable AWS SSO. For more information, see [Enabling AWS SSO](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide*. This option is only available in AWS Regions other than the China Regions.+  `IAM` – The portal uses AWS Identity and Access Management (IAM) to authenticate users and manage user permissions.You can't change this value after you create a portal.  Default: `SSO`",
+    "Description": "The service to use to authenticate users to the portal. Choose from the following options:  +  `SSO` – The portal uses AWS IAM Identity Center (successor to AWS Single Sign-On) to authenticate users and manage user permissions. Before you can create a portal that uses IAM Identity Center, you must enable IAM Identity Center. For more information, see [Enabling IAM Identity Center](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso) in the *AWS IoT SiteWise User Guide*. This option is only available in AWS Regions other than the China Regions.+  `IAM` – The portal uses AWS Identity and Access Management (IAM) to authenticate users and manage user permissions.You can't change this value after you create a portal.  Default: `SSO`",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "Replacement"

@@ -1,0 +1,53 @@
+{
+  "proton.environmenttemplate.CfnAbout": "Create an environment template for AWS Proton. For more information, see [Environment Templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *AWS Proton User Guide*.\n\nYou can create an environment template in one of the two following ways:\n+ Register and publish a *standard* environment template that instructs AWS Proton to deploy and manage environment infrastructure.\n+ Register and publish a *customer managed* environment template that connects AWS Proton to your existing provisioned infrastructure that you manage. AWS Proton *doesn't* manage your existing provisioned infrastructure. To create an environment template for customer provisioned and managed infrastructure, include the `provisioning` parameter and set the value to `CUSTOMER_MANAGED`. For more information, see [Register and publish an environment template](https://docs.aws.amazon.com/proton/latest/userguide/template-create.html) in the *AWS Proton User Guide*.",
+  "proton.environmenttemplate.CfnType": "AWS::Proton::EnvironmentTemplate",
+  "proton.environmenttemplate.CfnDocsKey": "aws-resource-proton-environmenttemplate",
+  "proton.environmenttemplate.Description": {
+    "Description": "A description of the environment template.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "500",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "proton.environmenttemplate.DisplayName": {
+    "Description": "The name of the environment template as displayed in the developer interface.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "proton.environmenttemplate.EncryptionKey": {
+    "Description": "The customer provided encryption key for the environment template.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "200",
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov):[a-zA-Z0-9-]+:[a-zA-Z0-9-]*:\\d{12}:([\\w+=,.@-]+[/:])*[\\w+=,.@-]+$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "proton.environmenttemplate.Name": {
+    "Description": "The name of the environment template.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "^[0-9A-Za-z]+[0-9A-Za-z_\\-]*$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "proton.environmenttemplate.Provisioning": {
+    "Description": "When included, indicates that the environment template is for customer provisioned and managed infrastructure.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "CUSTOMER_MANAGED",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "proton.environmenttemplate.Tags": {
+    "Description": "An optional list of metadata items that you can associate with the AWS Proton environment template. A tag is a key-value pair.  For more information, see [AWS Proton resources and tagging](https://docs.aws.amazon.com/proton/latest/userguide/resources.html) in the *AWS Proton User Guide*.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "No interruption"
+  }
+}

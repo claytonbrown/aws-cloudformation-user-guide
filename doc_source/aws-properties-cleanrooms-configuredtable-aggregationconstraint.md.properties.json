@@ -1,0 +1,29 @@
+{
+  "cleanrooms.configuredtable.aggregationconstraint.CfnAbout": "Constraint on query output removing output rows that do not meet a minimum number of distinct values of a specified column.",
+  "cleanrooms.configuredtable.aggregationconstraint.CfnType": "AWS::CleanRooms::ConfiguredTable.AggregationConstraint",
+  "cleanrooms.configuredtable.aggregationconstraint.CfnDocsKey": "aws-properties-cleanrooms-configuredtable-aggregationconstraint",
+  "cleanrooms.configuredtable.aggregationconstraint.ColumnName": {
+    "Description": "Column in aggregation constraint for which there must be a minimum number of distinct values in an output row for it to be in the query output.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "127",
+    "Pattern": "[a-z0-9_](([a-z0-9_ ]+-)*([a-z0-9_ ]+))?",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtable.aggregationconstraint.Minimum": {
+    "Description": "The minimum number of distinct values that an output row must be an aggregation of. Minimum threshold of distinct values for a specified column that must exist in an output row for it to be in the query output.",
+    "Required": "Yes",
+    "Type": "Double",
+    "Minimum": "2",
+    "Maximum": "100000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtable.aggregationconstraint.Type": {
+    "Description": "The type of aggregation the constraint allows. The only valid value is currently `COUNT_DISTINCT`.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "COUNT_DISTINCT",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

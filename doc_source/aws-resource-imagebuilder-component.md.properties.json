@@ -1,9 +1,9 @@
 {
-  "imagebuilder.component.CfnAbout": "Components are orchestration documents that define a sequence of steps for downloading, installing, and configuring software packages or for defining tests to run on software packages. They also define validation and security hardening steps. A component is defined using a YAML document format. For more information, see [Using Documents in Image Builder](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-application-documents.html).",
+  "imagebuilder.component.CfnAbout": "Creates a new component that can be used to build, validate, test, and assess your image. The component is based on a YAML document that you specify using exactly one of the following methods:\n+ Inline, using the `data` property in the request body.\n+ A URL that points to a YAML document file stored in Amazon S3, using the `uri` property in the request body.",
   "imagebuilder.component.CfnType": "AWS::ImageBuilder::Component",
   "imagebuilder.component.CfnDocsKey": "aws-resource-imagebuilder-component",
   "imagebuilder.component.ChangeDescription": {
-    "Description": "A change description of the component. For example `initial version`.",
+    "Description": "The change description of the component. Describes what change has been made in this version, or what makes this version different from other versions of this component.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -11,13 +11,16 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.Data": {
-    "Description": "The data of the component. For example, `name: HelloWorldTestingDocumentndescription: This is hello world testing document.nschemaVersion: 1.0nnphases:n - name: testn steps:n - name: HelloWorldStepn action: ExecuteBashn inputs:n commands:n - echo \"Hello World! Test.\"n`. See Examples below for the schema for creating a component using Data.",
+    "Description": "Component `data` contains inline YAML document content for the component. Alternatively, you can specify the `uri` of a YAML document file stored in Amazon S3. However, you cannot specify both properties.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "16000",
+    "Pattern": "[^\\x00]+",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.Description": {
-    "Description": "The description of the component.",
+    "Description": "Describes the contents of the component.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -25,7 +28,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.KmsKeyId": {
-    "Description": "The KMS key identifier used to encrypt the component.",
+    "Description": "The ID of the KMS key that is used to encrypt this component.",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -40,7 +43,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.Platform": {
-    "Description": "The platform of the component. For example, `Windows`.",
+    "Description": "The operating system platform of the component.",
     "Required": "Yes",
     "Type": "String",
     "Allowed values": "Linux | Windows",
@@ -54,7 +57,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "imagebuilder.component.Tags": {
-    "Description": "The tags associated with the component.",
+    "Description": "The tags that apply to the component.",
     "Required": "No",
     "Type": "Map of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -69,7 +72,6 @@
     "Description": "The component version. For example, `1.0.0`.",
     "Required": "Yes",
     "Type": "String",
-    "Pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

@@ -5,13 +5,20 @@
   "imagebuilder.distributionconfiguration.distribution.AmiDistributionConfiguration": {
     "Description": "The specific AMI settings, such as launch permissions and AMI tags. For details, see example schema below.",
     "Required": "No",
-    "Type": "Json",
+    "Type": "AmiDistributionConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "imagebuilder.distributionconfiguration.distribution.ContainerDistributionConfiguration": {
     "Description": "Container distribution settings for encryption, licensing, and sharing in a specific Region. For details, see example schema below.",
     "Required": "No",
-    "Type": "Json",
+    "Type": "ContainerDistributionConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "imagebuilder.distributionconfiguration.distribution.FastLaunchConfigurations": {
+    "Description": "The Windows faster-launching configurations to use for AMI distribution.",
+    "Required": "No",
+    "Type": "List of [FastLaunchConfiguration",
+    "Maximum": "1000",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "imagebuilder.distributionconfiguration.distribution.LaunchTemplateConfigurations": {

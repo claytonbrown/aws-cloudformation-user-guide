@@ -3,13 +3,13 @@
   "ec2.networkinsightspath.CfnType": "AWS::EC2::NetworkInsightsPath",
   "ec2.networkinsightspath.CfnDocsKey": "aws-resource-ec2-networkinsightspath",
   "ec2.networkinsightspath.Destination": {
-    "Description": "The AWS resource that is the destination of the path.",
-    "Required": "Yes",
+    "Description": "The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.",
+    "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.networkinsightspath.DestinationIp": {
-    "Description": "The IP address of the AWS resource that is the destination of the path.",
+    "Description": "The IP address of the destination.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",
@@ -25,6 +25,18 @@
     "Maximum": "65535",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "ec2.networkinsightspath.FilterAtDestination": {
+    "Description": "Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.",
+    "Required": "No",
+    "Type": "PathFilter",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ec2.networkinsightspath.FilterAtSource": {
+    "Description": "Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.",
+    "Required": "No",
+    "Type": "PathFilter",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "ec2.networkinsightspath.Protocol": {
     "Description": "The protocol.",
     "Required": "Yes",
@@ -33,13 +45,13 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.networkinsightspath.Source": {
-    "Description": "The AWS resource that is the source of the path.",
+    "Description": "The ID or ARN of the source. If the resource is in another account, you must specify an ARN.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.networkinsightspath.SourceIp": {
-    "Description": "The IP address of the AWS resource that is the source of the path.",
+    "Description": "The IP address of the source.",
     "Required": "No",
     "Type": "String",
     "Minimum": "0",

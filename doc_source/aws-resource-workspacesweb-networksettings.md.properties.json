@@ -1,0 +1,33 @@
+{
+  "workspacesweb.networksettings.CfnAbout": "This resource specifies network settings that can be associated with a web portal. Once associated with a web portal, network settings define how streaming instances will connect with your specified VPC.\n\nThe VPC must have default tenancy. VPCs with dedicated tenancy are not supported.\n\nFor availability consideration, you must have at least two subnets created in two different Availability Zones. WorkSpaces Web is available in a subset of the Availability Zones for each supported Region. For more information, see [Supported Availability Zones](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/availability-zones.html).",
+  "workspacesweb.networksettings.CfnType": "AWS::WorkSpacesWeb::NetworkSettings",
+  "workspacesweb.networksettings.CfnDocsKey": "aws-resource-workspacesweb-networksettings",
+  "workspacesweb.networksettings.SecurityGroupIds": {
+    "Description": "One or more security groups used to control access from streaming instances to your VPC.",
+    "Pattern": "^[\\w+\\-]+$",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.networksettings.SubnetIds": {
+    "Description": "The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.",
+    "Pattern": "^subnet-([0-9a-f]{8}|[0-9a-f]{17})$",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.networksettings.Tags": {
+    "Description": "The tags to add to the network settings resource. A tag is a key-value pair.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.networksettings.VpcId": {
+    "Description": "The VPC that streaming instances will connect to.",
+    "Pattern": "^vpc-[0-9a-z]*$",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

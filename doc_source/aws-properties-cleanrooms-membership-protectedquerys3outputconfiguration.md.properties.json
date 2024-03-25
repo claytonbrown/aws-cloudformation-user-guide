@@ -1,0 +1,30 @@
+{
+  "cleanrooms.membership.protectedquerys3outputconfiguration.CfnAbout": "Contains the configuration to write the query results to S3.",
+  "cleanrooms.membership.protectedquerys3outputconfiguration.CfnType": "AWS::CleanRooms::Membership.ProtectedQueryS3OutputConfiguration",
+  "cleanrooms.membership.protectedquerys3outputconfiguration.CfnDocsKey": "aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration",
+  "cleanrooms.membership.protectedquerys3outputconfiguration.Bucket": {
+    "Description": "The S3 bucket to unload the protected query results.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "3",
+    "Maximum": "63",
+    "Pattern": ".*(?!^(\\d+\\.)+\\d+$)(^(([a-z0-9]|[a-z0-9][a-z0-9\\-]*[a-z0-9])\\.)*([a-z0-9]|[a-z0-9][a-z0-9\\-]*[a-z0-9])$).*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.membership.protectedquerys3outputconfiguration.KeyPrefix": {
+    "Description": "The S3 prefix to unload the protected query results.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "512",
+    "Pattern": "[\\w!.=*/-]*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.membership.protectedquerys3outputconfiguration.ResultFormat": {
+    "Description": "Intended file format of the result.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "CSV | PARQUET",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

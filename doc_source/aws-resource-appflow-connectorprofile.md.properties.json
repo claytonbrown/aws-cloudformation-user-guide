@@ -9,6 +9,14 @@
     "Allowed values": "Private | Public",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "appflow.connectorprofile.ConnectorLabel": {
+    "Description": "The label for the connector profile being created.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "256",
+    "Pattern": "[a-zA-Z0-9][\\w!@#.-]+",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "appflow.connectorprofile.ConnectorProfileConfig": {
     "Description": "Defines the connector-specific configuration and credentials.",
     "Required": "No",
@@ -27,7 +35,7 @@
     "Description": "The type of connector, such as Salesforce, Amplitude, and so on.",
     "Required": "Yes",
     "Type": "String",
-    "Allowed values": "Amplitude | CustomConnector | CustomerProfiles | Datadog | Dynatrace | EventBridge | Googleanalytics | Honeycode | Infornexus | LookoutMetrics | Marketo | Redshift | S3 | Salesforce | SAPOData | Servicenow | Singular | Slack | Snowflake | Trendmicro | Upsolver | Veeva | Zendesk",
+    "Allowed values": "Amplitude | CustomConnector | CustomerProfiles | Datadog | Dynatrace | EventBridge | Googleanalytics | Honeycode | Infornexus | LookoutMetrics | Marketo | Pardot | Redshift | S3 | Salesforce | SAPOData | Servicenow | Singular | Slack | Snowflake | Trendmicro | Upsolver | Veeva | Zendesk",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "appflow.connectorprofile.KMSArn": {
@@ -37,6 +45,6 @@
     "Minimum": "20",
     "Maximum": "2048",
     "Pattern": "arn:aws:kms:.*:[0-9]+:.*",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

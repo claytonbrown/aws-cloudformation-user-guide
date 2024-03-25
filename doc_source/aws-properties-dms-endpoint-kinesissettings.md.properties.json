@@ -1,5 +1,5 @@
 {
-  "dms.endpoint.kinesissettings.CfnAbout": "Not currently supported by AWS CloudFormation..",
+  "dms.endpoint.kinesissettings.CfnAbout": "Provides information that describes an Amazon Kinesis Data Stream endpoint. This information includes the output format of records applied to the endpoint and details of transaction and control table data information. For more information about other available settings, see [ Using object mapping to migrate data to a Kinesis data stream](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html",
   "dms.endpoint.kinesissettings.CfnType": "AWS::DMS::Endpoint.KinesisSettings",
   "dms.endpoint.kinesissettings.CfnDocsKey": "aws-properties-dms-endpoint-kinesissettings",
   "dms.endpoint.kinesissettings.IncludeControlDetails": {
@@ -14,6 +14,16 @@
   },
   "dms.endpoint.kinesissettings.IncludeNullAndEmpty": {
     "Description": "Include NULL and empty columns for records migrated to the endpoint. The default is `false`.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dms.endpoint.kinesissettings.IncludePartitionValue": {
+    "Description": "Shows the partition value within the Kinesis message output, unless the partition type is `schema-table-type`. The default is `false`.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -43,7 +53,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dms.endpoint.kinesissettings.MessageFormat": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).",
     "Required": "No",
     "Type": "String",
     "Allowed values": "json | json-unformatted",
@@ -70,13 +80,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dms.endpoint.kinesissettings.ServiceAccessRoleArn": {
-    "Description": "Not currently supported by AWS CloudFormation.",
-    "Required": "No",
+    "Description": "The Amazon Resource Name (ARN) for the IAM role that AWS DMS uses to write to the Kinesis data stream. The role must allow the `iam:PassRole` action.",
+    "Required": "Conditional",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dms.endpoint.kinesissettings.StreamArn": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

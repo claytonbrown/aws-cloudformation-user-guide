@@ -1,23 +1,32 @@
 {
-  "lex.bot.grammarslottypesource.CfnAbout": "Describes the Amazon S3 bucket name and location for the grammar that is the source of the slot type.",
+  "lex.bot.grammarslottypesource.CfnAbout": "Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.",
   "lex.bot.grammarslottypesource.CfnType": "AWS::Lex::Bot.GrammarSlotTypeSource",
   "lex.bot.grammarslottypesource.CfnDocsKey": "aws-properties-lex-bot-grammarslottypesource",
   "lex.bot.grammarslottypesource.KmsKeyArn": {
-    "Description": "The AWS Key Management Service key required to decrypt the contents of the grammar, if any.",
+    "Description": "The AWS KMS key required to decrypt the contents of the grammar, if any.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "^arn:[\\w\\-]+:kms:[\\w\\-]+:[\\d]{12}:(?:key\\/[\\w\\-]+|alias\\/[a-zA-Z0-9:\\/_\\-]{1,256})$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.grammarslottypesource.S3BucketName": {
-    "Description": "The name of the S3 bucket that contains the grammar source.",
+    "Description": "The name of the Amazon S3 bucket that contains the grammar source.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "3",
+    "Maximum": "63",
+    "Pattern": "^[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.grammarslottypesource.S3ObjectKey": {
-    "Description": "The path to the grammar in the S3 bucket.",
+    "Description": "The path to the grammar in the Amazon S3 bucket.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1024",
+    "Pattern": "[\\.\\-\\!\\*\\_\\'\\(\\)a-zA-Z0-9][\\.\\-\\!\\*\\_\\'\\(\\)\\/a-zA-Z0-9]*$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

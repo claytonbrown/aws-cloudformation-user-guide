@@ -16,18 +16,27 @@
     "Description": "The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.  Required if you enabled Cognito Authentication for OpenSearch Dashboards.",
     "Required": "Conditional",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "55",
+    "Pattern": "[\\w-]+:[0-9a-f-]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opensearchservice.domain.cognitooptions.RoleArn": {
     "Description": "The `AmazonOpenSearchServiceCognitoAccess` role that allows OpenSearch Service to configure your user pool and identity pool.  Required if you enabled Cognito Authentication for OpenSearch Dashboards.",
     "Required": "Conditional",
     "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "arn:(aws|aws\\-cn|aws\\-us\\-gov|aws\\-iso|aws\\-iso\\-b):iam::[0-9]+:role\\/.*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opensearchservice.domain.cognitooptions.UserPoolId": {
     "Description": "The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch Dashboards authentication.  Required if you enabled Cognito Authentication for OpenSearch Dashboards.",
     "Required": "Conditional",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "55",
+    "Pattern": "[\\w-]+_[0-9a-zA-Z]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

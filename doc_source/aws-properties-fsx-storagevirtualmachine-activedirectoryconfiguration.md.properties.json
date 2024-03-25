@@ -1,15 +1,20 @@
 {
+  "fsx.storagevirtualmachine.activedirectoryconfiguration.CfnAbout": "Describes the self-managed Microsoft Active Directory to which you want to join the SVM. Joining an Active Directory provides user authentication and access control for SMB clients, including Microsoft Windows and macOS client accessing the file system.",
+  "fsx.storagevirtualmachine.activedirectoryconfiguration.CfnType": "AWS::FSx::StorageVirtualMachine.ActiveDirectoryConfiguration",
+  "fsx.storagevirtualmachine.activedirectoryconfiguration.CfnDocsKey": "aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration",
+  "fsx.storagevirtualmachine.activedirectoryconfiguration.NetBiosName": {
+    "Description": "The NetBIOS name of the Active Directory computer object that will be created for your SVM.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "15",
+    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,255}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "fsx.storagevirtualmachine.activedirectoryconfiguration.SelfManagedActiveDirectoryConfiguration": {
+    "Description": "The configuration that Amazon FSx uses to join the ONTAP storage virtual machine (SVM) to your self-managed (including on-premises) Microsoft Active Directory (AD) directory.",
     "Required": "No",
     "Type": "SelfManagedActiveDirectoryConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "fsx.storagevirtualmachine.activedirectoryconfiguration.NetBiosName": {
-    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,255}$",
-    "Required": "No",
-    "Maximum": "15",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)",
-    "Minimum": "1",
-    "Type": "String"
   }
 }

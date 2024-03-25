@@ -1,15 +1,15 @@
 {
-  "macie.findingsfilter.CfnAbout": "The `AWS::Macie::FindingsFilter` resource represents an individual findings filter that you create and save to view, analyze, and manage findings. A *findings filter* is a set of criteria that specifies which findings to include in the results of a query for findings. A findings filter can also perform specific actions on findings that meet the filter's criteria.\n\nA `Session` must exist for the account before you can create a `FindingsFilter`. Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that the `Session` is created before the other resources. For example, `\"DependsOn: Session\"`.",
+  "macie.findingsfilter.CfnAbout": "The `AWS::Macie::FindingsFilter` resource specifies a findings filter. In Amazon Macie, a *findings filter*, also referred to as a *filter rule*, is a set of custom criteria that specifies which findings to include or exclude from the results of a query for findings. The criteria can help you identify and focus on findings that have specific characteristics, such as severity, type, or the name of an affected AWS resource. You can also configure a findings filter to suppress (automatically archive) findings that match the filter's criteria. For more information, see [Filtering findings](https://docs.aws.amazon.com/macie/latest/user/findings-filter-overview.html) in the *Amazon Macie User Guide*.\n\nAn `AWS::Macie::Session` resource must exist for an AWS account before you can create an `AWS::Macie::FindingsFilter` resource for the account. Use a [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to ensure that an `AWS::Macie::Session` resource is created before other Macie resources are created for an account. For example, `\"DependsOn\": \"Session\"`.",
   "macie.findingsfilter.CfnType": "AWS::Macie::FindingsFilter",
   "macie.findingsfilter.CfnDocsKey": "aws-resource-macie-findingsfilter",
   "macie.findingsfilter.Action": {
-    "Description": "The action to perform on findings that meet the filter criteria (`FindingCriteria`). Valid values are:  + ARCHIVE - Suppress (automatically archive) the findings.+ NOOP - Don't perform any action on the findings.",
+    "Description": "The action to perform on findings that match the filter criteria (`FindingCriteria`). Valid values are:  + `ARCHIVE` - Suppress (automatically archive) the findings.+ `NOOP` - Don't perform any action on the findings.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "macie.findingsfilter.Description": {
-    "Description": "A custom description of the filter. The description can contain as many as 512 characters.  We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users might be able to see the filter's description, depending on the actions that they're allowed to perform in Amazon Macie.",
+    "Description": "A custom description of the findings filter. The description can contain 1-512 characters.  Avoid including sensitive data in the description. Users of the account might be able to see the description, depending on the actions that they're allowed to perform in Amazon Macie.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -21,15 +21,21 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "macie.findingsfilter.Name": {
-    "Description": "A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.  We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie.",
+    "Description": "A custom name for the findings filter. The name can contain 3-64 characters.  Avoid including sensitive data in the name. Users of the account might be able to see the name, depending on the actions that they're allowed to perform in Amazon Macie.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "macie.findingsfilter.Position": {
-    "Description": "The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.",
+    "Description": "The position of the findings filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to findings.",
     "Required": "No",
     "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "macie.findingsfilter.Tags": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

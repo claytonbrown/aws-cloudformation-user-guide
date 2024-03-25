@@ -2,8 +2,14 @@
   "nimblestudio.launchprofile.streamconfiguration.CfnAbout": "A configuration for a streaming session.",
   "nimblestudio.launchprofile.streamconfiguration.CfnType": "AWS::NimbleStudio::LaunchProfile.StreamConfiguration",
   "nimblestudio.launchprofile.streamconfiguration.CfnDocsKey": "aws-properties-nimblestudio-launchprofile-streamconfiguration",
+  "nimblestudio.launchprofile.streamconfiguration.AutomaticTerminationMode": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "nimblestudio.launchprofile.streamconfiguration.ClipboardMode": {
-    "Description": "Enable or disable the use of the system clipboard to copy and paste between the streaming session and streaming client.",
+    "Description": "Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -21,13 +27,25 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "nimblestudio.launchprofile.streamconfiguration.MaxStoppedSessionLengthInMinutes": {
-    "Description": "Integer that determines if you can start and stop your sessions and how long a session can stay in the STOPPED state. The default value is 0. The maximum value is 5760.  If the value is missing or set to 0, your sessions can’t be stopped. If you then call `StopStreamingSession`, the session fails. If the time that a session stays in the READY state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of stopped).  If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the READY state. If the time that a session stays in the READY state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).",
+    "Description": "Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.  This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED`.  If the value is set to 0, your sessions can’t be `STOPPED`. If you then call `StopStreamingSession`, the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED`).  If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).",
     "Required": "No",
     "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "nimblestudio.launchprofile.streamconfiguration.SessionBackup": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "StreamConfigurationSessionBackup",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "nimblestudio.launchprofile.streamconfiguration.SessionPersistenceMode": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "nimblestudio.launchprofile.streamconfiguration.SessionStorage": {
-    "Description": "(Optional) The upload storage for a streaming session.",
+    "Description": "The upload storage for a streaming session.",
     "Required": "No",
     "Type": "StreamConfigurationSessionStorage",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
@@ -36,6 +54,12 @@
     "Description": "The streaming images that users can select from when launching a streaming session with this launch profile.",
     "Required": "Yes",
     "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "nimblestudio.launchprofile.streamconfiguration.VolumeConfiguration": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "VolumeConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

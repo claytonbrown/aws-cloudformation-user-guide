@@ -9,14 +9,26 @@
     "Allowed values": "Complete | Incremental",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "appflow.flow.scheduledtriggerproperties.FirstExecutionFrom": {
+    "Description": "Specifies the date range for the records to import from the connector in the first flow run.",
+    "Required": "No",
+    "Type": "Double",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appflow.flow.scheduledtriggerproperties.FlowErrorDeactivationThreshold": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "appflow.flow.scheduledtriggerproperties.ScheduleEndTime": {
-    "Description": "Specifies the scheduled end time for a schedule-triggered flow.",
+    "Description": "The time at which the scheduled flow ends. The time is formatted as a timestamp that follows the ISO 8601 standard, such as `2022-04-27T13:00:00-07:00`.",
     "Required": "No",
     "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appflow.flow.scheduledtriggerproperties.ScheduleExpression": {
-    "Description": "The scheduling expression that determines the rate at which the scheduled flow will run, for example: `rate(5minutes)`.",
+    "Description": "The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.",
     "Required": "Yes",
     "Type": "String",
     "Maximum": "256",
@@ -30,13 +42,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appflow.flow.scheduledtriggerproperties.ScheduleStartTime": {
-    "Description": "Specifies the scheduled start time for a schedule-triggered flow.",
+    "Description": "The time at which the scheduled flow starts. The time is formatted as a timestamp that follows the ISO 8601 standard, such as `2022-04-26T13:00:00-07:00`.",
     "Required": "No",
     "Type": "Double",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appflow.flow.scheduledtriggerproperties.TimeZone": {
-    "Description": "Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.",
+    "Description": "Specifies the time zone used when referring to the dates and times of a scheduled flow, such as `America/New_York`. This time zone is only a descriptive label. It doesn't affect how Amazon AppFlow interprets the timestamps that you specify to schedule the flow.  If you want to schedule a flow by using times in a particular time zone, indicate the time zone as a UTC offset in your timestamps. For example, the UTC offsets for the `America/New_York` timezone are `-04:00` EDT and `-05:00 EST`.",
     "Required": "No",
     "Type": "String",
     "Maximum": "256",

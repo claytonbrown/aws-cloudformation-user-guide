@@ -6,31 +6,37 @@
     "Description": "The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.  Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).",
     "Required": "Conditional",
     "Type": "Integer",
+    "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudformation.stackset.operationpreferences.FailureTolerancePercentage": {
     "Description": "The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.  When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.  Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage`, but not both.",
     "Required": "Conditional",
     "Type": "Integer",
+    "Minimum": "0",
+    "Maximum": "100",
     "UpdateRequires": "No interruption"
   },
   "cloudformation.stackset.operationpreferences.MaxConcurrentCount": {
     "Description": "The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `FailureToleranceCount`. `MaxConcurrentCount` is at most one more than the `FailureToleranceCount`.  Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.  Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage`, but not both.",
     "Required": "Conditional",
     "Type": "Integer",
+    "Minimum": "1",
     "UpdateRequires": "No interruption"
   },
   "cloudformation.stackset.operationpreferences.MaxConcurrentPercentage": {
     "Description": "The maximum percentage of accounts in which to perform this operation at one time.  When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.  Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.  Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage`, but not both.",
     "Required": "Conditional",
     "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "100",
     "UpdateRequires": "No interruption"
   },
   "cloudformation.stackset.operationpreferences.RegionConcurrencyType": {
     "Description": "The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.",
-    "Allowed values": "SEQUENTIAL` \\| `PARALLEL",
     "Required": "No",
     "Type": "String",
+    "Allowed values": "PARALLEL | SEQUENTIAL",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cloudformation.stackset.operationpreferences.RegionOrder": {

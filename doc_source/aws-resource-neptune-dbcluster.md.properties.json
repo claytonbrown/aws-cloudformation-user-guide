@@ -20,6 +20,16 @@
     "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "neptune.dbcluster.CopyTagsToSnapshot": {
+    "Description": "*If set to `true`, tags are copied to any snapshot of the DB cluster that is created.*",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "No interruption"
+  },
   "neptune.dbcluster.DBClusterIdentifier": {
     "Description": "Contains a user-supplied DB cluster identifier. This identifier is the unique key that identifies a DB cluster.",
     "Required": "No",
@@ -30,6 +40,18 @@
     "Description": "Provides the name of the DB cluster parameter group.  An update may require some interruption. See [ModifyDBInstance](https://docs.aws.amazon.com/neptune/latest/userguide/api-instances.html#ModifyDBInstance) in the Amazon Neptune User Guide for more information.",
     "Required": "No",
     "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "neptune.dbcluster.DBInstanceParameterGroupName": {
+    "Description": "The name of the DB parameter group to apply to all instances of the DB cluster. Used only in case of a major engine version upgrade request  Note that when you apply a parameter group using `DBInstanceParameterGroupName`, parameter changes are applied immediately, not during the next maintenance window.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "No interruption"
+  },
+  "neptune.dbcluster.DBPort": {
+    "Description": "The port number on which the DB instances in the DB cluster accept connections.  If not specified, the default port used is `8182`.  The `Port` property will soon be deprecated. Please update existing templates to use the new `DBPort` property that has the same functionality.",
+    "Required": "No",
+    "Type": "Integer",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "neptune.dbcluster.DBSubnetGroupName": {
@@ -58,7 +80,7 @@
     "Description": "Indicates the database engine version.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "neptune.dbcluster.IamAuthEnabled": {
     "Description": "True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.",
@@ -75,12 +97,6 @@
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "neptune.dbcluster.Port": {
-    "Description": "Specifies the port that the database engine is listening on.",
-    "Required": "No",
-    "Type": "Integer",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "neptune.dbcluster.PreferredBackupWindow": {
     "Description": "Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the `BackupRetentionPeriod`.  An update may require some interruption.",
@@ -105,6 +121,12 @@
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "neptune.dbcluster.ServerlessScalingConfiguration": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "ServerlessScalingConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "neptune.dbcluster.SnapshotIdentifier": {
     "Description": "Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.  After you restore a DB cluster using a `SnapshotIdentifier`, you must specify the same `SnapshotIdentifier` for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.  However, if you don't specify the `SnapshotIdentifier`, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the snapshot specified by the `SnapshotIdentifier`, and the original DB cluster is deleted.",

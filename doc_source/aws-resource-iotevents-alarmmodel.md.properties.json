@@ -1,0 +1,68 @@
+{
+  "iotevents.alarmmodel.CfnAbout": "Represents an alarm model to monitor an AWS IoT Events input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the * AWS IoT Events Developer Guide*.",
+  "iotevents.alarmmodel.CfnType": "AWS::IoTEvents::AlarmModel",
+  "iotevents.alarmmodel.CfnDocsKey": "aws-resource-iotevents-alarmmodel",
+  "iotevents.alarmmodel.AlarmCapabilities": {
+    "Description": "Contains the configuration information of alarm state changes.",
+    "Required": "No",
+    "Type": "AlarmCapabilities",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotevents.alarmmodel.AlarmEventActions": {
+    "Description": "Contains information about one or more alarm actions.",
+    "Required": "No",
+    "Type": "AlarmEventActions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotevents.alarmmodel.AlarmModelDescription": {
+    "Description": "The description of the alarm model.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "128",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotevents.alarmmodel.AlarmModelName": {
+    "Description": "The name of the alarm model.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "^[a-zA-Z0-9_-]+$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "iotevents.alarmmodel.AlarmRule": {
+    "Description": "Defines when your alarm is invoked.",
+    "Required": "Yes",
+    "Type": "AlarmRule",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotevents.alarmmodel.Key": {
+    "Description": "An input attribute used as a key to create an alarm. AWS IoT Events routes [inputs](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Input.html) associated with this key to the alarm.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "^((`[\\w\\- ]+`)|([\\w\\-]+))(\\.((`[\\w- ]+`)|([\\w\\-]+)))*$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "iotevents.alarmmodel.RoleArn": {
+    "Description": "The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the * AWS General Reference*.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "UpdateRequires": "No interruption"
+  },
+  "iotevents.alarmmodel.Severity": {
+    "Description": "A non-negative integer that reflects the severity level of the alarm.",
+    "Required": "No",
+    "Type": "Integer",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotevents.alarmmodel.Tags": {
+    "Description": "A list of key-value pairs that contain metadata for the alarm model. The tags help you manage the alarm model. For more information, see [Tagging your AWS IoT Events resources](https://docs.aws.amazon.com/iotevents/latest/developerguide/tagging-iotevents.html) in the * AWS IoT Events Developer Guide*.  You can create up to 50 tags for one alarm model.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "No interruption"
+  }
+}

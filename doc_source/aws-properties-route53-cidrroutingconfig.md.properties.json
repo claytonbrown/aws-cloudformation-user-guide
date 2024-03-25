@@ -1,0 +1,21 @@
+{
+  "route53.cidrroutingconfig.CfnAbout": "The object that is specified in resource record set object when you are linking a resource record set to a CIDR location.\n\nA `LocationName` with an asterisk “*” can be used to create a default CIDR record. `CollectionId` is still required for default record.",
+  "route53.cidrroutingconfig.CfnType": "AWS::Route53::RecordSetGroup.CidrRoutingConfig",
+  "route53.cidrroutingconfig.CfnDocsKey": "aws-properties-route53-cidrroutingconfig",
+  "route53.cidrroutingconfig.CollectionId": {
+    "Description": "The CIDR collection ID.",
+    "Required": "Yes",
+    "Type": "String",
+    "Pattern": "[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "route53.cidrroutingconfig.LocationName": {
+    "Description": "The CIDR collection location name.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "16",
+    "Pattern": "[0-9A-Za-z_\\-\\*]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

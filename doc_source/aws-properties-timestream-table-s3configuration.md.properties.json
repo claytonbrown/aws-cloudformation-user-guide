@@ -1,0 +1,38 @@
+{
+  "timestream.table.s3configuration.CfnAbout": "The configuration that specifies an S3 location.",
+  "timestream.table.s3configuration.CfnType": "AWS::Timestream::Table.S3Configuration",
+  "timestream.table.s3configuration.CfnDocsKey": "aws-properties-timestream-table-s3configuration",
+  "timestream.table.s3configuration.BucketName": {
+    "Description": "The bucket name of the customer S3 bucket.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "3",
+    "Maximum": "63",
+    "Pattern": "[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "timestream.table.s3configuration.EncryptionOption": {
+    "Description": "The encryption option for the customer S3 location. Options are S3 server-side encryption with an S3 managed key or AWS managed key.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "SSE_KMS | SSE_S3",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "timestream.table.s3configuration.KmsKeyId": {
+    "Description": "The AWS KMS key ID for the customer S3 location when encrypting with an AWS managed key.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "timestream.table.s3configuration.ObjectKeyPrefix": {
+    "Description": "The object key preview for the customer S3 location.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "928",
+    "Pattern": "[a-zA-Z0-9|!\\-_*'\\(\\)]([a-zA-Z0-9]|[!\\-_*'\\(\\)\\/.])+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

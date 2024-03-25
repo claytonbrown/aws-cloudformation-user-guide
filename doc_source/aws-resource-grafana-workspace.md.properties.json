@@ -1,0 +1,113 @@
+{
+  "grafana.workspace.CfnAbout": "Specifies a *workspace*. In a workspace, you can create Grafana dashboards and visualizations to analyze your metrics, logs, and traces. You don't have to build, package, or deploy any hardware to run the Grafana server.",
+  "grafana.workspace.CfnType": "AWS::Grafana::Workspace",
+  "grafana.workspace.CfnDocsKey": "aws-resource-grafana-workspace",
+  "grafana.workspace.AccountAccessType": {
+    "Description": "Specifies whether the workspace can access AWS resources in this AWS account only, or whether it can also access AWS resources in other accounts in the same organization. If this is `ORGANIZATION`, the `OrganizationalUnits` parameter specifies which organizational units the workspace can access.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "CURRENT_ACCOUNT | ORGANIZATION",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.AuthenticationProviders": {
+    "Description": "Specifies whether this workspace uses SAML 2.0, AWS IAM Identity Center (successor to AWS Single Sign-On), or both to authenticate users for using the Grafana console within a workspace. For more information, see [User authentication in Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html).",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.ClientToken": {
+    "Description": "A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.",
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "^[!-~]{1,64}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "grafana.workspace.DataSources": {
+    "Description": "Specifies the AWS data sources that have been configured to have IAM roles and permissions created to allow Amazon Managed Grafana to read data from these sources.  This list is only used when the workspace was created through the AWS console, and the `permissionType` is `SERVICE_MANAGED`.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.Description": {
+    "Description": "The user-defined description of the workspace.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "2048",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.GrafanaVersion": {
+    "Description": "Specifies the version of Grafana to support in the workspace. Defaults to the latest version on create (for example, 9.4), or the current version of the workspace on update.  Can only be used to upgrade (for example, from 8.4 to 9.4), not downgrade (for example, from 9.4 to 8.4).  To know what versions are available to upgrade to for a specific workspace, see the [ListVersions](https://docs.aws.amazon.com/grafana/latest/APIReference/API_ListVersions.html) operation.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.Name": {
+    "Description": "The name of the workspace.",
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "^[a-zA-Z0-9-._~]{1,255}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.NetworkAccessControl": {
+    "Description": "The configuration settings for network access to your workspace.",
+    "Required": "No",
+    "Type": "NetworkAccessControl",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.NotificationDestinations": {
+    "Description": "The AWS notification channels that Amazon Managed Grafana can automatically create IAM roles and permissions for, to allow Amazon Managed Grafana to use these channels.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.OrganizationalUnits": {
+    "Description": "Specifies the organizational units that this workspace is allowed to use data sources from, if this workspace is in an account that is part of an organization.",
+    "Required": "No",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.OrganizationRoleName": {
+    "Description": "The name of the IAM role that is used to access resources through Organizations.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.PermissionType": {
+    "Description": "If this is `SERVICE_MANAGED`, and the workplace was created through the Amazon Managed Grafana console, then Amazon Managed Grafana automatically creates the IAM roles and provisions the permissions that the workspace needs to use AWS data sources and notification channels.  If this is `CUSTOMER_MANAGED`, you must manage those roles and permissions yourself.  If you are working with a workspace in a member account of an organization and that account is not a delegated administrator account, and you want the workspace to access data sources in other AWS accounts in the organization, this parameter must be set to `CUSTOMER_MANAGED`.  For more information about converting between customer and service managed, see [Managing permissions for data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html). For more information about the roles and permissions that must be managed for customer managed workspaces, see [Amazon Managed Grafana permissions and policies for AWS data sources and notification channels](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html)",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "CUSTOMER_MANAGED | SERVICE_MANAGED",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.RoleArn": {
+    "Description": "The IAM role that grants permissions to the AWS resources that the workspace will view data from. This role must already exist.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.SamlConfiguration": {
+    "Description": "If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.",
+    "Required": "No",
+    "Type": "SamlConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.StackSetName": {
+    "Description": "The name of the AWS CloudFormation stack set that is used to generate IAM roles to be used for this workspace.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "grafana.workspace.VpcConfiguration": {
+    "Description": "The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.  Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).",
+    "Required": "No",
+    "Type": "VpcConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

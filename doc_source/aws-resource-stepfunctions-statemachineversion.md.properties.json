@@ -1,0 +1,23 @@
+{
+  "stepfunctions.statemachineversion.CfnAbout": "Represents a state machine [version](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html). A published version uses the latest state machine [https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html). A revision is an immutable, read-only snapshot of a state machine’s definition and configuration.\n\nYou can publish up to 1000 versions for each state machine.\n\n**Important**  \nBefore you delete a version, make sure that version's ARN isn't being referenced in any long-running workflows or application code outside of the stack.",
+  "stepfunctions.statemachineversion.CfnType": "AWS::StepFunctions::StateMachineVersion",
+  "stepfunctions.statemachineversion.CfnDocsKey": "aws-resource-stepfunctions-statemachineversion",
+  "stepfunctions.statemachineversion.Description": {
+    "Description": "An optional description of the state machine version.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "stepfunctions.statemachineversion.StateMachineArn": {
+    "Description": "The Amazon Resource Name (ARN) of the state machine.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "stepfunctions.statemachineversion.StateMachineRevisionId": {
+    "Description": "Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.  Only publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.  To specify the initial state machine revision, set the value as `INITIAL`.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  }
+}

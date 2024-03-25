@@ -1,12 +1,12 @@
 {
-  "dlm.lifecyclepolicy.retainrule.CfnAbout": "Specifies the retention rule for a lifecycle policy. You can retain snapshots based on either a count or a time interval.",
+  "dlm.lifecyclepolicy.retainrule.CfnAbout": "**[Snapshot and AMI policies only]** Specifies a retention rule for snapshots created by snapshot policies, or for AMIs created by AMI policies.\n\n**Note**  \nFor snapshot policies that have an [ArchiveRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html",
   "dlm.lifecyclepolicy.retainrule.CfnType": "AWS::DLM::LifecyclePolicy.RetainRule",
   "dlm.lifecyclepolicy.retainrule.CfnDocsKey": "aws-properties-dlm-lifecyclepolicy-retainrule",
   "dlm.lifecyclepolicy.retainrule.Count": {
-    "Description": "The number of snapshots to retain for each volume, up to a maximum of 1000.",
+    "Description": "The number of snapshots to retain for each volume, up to a maximum of 1000. For example if you want to retain a maximum of three snapshots, specify `3`. When the fourth snapshot is created, the oldest retained snapshot is deleted, or it is moved to the archive tier if you have specified an [ArchiveRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-archiverule).",
     "Required": "No",
     "Type": "Integer",
-    "Minimum": "1",
+    "Minimum": "0",
     "Maximum": "1000",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
@@ -14,11 +14,11 @@
     "Description": "The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.",
     "Required": "No",
     "Type": "Integer",
-    "Minimum": "1",
+    "Minimum": "0",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dlm.lifecyclepolicy.retainrule.IntervalUnit": {
-    "Description": "The unit of time for time-based retention.",
+    "Description": "The unit of time for time-based retention. For example, to retain snapshots for 3 months, specify `Interval=3` and `IntervalUnit=MONTHS`. Once the snapshot has been retained for 3 months, it is deleted, or it is moved to the archive tier if you have specified an [ArchiveRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-archiverule).",
     "Required": "No",
     "Type": "String",
     "Allowed values": "DAYS | MONTHS | WEEKS | YEARS",

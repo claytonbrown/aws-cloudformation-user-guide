@@ -1,18 +1,21 @@
 {
+  "dynamodb.table.timetolivespecification.CfnAbout": "Represents the settings used to enable or disable Time to Live (TTL) for the specified table.",
+  "dynamodb.table.timetolivespecification.CfnType": "AWS::DynamoDB::Table.TimeToLiveSpecification",
+  "dynamodb.table.timetolivespecification.CfnDocsKey": "aws-properties-dynamodb-table-timetolivespecification",
+  "dynamodb.table.timetolivespecification.AttributeName": {
+    "Description": "The name of the TTL attribute used to store the expiration time for items in the table.  + The `AttributeName` property is required when enabling the TTL, or when TTL is already enabled.+ To update this property, you must first disable TTL and then enable TTL with the new attribute name.",
+    "Required": "Conditional",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "dynamodb.table.timetolivespecification.Enabled": {
+    "Description": "Indicates whether TTL is to be enabled (true) or disabled (false) on the table.",
     "Required": "Yes",
-    "Type": "Boolean",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
     "AllowedValues": [
       "True",
       "False"
-    ]
-  },
-  "dynamodb.table.timetolivespecification.AttributeName": {
-    "Minimum": "1",
-    "Required": "Yes",
-    "Type": "String",
-    "Maximum": "255",
+    ],
+    "Type": "Boolean",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

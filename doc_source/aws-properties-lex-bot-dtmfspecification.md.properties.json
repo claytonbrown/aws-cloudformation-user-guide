@@ -1,29 +1,34 @@
 {
-  "lex.bot.dtmfspecification.CfnAbout": "<a name=\"aws-properties-lex-bot-dtmfspecification-description\">",
+  "lex.bot.dtmfspecification.CfnAbout": "Specifies the DTMF input specifications.",
   "lex.bot.dtmfspecification.CfnType": "AWS::Lex::Bot.DTMFSpecification",
   "lex.bot.dtmfspecification.CfnDocsKey": "aws-properties-lex-bot-dtmfspecification",
   "lex.bot.dtmfspecification.DeletionCharacter": {
-    "Description": "Property description not available.",
+    "Description": "The DTMF character that clears the accumulated DTMF digits and immediately ends the input.",
     "Required": "Yes",
     "Type": "String",
+    "Pattern": "^[A-D0-9#*]{1}$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.dtmfspecification.EndCharacter": {
-    "Description": "Property description not available.",
+    "Description": "The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.",
     "Required": "Yes",
     "Type": "String",
+    "Pattern": "^[A-D0-9#*]{1}$",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.dtmfspecification.EndTimeoutMs": {
-    "Description": "Property description not available.",
+    "Description": "How long the bot should wait after the last DTMF character input before assuming that the input has concluded.",
     "Required": "Yes",
     "Type": "Integer",
+    "Minimum": "1",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.dtmfspecification.MaxLength": {
-    "Description": "Property description not available.",
+    "Description": "The maximum number of DTMF digits allowed in an utterance.",
     "Required": "Yes",
     "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "1024",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

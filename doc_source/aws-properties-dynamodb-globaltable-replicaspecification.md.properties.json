@@ -8,10 +8,26 @@
     "Type": "ContributorInsightsSpecification",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "dynamodb.globaltable.replicaspecification.DeletionProtectionEnabled": {
+    "Description": "Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDBDeveloper Guide*.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "No interruption"
+  },
   "dynamodb.globaltable.replicaspecification.GlobalSecondaryIndexes": {
     "Description": "Defines additional settings for the global secondary indexes of this replica.",
     "Required": "No",
     "Type": "List of [ReplicaGlobalSecondaryIndexSpecification",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "dynamodb.globaltable.replicaspecification.KinesisStreamSpecification": {
+    "Description": "Defines the Kinesis Data Streams configuration for the specified replica.",
+    "Required": "No",
+    "Type": "KinesisStreamSpecification",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dynamodb.globaltable.replicaspecification.PointInTimeRecoverySpecification": {
@@ -42,7 +58,6 @@
     "Description": "The table class of the specified table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.",
     "Required": "No",
     "Type": "String",
-    "Allowed values": "STANDARD | STANDARD_INFREQUENT_ACCESS",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dynamodb.globaltable.replicaspecification.Tags": {

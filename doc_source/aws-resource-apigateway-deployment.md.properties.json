@@ -3,31 +3,31 @@
   "apigateway.deployment.CfnType": "AWS::ApiGateway::Deployment",
   "apigateway.deployment.CfnDocsKey": "aws-resource-apigateway-deployment",
   "apigateway.deployment.DeploymentCanarySettings": {
-    "Description": "Specifies settings for the canary deployment.",
+    "Description": "The input configuration for a canary deployment.",
     "Required": "No",
     "Type": "DeploymentCanarySettings",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "apigateway.deployment.Description": {
-    "Description": "A description of the purpose of the API Gateway deployment.",
+    "Description": "The description for the Deployment resource to create.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "apigateway.deployment.RestApiId": {
-    "Description": "The ID of the `RestApi` resource to deploy.",
+    "Description": "The string identifier of the associated RestApi.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "apigateway.deployment.StageDescription": {
-    "Description": "Configures the stage that API Gateway creates with this deployment.",
-    "Required": "No",
+    "Description": "The description of the Stage resource for the Deployment resource to create. To specify a stage description, you must also provide a stage name.",
+    "Required": "Conditional",
     "Type": "StageDescription",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "apigateway.deployment.StageName": {
-    "Description": "A name for the stage that API Gateway creates with this deployment. Use only alphanumeric characters.",
+    "Description": "The name of the Stage resource for the Deployment resource to create.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

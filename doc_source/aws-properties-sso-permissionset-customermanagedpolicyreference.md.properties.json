@@ -1,0 +1,23 @@
+{
+  "sso.permissionset.customermanagedpolicyreference.CfnAbout": "Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.",
+  "sso.permissionset.customermanagedpolicyreference.CfnType": "AWS::SSO::PermissionSet.CustomerManagedPolicyReference",
+  "sso.permissionset.customermanagedpolicyreference.CfnDocsKey": "aws-properties-sso-permissionset-customermanagedpolicyreference",
+  "sso.permissionset.customermanagedpolicyreference.Name": {
+    "Description": "The name of the IAM policy that you have configured in each account where you want to deploy your permission set.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "128",
+    "Pattern": "[\\w+=,.@-]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sso.permissionset.customermanagedpolicyreference.Path": {
+    "Description": "The path to the IAM policy that you have configured in each account where you want to deploy your permission set. The default is `/`. For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide*.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "512",
+    "Pattern": "((/[A-Za-z0-9\\.,\\+@=_-]+)*)/",
+    "UpdateRequires": "No interruption"
+  }
+}

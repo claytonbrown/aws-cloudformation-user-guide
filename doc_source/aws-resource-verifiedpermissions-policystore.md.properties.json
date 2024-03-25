@@ -1,0 +1,17 @@
+{
+  "verifiedpermissions.policystore.CfnAbout": "Creates a policy store. A policy store is a container for policy resources. You can create a separate policy store for each of your applications.",
+  "verifiedpermissions.policystore.CfnType": "AWS::VerifiedPermissions::PolicyStore",
+  "verifiedpermissions.policystore.CfnDocsKey": "aws-resource-verifiedpermissions-policystore",
+  "verifiedpermissions.policystore.Schema": {
+    "Description": "Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.",
+    "Required": "No",
+    "Type": "SchemaDefinition",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "verifiedpermissions.policystore.ValidationSettings": {
+    "Description": "Specifies the validation setting for this policy store.  Currently, the only valid and required value is `Mode`.  We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore). Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.",
+    "Required": "Yes",
+    "Type": "ValidationSettings",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

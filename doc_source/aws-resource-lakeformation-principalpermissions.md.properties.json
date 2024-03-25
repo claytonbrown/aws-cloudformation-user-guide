@@ -1,0 +1,35 @@
+{
+  "lakeformation.principalpermissions.CfnAbout": "The `AWS::LakeFormation::PrincipalPermissions` resource represents the permissions that a principal has on a Data Catalog resource (such as AWS Glue databases or AWS Glue tables). When you create a `PrincipalPermissions` resource, the permissions are granted via the AWS Lake Formation `GrantPermissions` API operation. When you delete a `PrincipalPermissions` resource, the permissions on principal-resource pair are revoked via the AWS Lake Formation `RevokePermissions` API operation.",
+  "lakeformation.principalpermissions.CfnType": "AWS::LakeFormation::PrincipalPermissions",
+  "lakeformation.principalpermissions.CfnDocsKey": "aws-resource-lakeformation-principalpermissions",
+  "lakeformation.principalpermissions.Catalog": {
+    "Description": "The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "lakeformation.principalpermissions.Permissions": {
+    "Description": "The permissions granted or revoked.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "lakeformation.principalpermissions.PermissionsWithGrantOption": {
+    "Description": "Indicates the ability to grant permissions (as a subset of permissions granted).",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "lakeformation.principalpermissions.Principal": {
+    "Description": "The principal to be granted a permission.",
+    "Required": "Yes",
+    "Type": "DataLakePrincipal",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "lakeformation.principalpermissions.Resource": {
+    "Description": "The resource to be granted or revoked permissions.",
+    "Required": "Yes",
+    "Type": "Resource",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  }
+}

@@ -3,15 +3,20 @@
   "lex.bot.lambdacodehook.CfnType": "AWS::Lex::Bot.LambdaCodeHook",
   "lex.bot.lambdacodehook.CfnDocsKey": "aws-properties-lex-bot-lambdacodehook",
   "lex.bot.lambdacodehook.CodeHookInterfaceVersion": {
-    "Description": "Specifies the version of the request-response that you want Amazon Lex to use to invoke your Lambda function.",
+    "Description": "The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "5",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.lambdacodehook.LambdaArn": {
-    "Description": "Specifies the Amazon Resource Name (ARN) of the Lambda function.",
+    "Description": "The Amazon Resource Name (ARN) of the Lambda function.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "20",
+    "Maximum": "2048",
+    "Pattern": "arn:aws:lambda:[a-z]+-[a-z]+-[0-9]:[0-9]{12}:function:[a-zA-Z0-9-_]+(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})?(:[a-zA-Z0-9-_]+)?",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

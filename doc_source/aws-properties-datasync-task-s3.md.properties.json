@@ -1,0 +1,29 @@
+{
+  "datasync.task.s3.CfnAbout": "Specifies the Amazon S3 bucket where DataSync uploads your [task report](https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html).",
+  "datasync.task.s3.CfnType": "AWS::DataSync::Task.S3",
+  "datasync.task.s3.CfnDocsKey": "aws-properties-datasync-task-s3",
+  "datasync.task.s3.BucketAccessRoleArn": {
+    "Description": "Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket. For more information, see [Allowing DataSync to upload a task report to an Amazon S3 bucket](https://docs.aws.amazon.com/datasync/latest/userguide/creating-task-reports.html).",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "2048",
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.task.s3.S3BucketArn": {
+    "Description": "Specifies the ARN of the S3 bucket where DataSync uploads your report.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "156",
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):(s3|s3-outposts):[a-z\\-0-9]*:[0-9]*:.*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "datasync.task.s3.Subdirectory": {
+    "Description": "Specifies a bucket prefix for your report.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "4096",
+    "Pattern": "^[a-zA-Z0-9_\\-\\+\\./\\(\\)\\p{Zs}]*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

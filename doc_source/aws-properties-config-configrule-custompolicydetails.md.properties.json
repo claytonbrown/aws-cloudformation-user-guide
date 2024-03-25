@@ -1,0 +1,32 @@
+{
+  "config.configrule.custompolicydetails.CfnAbout": "Provides the CustomPolicyDetails, the rule owner (` AWS ` for managed rules, `CUSTOM_POLICY` for Custom Policy rules, and `CUSTOM_LAMBDA` for Custom Lambda rules), the rule identifier, and the events that cause the evaluation of your AWS resources.",
+  "config.configrule.custompolicydetails.CfnType": "AWS::Config::ConfigRule.CustomPolicyDetails",
+  "config.configrule.custompolicydetails.CfnDocsKey": "aws-properties-config-configrule-custompolicydetails",
+  "config.configrule.custompolicydetails.EnableDebugLogDelivery": {
+    "Description": "The boolean expression for enabling debug logging for your AWS Config Custom Policy rule. The default value is `false`.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.configrule.custompolicydetails.PolicyRuntime": {
+    "Description": "The runtime system for your AWS Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by AWS Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "64",
+    "Pattern": "guard\\-2\\.x\\.x",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "config.configrule.custompolicydetails.PolicyText": {
+    "Description": "The policy definition containing the logic for your AWS Config Custom Policy rule.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "10000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

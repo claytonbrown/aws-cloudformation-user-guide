@@ -2,6 +2,12 @@
   "amplifyuibuilder.component.CfnAbout": "The AWS::AmplifyUIBuilder::Component resource specifies a component within an Amplify app. A component is a user interface (UI) element that you can customize. Use `ComponentChild` to configure an instance of a `Component`. A `ComponentChild` instance inherits the configuration of the main `Component`.",
   "amplifyuibuilder.component.CfnType": "AWS::AmplifyUIBuilder::Component",
   "amplifyuibuilder.component.CfnDocsKey": "aws-resource-amplifyuibuilder-component",
+  "amplifyuibuilder.component.AppId": {
+    "Description": "The unique ID of the Amplify app associated with the component.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "amplifyuibuilder.component.BindingProperties": {
     "Description": "The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties`.",
     "Required": "Yes",
@@ -26,6 +32,12 @@
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "amplifyuibuilder.component.EnvironmentName": {
+    "Description": "The name of the backend environment that is a part of the Amplify app.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "amplifyuibuilder.component.Events": {
     "Description": "Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.",
     "Required": "No",
@@ -41,7 +53,7 @@
   "amplifyuibuilder.component.Overrides": {
     "Description": "Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides`.",
     "Required": "Yes",
-    "Type": "Map of [ComponentOverridesValue",
+    "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amplifyuibuilder.component.Properties": {

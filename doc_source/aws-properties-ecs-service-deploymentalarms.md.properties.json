@@ -1,0 +1,31 @@
+{
+  "ecs.service.deploymentalarms.CfnAbout": "One of the methods which provide a way for you to quickly identify when a deployment has failed, and then to optionally roll back the failure to the last working deployment.\n\nWhen the alarms are generated, Amazon ECS sets the service deployment to failed. Set the rollback parameter to have Amazon ECS to roll back your service to the last completed deployment after a failure.\n\nYou can only use the `DeploymentAlarms` method to detect failures when the `DeploymentController` is set to `ECS` (rolling update).\n\nFor more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the * *Amazon Elastic Container Service Developer Guide* *.",
+  "ecs.service.deploymentalarms.CfnType": "AWS::ECS::Service.DeploymentAlarms",
+  "ecs.service.deploymentalarms.CfnDocsKey": "aws-properties-ecs-service-deploymentalarms",
+  "ecs.service.deploymentalarms.AlarmNames": {
+    "Description": "One or more CloudWatch alarm names. Use a \",\" to separate the alarms.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ecs.service.deploymentalarms.Enable": {
+    "Description": "Determines whether to use the CloudWatch alarm option in the service deployment process.",
+    "Required": "Yes",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ecs.service.deploymentalarms.Rollback": {
+    "Description": "Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.",
+    "Required": "Yes",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

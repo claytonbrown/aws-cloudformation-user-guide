@@ -1,5 +1,5 @@
 {
-  "imagebuilder.imagepipeline.CfnAbout": "An image pipeline is the automation configuration for building secure OS images on AWS. The Image Builder image pipeline is associated with an image recipe that defines the build, validation, and test phases for an image build lifecycle. An image pipeline can be associated with an infrastructure configuration that defines where your image is built. You can define attributes, such as instance type, subnets, security groups, logging, and other infrastructure-related configurations. You can also associate your image pipeline with a distribution configuration to define how you would like to deploy your image.",
+  "imagebuilder.imagepipeline.CfnAbout": "An image pipeline is the automation configuration for building secure OS images on AWS. The Image Builder image pipeline is associated with an image recipe that defines the build, validation, and test phases for an image build lifecycle. An image pipeline can be associated with an infrastructure configuration that defines where your image is built. You can define attributes, such as instance types, a subnet for your VPC, security groups, logging, and other infrastructure-related configurations. You can also associate your image pipeline with a distribution configuration to define how you would like to deploy your image.",
   "imagebuilder.imagepipeline.CfnType": "AWS::ImageBuilder::ImagePipeline",
   "imagebuilder.imagepipeline.CfnDocsKey": "aws-resource-imagebuilder-imagepipeline",
   "imagebuilder.imagepipeline.ContainerRecipeArn": {
@@ -36,6 +36,12 @@
     "Description": "The Amazon Resource Name (ARN) of the image recipe associated with this image pipeline.",
     "Required": "No",
     "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "imagebuilder.imagepipeline.ImageScanningConfiguration": {
+    "Description": "Contains settings for vulnerability scans.",
+    "Required": "No",
+    "Type": "ImageScanningConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "imagebuilder.imagepipeline.ImageTestsConfiguration": {

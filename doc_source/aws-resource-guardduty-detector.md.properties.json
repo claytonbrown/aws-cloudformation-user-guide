@@ -1,5 +1,5 @@
 {
-  "guardduty.detector.CfnAbout": "The `AWS::GuardDuty::Detector` resource specifies a new Amazon GuardDuty detector. A detector is an object that represents the Amazon GuardDuty service. A detector is required for Amazon GuardDuty to become operational.",
+  "guardduty.detector.CfnAbout": "The `AWS::GuardDuty::Detector` resource specifies a new GuardDuty detector. A detector is an object that represents the GuardDuty service. A detector is required for GuardDuty to become operational.\n\nMake sure you use either `DataSources` or `Features` in a one request, and not both.",
   "guardduty.detector.CfnType": "AWS::GuardDuty::Detector",
   "guardduty.detector.CfnDocsKey": "aws-resource-guardduty-detector",
   "guardduty.detector.DataSources": {
@@ -18,11 +18,23 @@
     "Type": "Boolean",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
+  "guardduty.detector.Features": {
+    "Description": "A list of features that will be configured for the detector.",
+    "Required": "No",
+    "Type": "List of [CFNFeatureConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "guardduty.detector.FindingPublishingFrequency": {
     "Description": "Specifies how frequently updated findings are exported.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "FIFTEEN_MINUTES | ONE_HOUR | SIX_HOURS",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "guardduty.detector.Tags": {
+    "Description": "Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.  Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
+    "Required": "No",
+    "Type": "List of [TagItem",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

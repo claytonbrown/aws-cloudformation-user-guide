@@ -1,0 +1,18 @@
+{
+  "appstream.directoryconfig.certificatebasedauthproperties.CfnAbout": "The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP) user identities to Active Directory domain-joined streaming instances.",
+  "appstream.directoryconfig.certificatebasedauthproperties.CfnType": "AWS::AppStream::DirectoryConfig.CertificateBasedAuthProperties",
+  "appstream.directoryconfig.certificatebasedauthproperties.CfnDocsKey": "aws-properties-appstream-directoryconfig-certificatebasedauthproperties",
+  "appstream.directoryconfig.certificatebasedauthproperties.CertificateAuthorityArn": {
+    "Description": "The ARN of the AWS Certificate Manager Private CA resource.",
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "^arn:aws(?:\\-cn|\\-iso\\-b|\\-iso|\\-us\\-gov)?:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.\\\\-]{0,1023}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "appstream.directoryconfig.certificatebasedauthproperties.Status": {
+    "Description": "The status of the certificate-based authentication properties. Fallback is turned on by default when certificate-based authentication is **Enabled**. Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. **Enabled_no_directory_login_fallback** enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "No interruption"
+  }
+}

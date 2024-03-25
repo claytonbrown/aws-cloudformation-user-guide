@@ -1,0 +1,42 @@
+{
+  "imagebuilder.distributionconfiguration.fastlaunchconfiguration.CfnAbout": "Define and configure faster launching for output Windows AMIs.",
+  "imagebuilder.distributionconfiguration.fastlaunchconfiguration.CfnType": "AWS::ImageBuilder::DistributionConfiguration.FastLaunchConfiguration",
+  "imagebuilder.distributionconfiguration.fastlaunchconfiguration.CfnDocsKey": "aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration",
+  "imagebuilder.distributionconfiguration.fastlaunchconfiguration.AccountId": {
+    "Description": "The owner account ID for the fast-launch enabled Windows AMI.",
+    "Required": "No",
+    "Type": "String",
+    "Pattern": "^[0-9]{12}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "imagebuilder.distributionconfiguration.fastlaunchconfiguration.Enabled": {
+    "Description": "A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "imagebuilder.distributionconfiguration.fastlaunchconfiguration.LaunchTemplate": {
+    "Description": "The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.",
+    "Required": "No",
+    "Type": "FastLaunchLaunchTemplateSpecification",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "imagebuilder.distributionconfiguration.fastlaunchconfiguration.MaxParallelLaunches": {
+    "Description": "The maximum number of parallel instances that are launched for creating resources.",
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "6",
+    "Maximum": "10000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "imagebuilder.distributionconfiguration.fastlaunchconfiguration.SnapshotConfiguration": {
+    "Description": "Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.",
+    "Required": "No",
+    "Type": "FastLaunchSnapshotConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

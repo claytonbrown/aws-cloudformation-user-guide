@@ -1,0 +1,26 @@
+{
+  "connect.routingprofile.mediaconcurrency.CfnAbout": "Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.",
+  "connect.routingprofile.mediaconcurrency.CfnType": "AWS::Connect::RoutingProfile.MediaConcurrency",
+  "connect.routingprofile.mediaconcurrency.CfnDocsKey": "aws-properties-connect-routingprofile-mediaconcurrency",
+  "connect.routingprofile.mediaconcurrency.Channel": {
+    "Description": "The channels that agents can handle in the Contact Control Panel (CCP).",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "CHAT | TASK | VOICE",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "connect.routingprofile.mediaconcurrency.Concurrency": {
+    "Description": "The number of contacts an agent can have on a channel simultaneously.  Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1.  Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10.  Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.",
+    "Required": "Yes",
+    "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "10",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "connect.routingprofile.mediaconcurrency.CrossChannelBehavior": {
+    "Description": "Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.",
+    "Required": "No",
+    "Type": "CrossChannelBehavior",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

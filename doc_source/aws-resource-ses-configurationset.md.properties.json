@@ -1,11 +1,47 @@
 {
-  "ses.configurationset.CfnAbout": "The name of the configuration set.\n\nConfiguration sets let you create groups of rules that you can apply to the emails you send using Amazon SES. For more information about using configuration sets, see [Using Amazon SES Configuration Sets](https://docs.aws.amazon.com/ses/latest/dg/using-configuration-sets.html) in the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/).",
+  "ses.configurationset.CfnAbout": "Configuration sets let you create groups of rules that you can apply to the emails you send using Amazon SES. For more information about using configuration sets, see [Using Amazon SES Configuration Sets](https://docs.aws.amazon.com/ses/latest/dg/using-configuration-sets.html) in the [Amazon SES Developer Guide](https://docs.aws.amazon.com/ses/latest/dg/).\n\n**Note**  \n**Required permissions:**  \nTo apply any of the resource options, you will need to have the corresponding AWS Identity and Access Management (IAM) SES API v2 permissions:  \n`ses:GetConfigurationSet`  \n(This permission is replacing the v1 *ses:DescribeConfigurationSet* permission which will not work with these v2 resource options.)\n`ses:PutConfigurationSetDeliveryOptions`\n`ses:PutConfigurationSetReputationOptions`\n`ses:PutConfigurationSetSendingOptions`\n`ses:PutConfigurationSetSuppressionOptions`\n`ses:PutConfigurationSetTrackingOptions`",
   "ses.configurationset.CfnType": "AWS::SES::ConfigurationSet",
   "ses.configurationset.CfnDocsKey": "aws-resource-ses-configurationset",
+  "ses.configurationset.DeliveryOptions": {
+    "Description": "Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).",
+    "Required": "No",
+    "Type": "DeliveryOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "ses.configurationset.Name": {
     "Description": "The name of the configuration set. The name must meet the following requirements:  + Contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).+ Contain 64 characters or fewer.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "ses.configurationset.ReputationOptions": {
+    "Description": "An object that represents the reputation settings for the configuration set.",
+    "Required": "No",
+    "Type": "ReputationOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ses.configurationset.SendingOptions": {
+    "Description": "An object that defines whether or not Amazon SES can send email that you send using the configuration set.",
+    "Required": "No",
+    "Type": "SendingOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ses.configurationset.SuppressionOptions": {
+    "Description": "An object that contains information about the suppression list preferences for your account.",
+    "Required": "No",
+    "Type": "SuppressionOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ses.configurationset.TrackingOptions": {
+    "Description": "The name of the custom open and click tracking domain associated with the configuration set.",
+    "Required": "No",
+    "Type": "TrackingOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ses.configurationset.VdmOptions": {
+    "Description": "The Virtual Deliverability Manager (VDM) options that apply to the configuration set.",
+    "Required": "No",
+    "Type": "VdmOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

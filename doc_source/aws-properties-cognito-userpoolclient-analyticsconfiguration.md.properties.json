@@ -1,5 +1,5 @@
 {
-  "cognito.userpoolclient.analyticsconfiguration.CfnAbout": "The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.\n\n**Note**  \nIn Regions where Pinpoint isn't available, User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In Regions where Pinpoint is available, User Pools will support sending events to Amazon Pinpoint projects within that same Region.",
+  "cognito.userpoolclient.analyticsconfiguration.CfnAbout": "The Amazon Pinpoint analytics configuration necessary to collect metrics for a user pool.\n\n**Note**  \nIn Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.",
   "cognito.userpoolclient.analyticsconfiguration.CfnType": "AWS::Cognito::UserPoolClient.AnalyticsConfiguration",
   "cognito.userpoolclient.analyticsconfiguration.CfnDocsKey": "aws-properties-cognito-userpoolclient-analyticsconfiguration",
   "cognito.userpoolclient.analyticsconfiguration.ApplicationArn": {
@@ -19,6 +19,8 @@
     "Description": "The external ID.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "131072",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpoolclient.analyticsconfiguration.RoleArn": {
@@ -31,7 +33,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpoolclient.analyticsconfiguration.UserDataShared": {
-    "Description": "If `UserDataShared` is `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.",
+    "Description": "If `UserDataShared` is `true`, Amazon Cognito includes user data in the events that it publishes to Amazon Pinpoint analytics.",
     "Required": "No",
     "AllowedValues": [
       "True",

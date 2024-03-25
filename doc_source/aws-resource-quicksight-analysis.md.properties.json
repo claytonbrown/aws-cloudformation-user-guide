@@ -7,7 +7,7 @@
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
-    "Maximum": "2048",
+    "Maximum": "512",
     "Pattern": "[\\w\\-]+",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
@@ -20,15 +20,15 @@
     "Pattern": "^[0-9]{12}$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
-  "quicksight.analysis.Errors": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+  "quicksight.analysis.Definition": {
+    "Description": "Property description not available.",
     "Required": "No",
-    "Type": "List of [AnalysisError",
+    "Type": "AnalysisDefinition",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.analysis.Name": {
     "Description": "A descriptive name for the analysis that you're creating. This name displays for the analysis in the Amazon QuickSight console.",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
     "Maximum": "2048",
@@ -48,9 +48,16 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.analysis.SourceEntity": {
-    "Description": "A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.",
-    "Required": "Yes",
+    "Description": "A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.  Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.",
+    "Required": "No",
     "Type": "AnalysisSourceEntity",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "quicksight.analysis.Status": {
+    "Description": "Status associated with the analysis.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "CREATION_FAILED | CREATION_IN_PROGRESS | CREATION_SUCCESSFUL | DELETED | UPDATE_FAILED | UPDATE_IN_PROGRESS | UPDATE_SUCCESSFUL",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "quicksight.analysis.Tags": {

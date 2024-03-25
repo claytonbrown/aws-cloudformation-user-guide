@@ -1,0 +1,29 @@
+{
+  "oam.link.CfnAbout": "Creates a link between a source account and a sink that you have created in a monitoring account.\n\nBefore you create a link, you must create a sink in the monitoring account. The sink must have a sink policy that permits the source account to link to it. You can grant permission to source accounts by granting permission to an entire organization, an organizational unit, or to individual accounts.\n\nFor more information, see [CreateSink](https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html) and [PutSinkPolicy](https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html).\n\nEach monitoring account can be linked to as many as 100,000 source accounts.\n\nEach source account can be linked to as many as five monitoring accounts.",
+  "oam.link.CfnType": "AWS::Oam::Link",
+  "oam.link.CfnDocsKey": "aws-resource-oam-link",
+  "oam.link.LabelTemplate": {
+    "Description": "Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.  You can include the following variables in your template:  + `$AccountName` is the name of the account+ `$AccountEmail` is a globally-unique email address, which includes the email domain, such as `mariagarcia@example.com`+ `$AccountEmailNoDomain` is an email address without the domain name, such as `mariagarcia`",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "oam.link.ResourceTypes": {
+    "Description": "An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace`.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "oam.link.SinkIdentifier": {
+    "Description": "The ARN of the sink in the monitoring account that you want to link to. You can use [ListSinks](https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html) to find the ARNs of sinks.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "oam.link.Tags": {
+    "Description": "An array of key-value pairs to apply to the link.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
+    "Required": "No",
+    "Type": "Map of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

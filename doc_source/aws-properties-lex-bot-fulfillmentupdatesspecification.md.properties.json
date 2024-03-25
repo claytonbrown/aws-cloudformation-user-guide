@@ -3,7 +3,7 @@
   "lex.bot.fulfillmentupdatesspecification.CfnType": "AWS::Lex::Bot.FulfillmentUpdatesSpecification",
   "lex.bot.fulfillmentupdatesspecification.CfnDocsKey": "aws-properties-lex-bot-fulfillmentupdatesspecification",
   "lex.bot.fulfillmentupdatesspecification.Active": {
-    "Description": "Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.  If the active field is set to true, the `startResponse`, `updateResponse`, and `timeoutInSeconds` fields are required.",
+    "Description": "Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.  If the `active` field is set to true, the `startResponse`, `updateResponse`, and `timeoutInSeconds` fields are required.",
     "Required": "Yes",
     "AllowedValues": [
       "True",
@@ -22,6 +22,8 @@
     "Description": "The length of time that the fulfillment Lambda function should run before it times out.",
     "Required": "No",
     "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "900",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.fulfillmentupdatesspecification.UpdateResponse": {

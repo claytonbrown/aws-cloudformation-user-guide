@@ -6,12 +6,18 @@
     "Description": "The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature.  This variation must also be listed in the `Variations` structure.  If you omit `DefaultVariation`, the first variation listed in the `Variations` structure is used as the default variation.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "127",
+    "Pattern": "[-a-zA-Z0-9._]*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.feature.Description": {
     "Description": "An optional description of the feature.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "160",
+    "Pattern": ".*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.feature.EntityOverrides": {
@@ -24,18 +30,25 @@
     "Description": "Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.",
     "Required": "No",
     "Type": "String",
+    "Allowed values": "ALL_RULES | DEFAULT_VARIATION",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.feature.Name": {
     "Description": "The name for the feature. It can include up to 127 characters.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "127",
+    "Pattern": "[-a-zA-Z0-9._]*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "evidently.feature.Project": {
     "Description": "The name or ARN of the project that is to contain the new feature.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "2048",
+    "Pattern": ".*arn:[^:]*:[^:]*:[^:]*:[^:]*:project/[-a-zA-Z0-9._]*.*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "evidently.feature.Tags": {

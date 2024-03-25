@@ -1,0 +1,23 @@
+{
+  "verifiedpermissions.identitysource.CfnAbout": "Creates or updates a reference to Amazon Cognito as an external identity provider. \n\nIf you are creating a new identity source, then you must specify a `Configuration`. If you are updating an existing identity source, then you must specify an `UpdateConfiguration`.\n\nAfter you create an identity source, you can use the identities provided by the IdP as proxies for the principal in authorization queries that use the [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html) operation. These identities take the form of tokens that contain claims about the user, such as IDs, attributes and group memberships. Amazon Cognito provides both identity tokens and access tokens, and Verified Permissions can use either or both. Any combination of identity and access tokens results in the same Cedar principal. Verified Permissions automatically translates the information about the identities into the standard Cedar attributes that can be evaluated by your policies. Because the Amazon Cognito identity and access tokens can contain different information, the tokens you choose to use determine the attributes that are available to access in the Cedar principal from your policies.\n\nAmazon Cognito Identity is not available in all of the same AWS Regions as Amazon Verified Permissions. Because of this, the `AWS::VerifiedPermissions::IdentitySource` type is not available to create from AWS CloudFormation in Regions where Amazon Cognito Identity is not currently available. Users can still create `AWS::VerifiedPermissions::IdentitySource` in those Regions, but only from the AWS CLI, Amazon Verified Permissions SDK, or from the AWS console.\n\n**Note**  \nTo reference a user from this identity source in your Cedar policies, use the following syntax.  \n*IdentityType::\"<CognitoUserPoolIdentifier>|<CognitoClientId>*  \nWhere `IdentityType` is the string that you provide to the `PrincipalEntityType` parameter for this operation. The `CognitoUserPoolId` and `CognitoClientId` are defined by the Amazon Cognito user pool.",
+  "verifiedpermissions.identitysource.CfnType": "AWS::VerifiedPermissions::IdentitySource",
+  "verifiedpermissions.identitysource.CfnDocsKey": "aws-resource-verifiedpermissions-identitysource",
+  "verifiedpermissions.identitysource.Configuration": {
+    "Description": "Contains configuration information used when creating or updating an identity source.  At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.  You must specify a `userPoolArn`, and optionally, a `ClientId`.",
+    "Required": "Yes",
+    "Type": "IdentitySourceConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "verifiedpermissions.identitysource.PolicyStoreId": {
+    "Description": "Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "verifiedpermissions.identitysource.PrincipalEntityType": {
+    "Description": "Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

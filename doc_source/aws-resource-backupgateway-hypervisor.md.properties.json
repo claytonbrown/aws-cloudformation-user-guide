@@ -1,0 +1,65 @@
+{
+  "backupgateway.hypervisor.CfnAbout": "Represents the hypervisor's permissions to which the gateway will connect.\n\nA hypervisor is hardware, software, or firmware that creates and manages virtual machines, and allocates resources to them.",
+  "backupgateway.hypervisor.CfnType": "AWS::BackupGateway::Hypervisor",
+  "backupgateway.hypervisor.CfnDocsKey": "aws-resource-backupgateway-hypervisor",
+  "backupgateway.hypervisor.Host": {
+    "Description": "The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "3",
+    "Maximum": "128",
+    "Pattern": ".+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "backupgateway.hypervisor.KmsKeyArn": {
+    "Description": "The Amazon Resource Name (ARN) of the AWS Key Management Service used to encrypt the hypervisor.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "50",
+    "Maximum": "500",
+    "Pattern": "(^arn:(aws|aws-cn|aws-us-gov):kms:([a-zA-Z0-9-]+):([0-9]+):(key|alias)/(\\S+)$)|(^alias/(\\S+)$)",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "backupgateway.hypervisor.LogGroupArn": {
+    "Description": "The Amazon Resource Name (ARN) of the group of gateways within the requested log.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "2048",
+    "Pattern": "$|^arn:(aws|aws-cn|aws-us-gov):logs:([a-zA-Z0-9-]+):([0-9]+):log-group:[a-zA-Z0-9_\\-\\/\\.]+:\\*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "backupgateway.hypervisor.Name": {
+    "Description": "The name of the hypervisor.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "[a-zA-Z0-9-]*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "backupgateway.hypervisor.Password": {
+    "Description": "The password for the hypervisor.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "[ -~]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "backupgateway.hypervisor.Tags": {
+    "Description": "The tags of the hypervisor configuration to import.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "backupgateway.hypervisor.Username": {
+    "Description": "The username for the hypervisor.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "[ -\\.0-\\[\\]-~]*[!-\\.0-\\[\\]-~][ -\\.0-\\[\\]-~]*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

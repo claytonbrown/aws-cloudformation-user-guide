@@ -1,0 +1,27 @@
+{
+  "sagemaker.space.resourcespec.CfnAbout": "Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.",
+  "sagemaker.space.resourcespec.CfnType": "AWS::SageMaker::Space.ResourceSpec",
+  "sagemaker.space.resourcespec.CfnDocsKey": "aws-properties-sagemaker-space-resourcespec",
+  "sagemaker.space.resourcespec.InstanceType": {
+    "Description": "The instance type that the image version runs on.   **JupyterServer apps** only support the `system` value.  For **KernelGateway apps**, the `system` value is translated to `ml.t3.medium`. KernelGateway apps also support all other values for available instance types.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "No interruption"
+  },
+  "sagemaker.space.resourcespec.SageMakerImageArn": {
+    "Description": "The ARN of the SageMaker image that the image version belongs to.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "256",
+    "Pattern": "^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image/[a-z0-9]([-.]?[a-z0-9])*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "sagemaker.space.resourcespec.SageMakerImageVersionArn": {
+    "Description": "The ARN of the image version created on the instance.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "256",
+    "Pattern": "^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

@@ -1,37 +1,17 @@
 {
-  "xray.samplingrule.CfnAbout": "Use the `AWS::XRay::SamplingRule` resource to specify a sampling rule, which controls sampling behavior for instrumented applications. A new sampling rule is created by specifying a `SamplingRule`. To change the configuration of an existing sampling rule, specify a `SamplingRuleUpdate`. \n\nServices retrieve rules with [GetSamplingRules](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html), and evaluate each rule in ascending order of *priority* for each request. If a rule matches, the service records a trace, borrowing it from the reservoir size. After 10 seconds, the service reports back to X-Ray with [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html) to get updated versions of each in-use rule. The updated rule contains a trace quota that the service can use instead of borrowing from the reservoir.",
+  "xray.samplingrule.CfnAbout": "Use the `AWS::XRay::SamplingRule` resource to specify a sampling rule, which controls sampling behavior for instrumented applications. Include a `SamplingRule` entity to create or update a sampling rule.\n\n**Note**  \n`SamplingRule.Version` can only be set when creating a sampling rule. Updating the version will cause the update to fail.\n\nServices retrieve rules with [GetSamplingRules](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html), and evaluate each rule in ascending order of *priority* for each request. If a rule matches, the service records a trace, borrowing it from the reservoir size. After 10 seconds, the service reports back to X-Ray with [GetSamplingTargets](https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html) to get updated versions of each in-use rule. The updated rule contains a trace quota that the service can use instead of borrowing from the reservoir.",
   "xray.samplingrule.CfnType": "AWS::XRay::SamplingRule",
   "xray.samplingrule.CfnDocsKey": "aws-resource-xray-samplingrule",
-  "xray.samplingrule.RuleName": {
-    "Description": "The name of the sampling rule. Specify a rule by either name or ARN, but not both. Used only when deleting a sampling rule. When creating or updating a sampling rule, use the `RuleName` or `RuleARN` properties within `SamplingRule` or `SamplingRuleUpdate`.",
-    "Required": "No",
-    "Type": "String",
-    "Minimum": "1",
-    "Maximum": "32",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "xray.samplingrule.SamplingRule": {
-    "Description": "The sampling rule to be created.  Must be provided if creating a new sampling rule. Not valid when updating an existing sampling rule.",
-    "Required": "Conditional",
+    "Description": "The sampling rule to be created or updated.",
+    "Required": "No",
     "Type": "SamplingRule",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "xray.samplingrule.SamplingRuleRecord": {
-    "Description": "Not currently supported by AWS CloudFormation.",
-    "Required": "No",
-    "Type": "SamplingRuleRecord",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
-  "xray.samplingrule.SamplingRuleUpdate": {
-    "Description": "A document specifying changes to a sampling rule's configuration.  Must be provided if updating an existing sampling rule. Not valid when creating a new sampling rule.  The `Version` of a sampling rule cannot be updated, and is not part of `SamplingRuleUpdate`.",
-    "Required": "Conditional",
-    "Type": "SamplingRuleUpdate",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-  },
   "xray.samplingrule.Tags": {
-    "Description": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
+    "Description": "An array of key-value pairs to apply to this resource.",
     "Required": "No",
-    "Type": "List of Json",
+    "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
   }
 }

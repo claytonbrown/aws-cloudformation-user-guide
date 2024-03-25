@@ -1,0 +1,51 @@
+{
+  "m2.application.CfnAbout": "Specifies a new application with given parameters. Requires an existing runtime environment and application definition file.\n\nFor information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html).",
+  "m2.application.CfnType": "AWS::M2::Application",
+  "m2.application.CfnDocsKey": "aws-resource-m2-application",
+  "m2.application.Definition": {
+    "Description": "The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.  For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html).",
+    "Required": "Yes",
+    "Type": "Definition",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "m2.application.Description": {
+    "Description": "The description of the application.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "500",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "m2.application.EngineType": {
+    "Description": "The type of the target platform for this application.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "bluage | microfocus",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "m2.application.KmsKeyId": {
+    "Description": "The identifier of a customer managed key.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "m2.application.Name": {
+    "Description": "The name of the application.",
+    "Required": "Yes",
+    "Type": "String",
+    "Pattern": "[A-Za-z0-9][A-Za-z0-9_\\-]{1,59}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "m2.application.RoleArn": {
+    "Description": "Property description not available.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "m2.application.Tags": {
+    "Description": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
+    "Required": "No",
+    "Type": "Map of String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

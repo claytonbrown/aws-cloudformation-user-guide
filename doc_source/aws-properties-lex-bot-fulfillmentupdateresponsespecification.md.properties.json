@@ -1,5 +1,5 @@
 {
-  "lex.bot.fulfillmentupdateresponsespecification.CfnAbout": "Provides information for updating the user on the progress of fulfilling an intent.",
+  "lex.bot.fulfillmentupdateresponsespecification.CfnAbout": "Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.",
   "lex.bot.fulfillmentupdateresponsespecification.CfnType": "AWS::Lex::Bot.FulfillmentUpdateResponseSpecification",
   "lex.bot.fulfillmentupdateresponsespecification.CfnDocsKey": "aws-properties-lex-bot-fulfillmentupdateresponsespecification",
   "lex.bot.fulfillmentupdateresponsespecification.AllowInterrupt": {
@@ -13,15 +13,18 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.fulfillmentupdateresponsespecification.FrequencyInSeconds": {
-    "Description": "The frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda function returns before the first period ends, an update message is not played to the user.",
+    "Description": "The frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.",
     "Required": "Yes",
     "Type": "Integer",
+    "Minimum": "1",
+    "Maximum": "900",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "lex.bot.fulfillmentupdateresponsespecification.MessageGroups": {
-    "Description": "One to 5 message groups that contain update messages. Amazon Lex chooses one of the messages to play to the user.",
+    "Description": "1 - 5 message groups that contain update messages. Amazon Lex chooses one of the messages to play to the user.",
     "Required": "Yes",
     "Type": "List of [MessageGroup",
+    "Maximum": "5",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

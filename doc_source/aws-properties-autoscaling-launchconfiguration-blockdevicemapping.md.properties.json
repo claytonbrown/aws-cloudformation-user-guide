@@ -3,19 +3,19 @@
   "autoscaling.launchconfiguration.blockdevicemapping.CfnType": "AWS::AutoScaling::LaunchConfiguration.BlockDeviceMapping",
   "autoscaling.launchconfiguration.blockdevicemapping.CfnDocsKey": "aws-properties-autoscaling-launchconfiguration-blockdevicemapping",
   "autoscaling.launchconfiguration.blockdevicemapping.DeviceName": {
-    "Description": "The device name exposed to the EC2 instance (for example, `/dev/sdh` or `xvdh`). For more information, see [Device naming on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) in the *Amazon EC2 User Guide for Linux Instances*.",
+    "Description": "The device name assigned to the volume (for example, `/dev/sdh` or `xvdh`). For more information, see [Device naming on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html) in the *Amazon EC2 User Guide for Linux Instances*.  To define a block device mapping, set the device name and exactly one of the following properties: `Ebs`, `NoDevice`, or `VirtualName`.",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "autoscaling.launchconfiguration.blockdevicemapping.Ebs": {
-    "Description": "Parameters used to automatically set up EBS volumes when an instance is launched.  You can specify either `VirtualName` or `Ebs`, but not both.",
+    "Description": "Information to attach an EBS volume to an instance at launch.",
     "Required": "No",
     "Type": "BlockDevice",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "autoscaling.launchconfiguration.blockdevicemapping.NoDevice": {
-    "Description": "Setting this value to `true` suppresses the specified device included in the block device mapping of the AMI.  If `NoDevice` is `true` for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances.  If you specify `NoDevice`, you cannot specify `Ebs`.",
+    "Description": "Setting this value to `true` prevents a volume that is included in the block device mapping of the AMI from being mapped to the specified device name at launch.  If `NoDevice` is `true` for the root device, instances might fail the EC2 health check. In that case, Amazon EC2 Auto Scaling launches replacement instances.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -25,7 +25,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "autoscaling.launchconfiguration.blockdevicemapping.VirtualName": {
-    "Description": "The name of the virtual device. The name must be in the form ephemeral*X* where *X* is a number starting from zero (0), for example, `ephemeral0`.  You can specify either `VirtualName` or `Ebs`, but not both.",
+    "Description": "The name of the instance store volume (virtual device) to attach to an instance at launch. The name must be in the form ephemeral*X* where *X* is a number starting from zero (0), for example, `ephemeral0`.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "Replacement"

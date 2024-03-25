@@ -1,5 +1,5 @@
 {
-  "msk.configuration.CfnAbout": "Creates a new MSK configuration.",
+  "msk.configuration.CfnAbout": "Creates a new MSK configuration. To see an example of how to use this operation, first save the following text to a file and name the file `config-file.txt`.\n\n```\nauto.create.topics.enable = true\n\nzookeeper.connection.timeout.ms = 1000\n\nlog.roll.ms = 604800000\n```\n\nNow run the following Python 3.6 script in the folder where you saved `config-file.txt`. This script uses the properties specified in `config-file.txt` to create a configuration named `SalesClusterConfiguration`. This configuration can work with Apache Kafka versions 1.1.1 and 2.1.0.\n\n```\nimport boto3\n\nclient = boto3.client('kafka')\n\nconfig_file = open('config-file.txt', 'r')\n\nserver_properties = config_file.read()\n\nresponse = client.create_configuration(\n    Name='SalesClusterConfiguration',\n    Description='The configuration to use on all sales clusters.',\n    KafkaVersions=['1.1.1', '2.1.0'],\n    ServerProperties=server_properties\n)\n\nprint(response)\n```",
   "msk.configuration.CfnType": "AWS::MSK::Configuration",
   "msk.configuration.CfnDocsKey": "aws-resource-msk-configuration",
   "msk.configuration.Description": {
@@ -9,14 +9,14 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "msk.configuration.KafkaVersionsList": {
-    "Description": "A list of the versions of Apache Kafka with which you can use this MSK configuration. You can use this configuration for an MSK cluster only if the Apache Kafka version specified for the cluster appears in this list.",
+    "Description": "Property description not available.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "msk.configuration.Name": {
     "Description": "The name of the configuration. Configuration names are strings that match the regex \"^[0-9A-Za-z][0-9A-Za-z-]{0,}$\".",
-    "Required": "No",
+    "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },

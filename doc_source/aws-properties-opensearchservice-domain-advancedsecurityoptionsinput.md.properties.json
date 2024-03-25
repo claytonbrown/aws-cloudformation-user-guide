@@ -1,7 +1,23 @@
 {
-  "opensearchservice.domain.advancedsecurityoptionsinput.CfnAbout": "Specifies options for fine-grained access control.",
+  "opensearchservice.domain.advancedsecurityoptionsinput.CfnAbout": "Specifies options for fine-grained access control.\n\nIf you specify advanced security options, you must also enable node-to-node encryption ([NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html)) and encryption at rest ([EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html)). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html), which requires HTTPS for all traffic to the domain.",
   "opensearchservice.domain.advancedsecurityoptionsinput.CfnType": "AWS::OpenSearchService::Domain.AdvancedSecurityOptionsInput",
   "opensearchservice.domain.advancedsecurityoptionsinput.CfnDocsKey": "aws-properties-opensearchservice-domain-advancedsecurityoptionsinput",
+  "opensearchservice.domain.advancedsecurityoptionsinput.AnonymousAuthDisableDate": {
+    "Description": "Date and time when the migration period will be disabled. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing).",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "opensearchservice.domain.advancedsecurityoptionsinput.AnonymousAuthEnabled": {
+    "Description": "True to enable a 30-day migration period during which administrators can create role mappings. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing).",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "opensearchservice.domain.advancedsecurityoptionsinput.Enabled": {
     "Description": "True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html).",
     "Required": "No",
@@ -10,7 +26,7 @@
       "False"
     ],
     "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opensearchservice.domain.advancedsecurityoptionsinput.InternalUserDatabaseEnabled": {
     "Description": "True to enable the internal user database.",
@@ -20,12 +36,18 @@
       "False"
     ],
     "Type": "Boolean",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "opensearchservice.domain.advancedsecurityoptionsinput.MasterUserOptions": {
     "Description": "Specifies information about the master user.",
     "Required": "No",
     "Type": "MasterUserOptions",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "opensearchservice.domain.advancedsecurityoptionsinput.SAMLOptions": {
+    "Description": "Container for information about the SAML configuration for OpenSearch Dashboards.",
+    "Required": "No",
+    "Type": "SAMLOptions",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   }
 }

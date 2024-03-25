@@ -1,27 +1,30 @@
 {
-  "customerprofiles.integration.sourceflowconfig.CfnAbout": "<a name=\"aws-properties-customerprofiles-integration-sourceflowconfig-description\">",
+  "customerprofiles.integration.sourceflowconfig.CfnAbout": "The configuration that controls how Customer Profiles retrieves data from the source.",
   "customerprofiles.integration.sourceflowconfig.CfnType": "AWS::CustomerProfiles::Integration.SourceFlowConfig",
   "customerprofiles.integration.sourceflowconfig.CfnDocsKey": "aws-properties-customerprofiles-integration-sourceflowconfig",
   "customerprofiles.integration.sourceflowconfig.ConnectorProfileName": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account.",
     "Required": "No",
     "Type": "String",
+    "Maximum": "256",
+    "Pattern": "[\\w/!@#+=.-]+",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "customerprofiles.integration.sourceflowconfig.ConnectorType": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "The type of connector, such as Salesforce, Marketo, and so on.",
     "Required": "Yes",
     "Type": "String",
+    "Allowed values": "Marketo | S3 | Salesforce | Servicenow | Zendesk",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "customerprofiles.integration.sourceflowconfig.IncrementalPullConfig": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.",
     "Required": "No",
     "Type": "IncrementalPullConfig",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "customerprofiles.integration.sourceflowconfig.SourceConnectorProperties": {
-    "Description": "Not currently supported by AWS CloudFormation.",
+    "Description": "Specifies the information that is required to query a particular source connector.",
     "Required": "Yes",
     "Type": "SourceConnectorProperties",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

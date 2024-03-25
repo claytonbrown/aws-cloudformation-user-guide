@@ -1,0 +1,34 @@
+{
+  "workspacesweb.browsersettings.CfnAbout": "This resource specifies browser settings that can be associated with a web portal. Once associated with a web portal, browser settings control how the browser will behave once a user starts a streaming session for the web portal.",
+  "workspacesweb.browsersettings.CfnType": "AWS::WorkSpacesWeb::BrowserSettings",
+  "workspacesweb.browsersettings.CfnDocsKey": "aws-resource-workspacesweb-browsersettings",
+  "workspacesweb.browsersettings.AdditionalEncryptionContext": {
+    "Description": "Additional encryption context of the browser settings.",
+    "Required": "No",
+    "Type": "Map of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "workspacesweb.browsersettings.BrowserPolicy": {
+    "Description": "A JSON string containing Chrome Enterprise policies that will be applied to all streaming sessions.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "2",
+    "Maximum": "131072",
+    "Pattern": ".*\\{[\\S\\s]*\\}\\s*.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "workspacesweb.browsersettings.CustomerManagedKey": {
+    "Description": "The custom managed key of the browser settings.",
+    "Pattern": "^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "workspacesweb.browsersettings.Tags": {
+    "Description": "The tags to add to the browser settings resource. A tag is a key-value pair.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

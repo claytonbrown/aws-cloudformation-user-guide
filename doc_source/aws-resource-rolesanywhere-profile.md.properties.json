@@ -1,0 +1,67 @@
+{
+  "rolesanywhere.profile.CfnAbout": "Creates a *profile*, a list of the roles that Roles Anywhere service is trusted to assume. You use profiles to intersect permissions with IAM managed policies.\n\n**Required permissions: **`rolesanywhere:CreateProfile`.",
+  "rolesanywhere.profile.CfnType": "AWS::RolesAnywhere::Profile",
+  "rolesanywhere.profile.CfnDocsKey": "aws-resource-rolesanywhere-profile",
+  "rolesanywhere.profile.DurationSeconds": {
+    "Description": "Sets the maximum number of seconds that vended temporary credentials through [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/authentication-create-session.html) will be valid for, between 900 and 3600.",
+    "Required": "No",
+    "Type": "Double",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rolesanywhere.profile.Enabled": {
+    "Description": "Indicates whether the profile is enabled.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rolesanywhere.profile.ManagedPolicyArns": {
+    "Description": "A list of managed policy ARNs that apply to the vended session credentials.",
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rolesanywhere.profile.Name": {
+    "Description": "The name of the profile.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "^[ a-zA-Z0-9-_]*$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rolesanywhere.profile.RequireInstanceProperties": {
+    "Description": "Specifies whether instance properties are required in temporary credential requests with this profile.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rolesanywhere.profile.RoleArns": {
+    "Description": "A list of IAM role ARNs. During `CreateSession`, if a matching role ARN is provided, the properties in this profile will be applied to the intersection session policy.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rolesanywhere.profile.SessionPolicy": {
+    "Description": "A session policy that applies to the trust boundary of the vended session credentials.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "rolesanywhere.profile.Tags": {
+    "Description": "The tags to attach to the profile.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

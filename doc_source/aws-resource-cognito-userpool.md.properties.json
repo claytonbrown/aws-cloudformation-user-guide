@@ -1,5 +1,5 @@
 {
-  "cognito.userpool.CfnAbout": "The `AWS::Cognito::UserPool` resource creates an Amazon Cognito user pool. For more information on working with Amazon Cognito user pools, see [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) and [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html).",
+  "cognito.userpool.CfnAbout": "The `AWS::Cognito::UserPool` resource creates an Amazon Cognito user pool. For more information on working with Amazon Cognito user pools, see [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) and [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html).\n\n**Note**  \nIf you don't specify a value for a parameter, Amazon Cognito sets it to a default value.",
   "cognito.userpool.CfnType": "AWS::Cognito::UserPool",
   "cognito.userpool.CfnDocsKey": "aws-resource-cognito-userpool",
   "cognito.userpool.AccountRecoverySetting": {
@@ -26,20 +26,27 @@
     "Type": "List of String",
     "UpdateRequires": "No interruption"
   },
+  "cognito.userpool.DeletionProtection": {
+    "Description": "When active, `DeletionProtection` prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature.  When you try to delete a protected user pool in a `DeleteUserPool` API request, Amazon Cognito returns an `InvalidParameterException` error. To delete a protected user pool, send a new `DeleteUserPool` request after you deactivate deletion protection in an `UpdateUserPool` API request.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "ACTIVE | INACTIVE",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "cognito.userpool.DeviceConfiguration": {
-    "Description": "The device configuration.",
+    "Description": "The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.  When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.",
     "Required": "No",
     "Type": "DeviceConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.EmailConfiguration": {
-    "Description": "The email configuration.",
+    "Description": "The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.",
     "Required": "No",
     "Type": "EmailConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.EmailVerificationMessage": {
-    "Description": "A string representing the email verification message. EmailVerificationMessage is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.",
+    "Description": "This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html).",
     "Required": "No",
     "Type": "String",
     "Minimum": "6",
@@ -48,7 +55,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.EmailVerificationSubject": {
-    "Description": "A string representing the email verification subject. EmailVerificationSubject is allowed only if [EmailSendingAccount](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount) is DEVELOPER.",
+    "Description": "This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html).",
     "Required": "No",
     "Type": "String",
     "Minimum": "1",
@@ -69,7 +76,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.MfaConfiguration": {
-    "Description": "The multi-factor (MFA) configuration. Valid values include:  +  `OFF` MFA won't be used for any users.+  `ON` MFA is required for all users to sign in.+  `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.",
+    "Description": "The multi-factor authentication (MFA) configuration. Valid values include:  +  `OFF` MFA won't be used for any users.+  `ON` MFA is required for all users to sign in.+  `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.",
     "Required": "No",
     "Type": "String",
     "Allowed values": "OFF | ON | OPTIONAL",
@@ -98,18 +105,24 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.SmsConfiguration": {
-    "Description": "The SMS configuration.",
+    "Description": "The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account.",
     "Required": "No",
     "Type": "SmsConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.SmsVerificationMessage": {
-    "Description": "A string representing the SMS verification message.",
+    "Description": "This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html).",
     "Required": "No",
     "Type": "String",
     "Minimum": "6",
     "Maximum": "140",
     "Pattern": ".*\\{####\\}.*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cognito.userpool.UserAttributeUpdateSettings": {
+    "Description": "The settings for updates to user attributes. These settings include the property `AttributesRequireVerificationBeforeUpdate`, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see [ Verifying updates to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates).",
+    "Required": "No",
+    "Type": "UserAttributeUpdateSettings",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.UsernameAttributes": {
@@ -125,7 +138,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "cognito.userpool.UserPoolAddOns": {
-    "Description": "Enables advanced security risk detection. Set the key `AdvancedSecurityMode` to the value \"AUDIT\".",
+    "Description": "User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to `AUDIT`. To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED`.  For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html).",
     "Required": "No",
     "Type": "UserPoolAddOns",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

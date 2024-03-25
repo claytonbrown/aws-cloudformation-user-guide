@@ -1,0 +1,47 @@
+{
+  "entityresolution.matchingworkflow.CfnAbout": "Creates a `MatchingWorkflow` object which stores the configuration of the data processing job to be run. It is important to note that there should not be a pre-existing `MatchingWorkflow` with the same name. To modify an existing workflow, utilize the `UpdateMatchingWorkflow` API.",
+  "entityresolution.matchingworkflow.CfnType": "AWS::EntityResolution::MatchingWorkflow",
+  "entityresolution.matchingworkflow.CfnDocsKey": "aws-resource-entityresolution-matchingworkflow",
+  "entityresolution.matchingworkflow.Description": {
+    "Description": "A description of the workflow.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "entityresolution.matchingworkflow.InputSourceConfig": {
+    "Description": "A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName`.",
+    "Required": "Yes",
+    "Type": "List of [InputSource",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "entityresolution.matchingworkflow.OutputSourceConfig": {
+    "Description": "A list of `OutputSource` objects, each of which contains fields `OutputS3Path`, `ApplyNormalization`, and `Output`.",
+    "Required": "Yes",
+    "Type": "List of [OutputSource",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "entityresolution.matchingworkflow.ResolutionTechniques": {
+    "Description": "An object which defines the `resolutionType` and the `ruleBasedProperties`.",
+    "Required": "Yes",
+    "Type": "ResolutionTechniques",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "entityresolution.matchingworkflow.RoleArn": {
+    "Description": "The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "entityresolution.matchingworkflow.Tags": {
+    "Description": "The tags used to organize, track, or control access for this resource.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "entityresolution.matchingworkflow.WorkflowName": {
+    "Description": "The name of the workflow. There cannot be multiple `DataIntegrationWorkflows` with the same name.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  }
+}

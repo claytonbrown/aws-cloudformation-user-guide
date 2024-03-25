@@ -1,15 +1,15 @@
 {
-  "location.placeindex.CfnAbout": "The `AWS::Location::PlaceIndex` resource specifies a place index resource in your AWS account, which supports Places functions with geospatial data sourced from your chosen data provider.",
+  "location.placeindex.CfnAbout": "Specifies a place index resource in your AWS account. Use a place index resource to geocode addresses and other text queries by using the `SearchPlaceIndexForText` operation, and reverse geocode coordinates by using the `SearchPlaceIndexForPosition` operation, and enable autosuggestions by using the `SearchPlaceIndexForSuggestions` operation.\n\n**Note**  \nIf your application is tracking or routing assets you use in your business, such as delivery vehicles or employees, you must not use Esri as your geolocation provider. See section 82 of the [AWS service terms](http://aws.amazon.com/service-terms) for more details.",
   "location.placeindex.CfnType": "AWS::Location::PlaceIndex",
   "location.placeindex.CfnDocsKey": "aws-resource-location-placeindex",
   "location.placeindex.DataSource": {
-    "Description": "Specifies the data provider of geospatial data.  This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` will return an error.Valid values include:  + `Esri`+ `Here`",
+    "Description": "Specifies the geospatial data provider for the new place index.  This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.Valid values include:  + `Esri` – For additional information about [Esri](https://docs.aws.amazon.com/location/latest/developerguide/esri.html)'s coverage in your region of interest, see [Esri details on geocoding coverage](https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm).+ `Grab` – Grab provides place index functionality for Southeast Asia. For additional information about [GrabMaps](https://docs.aws.amazon.com/location/latest/developerguide/grab.html)' coverage, see [GrabMaps countries and areas covered](https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area).+ `Here` – For additional information about [HERE Technologies](https://docs.aws.amazon.com/location/latest/developerguide/HERE.html)' coverage in your region of interest, see [HERE details on goecoding coverage](https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html).",
     "Required": "Yes",
     "Type": "String",
     "UpdateRequires": "Replacement"
   },
   "location.placeindex.DataSourceConfiguration": {
-    "Description": "Specifies the data storage option for requesting Places.",
+    "Description": "Specifies the data storage option requesting Places.",
     "Required": "No",
     "Type": "DataSourceConfiguration",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -23,7 +23,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "location.placeindex.IndexName": {
-    "Description": "The name of the place index resource.  Requirements:  + Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).+ Must be a unique place index resource name.+ No spaces allowed. For example, `ExamplePlaceIndex`.",
+    "Description": "The name of the place index resource.   Requirements:  + Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_).+ Must be a unique place index resource name.+ No spaces allowed. For example, `ExamplePlaceIndex`.",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",

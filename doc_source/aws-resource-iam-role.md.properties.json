@@ -1,5 +1,5 @@
 {
-  "iam.role.CfnAbout": "Creates a new role for your AWS account. For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html). For information about quotas for role names and the number of roles you can create, see [IAM and AWS STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.",
+  "iam.role.CfnAbout": "Creates a new role for your AWS account.\n\n For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide*. For information about quotas for role names and the number of roles you can create, see [IAM and AWS STS quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.",
   "iam.role.CfnType": "AWS::IAM::Role",
   "iam.role.CfnDocsKey": "aws-resource-iam-role",
   "iam.role.AssumeRolePolicyDocument": {
@@ -13,7 +13,7 @@
     "Required": "No",
     "Type": "String",
     "Maximum": "1000",
-    "Pattern": "[\\p{L}\\p{M}\\p{Z}\\p{S}\\p{N}\\p{P}]*",
+    "Pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u00A1-\\u00FF]*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "iam.role.ManagedPolicyArns": {
@@ -23,7 +23,7 @@
     "UpdateRequires": "No interruption"
   },
   "iam.role.MaxSessionDuration": {
-    "Description": "The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.  Anyone who assumes the role from the or API can use the `DurationSeconds` API parameter or the `duration-seconds` CLI parameter to request a longer session. The `MaxSessionDuration` setting determines the maximum duration that can be requested using the `DurationSeconds` parameter. If users don't specify a value for the `DurationSeconds` parameter, their security credentials are valid for one hour by default. This applies when you use the `AssumeRole*` API operations or the `assume-role*` CLI operations but does not apply when you use those operations to create a console URL. For more information, see [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) in the *IAM User Guide*.",
+    "Description": "The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default value of one hour is applied. This setting can have a value from 1 hour to 12 hours.  Anyone who assumes the role from the AWS CLI or API can use the `DurationSeconds` API parameter or the `duration-seconds` AWS CLI parameter to request a longer session. The `MaxSessionDuration` setting determines the maximum duration that can be requested using the `DurationSeconds` parameter. If users don't specify a value for the `DurationSeconds` parameter, their security credentials are valid for one hour by default. This applies when you use the `AssumeRole*` API operations or the `assume-role*` AWS CLI operations but does not apply when you use those operations to create a console URL. For more information, see [Using IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html) in the *IAM User Guide*.",
     "Required": "No",
     "Type": "Integer",
     "Minimum": "3600",
@@ -36,7 +36,7 @@
     "Type": "String",
     "Minimum": "1",
     "Maximum": "512",
-    "Pattern": "(\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F)",
+    "Pattern": "(\\u002F)|(\\u002F[\\u0021-\\u007E]+\\u002F)",
     "UpdateRequires": "Replacement"
   },
   "iam.role.PermissionsBoundary": {

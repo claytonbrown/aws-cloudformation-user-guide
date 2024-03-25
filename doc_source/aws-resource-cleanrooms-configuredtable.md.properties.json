@@ -1,0 +1,55 @@
+{
+  "cleanrooms.configuredtable.CfnAbout": "Creates a new configured table resource.",
+  "cleanrooms.configuredtable.CfnType": "AWS::CleanRooms::ConfiguredTable",
+  "cleanrooms.configuredtable.CfnDocsKey": "aws-resource-cleanrooms-configuredtable",
+  "cleanrooms.configuredtable.AllowedColumns": {
+    "Description": "The columns within the underlying AWS Glue table that can be utilized within collaborations.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "Maximum": "225",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cleanrooms.configuredtable.AnalysisMethod": {
+    "Description": "The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "DIRECT_QUERY",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cleanrooms.configuredtable.AnalysisRules": {
+    "Description": "The entire created analysis rule.",
+    "Required": "No",
+    "Type": "List of [AnalysisRule",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtable.Description": {
+    "Description": "A description for the configured table.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "255",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDBFF-\\uDC00\\uDFFF\\t\\r\\n]*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtable.Name": {
+    "Description": "A name for the configured table.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "(?!\\s*$)[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDBFF-\\uDC00\\uDFFF\\t]*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cleanrooms.configuredtable.TableReference": {
+    "Description": "The AWS Glue table that this configured table represents.",
+    "Required": "Yes",
+    "Type": "TableReference",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cleanrooms.configuredtable.Tags": {
+    "Description": "An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

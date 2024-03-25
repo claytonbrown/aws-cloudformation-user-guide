@@ -3,24 +3,24 @@
   "datasync.locationfsxwindows.CfnType": "AWS::DataSync::LocationFSxWindows",
   "datasync.locationfsxwindows.CfnDocsKey": "aws-resource-datasync-locationfsxwindows",
   "datasync.locationfsxwindows.Domain": {
-    "Description": "The name of the Windows domain that the FSx for Windows File Server belongs to.",
+    "Description": "Specifies the name of the Windows domain that the FSx for Windows File Server belongs to.",
     "Required": "No",
     "Type": "String",
     "Maximum": "253",
-    "Pattern": "^([A-Za-z0-9]+[A-Za-z0-9-.]*)*[A-Za-z0-9-]*[A-Za-z0-9]$",
+    "Pattern": "^[A-Za-z0-9]((\\.|-+)?[A-Za-z0-9]){0,252}$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "datasync.locationfsxwindows.FsxFilesystemArn": {
-    "Description": "The Amazon Resource Name (ARN) for the FSx for Windows File Server file system.",
-    "Required": "Yes",
+    "Description": "Specifies the Amazon Resource Name (ARN) for the FSx for Windows File Server file system.",
+    "Required": "No",
     "Type": "String",
     "Maximum": "128",
     "Pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):fsx:[a-z\\-0-9]*:[0-9]{12}:file-system/fs-.*$",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "datasync.locationfsxwindows.Password": {
-    "Description": "The password of the user who has the permissions to access files and folders in the FSx for Windows File Server file system.",
-    "Required": "Yes",
+    "Description": "Specifies the password of the user who has the permissions to access files and folders in the file system.",
+    "Required": "No",
     "Type": "String",
     "Maximum": "104",
     "Pattern": "^.{0,104}$",
@@ -35,7 +35,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "datasync.locationfsxwindows.Subdirectory": {
-    "Description": "A subdirectory in the location's path. This subdirectory in the Amazon FSx for Windows File Server file system is used to read data from the Amazon FSx for Windows File Server source location or write data to the FSx for Windows File Server destination.",
+    "Description": "Specifies a mount path for your file system using forward slashes. This is where DataSync reads or writes data (depending on if this is a source or destination location).",
     "Required": "No",
     "Type": "String",
     "Maximum": "4096",
@@ -43,7 +43,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "datasync.locationfsxwindows.Tags": {
-    "Description": "The key-value pair that represents a tag that you want to add to the resource. The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.",
+    "Description": "Specifies labels that help you categorize, filter, and search for your AWS resources. We recommend creating at least a name tag for your location.",
     "Required": "No",
     "Type": "List of [Tag",
     "Maximum": "50",

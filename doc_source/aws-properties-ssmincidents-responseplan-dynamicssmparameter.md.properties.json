@@ -1,0 +1,17 @@
+{
+  "ssmincidents.responseplan.dynamicssmparameter.CfnAbout": "When you add a runbook to a response plan, you can specify the parameters the runbook should use at runtime. Response plans support parameters with both static and dynamic values. For static values, you enter the value when you define the parameter in the response plan. For dynamic values, the system determines the correct parameter value by collecting information from the incident. Incident Manager supports the following dynamic parameters:\n\n**Incident ARN**\n\nWhen Incident Manager creates an incident, the system captures the Amazon Resource Name (ARN) of the corresponding incident record and enters it for this parameter in the runbook.\n\n**Note**  \nThis value can only be assigned to parameters of type `String`. If assigned to a parameter of any other type, the runbook fails to run. \n\n**Involved resources**\n\nWhen Incident Manager creates an incident, the system captures the ARNs of the resources involved in the incident. These resource ARNs are then assigned to this parameter in the runbook. \n\n**Note**  \nThis value can only be assigned to parameters of type `StringList`. If assigned to a parameter of any other type, the runbook fails to run.",
+  "ssmincidents.responseplan.dynamicssmparameter.CfnType": "AWS::SSMIncidents::ResponsePlan.DynamicSsmParameter",
+  "ssmincidents.responseplan.dynamicssmparameter.CfnDocsKey": "aws-properties-ssmincidents-responseplan-dynamicssmparameter",
+  "ssmincidents.responseplan.dynamicssmparameter.Key": {
+    "Description": "The key parameter to use when running the Systems Manager Automation runbook.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "ssmincidents.responseplan.dynamicssmparameter.Value": {
+    "Description": "The dynamic parameter value.",
+    "Required": "Yes",
+    "Type": "DynamicSsmParameterValue",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

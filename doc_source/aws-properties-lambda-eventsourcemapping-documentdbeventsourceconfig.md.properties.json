@@ -1,0 +1,30 @@
+{
+  "lambda.eventsourcemapping.documentdbeventsourceconfig.CfnAbout": "Specific configuration settings for a DocumentDB event source.",
+  "lambda.eventsourcemapping.documentdbeventsourceconfig.CfnType": "AWS::Lambda::EventSourceMapping.DocumentDBEventSourceConfig",
+  "lambda.eventsourcemapping.documentdbeventsourceconfig.CfnDocsKey": "aws-properties-lambda-eventsourcemapping-documentdbeventsourceconfig",
+  "lambda.eventsourcemapping.documentdbeventsourceconfig.CollectionName": {
+    "Description": "The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "57",
+    "Pattern": "(^(?!(system\\x2e)))(^[_a-zA-Z0-9])([^$]*)",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.documentdbeventsourceconfig.DatabaseName": {
+    "Description": "The name of the database to consume within the DocumentDB cluster.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "63",
+    "Pattern": "[^ /\\.$\\x22]*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "lambda.eventsourcemapping.documentdbeventsourceconfig.FullDocument": {
+    "Description": "Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "Default | UpdateLookup",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

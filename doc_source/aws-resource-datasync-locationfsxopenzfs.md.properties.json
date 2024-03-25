@@ -1,0 +1,43 @@
+{
+  "datasync.locationfsxopenzfs.CfnAbout": "The `AWS::DataSync::LocationFSxOpenZFS` resource specifies an endpoint for an Amazon FSx for OpenZFS file system.",
+  "datasync.locationfsxopenzfs.CfnType": "AWS::DataSync::LocationFSxOpenZFS",
+  "datasync.locationfsxopenzfs.CfnDocsKey": "aws-resource-datasync-locationfsxopenzfs",
+  "datasync.locationfsxopenzfs.FsxFilesystemArn": {
+    "Description": "The Amazon Resource Name (ARN) of the FSx for OpenZFS file system.",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "128",
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):fsx:[a-z\\-0-9]*:[0-9]{12}:file-system/fs-.*$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "datasync.locationfsxopenzfs.Protocol": {
+    "Description": "The type of protocol that AWS DataSync uses to access your file system.",
+    "Required": "Yes",
+    "Type": "Protocol",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "datasync.locationfsxopenzfs.SecurityGroupArns": {
+    "Description": "The ARNs of the security groups that are used to configure the FSx for OpenZFS file system.",
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\\-0-9]*:[0-9]{12}:security-group/.*$",
+    "Length constraints": "Maximum length of 128\\.",
+    "Required": "Yes",
+    "Type": "List of String",
+    "Maximum": "5",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "datasync.locationfsxopenzfs.Subdirectory": {
+    "Description": "A subdirectory in the location's path that must begin with `/fsx`. DataSync uses this subdirectory to read or write data (depending on whether the file system is a source or destination location).",
+    "Required": "No",
+    "Type": "String",
+    "Maximum": "4096",
+    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,4096}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "datasync.locationfsxopenzfs.Tags": {
+    "Description": "The key-value pair that represents a tag that you want to add to the resource. The value can be an empty string. This value helps you manage, filter, and search for your resources. We recommend that you create a name tag for your location.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

@@ -13,7 +13,7 @@
     "UpdateRequires": "Replacement"
   },
   "elasticache.replicationgroup.AuthToken": {
-    "Description": "**Reserved parameter.** The password used to access a password protected server.   `AuthToken` can be specified only on replication groups where `TransitEncryptionEnabled` is `true`. For more information, see [Authenticating Users with the Redis AUTH Command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html).  For HIPAA compliance, you must specify `TransitEncryptionEnabled` as `true`, an `AuthToken`, and a `CacheSubnetGroup`.Password constraints:  + Must be only printable ASCII characters.+ Must be at least 16 characters and no more than 128 characters in length.+ Nonalphanumeric characters are restricted to (!, &, #, $, ^, , -, ). For more information, see [AUTH password](http://redis.io/commands/AUTH) at http://redis.io/commands/AUTH.",
+    "Description": "**Reserved parameter.** The password used to access a password protected server.   `AuthToken` can be specified only on replication groups where `TransitEncryptionEnabled` is `true`. For more information, see [Authenticating Users with the Redis AUTH Command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html).  For HIPAA compliance, you must specify `TransitEncryptionEnabled` as `true`, an `AuthToken`, and a `CacheSubnetGroup`.Password constraints:  + Must be only printable ASCII characters.+ Must be at least 16 characters and no more than 128 characters in length.+ Nonalphanumeric characters are restricted to (!, &, #, $, ^, , -, ). For more information, see [AUTH password](http://redis.io/commands/AUTH) at http://redis.io/commands/AUTH.  If ADDING the AuthToken, update requires [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement).",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "Some interruptions"
@@ -62,6 +62,12 @@
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "elasticache.replicationgroup.ClusterMode": {
+    "Description": "Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first set the cluster mode to Compatible. Compatible mode allows your Redis clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Redis clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to Enabled. For more information, see [Modify cluster mode](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/modify-cluster-mode.html).",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "elasticache.replicationgroup.DataTieringEnabled": {
     "Description": "Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to true when using r6gd nodes. For more information, see [Data tiering](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html).",
     "Required": "No",
@@ -73,7 +79,7 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticache.replicationgroup.Engine": {
-    "Description": "The name of the cache engine to be used for the clusters in this replication group. Must be Redis.",
+    "Description": "The name of the cache engine to be used for the clusters in this replication group. The value must be set to `Redis`.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
@@ -89,6 +95,13 @@
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "elasticache.replicationgroup.IpDiscovery": {
+    "Description": "The network type you choose when creating a replication group, either `ipv4` | `ipv6`. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](http://aws.amazon.com/ec2/nitro/).",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "ipv4 | ipv6",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticache.replicationgroup.KmsKeyId": {
     "Description": "The ID of the KMS key used to encrypt the disk on the cluster.",
@@ -111,6 +124,13 @@
     ],
     "Type": "Boolean",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "elasticache.replicationgroup.NetworkType": {
+    "Description": "Must be either `ipv4` | `ipv6` | `dual_stack`. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the [Nitro system](http://aws.amazon.com/ec2/nitro/).",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "dual_stack | ipv4 | ipv6",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "elasticache.replicationgroup.NodeGroupConfiguration": {},
   "elasticache.replicationgroup.NodeGroupConfiguration ": {
@@ -229,10 +249,17 @@
       "False"
     ],
     "Type": "Boolean",
-    "UpdateRequires": "Replacement"
+    "UpdateRequires": "No interruption"
+  },
+  "elasticache.replicationgroup.TransitEncryptionMode": {
+    "Description": "A setting that allows you to migrate your clients to use in-transit encryption, with no downtime.  When setting `TransitEncryptionEnabled` to `true`, you can set your `TransitEncryptionMode` to `preferred` in the same request, to allow both encrypted and unencrypted connections at the same time. Once you migrate all your Redis clients to use encrypted connections you can modify the value to `required` to allow encrypted connections only.  Setting `TransitEncryptionMode` to `required` is a two-step process that requires you to first set the `TransitEncryptionMode` to `preferred`, after that you can set `TransitEncryptionMode` to `required`.  This process will not trigger the replacement of the replication group.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "preferred | required",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "elasticache.replicationgroup.UserGroupIds": {
-    "Description": "The list of user groups to associate with the replication group.",
+    "Description": "The ID of user group to associate with the replication group.",
     "Required": "No",
     "Type": "List of String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"

@@ -1,0 +1,22 @@
+{
+  "cloudtrail.resourcepolicy.CfnAbout": "Attaches a resource-based permission policy to a CloudTrail channel that is used for an integration with an event source outside of AWS. For more information about resource-based policies, see [CloudTrail resource-based policy examples](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html) in the *CloudTrail User Guide*.",
+  "cloudtrail.resourcepolicy.CfnType": "AWS::CloudTrail::ResourcePolicy",
+  "cloudtrail.resourcepolicy.CfnDocsKey": "aws-resource-cloudtrail-resourcepolicy",
+  "cloudtrail.resourcepolicy.ResourceArn": {
+    "Description": "The Amazon Resource Name (ARN) of the CloudTrail channel attached to the resource-based policy. The following is the format of a resource ARN: `arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel`.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "3",
+    "Maximum": "256",
+    "Pattern": "^[a-zA-Z0-9._/\\-:]+$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cloudtrail.resourcepolicy.ResourcePolicy": {
+    "Description": "A JSON-formatted string for an AWS resource-based policy.   The following are requirements for the resource policy:  +  Contains only one action: cloudtrail-data:PutAuditEvents +  Contains at least one statement. The policy can have a maximum of 20 statements. +  Each statement contains at least one principal. A statement can have a maximum of 50 principals.",
+    "Required": "Yes",
+    "Type": "Json",
+    "Minimum": "1",
+    "Maximum": "8192",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

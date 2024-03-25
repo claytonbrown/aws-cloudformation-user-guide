@@ -1,5 +1,5 @@
 {
-  "route53resolver.resolverendpoint.CfnAbout": "Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:\n+ An *inbound Resolver endpoint* forwards DNS queries to the DNS service for a VPC from your network.\n+ An *outbound Resolver endpoint* forwards DNS queries from the DNS service for a VPC to your network.",
+  "route53resolver.resolverendpoint.CfnAbout": "Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound:\n+ An *inbound Resolver endpoint* forwards DNS queries to the DNS service for a VPC from your network.\n+ An *outbound Resolver endpoint* forwards DNS queries from the DNS service for a VPC to your network.\n\n**Important**  \nYou cannot update `ResolverEndpointType` and `IpAddresses` in the same request.\nWhen you update a dual-stack IP address, you must update both IP addresses. You can’t update only an IPv4 or IPv6 and keep an existing IP address.",
   "route53resolver.resolverendpoint.CfnType": "AWS::Route53Resolver::ResolverEndpoint",
   "route53resolver.resolverendpoint.CfnDocsKey": "aws-resource-route53resolver-resolverendpoint",
   "route53resolver.resolverendpoint.Direction": {
@@ -10,10 +10,10 @@
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "route53resolver.resolverendpoint.IpAddresses": {
-    "Description": "The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.",
+    "Description": "The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.   Even though the minimum is 1, Route 53 requires that you create at least two.",
     "Required": "Yes",
     "Type": "List of [IpAddressRequest",
-    "Maximum": "10",
+    "Maximum": "20",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "route53resolver.resolverendpoint.Name": {
@@ -22,6 +22,30 @@
     "Type": "String",
     "Maximum": "64",
     "Pattern": "(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "route53resolver.resolverendpoint.OutpostArn": {
+    "Description": "The ARN (Amazon Resource Name) for the Outpost.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "^arn:aws([a-z-]+)?:outposts:[a-z\\d-]+:\\d{12}:outpost/op-[a-f0-9]{17}$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "route53resolver.resolverendpoint.PreferredInstanceType": {
+    "Description": "The Amazon EC2 instance type.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "route53resolver.resolverendpoint.ResolverEndpointType": {
+    "Description": "The Resolver endpoint IP address type.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "DUALSTACK | IPV4 | IPV6",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "route53resolver.resolverendpoint.SecurityGroupIds": {

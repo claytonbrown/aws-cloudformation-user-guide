@@ -1,0 +1,48 @@
+{
+  "shield.protectiongroup.CfnAbout": "Creates a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. \n\n**Note**  \nTo configure this resource through AWS CloudFormation, you must be subscribed to AWS Shield Advanced. You can subscribe through the [Shield Advanced console](https://console.aws.amazon.com/wafv2/shieldv2",
+  "shield.protectiongroup.CfnType": "AWS::Shield::ProtectionGroup",
+  "shield.protectiongroup.CfnDocsKey": "aws-resource-shield-protectiongroup",
+  "shield.protectiongroup.Aggregation": {
+    "Description": "Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.  + Sum - Use the total traffic across the group. This is a good choice for most cases. Examples include Elastic IP addresses for EC2 instances that scale manually or automatically.+ Mean - Use the average of the traffic across the group. This is a good choice for resources that share traffic uniformly. Examples include accelerators and load balancers.+ Max - Use the highest traffic from each resource. This is useful for resources that don't share traffic and for resources that share that traffic in a non-uniform way. Examples include Amazon CloudFront distributions and origin resources for CloudFront distributions.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "MAX | MEAN | SUM",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "shield.protectiongroup.Members": {
+    "Description": "The ARNs (Amazon Resource Names) of the resources to include in the protection group. You must set this when you set `Pattern` to `ARBITRARY` and you must not set it for any other `Pattern` setting.",
+    "Required": "No",
+    "Type": "List of String",
+    "Maximum": "10000",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "shield.protectiongroup.Pattern": {
+    "Description": "The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource ARNs (Amazon Resource Names), or include all resources of a specified resource type.",
+    "Required": "Yes",
+    "Type": "String",
+    "Allowed values": "ALL | ARBITRARY | BY_RESOURCE_TYPE",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "shield.protectiongroup.ProtectionGroupId": {
+    "Description": "The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "36",
+    "Pattern": "[a-zA-Z0-9\\\\-]*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "shield.protectiongroup.ResourceType": {
+    "Description": "The resource type to include in the protection group. All protected resources of this type are included in the protection group. You must set this when you set `Pattern` to `BY_RESOURCE_TYPE` and you must not set it for any other `Pattern` setting.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "APPLICATION_LOAD_BALANCER | CLASSIC_LOAD_BALANCER | CLOUDFRONT_DISTRIBUTION | ELASTIC_IP_ALLOCATION | GLOBAL_ACCELERATOR | ROUTE_53_HOSTED_ZONE",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "shield.protectiongroup.Tags": {
+    "Description": "Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as \"environment\") and the tag value represents a specific value within that category (such as \"test,\" \"development,\" or \"production\"). You can add up to 50 tags to each AWS resource.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

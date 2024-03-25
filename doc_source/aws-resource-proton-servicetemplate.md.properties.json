@@ -1,0 +1,51 @@
+{
+  "proton.servicetemplate.CfnAbout": "Create a service template. The administrator creates a service template to define standardized infrastructure and an optional CI/CD service pipeline. Developers, in turn, select the service template from AWS Proton. If the selected service template includes a service pipeline definition, they provide a link to their source code repository. AWS Proton then deploys and manages the infrastructure defined by the selected service template. For more information, see [AWS Proton templates](https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html) in the *AWS Proton User Guide*.",
+  "proton.servicetemplate.CfnType": "AWS::Proton::ServiceTemplate",
+  "proton.servicetemplate.CfnDocsKey": "aws-resource-proton-servicetemplate",
+  "proton.servicetemplate.Description": {
+    "Description": "A description of the service template.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "0",
+    "Maximum": "500",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "proton.servicetemplate.DisplayName": {
+    "Description": "The service template name as displayed in the developer interface.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "proton.servicetemplate.EncryptionKey": {
+    "Description": "The customer provided service template encryption key that's used to encrypt data.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "200",
+    "Pattern": "^arn:(aws|aws-cn|aws-us-gov):[a-zA-Z0-9-]+:[a-zA-Z0-9-]*:\\d{12}:([\\w+=,.@-]+[/:])*[\\w+=,.@-]+$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "proton.servicetemplate.Name": {
+    "Description": "The name of the service template.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "100",
+    "Pattern": "^[0-9A-Za-z]+[0-9A-Za-z_\\-]*$",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "proton.servicetemplate.PipelineProvisioning": {
+    "Description": "If `pipelineProvisioning` is `true`, a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "Replacement"
+  },
+  "proton.servicetemplate.Tags": {
+    "Description": "An object that includes the template bundle S3 bucket path and name for the new version of a service template.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

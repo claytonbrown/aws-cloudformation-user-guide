@@ -2,6 +2,12 @@
   "evidently.project.CfnAbout": "Creates a project, which is the logical object in Evidently that can contain features, launches, and experiments. Use projects to group similar features together.",
   "evidently.project.CfnType": "AWS::Evidently::Project",
   "evidently.project.CfnDocsKey": "aws-resource-evidently-project",
+  "evidently.project.AppConfigResource": {
+    "Description": "Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig*. Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [ Use client-side evaluation - powered by AWS AppConfig.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)  This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.  To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.",
+    "Required": "No",
+    "Type": "AppConfigResourceObject",
+    "UpdateRequires": "No interruption"
+  },
   "evidently.project.DataDelivery": {
     "Description": "A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.  You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.",
     "Required": "No",
@@ -12,12 +18,18 @@
     "Description": "An optional description of the project.",
     "Required": "No",
     "Type": "String",
+    "Minimum": "0",
+    "Maximum": "160",
+    "Pattern": ".*",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "evidently.project.Name": {
     "Description": "The name for the project. It can include up to 127 characters.",
     "Required": "Yes",
     "Type": "String",
+    "Minimum": "1",
+    "Maximum": "127",
+    "Pattern": "[-a-zA-Z0-9._]*",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "evidently.project.Tags": {

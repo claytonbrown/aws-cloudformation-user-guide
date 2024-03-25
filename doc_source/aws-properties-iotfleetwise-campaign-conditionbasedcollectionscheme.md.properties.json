@@ -1,0 +1,33 @@
+{
+  "iotfleetwise.campaign.conditionbasedcollectionscheme.CfnAbout": "Information about a collection scheme that uses a simple logical expression to recognize what data to collect.",
+  "iotfleetwise.campaign.conditionbasedcollectionscheme.CfnType": "AWS::IoTFleetWise::Campaign.ConditionBasedCollectionScheme",
+  "iotfleetwise.campaign.conditionbasedcollectionscheme.CfnDocsKey": "aws-properties-iotfleetwise-campaign-conditionbasedcollectionscheme",
+  "iotfleetwise.campaign.conditionbasedcollectionscheme.ConditionLanguageVersion": {
+    "Description": "(Optional) Specifies the version of the conditional expression language.",
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "1",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "iotfleetwise.campaign.conditionbasedcollectionscheme.Expression": {
+    "Description": "The logical expression used to recognize what data to collect. For example, `$variable.Vehicle.OutsideAirTemperature >= 105.0`.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "iotfleetwise.campaign.conditionbasedcollectionscheme.MinimumTriggerIntervalMs": {
+    "Description": "(Optional) The minimum duration of time between two triggering events to collect data, in milliseconds.  If a signal changes often, you might want to collect data at a slower rate.",
+    "Required": "No",
+    "Type": "Double",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "iotfleetwise.campaign.conditionbasedcollectionscheme.TriggerMode": {
+    "Description": "(Optional) Whether to collect data for all triggering events (`ALWAYS`). Specify (`RISING_EDGE`), or specify only when the condition first evaluates to false. For example, triggering on \"AirbagDeployed\"; Users aren't interested on triggering when the airbag is already exploded; they only care about the change from not deployed => deployed.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "ALWAYS | RISING_EDGE",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  }
+}

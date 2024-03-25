@@ -3,7 +3,7 @@
   "gamelift.fleet.ippermission.CfnType": "AWS::GameLift::Fleet.IpPermission",
   "gamelift.fleet.ippermission.CfnDocsKey": "aws-properties-gamelift-fleet-ippermission",
   "gamelift.fleet.ippermission.FromPort": {
-    "Description": "A starting value for a range of allowed port numbers.  For fleets using Windows and Linux builds, only ports 1026-60000 are valid.",
+    "Description": "A starting value for a range of allowed port numbers.  For fleets using Linux builds, only ports `22` and `1026-60000` are valid.  For fleets using Windows builds, only ports `1026-60000` are valid.",
     "Required": "Yes",
     "Type": "Integer",
     "Minimum": "1",
@@ -25,7 +25,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "gamelift.fleet.ippermission.ToPort": {
-    "Description": "An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `FromPort`.  For fleets using Windows and Linux builds, only ports 1026-60000 are valid.",
+    "Description": "An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be equal to or greater than `FromPort`.  For fleets using Linux builds, only ports `22` and `1026-60000` are valid.  For fleets using Windows builds, only ports `1026-60000` are valid.",
     "Required": "Yes",
     "Type": "Integer",
     "Minimum": "1",

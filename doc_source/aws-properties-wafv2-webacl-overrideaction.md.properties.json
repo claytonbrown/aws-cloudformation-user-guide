@@ -1,15 +1,15 @@
 {
-  "wafv2.webacl.overrideaction.CfnAbout": "The action to use to override the `Action` settings on the rules in the web ACL. You can use none, in which case the rule actions are in effect, or count, in which case, if a rule matches a web request, it only counts the match.",
+  "wafv2.webacl.overrideaction.CfnAbout": "The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only. \n\nYou can only use this for rule statements that reference a rule group, like `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement`. \n\n**Note**  \nThis option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead use the rule action override option, with `Count` action, in your rule group reference statement settings.",
   "wafv2.webacl.overrideaction.CfnType": "AWS::WAFv2::WebACL.OverrideAction",
   "wafv2.webacl.overrideaction.CfnDocsKey": "aws-properties-wafv2-webacl-overrideaction",
   "wafv2.webacl.overrideaction.Count": {
-    "Description": "Override the rule action settings to count.",
+    "Description": "Override the rule group evaluation result to count only.   This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead use the rule action override option, with `Count` action, in your rule group reference statement settings.",
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "wafv2.webacl.overrideaction.None": {
-    "Description": "Don't override the rule action settings.",
+    "Description": "Don't override the rule group evaluation result. This is the most common setting.",
     "Required": "No",
     "Type": "Json",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

@@ -2,6 +2,13 @@
   "ec2.keypair.CfnAbout": "Specifies a key pair for use with an Amazon Elastic Compute Cloud instance as follows:\n+ To import an existing key pair, include the `PublicKeyMaterial` property.\n+ To create a new key pair, omit the `PublicKeyMaterial` property.\n\nWhen you import an existing key pair, you specify the public key material for the key. We assume that you have the private key material for the key. AWS CloudFormation does not create or return the private key material when you import a key pair.\n\nWhen you create a new key pair, the private key is saved to AWS Systems Manager Parameter Store, using a parameter with the following name: `/ec2/keypair/{key_pair_id}`. For more information about retrieving private key, and the required permissions, see [Create a key pair using AWS CloudFormation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html",
   "ec2.keypair.CfnType": "AWS::EC2::KeyPair",
   "ec2.keypair.CfnDocsKey": "aws-resource-ec2-keypair",
+  "ec2.keypair.KeyFormat": {
+    "Description": "The format of the key pair.  Default: `pem`",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "pem | ppk",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
   "ec2.keypair.KeyName": {
     "Description": "A unique name for the key pair.  Constraints: Up to 255 ASCII characters",
     "Required": "Yes",
@@ -19,12 +26,12 @@
     "Description": "The public key material. The `PublicKeyMaterial` property is used to import a key pair. If this property is not specified, then a new key pair will be created.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
   "ec2.keypair.Tags": {
     "Description": "The tags to apply to the key pair.",
     "Required": "No",
     "Type": "List of [Tag",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

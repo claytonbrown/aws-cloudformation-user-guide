@@ -1,0 +1,54 @@
+{
+  "iotfleetwise.decodermanifest.CfnAbout": "Creates the decoder manifest associated with a model manifest. To create a decoder manifest, the following must be true:\n+ Every signal decoder has a unique name.\n+ Each signal decoder is associated with a network interface.\n+ Each network interface has a unique ID.\n+ The signal decoders are specified in the model manifest.",
+  "iotfleetwise.decodermanifest.CfnType": "AWS::IoTFleetWise::DecoderManifest",
+  "iotfleetwise.decodermanifest.CfnDocsKey": "aws-resource-iotfleetwise-decodermanifest",
+  "iotfleetwise.decodermanifest.Description": {
+    "Description": "(Optional) A brief description of the decoder manifest.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "2048",
+    "Pattern": "[^\\u0000-\\u001F\\u007F]+",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotfleetwise.decodermanifest.ModelManifestArn": {
+    "Description": "The Amazon Resource Name (ARN) of a vehicle model (model manifest) associated with the decoder manifest.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "iotfleetwise.decodermanifest.Name": {
+    "Description": "The name of the decoder manifest.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "iotfleetwise.decodermanifest.NetworkInterfaces": {
+    "Description": "(Optional) A list of information about available network interfaces.",
+    "Required": "No",
+    "Type": "List of [NetworkInterfacesItems",
+    "Maximum": "500",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotfleetwise.decodermanifest.SignalDecoders": {
+    "Description": "(Optional) A list of information about signal decoders.",
+    "Required": "No",
+    "Type": "List of [SignalDecodersItems",
+    "Maximum": "500",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotfleetwise.decodermanifest.Status": {
+    "Description": "(Optional) The state of the decoder manifest. If the status is `ACTIVE`, the decoder manifest can't be edited. If the status is marked `DRAFT`, you can edit the decoder manifest.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "ACTIVE | DRAFT",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "iotfleetwise.decodermanifest.Tags": {
+    "Description": "(Optional) Metadata that can be used to manage the decoder manifest.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "50",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

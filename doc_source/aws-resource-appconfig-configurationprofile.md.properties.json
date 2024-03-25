@@ -18,7 +18,7 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appconfig.configurationprofile.LocationUri": {
-    "Description": "A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store and for feature flags, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://` or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name in the format `ssm-parameter://` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3:/// `. Here is an example: `s3://my-bucket/my-app/us-east-1/my-config.json`",
+    "Description": "A URI to locate the configuration. You can specify the following:  + For the AWS AppConfig hosted configuration store and for feature flags, specify `hosted`.+ For an AWS Systems Manager Parameter Store parameter, specify either the parameter name in the format `ssm-parameter://` or the ARN.+ For an AWS CodePipeline pipeline, specify the URI in the following format: `codepipeline`://.+ For an AWS Secrets Manager secret, specify the URI in the following format: `secretsmanager`://.+ For an Amazon S3 object, specify the URI in the following format: `s3:/// `. Here is an example: `s3://my-bucket/my-app/us-east-1/my-config.json` + For an SSM document, specify either the document name in the format `ssm-document://` or the Amazon Resource Name (ARN).",
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
@@ -30,7 +30,7 @@
     "Required": "Yes",
     "Type": "String",
     "Minimum": "1",
-    "Maximum": "64",
+    "Maximum": "128",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "appconfig.configurationprofile.RetrievalRoleArn": {

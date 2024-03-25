@@ -1,9 +1,9 @@
 {
-  "amplify.app.CfnAbout": "The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.",
+  "amplify.app.CfnAbout": "The AWS::Amplify::App resource specifies Apps in Amplify Hosting. An App is a collection of branches.",
   "amplify.app.CfnType": "AWS::Amplify::App",
   "amplify.app.CfnDocsKey": "aws-resource-amplify-app",
   "amplify.app.AccessToken": {
-    "Description": "Personal Access token for 3rd party source control system for an Amplify app, used to create webhook and read-only deploy key. Token is not stored.",
+    "Description": "The personal access token for a GitHub repository for an Amplify app. The personal access token is used to authorize access to a GitHub repository using the Amplify GitHub App. The token is not stored.  Use `AccessToken` for GitHub repositories only. To authorize access to a repository provider such as Bitbucket or CodeCommit, use `OauthToken`.  You must specify either `AccessToken` or `OauthToken` when you create a new app.  Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
@@ -45,7 +45,7 @@
     "UpdateRequires": "No interruption"
   },
   "amplify.app.EnableBranchAutoDeletion": {
-    "Description": "Automatically disconnect a branch in the Amplify Console when you delete a branch from your Git repository.",
+    "Description": "Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.",
     "Required": "No",
     "AllowedValues": [
       "True",
@@ -55,10 +55,10 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amplify.app.EnvironmentVariables": {
-    "Description": "The environment variables map for an Amplify app.",
+    "Description": "The environment variables map for an Amplify app.   For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide*.",
     "Required": "No",
     "Type": "List of [EnvironmentVariable",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "amplify.app.IAMServiceRole": {
     "Description": "The AWS Identity and Access Management (IAM) service role for the Amazon Resource Name (ARN) of the Amplify app.",
@@ -73,10 +73,16 @@
     "UpdateRequires": "No interruption"
   },
   "amplify.app.OauthToken": {
-    "Description": "The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.",
+    "Description": "The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.  Use `OauthToken` for repository providers other than GitHub, such as Bitbucket or CodeCommit. To authorize access to GitHub as your repository provider, use `AccessToken`.  You must specify either `OauthToken` or `AccessToken` when you create a new app.  Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "No interruption"
+  },
+  "amplify.app.Platform": {
+    "Description": "The platform for the Amplify app. For a static app, set the platform type to `WEB`. For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE`. For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC`.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "amplify.app.Repository": {
     "Description": "The repository for an Amplify app.",

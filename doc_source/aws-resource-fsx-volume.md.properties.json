@@ -1,47 +1,45 @@
 {
+  "fsx.volume.CfnAbout": "Creates an FSx for ONTAP or Amazon FSx for OpenZFS storage volume.",
+  "fsx.volume.CfnType": "AWS::FSx::Volume",
+  "fsx.volume.CfnDocsKey": "aws-resource-fsx-volume",
   "fsx.volume.BackupId": {
+    "Description": "Specifies the ID of the volume backup to use to create a new volume.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
   },
+  "fsx.volume.Name": {
+    "Description": "The name of the volume.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "203",
+    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,203}$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "fsx.volume.OntapConfiguration": {
+    "Description": "The configuration of an Amazon FSx for NetApp ONTAP volume.",
+    "Required": "No",
+    "Type": "OntapConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "fsx.volume.OpenZFSConfiguration": {
+    "Description": "The configuration of an Amazon FSx for OpenZFS volume.",
     "Required": "No",
     "Type": "OpenZFSConfiguration",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "fsx.volume.VolumeType": {
-    "Allowed values": "ONTAP | OPENZFS",
-    "Required": "No",
-    "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
-  },
-  "fsx.volume.Options": {
-    "Required": "No",
-    "Type": "List of String",
-    "Maximum": "1",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "fsx.volume.Name": {
-    "Pattern": "^[^\\u0000\\u0085\\u2028\\u2029\\r\\n]{1,203}$",
-    "Required": "No",
-    "Maximum": "203",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)",
-    "Minimum": "1",
-    "Type": "String"
-  },
   "fsx.volume.Tags": {
+    "Description": "An array of key-value pairs to apply to this resource.  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
     "Required": "No",
     "Type": "List of [Tag",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
-  "fsx.volume.SnapshotId": {
+  "fsx.volume.VolumeType": {
+    "Description": "The type of the volume.",
     "Required": "No",
     "Type": "String",
-    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
-  },
-  "fsx.volume.OntapConfiguration": {
-    "Required": "No",
-    "Type": "OntapConfiguration",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "Allowed values": "ONTAP | OPENZFS",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
   }
 }

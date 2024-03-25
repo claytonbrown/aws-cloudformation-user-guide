@@ -1,0 +1,24 @@
+{
+  "apprunner.service.serviceobservabilityconfiguration.CfnAbout": "Describes the observability configuration of an AWS App Runner service. These are additional observability features, like tracing, that you choose to enable. They're configured in a separate resource that you associate with your service.",
+  "apprunner.service.serviceobservabilityconfiguration.CfnType": "AWS::AppRunner::Service.ServiceObservabilityConfiguration",
+  "apprunner.service.serviceobservabilityconfiguration.CfnDocsKey": "aws-properties-apprunner-service-serviceobservabilityconfiguration",
+  "apprunner.service.serviceobservabilityconfiguration.ObservabilityConfigurationArn": {
+    "Description": "The Amazon Resource Name (ARN) of the observability configuration that is associated with the service. Specified only when `ObservabilityEnabled` is `true`.  Specify an ARN with a name and a revision number to associate that revision. For example: `arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing/3`   Specify just the name to associate the latest revision. For example: `arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing`",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1011",
+    "Pattern": "arn:aws(-[\\w]+)*:[a-z0-9-\\\\.]{0,63}:[a-z0-9-\\\\.]{0,63}:[0-9]{12}:(\\w|\\/|-){1,1011}",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apprunner.service.serviceobservabilityconfiguration.ObservabilityEnabled": {
+    "Description": "When `true`, an observability configuration resource is associated with the service, and an `ObservabilityConfigurationArn` is specified.",
+    "Required": "Yes",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  }
+}

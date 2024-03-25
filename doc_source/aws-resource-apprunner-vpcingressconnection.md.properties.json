@@ -1,0 +1,35 @@
+{
+  "apprunner.vpcingressconnection.CfnAbout": "The `AWS::AppRunner::VpcIngressConnection` resource is an AWS App Runner resource type that specifies an App Runner VPC Ingress Connection.\n\nApp Runner requires this resource when you want to associate your App Runner service to an Amazon VPC endpoint.",
+  "apprunner.vpcingressconnection.CfnType": "AWS::AppRunner::VpcIngressConnection",
+  "apprunner.vpcingressconnection.CfnDocsKey": "aws-resource-apprunner-vpcingressconnection",
+  "apprunner.vpcingressconnection.IngressVpcConfiguration": {
+    "Description": "Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.",
+    "Required": "Yes",
+    "Type": "IngressVpcConfiguration",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "apprunner.vpcingressconnection.ServiceArn": {
+    "Description": "The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.",
+    "Required": "Yes",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "1011",
+    "Pattern": "arn:aws(-[\\w]+)*:[a-z0-9-\\\\.]{0,63}:[a-z0-9-\\\\.]{0,63}:[0-9]{12}:(\\w|\\/|-){1,1011}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "apprunner.vpcingressconnection.Tags": {
+    "Description": "An optional list of metadata items that you can associate with the VPC Ingress Connection resource. A tag is a key-value pair.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "apprunner.vpcingressconnection.VpcIngressConnectionName": {
+    "Description": "The customer-provided VPC Ingress Connection name.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "4",
+    "Maximum": "40",
+    "Pattern": "[A-Za-z0-9][A-Za-z0-9\\-_]{3,39}",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)\n\n#"
+  }
+}

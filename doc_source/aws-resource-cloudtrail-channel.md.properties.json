@@ -1,0 +1,37 @@
+{
+  "cloudtrail.channel.CfnAbout": "Contains information about a returned CloudTrail channel.",
+  "cloudtrail.channel.CfnType": "AWS::CloudTrail::Channel",
+  "cloudtrail.channel.CfnDocsKey": "aws-resource-cloudtrail-channel",
+  "cloudtrail.channel.Destinations": {
+    "Description": "One or more event data stores to which events arriving through a channel will be logged.",
+    "Required": "No",
+    "Type": "List of [Destination",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudtrail.channel.Name": {
+    "Description": "The name of the channel.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "3",
+    "Maximum": "128",
+    "Pattern": "^[a-zA-Z0-9._\\-]+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudtrail.channel.Source": {
+    "Description": "The name of the partner or external event source. You cannot change this name after you create the channel. A maximum of one channel is allowed per source.   A source can be either `Custom` for all valid non-AWS events, or the name of a partner event source. For information about the source names for available partners, see [Additional information about integration partners](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store-integration.html#cloudtrail-lake-partner-information) in the CloudTrail User Guide.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "256",
+    "Pattern": ".*",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "cloudtrail.channel.Tags": {
+    "Description": "A list of tags.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

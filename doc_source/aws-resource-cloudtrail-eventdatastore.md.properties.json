@@ -1,0 +1,84 @@
+{
+  "cloudtrail.eventdatastore.CfnAbout": "Creates a new event data store.",
+  "cloudtrail.eventdatastore.CfnType": "AWS::CloudTrail::EventDataStore",
+  "cloudtrail.eventdatastore.CfnDocsKey": "aws-resource-cloudtrail-eventdatastore",
+  "cloudtrail.eventdatastore.AdvancedEventSelectors": {
+    "Description": "The advanced event selectors to use to select the events for the data store. You can configure up to five advanced event selectors for each event data store.   For more information about how to use advanced event selectors to log CloudTrail events, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.  For more information about how to use advanced event selectors to include AWS Config configuration items in your event data store, see [Create an event data store for AWS Config configuration items](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-eds-config) in the CloudTrail User Guide.  For more information about how to use advanced event selectors to include non-AWS events in your event data store, see [Create an integration to log events from outside AWS](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-integration) in the CloudTrail User Guide.",
+    "Required": "No",
+    "Type": "List of [AdvancedEventSelector",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudtrail.eventdatastore.IngestionEnabled": {
+    "Description": "Specifies whether the event data store should start ingesting live events. The default is true.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudtrail.eventdatastore.KmsKeyId": {
+    "Description": "Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by `alias/`, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.  Disabling or deleting the KMS key, or removing CloudTrail permissions on the key, prevents CloudTrail from logging events to the event data store, and prevents users from querying the data in the event data store that was encrypted with the key. After you associate an event data store with a KMS key, the KMS key cannot be removed or changed. Before you disable or delete a KMS key that you are using with an event data store, delete or back up your event data store.CloudTrail also supports AWS KMS multi-Region keys. For more information about multi-Region keys, see [Using multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the * AWS Key Management Service Developer Guide*.  Examples:  +  `alias/MyAliasName` +  `arn:aws:kms:us-east-2:123456789012:alias/MyAliasName` +  `arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012` +  `12345678-1234-1234-1234-123456789012`",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "350",
+    "Pattern": "^[a-zA-Z0-9._/\\-:]+$",
+    "UpdateRequires": "No interruption"
+  },
+  "cloudtrail.eventdatastore.MultiRegionEnabled": {
+    "Description": "Specifies whether the event data store includes events from all Regions, or only from the Region in which the event data store is created.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudtrail.eventdatastore.Name": {
+    "Description": "The name of the event data store.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "3",
+    "Maximum": "128",
+    "Pattern": "^[a-zA-Z0-9._\\-]+$",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudtrail.eventdatastore.OrganizationEnabled": {
+    "Description": "Specifies whether an event data store collects events logged for an organization in AWS Organizations.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudtrail.eventdatastore.RetentionPeriod": {
+    "Description": "The retention period of the event data store, in days. You can set a retention period of up to 2557 days, the equivalent of seven years.",
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "7",
+    "Maximum": "2557",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudtrail.eventdatastore.Tags": {
+    "Description": "A list of tags.",
+    "Required": "No",
+    "Type": "List of [Tag",
+    "Maximum": "200",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "cloudtrail.eventdatastore.TerminationProtectionEnabled": {
+    "Description": "Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled.",
+    "Required": "No",
+    "AllowedValues": [
+      "True",
+      "False"
+    ],
+    "Type": "Boolean",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

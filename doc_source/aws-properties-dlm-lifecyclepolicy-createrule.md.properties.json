@@ -1,5 +1,5 @@
 {
-  "dlm.lifecyclepolicy.createrule.CfnAbout": "Specifies when to create snapshots of EBS volumes.\n\nYou must specify either a Cron expression or an interval, interval unit, and start time. You cannot specify both.",
+  "dlm.lifecyclepolicy.createrule.CfnAbout": "**[Snapshot and AMI policies only]** Specifies when the policy should create snapshots or AMIs.\n\n**Note**  \nYou must specify either **CronExpression**, or **Interval**, **IntervalUnit**, and **Times**.\nIf you need to specify an [ArchiveRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html",
   "dlm.lifecyclepolicy.createrule.CfnType": "AWS::DLM::LifecyclePolicy.CreateRule",
   "dlm.lifecyclepolicy.createrule.CfnDocsKey": "aws-properties-dlm-lifecyclepolicy-createrule",
   "dlm.lifecyclepolicy.createrule.CronExpression": {
@@ -26,14 +26,13 @@
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
   },
   "dlm.lifecyclepolicy.createrule.Location": {
-    "Description": "Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default.  If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource.  If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost.",
+    "Description": "**[Snapshot policies only]** Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default.  If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost.",
     "Required": "No",
     "Type": "String",
-    "Allowed values": "CLOUD | OUTPOST_LOCAL",
-    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+    "UpdateRequires": "No interruption"
   },
   "dlm.lifecyclepolicy.createrule.Times": {
-    "Description": "The time, in UTC, to start the operation. The supported format is hh:mm.  The operation occurs within a one-hour window following the specified time. If you do not specify a time, Amazon DLM selects a time within the next 24 hours.",
+    "Description": "The time, in UTC, to start the operation. The supported format is hh:mm.  The operation occurs within a one-hour window following the specified time. If you do not specify a time, Amazon Data Lifecycle Manager selects a time within the next 24 hours.",
     "Required": "No",
     "Type": "List of String",
     "Maximum": "1",

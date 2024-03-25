@@ -1,0 +1,75 @@
+{
+  "scheduler.schedule.CfnAbout": "A *schedule* is the main resource you create, configure, and manage using Amazon EventBridge Scheduler. \n\n Every schedule has a *schedule expression* that determines when, and with what frequency, the schedule runs. EventBridge Scheduler supports three types of schedules: rate, cron, and one-time schedules. For more information about different schedule types, see [Schedule types](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html) in the * EventBridge Scheduler User Guide*. \n\n When you create a schedule, you configure a target for the schedule to invoke. A target is an API operation that EventBridge Scheduler calls on your behalf every time your schedule runs. EventBridge Scheduler supports two types of targets: *templated* targets invoke common API operations across a core groups of services, and customizeable *universal* targets that you can use to call more than 6,000 operations across over 270 services. For more information about configuring targets, see [Managing targets](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets.html) in the * EventBridge Scheduler User Guide*. \n\n For more information about managing schedules, changing the schedule state, setting up flexible time windows, and configuring a dead-letter queue for a schedule, see [Managing a schedule](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-schedule.html) in the *EventBridge Scheduler User Guide*.",
+  "scheduler.schedule.CfnType": "AWS::Scheduler::Schedule",
+  "scheduler.schedule.CfnDocsKey": "aws-resource-scheduler-schedule",
+  "scheduler.schedule.Description": {
+    "Description": "The description you specify for the schedule.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "scheduler.schedule.EndDate": {
+    "Description": "The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the `EndDate` you specify. EventBridge Scheduler ignores `EndDate` for one-time schedules.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "scheduler.schedule.FlexibleTimeWindow": {
+    "Description": "Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.",
+    "Required": "Yes",
+    "Type": "FlexibleTimeWindow",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "scheduler.schedule.GroupName": {
+    "Description": "The name of the schedule group associated with this schedule.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "scheduler.schedule.KmsKeyArn": {
+    "Description": "The Amazon Resource Name (ARN) for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "scheduler.schedule.Name": {
+    "Description": "The name of the schedule.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "scheduler.schedule.ScheduleExpression": {
+    "Description": "The expression that defines when the schedule runs. The following formats are supported.   +  `at` expression - `at(yyyy-mm-ddThh:mm:ss)` +  `rate` expression - `rate(value unit)` +  `cron` expression - `cron(fields)`  You can use `at` expressions to create one-time schedules that invoke a target once, at the time and in the time zone, that you specify. You can use `rate` and `cron` expressions to create recurring schedules. Rate-based schedules are useful when you want to invoke a target at regular intervals, such as every 15 minutes or every five days. Cron-based schedules are useful when you want to invoke a target periodically at a specific time, such as at 8:00 am (UTC+0) every 1st day of the month.    A `cron` expression consists of six fields separated by white spaces: `(minutes hours day_of_month month day_of_week year)`.    A `rate` expression consists of a *value* as a positive integer, and a *unit* with the following options: `minute` | `minutes` | `hour` | `hours` | `day` | `days`    For more information and examples, see [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html) in the *EventBridge Scheduler User Guide*.",
+    "Required": "Yes",
+    "Type": "String",
+    "UpdateRequires": "No interruption"
+  },
+  "scheduler.schedule.ScheduleExpressionTimezone": {
+    "Description": "The timezone in which the scheduling expression is evaluated.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "scheduler.schedule.StartDate": {
+    "Description": "The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the `StartDate` you specify. EventBridge Scheduler ignores `StartDate` for one-time schedules.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "scheduler.schedule.State": {
+    "Description": "Specifies whether the schedule is enabled or disabled.",
+    "AllowedValues": [
+      "ENABLED` \\| `DISABLED"
+    ],
+    "Allowed Values": "ENABLED` \\| `DISABLED",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "scheduler.schedule.Target": {
+    "Description": "The schedule's target details.",
+    "Required": "Yes",
+    "Type": "Target",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)\n\n#"
+  }
+}

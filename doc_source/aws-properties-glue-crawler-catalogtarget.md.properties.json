@@ -2,8 +2,29 @@
   "glue.crawler.catalogtarget.CfnAbout": "Specifies an AWS Glue Data Catalog target.",
   "glue.crawler.catalogtarget.CfnType": "AWS::Glue::Crawler.CatalogTarget",
   "glue.crawler.catalogtarget.CfnDocsKey": "aws-properties-glue-crawler-catalogtarget",
+  "glue.crawler.catalogtarget.ConnectionName": {
+    "Description": "The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a `Catalog` connection type paired with a `NETWORK` Connection type.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
   "glue.crawler.catalogtarget.DatabaseName": {
     "Description": "The name of the database to be synchronized.",
+    "Required": "No",
+    "Type": "String",
+    "Minimum": "1",
+    "Maximum": "255",
+    "Pattern": "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "glue.crawler.catalogtarget.DlqEventQueueArn": {
+    "Description": "A valid Amazon dead-letter SQS ARN. For example, `arn:aws:sqs:region:account:deadLetterQueue`.",
+    "Required": "No",
+    "Type": "String",
+    "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+  },
+  "glue.crawler.catalogtarget.EventQueueArn": {
+    "Description": "A valid Amazon SQS ARN. For example, `arn:aws:sqs:region:account:sqs`.",
     "Required": "No",
     "Type": "String",
     "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"

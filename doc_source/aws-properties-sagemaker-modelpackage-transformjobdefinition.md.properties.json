@@ -1,0 +1,50 @@
+{
+  "sagemaker.modelpackage.transformjobdefinition.CfnAbout": "Defines the input needed to run a transform job using the inference specification specified in the algorithm.",
+  "sagemaker.modelpackage.transformjobdefinition.CfnType": "AWS::SageMaker::ModelPackage.TransformJobDefinition",
+  "sagemaker.modelpackage.transformjobdefinition.CfnDocsKey": "aws-properties-sagemaker-modelpackage-transformjobdefinition",
+  "sagemaker.modelpackage.transformjobdefinition.BatchStrategy": {
+    "Description": "A string that determines the number of records included in a single mini-batch.   `SingleRecord` means only one record is used per mini-batch. `MultiRecord` means a mini-batch is set to contain as many records that can fit within the `MaxPayloadInMB` limit.",
+    "Required": "No",
+    "Type": "String",
+    "Allowed values": "MultiRecord | SingleRecord",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.transformjobdefinition.Environment": {
+    "Description": "The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.",
+    "Required": "No",
+    "Type": "Map of String",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.transformjobdefinition.MaxConcurrentTransforms": {
+    "Description": "The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.",
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "0",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.transformjobdefinition.MaxPayloadInMB": {
+    "Description": "The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).",
+    "Required": "No",
+    "Type": "Integer",
+    "Minimum": "0",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.transformjobdefinition.TransformInput": {
+    "Description": "A description of the input source and the way the transform job consumes it.",
+    "Required": "Yes",
+    "Type": "TransformInput",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.transformjobdefinition.TransformOutput": {
+    "Description": "Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.",
+    "Required": "Yes",
+    "Type": "TransformOutput",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  },
+  "sagemaker.modelpackage.transformjobdefinition.TransformResources": {
+    "Description": "Identifies the ML compute instances for the transform job.",
+    "Required": "Yes",
+    "Type": "TransformResources",
+    "UpdateRequires": "[Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)"
+  }
+}
