@@ -1,0 +1,3061 @@
+{
+    "Parameters": {
+        "DBAccessSecurityGroups": {
+            "Description": "DB Access Security Group",
+            "Type": "List<AWS::EC2::SecurityGroup::Id>"
+        },
+        "ImageId": {
+            "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>"
+        },
+        "KmsKeyId": {
+            "Description": "KMS Key ID on source system of data",
+            "Type": "String"
+        },
+        "KmsKeyIdDestination": {
+            "Description": "KMS Key ID on target system of data",
+            "Type": "String"
+        },
+        "LoggingDestination": {
+            "Description": "Loggin destination",
+            "Type": "String"
+        },
+        "LoggingDestinationRegion": {
+            "Description": "Loggin destination region",
+            "Type": "String"
+        },
+        "NotificationsARN": {
+            "Description": "Stack/Service Notifications ARN",
+            "Type": "String"
+        },
+        "PublicEgressCIDR": {
+            "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+            "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.",
+            "Default": "0.0.0.0/0",
+            "Description": "Acceptable Ip Range for Public Egress Traffic",
+            "MaxLength": "18",
+            "MinLength": "9",
+            "Type": "String"
+        },
+        "PublicIngressCIDR": {
+            "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+            "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.",
+            "Default": "0.0.0.0/0",
+            "Description": "Acceptable Ip Range for Public Ingress Traffic",
+            "MaxLength": "18",
+            "MinLength": "9",
+            "Type": "String"
+        },
+        "Tenancy": {
+            "AllowedValues": [
+                "default",
+                "dedicated",
+                "host"
+            ],
+            "Default": "default",
+            "Type": "String"
+        },
+        "VpcId": {
+            "Description": "VPC ID",
+            "Type": "String"
+        }
+    },
+    "ResourceAttributes": {
+        "AWS::EC2::Volume": {
+            "DeletionPolicy": "Snapshot"
+        },
+        "AWS::ElastiCache::CacheCluster": {
+            "DeletionPolicy": "Snapshot"
+        },
+        "AWS::ElastiCache::ReplicationGroup": {
+            "DeletionPolicy": "Snapshot"
+        },
+        "AWS::RDS::DBCluster": {
+            "DeletionPolicy": "Snapshot"
+        },
+        "AWS::RDS::DBInstance": {
+            "DeletionPolicy": "Snapshot"
+        },
+        "AWS::Redshift::Cluster": {
+            "DeletionPolicy": "Snapshot"
+        }
+    },
+    "ResourceProperties": {
+        "AWS::ApiGateway::Account": {},
+        "AWS::ApiGateway::ApiKey": {},
+        "AWS::ApiGateway::Authorizer": {},
+        "AWS::ApiGateway::BasePathMapping": {},
+        "AWS::ApiGateway::ClientCertificate": {},
+        "AWS::ApiGateway::Deployment": {},
+        "AWS::ApiGateway::DocumentationPart": {},
+        "AWS::ApiGateway::DocumentationVersion": {},
+        "AWS::ApiGateway::DomainName": {},
+        "AWS::ApiGateway::GatewayResponse": {},
+        "AWS::ApiGateway::Method": {},
+        "AWS::ApiGateway::Model": {},
+        "AWS::ApiGateway::RequestValidator": {},
+        "AWS::ApiGateway::Resource": {},
+        "AWS::ApiGateway::RestApi": {},
+        "AWS::ApiGateway::Stage": {},
+        "AWS::ApiGateway::UsagePlan": {},
+        "AWS::ApiGateway::UsagePlanKey": {},
+        "AWS::ApplicationAutoScaling::ScalableTarget": {},
+        "AWS::ApplicationAutoScaling::ScalingPolicy": {},
+        "AWS::Athena::NamedQuery": {},
+        "AWS::AutoScaling::AutoScalingGroup": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::AutoScaling::LaunchConfiguration": {},
+        "AWS::AutoScaling::LifecycleHook": {},
+        "AWS::AutoScaling::ScalingPolicy": {},
+        "AWS::AutoScaling::ScheduledAction": {},
+        "AWS::Batch::ComputeEnvironment": {},
+        "AWS::Batch::JobDefinition": {},
+        "AWS::Batch::JobQueue": {},
+        "AWS::CertificateManager::Certificate": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::Cloud9::EnvironmentEC2": {},
+        "AWS::CloudFormation::CustomResource": {},
+        "AWS::CloudFormation::Stack": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::CloudFormation::WaitCondition": {},
+        "AWS::CloudFormation::WaitConditionHandle": {},
+        "AWS::CloudFront::CloudFrontOriginAccessIdentity": {},
+        "AWS::CloudFront::Distribution": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::CloudFront::StreamingDistribution": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::CloudTrail::Trail": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::CloudWatch::Alarm": {},
+        "AWS::CloudWatch::Dashboard": {},
+        "AWS::CodeBuild::Project": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::CodeCommit::Repository": {},
+        "AWS::CodeDeploy::Application": {},
+        "AWS::CodeDeploy::DeploymentConfig": {},
+        "AWS::CodeDeploy::DeploymentGroup": {},
+        "AWS::CodePipeline::CustomActionType": {},
+        "AWS::CodePipeline::Pipeline": {},
+        "AWS::Cognito::IdentityPool": {},
+        "AWS::Cognito::IdentityPoolRoleAttachment": {},
+        "AWS::Cognito::UserPool": {},
+        "AWS::Cognito::UserPoolClient": {},
+        "AWS::Cognito::UserPoolGroup": {},
+        "AWS::Cognito::UserPoolUser": {},
+        "AWS::Cognito::UserPoolUserToGroupAttachment": {},
+        "AWS::Config::ConfigRule": {},
+        "AWS::Config::ConfigurationRecorder": {},
+        "AWS::Config::DeliveryChannel": {},
+        "AWS::DAX::Cluster": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::DAX::ParameterGroup": {},
+        "AWS::DAX::SubnetGroup": {},
+        "AWS::DMS::Certificate": {},
+        "AWS::DMS::Endpoint": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::DMS::EventSubscription": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::DMS::ReplicationInstance": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::DMS::ReplicationSubnetGroup": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::DMS::ReplicationTask": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::DataPipeline::Pipeline": {},
+        "AWS::DirectoryService::MicrosoftAD": {},
+        "AWS::DirectoryService::SimpleAD": {},
+        "AWS::DynamoDB::Table": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::EC2::CustomerGateway": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::EC2::DHCPOptions": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::EC2::EIP": {},
+        "AWS::EC2::EIPAssociation": {},
+        "AWS::EC2::EgressOnlyInternetGateway": {
+            "Tags": {
+                "Ref": "VpcId"
+            }
+        },
+        "AWS::EC2::FlowLog": {
+            "Tags": null
+        },
+        "AWS::EC2::Host": {
+            "Tags": null
+        },
+        "AWS::EC2::Instance": {
+            "Tags": {
+                "Ref": "Tenancy"
+            }
+        },
+        "AWS::EC2::InternetGateway": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::EC2::NatGateway": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::EC2::NetworkAcl": {
+            "Tags": {
+                "Ref": "VpcId"
+            }
+        },
+        "AWS::EC2::NetworkAclEntry": {},
+        "AWS::EC2::NetworkInterface": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::EC2::NetworkInterfaceAttachment": {},
+        "AWS::EC2::NetworkInterfacePermission": {},
+        "AWS::EC2::PlacementGroup": {},
+        "AWS::EC2::Route": {},
+        "AWS::EC2::RouteTable": {
+            "Tags": {
+                "Ref": "VpcId"
+            }
+        },
+        "AWS::EC2::SecurityGroup": {
+            "Tags": {
+                "Ref": "VpcId"
+            }
+        },
+        "AWS::EC2::SecurityGroupEgress": {},
+        "AWS::EC2::SecurityGroupIngress": {},
+        "AWS::EC2::SpotFleet": {},
+        "AWS::EC2::Subnet": {
+            "Tags": {
+                "Ref": "VpcId"
+            }
+        },
+        "AWS::EC2::SubnetCidrBlock": {},
+        "AWS::EC2::SubnetNetworkAclAssociation": {},
+        "AWS::EC2::SubnetRouteTableAssociation": {},
+        "AWS::EC2::TrunkInterfaceAssociation": {},
+        "AWS::EC2::VPC": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::EC2::VPCCidrBlock": {
+            "Tags": {
+                "Ref": "VpcId"
+            }
+        },
+        "AWS::EC2::VPCDHCPOptionsAssociation": {
+            "Tags": {
+                "Ref": "VpcId"
+            }
+        },
+        "AWS::EC2::VPCEndpoint": {
+            "Tags": {
+                "Ref": "VpcId"
+            }
+        },
+        "AWS::EC2::VPCGatewayAttachment": {
+            "Tags": {
+                "Ref": "VpcId"
+            }
+        },
+        "AWS::EC2::VPCPeeringConnection": {
+            "Tags": {
+                "Ref": "VpcId"
+            }
+        },
+        "AWS::EC2::VPNConnection": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::EC2::VPNConnectionRoute": {},
+        "AWS::EC2::VPNGateway": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::EC2::VPNGatewayRoutePropagation": {},
+        "AWS::EC2::Volume": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::EC2::VolumeAttachment": {},
+        "AWS::ECR::Repository": {},
+        "AWS::ECS::Cluster": {},
+        "AWS::ECS::Service": {},
+        "AWS::ECS::TaskDefinition": {},
+        "AWS::EFS::FileSystem": {
+            "Tags": {
+                "Ref": "KmsKeyId"
+            }
+        },
+        "AWS::EFS::MountTarget": {},
+        "AWS::EMR::Cluster": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::EMR::InstanceFleetConfig": {},
+        "AWS::EMR::InstanceGroupConfig": {},
+        "AWS::EMR::SecurityConfiguration": {},
+        "AWS::EMR::Step": {},
+        "AWS::ElastiCache::CacheCluster": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::ElastiCache::ParameterGroup": {},
+        "AWS::ElastiCache::ReplicationGroup": {
+            "Tags": true
+        },
+        "AWS::ElastiCache::SecurityGroup": {},
+        "AWS::ElastiCache::SecurityGroupIngress": {},
+        "AWS::ElastiCache::SubnetGroup": {},
+        "AWS::ElasticBeanstalk::Application": {},
+        "AWS::ElasticBeanstalk::ApplicationVersion": {},
+        "AWS::ElasticBeanstalk::ConfigurationTemplate": {},
+        "AWS::ElasticBeanstalk::Environment": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::ElasticLoadBalancing::LoadBalancer": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::ElasticLoadBalancingV2::Listener": {},
+        "AWS::ElasticLoadBalancingV2::ListenerCertificate": {},
+        "AWS::ElasticLoadBalancingV2::ListenerRule": {},
+        "AWS::ElasticLoadBalancingV2::LoadBalancer": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::ElasticLoadBalancingV2::TargetGroup": {
+            "Tags": {
+                "Ref": "VpcId"
+            }
+        },
+        "AWS::Elasticsearch::Domain": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::Events::Rule": {},
+        "AWS::GameLift::Alias": {},
+        "AWS::GameLift::Build": {},
+        "AWS::GameLift::Fleet": {
+            "Tags": null
+        },
+        "AWS::Glue::Classifier": {},
+        "AWS::Glue::Connection": {},
+        "AWS::Glue::Crawler": {},
+        "AWS::Glue::Database": {},
+        "AWS::Glue::DevEndpoint": {},
+        "AWS::Glue::Job": {
+            "Tags": null
+        },
+        "AWS::Glue::Partition": {},
+        "AWS::Glue::Table": {},
+        "AWS::Glue::Trigger": {},
+        "AWS::GuardDuty::Detector": {},
+        "AWS::GuardDuty::IPSet": {},
+        "AWS::GuardDuty::ThreatIntelSet": {},
+        "AWS::IAM::AccessKey": {},
+        "AWS::IAM::Group": {},
+        "AWS::IAM::InstanceProfile": {},
+        "AWS::IAM::ManagedPolicy": {},
+        "AWS::IAM::Policy": {},
+        "AWS::IAM::Role": {},
+        "AWS::IAM::User": {},
+        "AWS::IAM::UserToGroupAddition": {},
+        "AWS::Inspector::AssessmentTarget": {},
+        "AWS::Inspector::AssessmentTemplate": {},
+        "AWS::Inspector::ResourceGroup": {},
+        "AWS::IoT::Certificate": {},
+        "AWS::IoT::Policy": {},
+        "AWS::IoT::PolicyPrincipalAttachment": {},
+        "AWS::IoT::Thing": {},
+        "AWS::IoT::ThingPrincipalAttachment": {},
+        "AWS::IoT::TopicRule": {},
+        "AWS::KMS::Alias": {},
+        "AWS::KMS::Key": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::Kinesis::Stream": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::KinesisAnalytics::Application": {},
+        "AWS::KinesisAnalytics::ApplicationOutput": {},
+        "AWS::KinesisAnalytics::ApplicationReferenceDataSource": {},
+        "AWS::KinesisFirehose::DeliveryStream": {},
+        "AWS::Lambda::Alias": {},
+        "AWS::Lambda::EventSourceMapping": {},
+        "AWS::Lambda::Function": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::Lambda::Permission": {},
+        "AWS::Lambda::Version": {},
+        "AWS::Logs::Destination": {},
+        "AWS::Logs::LogGroup": {
+            "Tags": null
+        },
+        "AWS::Logs::LogStream": {
+            "Tags": null
+        },
+        "AWS::Logs::MetricFilter": {
+            "Tags": null
+        },
+        "AWS::Logs::SubscriptionFilter": {
+            "Tags": null
+        },
+        "AWS::OpsWorks::App": {
+            "Tags": true
+        },
+        "AWS::OpsWorks::ElasticLoadBalancerAttachment": {},
+        "AWS::OpsWorks::Instance": {
+            "Tags": {
+                "Ref": "Tenancy"
+            }
+        },
+        "AWS::OpsWorks::Layer": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::OpsWorks::Stack": {
+            "Tags": {
+                "Ref": "VpcId"
+            }
+        },
+        "AWS::OpsWorks::UserProfile": {},
+        "AWS::OpsWorks::Volume": {},
+        "AWS::RDS::DBCluster": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::RDS::DBClusterParameterGroup": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::RDS::DBInstance": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::RDS::DBParameterGroup": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::RDS::DBSecurityGroup": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::RDS::DBSecurityGroupIngress": {},
+        "AWS::RDS::DBSubnetGroup": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::RDS::EventSubscription": {},
+        "AWS::RDS::OptionGroup": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::Redshift::Cluster": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::Redshift::ClusterParameterGroup": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::Redshift::ClusterSecurityGroup": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::Redshift::ClusterSecurityGroupIngress": {},
+        "AWS::Redshift::ClusterSubnetGroup": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::Route53::HealthCheck": {},
+        "AWS::Route53::HostedZone": {
+            "Tags": null
+        },
+        "AWS::Route53::RecordSet": {},
+        "AWS::Route53::RecordSetGroup": {},
+        "AWS::S3::Bucket": {
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        },
+        "AWS::S3::BucketPolicy": {},
+        "AWS::SDB::Domain": {},
+        "AWS::SNS::Subscription": {},
+        "AWS::SNS::Topic": {},
+        "AWS::SNS::TopicPolicy": {},
+        "AWS::SQS::Queue": {
+            "Tags": {
+                "Ref": "KmsKeyId"
+            }
+        },
+        "AWS::SQS::QueuePolicy": {},
+        "AWS::SSM::Association": {},
+        "AWS::SSM::Document": {},
+        "AWS::SSM::MaintenanceWindowTask": {
+            "Tags": null
+        },
+        "AWS::SSM::Parameter": {},
+        "AWS::SSM::PatchBaseline": {},
+        "AWS::ServiceDiscovery::Instance": {},
+        "AWS::ServiceDiscovery::PrivateDnsNamespace": {},
+        "AWS::ServiceDiscovery::PublicDnsNamespace": {},
+        "AWS::ServiceDiscovery::Service": {},
+        "AWS::StepFunctions::Activity": {},
+        "AWS::StepFunctions::StateMachine": {},
+        "AWS::WAF::ByteMatchSet": {},
+        "AWS::WAF::IPSet": {},
+        "AWS::WAF::Rule": {},
+        "AWS::WAF::SizeConstraintSet": {},
+        "AWS::WAF::SqlInjectionMatchSet": {},
+        "AWS::WAF::WebACL": {},
+        "AWS::WAF::XssMatchSet": {},
+        "AWS::WAFRegional::ByteMatchSet": {},
+        "AWS::WAFRegional::IPSet": {},
+        "AWS::WAFRegional::Rule": {},
+        "AWS::WAFRegional::SizeConstraintSet": {},
+        "AWS::WAFRegional::SqlInjectionMatchSet": {},
+        "AWS::WAFRegional::WebACL": {},
+        "AWS::WAFRegional::WebACLAssociation": {},
+        "AWS::WAFRegional::XssMatchSet": {},
+        "AWS::WorkSpaces::Workspace": {
+            "Tags": {
+                "Ref": "KmsKeyId"
+            }
+        },
+        "AWS:RESOURCE:EXAMPLE": {
+            "Encrypted": true,
+            "KmsKeyId": {
+                "Ref": "KmsKeyId"
+            },
+            "Property": "value",
+            "Tags": [
+                {
+                    "Key": "app_version",
+                    "Value": {
+                        "Ref": "TagsAppVersion"
+                    }
+                },
+                {
+                    "Key": "compliance",
+                    "Value": {
+                        "Ref": "TagsCompliance"
+                    }
+                },
+                {
+                    "Key": "confidentiality",
+                    "Value": {
+                        "Ref": "TagsConfidentiality"
+                    }
+                },
+                {
+                    "Key": "cost_code",
+                    "Value": {
+                        "Ref": "TagsCostCode"
+                    }
+                },
+                {
+                    "Key": "cost_owner",
+                    "Value": {
+                        "Ref": "TagsOwner"
+                    }
+                },
+                {
+                    "Key": "environment",
+                    "Value": {
+                        "Ref": "TagsEnvironment"
+                    }
+                },
+                {
+                    "Key": "kms_encryption_key",
+                    "Value": {
+                        "Ref": "TagsKMSKeyArn"
+                    }
+                },
+                {
+                    "Key": "logging_bucket",
+                    "Value": {
+                        "Ref": "TagsLoggingBucket"
+                    }
+                },
+                {
+                    "Key": "owner_email",
+                    "Value": {
+                        "Ref": "TagsOwnerEmail"
+                    }
+                }
+            ]
+        }
+    },
+    "ResourceTemplates": {
+        "AWS::Logs::LogGroup": {
+            "Properties": {
+                "LogGroupName": "{{name}}",
+                "RetentionInDays": 14
+            },
+            "Type": "AWS::Logs::LogGroup"
+        }
+    }
+}

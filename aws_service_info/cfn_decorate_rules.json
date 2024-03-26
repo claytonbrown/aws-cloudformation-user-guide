@@ -1,0 +1,2348 @@
+{
+    "AWS::ApiGateway::Account": {
+        "optional": [
+            "CloudWatchRoleArn"
+        ], 
+        "required": []
+    }, 
+    "AWS::ApiGateway::ApiKey": {
+        "optional": [
+            "StageKeys", 
+            "Enabled", 
+            "Description", 
+            "Name"
+        ], 
+        "required": []
+    }, 
+    "AWS::ApiGateway::Authorizer": {
+        "optional": [
+            "Name", 
+            "ProviderARNs", 
+            "AuthorizerUri", 
+            "IdentityValidationExpression", 
+            "AuthorizerResultTtlInSeconds", 
+            "AuthorizerCredentials", 
+            "IdentitySource", 
+            "Type"
+        ], 
+        "required": [
+            "RestApiId"
+        ]
+    }, 
+    "AWS::ApiGateway::BasePathMapping": {
+        "optional": [
+            "BasePath", 
+            "Stage", 
+            "RestApiId"
+        ], 
+        "required": [
+            "DomainName"
+        ]
+    }, 
+    "AWS::ApiGateway::ClientCertificate": {
+        "optional": [
+            "Description"
+        ], 
+        "required": []
+    }, 
+    "AWS::ApiGateway::Deployment": {
+        "optional": [
+            "StageDescription", 
+            "Description", 
+            "StageName"
+        ], 
+        "required": [
+            "RestApiId"
+        ]
+    }, 
+    "AWS::ApiGateway::DocumentationPart": {
+        "optional": [], 
+        "required": [
+            "RestApiId", 
+            "Location", 
+            "Properties"
+        ]
+    }, 
+    "AWS::ApiGateway::DocumentationVersion": {
+        "optional": [
+            "Description"
+        ], 
+        "required": [
+            "RestApiId", 
+            "DocumentationVersion"
+        ]
+    }, 
+    "AWS::ApiGateway::DomainName": {
+        "optional": [], 
+        "required": [
+            "CertificateArn", 
+            "DomainName"
+        ]
+    }, 
+    "AWS::ApiGateway::GatewayResponse": {
+        "optional": [
+            "StatusCode", 
+            "ResponseTemplates", 
+            "ResponseParameters"
+        ], 
+        "required": [
+            "ResponseType", 
+            "RestApiId"
+        ]
+    }, 
+    "AWS::ApiGateway::Method": {
+        "optional": [
+            "RequestParameters", 
+            "MethodResponses", 
+            "RequestModels", 
+            "AuthorizationType", 
+            "Integration", 
+            "ApiKeyRequired", 
+            "AuthorizerId"
+        ], 
+        "required": [
+            "RestApiId", 
+            "ResourceId", 
+            "HttpMethod"
+        ]
+    }, 
+    "AWS::ApiGateway::Model": {
+        "optional": [
+            "Schema", 
+            "ContentType", 
+            "Description", 
+            "Name"
+        ], 
+        "required": [
+            "RestApiId"
+        ]
+    }, 
+    "AWS::ApiGateway::RequestValidator": {
+        "optional": [
+            "ValidateRequestParameters", 
+            "ValidateRequestBody", 
+            "Name"
+        ], 
+        "required": [
+            "RestApiId"
+        ]
+    }, 
+    "AWS::ApiGateway::Resource": {
+        "optional": [], 
+        "required": [
+            "RestApiId", 
+            "PathPart", 
+            "ParentId"
+        ]
+    }, 
+    "AWS::ApiGateway::RestApi": {
+        "optional": [
+            "Body", 
+            "Description", 
+            "CloneFrom", 
+            "BodyS3Location", 
+            "Parameters", 
+            "Mode", 
+            "BinaryMediaTypes", 
+            "FailOnWarnings", 
+            "Name"
+        ], 
+        "required": []
+    }, 
+    "AWS::ApiGateway::Stage": {
+        "optional": [
+            "ClientCertificateId", 
+            "Description", 
+            "StageName", 
+            "CacheClusterSize", 
+            "Variables", 
+            "CacheClusterEnabled", 
+            "DocumentationVersion", 
+            "DeploymentId", 
+            "MethodSettings"
+        ], 
+        "required": [
+            "RestApiId"
+        ]
+    }, 
+    "AWS::ApiGateway::UsagePlan": {
+        "optional": [
+            "Throttle", 
+            "UsagePlanName", 
+            "ApiStages", 
+            "Description", 
+            "Quota"
+        ], 
+        "required": []
+    }, 
+    "AWS::ApiGateway::UsagePlanKey": {
+        "optional": [], 
+        "required": [
+            "KeyType", 
+            "KeyId", 
+            "UsagePlanId"
+        ]
+    }, 
+    "AWS::ApplicationAutoScaling::ScalableTarget": {
+        "optional": [], 
+        "required": [
+            "ScalableDimension", 
+            "ResourceId", 
+            "RoleARN", 
+            "MinCapacity", 
+            "ServiceNamespace", 
+            "MaxCapacity"
+        ]
+    }, 
+    "AWS::ApplicationAutoScaling::ScalingPolicy": {
+        "optional": [
+            "ScalableDimension", 
+            "ScalingTargetId", 
+            "ResourceId", 
+            "StepScalingPolicyConfiguration", 
+            "TargetTrackingScalingPolicyConfiguration", 
+            "ServiceNamespace"
+        ], 
+        "required": [
+            "PolicyName", 
+            "PolicyType"
+        ]
+    }, 
+    "AWS::AutoScaling::AutoScalingGroup": {
+        "optional": [
+            "TargetGroupARNs", 
+            "VPCZoneIdentifier", 
+            "AvailabilityZones", 
+            "PlacementGroup", 
+            "DesiredCapacity", 
+            "NotificationConfigurations", 
+            "Tags", 
+            "InstanceId", 
+            "LoadBalancerNames", 
+            "Cooldown", 
+            "TerminationPolicies", 
+            "LaunchConfigurationName", 
+            "MetricsCollection", 
+            "HealthCheckGracePeriod", 
+            "HealthCheckType"
+        ], 
+        "required": [
+            "MinSize", 
+            "MaxSize"
+        ]
+    }, 
+    "AWS::AutoScaling::LaunchConfiguration": {
+        "optional": [
+            "UserData", 
+            "ClassicLinkVPCId", 
+            "InstanceId", 
+            "InstanceMonitoring", 
+            "ClassicLinkVPCSecurityGroups", 
+            "BlockDeviceMappings", 
+            "EbsOptimized", 
+            "SecurityGroups", 
+            "SpotPrice", 
+            "PlacementTenancy", 
+            "KernelId", 
+            "RamDiskId", 
+            "KeyName", 
+            "IamInstanceProfile", 
+            "AssociatePublicIpAddress"
+        ], 
+        "required": [
+            "ImageId", 
+            "InstanceType"
+        ]
+    }, 
+    "AWS::AutoScaling::LifecycleHook": {
+        "optional": [
+            "RoleARN", 
+            "HeartbeatTimeout", 
+            "NotificationMetadata", 
+            "DefaultResult", 
+            "NotificationTargetARN"
+        ], 
+        "required": [
+            "AutoScalingGroupName", 
+            "LifecycleTransition"
+        ]
+    }, 
+    "AWS::AutoScaling::ScalingPolicy": {
+        "optional": [
+            "EstimatedInstanceWarmup", 
+            "MinAdjustmentMagnitude", 
+            "AdjustmentType", 
+            "Cooldown", 
+            "PolicyType", 
+            "StepAdjustments", 
+            "MetricAggregationType", 
+            "ScalingAdjustment", 
+            "TargetTrackingConfiguration"
+        ], 
+        "required": [
+            "AutoScalingGroupName"
+        ]
+    }, 
+    "AWS::AutoScaling::ScheduledAction": {
+        "optional": [
+            "Recurrence", 
+            "DesiredCapacity", 
+            "MinSize", 
+            "MaxSize", 
+            "StartTime", 
+            "EndTime"
+        ], 
+        "required": [
+            "AutoScalingGroupName"
+        ]
+    }, 
+    "AWS::CertificateManager::Certificate": {
+        "optional": [
+            "Tags", 
+            "SubjectAlternativeNames", 
+            "DomainValidationOptions"
+        ], 
+        "required": [
+            "DomainName"
+        ]
+    }, 
+    "AWS::CloudFormation::CustomResource": {
+        "optional": [], 
+        "required": [
+            "ServiceToken"
+        ]
+    }, 
+    "AWS::CloudFormation::Stack": {
+        "optional": [
+            "NotificationARNs", 
+            "TimeoutInMinutes", 
+            "Parameters", 
+            "Tags"
+        ], 
+        "required": [
+            "TemplateURL"
+        ]
+    }, 
+    "AWS::CloudFormation::WaitCondition": {
+        "optional": [
+            "Count"
+        ], 
+        "required": [
+            "Handle", 
+            "Timeout"
+        ]
+    }, 
+    "AWS::CloudFormation::WaitConditionHandle": {
+        "optional": [], 
+        "required": []
+    }, 
+    "AWS::CloudFront::Distribution": {
+        "optional": [], 
+        "required": [
+            "DistributionConfig"
+        ]
+    }, 
+    "AWS::CloudTrail::Trail": {
+        "optional": [
+            "EventSelectors", 
+            "IncludeGlobalServiceEvents", 
+            "Tags", 
+            "KMSKeyId", 
+            "S3KeyPrefix", 
+            "IsMultiRegionTrail", 
+            "TrailName", 
+            "EnableLogFileValidation", 
+            "CloudWatchLogsRoleArn", 
+            "CloudWatchLogsLogGroupArn", 
+            "SnsTopicName"
+        ], 
+        "required": [
+            "IsLogging", 
+            "S3BucketName"
+        ]
+    }, 
+    "AWS::CloudWatch::Alarm": {
+        "optional": [
+            "ExtendedStatistic", 
+            "TreatMissingData", 
+            "Dimensions", 
+            "AlarmActions", 
+            "AlarmDescription", 
+            "Unit", 
+            "AlarmName", 
+            "Statistic", 
+            "InsufficientDataActions", 
+            "EvaluateLowSampleCountPercentile", 
+            "OKActions", 
+            "ActionsEnabled"
+        ], 
+        "required": [
+            "EvaluationPeriods", 
+            "Namespace", 
+            "Period", 
+            "ComparisonOperator", 
+            "Threshold", 
+            "MetricName"
+        ]
+    }, 
+    "AWS::CloudWatch::Dashboard": {
+        "optional": [
+            "DashboardName"
+        ], 
+        "required": [
+            "DashboardBody"
+        ]
+    }, 
+    "AWS::CodeDeploy::Application": {
+        "optional": [
+            "ApplicationName"
+        ], 
+        "required": []
+    }, 
+    "AWS::CodeDeploy::DeploymentConfig": {
+        "optional": [
+            "MinimumHealthyHosts", 
+            "DeploymentConfigName"
+        ], 
+        "required": []
+    }, 
+    "AWS::CodeDeploy::DeploymentGroup": {
+        "optional": [
+            "AutoRollbackConfiguration", 
+            "LoadBalancerInfo", 
+            "DeploymentConfigName", 
+            "AutoScalingGroups", 
+            "AlarmConfiguration", 
+            "Ec2TagFilters", 
+            "DeploymentStyle", 
+            "TriggerConfigurations", 
+            "Deployment", 
+            "DeploymentGroupName", 
+            "OnPremisesInstanceTagFilters"
+        ], 
+        "required": [
+            "ApplicationName", 
+            "ServiceRoleArn"
+        ]
+    }, 
+    "AWS::CodePipeline::CustomActionType": {
+        "optional": [
+            "Settings", 
+            "ConfigurationProperties", 
+            "Version"
+        ], 
+        "required": [
+            "Category", 
+            "Provider", 
+            "InputArtifactDetails", 
+            "OutputArtifactDetails"
+        ]
+    }, 
+    "AWS::CodePipeline::Pipeline": {
+        "optional": [
+            "Name", 
+            "DisableInboundStageTransitions", 
+            "RestartExecutionOnUpdate"
+        ], 
+        "required": [
+            "RoleArn", 
+            "ArtifactStore", 
+            "Stages"
+        ]
+    }, 
+    "AWS::Config::ConfigRule": {
+        "optional": [
+            "Description", 
+            "ConfigRuleName", 
+            "MaximumExecutionFrequency", 
+            "InputParameters", 
+            "Scope"
+        ], 
+        "required": [
+            "Source"
+        ]
+    }, 
+    "AWS::Config::ConfigurationRecorder": {
+        "optional": [
+            "RecordingGroup", 
+            "Name"
+        ], 
+        "required": [
+            "RoleARN"
+        ]
+    }, 
+    "AWS::Config::DeliveryChannel": {
+        "optional": [
+            "S3KeyPrefix", 
+            "SnsTopicARN", 
+            "ConfigSnapshotDeliveryProperties", 
+            "Name"
+        ], 
+        "required": [
+            "S3BucketName"
+        ]
+    }, 
+    "AWS::DMS::Certificate": {
+        "optional": [
+            "CertificateIdentifier", 
+            "CertificatePem", 
+            "CertificateWallet"
+        ], 
+        "required": []
+    }, 
+    "AWS::DMS::Endpoint": {
+        "optional": [
+            "CertificateArn", 
+            "Username", 
+            "ServerName", 
+            "S3Settings", 
+            "Tags", 
+            "MongoDbSettings", 
+            "KmsKeyId", 
+            "ExtraConnectionAttributes", 
+            "DatabaseName", 
+            "DynamoDbSettings", 
+            "SslMode", 
+            "Password", 
+            "EndpointIdentifier", 
+            "Port"
+        ], 
+        "required": [
+            "EndpointType", 
+            "EngineName"
+        ]
+    }, 
+    "AWS::DMS::EventSubscription": {
+        "optional": [
+            "EventCategories", 
+            "SourceType", 
+            "Tags", 
+            "Enabled", 
+            "SubscriptionName", 
+            "SourceIds"
+        ], 
+        "required": [
+            "SnsTopicArn"
+        ]
+    }, 
+    "AWS::DMS::ReplicationInstance": {
+        "optional": [
+            "MultiAZ", 
+            "AvailabilityZone", 
+            "PubliclyAccessible", 
+            "AllowMajorVersionUpgrade", 
+            "Tags", 
+            "VpcSecurityGroupIds", 
+            "AutoMinorVersionUpgrade", 
+            "KmsKeyId", 
+            "AllocatedStorage", 
+            "EngineVersion", 
+            "ReplicationInstanceIdentifier", 
+            "PreferredMaintenanceWindow", 
+            "ReplicationSubnetGroupIdentifier"
+        ], 
+        "required": [
+            "ReplicationInstanceClass"
+        ]
+    }, 
+    "AWS::DMS::ReplicationSubnetGroup": {
+        "optional": [
+            "Tags", 
+            "ReplicationSubnetGroupIdentifier"
+        ], 
+        "required": [
+            "ReplicationSubnetGroupDescription", 
+            "SubnetIds"
+        ]
+    }, 
+    "AWS::DMS::ReplicationTask": {
+        "optional": [
+            "ReplicationTaskIdentifier", 
+            "Tags", 
+            "ReplicationTaskSettings", 
+            "CdcStartTime"
+        ], 
+        "required": [
+            "SourceEndpointArn", 
+            "ReplicationInstanceArn", 
+            "TargetEndpointArn", 
+            "MigrationType", 
+            "TableMappings"
+        ]
+    }, 
+    "AWS::DataPipeline::Pipeline": {
+        "optional": [
+            "Activate", 
+            "Description", 
+            "PipelineTags", 
+            "ParameterValues", 
+            "PipelineObjects"
+        ], 
+        "required": [
+            "ParameterObjects", 
+            "Name"
+        ]
+    }, 
+    "AWS::DirectoryService::MicrosoftAD": {
+        "optional": [
+            "EnableSso", 
+            "ShortName", 
+            "CreateAlias"
+        ], 
+        "required": [
+            "Password", 
+            "Name", 
+            "VpcSettings"
+        ]
+    }, 
+    "AWS::DirectoryService::SimpleAD": {
+        "optional": [
+            "Description", 
+            "EnableSso", 
+            "ShortName", 
+            "CreateAlias"
+        ], 
+        "required": [
+            "Password", 
+            "VpcSettings", 
+            "Size", 
+            "Name"
+        ]
+    }, 
+    "AWS::DynamoDB::Table": {
+        "optional": [
+            "GlobalSecondaryIndexes", 
+            "AttributeDefinitions", 
+            "LocalSecondaryIndexes", 
+            "Tags", 
+            "TableName", 
+            "StreamSpecification", 
+            "TimeToLiveSpecification"
+        ], 
+        "required": [
+            "ProvisionedThroughput", 
+            "KeySchema"
+        ]
+    }, 
+    "AWS::EC2::CustomerGateway": {
+        "optional": [
+            "Tags"
+        ], 
+        "required": [
+            "BgpAsn", 
+            "Type", 
+            "IpAddress"
+        ]
+    }, 
+    "AWS::EC2::DHCPOptions": {
+        "optional": [
+            "Tags", 
+            "DomainName", 
+            "DomainNameServers", 
+            "NtpServers", 
+            "NetbiosNameServers", 
+            "NetbiosNodeType"
+        ], 
+        "required": []
+    }, 
+    "AWS::EC2::EIP": {
+        "optional": [
+            "InstanceId", 
+            "Domain"
+        ], 
+        "required": []
+    }, 
+    "AWS::EC2::EIPAssociation": {
+        "optional": [
+            "InstanceId", 
+            "EIP", 
+            "NetworkInterfaceId", 
+            "AllocationId", 
+            "PrivateIpAddress"
+        ], 
+        "required": []
+    }, 
+    "AWS::EC2::EgressOnlyInternetGateway": {
+        "optional": [], 
+        "required": [
+            "VpcId"
+        ]
+    }, 
+    "AWS::EC2::FlowLog": {
+        "optional": [], 
+        "required": [
+            "ResourceType", 
+            "ResourceId", 
+            "DeliverLogsPermissionArn", 
+            "LogGroupName", 
+            "TrafficType"
+        ]
+    }, 
+    "AWS::EC2::Host": {
+        "optional": [
+            "AutoPlacement"
+        ], 
+        "required": [
+            "AvailabilityZone", 
+            "InstanceType"
+        ]
+    }, 
+    "AWS::EC2::Instance": {
+        "optional": [
+            "Monitoring", 
+            "EbsOptimized", 
+            "Affinity", 
+            "RamdiskId", 
+            "PrivateIpAddress", 
+            "Tags", 
+            "PlacementGroupName", 
+            "KeyName", 
+            "SecurityGroups", 
+            "SubnetId", 
+            "SsmAssociations", 
+            "InstanceType", 
+            "NetworkInterfaces", 
+            "AdditionalInfo", 
+            "SourceDestCheck", 
+            "InstanceInitiatedShutdownBehavior", 
+            "SecurityGroupIds", 
+            "HostId", 
+            "Volumes", 
+            "KernelId", 
+            "IamInstanceProfile", 
+            "UserData", 
+            "AvailabilityZone", 
+            "Tenancy", 
+            "Ipv6AddressCount", 
+            "BlockDeviceMappings", 
+            "Ipv6Addresses", 
+            "DisableApiTermination"
+        ], 
+        "required": [
+            "ImageId"
+        ]
+    }, 
+    "AWS::EC2::InternetGateway": {
+        "optional": [
+            "Tags"
+        ], 
+        "required": []
+    }, 
+    "AWS::EC2::NatGateway": {
+        "optional": [
+            "Tags"
+        ], 
+        "required": [
+            "SubnetId", 
+            "AllocationId"
+        ]
+    }, 
+    "AWS::EC2::NetworkAcl": {
+        "optional": [
+            "Tags"
+        ], 
+        "required": [
+            "VpcId"
+        ]
+    }, 
+    "AWS::EC2::NetworkAclEntry": {
+        "optional": [
+            "Ipv6CidrBlock", 
+            "Egress", 
+            "PortRange", 
+            "Icmp"
+        ], 
+        "required": [
+            "NetworkAclId", 
+            "RuleNumber", 
+            "Protocol", 
+            "RuleAction", 
+            "CidrBlock"
+        ]
+    }, 
+    "AWS::EC2::NetworkInterface": {
+        "optional": [
+            "SourceDestCheck", 
+            "GroupSet", 
+            "Description", 
+            "Tags", 
+            "Ipv6AddressCount", 
+            "PrivateIpAddresses", 
+            "SecondaryPrivateIpAddressCount", 
+            "InterfaceType", 
+            "Ipv6Addresses", 
+            "PrivateIpAddress"
+        ], 
+        "required": [
+            "SubnetId"
+        ]
+    }, 
+    "AWS::EC2::NetworkInterfaceAttachment": {
+        "optional": [
+            "DeleteOnTermination"
+        ], 
+        "required": [
+            "InstanceId", 
+            "DeviceIndex", 
+            "NetworkInterfaceId"
+        ]
+    }, 
+    "AWS::EC2::NetworkInterfacePermission": {
+        "optional": [], 
+        "required": [
+            "NetworkInterfaceId", 
+            "Permission", 
+            "AwsAccountId"
+        ]
+    }, 
+    "AWS::EC2::PlacementGroup": {
+        "optional": [
+            "Strategy"
+        ], 
+        "required": []
+    }, 
+    "AWS::EC2::Route": {
+        "optional": [
+            "DestinationCidrBlock", 
+            "InstanceId", 
+            "NetworkInterfaceId", 
+            "NatGatewayId", 
+            "VpcPeeringConnectionId", 
+            "GatewayId", 
+            "DestinationIpv6CidrBlock"
+        ], 
+        "required": [
+            "RouteTableId"
+        ]
+    }, 
+    "AWS::EC2::RouteTable": {
+        "optional": [
+            "Tags"
+        ], 
+        "required": [
+            "VpcId"
+        ]
+    }, 
+    "AWS::EC2::SecurityGroup": {
+        "optional": [
+            "VpcId", 
+            "Tags", 
+            "SecurityGroupEgress", 
+            "SecurityGroupIngress", 
+            "GroupName"
+        ], 
+        "required": [
+            "GroupDescription"
+        ]
+    }, 
+    "AWS::EC2::SecurityGroupEgress": {
+        "optional": [
+            "DestinationPrefixListId", 
+            "CidrIp", 
+            "FromPort", 
+            "ToPort", 
+            "CidrIpv6", 
+            "DestinationSecurityGroupId"
+        ], 
+        "required": [
+            "IpProtocol", 
+            "GroupId"
+        ]
+    }, 
+    "AWS::EC2::SecurityGroupIngress": {
+        "optional": [
+            "FromPort", 
+            "CidrIp", 
+            "SourceSecurityGroupId", 
+            "GroupName", 
+            "SourceSecurityGroupOwnerId", 
+            "SourceSecurityGroupName", 
+            "ToPort", 
+            "CidrIpv6", 
+            "GroupId"
+        ], 
+        "required": [
+            "IpProtocol"
+        ]
+    }, 
+    "AWS::EC2::SpotFleet": {
+        "optional": [], 
+        "required": [
+            "SpotFleetRequestConfigData"
+        ]
+    }, 
+    "AWS::EC2::Subnet": {
+        "optional": [
+            "AvailabilityZone", 
+            "Tags", 
+            "Ipv6CidrBlock", 
+            "MapPublicIpOnLaunch", 
+            "AssignIpv6AddressOnCreation"
+        ], 
+        "required": [
+            "VpcId", 
+            "CidrBlock"
+        ]
+    }, 
+    "AWS::EC2::SubnetCidrBlock": {
+        "optional": [], 
+        "required": [
+            "SubnetId", 
+            "Ipv6CidrBlock"
+        ]
+    }, 
+    "AWS::EC2::SubnetNetworkAclAssociation": {
+        "optional": [], 
+        "required": [
+            "SubnetId", 
+            "NetworkAclId"
+        ]
+    }, 
+    "AWS::EC2::SubnetRouteTableAssociation": {
+        "optional": [], 
+        "required": [
+            "SubnetId", 
+            "RouteTableId"
+        ]
+    }, 
+    "AWS::EC2::TrunkInterfaceAssociation": {
+        "optional": [
+            "GREKey", 
+            "VLANId"
+        ], 
+        "required": [
+            "TrunkInterfaceId", 
+            "BranchInterfaceId"
+        ]
+    }, 
+    "AWS::EC2::VPC": {
+        "optional": [
+            "InstanceTenancy", 
+            "EnableDnsSupport", 
+            "EnableDnsHostnames", 
+            "Tags"
+        ], 
+        "required": [
+            "CidrBlock"
+        ]
+    }, 
+    "AWS::EC2::VPCCidrBlock": {
+        "optional": [
+            "CidrBlock", 
+            "AmazonProvidedIpv6CidrBlock"
+        ], 
+        "required": [
+            "VpcId"
+        ]
+    }, 
+    "AWS::EC2::VPCDHCPOptionsAssociation": {
+        "optional": [], 
+        "required": [
+            "VpcId", 
+            "DhcpOptionsId"
+        ]
+    }, 
+    "AWS::EC2::VPCEndpoint": {
+        "optional": [
+            "PolicyDocument", 
+            "RouteTableIds"
+        ], 
+        "required": [
+            "VpcId", 
+            "ServiceName"
+        ]
+    }, 
+    "AWS::EC2::VPCGatewayAttachment": {
+        "optional": [
+            "InternetGatewayId", 
+            "VpnGatewayId"
+        ], 
+        "required": [
+            "VpcId"
+        ]
+    }, 
+    "AWS::EC2::VPCPeeringConnection": {
+        "optional": [
+            "PeerOwnerId", 
+            "PeerRoleArn", 
+            "Tags"
+        ], 
+        "required": [
+            "PeerVpcId", 
+            "VpcId"
+        ]
+    }, 
+    "AWS::EC2::VPNConnection": {
+        "optional": [
+            "StaticRoutesOnly", 
+            "Tags"
+        ], 
+        "required": [
+            "CustomerGatewayId", 
+            "Type", 
+            "VpnGatewayId"
+        ]
+    }, 
+    "AWS::EC2::VPNConnectionRoute": {
+        "optional": [], 
+        "required": [
+            "VpnConnectionId", 
+            "DestinationCidrBlock"
+        ]
+    }, 
+    "AWS::EC2::VPNGateway": {
+        "optional": [
+            "Tags"
+        ], 
+        "required": [
+            "Type"
+        ]
+    }, 
+    "AWS::EC2::VPNGatewayRoutePropagation": {
+        "optional": [], 
+        "required": [
+            "RouteTableIds", 
+            "VpnGatewayId"
+        ]
+    }, 
+    "AWS::EC2::Volume": {
+        "optional": [
+            "Tags", 
+            "Encrypted", 
+            "VolumeType", 
+            "KmsKeyId", 
+            "AutoEnableIO", 
+            "SnapshotId", 
+            "Iops", 
+            "Size"
+        ], 
+        "required": [
+            "AvailabilityZone"
+        ]
+    }, 
+    "AWS::EC2::VolumeAttachment": {
+        "optional": [], 
+        "required": [
+            "Device", 
+            "InstanceId", 
+            "VolumeId"
+        ]
+    }, 
+    "AWS::ECR::Repository": {
+        "optional": [
+            "RepositoryPolicyText", 
+            "RepositoryName"
+        ], 
+        "required": []
+    }, 
+    "AWS::ECS::Cluster": {
+        "optional": [
+            "ClusterName"
+        ], 
+        "required": []
+    }, 
+    "AWS::ECS::Service": {
+        "optional": [
+            "LoadBalancers", 
+            "PlacementConstraints", 
+            "DesiredCount", 
+            "Cluster", 
+            "ServiceName", 
+            "Role", 
+            "DeploymentConfiguration", 
+            "PlacementStrategies"
+        ], 
+        "required": [
+            "TaskDefinition"
+        ]
+    }, 
+    "AWS::ECS::TaskDefinition": {
+        "optional": [
+            "NetworkMode", 
+            "Family", 
+            "PlacementConstraints", 
+            "Volumes", 
+            "TaskRoleArn", 
+            "ContainerDefinitions"
+        ], 
+        "required": []
+    }, 
+    "AWS::EFS::FileSystem": {
+        "optional": [
+            "FileSystemTags", 
+            "Encrypted", 
+            "KmsKeyId", 
+            "PerformanceMode"
+        ], 
+        "required": []
+    }, 
+    "AWS::EFS::MountTarget": {
+        "optional": [
+            "IpAddress"
+        ], 
+        "required": [
+            "SubnetId", 
+            "SecurityGroups", 
+            "FileSystemId"
+        ]
+    }, 
+    "AWS::EMR::Cluster": {
+        "optional": [
+            "AdditionalInfo", 
+            "Applications", 
+            "ReleaseLabel", 
+            "Tags", 
+            "BootstrapActions", 
+            "ScaleDownBehavior", 
+            "SecurityConfiguration", 
+            "VisibleToAllUsers", 
+            "LogUri", 
+            "Configurations", 
+            "AutoScalingRole"
+        ], 
+        "required": [
+            "Name", 
+            "ServiceRole", 
+            "Instances", 
+            "JobFlowRole"
+        ]
+    }, 
+    "AWS::EMR::InstanceFleetConfig": {
+        "optional": [
+            "Name", 
+            "LaunchSpecifications", 
+            "TargetSpotCapacity", 
+            "InstanceTypeConfigs", 
+            "TargetOnDemandCapacity"
+        ], 
+        "required": [
+            "InstanceFleetType", 
+            "ClusterId"
+        ]
+    }, 
+    "AWS::EMR::InstanceGroupConfig": {
+        "optional": [
+            "Name", 
+            "AutoScalingPolicy", 
+            "EbsConfiguration", 
+            "BidPrice", 
+            "Market", 
+            "Configurations"
+        ], 
+        "required": [
+            "InstanceCount", 
+            "InstanceRole", 
+            "JobFlowId", 
+            "InstanceType"
+        ]
+    }, 
+    "AWS::EMR::SecurityConfiguration": {
+        "optional": [
+            "Name"
+        ], 
+        "required": [
+            "SecurityConfiguration"
+        ]
+    }, 
+    "AWS::EMR::Step": {
+        "optional": [], 
+        "required": [
+            "HadoopJarStep", 
+            "Name", 
+            "ActionOnFailure", 
+            "JobFlowId"
+        ]
+    }, 
+    "AWS::ElastiCache::CacheCluster": {
+        "optional": [
+            "CacheSecurityGroupNames", 
+            "CacheParameterGroupName", 
+            "NotificationTopicArn", 
+            "SnapshotArns", 
+            "SnapshotWindow", 
+            "PreferredAvailabilityZone", 
+            "ClusterName", 
+            "SnapshotName", 
+            "SnapshotRetentionLimit", 
+            "Tags", 
+            "VpcSecurityGroupIds", 
+            "AutoMinorVersionUpgrade", 
+            "PreferredAvailabilityZones", 
+            "EngineVersion", 
+            "AZMode", 
+            "CacheSubnetGroupName", 
+            "Port", 
+            "PreferredMaintenanceWindow"
+        ], 
+        "required": [
+            "Engine", 
+            "NumCacheNodes", 
+            "CacheNodeType"
+        ]
+    }, 
+    "AWS::ElastiCache::ParameterGroup": {
+        "optional": [
+            "Properties"
+        ], 
+        "required": [
+            "CacheParameterGroupFamily", 
+            "Description"
+        ]
+    }, 
+    "AWS::ElastiCache::ReplicationGroup": {
+        "optional": [
+            "CacheParameterGroupName", 
+            "NodeGroupConfiguration", 
+            "ReplicationGroupId", 
+            "NumNodeGroups", 
+            "NotificationTopicArn", 
+            "CacheNodeType", 
+            "CacheSecurityGroupNames", 
+            "PrimaryClusterId", 
+            "AutoMinorVersionUpgrade", 
+            "PreferredMaintenanceWindow", 
+            "CacheSubnetGroupName", 
+            "Engine", 
+            "SnapshotName", 
+            "ReplicasPerNodeGroup", 
+            "SecurityGroupIds", 
+            "PreferredCacheClusterAZs", 
+            "EngineVersion", 
+            "NumCacheClusters", 
+            "SnapshotArns", 
+            "SnapshotRetentionLimit", 
+            "Tags", 
+            "SnapshotWindow", 
+            "SnapshottingClusterId", 
+            "Port", 
+            "AutomaticFailoverEnabled"
+        ], 
+        "required": [
+            "ReplicationGroupDescription"
+        ]
+    }, 
+    "AWS::ElastiCache::SecurityGroup": {
+        "optional": [], 
+        "required": [
+            "Description"
+        ]
+    }, 
+    "AWS::ElastiCache::SecurityGroupIngress": {
+        "optional": [
+            "EC2SecurityGroupOwnerId"
+        ], 
+        "required": [
+            "EC2SecurityGroupName", 
+            "CacheSecurityGroupName"
+        ]
+    }, 
+    "AWS::ElastiCache::SubnetGroup": {
+        "optional": [
+            "CacheSubnetGroupName"
+        ], 
+        "required": [
+            "SubnetIds", 
+            "Description"
+        ]
+    }, 
+    "AWS::ElasticBeanstalk::Application": {
+        "optional": [
+            "ApplicationName", 
+            "Description", 
+            "ResourceLifecycleConfig"
+        ], 
+        "required": []
+    }, 
+    "AWS::ElasticBeanstalk::ApplicationVersion": {
+        "optional": [
+            "Description"
+        ], 
+        "required": [
+            "ApplicationName", 
+            "SourceBundle"
+        ]
+    }, 
+    "AWS::ElasticBeanstalk::ConfigurationTemplate": {
+        "optional": [
+            "EnvironmentId", 
+            "Description", 
+            "PlatformArn", 
+            "SolutionStackName", 
+            "OptionSettings", 
+            "SourceConfiguration"
+        ], 
+        "required": [
+            "ApplicationName"
+        ]
+    }, 
+    "AWS::ElasticBeanstalk::Environment": {
+        "optional": [
+            "PlatformArn", 
+            "VersionLabel", 
+            "Description", 
+            "EnvironmentName", 
+            "CNAMEPrefix", 
+            "Tags", 
+            "SolutionStackName", 
+            "OptionSettings", 
+            "Tier", 
+            "TemplateName"
+        ], 
+        "required": [
+            "ApplicationName"
+        ]
+    }, 
+    "AWS::ElasticLoadBalancing::LoadBalancer": {
+        "optional": [
+            "AppCookieStickinessPolicy", 
+            "ConnectionDrainingPolicy", 
+            "Scheme", 
+            "AccessLoggingPolicy", 
+            "Subnets", 
+            "HealthCheck", 
+            "LBCookieStickinessPolicy", 
+            "Tags", 
+            "Instances", 
+            "CrossZone", 
+            "SecurityGroups", 
+            "ConnectionSettings", 
+            "Policies", 
+            "LoadBalancerName", 
+            "AvailabilityZones"
+        ], 
+        "required": [
+            "Listeners"
+        ]
+    }, 
+    "AWS::ElasticLoadBalancingV2::Listener": {
+        "optional": [
+            "SslPolicy", 
+            "Certificates"
+        ], 
+        "required": [
+            "Protocol", 
+            "DefaultActions", 
+            "LoadBalancerArn", 
+            "Port"
+        ]
+    }, 
+    "AWS::ElasticLoadBalancingV2::ListenerCertificate": {
+        "optional": [], 
+        "required": [
+            "Certificates", 
+            "ListenerArn"
+        ]
+    }, 
+    "AWS::ElasticLoadBalancingV2::ListenerRule": {
+        "optional": [], 
+        "required": [
+            "Priority", 
+            "Conditions", 
+            "ListenerArn", 
+            "Actions"
+        ]
+    }, 
+    "AWS::ElasticLoadBalancingV2::LoadBalancer": {
+        "optional": [
+            "IpAddressType", 
+            "Subnets", 
+            "Name", 
+            "LoadBalancerAttributes", 
+            "SubnetMappings", 
+            "Tags", 
+            "SecurityGroups", 
+            "Scheme", 
+            "Type"
+        ], 
+        "required": []
+    }, 
+    "AWS::ElasticLoadBalancingV2::TargetGroup": {
+        "optional": [
+            "HealthyThresholdCount", 
+            "HealthCheckIntervalSeconds", 
+            "UnhealthyThresholdCount", 
+            "HealthCheckPort", 
+            "Name", 
+            "Tags", 
+            "TargetType", 
+            "HealthCheckProtocol", 
+            "Targets", 
+            "HealthCheckPath", 
+            "HealthCheckTimeoutSeconds", 
+            "TargetGroupAttributes", 
+            "Matcher"
+        ], 
+        "required": [
+            "VpcId", 
+            "Protocol", 
+            "Port"
+        ]
+    }, 
+    "AWS::Elasticsearch::Domain": {
+        "optional": [
+            "ElasticsearchClusterConfig", 
+            "ElasticsearchVersion", 
+            "DomainName", 
+            "Tags", 
+            "EBSOptions", 
+            "SnapshotOptions", 
+            "AdvancedOptions", 
+            "AccessPolicies"
+        ], 
+        "required": []
+    }, 
+    "AWS::Events::Rule": {
+        "optional": [
+            "ScheduleExpression", 
+            "Description", 
+            "EventPattern", 
+            "Targets", 
+            "State", 
+            "RoleArn", 
+            "Name"
+        ], 
+        "required": []
+    }, 
+    "AWS::GameLift::Alias": {
+        "optional": [
+            "Description"
+        ], 
+        "required": [
+            "RoutingStrategy", 
+            "Name"
+        ]
+    }, 
+    "AWS::GameLift::Build": {
+        "optional": [
+            "StorageLocation", 
+            "Version", 
+            "Name"
+        ], 
+        "required": []
+    }, 
+    "AWS::GameLift::Fleet": {
+        "optional": [
+            "EC2InboundPermissions", 
+            "Description", 
+            "MinSize", 
+            "MaxSize", 
+            "LogPaths", 
+            "ServerLaunchParameters"
+        ], 
+        "required": [
+            "BuildId", 
+            "ServerLaunchPath", 
+            "EC2InstanceType", 
+            "DesiredEC2Instances", 
+            "Name"
+        ]
+    }, 
+    "AWS::IAM::AccessKey": {
+        "optional": [
+            "Status", 
+            "Serial"
+        ], 
+        "required": [
+            "UserName"
+        ]
+    }, 
+    "AWS::IAM::Group": {
+        "optional": [
+            "GroupName", 
+            "ManagedPolicyArns", 
+            "Policies", 
+            "Path"
+        ], 
+        "required": []
+    }, 
+    "AWS::IAM::InstanceProfile": {
+        "optional": [
+            "Path", 
+            "InstanceProfileName"
+        ], 
+        "required": [
+            "Roles"
+        ]
+    }, 
+    "AWS::IAM::ManagedPolicy": {
+        "optional": [
+            "Description", 
+            "Roles", 
+            "Groups", 
+            "Path", 
+            "ManagedPolicyName", 
+            "Users"
+        ], 
+        "required": [
+            "PolicyDocument"
+        ]
+    }, 
+    "AWS::IAM::Policy": {
+        "optional": [
+            "Roles", 
+            "Groups", 
+            "Users"
+        ], 
+        "required": [
+            "PolicyName", 
+            "PolicyDocument"
+        ]
+    }, 
+    "AWS::IAM::Role": {
+        "optional": [
+            "RoleName", 
+            "Path", 
+            "ManagedPolicyArns", 
+            "Policies"
+        ], 
+        "required": [
+            "AssumeRolePolicyDocument"
+        ]
+    }, 
+    "AWS::IAM::User": {
+        "optional": [
+            "UserName", 
+            "ManagedPolicyArns", 
+            "Groups", 
+            "LoginProfile", 
+            "Policies", 
+            "Path"
+        ], 
+        "required": []
+    }, 
+    "AWS::IAM::UserToGroupAddition": {
+        "optional": [], 
+        "required": [
+            "GroupName", 
+            "Users"
+        ]
+    }, 
+    "AWS::IoT::Certificate": {
+        "optional": [], 
+        "required": [
+            "CertificateSigningRequest", 
+            "Status"
+        ]
+    }, 
+    "AWS::IoT::Policy": {
+        "optional": [
+            "PolicyName"
+        ], 
+        "required": [
+            "PolicyDocument"
+        ]
+    }, 
+    "AWS::IoT::PolicyPrincipalAttachment": {
+        "optional": [], 
+        "required": [
+            "PolicyName", 
+            "Principal"
+        ]
+    }, 
+    "AWS::IoT::Thing": {
+        "optional": [
+            "AttributePayload", 
+            "ThingName"
+        ], 
+        "required": []
+    }, 
+    "AWS::IoT::ThingPrincipalAttachment": {
+        "optional": [], 
+        "required": [
+            "ThingName", 
+            "Principal"
+        ]
+    }, 
+    "AWS::IoT::TopicRule": {
+        "optional": [
+            "RuleName"
+        ], 
+        "required": [
+            "TopicRulePayload"
+        ]
+    }, 
+    "AWS::KMS::Alias": {
+        "optional": [], 
+        "required": [
+            "TargetKeyId", 
+            "AliasName"
+        ]
+    }, 
+    "AWS::KMS::Key": {
+        "optional": [
+            "Description", 
+            "Tags", 
+            "Enabled", 
+            "KeyUsage", 
+            "EnableKeyRotation"
+        ], 
+        "required": [
+            "KeyPolicy"
+        ]
+    }, 
+    "AWS::Kinesis::Stream": {
+        "optional": [
+            "RetentionPeriodHours", 
+            "Tags", 
+            "Name"
+        ], 
+        "required": [
+            "ShardCount"
+        ]
+    }, 
+    "AWS::KinesisFirehose::DeliveryStream": {
+        "optional": [
+            "ExtendedS3DestinationConfiguration", 
+            "DeliveryStreamType", 
+            "KinesisStreamSourceConfiguration", 
+            "ElasticsearchDestinationConfiguration", 
+            "RedshiftDestinationConfiguration", 
+            "DeliveryStreamName", 
+            "S3DestinationConfiguration"
+        ], 
+        "required": []
+    }, 
+    "AWS::Lambda::Alias": {
+        "optional": [
+            "Description"
+        ], 
+        "required": [
+            "Name", 
+            "FunctionVersion", 
+            "FunctionName"
+        ]
+    }, 
+    "AWS::Lambda::EventSourceMapping": {
+        "optional": [
+            "BatchSize", 
+            "Enabled"
+        ], 
+        "required": [
+            "EventSourceArn", 
+            "StartingPosition", 
+            "FunctionName"
+        ]
+    }, 
+    "AWS::Lambda::Function": {
+        "optional": [
+            "TracingConfig", 
+            "DeadLetterConfig", 
+            "Description", 
+            "VpcConfig", 
+            "Tags", 
+            "KmsKeyArn", 
+            "MemorySize", 
+            "Environment", 
+            "Timeout", 
+            "FunctionName"
+        ], 
+        "required": [
+            "Code", 
+            "Handler", 
+            "Role", 
+            "Runtime"
+        ]
+    }, 
+    "AWS::Lambda::Permission": {
+        "optional": [
+            "SourceAccount", 
+            "SourceArn", 
+            "EventSourceToken"
+        ], 
+        "required": [
+            "FunctionName", 
+            "Action", 
+            "Principal"
+        ]
+    }, 
+    "AWS::Lambda::Version": {
+        "optional": [
+            "CodeSha256", 
+            "Description"
+        ], 
+        "required": [
+            "FunctionName"
+        ]
+    }, 
+    "AWS::Logs::Destination": {
+        "optional": [], 
+        "required": [
+            "TargetArn", 
+            "RoleArn", 
+            "DestinationName", 
+            "DestinationPolicy"
+        ]
+    }, 
+    "AWS::Logs::LogGroup": {
+        "optional": [
+            "RetentionInDays", 
+            "LogGroupName"
+        ], 
+        "required": []
+    }, 
+    "AWS::Logs::LogStream": {
+        "optional": [
+            "LogStreamName"
+        ], 
+        "required": [
+            "LogGroupName"
+        ]
+    }, 
+    "AWS::Logs::MetricFilter": {
+        "optional": [], 
+        "required": [
+            "MetricTransformations", 
+            "FilterPattern", 
+            "LogGroupName"
+        ]
+    }, 
+    "AWS::Logs::SubscriptionFilter": {
+        "optional": [
+            "RoleArn"
+        ], 
+        "required": [
+            "DestinationArn", 
+            "FilterPattern", 
+            "LogGroupName"
+        ]
+    }, 
+    "AWS::OpsWorks::App": {
+        "optional": [
+            "Environment", 
+            "AppSource", 
+            "DataSources", 
+            "EnableSsl", 
+            "SslConfiguration", 
+            "Domains", 
+            "Attributes", 
+            "Shortname", 
+            "Description"
+        ], 
+        "required": [
+            "StackId", 
+            "Name", 
+            "Type"
+        ]
+    }, 
+    "AWS::OpsWorks::ElasticLoadBalancerAttachment": {
+        "optional": [], 
+        "required": [
+            "ElasticLoadBalancerName", 
+            "LayerId"
+        ]
+    }, 
+    "AWS::OpsWorks::Instance": {
+        "optional": [
+            "SshKeyName", 
+            "AmiId", 
+            "AvailabilityZone", 
+            "VirtualizationType", 
+            "Os", 
+            "Tenancy", 
+            "Hostname", 
+            "RootDeviceType", 
+            "BlockDeviceMappings", 
+            "TimeBasedAutoScaling", 
+            "AgentVersion", 
+            "Volumes", 
+            "AutoScalingType", 
+            "EbsOptimized", 
+            "ElasticIps", 
+            "InstallUpdatesOnBoot", 
+            "SubnetId", 
+            "Architecture"
+        ], 
+        "required": [
+            "StackId", 
+            "LayerIds", 
+            "InstanceType"
+        ]
+    }, 
+    "AWS::OpsWorks::Layer": {
+        "optional": [
+            "LifecycleEventConfiguration", 
+            "Packages", 
+            "LoadBasedAutoScaling", 
+            "CustomJson", 
+            "CustomRecipes", 
+            "CustomInstanceProfileArn", 
+            "UseEbsOptimizedInstances", 
+            "VolumeConfigurations", 
+            "Attributes", 
+            "InstallUpdatesOnBoot", 
+            "CustomSecurityGroupIds"
+        ], 
+        "required": [
+            "StackId", 
+            "Type", 
+            "Name", 
+            "AutoAssignPublicIps", 
+            "EnableAutoHealing", 
+            "AutoAssignElasticIps", 
+            "Shortname"
+        ]
+    }, 
+    "AWS::OpsWorks::Stack": {
+        "optional": [
+            "ConfigurationManager", 
+            "UseCustomCookbooks", 
+            "DefaultSshKeyName", 
+            "CloneAppIds", 
+            "ChefConfiguration", 
+            "UseOpsworksSecurityGroups", 
+            "VpcId", 
+            "HostnameTheme", 
+            "CustomCookbooksSource", 
+            "ElasticIps", 
+            "AgentVersion", 
+            "DefaultAvailabilityZone", 
+            "ClonePermissions", 
+            "SourceStackId", 
+            "EcsClusterArn", 
+            "Attributes", 
+            "RdsDbInstances", 
+            "DefaultOs", 
+            "DefaultSubnetId", 
+            "DefaultRootDeviceType", 
+            "CustomJson"
+        ], 
+        "required": [
+            "ServiceRoleArn", 
+            "Name", 
+            "DefaultInstanceProfileArn"
+        ]
+    }, 
+    "AWS::OpsWorks::UserProfile": {
+        "optional": [
+            "SshPublicKey", 
+            "AllowSelfManagement", 
+            "SshUsername"
+        ], 
+        "required": [
+            "IamUserArn"
+        ]
+    }, 
+    "AWS::OpsWorks::Volume": {
+        "optional": [
+            "MountPoint", 
+            "Name"
+        ], 
+        "required": [
+            "Ec2VolumeId", 
+            "StackId"
+        ]
+    }, 
+    "AWS::RDS::DBCluster": {
+        "optional": [
+            "DBClusterParameterGroupName", 
+            "ReplicationSourceIdentifier", 
+            "Tags", 
+            "MasterUsername", 
+            "VpcSecurityGroupIds", 
+            "MasterUserPassword", 
+            "Port", 
+            "PreferredBackupWindow", 
+            "KmsKeyId", 
+            "StorageEncrypted", 
+            "DatabaseName", 
+            "EngineVersion", 
+            "BackupRetentionPeriod", 
+            "AvailabilityZones", 
+            "DBSubnetGroupName", 
+            "PreferredMaintenanceWindow", 
+            "SnapshotIdentifier"
+        ], 
+        "required": [
+            "Engine"
+        ]
+    }, 
+    "AWS::RDS::DBClusterParameterGroup": {
+        "optional": [
+            "Tags"
+        ], 
+        "required": [
+            "Parameters", 
+            "Description", 
+            "Family"
+        ]
+    }, 
+    "AWS::RDS::DBInstance": {
+        "optional": [
+            "DBParameterGroupName", 
+            "AllowMajorVersionUpgrade", 
+            "DomainIAMRoleName", 
+            "MasterUsername", 
+            "MonitoringInterval", 
+            "LicenseModel", 
+            "VPCSecurityGroups", 
+            "CopyTagsToSnapshot", 
+            "Engine", 
+            "MultiAZ", 
+            "DBSecurityGroups", 
+            "PubliclyAccessible", 
+            "Tags", 
+            "AutoMinorVersionUpgrade", 
+            "PreferredBackupWindow", 
+            "KmsKeyId", 
+            "AllocatedStorage", 
+            "BackupRetentionPeriod", 
+            "DBName", 
+            "PreferredMaintenanceWindow", 
+            "Domain", 
+            "DBSnapshotIdentifier", 
+            "EngineVersion", 
+            "SourceDBInstanceIdentifier", 
+            "DBSubnetGroupName", 
+            "OptionGroupName", 
+            "CharacterSetName", 
+            "AvailabilityZone", 
+            "MonitoringRoleArn", 
+            "DBClusterIdentifier", 
+            "StorageType", 
+            "MasterUserPassword", 
+            "Iops", 
+            "StorageEncrypted", 
+            "Timezone", 
+            "Port", 
+            "DBInstanceIdentifier"
+        ], 
+        "required": [
+            "DBInstanceClass"
+        ]
+    }, 
+    "AWS::RDS::DBParameterGroup": {
+        "optional": [
+            "Parameters", 
+            "Tags"
+        ], 
+        "required": [
+            "Description", 
+            "Family"
+        ]
+    }, 
+    "AWS::RDS::DBSecurityGroup": {
+        "optional": [
+            "EC2VpcId", 
+            "Tags"
+        ], 
+        "required": [
+            "DBSecurityGroupIngress", 
+            "GroupDescription"
+        ]
+    }, 
+    "AWS::RDS::DBSecurityGroupIngress": {
+        "optional": [
+            "EC2SecurityGroupName", 
+            "EC2SecurityGroupOwnerId", 
+            "EC2SecurityGroupId", 
+            "CIDRIP"
+        ], 
+        "required": [
+            "DBSecurityGroupName"
+        ]
+    }, 
+    "AWS::RDS::DBSubnetGroup": {
+        "optional": [
+            "Tags"
+        ], 
+        "required": [
+            "SubnetIds", 
+            "DBSubnetGroupDescription"
+        ]
+    }, 
+    "AWS::RDS::EventSubscription": {
+        "optional": [
+            "SourceIds", 
+            "EventCategories", 
+            "Enabled", 
+            "SourceType"
+        ], 
+        "required": [
+            "SnsTopicArn"
+        ]
+    }, 
+    "AWS::RDS::OptionGroup": {
+        "optional": [
+            "Tags"
+        ], 
+        "required": [
+            "OptionGroupDescription", 
+            "EngineName", 
+            "OptionConfigurations", 
+            "MajorEngineVersion"
+        ]
+    }, 
+    "AWS::Redshift::Cluster": {
+        "optional": [
+            "ClusterParameterGroupName", 
+            "PubliclyAccessible", 
+            "OwnerAccount", 
+            "VpcSecurityGroupIds", 
+            "NumberOfNodes", 
+            "ClusterVersion", 
+            "SnapshotClusterIdentifier", 
+            "Tags", 
+            "AutomatedSnapshotRetentionPeriod", 
+            "PreferredMaintenanceWindow", 
+            "IamRoles", 
+            "AllowVersionUpgrade", 
+            "HsmConfigurationIdentifier", 
+            "ClusterSecurityGroups", 
+            "HsmClientCertificateIdentifier", 
+            "LoggingProperties", 
+            "AvailabilityZone", 
+            "ElasticIp", 
+            "Encrypted", 
+            "KmsKeyId", 
+            "SnapshotIdentifier", 
+            "Port", 
+            "ClusterSubnetGroupName"
+        ], 
+        "required": [
+            "MasterUsername", 
+            "DBName", 
+            "ClusterType", 
+            "NodeType", 
+            "MasterUserPassword"
+        ]
+    }, 
+    "AWS::Redshift::ClusterParameterGroup": {
+        "optional": [
+            "Parameters", 
+            "Tags"
+        ], 
+        "required": [
+            "ParameterGroupFamily", 
+            "Description"
+        ]
+    }, 
+    "AWS::Redshift::ClusterSecurityGroup": {
+        "optional": [
+            "Tags"
+        ], 
+        "required": [
+            "Description"
+        ]
+    }, 
+    "AWS::Redshift::ClusterSecurityGroupIngress": {
+        "optional": [
+            "EC2SecurityGroupName", 
+            "EC2SecurityGroupOwnerId", 
+            "CIDRIP"
+        ], 
+        "required": [
+            "ClusterSecurityGroupName"
+        ]
+    }, 
+    "AWS::Redshift::ClusterSubnetGroup": {
+        "optional": [
+            "Tags"
+        ], 
+        "required": [
+            "SubnetIds", 
+            "Description"
+        ]
+    }, 
+    "AWS::Route53::HealthCheck": {
+        "optional": [
+            "HealthCheckTags"
+        ], 
+        "required": [
+            "HealthCheckConfig"
+        ]
+    }, 
+    "AWS::Route53::HostedZone": {
+        "optional": [
+            "VPCs", 
+            "HostedZoneConfig", 
+            "HostedZoneTags"
+        ], 
+        "required": [
+            "Name"
+        ]
+    }, 
+    "AWS::Route53::RecordSet": {
+        "optional": [
+            "Comment", 
+            "GeoLocation", 
+            "HealthCheckId", 
+            "Weight", 
+            "HostedZoneName", 
+            "SetIdentifier", 
+            "Failover", 
+            "ResourceRecords", 
+            "TTL", 
+            "HostedZoneId", 
+            "AliasTarget", 
+            "Region"
+        ], 
+        "required": [
+            "Type", 
+            "Name"
+        ]
+    }, 
+    "AWS::Route53::RecordSetGroup": {
+        "optional": [
+            "Comment", 
+            "HostedZoneId", 
+            "RecordSets", 
+            "HostedZoneName"
+        ], 
+        "required": []
+    }, 
+    "AWS::S3::Bucket": {
+        "optional": [
+            "AccessControl", 
+            "ReplicationConfiguration", 
+            "CorsConfiguration", 
+            "Tags", 
+            "NotificationConfiguration", 
+            "InventoryConfigurations", 
+            "VersioningConfiguration", 
+            "LoggingConfiguration", 
+            "LifecycleConfiguration", 
+            "BucketName", 
+            "WebsiteConfiguration", 
+            "AccelerateConfiguration", 
+            "AnalyticsConfigurations", 
+            "MetricsConfigurations"
+        ], 
+        "required": []
+    }, 
+    "AWS::S3::BucketPolicy": {
+        "optional": [], 
+        "required": [
+            "PolicyDocument", 
+            "Bucket"
+        ]
+    }, 
+    "AWS::SDB::Domain": {
+        "optional": [
+            "Description"
+        ], 
+        "required": []
+    }, 
+    "AWS::SNS::Subscription": {
+        "optional": [
+            "Endpoint", 
+            "Protocol", 
+            "TopicArn"
+        ], 
+        "required": []
+    }, 
+    "AWS::SNS::Topic": {
+        "optional": [
+            "DisplayName", 
+            "TopicName", 
+            "Subscription"
+        ], 
+        "required": []
+    }, 
+    "AWS::SNS::TopicPolicy": {
+        "optional": [], 
+        "required": [
+            "Topics", 
+            "PolicyDocument"
+        ]
+    }, 
+    "AWS::SQS::Queue": {
+        "optional": [
+            "KmsDataKeyReusePeriodSeconds", 
+            "KmsMasterKeyId", 
+            "ReceiveMessageWaitTimeSeconds", 
+            "VisibilityTimeout", 
+            "RedrivePolicy", 
+            "MaximumMessageSize", 
+            "ContentBasedDeduplication", 
+            "DelaySeconds", 
+            "FifoQueue", 
+            "MessageRetentionPeriod", 
+            "QueueName"
+        ], 
+        "required": []
+    }, 
+    "AWS::SQS::QueuePolicy": {
+        "optional": [], 
+        "required": [
+            "Queues", 
+            "PolicyDocument"
+        ]
+    }, 
+    "AWS::SSM::Association": {
+        "optional": [
+            "ScheduleExpression", 
+            "Parameters", 
+            "InstanceId", 
+            "DocumentVersion", 
+            "Targets"
+        ], 
+        "required": [
+            "Name"
+        ]
+    }, 
+    "AWS::SSM::Document": {
+        "optional": [
+            "DocumentType"
+        ], 
+        "required": [
+            "Content"
+        ]
+    }, 
+    "AWS::WAF::ByteMatchSet": {
+        "optional": [
+            "ByteMatchTuples"
+        ], 
+        "required": [
+            "Name"
+        ]
+    }, 
+    "AWS::WAF::IPSet": {
+        "optional": [
+            "IPSetDescriptors"
+        ], 
+        "required": [
+            "Name"
+        ]
+    }, 
+    "AWS::WAF::Rule": {
+        "optional": [
+            "Predicates"
+        ], 
+        "required": [
+            "Name", 
+            "MetricName"
+        ]
+    }, 
+    "AWS::WAF::SizeConstraintSet": {
+        "optional": [], 
+        "required": [
+            "SizeConstraints", 
+            "Name"
+        ]
+    }, 
+    "AWS::WAF::SqlInjectionMatchSet": {
+        "optional": [
+            "SqlInjectionMatchTuples"
+        ], 
+        "required": [
+            "Name"
+        ]
+    }, 
+    "AWS::WAF::WebACL": {
+        "optional": [
+            "Rules"
+        ], 
+        "required": [
+            "DefaultAction", 
+            "Name", 
+            "MetricName"
+        ]
+    }, 
+    "AWS::WAF::XssMatchSet": {
+        "optional": [], 
+        "required": [
+            "XssMatchTuples", 
+            "Name"
+        ]
+    }, 
+    "AWS::WorkSpaces::Workspace": {
+        "optional": [
+            "VolumeEncryptionKey", 
+            "UserVolumeEncryptionEnabled", 
+            "RootVolumeEncryptionEnabled"
+        ], 
+        "required": [
+            "UserName", 
+            "DirectoryId", 
+            "BundleId"
+        ]
+    }, 
+    "kms-encryption": [
+        "AWS::Redshift::Cluster", 
+        "AWS::EFS::FileSystem", 
+        "AWS::EC2::Volume", 
+        "AWS::RDS::DBCluster", 
+        "AWS::DMS::ReplicationInstance", 
+        "AWS::RDS::DBInstance", 
+        "AWS::DMS::Endpoint"
+    ], 
+    "taggable": [
+        "AWS::RDS::DBParameterGroup", 
+        "AWS::Redshift::Cluster", 
+        "AWS::CloudFormation::Stack", 
+        "AWS::Redshift::ClusterSubnetGroup", 
+        "AWS::KMS::Key", 
+        "AWS::ElastiCache::CacheCluster", 
+        "AWS::EC2::InternetGateway", 
+        "AWS::Kinesis::Stream", 
+        "AWS::Lambda::Function", 
+        "AWS::EC2::Volume", 
+        "AWS::EMR::Cluster", 
+        "AWS::EC2::DHCPOptions", 
+        "AWS::CloudTrail::Trail", 
+        "AWS::EC2::VPNGateway", 
+        "AWS::AutoScaling::AutoScalingGroup", 
+        "AWS::EC2::VPCPeeringConnection", 
+        "AWS::EC2::VPC", 
+        "AWS::S3::Bucket", 
+        "AWS::Redshift::ClusterSecurityGroup", 
+        "AWS::EC2::RouteTable", 
+        "AWS::RDS::DBCluster", 
+        "AWS::EC2::NetworkAcl", 
+        "AWS::DMS::ReplicationInstance", 
+        "AWS::EC2::Subnet", 
+        "AWS::EC2::Instance", 
+        "AWS::EC2::SecurityGroup", 
+        "AWS::RDS::DBSecurityGroup", 
+        "AWS::ElasticLoadBalancing::LoadBalancer", 
+        "AWS::Elasticsearch::Domain", 
+        "AWS::EC2::NetworkInterface", 
+        "AWS::RDS::OptionGroup", 
+        "AWS::RDS::DBInstance", 
+        "AWS::EC2::CustomerGateway", 
+        "AWS::EC2::NatGateway", 
+        "AWS::EC2::VPNConnection", 
+        "AWS::ElasticLoadBalancingV2::TargetGroup", 
+        "AWS::RDS::DBClusterParameterGroup", 
+        "AWS::ElasticBeanstalk::Environment", 
+        "AWS::ElastiCache::ReplicationGroup", 
+        "AWS::CertificateManager::Certificate", 
+        "AWS::DMS::EventSubscription", 
+        "AWS::DMS::Endpoint", 
+        "AWS::DynamoDB::Table", 
+        "AWS::DMS::ReplicationSubnetGroup", 
+        "AWS::DMS::ReplicationTask", 
+        "AWS::Redshift::ClusterParameterGroup", 
+        "AWS::ElasticLoadBalancingV2::LoadBalancer", 
+        "AWS::RDS::DBSubnetGroup"
+    ], 
+    "tenancy": [
+        "AWS::EC2::Instance", 
+        "AWS::OpsWorks::Instance"
+    ], 
+    "vpc-protection": [
+        "AWS::EC2::EgressOnlyInternetGateway", 
+        "AWS::EC2::VPCDHCPOptionsAssociation", 
+        "AWS::EC2::VPCPeeringConnection", 
+        "AWS::EC2::VPCGatewayAttachment", 
+        "AWS::EC2::RouteTable", 
+        "AWS::EC2::NetworkAcl", 
+        "AWS::EC2::VPCCidrBlock", 
+        "AWS::EC2::Subnet", 
+        "AWS::EC2::SecurityGroup", 
+        "AWS::RDS::DBSecurityGroup", 
+        "AWS::OpsWorks::Stack", 
+        "AWS::ElasticLoadBalancingV2::TargetGroup", 
+        "AWS::EC2::VPCEndpoint"
+    ], 
+    "zone-specific": [
+        "AWS::Redshift::Cluster", 
+        "AWS::EC2::Volume", 
+        "AWS::EC2::Host", 
+        "AWS::DMS::ReplicationInstance", 
+        "AWS::EC2::Subnet", 
+        "AWS::EC2::Instance", 
+        "AWS::OpsWorks::Instance", 
+        "AWS::RDS::DBInstance"
+    ]
+}

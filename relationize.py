@@ -126,87 +126,92 @@ for file in files:
     log.debug(file)
     data = json.load(open(file,'r'))
     for k, v in data.items():
-
-        # coerce two word key to camelcase Key AllowedValues
-        if "Allowed values" in v:
-            v["AllowedValues"] = v["Allowed values"]
-            del v["Allowed values"]
+        try:
 
 
-        if k in schema_key:
-            v["Schema"] = schema_key[k]
-            v["Service"] = schema_key[k].split('.')[0]
+            # coerce two word key to camelcase Key AllowedValues
+            if "Allowed values" in v:
+                v["AllowedValues"] = v["Allowed values"]
+                del v["Allowed values"]
 
-        # "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
-        if "UpdateRequires" in v:
-            if "no interruption" in v["UpdateRequires"]:
-                v["UpdateRequires"] = "No interruption"
-            else:
-                v["UpdateRequires"] = "Replacement"
 
-        if isinstance(v, dict):
-            v["UniqueKey"] = k.lower()
+            if k in schema_key:
+                v["Schema"] = schema_key[k]
+                v["Service"] = schema_key[k].split('.')[0]
 
-            if len(v.keys()) == 3:
-                v["SampleValue"] = 'TODO-' + k.split('.')[-1]
+            # "UpdateRequires": "[No interruption](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt)"
+            if "UpdateRequires" in v:
+                if "no interruption" in v["UpdateRequires"]:
+                    v["UpdateRequires"] = "No interruption"
+                else:
+                    v["UpdateRequires"] = "Replacement"
 
-            # generate sample value from pattern
-            if "Pattern" in v:
-                regexPattern = v["Pattern"] #.strip().replace('\n','').replace('\t','').replace('\r','').replace("\r\n\t","")
-                log.info("Pattern: %s " % (regexPattern ))
-                v["GeneratedSample"] = "TODO - fix encoding issue" # exrex.getone( regexPattern )
-                log.info("GeneratedSample %s --> %s" % (regexPattern, v["GeneratedSample"]))
+            if isinstance(v, dict):
+                v["UniqueKey"] = k.lower()
 
-            # enforce regex for string length when no pattern provided
-            if "Type" in v and v["Type"] == "String":
-                if "Pattern" not in v and "Minimum" in v and "Maximum" in v:
-                    template = "^.{%s,%s}$"
-                    constrainedString = template % (int(v["Minimum"]), int(v["Maximum"]))
-                    v["Pattern"] = constrainedString
-                    v["SampleValue"] = "TODO-%s" % (k)
-                    log.debug(constrainedString)
+                if len(v.keys()) == 3:
+                    v["SampleValue"] = 'TODO-' + k.split('.')[-1]
 
-                # generate sample string of string length
-                if "Maximum" in v and "SampleValue" not in v:
-                    v["SampleValue"] = sampleString[:int(v["Maximum"])]
+                # generate sample value from pattern
+                if "Pattern" in v:
+                    regexPattern = v["Pattern"] #.strip().replace('\n','').replace('\t','').replace('\r','').replace("\r\n\t","")
+                    log.info("Pattern: %s " % (regexPattern ))
+                    v["GeneratedSample"] = "TODO - fix encoding issue" # exrex.getone( regexPattern )
+                    log.info("GeneratedSample %s --> %s" % (regexPattern, v["GeneratedSample"]))
 
-            # enforce regex for integer when no pattern provided
-            if "Type" in v:
-                if v["Type"] == "Integer":
+                # enforce regex for string length when no pattern provided
+                if "Type" in v and v["Type"] == "String":
                     if "Pattern" not in v and "Minimum" in v and "Maximum" in v:
-                        template = "^[%s,%s]}$"
+                        template = "^.{%s,%s}$"
                         constrainedString = template % (int(v["Minimum"]), int(v["Maximum"]))
                         v["Pattern"] = constrainedString
-                        v["SampleValue"] = "%s...%s" % (int(v["Minimum"]), int(v["Maximum"]))
+                        v["SampleValue"] = "TODO-%s" % (k)
                         log.debug(constrainedString)
 
-            # coerce pipe separated string values into unique list e.g.  "Allowed values": "CA_REPOSITORY | RESOURCE_PKI_MANIFEST | RESOURCE_PKI_NOTIFY",
-            if "AllowedValues" in v and type(v["AllowedValues"]) == str:
-                v["AllowedValues"] = sorted(list(set(v["AllowedValues"].split(" | "))))
+                    # generate sample string of string length
+                    if "Maximum" in v and "SampleValue" not in v:
+                        v["SampleValue"] = sampleString[:int(v["Maximum"])]
+
+                # enforce regex for integer when no pattern provided
+                if "Type" in v:
+                    if v["Type"] == "Integer":
+                        if "Pattern" not in v and "Minimum" in v and "Maximum" in v:
+                            template = "^[%s,%s]}$"
+                            constrainedString = template % (int(v["Minimum"]), int(v["Maximum"]))
+                            v["Pattern"] = constrainedString
+                            v["SampleValue"] = "%s...%s" % (int(v["Minimum"]), int(v["Maximum"]))
+                            log.debug(constrainedString)
+
+                # coerce pipe separated string values into unique list e.g.  "Allowed values": "CA_REPOSITORY | RESOURCE_PKI_MANIFEST | RESOURCE_PKI_NOTIFY",
+                if "AllowedValues" in v and type(v["AllowedValues"]) == str:
+                    v["AllowedValues"] = sorted(list(set(v["AllowedValues"].split(" | "))))
 
 
-            if "AllowedValues" in v and "SampleValue" not in v:
-                # v["SampleValue"] = sorted(v["AllowedValues"])[0]
-                v["SampleValue"] = "|".join(v["AllowedValues"])
-                if "Pattern" not in v:
-                    v["Pattern"] = "^[%s]" % (v["SampleValue"])
+                if "AllowedValues" in v and "SampleValue" not in v:
+                    # v["SampleValue"] = sorted(v["AllowedValues"])[0]
+                    v["SampleValue"] = "|".join(v["AllowedValues"])
+                    if "Pattern" not in v:
+                        v["Pattern"] = "^[%s]" % (v["SampleValue"])
 
 
-            v['PropertyKey'] = k.split('.')[-1]
-            v['ServiceKey'] = k.split('.')[0]
-            v['ParentKey'] = k.split('.')[0]
+                v['PropertyKey'] = k.split('.')[-1]
+                v['ServiceKey'] = k.split('.')[0]
+                v['ParentKey'] = k.split('.')[0]
 
-        else:
-            log.warn(k)
-            log.warn(json.dumps(v, indent=4))
+            else:
+                log.warn(k)
+                log.warn(json.dumps(v, indent=4))
 
-        if "aws-properties-" in k:
-            k = k.replace("aws-properties-","").replace("-properties","-cfnproperties").replace('-','.')
-            v = list(v.keys())
-            properties[k.lower()] = v
-        else:
+            if "aws-properties-" in k:
+                k = k.replace("aws-properties-","").replace("-properties","-cfnproperties").replace('-','.')
+                v = list(v.keys())
+                properties[k.lower()] = v
+            else:
 
-            properties[k.lower()] = v
+                properties[k.lower()] = v
+        except Exception as e:
+            # not the droids keep on trucking
+            log.warning(e)
 
 log.info("%s properties files processed" % (len(files)))
 

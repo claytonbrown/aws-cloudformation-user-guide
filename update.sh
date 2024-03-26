@@ -1,3 +1,4 @@
+python3 -mpip install -r requirements.txt
 git submodule update --init
 git pull upstream main
 cd aws-cfn-resource-specs
@@ -44,6 +45,7 @@ done;
 # Collate
 python3 collate.py
 python3 summarize.py
+python3 relationize.py
 
 # Publish new cloudformation guard generated ruleset
 cp -R rulesets/* cloudformation-guard/Examples/
