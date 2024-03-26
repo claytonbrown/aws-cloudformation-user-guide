@@ -16,17 +16,29 @@ curl https://raw.githubusercontent.com/boto/botocore/develop/botocore/data/endpo
 python3 vantage_scrape.py| jq . > ./aws_service_info/ec2_instances.json
 
 # Process Resources
+OVERWRITE=False
+
 for document in `ls doc_source/aws-resource*.md`; do
 	# echo $document;
-	cat $document | python3 cfn_properties_json.py | jq . > "$document.properties.json"
-	echo "Generated $document.properties.json"
+	FILE="$document.properties.json"
+	if [ ! -f $FILE ]; then
+		cat $document | python3 cfn_properties_json.py | jq . > $FILE
+		echo "Generated $document.properties.json"
+	else
+		echo "File $FILE exists."
+	fi
 done;
 
 # Process Resource Properties
 for document in `ls doc_source/aws-properties-*.md`; do
 	# echo $document;
-	cat $document | python3 cfn_properties_json.py | jq . > "$document.properties.json"
-	echo "Generated $document.properties.json"
+	FILE="$document.properties.json"
+	if [ ! -f $FILE ]; then
+		cat $document | python3 cfn_properties_json.py | jq . > $FILE
+		echo "Generated $document.properties.json"
+	else
+		echo "File $FILE exists."
+	fi
 done;
 
 # Collate

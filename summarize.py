@@ -50,26 +50,26 @@ required_rule = """rule {{rule_name}}_Exists {
 range_rule = """
 rule {{rule_name}}Range
 {
-    # 
+    #
     # {{notes}}
     #
-    let selected_{{property_name}}_values  = configuration.ipPermissions[ 
+    let selected_{{property_name}}_values  = configuration.ipPermissions[
         some ipv4Ranges[*].cidrIp == "0.0.0.0/0" or
         some ipv6Ranges[*].cidrIpv6 == "::/0"
-        ipProtocol != 'udp' 
+        ipProtocol != 'udp'
     ]
-    
+
     when %selected_{{property_name}}_values !empty
     {
         %any_ip_permissions {
             {{selector}} {
-                {{property_name}} > {{max}} or 
-                {{property_name}}   < {{min}} 
+                {{property_name}} > {{max}} or
+                {{property_name}}   < {{min}}
                 <<
                     result: NON_COMPLIANT
                     message: {{property_name}}t was not in allowed range: [{{min}}-{{max}}]
                 >>
-            }                
+            }
         }
     }
 }
@@ -97,20 +97,20 @@ let value = %s.Properties.{{property_name}}
 %{{ property_name }} exists
 \t%{{ guard_selector}} in sample_{{property_name}}
 }
-""" 
+"""
 
 
 resource_rules = {}
 
 cfn_selectors = {}
 
-def add_rule(        
+def add_rule(
         cfn_resource, # = 'AWS::S3::Bucket',
         cfn_property, # = 'SSEAlgorithm',
-        guard_selector, #='encryption.ServerSideEncryptionConfiguration[*].ServerSideEncryptionByDefault.SSEAlgorithm',                
-        allowed_values_string=None, # ['AES256','aws:kms']      
+        guard_selector, #='encryption.ServerSideEncryptionConfiguration[*].ServerSideEncryptionByDefault.SSEAlgorithm',
+        allowed_values_string=None, # ['AES256','aws:kms']
         rule_name=None,
-        rule_type=rt.SAMPLE,   
+        rule_type=rt.SAMPLE,
         references=[]
         ):
 
@@ -216,56 +216,61 @@ for file in files:
                 v["UpdateRequires"] = "Replacement"
 
         if isinstance(v, dict):
-            v["UniqueKey"] = k.lower()
+            try:
 
-            if len(v.keys()) == 3:
-                v["SampleValue"] = 'TODO-' + k.split('.')[-1]
+                v["UniqueKey"] = k.lower()
 
-            # generate sample value from pattern
-            if "Pattern" in v:
-                regexPattern = v["Pattern"] #.strip().replace('\n','').replace('\t','').replace('\r','').replace("\r\n\t","")
-                log.info("Pattern: %s " % (regexPattern ))
-                v["GeneratedSample"] = "TODO - fix encoding issue" # exrex.getone( regexPattern )
-                log.info("GeneratedSample %s --> %s" % (regexPattern, v["GeneratedSample"]))
+                if len(v.keys()) == 3:
+                    v["SampleValue"] = 'TODO-' + k.split('.')[-1]
 
-            # enforce regex for string length when no pattern provided
-            if "Type" in v and v["Type"] == "String":
-                if "Pattern" not in v and "Minimum" in v and "Maximum" in v:
-                    template = "^.{%s,%s}$"
-                    constrainedString = template % (int(v["Minimum"]), int(v["Maximum"]))
-                    v["Pattern"] = constrainedString
-                    v["SampleValue"] = "TODO-%s" % (k)
-                    log.debug(constrainedString)
+                # generate sample value from pattern
+                if "Pattern" in v:
+                    regexPattern = v["Pattern"] #.strip().replace('\n','').replace('\t','').replace('\r','').replace("\r\n\t","")
+                    log.info("Pattern: %s " % (regexPattern ))
+                    v["GeneratedSample"] = "TODO - fix encoding issue" # exrex.getone( regexPattern )
+                    log.info("GeneratedSample %s --> %s" % (regexPattern, v["GeneratedSample"]))
 
-                # generate sample string of string length
-                if "Maximum" in v and "SampleValue" not in v:
-                    v["SampleValue"] = sampleString[:int(v["Maximum"])]
-
-            # enforce regex for integer when no pattern provided
-            if "Type" in v:
-                if v["Type"] == "Integer":
+                # enforce regex for string length when no pattern provided
+                if "Type" in v and v["Type"] == "String":
                     if "Pattern" not in v and "Minimum" in v and "Maximum" in v:
-                        template = "^[%s,%s]}$"
+                        template = "^.{%s,%s}$"
                         constrainedString = template % (int(v["Minimum"]), int(v["Maximum"]))
                         v["Pattern"] = constrainedString
-                        v["SampleValue"] = "%s...%s" % (int(v["Minimum"]), int(v["Maximum"]))
+                        v["SampleValue"] = "TODO-%s" % (k)
                         log.debug(constrainedString)
 
-            # coerce pipe separated string values into unique list e.g.  "Allowed values": "CA_REPOSITORY | RESOURCE_PKI_MANIFEST | RESOURCE_PKI_NOTIFY",
-            if "AllowedValues" in v and type(v["AllowedValues"]) == str:
-                v["AllowedValues"] = sorted(list(set(v["AllowedValues"].split(" | "))))
+                    # generate sample string of string length
+                    if "Maximum" in v and "SampleValue" not in v:
+                        v["SampleValue"] = sampleString[:int(v["Maximum"])]
+
+                # enforce regex for integer when no pattern provided
+                if "Type" in v:
+                    if v["Type"] == "Integer":
+                        if "Pattern" not in v and "Minimum" in v and "Maximum" in v:
+                            template = "^[%s,%s]}$"
+                            constrainedString = template % (int(v["Minimum"]), int(v["Maximum"]))
+                            v["Pattern"] = constrainedString
+                            v["SampleValue"] = "%s...%s" % (int(v["Minimum"]), int(v["Maximum"]))
+                            log.debug(constrainedString)
+
+                # coerce pipe separated string values into unique list e.g.  "Allowed values": "CA_REPOSITORY | RESOURCE_PKI_MANIFEST | RESOURCE_PKI_NOTIFY",
+                if "AllowedValues" in v and type(v["AllowedValues"]) == str:
+                    v["AllowedValues"] = sorted(list(set(v["AllowedValues"].split(" | "))))
 
 
-            if "AllowedValues" in v and "SampleValue" not in v:
-                # v["SampleValue"] = sorted(v["AllowedValues"])[0]
-                v["SampleValue"] = "|".join(v["AllowedValues"])
-                if "Pattern" not in v:
-                    v["Pattern"] = "^[%s]" % (v["SampleValue"])
+                if "AllowedValues" in v and "SampleValue" not in v:
+                    # v["SampleValue"] = sorted(v["AllowedValues"])[0]
+                    v["SampleValue"] = "|".join(v["AllowedValues"])
+                    if "Pattern" not in v:
+                        v["Pattern"] = "^[%s]" % (v["SampleValue"])
 
 
-            v['PropertyKey'] = k.split('.')[-1]
-            v['ServiceKey'] = k.split('.')[0]
-            v['ParentKey'] = k.split('.')[0]
+                v['PropertyKey'] = k.split('.')[-1]
+                v['ServiceKey'] = k.split('.')[0]
+                v['ParentKey'] = k.split('.')[0]
+            except Exception as e:
+                # keep on trucking - not the droids im gonna bother about today my friend
+                log.warning(e)
 
         else:
             log.warn(k)
@@ -275,7 +280,6 @@ for file in files:
             k = k.replace("aws-properties-","").replace("-properties","-cfnproperties").replace('-','.')
             v = list(v.keys())
             properties[k.lower()] = v
-        
         elif "CfnAbout" in key or "CfnType" in key or "CfnDocsKey" in key:
             subKey = k.split('.')[-1]
             prefixKey = key.replace('.'+subKey, '')
@@ -287,7 +291,7 @@ for file in files:
                 propertyName = k.split('.')[-1]
                 resourcType = properties[k.replace('.'+propertyName, 'CfnType')]
                 properties[k]['ResourceType'] = resourcType
-            except Exception as e: 
+            except Exception as e:
                 print(e)
 
 log.info("%s properties files processed" % (len(files)))
@@ -316,5 +320,5 @@ for cfn_resource in resource_rules.keys():
             f.close()
 
 
-# EXPLORE ICONS 
-icon_files = glob.glob("")        
+# EXPLORE ICONS
+icon_files = glob.glob("")
