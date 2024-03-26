@@ -6,12 +6,12 @@ doc = """{
   "Description" : "JSON string",
 
   "Metadata" : {
-    
+
   },
 
   "Parameters" : {
   },
-  
+
   "Rules" : {
   },
 
@@ -26,7 +26,7 @@ doc = """{
 
   "Resources" : {
   },
-  
+
   "Outputs" : {
   }
 }"""

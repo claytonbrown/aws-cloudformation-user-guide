@@ -3,7 +3,7 @@ import time
 import vantage
 from vantage.rest import ApiException
 from pprint import pprint
-import json 
+import json
 
 # Configure OAuth2 access token for authorization: oauth2
 configuration = vantage.Configuration()
@@ -28,7 +28,7 @@ try:
         print("++++++++++++++++ %s +++++++++++++++++" % (page))
         for product in api_response.products:
             # print(product.name)
-            instances.append(product.name)    
+            instances.append(product.name)
             group_type, tshirt = product.name.split('.')
             group_types.append(group_type)
 
@@ -36,7 +36,7 @@ try:
                 groups[group_type] = [tshirt]
             else:
                 groups[group_type].append(tshirt)
-        page +=1 
+        page +=1
 
     outfile = 'aws_service_info/ec2_instances.json'
     with open(outfile,'w') as f:
@@ -48,6 +48,6 @@ try:
         print('written %s' % (outfile))
 
     # api_response = api_instance.get_prices(product_id) (id) (provider_id=provider_id, service_id=service_id, page=page, limit=limit)
-    
+
 except ApiException as e:
     print("Exception when calling PricesApi->get_services: %s\n" % e)
